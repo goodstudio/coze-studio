@@ -18,7 +18,6 @@ package subworkflow
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"strconv"
 
@@ -32,32 +31,21 @@ import (
 )
 
 type Config struct {
-	Runner compose.Runnable[map[string]any, map[string]any]
+	WorkflowID      int64
+	WorkflowVersion string
 }
 
 type SubWorkflow struct {
-	cfg *Config
+	Runner compose.Runnable[map[string]any, map[string]any]
 }
 
-func NewSubWorkflow(_ context.Context, cfg *Config) (*SubWorkflow, error) {
-	if cfg == nil {
-		return nil, errors.New("config is nil")
-	}
-
-	if cfg.Runner == nil {
-		return nil, errors.New("runnable is nil")
-	}
-
-	return &SubWorkflow{cfg: cfg}, nil
-}
-
-func (s *SubWorkflow) Invoke(ctx context.Context, in map[string]any, opts ...nodes.NestedWorkflowOption) (map[string]any, error) {
+func (s *SubWorkflow) Invoke(ctx context.Context, in map[string]any, opts ...nodes.NodeOption) (map[string]any, error) {
 	nestedOpts, nodeKey, err := prepareOptions(ctx, opts...)
 	if err != nil {
 		return nil, err
 	}
 
-	out, err := s.cfg.Runner.Invoke(ctx, in, nestedOpts...)
+	out, err := s.Runner.Invoke(ctx, in, nestedOpts...)
 	if err != nil {
 		interruptInfo, ok := compose.ExtractInterruptInfo(err)
 		if !ok {
@@ -82,13 +70,13 @@ func (s *SubWorkflow) Invoke(ctx context.Context, in map[string]any, opts ...nod
 	return out, nil
 }
 
-func (s *SubWorkflow) Stream(ctx context.Context, in map[string]any, opts ...nodes.NestedWorkflowOption) (*schema.StreamReader[map[string]any], error) {
+func (s *SubWorkflow) Stream(ctx context.Context, in map[string]any, opts ...nodes.NodeOption) (*schema.StreamReader[map[string]any], error) {
 	nestedOpts, nodeKey, err := prepareOptions(ctx, opts...)
 	if err != nil {
 		return nil, err
 	}
 
-	out, err := s.cfg.Runner.Stream(ctx, in, nestedOpts...)
+	out, err := s.Runner.Stream(ctx, in, nestedOpts...)
 	if err != nil {
 		interruptInfo, ok := compose.ExtractInterruptInfo(err)
 		if !ok {
@@ -114,11 +102,8 @@ func (s *SubWorkflow) Stream(ctx context.Context, in map[string]any, opts ...nod
 	return out, nil
 }
 
-func prepareOptions(ctx context.Context, opts ...nodes.NestedWorkflowOption) ([]compose.Option, vo.NodeKey, error) {
-	options := &nodes.NestedWorkflowOptions{}
-	for _, opt := range opts {
-		opt(options)
-	}
+func prepareOptions(ctx context.Context, opts ...nodes.NodeOption) ([]compose.Option, vo.NodeKey, error) {
+	options := nodes.GetCommonOptions(&nodes.NodeOptions{}, opts...)
 
 	nestedOpts := options.GetOptsForNested()
 

@@ -24,22 +24,26 @@ import (
 	"github.com/cloudwego/eino/compose"
 
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes"
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/schema"
 )
 
 type Selector struct {
-	config *Config
+	clauses []*OneClauseSchema
+	ns      *schema.NodeSchema
+	ws      *schema.WorkflowSchema
 }
 
-func NewSelector(_ context.Context, config *Config) (*Selector, error) {
-	if config == nil {
-		return nil, fmt.Errorf("config is nil")
+func (c *Config) Build(_ context.Context, ns *schema.NodeSchema, opts ...schema.BuildOption) (any, error) {
+	ws := schema.GetBuildOptions(opts...).WS
+	if ws == nil {
+		return nil, fmt.Errorf("workflow schema is required")
 	}
 
-	if len(config.Clauses) == 0 {
+	if len(c.Clauses) == 0 {
 		return nil, fmt.Errorf("config clauses are empty")
 	}
 
-	for _, clause := range config.Clauses {
+	for _, clause := range c.Clauses {
 		if clause.Single == nil && clause.Multi == nil {
 			return nil, fmt.Errorf("single clause and multi clause are both nil")
 		}
@@ -60,7 +64,9 @@ func NewSelector(_ context.Context, config *Config) (*Selector, error) {
 	}
 
 	return &Selector{
-		config: config,
+		clauses: c.Clauses,
+		ns:      ns,
+		ws:      ws,
 	}, nil
 }
 
@@ -76,14 +82,14 @@ const (
 	SelectKey = "selected"
 )
 
-func (s *Selector) Select(_ context.Context, input map[string]any) (out map[string]any, err error) {
-	in, err := s.SelectorInputConverter(input)
+func (s *Selector) Invoke(_ context.Context, input map[string]any) (out map[string]any, err error) {
+	in, err := s.selectorInputConverter(input)
 	if err != nil {
 		return nil, err
 	}
 
-	predicates := make([]Predicate, 0, len(s.config.Clauses))
-	for i, oneConf := range s.config.Clauses {
+	predicates := make([]Predicate, 0, len(s.clauses))
+	for i, oneConf := range s.clauses {
 		if oneConf.Single != nil {
 			left := in[i].Left
 			right := in[i].Right
@@ -139,16 +145,8 @@ func (s *Selector) Select(_ context.Context, input map[string]any) (out map[stri
 	return map[string]any{SelectKey: len(in)}, nil // default choice
 }
 
-func (s *Selector) GetType() string {
-	return "Selector"
-}
-
-func (s *Selector) ConditionCount() int {
-	return len(s.config.Clauses)
-}
-
-func (s *Selector) SelectorInputConverter(in map[string]any) (out []Operants, err error) {
-	conf := s.config.Clauses
+func (s *Selector) selectorInputConverter(in map[string]any) (out []Operants, err error) {
+	conf := s.clauses
 
 	for i, oneConf := range conf {
 		if oneConf.Single != nil {
@@ -187,7 +185,7 @@ func (s *Selector) SelectorInputConverter(in map[string]any) (out []Operants, er
 }
 
 func (s *Selector) ToCallbackOutput(_ context.Context, output map[string]any) (*nodes.StructuredCallbackOutput, error) {
-	count := len(s.config.Clauses)
+	count := len(s.clauses)
 	out := output[SelectKey].(int)
 	if out == count {
 		cOutput := map[string]any{"result": "pass to else branch"}

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package compose
+package schema
 
 import (
 	"fmt"
@@ -71,9 +71,19 @@ func (w *WorkflowSchema) Init() {
 		w.doGetCompositeNodes()
 
 		for _, node := range w.Nodes {
-			if node.requireCheckpoint() {
-				w.requireCheckPoint = true
-				break
+			if node.Type == entity.NodeTypeSubWorkflow {
+				node.SubWorkflowSchema.Init()
+				if node.SubWorkflowSchema.requireCheckPoint {
+					w.requireCheckPoint = true
+					break
+				}
+			}
+
+			if rc, ok := node.Configs.(RequireCheckpoint); ok {
+				if rc.RequireCheckpoint() {
+					w.requireCheckPoint = true
+					break
+				}
 			}
 		}
 
@@ -95,6 +105,14 @@ func (w *WorkflowSchema) GetCompositeNodes() []*CompositeNode {
 	}
 
 	return w.compositeNodes
+}
+
+func (w *WorkflowSchema) RequireCheckpoint() bool {
+	return w.requireCheckPoint
+}
+
+func (w *WorkflowSchema) RequireStreaming() bool {
+	return w.requireStreaming
 }
 
 func (w *WorkflowSchema) doGetCompositeNodes() (cNodes []*CompositeNode) {
@@ -125,7 +143,7 @@ func (w *WorkflowSchema) doGetCompositeNodes() (cNodes []*CompositeNode) {
 	return cNodes
 }
 
-func isInSameWorkflow(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.NodeKey) bool {
+func IsInSameWorkflow(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.NodeKey) bool {
 	if n == nil {
 		return true
 	}
@@ -144,7 +162,7 @@ func isInSameWorkflow(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.Node
 	return myParents == theirParents
 }
 
-func isBelowOneLevel(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.NodeKey) bool {
+func IsBelowOneLevel(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.NodeKey) bool {
 	if n == nil {
 		return false
 	}
@@ -154,7 +172,7 @@ func isBelowOneLevel(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.NodeK
 	return myParentExists && !theirParentExists
 }
 
-func isParentOf(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.NodeKey) bool {
+func IsParentOf(n map[vo.NodeKey]vo.NodeKey, nodeKey, otherNodeKey vo.NodeKey) bool {
 	if n == nil {
 		return false
 	}
@@ -290,7 +308,7 @@ func (w *WorkflowSchema) doRequireStreaming() bool {
 	return false
 }
 
-func (w *WorkflowSchema) fanInMergeConfigs() map[string]compose.FanInMergeConfig {
+func (w *WorkflowSchema) FanInMergeConfigs() map[string]compose.FanInMergeConfig {
 	// what we need to do is to see if the workflow requires streaming, if not, then no fan-in merge configs needed
 	// then we find those nodes that have 'transform' or 'collect' as streaming paradigm,
 	// and see if each of those nodes has multiple data predecessors, if so, it's a fan-in node.

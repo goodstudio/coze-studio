@@ -1,4 +1,5 @@
 /*
+
  * Copyright 2025 coze-dev Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,20 +17,51 @@
 
 package entity
 
+import (
+	"fmt"
+	"strconv"
+)
+
 type NodeType string
 
+func (nt NodeType) IDStr() string {
+	m := NodeMetaByNodeType(nt)
+	if m == nil {
+		return ""
+	}
+	return fmt.Sprintf("%d", m.ID)
+}
+
+func IDStrToNodeType(s string) NodeType {
+	id, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		return ""
+	}
+	for _, m := range NodeTypeMetas {
+		if m.ID == id {
+			return m.Key
+		}
+	}
+	return ""
+}
+
+type NodeTypeE struct {
+	ID         int64
+	Key        NodeType
+	DisplayKey string
+}
+
 type NodeTypeMeta struct {
-	ID              int64    `json:"id"`
-	Name            string   `json:"name"`
-	Type            NodeType `json:"type"`
-	Category        string   `json:"category"`
-	Color           string   `json:"color"`
-	Desc            string   `json:"desc"`
-	IconURL         string   `json:"icon_url"`
-	SupportBatch    bool     `json:"support_batch"`
-	Disabled        bool     `json:"disabled,omitempty"`
-	EnUSName        string   `json:"en_us_name,omitempty"`
-	EnUSDescription string   `json:"en_us_description,omitempty"`
+	NodeTypeE
+	Name            string `json:"name"`
+	Category        string `json:"category"`
+	Color           string `json:"color"`
+	Desc            string `json:"desc"`
+	IconURL         string `json:"icon_url"`
+	SupportBatch    bool   `json:"support_batch"`
+	Disabled        bool   `json:"disabled,omitempty"`
+	EnUSName        string `json:"en_us_name,omitempty"`
+	EnUSDescription string `json:"en_us_description,omitempty"`
 
 	ExecutableMeta
 }
@@ -54,20 +86,24 @@ type ExecutableMeta struct {
 	DefaultTimeoutMS     int64                      `json:"default_timeout_ms,omitempty"` // default timeout in milliseconds, 0 means no timeout
 	PreFillZero          bool                       `json:"pre_fill_zero,omitempty"`
 	PostFillNil          bool                       `json:"post_fill_nil,omitempty"`
-	CallbackEnabled      bool                       `json:"callback_enabled,omitempty"` // is false, Eino framework will inject callbacks for this node
+	CallbackEnabled      bool                       `json:"callback_enabled,omitempty"` // if false, Eino framework will inject callbacks for this node
 	MayUseChatModel      bool                       `json:"may_use_chat_model,omitempty"`
 	InputSourceAware     bool                       `json:"input_source_aware,omitempty"` // whether this node needs to know the runtime status of its input sources
 	StreamingParadigms   map[StreamingParadigm]bool `json:"streaming_paradigms,omitempty"`
 	StreamSourceEOFAware bool                       `json:"needs_stream_source_eof,omitempty"` // whether this node needs to be aware stream sources' SourceEOF error
-	/*
-	 IncrementalOutput indicates that the node's output is intended for progressive, user-facing streaming.
-	 This distinguishes nodes that actually stream text to the user (e.g., 'Exit', 'Output')
-	 from those that are merely capable of streaming internally (defined by StreamingParadigms),
-	 whose output is consumed by other nodes.
-	 In essence, nodes with IncrementalOutput are a subset of those defined in StreamingParadigms.
-	 When set to true, stream chunks from the node are persisted in real-time and can be fetched by get_process.
-	*/
+
+	//IncrementalOutput indicates that the node's output is intended for progressive, user-facing streaming.
+	//This distinguishes nodes that actually stream text to the user (e.g., 'Exit', 'Output')
+	//from those that are merely capable of streaming internally (defined by StreamingParadigms),
+	//whose output is consumed by other nodes.
+	// In essence, nodes with IncrementalOutput are a subset of those defined in StreamingParadigms.
+	// When set to true, stream chunks from the node are persisted in real-time and can be fetched by get_process.
 	IncrementalOutput bool `json:"incremental_output,omitempty"`
+
+	// UseCtxCache indicates that the node would require a newly initialized ctx cache for each invocation.
+	// example use cases:
+	// - write warnings to the ctx cache during Invoke, and read from the ctx within Callback output converter
+	UseCtxCache bool `json:"use_ctx_cache"`
 }
 
 type PluginNodeMeta struct {
@@ -125,6 +161,7 @@ const (
 	NodeTypeSubWorkflow                NodeType = "SubWorkflow"
 	NodeTypeJsonSerialization          NodeType = "JsonSerialization"
 	NodeTypeJsonDeserialization        NodeType = "JsonDeserialization"
+	NodeTypeComment                    NodeType = "Comment"
 )
 
 const (

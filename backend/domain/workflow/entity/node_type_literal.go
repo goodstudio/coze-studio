@@ -80,13 +80,16 @@ var Categories = []Category{
 }
 
 // NodeTypeMetas holds the metadata for all available node types.
-// It is initialized with built-in types and potentially extended by loading from external sources.
-var NodeTypeMetas = []*NodeTypeMeta{
-	{
-		ID:           1,
+// It is initialized with built-in node types and potentially extended by loading from external sources.
+var NodeTypeMetas = map[NodeType]*NodeTypeMeta{
+	NodeTypeEntry: {
+		NodeTypeE: NodeTypeE{
+			ID:         1,
+			Key:        NodeTypeEntry,
+			DisplayKey: "Start",
+		},
 		Name:         "开始",
-		Type:         NodeTypeEntry,
-		Category:     "input&output", // Mapped from cate_list
+		Category:     "input&output",
 		Desc:         "工作流的起始节点，用于设定启动工作流需要的信息",
 		Color:        "#5C62FF",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
@@ -98,11 +101,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Start",
 		EnUSDescription: "The starting node of the workflow, used to set the information needed to initiate the workflow.",
 	},
-	{
-		ID:           2,
+	NodeTypeExit: {
+		NodeTypeE: NodeTypeE{
+			ID:         2,
+			Key:        NodeTypeExit,
+			DisplayKey: "End",
+		},
 		Name:         "结束",
-		Type:         NodeTypeExit,
-		Category:     "input&output", // Mapped from cate_list
+		Category:     "input&output",
 		Desc:         "工作流的最终节点，用于返回工作流运行后的结果信息",
 		Color:        "#5C62FF",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
@@ -118,11 +124,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "End",
 		EnUSDescription: "The final node of the workflow, used to return the result information after the workflow runs.",
 	},
-	{
-		ID:           3,
+	NodeTypeLLM: {
+		NodeTypeE: NodeTypeE{
+			ID:         3,
+			Key:        NodeTypeLLM,
+			DisplayKey: "LLM",
+		},
 		Name:         "大模型",
-		Type:         NodeTypeLLM,
-		Category:     "", // Mapped from cate_list
+		Category:     "",
 		Desc:         "调用大语言模型,使用变量和提示词生成回复",
 		Color:        "#5C62FF",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LLM-v2.jpg",
@@ -139,12 +148,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "LLM",
 		EnUSDescription: "Invoke the large language model, generate responses using variables and prompt words.",
 	},
-
-	{
-		ID:           4,
+	NodeTypePlugin: {
+		NodeTypeE: NodeTypeE{
+			ID:         4,
+			Key:        NodeTypePlugin,
+			DisplayKey: "Api",
+		},
 		Name:         "插件",
-		Type:         NodeTypePlugin,
-		Category:     "", // Mapped from cate_list
+		Category:     "",
 		Desc:         "通过添加工具访问实时数据和执行外部操作",
 		Color:        "#CA61FF",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
@@ -158,11 +169,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Plugin",
 		EnUSDescription: "Used to access external real-time data and perform operations",
 	},
-	{
-		ID:           5,
+	NodeTypeCodeRunner: {
+		NodeTypeE: NodeTypeE{
+			ID:         5,
+			Key:        NodeTypeCodeRunner,
+			DisplayKey: "Code",
+		},
 		Name:         "代码",
-		Type:         NodeTypeCodeRunner,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "编写代码，处理输入变量来生成返回值",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
@@ -173,15 +187,19 @@ var NodeTypeMetas = []*NodeTypeMeta{
 			PostFillNil:        true,
 			CallbackEnabled:    true,
 			StreamingParadigms: map[StreamingParadigm]bool{Invoke: true},
+			UseCtxCache:        true,
 		},
 		EnUSName:        "Code",
 		EnUSDescription: "Write code to process input variables to generate return values.",
 	},
-	{
-		ID:           6,
+	NodeTypeKnowledgeRetriever: {
+		NodeTypeE: NodeTypeE{
+			ID:         6,
+			Key:        NodeTypeKnowledgeRetriever,
+			DisplayKey: "Dataset",
+		},
 		Name:         "知识库检索",
-		Type:         NodeTypeKnowledgeRetriever,
-		Category:     "data", // Mapped from cate_list
+		Category:     "data",
 		Desc:         "在选定的知识中,根据输入变量召回最匹配的信息,并以列表形式返回",
 		Color:        "#FF811A",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-KnowledgeQuery-v2.jpg",
@@ -195,11 +213,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Knowledge retrieval",
 		EnUSDescription: "In the selected knowledge, the best matching information is recalled based on the input variable and returned as an Array.",
 	},
-	{
-		ID:           8,
+	NodeTypeSelector: {
+		NodeTypeE: NodeTypeE{
+			ID:         8,
+			Key:        NodeTypeSelector,
+			DisplayKey: "If",
+		},
 		Name:         "选择器",
-		Type:         NodeTypeSelector,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "连接多个下游分支，若设定的条件成立则仅运行对应的分支，若均不成立则只运行“否则”分支",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Condition-v2.jpg",
@@ -211,11 +232,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Condition",
 		EnUSDescription: "Connect multiple downstream branches. Only the corresponding branch will be executed if the set conditions are met. If none are met, only the 'else' branch will be executed.",
 	},
-	{
-		ID:           9,
+	NodeTypeSubWorkflow: {
+		NodeTypeE: NodeTypeE{
+			ID:         9,
+			Key:        NodeTypeSubWorkflow,
+			DisplayKey: "SubWorkflow",
+		},
 		Name:         "工作流",
-		Type:         NodeTypeSubWorkflow,
-		Category:     "", // Mapped from cate_list
+		Category:     "",
 		Desc:         "集成已发布工作流，可以执行嵌套子任务",
 		Color:        "#00B83E",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Workflow-v2.jpg",
@@ -227,11 +251,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Workflow",
 		EnUSDescription: "Add published workflows to execute subtasks",
 	},
-	{
-		ID:           12,
+	NodeTypeDatabaseCustomSQL: {
+		NodeTypeE: NodeTypeE{
+			ID:         12,
+			Key:        NodeTypeDatabaseCustomSQL,
+			DisplayKey: "End",
+		},
 		Name:         "SQL自定义",
-		Type:         NodeTypeDatabaseCustomSQL,
-		Category:     "database", // Mapped from cate_list
+		Category:     "database",
 		Desc:         "基于用户自定义的 SQL 完成对数据库的增删改查操作",
 		Color:        "#FF811A",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Database-v2.jpg",
@@ -245,11 +272,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "SQL Customization",
 		EnUSDescription: "Complete the operations of adding, deleting, modifying and querying the database based on user-defined SQL",
 	},
-	{
-		ID:           13,
+	NodeTypeOutputEmitter: {
+		NodeTypeE: NodeTypeE{
+			ID:         13,
+			Key:        NodeTypeOutputEmitter,
+			DisplayKey: "Message",
+		},
 		Name:         "输出",
-		Type:         NodeTypeOutputEmitter,
-		Category:     "input&output", // Mapped from cate_list
+		Category:     "input&output",
 		Desc:         "节点从“消息”更名为“输出”，支持中间过程的消息输出，支持流式和非流式两种方式",
 		Color:        "#5C62FF",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Output-v2.jpg",
@@ -265,11 +295,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Output",
 		EnUSDescription: "The node is renamed from \"message\" to \"output\", Supports message output in the intermediate process and streaming and non-streaming methods",
 	},
-	{
-		ID:           15,
+	NodeTypeTextProcessor: {
+		NodeTypeE: NodeTypeE{
+			ID:         15,
+			Key:        NodeTypeTextProcessor,
+			DisplayKey: "Text",
+		},
 		Name:         "文本处理",
-		Type:         NodeTypeTextProcessor,
-		Category:     "utilities", // Mapped from cate_list
+		Category:     "utilities",
 		Desc:         "用于处理多个字符串类型变量的格式",
 		Color:        "#3071F2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-StrConcat-v2.jpg",
@@ -283,11 +316,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Text Processing",
 		EnUSDescription: "The format used for handling multiple string-type variables.",
 	},
-	{
-		ID:           18,
+	NodeTypeQuestionAnswer: {
+		NodeTypeE: NodeTypeE{
+			ID:         18,
+			Key:        NodeTypeQuestionAnswer,
+			DisplayKey: "Question",
+		},
 		Name:         "问答",
-		Type:         NodeTypeQuestionAnswer,
-		Category:     "utilities", // Mapped from cate_list
+		Category:     "utilities",
 		Desc:         "支持中间向用户提问问题,支持预置选项提问和开放式问题提问两种方式",
 		Color:        "#3071F2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Direct-Question-v2.jpg",
@@ -303,11 +339,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Question",
 		EnUSDescription: "Support asking questions to the user in the middle of the conversation, with both preset options and open-ended questions",
 	},
-	{
-		ID:           19,
+	NodeTypeBreak: {
+		NodeTypeE: NodeTypeE{
+			ID:         19,
+			Key:        NodeTypeBreak,
+			DisplayKey: "Break",
+		},
 		Name:         "终止循环",
-		Type:         NodeTypeBreak,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "用于立即终止当前所在的循环，跳出循环体",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Break-v2.jpg",
@@ -318,11 +357,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Break",
 		EnUSDescription: "Used to immediately terminate the current loop and jump out of the loop",
 	},
-	{
-		ID:           20,
+	NodeTypeVariableAssignerWithinLoop: {
+		NodeTypeE: NodeTypeE{
+			ID:         20,
+			Key:        NodeTypeVariableAssignerWithinLoop,
+			DisplayKey: "LoopSetVariable",
+		},
 		Name:         "设置变量",
-		Type:         NodeTypeVariableAssignerWithinLoop,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "用于重置循环变量的值，使其下次循环使用重置后的值",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-LoopSetVariable-v2.jpg",
@@ -333,11 +375,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Set Variable",
 		EnUSDescription: "Used to reset the value of the loop variable so that it uses the reset value in the next iteration",
 	},
-	{
-		ID:           21,
+	NodeTypeLoop: {
+		NodeTypeE: NodeTypeE{
+			ID:         21,
+			Key:        NodeTypeLoop,
+			DisplayKey: "Loop",
+		},
 		Name:         "循环",
-		Type:         NodeTypeLoop,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "用于通过设定循环次数和逻辑，重复执行一系列任务",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Loop-v2.jpg",
@@ -353,11 +398,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Loop",
 		EnUSDescription: "Used to repeatedly execute a series of tasks by setting the number of iterations and logic",
 	},
-	{
-		ID:           22,
+	NodeTypeIntentDetector: {
+		NodeTypeE: NodeTypeE{
+			ID:         22,
+			Key:        NodeTypeIntentDetector,
+			DisplayKey: "Intent",
+		},
 		Name:         "意图识别",
-		Type:         NodeTypeIntentDetector,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "用于用户输入的意图识别，并将其与预设意图选项进行匹配。",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Intent-v2.jpg",
@@ -373,11 +421,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Intent recognition",
 		EnUSDescription: "Used for recognizing the intent in user input and matching it with preset intent options.",
 	},
-	{
-		ID:           27,
+	NodeTypeKnowledgeIndexer: {
+		NodeTypeE: NodeTypeE{
+			ID:         27,
+			Key:        NodeTypeKnowledgeIndexer,
+			DisplayKey: "DatasetWrite",
+		},
 		Name:         "知识库写入",
-		Type:         NodeTypeKnowledgeIndexer,
-		Category:     "data", // Mapped from cate_list
+		Category:     "data",
 		Desc:         "写入节点可以添加 文本类型 的知识库，仅可以添加一个知识库",
 		Color:        "#FF811A",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-KnowledgeWriting-v2.jpg",
@@ -391,11 +442,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Knowledge writing",
 		EnUSDescription: "The write node can add a knowledge base of type text. Only one knowledge base can be added.",
 	},
-	{
-		ID:           28,
+	NodeTypeBatch: {
+		NodeTypeE: NodeTypeE{
+			ID:         28,
+			Key:        NodeTypeBatch,
+			DisplayKey: "Batch",
+		},
 		Name:         "批处理",
-		Type:         NodeTypeBatch,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "通过设定批量运行次数和逻辑，运行批处理体内的任务",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Batch-v2.jpg",
@@ -411,11 +465,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Batch",
 		EnUSDescription: "By setting the number of batch runs and logic, run the tasks in the batch body.",
 	},
-	{
-		ID:           29,
+	NodeTypeContinue: {
+		NodeTypeE: NodeTypeE{
+			ID:         29,
+			Key:        NodeTypeContinue,
+			DisplayKey: "Continue",
+		},
 		Name:         "继续循环",
-		Type:         NodeTypeContinue,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "用于终止当前循环，执行下次循环",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Continue-v2.jpg",
@@ -426,11 +483,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Continue",
 		EnUSDescription: "Used to immediately terminate the current loop and execute next loop",
 	},
-	{
-		ID:           30,
+	NodeTypeInputReceiver: {
+		NodeTypeE: NodeTypeE{
+			ID:         30,
+			Key:        NodeTypeInputReceiver,
+			DisplayKey: "Input",
+		},
 		Name:         "输入",
-		Type:         NodeTypeInputReceiver,
-		Category:     "input&output", // Mapped from cate_list
+		Category:     "input&output",
 		Desc:         "支持中间过程的信息输入",
 		Color:        "#5C62FF",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Input-v2.jpg",
@@ -443,10 +503,12 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Input",
 		EnUSDescription: "Support intermediate information input",
 	},
-	{
-		ID:           31,
+	NodeTypeComment: {
+		NodeTypeE: NodeTypeE{
+			ID:  31,
+			Key: "",
+		},
 		Name:         "注释",
-		Type:         "",
 		Category:     "",             // Not found in cate_list
 		Desc:         "comment_desc", // Placeholder from JSON
 		Color:        "",
@@ -454,11 +516,13 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		SupportBatch: false,          // supportBatch: 1
 		EnUSName:     "Comment",
 	},
-	{
-		ID:           32,
+	NodeTypeVariableAggregator: {
+		NodeTypeE: NodeTypeE{
+			ID:  32,
+			Key: NodeTypeVariableAggregator,
+		},
 		Name:         "变量聚合",
-		Type:         NodeTypeVariableAggregator,
-		Category:     "logic", // Mapped from cate_list
+		Category:     "logic",
 		Desc:         "对多个分支的输出进行聚合处理",
 		Color:        "#00B2B2",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/VariableMerge-icon.jpg",
@@ -468,15 +532,18 @@ var NodeTypeMetas = []*NodeTypeMeta{
 			CallbackEnabled:    true,
 			InputSourceAware:   true,
 			StreamingParadigms: map[StreamingParadigm]bool{Invoke: true, Transform: true},
+			UseCtxCache:        true,
 		},
 		EnUSName:        "Variable Merge",
 		EnUSDescription: "Aggregate the outputs of multiple branches.",
 	},
-	{
-		ID:           37,
+	NodeTypeMessageList: {
+		NodeTypeE: NodeTypeE{
+			ID:  37,
+			Key: NodeTypeMessageList,
+		},
 		Name:         "查询消息列表",
-		Type:         NodeTypeMessageList,
-		Category:     "message", // Mapped from cate_list
+		Category:     "message",
 		Desc:         "用于查询消息列表",
 		Color:        "#F2B600",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Conversation-List.jpeg",
@@ -490,11 +557,13 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Query message list",
 		EnUSDescription: "Used to query the message list",
 	},
-	{
-		ID:           38,
+	NodeTypeClearMessage: {
+		NodeTypeE: NodeTypeE{
+			ID:  38,
+			Key: NodeTypeClearMessage,
+		},
 		Name:         "清除上下文",
-		Type:         NodeTypeClearMessage,
-		Category:     "conversation_history", // Mapped from cate_list
+		Category:     "conversation_history",
 		Desc:         "用于清空会话历史，清空后LLM看到的会话历史为空",
 		Color:        "#F2B600",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Conversation-Delete.jpeg",
@@ -508,11 +577,13 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Clear conversation history",
 		EnUSDescription: "Used to clear conversation history. After clearing, the conversation history visible to the LLM node will be empty.",
 	},
-	{
-		ID:           39,
+	NodeTypeCreateConversation: {
+		NodeTypeE: NodeTypeE{
+			ID:  39,
+			Key: NodeTypeCreateConversation,
+		},
 		Name:         "创建会话",
-		Type:         NodeTypeCreateConversation,
-		Category:     "conversation_management", // Mapped from cate_list
+		Category:     "conversation_management",
 		Desc:         "用于创建会话",
 		Color:        "#F2B600",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Conversation-Create.jpeg",
@@ -526,11 +597,14 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Create conversation",
 		EnUSDescription: "This node is used to create a conversation.",
 	},
-	{
-		ID:           40,
+	NodeTypeVariableAssigner: {
+		NodeTypeE: NodeTypeE{
+			ID:         40,
+			Key:        NodeTypeVariableAssigner,
+			DisplayKey: "AssignVariable",
+		},
 		Name:         "变量赋值",
-		Type:         NodeTypeVariableAssigner,
-		Category:     "data", // Mapped from cate_list
+		Category:     "data",
 		Desc:         "用于给支持写入的变量赋值，包括应用变量、用户变量",
 		Color:        "#FF811A",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/Variable.jpg",
@@ -541,15 +615,18 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Variable assign",
 		EnUSDescription: "Assigns values to variables that support the write operation, including app and user variables.",
 	},
-	{
-		ID:           42,
+	NodeTypeDatabaseUpdate: {
+		NodeTypeE: NodeTypeE{
+			ID:         42,
+			Key:        NodeTypeDatabaseUpdate,
+			DisplayKey: "DatabaseUpdate",
+		},
 		Name:         "更新数据",
-		Type:         NodeTypeDatabaseUpdate,
-		Category:     "database", // Mapped from cate_list
+		Category:     "database",
 		Desc:         "修改表中已存在的数据记录，用户指定更新条件和内容来更新数据",
 		Color:        "#F2B600",
-		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-database-update.jpg", // Corrected Icon URL from JSON
-		SupportBatch: false,                                                                                                               // supportBatch: 1
+		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-database-update.jpg",
+		SupportBatch: false,
 		ExecutableMeta: ExecutableMeta{
 			DefaultTimeoutMS:   60 * 1000, // 1 minute
 			PreFillZero:        true,
@@ -559,15 +636,18 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Update Data",
 		EnUSDescription: "Modify the existing data records in the table, and the user specifies the update conditions and contents to update the data",
 	},
-	{
-		ID:           43,
-		Name:         "查询数据", // Corrected Name from JSON (was "插入数据")
-		Type:         NodeTypeDatabaseQuery,
-		Category:     "database",                        // Mapped from cate_list
-		Desc:         "从表获取数据，用户可定义查询条件、选择列等，输出符合条件的数据", // Corrected Desc from JSON
+	NodeTypeDatabaseQuery: {
+		NodeTypeE: NodeTypeE{
+			ID:         43,
+			Key:        NodeTypeDatabaseQuery,
+			DisplayKey: "DatabaseSelect",
+		},
+		Name:         "查询数据",
+		Category:     "database",
+		Desc:         "从表获取数据，用户可定义查询条件、选择列等，输出符合条件的数据",
 		Color:        "#F2B600",
-		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icaon-database-select.jpg", // Corrected Icon URL from JSON
-		SupportBatch: false,                                                                                                                // supportBatch: 1
+		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icaon-database-select.jpg",
+		SupportBatch: false,
 		ExecutableMeta: ExecutableMeta{
 			DefaultTimeoutMS:   60 * 1000, // 1 minute
 			PreFillZero:        true,
@@ -577,15 +657,18 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Query Data",
 		EnUSDescription: "Query data from the table, and the user can define query conditions, select columns, etc., and output the data that meets the conditions",
 	},
-	{
-		ID:           44,
+	NodeTypeDatabaseDelete: {
+		NodeTypeE: NodeTypeE{
+			ID:         44,
+			Key:        NodeTypeDatabaseDelete,
+			DisplayKey: "DatabaseDelete",
+		},
 		Name:         "删除数据",
-		Type:         NodeTypeDatabaseDelete,
-		Category:     "database",                     // Mapped from cate_list
-		Desc:         "从表中删除数据记录，用户指定删除条件来删除符合条件的记录", // Corrected Desc from JSON
+		Category:     "database",
+		Desc:         "从表中删除数据记录，用户指定删除条件来删除符合条件的记录",
 		Color:        "#F2B600",
-		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-database-delete.jpg", // Corrected Icon URL from JSON
-		SupportBatch: false,                                                                                                               // supportBatch: 1
+		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-database-delete.jpg",
+		SupportBatch: false,
 		ExecutableMeta: ExecutableMeta{
 			DefaultTimeoutMS:   60 * 1000, // 1 minute
 			PreFillZero:        true,
@@ -595,15 +678,18 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Delete Data",
 		EnUSDescription: "Delete data records from the table, and the user specifies the deletion conditions to delete the records that meet the conditions",
 	},
-	{
-		ID:           45,
+	NodeTypeHTTPRequester: {
+		NodeTypeE: NodeTypeE{
+			ID:         45,
+			Key:        NodeTypeHTTPRequester,
+			DisplayKey: "Http",
+		},
 		Name:         "HTTP 请求",
-		Type:         NodeTypeHTTPRequester,
-		Category:     "utilities",         // Mapped from cate_list
-		Desc:         "用于发送API请求，从接口返回数据", // Corrected Desc from JSON
+		Category:     "utilities",
+		Desc:         "用于发送API请求，从接口返回数据",
 		Color:        "#3071F2",
-		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-HTTP.png", // Corrected Icon URL from JSON
-		SupportBatch: false,                                                                                                    // supportBatch: 1
+		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-HTTP.png",
+		SupportBatch: false, // supportBatch: 1
 		ExecutableMeta: ExecutableMeta{
 			DefaultTimeoutMS:   60 * 1000, // 1 minute
 			PreFillZero:        true,
@@ -614,15 +700,18 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "HTTP request",
 		EnUSDescription: "It is used to send API requests and return data from the interface.",
 	},
-	{
-		ID:           46,
-		Name:         "新增数据", // Corrected Name from JSON (was "查询数据")
-		Type:         NodeTypeDatabaseInsert,
-		Category:     "database",                 // Mapped from cate_list
-		Desc:         "向表添加新数据记录，用户输入数据内容后插入数据库", // Corrected Desc from JSON
+	NodeTypeDatabaseInsert: {
+		NodeTypeE: NodeTypeE{
+			ID:         46,
+			Key:        NodeTypeDatabaseInsert,
+			DisplayKey: "DatabaseInsert",
+		},
+		Name:         "新增数据",
+		Category:     "database",
+		Desc:         "向表添加新数据记录，用户输入数据内容后插入数据库",
 		Color:        "#F2B600",
-		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-database-insert.jpg", // Corrected Icon URL from JSON
-		SupportBatch: false,                                                                                                               // supportBatch: 1
+		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-database-insert.jpg",
+		SupportBatch: false,
 		ExecutableMeta: ExecutableMeta{
 			DefaultTimeoutMS:   60 * 1000, // 1 minute
 			PreFillZero:        true,
@@ -632,28 +721,59 @@ var NodeTypeMetas = []*NodeTypeMeta{
 		EnUSName:        "Add Data",
 		EnUSDescription: "Add new data records to the table, and insert them into the database after the user enters the data content",
 	},
-	{
-		ID:           58,
-		Name:         "JSON 序列化",
-		Type:         NodeTypeJsonSerialization,
-		Category:     "utilities",
-		Desc:         "用于把变量转化为JSON字符串",
-		Color:        "F2B600",
-		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-to_json.png",
+	NodeTypeJsonSerialization: {
+		NodeTypeE: NodeTypeE{
+			ID:         58,
+			Key:        NodeTypeJsonSerialization,
+			DisplayKey: "ToJSON",
+		},
+
+		// Name is the node in ZH_CN, will be displayed on Canvas.
+		Name: "JSON 序列化",
+
+		// Category is the category of this node, determines which category this node will be displayed in.
+		Category: "utilities",
+
+		// Desc is the desc in ZH_CN, will be displayed as tooltip on Canvas.
+		Desc: "用于把变量转化为JSON字符串",
+
+		// Color is the color of the upper edge of the node displayed on Canvas.
+		Color: "F2B600",
+
+		// IconURL is the URL of the icon displayed on Canvas.
+		IconURL: "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-to_json.png",
+
+		// SupportBatch indicates whether this node can set batch mode.
+		// NOTE: ultimately it's frontend that decides which node can enable batch mode.
 		SupportBatch: false,
+
+		// ExecutableMeta configures certain common aspects of request-time behaviors for this node.
 		ExecutableMeta: ExecutableMeta{
-			DefaultTimeoutMS:   60 * 1000, // 1 minute
-			PreFillZero:        true,
-			CallbackEnabled:    true,
+			// DefaultTimeoutMS configures the default timeout for this node, in milliseconds. 0 means no timeout.
+			DefaultTimeoutMS: 60 * 1000, // 1 minute
+			// PreFillZero decides whether to pre-fill zero value for any missing fields in input.
+			PreFillZero: true,
+			// CallbackEnabled indicates whether you want to handle callback within NodeRunner,
+			// or let Eino framework handle it.
+			// Generally, if you have custom callback input/output definitions or any custom logic, this should be 'true'
+			CallbackEnabled: true,
+			// StreamingParadigms indicates which streaming paradigms this node supports.
+			// Generally, just Invoke is enough.
 			StreamingParadigms: map[StreamingParadigm]bool{Invoke: true},
 		},
-		EnUSName:        "JSON serialization",
+
+		// EnUSName is the name in EN_US, will be displayed on Canvas if language of Coze-Studio is set to EnUS.
+		EnUSName: "JSON serialization",
+		// EnUSDescription is the description in EN_US, will be displayed on Canvas if language of Coze-Studio is set to EnUS.
 		EnUSDescription: "Convert variable to JSON string",
 	},
-	{
-		ID:           59,
+	NodeTypeJsonDeserialization: {
+		NodeTypeE: NodeTypeE{
+			ID:         59,
+			Key:        NodeTypeJsonDeserialization,
+			DisplayKey: "FromJSON",
+		},
 		Name:         "JSON 反序列化",
-		Type:         NodeTypeJsonDeserialization,
 		Category:     "utilities",
 		Desc:         "用于将JSON字符串解析为变量",
 		Color:        "F2B600",
@@ -665,15 +785,19 @@ var NodeTypeMetas = []*NodeTypeMeta{
 			PostFillNil:        true,
 			CallbackEnabled:    true,
 			StreamingParadigms: map[StreamingParadigm]bool{Invoke: true},
+			UseCtxCache:        true,
 		},
 		EnUSName:        "JSON deserialization",
 		EnUSDescription: "Parse JSON string to variable",
 	},
-	{
-		ID:           60,
+	NodeTypeKnowledgeDeleter: {
+		NodeTypeE: NodeTypeE{
+			ID:         60,
+			Key:        NodeTypeKnowledgeDeleter,
+			DisplayKey: "KnowledgeDelete",
+		},
 		Name:         "知识库删除",
-		Type:         NodeTypeKnowledgeDeleter,
-		Category:     "data", // Mapped from cate_list
+		Category:     "data",
 		Desc:         "用于删除知识库中的文档",
 		Color:        "#FF811A",
 		IconURL:      "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icons-dataset-delete.png",
@@ -697,10 +821,8 @@ var PluginNodeMetas []*PluginNodeMeta
 var PluginCategoryMetas []*PluginCategoryMeta
 
 func NodeMetaByNodeType(t NodeType) *NodeTypeMeta {
-	for _, meta := range NodeTypeMetas {
-		if meta.Type == t {
-			return meta
-		}
+	if m, ok := NodeTypeMetas[t]; ok {
+		return m
 	}
 
 	return nil

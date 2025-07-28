@@ -27,11 +27,13 @@ import (
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/entity"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/entity/vo"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes"
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes/intentdetector"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes/qa"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes/selector"
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/schema"
 )
 
-func (s *NodeSchema) OutputPortCount() (int, bool) {
+func OutputPortCount(s *schema.NodeSchema) (int, bool) {
 	var hasExceptionPort bool
 	if s.ExceptionConfigs != nil && s.ExceptionConfigs.ProcessType != nil &&
 		*s.ExceptionConfigs.ProcessType == vo.ErrorProcessTypeExceptionBranch {
@@ -40,18 +42,19 @@ func (s *NodeSchema) OutputPortCount() (int, bool) {
 
 	switch s.Type {
 	case entity.NodeTypeSelector:
-		return len(mustGetKey[[]*selector.OneClauseSchema]("Clauses", s.Configs)) + 1, hasExceptionPort
+		return len(s.Configs.(*selector.Config).Clauses) + 1, hasExceptionPort
 	case entity.NodeTypeQuestionAnswer:
-		if mustGetKey[qa.AnswerType]("AnswerType", s.Configs.(map[string]any)) == qa.AnswerByChoices {
-			if mustGetKey[qa.ChoiceType]("ChoiceType", s.Configs.(map[string]any)) == qa.FixedChoices {
-				return len(mustGetKey[[]string]("FixedChoices", s.Configs.(map[string]any))) + 1, hasExceptionPort
+		cfg := s.Configs.(*qa.Config)
+		if cfg.AnswerType == qa.AnswerByChoices {
+			if cfg.ChoiceType == qa.FixedChoices {
+				return len(cfg.FixedChoices) + 1, hasExceptionPort
 			} else {
 				return 2, hasExceptionPort
 			}
 		}
 		return 1, hasExceptionPort
 	case entity.NodeTypeIntentDetector:
-		intents := mustGetKey[[]string]("Intents", s.Configs.(map[string]any))
+		intents := s.Configs.(*intentdetector.Config).Intents
 		return len(intents) + 1, hasExceptionPort
 	default:
 		return 1, hasExceptionPort
@@ -68,7 +71,7 @@ const (
 	BranchFmt     = "branch_%d"
 )
 
-func (s *NodeSchema) GetBranch(bMapping *BranchMapping) (*compose.GraphBranch, error) {
+func GetBranch(s *schema.NodeSchema, bMapping *BranchMapping) (*compose.GraphBranch, error) {
 	if bMapping == nil {
 		return nil, errors.New("no branch mapping")
 	}
@@ -103,9 +106,9 @@ func (s *NodeSchema) GetBranch(bMapping *BranchMapping) (*compose.GraphBranch, e
 		}
 		return compose.NewGraphMultiBranch(condition, endNodes), nil
 	case entity.NodeTypeQuestionAnswer:
-		conf := s.Configs.(map[string]any)
-		if mustGetKey[qa.AnswerType]("AnswerType", conf) == qa.AnswerByChoices {
-			choiceType := mustGetKey[qa.ChoiceType]("ChoiceType", conf)
+		conf := s.Configs.(*qa.Config)
+		if conf.AnswerType == qa.AnswerByChoices {
+			choiceType := conf.ChoiceType
 			condition := func(ctx context.Context, in map[string]any) (map[string]bool, error) {
 				optionID, ok := nodes.TakeMapValue(in, compose.FieldPath{qa.OptionIDKey})
 				if !ok {

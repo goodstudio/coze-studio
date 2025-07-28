@@ -20,7 +20,11 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/entity"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/entity/vo"
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/canvas/convert"
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes"
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/schema"
 	"github.com/coze-dev/coze-studio/backend/pkg/sonic"
 )
 
@@ -29,28 +33,35 @@ const (
 	OutputKeySerialization = "output"
 )
 
-type SerializationConfig struct {
-	InputTypes map[string]*vo.TypeInfo
-}
+type SerializationConfig struct{}
 
-type JsonSerializer struct {
-	config *SerializationConfig
-}
-
-func NewJsonSerializer(_ context.Context, cfg *SerializationConfig) (*JsonSerializer, error) {
-	if cfg == nil {
-		return nil, fmt.Errorf("config required")
-	}
-	if cfg.InputTypes == nil {
-		return nil, fmt.Errorf("InputTypes is required for serialization")
+func (s *SerializationConfig) Adapt(_ context.Context, n *vo.Node, _ ...nodes.AdaptOption) (*schema.NodeSchema, error) {
+	ns := &schema.NodeSchema{
+		Key:     vo.NodeKey(n.ID),
+		Type:    entity.NodeTypeJsonSerialization,
+		Name:    n.Data.Meta.Title,
+		Configs: s,
 	}
 
-	return &JsonSerializer{
-		config: cfg,
-	}, nil
+	if err := convert.SetInputsForNodeSchema(n, ns); err != nil {
+		return nil, err
+	}
+
+	if err := convert.SetOutputTypesForNodeSchema(n, ns); err != nil {
+		return nil, err
+	}
+
+	return ns, nil
 }
 
-func (js *JsonSerializer) Invoke(_ context.Context, input map[string]any) (map[string]any, error) {
+func (s *SerializationConfig) Build(_ context.Context, _ *schema.NodeSchema, _ ...schema.BuildOption) (
+	any, error) {
+	return &Serializer{}, nil
+}
+
+type Serializer struct{}
+
+func (js *Serializer) Invoke(_ context.Context, input map[string]any) (map[string]any, error) {
 	// Directly use the input map for serialization
 	if input == nil {
 		return nil, fmt.Errorf("input data for serialization cannot be nil")

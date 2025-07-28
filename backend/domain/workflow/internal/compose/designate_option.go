@@ -31,7 +31,9 @@ import (
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/entity/vo"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/execute"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes"
+	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes/exit"
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/internal/nodes/llm"
+	schema2 "github.com/coze-dev/coze-studio/backend/domain/workflow/internal/schema"
 	"github.com/coze-dev/coze-studio/backend/pkg/ctxcache"
 	"github.com/coze-dev/coze-studio/backend/pkg/lang/ptr"
 )
@@ -56,7 +58,7 @@ func (r *WorkflowRunner) designateOptions(ctx context.Context) (context.Context,
 	rootHandler := execute.NewRootWorkflowHandler(
 		wb,
 		executeID,
-		workflowSC.requireCheckPoint,
+		workflowSC.RequireCheckpoint(),
 		eventChan,
 		resumedEvent,
 		exeCfg,
@@ -70,7 +72,7 @@ func (r *WorkflowRunner) designateOptions(ctx context.Context) (context.Context,
 		var nodeOpt einoCompose.Option
 		if ns.Type == entity.NodeTypeExit {
 			nodeOpt = nodeCallbackOption(key, ns.Name, eventChan, resumedEvent,
-				ptr.Of(mustGetKey[vo.TerminatePlan]("TerminalPlan", ns.Configs)))
+				ptr.Of(ns.Configs.(*exit.Config).TerminatePlan))
 		} else if ns.Type != entity.NodeTypeLambda {
 			nodeOpt = nodeCallbackOption(key, ns.Name, eventChan, resumedEvent, nil)
 		}
@@ -120,7 +122,7 @@ func (r *WorkflowRunner) designateOptions(ctx context.Context) (context.Context,
 		}
 	}
 
-	if workflowSC.requireCheckPoint {
+	if workflowSC.RequireCheckpoint() {
 		opts = append(opts, einoCompose.WithCheckPointID(strconv.FormatInt(executeID, 10)))
 	}
 
@@ -148,7 +150,7 @@ func WrapOptWithIndex(opt einoCompose.Option, parentNodeKey vo.NodeKey, index in
 
 func (r *WorkflowRunner) designateOptionsForSubWorkflow(ctx context.Context,
 	parentHandler *execute.WorkflowHandler,
-	ns *NodeSchema,
+	ns *schema2.NodeSchema,
 	pathPrefix ...string) (opts []einoCompose.Option, err error) {
 	var (
 		resumeEvent = r.interruptEvent
@@ -172,7 +174,7 @@ func (r *WorkflowRunner) designateOptionsForSubWorkflow(ctx context.Context,
 		var nodeOpt einoCompose.Option
 		if subNS.Type == entity.NodeTypeExit {
 			nodeOpt = nodeCallbackOption(key, subNS.Name, eventChan, resumeEvent,
-				ptr.Of(mustGetKey[vo.TerminatePlan]("TerminalPlan", subNS.Configs)))
+				ptr.Of(subNS.Configs.(*exit.Config).TerminatePlan))
 		} else {
 			nodeOpt = nodeCallbackOption(key, subNS.Name, eventChan, resumeEvent, nil)
 		}
@@ -228,7 +230,7 @@ func (r *WorkflowRunner) designateOptionsForSubWorkflow(ctx context.Context,
 	return opts, nil
 }
 
-func llmToolCallbackOptions(ctx context.Context, ns *NodeSchema, eventChan chan *execute.Event,
+func llmToolCallbackOptions(ctx context.Context, ns *schema2.NodeSchema, eventChan chan *execute.Event,
 	sw *schema.StreamWriter[*entity.Message]) (
 	opts []einoCompose.Option, err error) {
 	// this is a LLM node.
@@ -238,7 +240,8 @@ func llmToolCallbackOptions(ctx context.Context, ns *NodeSchema, eventChan chan 
 		panic("impossible: llmToolCallbackOptions is called on a non-LLM node")
 	}
 
-	fcParams := getKeyOrZero[*vo.FCParam]("FCParam", ns.Configs)
+	cfg := ns.Configs.(*llm.Config)
+	fcParams := cfg.FCParam
 	if fcParams != nil {
 		if fcParams.WorkflowFCParam != nil {
 			// TODO: try to avoid getting the workflow tool all over again
@@ -281,7 +284,7 @@ func llmToolCallbackOptions(ctx context.Context, ns *NodeSchema, eventChan chan 
 
 				toolHandler := execute.NewToolHandler(eventChan, funcInfo)
 				opt := einoCompose.WithCallbacks(toolHandler)
-				opt = einoCompose.WithLambdaOption(llm.WithNestedWorkflowOptions(nodes.WithOptsForNested(opt))).DesignateNode(string(ns.Key))
+				opt = einoCompose.WithLambdaOption(nodes.WithOptsForNested(opt)).DesignateNode(string(ns.Key))
 				opts = append(opts, opt)
 			}
 		}
@@ -319,7 +322,7 @@ func llmToolCallbackOptions(ctx context.Context, ns *NodeSchema, eventChan chan 
 
 				toolHandler := execute.NewToolHandler(eventChan, funcInfo)
 				opt := einoCompose.WithCallbacks(toolHandler)
-				opt = einoCompose.WithLambdaOption(llm.WithNestedWorkflowOptions(nodes.WithOptsForNested(opt))).DesignateNode(string(ns.Key))
+				opt = einoCompose.WithLambdaOption(nodes.WithOptsForNested(opt)).DesignateNode(string(ns.Key))
 				opts = append(opts, opt)
 			}
 		}

@@ -93,8 +93,8 @@ func (w *ApplicationService) GetNodeTemplateList(ctx context.Context, req *workf
 
 	toQueryTypes := make(map[entity.NodeType]bool)
 	for _, t := range req.NodeTypes {
-		entityType, err := nodeType2EntityNodeType(t)
-		if err != nil {
+		entityType := entity.IDStrToNodeType(t)
+		if len(entityType) == 0 {
 			logs.Warnf("get node type %v failed, err:=%v", t, err)
 			continue
 		}
@@ -116,7 +116,7 @@ func (w *ApplicationService) GetNodeTemplateList(ctx context.Context, req *workf
 			Name: category,
 		}
 		for _, nodeMeta := range nodeMetaList {
-			tplType, err := entityNodeTypeToAPINodeTemplateType(nodeMeta.Type)
+			tplType, err := entityNodeTypeToAPINodeTemplateType(nodeMeta.Key)
 			if err != nil {
 				return nil, err
 			}
@@ -1041,7 +1041,8 @@ func (w *ApplicationService) CopyWorkflowFromLibraryToApp(ctx context.Context, w
 	return wf.ID, nil
 }
 
-func (w *ApplicationService) MoveWorkflowFromAppToLibrary(ctx context.Context, workflowID int64, spaceID, appID int64) (_ int64, _ []*vo.ValidateIssue, err error) {
+func (w *ApplicationService) MoveWorkflowFromAppToLibrary(ctx context.Context, workflowID int64, spaceID, /*not used for now*/
+	appID int64) (_ int64, _ []*vo.ValidateIssue, err error) {
 	defer func() {
 		if panicErr := recover(); panicErr != nil {
 			err = safego.NewPanicErr(panicErr, debug.Stack())
@@ -3338,85 +3339,6 @@ func toWorkflowParameter(nType *vo.NamedTypeInfo) (*workflow.Parameter, error) {
 	return wp, nil
 }
 
-func nodeType2EntityNodeType(t string) (entity.NodeType, error) {
-	i, err := strconv.Atoi(t)
-	if err != nil {
-		return "", fmt.Errorf("invalid node type string '%s': %w", t, err)
-	}
-
-	switch i {
-	case 1:
-		return entity.NodeTypeEntry, nil
-	case 2:
-		return entity.NodeTypeExit, nil
-	case 3:
-		return entity.NodeTypeLLM, nil
-	case 4:
-		return entity.NodeTypePlugin, nil
-	case 5:
-		return entity.NodeTypeCodeRunner, nil
-	case 6:
-		return entity.NodeTypeKnowledgeRetriever, nil
-	case 8:
-		return entity.NodeTypeSelector, nil
-	case 9:
-		return entity.NodeTypeSubWorkflow, nil
-	case 12:
-		return entity.NodeTypeDatabaseCustomSQL, nil
-	case 13:
-		return entity.NodeTypeOutputEmitter, nil
-	case 15:
-		return entity.NodeTypeTextProcessor, nil
-	case 18:
-		return entity.NodeTypeQuestionAnswer, nil
-	case 19:
-		return entity.NodeTypeBreak, nil
-	case 20:
-		return entity.NodeTypeVariableAssignerWithinLoop, nil
-	case 21:
-		return entity.NodeTypeLoop, nil
-	case 22:
-		return entity.NodeTypeIntentDetector, nil
-	case 27:
-		return entity.NodeTypeKnowledgeIndexer, nil
-	case 28:
-		return entity.NodeTypeBatch, nil
-	case 29:
-		return entity.NodeTypeContinue, nil
-	case 30:
-		return entity.NodeTypeInputReceiver, nil
-	case 32:
-		return entity.NodeTypeVariableAggregator, nil
-	case 37:
-		return entity.NodeTypeMessageList, nil
-	case 38:
-		return entity.NodeTypeClearMessage, nil
-	case 39:
-		return entity.NodeTypeCreateConversation, nil
-	case 40:
-		return entity.NodeTypeVariableAssigner, nil
-	case 42:
-		return entity.NodeTypeDatabaseUpdate, nil
-	case 43:
-		return entity.NodeTypeDatabaseQuery, nil
-	case 44:
-		return entity.NodeTypeDatabaseDelete, nil
-	case 45:
-		return entity.NodeTypeHTTPRequester, nil
-	case 46:
-		return entity.NodeTypeDatabaseInsert, nil
-	case 58:
-		return entity.NodeTypeJsonSerialization, nil
-	case 59:
-		return entity.NodeTypeJsonDeserialization, nil
-	case 60:
-		return entity.NodeTypeKnowledgeDeleter, nil
-	default:
-		// Handle all unknown or unsupported types here
-		return "", fmt.Errorf("unsupported or unknown node type ID: %d", i)
-	}
-}
-
 // entityNodeTypeToAPINodeTemplateType converts an entity.NodeType to the corresponding workflow.NodeTemplateType.
 func entityNodeTypeToAPINodeTemplateType(nodeType entity.NodeType) (workflow.NodeTemplateType, error) {
 	switch nodeType {
@@ -3755,7 +3677,7 @@ func mergeWorkflowAPIParameters(latestAPIParameters []*workflow.APIParameter, ex
 func parseWorkflowTerminatePlanType(c *vo.Canvas) (int32, error) {
 	var endNode *vo.Node
 	for _, n := range c.Nodes {
-		if n.Type == vo.BlockTypeBotEnd {
+		if n.Type == entity.NodeTypeExit.IDStr() {
 			endNode = n
 			break
 		}

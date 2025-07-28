@@ -21,6 +21,7 @@ import (
 	"github.com/coze-dev/coze-studio/backend/domain/workflow/crossdomain/model"
 )
 
+// Canvas is the definition of FRONTEND schema for a workflow.
 type Canvas struct {
 	Nodes    []*Node `json:"nodes"`
 	Edges    []*Edge `json:"edges"`
@@ -28,13 +29,13 @@ type Canvas struct {
 }
 
 type Node struct {
-	ID      string    `json:"id"`
-	Type    BlockType `json:"type"`
-	Meta    any       `json:"meta"`
-	Data    *Data     `json:"data"`
-	Blocks  []*Node   `json:"blocks,omitempty"`
-	Edges   []*Edge   `json:"edges,omitempty"`
-	Version string    `json:"version,omitempty"`
+	ID      string  `json:"id"`
+	Type    string  `json:"type"`
+	Meta    any     `json:"meta"`
+	Data    *Data   `json:"data"`
+	Blocks  []*Node `json:"blocks,omitempty"`
+	Edges   []*Edge `json:"edges,omitempty"`
+	Version string  `json:"version,omitempty"`
 
 	parent *Node
 }
@@ -127,7 +128,7 @@ type VariableAssigner struct {
 
 type LLMParam = []*Param
 type IntentDetectorLLMParam = map[string]any
-type QALLMParam struct {
+type SimpleLLMParam struct {
 	GenerationDiversity string               `json:"generationDiversity"`
 	MaxTokens           int                  `json:"maxTokens"`
 	ModelName           string               `json:"modelName"`
@@ -436,48 +437,6 @@ type SubWorkflow struct {
 	SpaceID         string `json:"spaceId,omitempty"`
 }
 
-// BlockType is the enumeration of node types for front-end canvas schema.
-// To add a new BlockType, start from a really big number such as 1000, to avoid conflict with future extensions.
-type BlockType string
-
-func (b BlockType) String() string {
-	return string(b)
-}
-
-const (
-	BlockTypeBotStart            BlockType = "1"
-	BlockTypeBotEnd              BlockType = "2"
-	BlockTypeBotLLM              BlockType = "3"
-	BlockTypeBotAPI              BlockType = "4"
-	BlockTypeBotCode             BlockType = "5"
-	BlockTypeBotDataset          BlockType = "6"
-	BlockTypeCondition           BlockType = "8"
-	BlockTypeBotSubWorkflow      BlockType = "9"
-	BlockTypeDatabase            BlockType = "12"
-	BlockTypeBotMessage          BlockType = "13"
-	BlockTypeBotText             BlockType = "15"
-	BlockTypeQuestion            BlockType = "18"
-	BlockTypeBotBreak            BlockType = "19"
-	BlockTypeBotLoopSetVariable  BlockType = "20"
-	BlockTypeBotLoop             BlockType = "21"
-	BlockTypeBotIntent           BlockType = "22"
-	BlockTypeBotDatasetWrite     BlockType = "27"
-	BlockTypeBotInput            BlockType = "30"
-	BlockTypeBotBatch            BlockType = "28"
-	BlockTypeBotContinue         BlockType = "29"
-	BlockTypeBotComment          BlockType = "31"
-	BlockTypeBotVariableMerge    BlockType = "32"
-	BlockTypeBotAssignVariable   BlockType = "40"
-	BlockTypeDatabaseUpdate      BlockType = "42"
-	BlockTypeDatabaseSelect      BlockType = "43"
-	BlockTypeDatabaseDelete      BlockType = "44"
-	BlockTypeBotHttp             BlockType = "45"
-	BlockTypeDatabaseInsert      BlockType = "46"
-	BlockTypeJsonSerialization   BlockType = "58"
-	BlockTypeJsonDeserialization BlockType = "59"
-	BlockTypeBotDatasetDelete    BlockType = "60"
-)
-
 type VariableType string
 
 const (
@@ -596,34 +555,6 @@ const (
 	LoopTypeCount    LoopType = "count"
 	LoopTypeInfinite LoopType = "infinite"
 )
-
-type WorkflowIdentity struct {
-	ID      string `json:"id"`
-	Version string `json:"version"`
-}
-
-func (c *Canvas) GetAllSubWorkflowIdentities() []*WorkflowIdentity {
-	workflowEntities := make([]*WorkflowIdentity, 0)
-
-	var collectSubWorkFlowEntities func(nodes []*Node)
-	collectSubWorkFlowEntities = func(nodes []*Node) {
-		for _, n := range nodes {
-			if n.Type == BlockTypeBotSubWorkflow {
-				workflowEntities = append(workflowEntities, &WorkflowIdentity{
-					ID:      n.Data.Inputs.WorkflowID,
-					Version: n.Data.Inputs.WorkflowVersion,
-				})
-			}
-			if len(n.Blocks) > 0 {
-				collectSubWorkFlowEntities(n.Blocks)
-			}
-		}
-	}
-
-	collectSubWorkFlowEntities(c.Nodes)
-
-	return workflowEntities
-}
 
 func GenerateNodeIDForBatchMode(key string) string {
 	return key + "_inner"
