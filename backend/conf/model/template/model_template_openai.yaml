@@ -145,7 +145,7 @@ meta:
         reasoning: false
         prefill_response: false
     conn_config:
-        base_url: ""
+        base_url: "https://api.openai.com/v1"
         api_key: ""
         timeout: 0s
         model: ""
@@ -162,10 +162,5 @@ meta:
             response_format:
                 type: text
                 jsonschema: null
-        claude: null
-        ark: null
-        deepseek: null
-        qwen: null
-        gemini: null
         custom: {}
     status: 0

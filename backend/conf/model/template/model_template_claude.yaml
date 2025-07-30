@@ -64,7 +64,7 @@ meta:
         reasoning: false
         prefill_response: false
     conn_config:
-        base_url: ""
+        base_url: "https://api.anthropic.com/v1/"
         api_key: ""
         timeout: 0s
         model: ""
@@ -75,16 +75,11 @@ meta:
         top_p: 1
         top_k: 0
         stop: []
-        openai: null
         claude:
             by_bedrock: false
             access_key: ""
             secret_access_key: ""
             session_token: ""
             region: ""
-        ark: null
-        deepseek: null
-        qwen: null
-        gemini: null
         custom: {}
     status: 0
