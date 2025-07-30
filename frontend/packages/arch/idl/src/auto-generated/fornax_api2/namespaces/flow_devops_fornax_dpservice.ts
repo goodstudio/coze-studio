@@ -35,12 +35,12 @@ export interface CreateAnnotateTaskReq {
   spaceID: string;
   name: string;
   platform: dp.AnnotatePlatform;
-  /** 输入数据集 ID */
+  /** Enter the dataset ID */
   inputDatasetID: string;
-  /** 输出数据集名称 */
+  /** Output dataset name */
   outputDatasetName: string;
   aidpConfig?: dp.AIDPConfig;
-  /** 字段映射配置 */
+  /** Data field mapping configuration */
   fieldMapConfig?: Array<dp.SendFieldMapping>;
 }
 
@@ -49,31 +49,31 @@ export interface CreateAnnotateTaskResp {
 }
 
 export interface CreateDataProcessingTaskReq {
-  /** 任务名称 */
+  /** task name */
   name?: string;
-  /** 任务类型 */
+  /** task type */
   taskType?: dp.TaskType;
-  /** 输入数据集 */
+  /** input dataset */
   inDatasetID?: string;
-  /** Deprecated. 输出数据集名称，用outDatasetNames代替 */
+  /** Deprecated. Output dataset name, replaced by outDatasetNames */
   outDatasetName?: string;
-  /** 输出数据集Schema */
+  /** Output Dataset Schema */
   outDatasetSchema?: Array<dp.FieldInfo>;
-  /** 用户脚本 */
+  /** user script */
   userScript?: dp.UserScript;
-  /** 试运行签名 */
+  /** Practice running signatures */
   dryRunID?: string;
   trainingDatasetType?: model.TrainingDatasetType;
-  /** 输出数据集列表 */
+  /** Output dataset list */
   outDatasets?: Array<dp.DatasetInfo>;
-  /** 输出到数据集的类型。数据集、评测集、结果集 */
+  /** Type of output to dataset. Dataset, review set, result set */
   datasetType?: dp.DatasetType;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
 export interface CreateDataProcessingTaskResp {
-  /** 任务ID */
+  /** Task ID */
   taskID?: string;
 }
 
@@ -82,7 +82,7 @@ export interface CreateDatasetImportTaskReq {
   fileType?: dp.DatasetFileType;
   dataSource?: dp.DataSource;
   overwrite?: boolean;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -92,7 +92,7 @@ export interface CreateDatasetImportTaskResp {
 
 export interface DeleteDataProcessingTaskReq {
   task_id?: string;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
@@ -101,29 +101,29 @@ export interface DeleteDataProcessingTaskResp {
 }
 
 export interface DryRunDataProcessingTaskReq {
-  /** 输入数据集ID */
+  /** Enter the dataset ID */
   datasetID?: string;
-  /** 用户脚本 */
+  /** user script */
   userScript?: dp.UserScript;
-  /** 样本条数，默认前10条 */
+  /** Number of samples, default first 10 */
   sampleCount?: number;
   trainingDatasetType?: model.TrainingDatasetType;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
 export interface DryRunDataProcessingTaskResp {
-  /** 运行结果 */
+  /** running result */
   results?: Array<dp.ScriptRunResultItem>;
-  /** 签名，在保存任务时需要透传到服务端 */
+  /** Signature, which needs to be passed to the server level when saving tasks */
   runID?: string;
-  /** 运行结果的Schema */
+  /** Schema of running results */
   schema?: Array<dp.FieldInfo>;
-  /** 编译错误 */
+  /** compilation error */
   compileError?: string;
-  /** 标准输出 */
+  /** standard output */
   stdout?: string;
-  /** 标准错误 */
+  /** standard error */
   stderr?: string;
 }
 
@@ -131,16 +131,16 @@ export interface ExportDatasetReq {
   spaceID: string;
   datasetID: string;
   columnMappings?: Array<dp.DatasetColumnMapping>;
-  /** 导出到新的评测集/结果集/标注集时提供 */
+  /** Provided when exporting to a new review set/result set/annotation set */
   toDatasetName?: string;
   toDatasetDesc?: string;
   toDatasetPublishOption?: flow_devops_evaluation_dataset.PublishOption;
-  /** 创建训练集时必填 */
+  /** Required when creating training dataset */
   toDatasetType?: flow_devops_evaluation_dataset.DatasetType;
   toDatasetTagIDs?: Array<Int64>;
-  /** 导出到已有评测集/结果集/标注集时提供 */
+  /** Provided when exporting to an existing evaluation set/result set/annotation set */
   toDatasetID?: string;
-  /** 为 true 时覆盖更新 */
+  /** Overwrite update when true */
   overwrite?: boolean;
 }
 
@@ -177,20 +177,20 @@ export interface GetExportDatasetTaskResp {
 
 export interface GetTaskRunLogsReq {
   run_id?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
 export interface GetTaskRunLogsResp {
-  /** 日志源 */
+  /** log source */
   runLogSourceType?: dp.RunLogSourceType;
-  /** 日志内容 */
+  /** log content */
   content?: string;
 }
 
 export interface GetTaskRunsReq {
   task_id?: string;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
@@ -208,23 +208,23 @@ export interface GetUserScriptTemplateConfigResp {
 
 export interface ListAnnotateTaskBySpaceReq {
   spaceID: string;
-  /** 标注平台任务 ID */
+  /** tag platform task ID */
   platformTaskIDs?: Array<string>;
-  /** 输入数据集ID */
+  /** Enter the dataset ID */
   inputDatasetIDs?: Array<string>;
-  /** 标注平台 */
+  /** labeling platform */
   platforms?: Array<dp.AnnotatePlatform>;
-  /** 任务状态 */
+  /** task status */
   statuses?: Array<dp.TaskStatus>;
-  /** fornax 标注任务 ID */
+  /** Fornax annotation task ID */
   taskIDs?: Array<string>;
-  /** 任务名称 */
+  /** task name */
   name?: string;
-  /** 创建人 */
+  /** founder */
   createdBy?: string;
-  /** 起始为空，滚动传入 resp 里的 nextCursor */
+  /** Start with null, scroll to nextCursor in resp */
   cursor?: string;
-  /** 默认为 20 */
+  /** Default is 20. */
   pageSize?: string;
 }
 
@@ -253,7 +253,7 @@ export interface ListDataProcessingTasksResp {
 
 export interface MGetDataProcessingTaskReq {
   taskIDs?: Array<string>;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
@@ -274,7 +274,7 @@ export interface ProcessCallbackResp {}
 export interface ReentryTaskRunReq {
   task_run_id?: string;
   forceStart?: boolean;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
@@ -292,7 +292,7 @@ export interface RefreshAnnotateTaskStatusDetailResp {
 
 export interface RunDataProcessingTaskReq {
   task_id?: string;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
@@ -302,7 +302,7 @@ export interface RunDataProcessingTaskResp {
 
 export interface StopDataProcessingTaskReq {
   task_id?: string;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
@@ -315,14 +315,14 @@ export interface UpdateDataProcessingTaskReq {
   name?: string;
   userScript?: dp.UserScript;
   dryRunID?: string;
-  /** 输出数据集Schema */
+  /** Output Dataset Schema */
   outDatasetSchema?: Array<dp.FieldInfo>;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
 export interface UpdateDataProcessingTaskResp {
-  /** 任务ID */
+  /** Task ID */
   taskID?: string;
 }
 /* eslint-enable */

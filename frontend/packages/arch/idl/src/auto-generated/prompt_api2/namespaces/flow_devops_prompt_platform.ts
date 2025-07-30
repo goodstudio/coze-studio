@@ -25,9 +25,9 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export interface AddSpaceMemberRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 添加空间成员 */
+  /** Add space member */
   space_members?: Array<flow_devops_prompt_common.SpaceMember>;
   base?: base.Base;
 }
@@ -39,11 +39,11 @@ export interface AddSpaceMemberResponse {
 }
 
 export interface AuthComponentSDKRequest {
-  /** 一个随机字符串，由数字、字母组成 */
+  /** A random string of numbers and letters */
   noncestr?: string;
-  /** 时间戳（毫秒） */
+  /** Timestamp (milliseconds) */
   timestamp?: Int64;
-  /** 组件页面url */
+  /** Component page URL */
   url?: string;
   base?: base.Base;
 }
@@ -56,16 +56,16 @@ export interface AuthComponentSDKResponse {
 }
 
 export interface CreateSpaceRequest {
-  /** 空间名称 */
+  /** space name */
   name: string;
-  /** 空间描述 */
+  /** spatial description */
   description?: string;
   space_type?: flow_devops_prompt_common.SpaceType;
   base?: base.Base;
 }
 
 export interface CreateSpaceResponse {
-  /** 创建空间 */
+  /** Create space */
   space?: flow_devops_prompt_common.Space;
   code?: number;
   msg?: string;
@@ -77,7 +77,7 @@ export interface GetSessionInfoRequest {
 }
 
 export interface GetSessionInfoResponse {
-  /** 登录用户信息 */
+  /** Login user information */
   user_info?: flow_devops_prompt_common.UserInfo;
   code?: number;
   msg?: string;
@@ -85,13 +85,13 @@ export interface GetSessionInfoResponse {
 }
 
 export interface GetSpaceRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   base?: base.Base;
 }
 
 export interface GetSpaceResponse {
-  /** 空间 */
+  /** space */
   space?: flow_devops_prompt_common.Space;
   code?: number;
   msg?: string;
@@ -99,15 +99,15 @@ export interface GetSpaceResponse {
 }
 
 export interface GetUserInfoRequest {
-  /** 选填用户ID */
+  /** Optional user ID */
   user_id?: string;
-  /** 选填用户名 */
+  /** Optional username */
   user_name?: string;
   base?: base.Base;
 }
 
 export interface GetUserInfoResponse {
-  /** 用户信息 */
+  /** user information */
   user_info?: flow_devops_prompt_common.UserInfo;
   code?: number;
   msg?: string;
@@ -115,7 +115,7 @@ export interface GetUserInfoResponse {
 }
 
 export interface GetUserSpaceRolesRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   base?: base.Base;
 }
@@ -146,7 +146,7 @@ export interface ListUserSpaceRequest {
 }
 
 export interface ListUserSpaceResponse {
-  /** 空间列表 */
+  /** space list */
   spaces?: Array<flow_devops_prompt_common.Space>;
   code?: number;
   msg?: string;
@@ -154,11 +154,11 @@ export interface ListUserSpaceResponse {
 }
 
 export interface LoginRequest {
-  /** 登录授权码 */
+  /** login authorization code */
   code?: string;
-  /** 登录流程重定向uri */
+  /** Login process redirect uri */
   state?: string;
-  /** 指定 sessionID */
+  /** Specify sessionID */
   session_id?: string;
   base?: base.Base;
 }
@@ -180,10 +180,10 @@ export interface LogoutResponse {
 }
 
 export interface MCheckPermissionRequest {
-  /** 鉴权三元组列表 */
+  /** Authentication Triple List */
   auths?: Array<flow_devops_prompt_common.SubjectActionObjects>;
-  /** 应用 ID，用于区别内外场
-应用ID */
+  /** Application ID, used to distinguish between internal and external fields
+App ID */
   app_id?: number;
   base?: base.Base;
 }
@@ -196,15 +196,15 @@ export interface MCheckPermissionResponse {
 }
 
 export interface MGetUserInfoRequest {
-  /** 飞书UserID列表 */
+  /** Feishu UserID List */
   user_ids?: Array<string>;
-  /** SsoUserName列表 */
+  /** SsoUserName List */
   user_names?: Array<string>;
   base?: base.Base;
 }
 
 export interface MGetUserInfoResponse {
-  /** 用户信息列表 */
+  /** user information list */
   user_infos?: Array<flow_devops_prompt_common.UserInfo>;
   code?: number;
   msg?: string;
@@ -212,7 +212,7 @@ export interface MGetUserInfoResponse {
 }
 
 export interface QuerySpaceMemberRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   role_type?: flow_devops_prompt_common.SpaceRoleType;
   page: number;
@@ -221,10 +221,10 @@ export interface QuerySpaceMemberRequest {
 }
 
 export interface QuerySpaceMemberResponse {
-  /** 空间成员 */
+  /** space member */
   space_members?: Array<flow_devops_prompt_common.SpaceMember>;
   total?: number;
-  /** 成员租户分布，去重 */
+  /** Member-tenant distribution, deduplicated */
   member_tenant?: Array<flow_devops_prompt_common.TenantType>;
   code?: number;
   msg?: string;
@@ -232,21 +232,21 @@ export interface QuerySpaceMemberResponse {
 }
 
 export interface QueryUserInfoRequest {
-  /** 用户名模糊搜索 */
+  /** Username fuzzy search */
   name_like: string;
-  /** 分页大小，默认为20 */
+  /** Page size, default is 20 */
   page_size: number;
-  /** 分页Token */
+  /** Paging Token */
   page_token: string;
   base?: base.Base;
 }
 
 export interface QueryUserInfoResponse {
-  /** 用户信息列表 */
+  /** user information list */
   user_infos?: Array<flow_devops_prompt_common.UserInfo>;
-  /** 分页Token */
+  /** Paging Token */
   page_token?: string;
-  /** 是否还有下一页 */
+  /** Is there a next page? */
   has_more?: boolean;
   code?: number;
   msg?: string;
@@ -254,9 +254,9 @@ export interface QueryUserInfoResponse {
 }
 
 export interface RemoveSpaceMemberRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 移除空间成员 */
+  /** Remove space member */
   space_members?: Array<flow_devops_prompt_common.SpaceMember>;
   base?: base.Base;
 }
@@ -268,13 +268,13 @@ export interface RemoveSpaceMemberResponse {
 }
 
 export interface UpdateSpaceRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 空间名称 */
+  /** space name */
   name?: string;
-  /** 空间描述 */
+  /** spatial description */
   description?: string;
-  /** 发布审批配置 */
+  /** release approval configuration */
   release_approval_config?: flow_devops_prompt_common.ReleaseApprovalConfig;
   base?: base.Base;
 }

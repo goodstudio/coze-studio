@@ -23,52 +23,52 @@ export type Int64 = string | number;
 
 export enum AccountStatus {
   Available = 1,
-  /** 账户付费不可用 */
+  /** Account payment is not available */
   Unavailable = 2,
 }
 
 export enum BenefitType {
-  /** RPM 限流 */
+  /** The limited viewership of RPM */
   RateLimitRPM = 60,
-  /** 模型 Input TPM 限流 */
+  /** Input limited viewership of TPM */
   RateLimitModelInputTPM = 61,
-  /** 模型 Output TPM 限流 */
+  /** Output TPM limited viewership of model */
   RateLimitModelOutputTPM = 62,
-  /** 基础模型 Input TPM 限流 */
+  /** Input limited viewership of TPM */
   RateLimitModelInputTPMBasic = 63,
-  /** 基础模型 Output TPM 限流 */
+  /** Output TPM limited viewership of base model */
   RateLimitModelOutputTPMBasic = 64,
 }
 
 export enum CommonUnit {
-  /** 通用
-资源点 */
+  /** general purpose
+resource point */
   ResourcePoint = 1,
-  /** 次 */
+  /** time */
   Times = 2,
-  /** 时间
-年 */
+  /** time
+year */
   Year = 100,
-  /** 月 */
+  /** month */
   Month = 101,
-  /** 日 */
+  /** day */
   Day = 102,
-  /** 小时 */
+  /** hour */
   Hour = 103,
-  /** 分钟 */
+  /** minute */
   Min = 104,
-  /** 秒 */
+  /** second */
   Sec = 105,
-  /** 毫秒 */
+  /** millisecond */
   MillSec = 106,
-  /** 存储
-字节 */
+  /** storage
+Byte */
   Byte = 200,
-  /** 千字节 */
+  /** kilobyte */
   KB = 201,
-  /** 兆字节 */
+  /** megabyte */
   MB = 202,
-  /** 吉字节 */
+  /** gigabytes */
   GB = 203,
 }
 
@@ -79,50 +79,50 @@ export enum CozeAccountType {
 }
 
 export enum InstanceStatus {
-  /** 创建中, 理论上不会返回该状态 */
+  /** Created, it will not return to this state in theory */
   InstanceStatusCreating = 0,
-  /** 运行中 */
+  /** Running */
   Running = 1,
-  /** 创建失败, 理论上不会返回该状态 */
+  /** The creation failed, and the state will not be returned in theory */
   InstanceStatusFailed = 2,
-  /** 退订回收 */
+  /** unsubscribe recycling */
   UnsubsRecycled = 3,
-  /** 到期关停 */
+  /** expiration shutdown */
   ExpiredClosed = 4,
-  /** 到期回收 */
+  /** Recycling at maturity */
   ExpiredRecycled = 5,
-  /** 欠费关停 */
+  /** shutdown due */
   InstanceStatusOverdueShutdown = 6,
-  /** 欠费回收 */
+  /** Arrears recovery */
   InstanceStatusOverdueRecycled = 7,
-  /** 退订关停 */
+  /** unsubscribe shutdown */
   InstanceStatusTerminatedShutdown = 8,
 }
 
 export enum ResourceUsageStrategy {
-  /** 无限制 */
+  /** Unlimited */
   UnLimit = 1,
-  /** 限制 */
+  /** restriction */
   Forbidden = 2,
-  /** 通过额度校验 */
+  /** Pass the quota verification */
   ByQuota = 3,
 }
 
 export enum UserLevel {
-  /** 免费版 */
+  /** free version */
   Free = 0,
-  /** 海外 */
+  /** overseas */
   PremiumLite = 10,
   /** Premium */
   Premium = 15,
   PremiumPlus = 20,
-  /** 国内 */
+  /** domestic */
   V1ProInstance = 100,
-  /** 个人旗舰版 */
+  /** Personal flagship version */
   ProPersonal = 110,
-  /** 团队版 */
+  /** Team Edition */
   Team = 120,
-  /** 企业版 */
+  /** Enterprise Edition */
   Enterprise = 130,
 }
 

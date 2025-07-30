@@ -39,25 +39,25 @@ export enum ModelClass {
   StableDiffusion = 6,
   ByteArtist = 7,
   Maas = 9,
-  /** 废弃：千帆(百度云) */
+  /** Abandoned: Qianfan (Baidu Cloud) */
   QianFan = 10,
   /** name：Google Gemini */
   Gemini = 11,
   /** name: Moonshot */
   Moonshot = 12,
-  /** name：智谱 */
+  /** Name: Zhipu */
   GLM = 13,
-  /** name: 火山方舟 */
+  /** Name: Volcano Ark */
   MaaSAutoSync = 14,
-  /** name：通义千问 */
+  /** Name: Tongyi Qianwen */
   QWen = 15,
   /** name: Cohere */
   Cohere = 16,
-  /** name: 百川智能 */
+  /** Name: Baichuan Intelligent */
   Baichuan = 17,
-  /** name：文心一言 */
+  /** Name: ERNIE Bot */
   Ernie = 18,
-  /** name: 幻方 */
+  /** Name: Magic Square */
   DeekSeek = 19,
   /** name: Llama */
   Llama = 20,
@@ -83,35 +83,35 @@ export enum ModelStatus {
 }
 
 /** enum ModelTypeTag {
-    MultiModal = 1 // 多模态
-    TextGenerate = 2 // 文本生成
-    Finetune = 3 // 微调
+    MultiModal = 1//multimodaltimodal
+    TextGenerate = 2//Text Generate generation
+    Finetune = 3//trimmerne-tuning
 }
 
 enum ModelUserRightTag {
-    Free = 1 // 免费
-    New = 2 // 新模型
-    Expiring = 3 // 即将下架
-    Premium = 4 // 高级
+    Free = 1//Freeee
+    New = 2//new model model
+    Expiring = 3//will be removed soont to be removed from the shelves
+    Premium = 4//Premiumvanced
 }
 
 enum ModelFeatureTag {
-    HighSpeed = 1 // 高速
-    CostEffective = 2 // 性价比
-    LongText = 3 // 长文本
-    CodeExpert = 4 // 代码专精
-    ImageUnderstanding = 5 // 图像理解
-    AudioUnderstanding = 6 // 音频理解
-    VideoUnderstanding = 7 // 视频理解
+    HighSpeed = 1//High Speedgh speed
+    CostEffective = 2//ce/performance ratio
+    LongText = 3//long textg text
+    CodeExpert = 4//Code Specialization Specialization
+    ImageUnderstanding = 5//Image Understandinge understanding
+    AudioUnderstanding = 6//Audio Understandingo comprehension
+    VideoUnderstanding = 7//Video Understandingo understanding
 }
 
 enum ModelFunctionTag {
-    TextGenerate = 1 // 文本生成
-    CodeGenerate = 2 // 代码生成
-    CodeUnderstanding = 3 // 代码理解
-    ImageUnderstanding = 4 // 图像理解
-    AudioUnderstanding = 5 // 音频理解
-    VideoUnderstanding = 6 // 视频理解
+    TextGenerate = 1//Text Generate generation
+    CodeGenerate = 2//code generation generation
+    CodeUnderstanding = 3//Code Understanding understanding
+    ImageUnderstanding = 4//Image Understandinge understanding
+    AudioUnderstanding = 5//Audio Understandingo comprehension
+    VideoUnderstanding = 6//Video Understandingo understanding
 } */
 export enum ModelTagClass {
   ModelType = 1,
@@ -120,9 +120,9 @@ export enum ModelTagClass {
   ModelFunction = 4,
   ModelScenario = 5,
   ModelPayment = 15,
-  /** 模型运行时能力 */
+  /** model runtime capability */
   ModelAbility = 16,
-  /** 本期不做 */
+  /** Do not do this issue */
   Custom = 20,
 }
 
@@ -133,14 +133,14 @@ export enum OperateFinetuneTaskAction {
 }
 
 export enum OrderBy {
-  /** 综合推荐 */
+  /** comprehensive recommendation */
   Recommend = 1,
 }
 
 export enum ValidatingType {
-  /** 上传 */
+  /** upload */
   upload = 1,
-  /** 训练集分割 */
+  /** Training dataset segmentation */
   TrainingSetSplit = 2,
 }
 
@@ -151,11 +151,11 @@ export interface CreateFinetuneTaskData {
 export interface CreateFinetuneTaskRequest {
   space_id?: string;
   base_model_id?: string;
-  /** 训练集 */
+  /** training dataset */
   training_dataset_id?: string;
-  /** 验证集 */
+  /** validation set */
   validating_dataset?: ValidatingDataset;
-  /** 训练配置 */
+  /** training configuration */
   finetune_configuration?: FinetuneConfiguration;
   description?: string;
   name?: string;
@@ -187,9 +187,9 @@ export interface ExpansionTpmRequest {
   organization_id?: string;
   tpm_input_expansion?: string;
   tpm_output_expansion?: string;
-  /** 开始生效时间 */
+  /** Effective time */
   start_time?: string;
-  /** 结束生效时间 */
+  /** End effective time */
   end_time?: string;
 }
 
@@ -200,11 +200,11 @@ export interface ExpansionTpmResponse {
 }
 
 export interface FinetuneConfiguration {
-  /** 批次大小 */
+  /** batch size */
   batch_size?: Int64;
-  /** 训练轮数 */
+  /** training rounds */
   epochs?: Int64;
-  /** 学习率 */
+  /** learning rate */
   learning_rate?: number;
 }
 
@@ -222,16 +222,16 @@ export interface FinetuneTemplateDatasets {
 }
 
 export interface FinetuneTrainingInfo {
-  /** 具体数据 */
+  /** specific data */
   metric_data?: Array<FinetuneTrainingInfoItem>;
-  /** 指标名 */
+  /** indicator name */
   metric_name?: string;
 }
 
 export interface FinetuneTrainingInfoItem {
-  /** 横坐标 */
+  /** abscissa */
   step?: Int64;
-  /** 纵坐标 */
+  /** ordinate */
   value?: number;
 }
 
@@ -253,9 +253,9 @@ export interface GetEstimatedTpmExpansionCostResponse {
 }
 
 export interface GetEstimatedTpmExpansionData {
-  /** 输入TPM扩容值 */
+  /** Input TPM expansion value */
   tpm_input_expansion?: Int64;
-  /** 输出TPM扩容值 */
+  /** Output TPM expansion value */
   tpm_output_expansino?: Int64;
 }
 
@@ -263,9 +263,9 @@ export interface GetEstimatedTpmExpansionRequest {
   model_id?: string;
   enterprise_id?: string;
   estimated_rpm?: string;
-  /** 开始生效时间 */
+  /** Effective time */
   StartTime?: string;
-  /** 结束生效时间 */
+  /** End effective time */
   EndTime?: string;
 }
 
@@ -438,17 +438,17 @@ export interface GetSpaceModelUserConfigResponse {
 }
 
 export interface ModelAbility {
-  /** 是否展示cot */
+  /** Do you want to show cot? */
   cot_display?: boolean;
-  /** 是否支持function call */
+  /** Supports function calls */
   function_call?: boolean;
-  /** 是否支持图片理解 */
+  /** Does it support picture understanding? */
   image_understanding?: boolean;
-  /** 是否支持视频理解 */
+  /** Does it support video understanding? */
   video_understanding?: boolean;
-  /** 是否支持音频理解 */
+  /** Does it support audio understanding? */
   audio_understanding?: boolean;
-  /** 是否支持续写 */
+  /** Whether to support continuation */
   prefill_resp?: boolean;
 }
 
@@ -456,7 +456,7 @@ export interface ModelBasicInfo {
   name?: string;
   model_id?: string;
   model_class?: ModelClass;
-  /** domain_model.thrift icon的url */
+  /** domain_model url of thrift icon */
   model_icon?: string;
   model_input_price?: number;
   model_output_price?: number;
@@ -465,17 +465,17 @@ export interface ModelBasicInfo {
   model_class_name?: string;
   model_desc?: string;
   param_size?: string;
-  /** 方舟模型节点名称 */
+  /** Ark model node name */
   endpoint_name?: string;
   model_tags?: Partial<Record<ModelTagClass, Array<string>>>;
-  /** 模型厂商 */
+  /** Model manufacturer */
   model_vendor?: string;
-  /** 模型参数 */
+  /** model parameters */
   model_params?: Array<ModelParameter>;
   show_family_id?: string;
   model_ability?: ModelAbility;
   default_model_flag?: boolean;
-  /** 0-用户可见 1-用户不可见 */
+  /** 0-User visible 1-User invisible */
   model_config_type?: number;
   online_time?: string;
   offline_time?: string;
@@ -490,18 +490,18 @@ export interface ModelConcurrencyPerformance {
   input_tmp_30d?: Array<ModelPerformance>;
   output_tmp_30d?: Array<ModelPerformance>;
   rpm_30d?: Array<ModelPerformance>;
-  /** 一个月内每日峰值超出rpm阈值的次数 */
+  /** The number of times the daily peak exceeds the rpm threshold in a month */
   exceed_rpm_threshold_num?: Int64;
-  /** 一个月内每日峰值超出tpm阈值的次数 */
+  /** The number of times the daily peak exceeds the tpm threshold in a month */
   exceed_tpm_threshold_num?: Int64;
 }
 
 export interface ModelConcurrentInfo {
-  /** TPM扩容是否生效 */
+  /** Is the TPM expansion effective? */
   has_model_tpm_expansion?: boolean;
-  /** 是否可以TPM扩容（只有可以TPM扩容的模型才能） */
+  /** Can TPM be scaled (only models that can be scaled with TPM can) */
   can_model_tpm_expansion?: boolean;
-  /** 是否展示并发模型监控 */
+  /** Whether to show concurrency model monitoring */
   show_model_concurrent_monitor?: boolean;
 }
 
@@ -535,25 +535,25 @@ export interface ModelParamDefaultValue {
 }
 
 export interface ModelParameter {
-  /** 配置字段，如max_tokens */
+  /** Configuration fields, such as max_tokens */
   name: string;
-  /** 配置字段展示名称 */
+  /** Configure field display name */
   label?: string;
-  /** 配置字段详情描述 */
+  /** Configuration field detail description */
   desc?: string;
-  /** 类型 */
+  /** type */
   type: ModelParamType;
-  /** 数值类型参数，允许设置的最小值 */
+  /** Numerical type parameters, the minimum value allowed to be set */
   min?: string;
-  /** 数值类型参数，允许设置的最大值 */
+  /** Numerical type parameter, the maximum value allowed to be set */
   max?: string;
-  /** float类型参数的精度 */
+  /** Precision of float type parameters */
   precision?: number;
-  /** 参数默认值{"default": xx, "creative":xx} */
+  /** Parameter default {"default": xx, "creative": xx} */
   default_val: ModelParamDefaultValue;
-  /** 枚举值，如response_format支持text,markdown,json */
+  /** Enumeration values such as response_format support text, markdown, json */
   options?: Array<Option>;
-  /** 参数分类，"Generation diversity", "Input and output length", "Output format" */
+  /** Parameter classification, "Generation diversity", "Input and output length", "Output format" */
   param_class?: ModelParamClass;
 }
 
@@ -602,7 +602,7 @@ export interface OperateFinetuneTaskData {
 
 export interface OperateFinetuneTaskRequest {
   id?: string;
-  /** 操作，stop, resume, delete */
+  /** Operation, stop, resume, delete */
   action?: OperateFinetuneTaskAction;
 }
 
@@ -613,9 +613,9 @@ export interface OperateFinetuneTaskResponse {
 }
 
 export interface Option {
-  /** option展示的值 */
+  /** The value displayed by the option */
   label?: string;
-  /** 填入的值 */
+  /** Filled in value */
   value?: string;
 }
 
@@ -645,7 +645,7 @@ export interface StartEstimatedTrainingCostResponse {
 export interface UpdateModelConfigTypeRequest {
   space_id?: string;
   model_id?: string;
-  /** 0-用户可见 1-用户不可见 */
+  /** 0-User visible 1-User invisible */
   config_type?: number;
 }
 
@@ -660,9 +660,9 @@ export interface UploadFinetuneDatasetData {
 
 export interface UploadFinetuneDatasetRequest {
   space_id?: string;
-  /** 文件类型，后缀 */
+  /** File type, suffix */
   fileType?: string;
-  /** 文件名 */
+  /** file name */
   fileName?: string;
   data?: string;
   testing_data?: Blob;
@@ -676,7 +676,7 @@ export interface UploadFinetuneDatasetResponse {
 
 export interface ValidatingDataset {
   validating_type?: ValidatingType;
-  /** 分割比例，如果是训练集分割传递 0 -100 */
+  /** Split ratio, if it is a training dataset split pass 0 -100 */
   split_ratio?: Int64;
   validating_dataset_id?: string;
 }

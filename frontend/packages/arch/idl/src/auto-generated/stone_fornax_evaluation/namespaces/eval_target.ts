@@ -24,9 +24,9 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export enum CozeBotInfoType {
-  /** 草稿 bot */
+  /** Draft bot */
   DraftBot = 1,
-  /** 商店 bot */
+  /** Shop bot */
   ProductBot = 2,
 }
 
@@ -51,9 +51,9 @@ export enum ModelPlatform {
 
 export enum SubmitStatus {
   Undefined = 0,
-  /** 未提交 */
+  /** not submitted */
   UnSubmit = 1,
-  /** 已提交 */
+  /** Submitted */
   Submitted = 2,
 }
 
@@ -63,13 +63,13 @@ export interface CozeBot {
   bot_version?: string;
   bot_info_type?: CozeBotInfoType;
   model_info?: ModelInfo;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   bot_name?: string;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   avatar_url?: string;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   description?: string;
-  /** 如果是发布版本则这个字段不为空 */
+  /** If it is a release version, this field is not empty */
   publish_version?: string;
   base_info?: common.BaseInfo;
 }
@@ -77,85 +77,85 @@ export interface CozeBot {
 export interface EvalPrompt {
   prompt_id?: string;
   version?: string;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   name?: string;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   prompt_key?: string;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   submit_status?: SubmitStatus;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   description?: string;
 }
 
-/** TODO TargetVersion版本信息在这里要体检 */
+/** TODO TargetVersion information here to check */
 export interface EvalTarget {
-  /** 基本信息
-一个对象的唯一标识 */
+  /** Basic information
+A unique identifier for an object */
   id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 源对象ID，例如prompt ID */
+  /** Source object ID, such as prompt ID */
   source_target_id?: string;
-  /** 评测对象类型 */
+  /** Object Type */
   eval_target_type?: EvalTargetType;
-  /** 版本信息
-目标版本 */
+  /** version information
+target version */
   eval_target_version?: EvalTargetVersion;
-  /** 系统信息 */
+  /** System information */
   base_info?: common.BaseInfo;
 }
 
 export interface EvalTargetContent {
-  /** 输入schema */
+  /** Input schema */
   input_schemas?: Array<common.ArgsSchema>;
-  /** 输出schema */
+  /** Output schema */
   output_schemas?: Array<common.ArgsSchema>;
-  /** 101-200 EvalTarget类型
-EvalTargetType=0 时，传参此字段。 评测对象为 CozeBot 时, 需要设置 CozeBot 信息 */
+  /** 101-200 EvalTarget Type
+When EvalTargetType = 0, pass this field. When the evaluation object is CozeBot, you need to set the CozeBot information. */
   coze_bot?: CozeBot;
-  /** EvalTargetType=1 时，传参此字段。 评测对象为 EvalPrompt 时, 需要设置 Prompt 信息 */
+  /** When EvalTargetType = 1, pass this field. When the evaluation object is EvalPrompt, you need to set the Prompt information */
   prompt?: EvalPrompt;
 }
 
 export interface EvalTargetInputData {
-  /** 历史会话记录 */
+  /** session history */
   history_messages?: Array<common.Message>;
-  /** 变量 */
+  /** variable */
   input_fields?: Record<string, common.Content>;
   ext?: Record<string, string>;
 }
 
 export interface EvalTargetOutputData {
-  /** 变量 */
+  /** variable */
   output_fields?: Record<string, common.Content>;
-  /** 运行消耗 */
+  /** running consumption */
   eval_target_usage?: EvalTargetUsage;
-  /** 运行报错 */
+  /** running error */
   eval_target_run_error?: EvalTargetRunError;
-  /** 运行耗时 */
+  /** running time */
   time_consuming_ms?: Int64;
 }
 
 export interface EvalTargetRecord {
-  /** 评估记录ID */
+  /** evaluation record ID */
   id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   target_id?: Int64;
   target_version_id?: Int64;
-  /** 实验执行ID */
+  /** Experiment execution ID */
   experiment_run_id?: Int64;
-  /** 评测集数据项ID */
+  /** Evaluation Set Item ID */
   item_id?: Int64;
-  /** 评测集数据项轮次ID */
+  /** review set item round ID */
   turn_id?: Int64;
-  /** 链路ID */
+  /** Link ID */
   trace_id?: string;
-  /** 链路ID */
+  /** Link ID */
   log_id?: string;
-  /** 输入数据 */
+  /** input data */
   eval_target_input_data?: EvalTargetInputData;
-  /** 输出数据 */
+  /** output data */
   eval_target_output_data?: EvalTargetOutputData;
   status?: EvalTargetRunStatus;
   base_info?: common.BaseInfo;
@@ -172,31 +172,31 @@ export interface EvalTargetUsage {
 }
 
 export interface EvalTargetVersion {
-  /** 基本信息
-版本唯一标识 */
+  /** Basic information
+version unique identifier */
   id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 对象唯一标识 */
+  /** object unique identifier */
   target_id?: Int64;
-  /** 源对象版本，例如prompt是0.0.1，bot是版本号12233等 */
+  /** Source object version, e.g. prompt is 0.0.1, bot is version number 12233, etc */
   source_target_version?: string;
-  /** 目标对象内容 */
+  /** target content */
   eval_target_content?: EvalTargetContent;
-  /** 系统信息 */
+  /** System information */
   base_info?: common.BaseInfo;
 }
 
 export interface ModelInfo {
   model_id?: Int64;
   model_name?: string;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   show_name?: string;
-  /** DTO使用，不存数据库 */
+  /** DTO is used, no database is stored */
   max_tokens?: Int64;
-  /** 模型家族信息 */
+  /** Model family information */
   model_family?: Int64;
-  /** 模型平台 */
+  /** Model Platform */
   platform?: ModelPlatform;
 }
 /* eslint-enable */

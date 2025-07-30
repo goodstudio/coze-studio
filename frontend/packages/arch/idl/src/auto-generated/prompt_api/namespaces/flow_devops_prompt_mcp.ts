@@ -28,11 +28,11 @@ export type Int64 = string | number;
 export interface CreateMCPServerAccessPointRequest {
   /** MCP Server ID */
   mcp_server_id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   env?: string;
   lane?: string;
-  /** 服务运行模式 */
+  /** service operation mode */
   transport_mode?: string;
   server_url?: string;
   base?: base.Base;
@@ -41,15 +41,15 @@ export interface CreateMCPServerAccessPointRequest {
 export interface CreateMCPServerAccessPointRequestV2 {
   /** MCP Server ID */
   mcp_server_id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   env?: string;
   lane?: string;
-  /** 服务运行模式 */
+  /** service operation mode */
   transport_mode?: string;
   server_url?: string;
   server_psm?: string;
-  /** 配置 */
+  /** configuration */
   config?: flow_devops_prompt_common.AccessPointConfig;
   base?: base.Base;
 }
@@ -69,19 +69,19 @@ export interface CreateMCPServerAccessPointResponseV2 {
 }
 
 export interface CreateMCPServerRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** MCP Server 的名称 */
+  /** The name of the MCP Server */
   name?: string;
-  /** 服务描述 */
+  /** service description */
   description?: string;
-  /** Source类型 */
+  /** Source type */
   source_type?: string;
-  /** 标签 */
+  /** label */
   labels?: Array<Int64>;
-  /** 已废弃 */
+  /** Abandoned */
   is_publish_supported?: boolean;
-  /** MCP 对应的文档或详情页 */
+  /** MCP corresponding document or details page */
   detail_page_url?: string;
   base?: base.Base;
 }
@@ -94,25 +94,25 @@ export interface CreateMCPServerResponse {
 }
 
 export interface DebugMCPServerToolsRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   /** MCP Server ID */
   mcp_server_id?: Int64;
-  /** 接入点的ID */
+  /** ID of the access point */
   access_point_id?: Int64;
-  /** 调试的工具名称 */
+  /** Tool name for debugging */
   tool_name?: string;
-  /** 工具运行时需要的输入参数 */
+  /** Input parameters required for the tool to run */
   parameters?: string;
-  /** 动态请求头 */
+  /** dynamic header */
   dynamic_headers?: Record<string, string>;
-  /** 动态请求参数 */
+  /** dynamic request parameters */
   dynamic_params?: Record<string, string>;
   base?: base.Base;
 }
 
 export interface DebugMCPServerToolsResponse {
-  /** 工具运行后的返回数据 */
+  /** Return data after the tool is run */
   contents?: Array<mcp.Content>;
   code?: number;
   msg?: string;
@@ -120,9 +120,9 @@ export interface DebugMCPServerToolsResponse {
 }
 
 export interface DeleteMCPServerAccessPointRequest {
-  /** 接入点的ID */
+  /** ID of the access point */
   access_point_id?: Int64;
-  /** MCP Server 主键ID */
+  /** MCP Server Primary Key ID */
   mcp_server_id?: Int64;
   space_id?: Int64;
   base?: base.Base;
@@ -135,9 +135,9 @@ export interface DeleteMCPServerAccessPointResponse {
 }
 
 export interface DeleteMCPServerRequest {
-  /** MCP Server 的主键 ID */
+  /** Primary Key ID of MCP Server */
   mcp_server_id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   base?: base.Base;
 }
@@ -149,9 +149,9 @@ export interface DeleteMCPServerResponse {
 }
 
 export interface ForkMCPServerRequest {
-  /** 个人空间ID */
+  /** Personal space ID */
   space_id?: Int64;
-  /** 被复制的mcp server ID */
+  /** Replicated mcp server id */
   mcp_server_id?: Int64;
   base?: base.Base;
 }
@@ -163,9 +163,9 @@ export interface ForkMCPServerResponse {
 }
 
 export interface GetMCPServerAccessPointRequest {
-  /** 接入点的ID */
+  /** ID of the access point */
   access_point_id?: Int64;
-  /** MCP Server 主键ID */
+  /** MCP Server Primary Key ID */
   mcp_server_id?: Int64;
   space_id?: Int64;
   base?: base.Base;
@@ -179,15 +179,15 @@ export interface GetMCPServerAccessPointResponse {
 }
 
 export interface GetMCPServerRequest {
-  /** MCP Server 主键ID */
+  /** MCP Server Primary Key ID */
   mcp_server_id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   base?: base.Base;
 }
 
 export interface GetMCPServerResponse {
-  /** MCPServer详情 */
+  /** MCPServer Details */
   mcp_server?: mcp.MCPServer;
   code?: number;
   msg?: string;
@@ -195,29 +195,29 @@ export interface GetMCPServerResponse {
 }
 
 export interface ListMCPServerRequest {
-  /** 空间 ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 分页页码 */
+  /** paging page number */
   page?: number;
-  /** 每页获取条目数 */
+  /** Get entries per page */
   page_size?: number;
-  /** 名称模糊匹配过滤 */
+  /** Name fuzzy match filter */
   name_keyword?: string;
-  /** 来源类型过滤 (ByteFaaS 或 Others) */
+  /** Source Type Filtering (ByteFaaS or Others) */
   source_type?: string;
-  /** 标签 */
+  /** label */
   labels?: Array<Int64>;
-  /** 创建人列表筛选 */
+  /** creator list filter */
   creator_list?: Array<string>;
-  /** 服务状态 */
+  /** service status */
   status?: mcp.MCPStatus;
   base?: base.Base;
 }
 
 export interface ListMCPServerResponse {
-  /** MCP Servers 列表 */
+  /** List of MCP Servers */
   mcp_servers?: Array<mcp.MCPServer>;
-  /** 总条目数 */
+  /** Total number of entries */
   total?: number;
   code?: number;
   msg?: string;
@@ -225,25 +225,25 @@ export interface ListMCPServerResponse {
 }
 
 export interface ListOfficialMCPServerRequest {
-  /** 分页页码 */
+  /** paging page number */
   page?: number;
-  /** 每页获取条目数 */
+  /** Get entries per page */
   page_size?: number;
-  /** 名称模糊匹配过滤 */
+  /** Name fuzzy match filter */
   name_keyword?: string;
-  /** 来源类型过滤 (ByteFaaS 或 Others) */
+  /** Source Type Filtering (ByteFaaS or Others) */
   source_type?: string;
-  /** 标签 */
+  /** label */
   labels?: Array<Int64>;
-  /** 服务状态 */
+  /** service status */
   status?: mcp.MCPStatus;
   base?: base.Base;
 }
 
 export interface ListOfficialMCPServerResponse {
-  /** MCP Servers 列表 */
+  /** List of MCP Servers */
   mcp_servers?: Array<mcp.MCPServer>;
-  /** 总条目数 */
+  /** Total number of entries */
   total?: number;
   code?: number;
   msg?: string;
@@ -251,15 +251,15 @@ export interface ListOfficialMCPServerResponse {
 }
 
 export interface MGetMCPServerAccessPointRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** accessPoint id 列表 */
+  /** AccessPoint id list */
   accesspoint_ids?: Array<Int64>;
   base?: base.Base;
 }
 
 export interface MGetMCPServerAccessPointResponse {
-  /** MCP AccessPoint 列表 */
+  /** MCP AccessPoints List */
   mcp_server_access_points?: Array<mcp.MCPServerAccessPoint>;
   code?: number;
   msg?: string;
@@ -267,18 +267,18 @@ export interface MGetMCPServerAccessPointResponse {
 }
 
 export interface UpdateMCPServerAccessPointRequest {
-  /** 接入点的ID */
+  /** ID of the access point */
   access_point_id?: Int64;
   /** MCP Server ID */
   mcp_server_id?: Int64;
   space_id?: Int64;
   env?: string;
   lane?: string;
-  /** 服务模式（如 SSE 或 STDIO） */
+  /** Service model (e.g. SSE or STDIO) */
   transport_mode?: string;
   server_url?: string;
   server_psm?: string;
-  /** 配置 */
+  /** configuration */
   config?: flow_devops_prompt_common.AccessPointConfig;
   base?: base.Base;
 }
@@ -291,12 +291,12 @@ export interface UpdateMCPServerAccessPointResponse {
 }
 
 export interface UpdateMCPServerAccessPointStatusRequest {
-  /** 接入点的ID */
+  /** ID of the access point */
   access_point_id?: Int64;
-  /** MCP Server 主键ID */
+  /** MCP Server Primary Key ID */
   mcp_server_id?: Int64;
   space_id?: Int64;
-  /** 要更改到的新状态 */
+  /** The new state to change to */
   status?: mcp.MCPStatus;
   base?: base.Base;
 }
@@ -309,27 +309,27 @@ export interface UpdateMCPServerAccessPointStatusResponse {
 }
 
 export interface UpdateMCPServerRequest {
-  /** MCP Server 的主键 ID */
+  /** Primary Key ID of MCP Server */
   mcp_server_id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** MCP Server 的名称 */
+  /** The name of the MCP Server */
   name?: string;
-  /** 详细描述 */
+  /** detailed description */
   description?: string;
-  /** 来源类型（如 ByteFaaS 或 Others） */
+  /** Source Type (e.g. ByteFaaS or Others) */
   source_type?: string;
-  /** 标签 */
+  /** label */
   labels?: Array<Int64>;
-  /** 是否支持与prompt一起发布 */
+  /** Whether to support publishing with prompt */
   is_publish_supported?: boolean;
-  /** MCP 对应的文档或详情页 */
+  /** MCP corresponding document or details page */
   detail_page_url?: string;
   base?: base.Base;
 }
 
 export interface UpdateMCPServerResponse {
-  /** 更新后的 MCP Server 对象 */
+  /** Updated MCP Server Objects */
   mcp_server?: mcp.MCPServer;
   code?: number;
   msg?: string;
@@ -337,17 +337,17 @@ export interface UpdateMCPServerResponse {
 }
 
 export interface UpdateMCPServerStatusRequest {
-  /** MCP Server 的主键 ID */
+  /** Primary Key ID of MCP Server */
   mcp_server_id?: Int64;
-  /** 空间 ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 要更改到的新状态 */
+  /** The new state to change to */
   status?: mcp.MCPStatus;
   base?: base.Base;
 }
 
 export interface UpdateMCPServerStatusResponse {
-  /** 更新后的 MCP Server 对象 */
+  /** Updated MCP Server Objects */
   mcp_server?: mcp.MCPServer;
   code?: number;
   msg?: string;

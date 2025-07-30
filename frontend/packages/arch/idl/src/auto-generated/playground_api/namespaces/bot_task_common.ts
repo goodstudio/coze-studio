@@ -27,13 +27,13 @@ export enum ActionType {
   Workflow = 3,
 }
 
-/** 对应前端 */
+/** corresponding front end */
 export enum BotTaskMode {
   Unknown = 0,
   Webhook = 1,
 }
 
-/** 对应前端 */
+/** corresponding front end */
 export enum BotTaskTriggerType {
   Unknown = 0,
   Time = 1,
@@ -41,59 +41,59 @@ export enum BotTaskTriggerType {
 }
 
 export enum ChatType {
-  /** 默认方式，不携带历史上下文 */
+  /** Default mode, does not carry historical context */
   NoHistory = 0,
-  /** 携带上下文 */
+  /** Carry context */
   NeedHistory = 1,
 }
 
 export enum SubTaskType {
-  /** 用户模板任务 */
+  /** user template task */
   UserTaskTemplate = 1,
 }
 
-/** 0-未触发, 1-已触发, 2-plugin/workflow成功, 3-待推送, 4-推送成功, 5-推送失败 */
+/** 0-Not triggered, 1-Triggered, 2-plugin/workflow successful, 3-Pending push, 4-Push successful, 5-Push failed */
 export enum TaskExecStatus {
   NoTriggered = 0,
-  /** 已触发 */
+  /** Triggered */
   Triggered = 1,
-  /** plugin运行成功 */
+  /** Plugin ran successfully */
   DoAction = 2,
-  /** 待推送 */
+  /** to be pushed */
   WaitToPush = 3,
-  /** 推送成功 */
+  /** Push successful */
   PushSuccess = 4,
-  /** 推送失败 */
+  /** push failed */
   PushFail = 5,
 }
 
 export enum TaskStatus {
-  /** 初始化状态 */
+  /** initialization state */
   Init = 0,
-  /** 生效状态 */
+  /** Effective status */
   Activated = 1,
-  /** 失效状态 */
+  /** failure state */
   Deactivated = 2,
-  /** 暂停状态 */
+  /** suspended state */
   Suspended = 3,
 }
 
 export enum TaskType {
-  /** 预设任务, 包括定时和 webhook, 在 coze 上配置的 */
+  /** Preset tasks, including timing and webhooks, are configured on coze */
   Preset = 1,
-  /** 用户任务, 用户跟模型对话得到的 */
+  /** User task, obtained by the user talking to the model */
   UserTask = 2,
-  /** Plugin 后台任务，如异步 plugin 场景, 后台任务，不需要展示给 开发者 / 用户 */
+  /** Plugin background tasks, such as asynchronous plugin scenarios, background tasks, do not need to be displayed to developers/users */
   PluginRunTask = 3,
 }
 
 export interface Action {
   action_type: ActionType;
-  /** 仅 action_type == 1 才有 */
+  /** Only action_type == 1 */
   bot_query_action?: ActionBotQuery;
-  /** 仅 action_type == 2 才有 */
+  /** Only action_type == 2 */
   plugin_action?: ActionPlugin;
-  /** 仅 action_type == 3 才有 */
+  /** Only action_type == 3 */
   workflow_action?: ActionWorkflow;
 }
 
@@ -105,7 +105,7 @@ export interface ActionPlugin {
   plugin_id: string;
   api_name: string;
   params: string;
-  /** 前端透传，服务端不敢知 */
+  /** Front-end pass-through, server level does not know */
   extra?: string;
 }
 
@@ -113,37 +113,37 @@ export interface ActionWorkflow {
   workflow_id: string;
   plugin_id: string;
   params: string;
-  /** 前端透传，服务端不敢知 */
+  /** Front-end pass-through, server level does not know */
   extra?: string;
 }
 
 export interface AgentTaskExecInfo {
   /** task id */
   trigger_id?: Int64;
-  /** 触发id */
+  /** Trigger ID */
   serial_id?: string;
-  /** 任务类型 */
+  /** task type */
   trigger_type?: TaskType;
-  /** 事件类型 */
+  /** event type */
   event_type?: BotTaskTriggerType;
-  /** agent版本 */
+  /** Agent version */
   bot_version?: string;
-  /** 用户id，仅用户触发器有 */
+  /** User ID, only user triggers have */
   user_id?: string;
-  /** 渠道 */
+  /** channel */
   connector_id?: Int64;
-  /** 执行结果 */
+  /** execution result */
   exec_result?: TaskExecStatus;
-  /** 距离下次运行事件，秒 */
+  /** From the next run event, seconds */
   next_exec_duration?: number;
-  /** 生效状态，true为生效 */
+  /** Effective status, true is effective */
   valid_status?: boolean;
-  /** 配置 */
+  /** configuration */
   config?: string;
 }
 
 export interface PresetTimeTriggerData {
-  /** cron表达式 */
+  /** Cron expression */
   cron_expr: string;
   time_zone?: string;
   cron_expr_text?: string;
@@ -153,12 +153,12 @@ export interface PresetWebhookTriggerData {
   url: string;
   bearer_token: string;
   output_schema: string;
-  /** 调试时的默认输入 */
+  /** Default input during debugging */
   default_output?: string;
   credential_key?: string;
 }
 
-/** bot 新增自动化
+/** Bot adds automation
   */
 export interface TaskInfo {
   id: Int64;
@@ -168,24 +168,24 @@ export interface TaskInfo {
   trigger: Trigger;
   action: Action;
   status: TaskStatus;
-  /** 秒级时间戳 */
+  /** Second timestamp */
   create_time: Int64;
-  /** 创建时生成，编辑/发布保持不变 */
+  /** Generate when created, edit/publish unchanged */
   origin_id: Int64;
   creator_uid?: string;
-  /** Chat 类型 */
+  /** Chat type */
   chat_type?: ChatType;
-  /** 任务配置 */
+  /** task configuration */
   config?: string;
-  /** 已发布渠道，agent仅支持飞书 */
+  /** Published channel, agent only supports Feishu. */
   connector_ids?: Array<Int64>;
-  /** 聚合字段 */
+  /** aggregate field */
   bot_version?: string;
-  /** 最近一次执行结果 */
+  /** Last execution result */
   exec_result?: TaskExecStatus;
-  /** 距离下次运行事件，秒 */
+  /** From the next run event, seconds */
   next_exec_duration?: number;
-  /** 生效状态，true为生效 */
+  /** Effective status, true is effective */
   valid_status?: boolean;
 }
 
@@ -193,29 +193,29 @@ export interface Trigger {
   task_type: TaskType;
   /** "time", "webhook", "oauth2_webhook","long_task" */
   event_type: string;
-  /** 仅 task_type == 1 && (event_type == "time" || trigger_type == time) */
+  /** Only task_type == 1 & & (event_type == "time" | | trigger_type == time) */
   preset_time_data?: PresetTimeTriggerData;
-  /** 仅 task_type == 1 && (event_type == "webhook" || (trigger_type == event && mode == webhook)) */
+  /** Only task_type == 1 & & (event_type == "webhook" | | (trigger_type == event & & mode == webhook)) */
   preset_webhook_data?: PresetWebhookTriggerData;
-  /** 仅 task_type == 2 && (event_type == "time" || trigger_type == time) */
+  /** Only task_type == 2 & & (event_type == "time" | | trigger_type == time) */
   user_task_time_data?: UserTaskTimeTriggerData;
   trigger_type: BotTaskTriggerType;
   mode: BotTaskMode;
 }
 
 export interface UserTaskTimeTriggerData {
-  /** cron表达式 */
+  /** Cron expression */
   cron_expr: string;
   time_zone?: string;
   conversation_id: string;
   user_id: string;
-  /** 秒时间戳 */
+  /** Secondtimestamp */
   start_time?: Int64;
-  /** 秒时间戳 */
+  /** Secondtimestamp */
   stop_time?: Int64;
-  /** 非周期任务。需要传 start time */
+  /** Periodic task. Need to pass start time */
   trigger_only_once?: boolean;
-  /** 推送的cron表达式 */
+  /** Pushed cron expression */
   push_cron_expr?: string;
 }
 /* eslint-enable */

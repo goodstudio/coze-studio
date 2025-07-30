@@ -200,7 +200,7 @@ export default class PluginOperationService<T> {
   /**
    * POST /api/opt_plugin/get_plugin_pricing_rule
    *
-   * 计费规则
+   * Billing rules
    */
   GetPluginPricingRule(
     req: admin_api.GetPluginPricingRuleRequest,

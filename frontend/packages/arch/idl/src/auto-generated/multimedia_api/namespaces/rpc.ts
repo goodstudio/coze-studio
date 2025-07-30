@@ -22,18 +22,18 @@
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** 复制 */
+  /** copy */
   Copy = 1,
-  /** 删除 */
+  /** delete */
   Delete = 2,
-  /** 启用/禁用 */
+  /** enable/disable */
   EnableSwitch = 3,
-  /** 编辑 */
+  /** edit */
   Edit = 4,
 }
 
 export enum ChatEventType {
-  /** 会话事件 */
+  /** conversation event */
   Unknown = 0,
   ChatCreated = 1,
   ChatInProgress = 2,
@@ -42,12 +42,12 @@ export enum ChatEventType {
   ChatExpired = 5,
   ChatCancelled = 6,
   ChatRequiresAction = 7,
-  /** 消息事件 */
+  /** message event */
   MessageDelta = 20,
   MessageCompleted = 21,
-  /** 错误事件 */
+  /** error event */
   Error = 98,
-  /** 流结束 */
+  /** end of stream */
   StreamDone = 99,
   AudioDelta = 200,
 }
@@ -65,34 +65,34 @@ export enum ChatStatus {
 
 export enum FaasCallbackEventType {
   CreatePreviewAudio = 1,
-  /** 同步账户下的音色资源到数据库 */
+  /** Synchronize the timbre resources under the account to the database */
   SyncVolcanoVoice = 2,
   FixUserVoice = 3,
-  /** 同步到资源库 */
+  /** Sync to repository */
   SyncUserVoiceToSourceLibrary = 4,
-  /** 语音资源数量上报 */
+  /** Number of voice resources reported */
   VoiceResourceNumberReport = 5,
-  /** RTC 用量上报 */
+  /** RTC usage report */
   RTCBillingReport = 6,
-  /** 同步火山系统音色到数据库 */
+  /** Synchronize volcanic system sounds to database */
   SyncVolcanoSystemVoice = 7,
-  /** 同步 Sami 系统音色到数据库 */
+  /** Synchronize Sami system sounds to database */
   SyncSamiSystemVoice = 8,
-  /** 火山账号音色资源存量校验 */
+  /** Huoshan Account Tone Resource Stock Check */
   VolcanoVoiceQuotaCheck = 9,
-  /** 购买音色 */
+  /** Buy sound */
   PurchaseVolcanoVoice = 10,
-  /** 音色资源上报失败任务重试 */
+  /** Tone Resource Report Failed Task Retry */
   VolcanoVoiceBillingFailTaskRetry = 11,
-  /** 同步用户音色年龄和性别 */
+  /** Synchronize user timbre, age and gender */
   SyncUserVoiceAgeAndGender = 12,
-  /** 购买音色并绑定到用户 */
+  /** Purchase sounds and bind them to users */
   PurchaseUserVoiceAndBind = 13,
-  /** 定时扫描并发任务 */
+  /** Timed scanning of concurrent tasks */
   ScanParallelTask = 14,
-  /** 定期并发归零 */
+  /** Periodic concurrent zeroing */
   ResetParallelTask = 15,
-  /** 多情感音色 */
+  /** Multi-emotional timbre */
   SyncMultiEmotionVoice = 16,
 }
 
@@ -125,37 +125,37 @@ export interface CustomConfig {
   bot_config?: BotConfig;
 }
 
-/** 展示用，实现方提供展示信息 */
+/** For display, the implementer provides display information */
 export interface DisplayResourceInfo {
-  /** 资源id */
+  /** Resource ID */
   ResID?: Int64;
-  /** 资源描述 */
+  /** resource description */
   Desc?: string;
-  /** 资源Icon，完整url */
+  /** Resource Icon, full url */
   Icon?: string;
-  /** 资源状态，各类型资源自身定义 */
+  /** Resource status, each type of resource defines itself */
   BizResStatus?: number;
-  /** 是否开启多人编辑 */
+  /** Whether to enable multi-person editing */
   CollaborationEnable?: boolean;
-  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
+  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
   BizExtend?: Record<string, string>;
-  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
+  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
   Actions?: Array<ResourceAction>;
-  /** 是否禁止进详情页 */
+  /** Whether to ban entering the details page */
   DetailDisable?: boolean;
 }
 
 export interface EnterMessage {
   /** user / assistant */
   role?: string;
-  /** 如果是非 text，需要解析 JSON */
+  /** If it is not text, you need to parse JSON. */
   content?: string;
   meta_data?: Record<string, string>;
   /** text, card, object_string */
   content_type?: string;
-  /** function_call, tool_output, knowledge, answer, follow_up, verbose, (普通请求可以不填)
-用户输入时可用：function_call，tool_output
-不支持用户输入使用：follow_up，knowledge，verbose，answer */
+  /** function_call, tool_output, knowledge, answer, follow_up, verbose,
+Available when user enters: function_call, tool_output
+User input is not supported: follow_up, knowledge, verbose, answer */
   type?: string;
   name?: string;
 }
@@ -209,9 +209,9 @@ export interface RequiredAction {
 }
 
 export interface ResourceAction {
-  /** 一个操作对应一个唯一的key，key由资源侧约束 */
+  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
   key: ActionKey;
-  /** ture=可以操作该Action，false=置灰 */
+  /** ture = can operate this Action, false = grey out */
   enable: boolean;
 }
 
@@ -226,7 +226,7 @@ export interface SubmitToolOutputs {
   ToolCalls?: Array<InterruptPlugin>;
 }
 
-/** 对齐 platform，传递 tools */
+/** Align platform, transfer tools */
 export interface Tool {
   plugin_id?: Int64;
   parameters?: string;

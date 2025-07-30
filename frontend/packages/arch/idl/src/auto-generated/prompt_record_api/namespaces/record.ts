@@ -41,9 +41,9 @@ export enum AdminListConfParamType {
 }
 
 export enum AdminListConfSortType {
-  /** 升序 */
+  /** ascending order */
   Asc = 1,
-  /** 降序 */
+  /** descending order */
   Desc = 2,
 }
 
@@ -86,7 +86,7 @@ export enum Dimension {
   Connector = 5,
   VolcAcc = 6,
   APISpace = 7,
-  /** 用户维度限速（指定空间生效，和未指定空间的用户维度限速互斥，指定空间的优先级更高） */
+  /** User dimension speed limit (the specified space takes effect, and the user dimension speed limit of the unspecified space is mutual exclusion, and the priority of the specified space is higher) */
   UserWithSpace = 101,
 }
 
@@ -97,15 +97,15 @@ export enum HitLimitAction {
 }
 
 export enum LimitConfOpStatus {
-  /** 处理中 */
+  /** Processing */
   Processing = 0,
-  /** 已完成 */
+  /** Completed. */
   Completed = 1,
-  /** 已驳回 */
+  /** Rejected */
   Rejected = 2,
-  /** 已取消 */
+  /** Cancelled */
   Canceled = 3,
-  /** 已回滚 */
+  /** Rolled back */
   Rollback = 4,
 }
 
@@ -140,16 +140,16 @@ export enum OwnerType {
 
 export enum PkgTypeScope {
   AllPkgType = 0,
-  /** 内测包 */
+  /** internal test package */
   InhouseOrTest = 1,
-  /** 正式包 */
+  /** official package */
   Release = 2,
 }
 
 export enum RecordScene {
-  /** project入口 */
+  /** Project entrance */
   ProjectEntrance = 1,
-  /** 带fc的模型节点调用 */
+  /** Model Node Call with FC */
   LLMNodeWithFC = 2,
 }
 
@@ -161,11 +161,11 @@ export enum RecordType {
   QueryFinish = 5,
   Model = 6,
   Plugin = 7,
-  /** project调试 */
+  /** Project debugging */
   ProjectTest = 8,
-  /** [上报类型][上报场景-3位][上报阶段-3位]
-如QueryChat=1001001，1-表示query上报，001-表示对话，001-表示对话开始
-对话开始请求 */
+  /** [Reporting type] [Reporting scene -3 digits] [Reporting stage -3 digits]
+For example, QueryChat = 1001001, 1 - indicates query reporting, 001 - indicates conversation, and 001 - indicates conversation start
+conversation start request */
   ChatQueryStart = 1001001,
 }
 
@@ -175,9 +175,9 @@ export enum ReportType {
 }
 
 export enum ResourceBlockType {
-  /** 智能体调用按量余额不足 */
+  /** Insufficient balance of agent calls by volume */
   VolcAgentReqOutOfBalance = 101001,
-  /** 智能体调用超出RPM峰值 */
+  /** Agent calls exceed peak RPM */
   VolcAgentReqOutOfRPM = 101002,
 }
 
@@ -192,17 +192,17 @@ export enum ResultType {
   UserBlock = 3,
   Downgrade = 4,
   CozeAPIKeyOwnerBlock = 5,
-  /** coze token额度不足 */
+  /** Insufficient coze token quota */
   OutOfResource = 6,
-  /** 空间维度限速 */
+  /** spatial speed limit */
   SpaceBlock = 7,
-  /** 回复降速 */
+  /** reply to slow down */
   SlowDown = 8,
-  /** chain维度限速 */
+  /** Chain dimension speed limit */
   ChainBlock = 9,
-  /** chain维度限速 */
+  /** Chain dimension speed limit */
   ConnectorBlock = 10,
-  /** 火山账号维度限速（仅国内专业版有） */
+  /** Huoshan Account Dimension Speed Limit (Only Domestic Professional Edition) */
   VolcAccBlock = 11,
 }
 
@@ -250,7 +250,7 @@ export enum TrafficParamValueConditionType {
 }
 
 export enum TrafficResourceType {
-  /** 火山智能体调用（coze专业版） */
+  /** Volcano agent call (coze professional version) */
   VolcAgentReq = 101,
 }
 
@@ -260,9 +260,9 @@ export enum TrafficRuleType {
 }
 
 export enum TypeOfUpdateConfWithOp {
-  /** 配置 */
+  /** configuration */
   ConfigConf = 1,
-  /** 回滚 */
+  /** Rollback */
   RollbackConf = 2,
 }
 
@@ -273,18 +273,18 @@ export enum UserMessageResourceID {
 
 export enum WhitelistType {
   UnknownWhitelistType = 0,
-  /** coze白名单，如果请求渠道是coze，且用户在白名单内，跳过所有限速 */
+  /** Coze whitelist, if the request channel is coze and the user is in the whitelist, skip all speed limits */
   Coze = 1,
 }
 
 export interface Action {
-  /** 动作类型 */
+  /** Action type */
   action_type?: ActionType;
-  /** 动作对应的ID */
+  /** ID corresponding to the action */
   action_id?: string;
-  /** 更新余额对应的描述 */
+  /** Update the description corresponding to the balance */
   messsage?: string;
-  /** 更新余额对应的starling key，通过starling key拉到对应文案，格式化amount字段 */
+  /** Update the starling key corresponding to the balance, pull it to the corresponding copy through the starling key, and format the amount field. */
   starling_key?: string;
 }
 
@@ -420,39 +420,39 @@ export interface APISpaceLiftInfo {
 }
 
 export interface CheckResourceResult {
-  /** 检查结果 */
+  /** Inspection results */
   result_type?: CheckResourceResultType;
-  /** 当resulr=Block时，该字段有值 */
+  /** When resulr = Block, the field has a value */
   block_info?: ResourceBlockInfo;
 }
 
 export interface CozeBalanceDetail {
-  /** 资源类型 */
+  /** resource type */
   resource_type?: ResourceType;
-  /** 余额数量 */
+  /** amount of balance */
   amount?: Int64;
-  /** 最近的流水号 */
+  /** Recent serial number */
   last_transaction_id?: Int64;
-  /** 最近更新时间戳 */
+  /** Updatetimestamp */
   updated_at?: Int64;
-  /** 资源ID */
+  /** Resource ID */
   resource_id?: string;
 }
 
 export interface CozeBillDetail {
-  /** 账单的时间戳 */
+  /** Billing timestamp */
   timestamp?: Int64;
-  /** 聚合账单结束时间戳 */
+  /** Aggregate billing end timestamp */
   end_timestamp?: Int64;
-  /** 资源类型 */
+  /** resource type */
   resource_type?: ResourceType;
-  /** 变动数量，为正是增加，为负是减少 */
+  /** The amount of change, for exactly increase, for minus is decrease */
   amount?: Int64;
-  /** 更新余额对应的starling key，通过starling key拉到对应文案，格式化amount字段 */
+  /** Update the starling key corresponding to the balance, pull it to the corresponding copy through the starling key, and format the amount field. */
   starling_key?: string;
-  /** 更新余额对应的描述 */
+  /** Update the description corresponding to the balance */
   messsage?: string;
-  /** 聚合账单时返回多个对应的actions，数据过多时不返回，不要取Action中的message和starling key */
+  /** Return multiple corresponding actions when aggregating bills, do not return when there is too much data, do not take the message and starling key in the Action */
   actions?: Array<Action>;
 }
 
@@ -513,9 +513,9 @@ export interface ModelAK {
 }
 
 export interface ModelTokenToCozeToken {
-  /** 每1k输入token需要多少coze token */
+  /** How many coze tokens are required per 1k input tokens */
   input_token_to_coze_token?: Int64;
-  /** 每1k输出token需要多少coze token */
+  /** How many coze tokens do you need per 1k output tokens? */
   output_token_to_coze_token?: Int64;
 }
 
@@ -531,16 +531,16 @@ export interface QueryReportInfo {
 export interface ReportInfo {
   /** 1-Token */
   report_type?: ReportType;
-  /** // report_type=Token时，该字段有值 */
+  /** //report_type = Token, the field has a value */eld has a value */
   token_info?: TokenReportInfo;
-  /** report_type=Query时，该字段有值 */
+  /** report_type = Query, the field has a value */
   query_info?: QueryReportInfo;
 }
 
 export interface ResourceAmount {
-  /** 资源类型 */
+  /** resource type */
   resource_type?: ResourceType;
-  /** 变动数量，为正是增加，为负是减少 */
+  /** The amount of change, for exactly increase, for minus is decrease */
   amount?: Int64;
 }
 
@@ -574,9 +574,9 @@ export interface SetUserWithSpaceLimitResp {
 }
 
 export interface SlowDownConf {
-  /** 首Token延长毫秒 */
+  /** First Token Extended by milliseconds */
   FirstTokenDelayMilliSec?: Int64;
-  /** 包间距延长毫秒 */
+  /** Packet spacing is extended by milliseconds */
   PacketDelayMilliSec?: Int64;
 }
 
@@ -587,9 +587,9 @@ export interface SpaceLimit {
 }
 
 export interface TimestampRange {
-  /** 开始时间，毫秒级别时间戳 */
+  /** Start time, millisecond level timestamp */
   start_timestamp_ms: Int64;
-  /** 结束时间，毫秒级别时间戳 */
+  /** End time, millisecond level timestamp */
   end_timestamp_ms: Int64;
 }
 
@@ -599,7 +599,7 @@ export interface TokenReportInfo {
   output_cnt?: Int64;
 }
 
-/** 指定空间生效的用户维度限速 */
+/** User dimension speed limit in effect for the specified space */
 export interface UserWithSpaceModelLimit {
   model_id?: string;
   model_name?: string;

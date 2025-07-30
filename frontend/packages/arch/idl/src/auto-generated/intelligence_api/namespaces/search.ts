@@ -52,7 +52,7 @@ export enum OrderBy {
 
 export enum PromptMode {
   Standard = 0,
-  /** 前缀提示词 */
+  /** prefix cue word */
   PrefixPrompt = 1,
 }
 
@@ -65,14 +65,14 @@ export enum PublishStatus {
 export enum SearchScope {
   All = 0,
   CreateByMe = 1,
-  /** 作为owner及协作者 */
+  /** As owner and collaborator */
   AllWithCollaborator = 2,
 }
 
 export enum SortOrderType {
-  /** 降序 */
+  /** descending order */
   Desc = 0,
-  /** 升序 */
+  /** ascending order */
   Asc = 1,
 }
 
@@ -84,9 +84,9 @@ export interface DraftIntelligenceListData {
 }
 
 export interface FavoriteInfo {
-  /** 是否收藏；收藏列表使用 */
+  /** Whether to collect; use the collection list */
   is_fav?: boolean;
-  /** 收藏时间；收藏列表使用 */
+  /** Collection time; collection list use */
   fav_time?: string;
 }
 
@@ -100,7 +100,7 @@ export interface GetDraftIntelligenceInfoData {
 export interface GetDraftIntelligenceInfoRequest {
   intelligence_id?: string;
   intelligence_type?: intelligence_common_struct.IntelligenceType;
-  /** 预览版本时传入 */
+  /** Pass in when previewing the version */
   version?: string;
   Base?: base.Base;
 }
@@ -113,7 +113,7 @@ export interface GetDraftIntelligenceInfoResponse {
 }
 
 export interface GetDraftIntelligenceListOption {
-  /** 是否需要个人版本Bot数据 */
+  /** Do you need personal version Bot data? */
   need_replica?: boolean;
 }
 
@@ -124,9 +124,9 @@ export interface GetDraftIntelligenceListRequest {
   status?: Array<intelligence_common_struct.IntelligenceStatus>;
   types?: Array<intelligence_common_struct.IntelligenceType>;
   search_scope?: SearchScope;
-  /** 文件夹id */
+  /** Folder ID */
   folder_id?: string;
-  /** 是否击穿搜索（一期不支持） */
+  /** Whether to break down the search (not supported in the first issue) */
   folder_include_children?: boolean;
   order_type?: SortOrderType;
   is_fav?: boolean;
@@ -151,25 +151,25 @@ export interface GetFolderListData {
 }
 
 export interface GetFolderListRequest {
-  /** 空间id */
+  /** Space ID */
   space_id: string;
-  /** 文件夹类型 */
+  /** Folder type */
   type: common_struct.FolderType;
-  /** 名称搜索（一期不支持） */
+  /** Name search (not supported in the first issue) */
   name?: string;
-  /** 搜索范围（一期不支持） */
+  /** Search range (not supported in the first phase) */
   search_scope?: SearchScope;
-  /** 父级文件夹id */
+  /** Parent folder id */
   parent_folder_id?: string;
-  /** 是否击穿搜索（一期不支持） */
+  /** Whether to break down the search (not supported in the first issue) */
   parent_include_children?: boolean;
-  /** 排序策略（一期不支持） */
+  /** Sorting strategy (not supported in the first issue) */
   order_by?: FolderOrderBy;
-  /** 排序方式（一期不支持） */
+  /** Sorting method (not supported in the first issue) */
   order_type?: SortOrderType;
-  /** 默认20，最大50 */
+  /** Default 20, max 50 */
   size?: number;
-  /** 默认1 */
+  /** Default 1 */
   page_num?: number;
 }
 
@@ -194,7 +194,7 @@ export interface GetOceanProjectListRequest {
   space_id: string;
   status?: Array<ocean_project_common_struct.OceanProjectStatus>;
   search_scope?: SearchScope;
-  /** 这里只有创建时间和更新时间 */
+  /** Here is only the creation time and update time. */
   order_by?: OceanProjectOrderBy;
   page_index?: number;
   page_size?: number;
@@ -208,9 +208,9 @@ export interface GetOceanProjectListResponse {
 }
 
 export interface GetOpIntelligenceData {
-  /** 最近发布项目的信息 */
+  /** Information on recently released projects */
   BasicInfo?: intelligence_common_struct.IntelligenceBasicInfo;
-  /** 智能体类型 */
+  /** Agent Type */
   Type?: intelligence_common_struct.IntelligenceType;
   UserInfo?: common_struct.User;
   SpaceInfo?: common_struct.Space;
@@ -240,9 +240,9 @@ export interface GetUserRecentlyEditIntelligenceData {
 export interface GetUserRecentlyEditIntelligenceRequest {
   size?: number;
   types?: Array<intelligence_common_struct.IntelligenceType>;
-  /** 企业id */
+  /** Enterprise ID */
   enterprise_id?: string;
-  /** 组织id */
+  /** tissue id */
   organization_id?: string;
   Base?: base.Base;
 }
@@ -255,19 +255,19 @@ export interface GetUserRecentlyEditIntelligenceResponse {
 }
 
 export interface Intelligence {
-  /** 基本信息 */
+  /** Basic information */
   basic_info?: intelligence_common_struct.IntelligenceBasicInfo;
-  /** 智能体类型 */
+  /** Agent Type */
   type?: intelligence_common_struct.IntelligenceType;
-  /** 智能体发布信息，可选 */
+  /** Agent publishes information, optional */
   publish_info?: IntelligencePublishInfo;
-  /** 智能体所有者信息，可选 */
+  /** Agent owner information, optional */
   owner_info?: common_struct.User;
-  /** 当前用户对智能体的权限信息，可选 */
+  /** The current user's permission information to the agent, optional */
   permission_info?: IntelligencePermissionInfo;
 }
 
-/** For前端 */
+/** For the front end */
 export interface IntelligenceData {
   basic_info?: intelligence_common_struct.IntelligenceBasicInfo;
   type?: intelligence_common_struct.IntelligenceType;
@@ -293,9 +293,9 @@ export interface IntelligenceItem {
 
 export interface IntelligencePermissionInfo {
   in_collaboration?: boolean;
-  /** 当前用户是否可删除 */
+  /** Can the current user be deleted? */
   can_delete?: boolean;
-  /** 当前用户是否可查看，当前判断逻辑为用户是否在bot所在空间 */
+  /** Whether the current user can view it, the current judgment logic is whether the user is in the space where the bot is located */
   can_view?: boolean;
 }
 
@@ -305,7 +305,7 @@ export interface IntelligencePublishInfo {
   connectors?: Array<common_struct.ConnectorInfo>;
 }
 
-/** For前端 */
+/** For the front end */
 export interface OceanProjectData {
   basic_info?: ocean_project_common_struct.OceanProjectBasicInfo;
   owner_info?: common_struct.User;
@@ -326,9 +326,9 @@ export interface OceanProjectListData {
 /** Ocean Project start */
 export interface OceanProjectPermissionInfo {
   in_collaboration?: boolean;
-  /** 当前用户是否可删除 */
+  /** Can the current user be deleted? */
   can_delete?: boolean;
-  /** 当前用户是否可查看，当前判断逻辑为用户是否在bot所在空间 */
+  /** Whether the current user can view it, the current judgment logic is whether the user is in the space where the bot is located */
   can_view?: boolean;
 }
 
@@ -338,24 +338,24 @@ export interface OceanProjectPublishInfo {
 }
 
 export interface OtherInfo {
-  /** 最近打开时间；最近打开筛选时使用 */
+  /** Last opened time; used when recently opened filter */
   recently_open_time?: string;
-  /** 仅bot类型返回 */
+  /** Only bot type returns */
   bot_mode?: BotMode;
-  /** 仅bot类型返回 */
+  /** Only bot type returns */
   prompt_mode?: PromptMode;
 }
 
 export interface PublishIntelligenceData {
-  /** 最近发布项目的信息 */
+  /** Information on recently released projects */
   basic_info?: intelligence_common_struct.IntelligenceBasicInfo;
   user_info?: common_struct.User;
-  /** 已发布渠道聚合 */
+  /** Published channel aggregation */
   connectors?: Array<common_struct.ConnectorInfo>;
-  /** 截止昨天总token消耗 纯数字 */
+  /** Total token consumption as of yesterday, pure digital */
   total_token?: string;
   permission_type?: common_struct.PermissionType;
-  /** 是否有触发器 */
+  /** Is there a trigger? */
   trigger?: boolean;
 }
 
@@ -369,9 +369,9 @@ export interface PublishIntelligenceListData {
 export interface PublishIntelligenceListRequest {
   intelligence_type: intelligence_common_struct.IntelligenceType;
   space_id: string;
-  /** 筛选项 */
+  /** filter */
   owner_id?: string;
-  /** 搜索项：智能体or作者name */
+  /** Search term: agent or author name */
   name?: string;
   order_last_publish_time?: common_struct.OrderByType;
   order_total_token?: common_struct.OrderByType;

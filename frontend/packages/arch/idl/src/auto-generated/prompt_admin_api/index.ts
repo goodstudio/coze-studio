@@ -72,7 +72,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/model/model_meta/create
    *
-   * 模型创建
+   * model creation
    */
   CreateModelMeta(
     req: ocean_cloud_admin_api.CreateModelMetaReq,
@@ -106,7 +106,7 @@ export default class PromptAdminApiService<T> {
   /**
    * GET /admin/redirect
    *
-   * 后端用来鉴权 redirect
+   * Backend for authentication redirect
    */
   CasLogin(
     req?: ocean_cloud_admin_api.CasLoginReq,
@@ -229,7 +229,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/model/model_meta/list
    *
-   * 因为 AGW 中get 入参只支持逗号分割，但是前端请求是roleIds[]=1&roleIds[]=2，所以这里只能用 post 方法
+   * Because the get imported parameter in AGW only supports comma separation, but the front-end request is role Ids [] = 1 & role Ids [] = 2, so only the post method can be used here
    */
   GetModelMetaList(
     req?: ocean_cloud_admin_api.GetModelMetaListReq,
@@ -273,7 +273,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/model/enum_data_list
    *
-   * 一些枚举值的定义，方便前端数据获取
+   * Some enumeration values are defined to facilitate front-end data acquisition
    */
   GetCommonEnumData(
     req?: ocean_cloud_admin_api.GetCommonEnumDataReq,
@@ -325,9 +325,9 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/model/perm/get_role_list
    *
-   * GetPermModuleListResp GetPermModuleList(1:GetPermModuleListReq req)(api.post = '/api/admin/v1/perm/module_list', api.category = "权限管理") // 用户有权限的模块
+   * GetPermModuleListResp GetPermModuleList (1: GetPermModuleListReq req) (api.post = '/api/admin/v1/perm/module_list', api.category = "Rights Management")//user-privileged moduleswith user permissions
    *
-   * 获取模型管理拥有的角色权限以及用户当前有的权限
+   * Get the role permissions owned by the model manager and the current permissions of the user
    */
   GetRoleListForModel(
     req?: ocean_cloud_admin_api.GetRoleListForModelReq,
@@ -386,7 +386,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/model/model/query
    *
-   * 融合后的模型列出和场景列出
+   * Fusion model listing and scene listing
    */
   ModelQuery(
     req?: ocean_cloud_admin_api.ModelQueryRequest,
@@ -617,7 +617,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/ops_bots/default_model/get_detail
    *
-   * 默认模型管理
+   * Default model management
    */
   GetOpsBotsDefaultModelDetail(
     req?: ocean_cloud_admin_api.GetOpsBotsDefaultModelDetailReq,
@@ -633,9 +633,9 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/ops_bots/model/update
    *
-   * 模型运营平台接口
+   * Model Operation Platform Interface
    *
-   * 模型管理
+   * model management
    */
   UpdateOpBotsModel(
     req?: ocean_cloud_admin_api.UpdateOpBotsModelReq,
@@ -682,7 +682,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/ops_bots/hot_model/update
    *
-   * 热门模型管理
+   * Popular model management
    */
   UpdateOpsBotsHotModel(
     req?: ocean_cloud_admin_api.UpdateOpsBotsHotModelReq,
@@ -712,7 +712,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/ops_bots/model_show_family/create
    *
-   * 模型家族管理
+   * Model family management
    */
   CreateOpsBotsModelShowFamily(
     req?: ocean_cloud_admin_api.CreateOpsBotsModelShowFamilyReq,
@@ -799,7 +799,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/ops_bots/model_show_family/get_related_model_list
    *
-   * 模型家族和模型关系绑定
+   * Model families and model relationship binding
    */
   GetOpsBotsModelShowFamilyRelatedModelList(
     req?: ocean_cloud_admin_api.GetOpsBotsModelShowFamilyRelatedModelListReq,
@@ -817,7 +817,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/ops_bots/model/online
    *
-   * 上架管理
+   * Shelf management
    */
   OnlineOpBotsModel(
     req?: ocean_cloud_admin_api.OnlineOpBotsModelReq,
@@ -854,7 +854,7 @@ export default class PromptAdminApiService<T> {
   /**
    * POST /api/admin/v1/ops_bots/model_avatar/upload
    *
-   * 模型头像上传
+   * Model avatar upload
    */
   UploadOpsBotsModelAvatar(
     req?: ocean_cloud_admin_api.UploadOpsBotsModelAvatarReq,

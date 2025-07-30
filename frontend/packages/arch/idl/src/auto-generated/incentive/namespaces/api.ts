@@ -62,66 +62,66 @@ export interface Task {
   task_id?: string;
   task_name?: string;
   desc?: string;
-  /** 展示
-账单文案 */
+  /** show
+bill copy */
   bill_desc_starling_key?: string;
-  /** 用户任务中心展示文案 */
+  /** User task center display copy */
   user_task_desc_starling_key?: string;
-  /** 按钮相关配置 */
+  /** Button related configuration */
   button?: common.UserTaskButton;
-  /** 奖励，一期暂定每个任务只发一个奖励，奖励只能是 Token */
+  /** Reward, it is tentatively planned that only one reward will be issued for each task in the first phase, and the reward can only be Token. */
   reward?: common.Reward;
-  /** 限制次数
-限制次数 */
+  /** limit the number of times
+limit the number of times */
   times_limit?: number;
-  /** 是否限制 */
+  /** Whether to limit */
   limit_restriction?: boolean;
-  /** 刷新
-刷新类型 */
+  /** refresh
+Refresh Type */
   peroid_type?: common.PeriodType;
-  /** 周期时长 */
+  /** cycle duration */
   peroid_value?: Int64;
-  /** 状态 */
+  /** state */
   task_status?: common.TaskStatus;
 }
 
 export interface UpdateTaskRequest {
   task_id: string;
-  /** 展示设置
-账单文案 */
+  /** display settings
+bill copy */
   bill_desc_starling_key?: string;
-  /** 用户任务中心展示文案 */
+  /** User task center display copy */
   user_task_desc_starling_key?: string;
-  /** 按钮相关配置 */
+  /** Button related configuration */
   button?: common.UserTaskButton;
-  /** 奖励设置，一期暂定每个任务只发一个奖励，奖励只能是 Token
-若出现其他奖励或多个奖励，直接报错 */
+  /** Reward settings, it is tentatively planned that only one reward will be issued for each task in the first phase, and the reward can only be Token.
+If there are other rewards or multiple rewards, report an error directly */
   reward?: common.Reward;
-  /** 限制次数设置
-限制次数 */
+  /** limit setting
+limit the number of times */
   times_limit?: number;
-  /** 是否限制 */
+  /** Whether to limit */
   limit_restriction?: boolean;
-  /** 刷新设置，一期暂定每个任务组下只有一个任务
-若任务组下出现多个任务，则直接报错
-刷新类型 */
+  /** Refresh the settings, there is only one task under each task group tentatively
+If there are multiple tasks under the task group, an error will be reported directly
+Refresh Type */
   peroid_type?: common.PeriodType;
-  /** 周期时长 */
+  /** cycle duration */
   peroid_value?: Int64;
-  /** 其他配置
-是否一直隐藏 */
+  /** Other configurations
+Has it been hidden */
   hide?: boolean;
-  /** 完成后隐藏 */
+  /** Hide when done */
   drop_when_finish?: boolean;
-  /** 任务描述 */
+  /** task description */
   task_desc?: string;
-  /** 事件触发key, 原tcc配置，改为存储在DB中，用于在规则引擎中将任务名映射为任务ID */
+  /** The event trigger key, the original TCC configuration, is stored in the DB instead, and is used to map the task name to the task ID in the rules engine */
   event_trigger_key?: string;
-  /** 用户控制 */
+  /** user control */
   user_control?: common.UserControl;
-  /** 黑名单 */
+  /** blacklist */
   black_list?: Array<Int64>;
-  /** 白名单 */
+  /** whitelist */
   white_list?: Array<Int64>;
 }
 

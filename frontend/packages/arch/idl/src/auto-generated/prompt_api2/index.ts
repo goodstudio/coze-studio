@@ -87,7 +87,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/auth/permission/check
    *
-   * 批量鉴权函数，支持服务端和前端调用
+   * Batch authentication function, support for server level and front-end calls
    */
   MCheckPermission(
     req?: flow_devops_prompt_platform.MCheckPermissionRequest,
@@ -109,7 +109,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/version/revert
    *
-   * Prompt历史版本回滚
+   * Prompt historical version rollback
    */
   RevertPromptByVersion(
     req: flow_devops_prompt_manage.RevertPromptByVersionRequest,
@@ -135,7 +135,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/update
    *
-   * 更新空间
+   * update space
    */
   UpdateSpace(
     req: flow_devops_prompt_platform.UpdateSpaceRequest,
@@ -187,7 +187,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/version/list
    *
-   * Prompt发布历史版本
+   * Prompt release history version
    */
   ListPromptVersion(
     req: flow_devops_prompt_manage.ListPromptVersionRequest,
@@ -213,7 +213,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/mock_context/save
    *
-   * 保存mock上下文
+   * Save mock context
    */
   SaveMockContext(
     req: flow_devops_prompt_debug.SaveMockContextRequest,
@@ -242,7 +242,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/user/session
    *
-   * 登录态换取用户信息
+   * Login status to exchange user information
    */
   GetSessionInfo(
     req?: flow_devops_prompt_platform.GetSessionInfoRequest,
@@ -258,7 +258,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/get
    *
-   * 获取Prompt
+   * Prompt
    */
   GetPrompt(
     req: flow_devops_prompt_manage.GetPromptRequest,
@@ -282,7 +282,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/user/batch_get
    *
-   * 批量获取用户信息
+   * Get user information in bulk
    */
   MGetUserInfo(
     req?: flow_devops_prompt_platform.MGetUserInfoRequest,
@@ -306,7 +306,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/list_by_user
    *
-   * 空间列表
+   * space list
    */
   ListUserSpace(
     req?: flow_devops_prompt_platform.ListUserSpaceRequest,
@@ -326,7 +326,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/member/query
    *
-   * 查询空间成员列表
+   * Query space member list
    */
   QuerySpaceMember(
     req: flow_devops_prompt_platform.QuerySpaceMemberRequest,
@@ -352,7 +352,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/member/add
    *
-   * 空间角色授权
+   * Spatial Role Authorization
    */
   AddSpaceMember(
     req: flow_devops_prompt_platform.AddSpaceMemberRequest,
@@ -376,7 +376,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/user/query
    *
-   * 模糊搜索用户信息
+   * Fuzzy search user information
    */
   QueryUserInfo(
     req: flow_devops_prompt_platform.QueryUserInfoRequest,
@@ -397,7 +397,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/save
    *
-   * 保存Prompt
+   * Save Prompt
    */
   SavePrompt(
     req: flow_devops_prompt_manage.SavePromptRequest,
@@ -430,7 +430,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/member/remove
    *
-   * 空间角色取消授权
+   * space role deauthorization
    */
   RemoveSpaceMember(
     req: flow_devops_prompt_platform.RemoveSpaceMemberRequest,
@@ -454,7 +454,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/user/logout
    *
-   * 用户登出
+   * user logout
    */
   Logout(
     req?: flow_devops_prompt_platform.LogoutRequest,
@@ -472,7 +472,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/user/info
    *
-   * 获取用户信息
+   * Acquire user information
    */
   GetUserInfo(
     req?: flow_devops_prompt_platform.GetUserInfoRequest,
@@ -494,9 +494,9 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/create
    *
-   * --------------- 空间管理模块 ---------------
+   * --------------- space management module ---------------
    *
-   * 创建空间
+   * Create space
    */
   CreateSpace(
     req: flow_devops_prompt_platform.CreateSpaceRequest,
@@ -517,7 +517,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/publish
    *
-   * 发布Prompt
+   * Release Prompt
    */
   PublishPrompt(
     req: flow_devops_prompt_manage.PublishPromptRequest,
@@ -543,7 +543,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/mock_context/get
    *
-   * 获取mock上下文
+   * Get mock context
    */
   GetMockContext(
     req: flow_devops_prompt_debug.GetMockContextRequest,
@@ -567,9 +567,9 @@ export default class PromptApi2Service<T> {
    *
    * GET /api/devops/prompt_platform/v1/user/login
    *
-   * --------------- 用户模块 ---------------
+   * --------------- user module ---------------
    *
-   * 用户登录
+   * user login
    */
   Login(
     req?: flow_devops_prompt_platform.LoginRequest,
@@ -590,7 +590,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/send_message
    *
-   * 非流式调试运行
+   * Nonstreaming practice running
    */
   SendMessage(
     req: flow_devops_prompt_debug.SendMessageRequest,
@@ -618,7 +618,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/delete
    *
-   * 删除Prompt
+   * Delete Prompt
    */
   DeletePrompt(
     req: flow_devops_prompt_manage.DeletePromptRequest,
@@ -640,7 +640,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/component/auth
    *
-   * 组件鉴权
+   * component authentication
    */
   AuthComponentSDK(
     req?: flow_devops_prompt_platform.AuthComponentSDKRequest,
@@ -663,7 +663,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/model/list_available
    *
-   * 获取可用模型列表
+   * Get a list of available models
    */
   ListAvailableModel(
     req?: flow_devops_prompt_manage.ListAvailableModelRequest,
@@ -681,7 +681,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/update
    *
-   * 更新Prompt
+   * Update Prompt
    */
   UpdatePrompt(
     req: flow_devops_prompt_manage.UpdatePromptRequest,
@@ -709,7 +709,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/get
    *
-   * 查询空间信息
+   * Query spatial information
    */
   GetSpace(
     req: flow_devops_prompt_platform.GetSpaceRequest,
@@ -727,7 +727,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/space/get_user_roles
    *
-   * 获取用户空间权限
+   * Get userspace permissions
    */
   GetUserSpaceRoles(
     req: flow_devops_prompt_platform.GetUserSpaceRolesRequest,
@@ -745,7 +745,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/list
    *
-   * Prompt列表
+   * Prompt list
    */
   ListPrompt(
     req: flow_devops_prompt_manage.ListPromptRequest,
@@ -773,7 +773,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/execute
    *
-   * 非流式调试运行
+   * Nonstreaming practice running
    */
   Execute(
     req?: flow_devops_prompt_paas.ExecuteRequest,
@@ -814,7 +814,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/streaming_send_message
    *
-   * 流式调试运行
+   * Streaming practice run
    */
   StreamingSendMessage(
     req: flow_devops_prompt_debug.StreamingSendMessageRequest,
@@ -842,7 +842,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/streaming_execute
    *
-   * 流式调试运行
+   * Streaming practice run
    */
   StreamingExecute(
     req?: flow_devops_prompt_paas.StreamingExecuteRequest,
@@ -904,7 +904,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/list_label
    *
-   * 获取标签列表
+   * Get tag list
    */
   ListLabel(
     req?: flow_devops_prompt_manage.ListLabelRequest,
@@ -922,7 +922,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/list_official
    *
-   * 获取官方prompt列表
+   * Get the official prompt list
    */
   ListOfficialPrompt(
     req: flow_devops_prompt_manage.ListOfficialPromptRequest,
@@ -946,7 +946,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/report_event
    *
-   * 事件上报
+   * incident reporting
    */
   ReportEvent(
     req?: flow_devops_prompt_manage.ReportEventRequest,
@@ -964,7 +964,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/generate
    *
-   * 生成prompt
+   * Generate prompt
    */
   GeneratePrompt(
     req?: flow_devops_prompt_manage.GeneratePromptRequest,
@@ -998,7 +998,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/chat_with_bot
    *
-   * Prompt Bot对话
+   * Prompt Bot Conversation
    */
   ChatWithPromptBot(
     req?: flow_devops_prompt_manage.ChatWithPromptBotRequest,
@@ -1024,7 +1024,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/streaming_send_message_without_permission_check
    *
-   * 流式调试运行for playground
+   * Streaming practice runs for playground
    */
   StreamingSendMessageWithoutPermissionCheck(
     req: flow_devops_prompt_debug.StreamingSendMessageWithoutPermissionCheckRequest,
@@ -1052,7 +1052,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/debug/get
    *
-   * 调试历史详情
+   * Debug history details
    */
   GetDebugDetail(
     req?: flow_devops_prompt_debug.GetDebugDetailRequest,
@@ -1075,7 +1075,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/debug/list_history
    *
-   * 调试历史
+   * debug history
    */
   ListDebugHistory(
     req?: flow_devops_prompt_debug.ListDebugHistoryRequest,
@@ -1100,7 +1100,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/check_publish
    *
-   * 发布Prompt前检查
+   * Pre-Publish Prompt Check
    */
   CheckPublishPrompt(
     req?: flow_devops_prompt_manage.CheckPublishPromptRequest,
@@ -1125,7 +1125,7 @@ export default class PromptApi2Service<T> {
    *
    * --------------- OpenAPI ---------------
    *
-   * 批量获取Prompt
+   * Bulk Acquisition Prompt
    */
   MPullPrompt(
     req: flow_devops_prompt_paas.MPullPromptRequest,
@@ -1150,7 +1150,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/get
    *
-   * 获取Task详情，包含关联资源
+   * Get Task details, including associated resources
    */
   GetOptimizeTask(
     req: flow_devops_prompt_optimize.GetOptimizeTaskRequest,
@@ -1172,7 +1172,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/update
    *
-   * 更新Task
+   * Update Task
    */
   UpdateOptimizeTask(
     req: flow_devops_prompt_optimize.UpdateOptimizeTaskRequest,
@@ -1197,7 +1197,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/execution/cancel
    *
-   * 取消执行
+   * Cancel execution
    */
   CancelOptimizeExecution(
     req: flow_devops_prompt_optimize.CancelOptimizeExecutionRequest,
@@ -1220,7 +1220,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/execution/dashboard
    *
-   * 获取优化报告详情
+   * Get the optimization report details
    */
   GetOptimizeExecutionDashboard(
     req: flow_devops_prompt_optimize.GetOptimizeExecutionDashboardRequest,
@@ -1243,11 +1243,11 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/create
    *
-   * --------------- Prompt优化模块 ---------------
+   * --------------- Prompt optimization module ---------------
    *
-   * --------------- Prompt优化管理模块 ---------------
+   * --------------- Prompt Optimization Management Module ---------------
    *
-   * 创建Task
+   * Create Task
    */
   CreateOptimizeTask(
     req: flow_devops_prompt_optimize.CreateOptimizeTaskRequest,
@@ -1272,7 +1272,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/execution/get
    *
-   * 获取Execution详情
+   * Get Execution Details
    */
   GetOptimizeExecution(
     req: flow_devops_prompt_optimize.GetOptimizeExecutionRequest,
@@ -1295,7 +1295,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/delete
    *
-   * 删除Task
+   * Delete Task
    */
   DeleteOptimizeTask(
     req: flow_devops_prompt_optimize.DeleteOptimizeTaskRequest,
@@ -1317,7 +1317,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/executions/list
    *
-   * 拉去历史执行记录列表
+   * Pull to the list of historical execution records
    */
   ListOptimizeExecution(
     req: flow_devops_prompt_optimize.ListOptimizeExecutionRequest,
@@ -1341,9 +1341,9 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/exec
    *
-   * --------------- Prompt优化运行模块 ---------------
+   * --------------- Prompt optimization module ---------------
    *
-   * 单次执行execution
+   * Single execution
    */
   ExecOptimizeTask(
     req: flow_devops_prompt_optimize.ExecOptimizeTaskRequest,
@@ -1365,7 +1365,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release
    *
-   * prompt发布
+   * Prompt release
    */
   ReleasePrompt(
     req: flow_devops_prompt_manage.ReleasePromptRequest,
@@ -1391,7 +1391,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/list_promot_release_info
    *
-   * 获取发布最终结果列表
+   * Get a list of published final results
    */
   ListPromptReleaseInfo(
     req: flow_devops_prompt_manage.ListPromptReleaseInfoRequest,
@@ -1420,7 +1420,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/offline
    *
-   * 下线发布的版本
+   * Version released offline
    */
   OfflinePrompt(
     req: flow_devops_prompt_manage.OfflinePromptRequest,
@@ -1446,7 +1446,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/rollback_pre_version
    *
-   * 发布回滚到上一个版本
+   * Release rollback to the previous version
    */
   RollBackPreVersionPrompt(
     req: flow_devops_prompt_manage.RollBackPreVersionPromptRequest,
@@ -1473,7 +1473,7 @@ export default class PromptApi2Service<T> {
    *
    * POST /api/devops/prompt_platform/v1/optimize/task/execution/delete
    *
-   * 删除执行记录
+   * Delete execution record
    */
   DeleteOptimizeExecution(
     req: flow_devops_prompt_optimize.DeleteOptimizeExecutionRequest,
@@ -1496,7 +1496,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/optimize/task/list
    *
-   * 分页拉当前空间下的task列表
+   * Paging pulls the task list under the current space
    */
   ListOptimizeTask(
     req: flow_devops_prompt_optimize.ListOptimizeTaskRequest,
@@ -1524,7 +1524,7 @@ export default class PromptApi2Service<T> {
   /**
    * GET /api/devops/prompt_platform/v1/prompt/releases/:release_id
    *
-   * 获取prompt发布配置
+   * Get prompt release configuration
    */
   GetPromptRelease(
     req: flow_devops_prompt_manage.GetPromptReleaseRequest,
@@ -1543,7 +1543,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/releases/:release_id/fulldose_gray_release
    *
-   * 全量发布prompt灰度配置
+   * Release to the general public prompt grey release configuration
    */
   FulldosePromptGrayRelease(
     req: flow_devops_prompt_manage.FulldosePromptGrayReleaseRequest,
@@ -1565,7 +1565,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/releases/:release_id/offline_gray_release
    *
-   * 撤销prompt灰度发布
+   * Undo prompt grey release
    */
   OfflinePromptGrayRelease(
     req: flow_devops_prompt_manage.OfflinePromptGrayReleaseRequest,
@@ -1587,7 +1587,7 @@ export default class PromptApi2Service<T> {
   /**
    * PUT /api/devops/prompt_platform/v1/prompt/releases/:release_id
    *
-   * 更新prompt发布配置
+   * Update prompt release configuration
    */
   UpdatePromptRelease(
     req: flow_devops_prompt_manage.UpdatePromptReleaseRequest,
@@ -1610,7 +1610,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/eval_version
    *
-   * 计算Prompt是否命中灰度，命中的灰度版本
+   * Prompt to hit grey release, hit the dark launch version
    */
   EvalPromptVersion(
     req: flow_devops_prompt_paas.EvalPromptVersionRequest,
@@ -1633,7 +1633,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/clipboard/save
    *
-   * 保存剪切板
+   * Save clipboard
    */
   SaveClipboard(
     req?: flow_devops_prompt_manage.SaveClipboardRequest,
@@ -1657,7 +1657,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/clipboard/get
    *
-   * 获取剪切板内容
+   * Get clipboard content
    */
   GetClipboard(
     req?: flow_devops_prompt_manage.GetClipboardRequest,
@@ -1681,7 +1681,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/trigger_subtask
    *
-   * 触发发布工单子任务状态变更
+   * Trigger release list subtask status change
    */
   TriggerReleaseSubtask(
     req: flow_devops_prompt_manage.TriggerReleaseSubtaskRequest,
@@ -1705,9 +1705,9 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/create
    *
-   * --------------- 发布模块 ---------------
+   * --------------- release module ---------------
    *
-   * 创建发布工单
+   * Create a release ticket
    */
   CreateReleaseTask(
     req: flow_devops_prompt_manage.CreateReleaseTaskRequest,
@@ -1734,7 +1734,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/get_detail
    *
-   * 获取发布工单详情
+   * Get the release ticket details
    */
   GetReleaseTaskDetail(
     req: flow_devops_prompt_manage.GetReleaseTaskDetailRequest,
@@ -1755,7 +1755,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/cancel
    *
-   * 取消发布工单
+   * Cancel the issue ticket
    */
   CancelReleaseTask(
     req: flow_devops_prompt_manage.CancelReleaseTaskRequest,
@@ -1776,7 +1776,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/notify_approver
    *
-   * 通知审核人
+   * Notify the reviewer
    */
   NotifyReleaseApprover(
     req: flow_devops_prompt_manage.NotifyReleaseApproverRequest,
@@ -1798,7 +1798,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/list_approver
    *
-   * 获取审核人列表
+   * Get a list of reviewers
    */
   ListReleaseApprover(
     req?: flow_devops_prompt_manage.ListReleaseApproverRequest,
@@ -1816,7 +1816,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/rollback
    *
-   * 回滚发布工单
+   * Roll back the issue ticket
    */
   RollbackReleaseTask(
     req: flow_devops_prompt_manage.RollbackReleaseTaskRequest,
@@ -1837,7 +1837,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/release_task/list
    *
-   * 获取发布工单列表
+   * Get the list of release tickets
    */
   ListReleaseTask(
     req?: flow_devops_prompt_manage.ListReleaseTaskRequest,
@@ -1863,7 +1863,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/platform/lark_card_callback
    *
-   * Lark卡片回调
+   * Lark card callback
    */
   LarkCardActionCallback(
     req?: flow_devops_prompt_platform.LarkCardActionCallbackRequest,
@@ -1886,7 +1886,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/convert_uri_to_url
    *
-   * uris批量转化为urls
+   * Bulk conversion of uris to urls
    */
   MConvertURI2URL(
     req?: flow_devops_prompt_manage.MConvertURI2URLRequest,
@@ -1924,9 +1924,9 @@ export default class PromptApi2Service<T> {
   /**
    * POST /open-apis/prompt/v1/prompt/list
    *
-   * Prompt平台管理模块对外接口
+   * Prompt platform management module external interface
    *
-   * Prompt列表
+   * Prompt list
    */
   ListPromptBasicOApi(
     req: flow_devops_prompt_manage.ListPromptBasicOApiRequest,
@@ -1950,7 +1950,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/batch_debug/load_info
    *
-   * 加载批量调试信息
+   * Load batch debugging information
    */
   LoadBatchDebugInfo(
     req?: flow_devops_prompt_debug.LoadBatchDebugInfoRequest,
@@ -1972,7 +1972,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/batch_execute
    *
-   * 运行批量调试
+   * Run batch debugging
    */
   ExecuteBatch(
     req?: flow_devops_prompt_debug.ExecuteBatchRequest,
@@ -1998,7 +1998,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/prompt_platform/v1/prompt/clone
    *
-   * 复制Prompt
+   * Copy Prompt
    */
   ClonePrompt(
     req?: flow_devops_prompt_manage.ClonePromptRequest,
@@ -2038,7 +2038,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/devops/prompt_platform/v1/prompt/generate_record/update
    *
-   * Prompt生成记录更新
+   * Prompt to generate record updates
    */
   UpdateGenerateRecord(
     req?: flow_devops_prompt_manage.UpdateGenerateRecordRequest,
@@ -2065,7 +2065,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/create
    *
-   * 创建 MCP Server
+   * Creating an MCP Server
    */
   CreateMCPServer(
     req?: flow_devops_prompt_mcp.CreateMCPServerRequest,
@@ -2090,7 +2090,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/list_official
    *
-   * 官方MCP Server列表
+   * Official MCP Server List
    */
   ListOfficialMCPServers(
     req?: flow_devops_prompt_mcp.ListOfficialMCPServerRequest,
@@ -2114,7 +2114,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/list
    *
-   * MCP Server列表
+   * List of MCP Servers
    */
   ListMCPServers(
     req?: flow_devops_prompt_mcp.ListMCPServerRequest,
@@ -2140,7 +2140,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/delete
    *
-   * 删除 MCP Server
+   * Delete MCP Server
    */
   DeleteMCPServer(
     req?: flow_devops_prompt_mcp.DeleteMCPServerRequest,
@@ -2158,7 +2158,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/access_points/:access_point_id/update
    *
-   * 更新 MCPServer AccessPoint
+   * Update MCPServer AccessPoint
    */
   UpdateMCPServerAccessPoint(
     req?: flow_devops_prompt_mcp.UpdateMCPServerAccessPointRequest,
@@ -2185,7 +2185,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/access_points/:access_point_id/create
    *
-   * 创建 MCPServer AccessPoint 废弃
+   * Create MCPServer AccessPoint Deprecation
    */
   CreateMCPServerAccessPoint(
     req?: flow_devops_prompt_mcp.CreateMCPServerAccessPointRequest,
@@ -2211,7 +2211,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/access_points/:access_point_id/debug
    *
-   * MCP页面调试Tools
+   * MCP Page Debugging Tools
    */
   DebugMCPServerTools(
     req?: flow_devops_prompt_mcp.DebugMCPServerToolsRequest,
@@ -2236,7 +2236,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/access_points/:access_point_id/delete
    *
-   * 删除 MCPServer AccessPoint
+   * Delete MCPServer AccessPoint
    */
   DeleteMCPServerAccessPoint(
     req?: flow_devops_prompt_mcp.DeleteMCPServerAccessPointRequest,
@@ -2254,7 +2254,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/get
    *
-   * 获取单个MCPServer详情
+   * Get individual MCPServer details
    */
   GetMCPServer(
     req?: flow_devops_prompt_mcp.GetMCPServerRequest,
@@ -2272,7 +2272,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/update
    *
-   * 更新 MCP Server
+   * Update MCP Server
    */
   UpdateMCPServer(
     req?: flow_devops_prompt_mcp.UpdateMCPServerRequest,
@@ -2299,7 +2299,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/access_points/:access_point_id/get
    *
-   * 获取单个 MCPServer AccessPoint 详情
+   * Get individual MCPServer AccessPoint details
    */
   GetMCPServerAccessPoint(
     req?: flow_devops_prompt_mcp.GetMCPServerAccessPointRequest,
@@ -2317,7 +2317,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/access_points/create
    *
-   * 创建 MCPServer AccessPoint v2
+   * Create MCPServer AccessPoint v2
    */
   CreateMCPServerAccessPointV2(
     req?: flow_devops_prompt_mcp.CreateMCPServerAccessPointRequestV2,
@@ -2344,7 +2344,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/access_points/:access_point_id/update_status
    *
-   * 更新 MCPServer AccessPoint 状态
+   * Updating MCPServer AccessPoint Status
    */
   UpdateMCPServerAccessPointStatus(
     req?: flow_devops_prompt_mcp.UpdateMCPServerAccessPointStatusRequest,
@@ -2366,7 +2366,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/update_status
    *
-   * 更新 MCP Server 状态
+   * Update MCP Server Status
    */
   UpdateMCPServerStatus(
     req?: flow_devops_prompt_mcp.UpdateMCPServerStatusRequest,
@@ -2388,7 +2388,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/access_points/mget
    *
-   * 批量获取 MCPServer AccessPoint 详情
+   * Get MCPServer AccessPoint Details in Bulk
    */
   MGetMCPServerAccessPoint(
     req?: flow_devops_prompt_mcp.MGetMCPServerAccessPointRequest,
@@ -2410,7 +2410,7 @@ export default class PromptApi2Service<T> {
   /**
    * POST /api/mcp_manage/v1/mcp_servers/:mcp_server_id/fork
    *
-   * 复制 MCP Server
+   * Copy MCP Server
    */
   ForkMCPServer(
     req?: flow_devops_prompt_mcp.ForkMCPServerRequest,

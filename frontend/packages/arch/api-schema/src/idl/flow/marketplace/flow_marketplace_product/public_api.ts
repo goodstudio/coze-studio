@@ -106,35 +106,35 @@ export interface GetProductListRequest {
   sort_type: product_common.SortType,
   page_num: number,
   page_size: number,
-  /** 不为空则搜索 */
+  /** non-empty search */
   keyword?: string,
-  /** 公开方式：1-开源；2-闭源                                                                                    , // 公开方式 */
+  /** Open mode: 1-open source; 2-closed source,//open mode */tion method */
   publish_mode?: product_common.ProductPublishMode,
-  /** 发布渠道 */
+  /** distribution channel */
   publish_platform_ids?: string[],
-  /** 列表页 tab; 1-运营推荐 */
+  /** List tab; 1 - Operational recommendations */
   source?: product_common.ProductListSource,
   /**
-   * 个性化推荐场景, 传入当前的实体信息, 获取推荐的商品
-   * 当前实体类型
+   * Personalized recommendation scenarios, enter current entity information, and obtain recommended products
+   * Current entity type
   */
   current_entity_type?: product_common.ProductEntityType,
-  /** 当前实体 ID */
+  /** Current entity ID */
   current_entity_id?: string,
-  /** 当前实体版本 */
+  /** Current entity version */
   current_entity_version?: string,
-  /** 专题场景 */
+  /** thematic scenario */
   topic_id?: string,
   preview_topic_id?: string,
-  /** 是否需要过滤出官方商品 */
+  /** Do you need to filter out official products? */
   is_official?: boolean,
-  /** 是否需要返回额外信息 */
+  /** Do you need to return additional information? */
   need_extra?: boolean,
-  /** 商品类型列表, 优先使用该参数，其次使用 EntityType */
+  /** List of product types, use this parameter first, followed by EntityType */
   entity_types?: product_common.ProductEntityType[],
-  /** true = 筛选免费的；false = 筛选付费的；不传则不区分免费和付费 */
+  /** True = filter for free; false = filter for paid; if you don't pass it, you won't distinguish between free and paid. */
   is_free?: boolean,
-  /** 插件类型 */
+  /** plugin type */
   plugin_type?: product_common.PluginType,
   "Tt-Agw-Client-Ip"?: string,
 }
@@ -176,71 +176,71 @@ export interface ProductLabel {
 }
 export interface ProductMetaInfo {
   id: string,
-  /** 商品/模板名称 */
+  /** Product/Template Name */
   name: string,
-  /** 素材 ID，由 entity_type 来决定是 bot/plugin 的ID */
+  /** Creature ID, determined by entity_type is the ID of the bot/plugin */
   entity_id: string,
-  /** 商品素材类型 */
+  /** Product material type */
   entity_type: product_common.ProductEntityType,
-  /** 商品/模板头像 */
+  /** Product/template avatar */
   icon_url: string,
-  /** 热度：模板热度=复制量（用于卡片展示/排序）；商品热度=不同商品有独立的计算逻辑（仅用于排序）—— heat的计算有一定延迟 */
+  /** Heat: Template heat = copy volume (used for card display/sorting); product heat = different products have independent calculation logic (only used for sorting) - the calculation of heat has a certain delay */
   heat: number,
   favorite_count: number,
-  /** 废弃,使用UserInfo代替 */
+  /** Obsolete, use UserInfo instead */
   seller: SellerInfo,
-  /** 商品描述 */
+  /** Product description */
   description: string,
   listed_at: string,
   status: product_common.ProductStatus,
-  /** 商品/模板分类信息 */
+  /** Product/template classification information */
   category?: ProductCategory,
-  /** 是否收藏 */
+  /** Whether to collect */
   is_favorited: boolean,
   is_free: boolean,
-  /** 模板介绍/插件介绍（目前是富文本格式） */
+  /** Template introduction/plugin introduction (currently in rich text format) */
   readme: string,
   entity_version?: string,
   labels?: ProductLabel[],
   user_info: product_common.UserInfo,
   medium_icon_url: string,
   origin_icon_url: string,
-  /** 模板封面 */
+  /** Template cover */
   covers?: product_common.ImageInfo[],
-  /** 是否专业版特供 */
+  /** Is the professional version specially available? */
   is_professional?: boolean,
-  /** 是否为模板 */
+  /** Is it a template? */
   is_template: boolean,
-  /** 是否官方商品 */
+  /** Is it an official product? */
   is_official: boolean,
-  /** 价格，当前只有模板有 */
+  /** Price, currently only available in the template. */
   price?: marketplace_common.Price,
 }
 export interface UserBehaviorInfo {
   /**
-   * 用户主页需要返回最近浏览/使用商品的时间
-   * 最近浏览时间戳
+   * The user homepage needs to return the most recently viewed/used product time.
+   * Latest Viewtimestamp
   */
   viewed_at?: string,
-  /** 最近使用时间戳 */
+  /** Recently used timestamp */
   used_at?: string,
 }
 export interface PluginExtraInfo {
   tools?: PluginToolInfo[],
   total_api_count: number,
   bots_use_count: number,
-  /** 是否有隐私声明, 目前只有 PublicGetProductDetail 会取数据 */
+  /** Is there a privacy statement, currently only PublicGetProductDetail will take the data */
   has_private_statement?: boolean,
-  /** 隐私声明, 目前只有 PublicGetProductDetail 会取数据 */
+  /** Privacy statement, currently only PublicGetProductDetail will access data */
   private_statement?: string,
   associated_bots_use_count: number,
   is_premium: boolean,
   is_official: boolean,
-  /** 调用量 */
+  /** call amount */
   call_amount?: number,
-  /** 成功率 */
+  /** success rate */
   success_rate?: number,
-  /** 平均执行时长 */
+  /** average execution time */
   avg_exec_time?: number,
   is_default_icon?: boolean,
   space_id?: string,
@@ -257,7 +257,7 @@ export interface ToolParameter {
 }
 export interface CardInfo {
   card_url: string,
-  /** 以下只有详情页返回 */
+  /** Only the details page returns */
   card_id: string,
   mapping_rule: string,
   max_display_rows: string,
@@ -280,15 +280,15 @@ export interface PluginToolInfo {
   parameters?: ToolParameter[],
   card_info?: CardInfo,
   example?: PluginToolExample,
-  /** 调用量 */
+  /** call amount */
   call_amount?: number,
-  /** 成功率 */
+  /** success rate */
   success_rate?: number,
-  /** 平均执行时长 */
+  /** average execution time */
   avg_exec_time?: number,
-  /** tool 被bot引用数 */
+  /** Number of tool bot references */
   bots_use_count?: number,
-  /** 运行模式 */
+  /** operating mode */
   run_mode?: PluginRunMode,
 }
 export interface PluginConnectorInfo {
@@ -324,105 +324,105 @@ export enum FileboxInfoMode {
 }
 export interface UserQueryCollectConf {
   /**
-   * bot用户query收集配置
-   * 是否开启收集开关
+   * Bot user query collection configuration
+   * Whether to turn on the collection switch
   */
   is_collected: boolean,
-  /** 隐私协议链接 */
+  /** Privacy Policy Link */
   private_policy: string,
 }
 export interface BotConfig {
-  /** 模型 */
+  /** model */
   models?: ProductMaterial[],
-  /** 插件 */
+  /** plugin */
   plugins?: ProductMaterial[],
-  /** 知识库 */
+  /** Knowledge Base */
   knowledges?: ProductMaterial[],
-  /** 工作流 */
+  /** Workflow */
   workflows?: ProductMaterial[],
-  /** 私有插件数量 */
+  /** number of private plugins */
   private_plugins_count?: number,
-  /** 私有知识库数量 */
+  /** Number of private repositories */
   private_knowledges_count?: number,
-  /** 私有工作流数量 */
+  /** number of private workflows */
   private_workflows_count?: number,
-  /** 判断 multiagent 是否有 bot 节点 */
+  /** Determine if the multiagent has a bot node */
   has_bot_agent?: boolean,
-  /** bot 配置的声音列表 */
+  /** List of sounds configured by bot */
   bot_voices?: BotVoiceInfo[],
-  /** 所有插件数量 */
+  /** Number of all plugins */
   total_plugins_count?: number,
-  /** 所有知识库数量 */
+  /** Number of all knowledge bases */
   total_knowledges_count?: number,
-  /** 所有工作流数量 */
+  /** Number of all workflows */
   total_workflows_count?: number,
-  /** 时间胶囊模式 */
+  /** Time Capsule Mode */
   time_capsule_mode?: TimeCapsuleMode,
-  /** 文件盒模式 */
+  /** File box mode */
   filebox_mode?: FileboxInfoMode,
-  /** 私有图片工作流数量 */
+  /** Number of private image workflows */
   private_image_workflow_count?: number,
-  /** 用户qeury收集配置 */
+  /** User qeury collection configuration */
   user_query_collect_conf?: UserQueryCollectConf,
-  /** 是否关闭语音通话（默认是打开） */
+  /** Whether to turn off voice calls (the default is on) */
   is_close_voice_call?: boolean,
 }
-/** 消息涉及的bot信息,在home分享场景,消息属于多个bot */
+/** The bot information involved in the message, sharing the scene in the home, the message belongs to multiple bots */
 export interface ConversationRelateBot {
   id: string,
   name: string,
   description: string,
   icon_url: string,
 }
-/** 消息涉及的user信息,在home分享场景,消息属于多个user */
+/** The user information involved in the message, sharing the scene in the home, the message belongs to multiple users */
 export interface ConversationRelateUser {
   user_info?: product_common.UserInfo
 }
 export interface Conversation {
-  /** 对话示例 */
+  /** conversation example */
   snippets?: string[],
-  /** 对话标题 */
+  /** conversation title */
   title?: string,
-  /** 对话ID，idGen生成 */
+  /** Conversation ID, generated by idGen */
   id?: string,
-  /** 是否需要生成对话 */
+  /** Do you need to generate a conversation? */
   gen_title?: boolean,
-  /** 对话审核状态 */
+  /** conversation moderation status */
   audit_status?: product_common.AuditStatus,
-  /** 开场白 */
+  /** opening statement */
   opening_dialog?: product_common.OpeningDialog,
-  /** 消息涉及的bot信息,key bot_id */
+  /** The bot information involved in the message, key bot_id */
   relate_bots?: {
     [key: string | number]: ConversationRelateBot
   },
-  /** 消息涉及的user信息,key user_id */
+  /** The user information involved in the message, key user_id */
   relate_users?: {
     [key: string | number]: ConversationRelateUser
   },
 }
 export interface BotExtraInfo {
-  /** 发布渠道 */
+  /** distribution channel */
   publish_platforms: BotPublishPlatform[],
-  /** 用户数 */
+  /** user */
   user_count: number,
-  /** 公开方式 */
+  /** public method */
   publish_mode: product_common.ProductPublishMode,
   /**
-   * 详情页特有
-   * 对话示例, 废弃
+   * Details page unique
+   * Dialogue example, abandoned
   */
   conversation_snippets?: string[][],
-  /** 配置 */
+  /** configuration */
   config?: BotConfig,
-  /** 白名单 */
+  /** whitelist */
   is_inhouse_user?: boolean,
-  /** 复制创建 bot 数量 */
+  /** Number of copy-created bots */
   duplicate_bot_count?: number,
-  /** 分享对话 */
+  /** Share the conversation */
   conversations?: Conversation[],
-  /** 与 Bot 聊天的对话数 */
+  /** Number of conversations with Bot */
   chat_conversation_count?: string,
-  /** 关联商品数 */
+  /** number of related products */
   related_product_count?: string,
 }
 export interface WorkflowParameter {
@@ -431,28 +431,28 @@ export interface WorkflowParameter {
   is_required: boolean,
   input_type: product_common.InputType,
   sub_parameters: WorkflowParameter[],
-  /** 如果Type是数组，则有subtype */
+  /** If Type is an array, there is a subtype */
   sub_type: product_common.InputType,
-  /** 如果入参是用户手输 就放这里 */
+  /** If the imported parameter is the user's hand input, put it here */
   value?: string,
   format?: product_common.PluginParamTypeFormat,
   from_node_id?: string,
   from_output?: string[],
-  /** InputType (+ AssistType) 定义一个变量的最终类型，仅需透传 */
+  /** InputType (+ AssistType) defines the final type of a variable, which only needs to be passed through */
   assist_type?: number,
-  /** 展示名称（ store 独有的，用于详情页 GUI 展示参数） */
+  /** Display name (unique to the store, used for details page GUI display parameters) */
   show_name?: string,
-  /** 如果InputType是数组，则有subassisttype */
+  /** If the InputType is an array, there is a subassistant type */
   sub_assist_type?: number,
-  /** 组件配置，由前端解析并渲染 */
+  /** Component configuration, parsed and rendered by the front end */
   component_config?: string,
-  /** 组件配置类型，前端展示需要 */
+  /** Component configuration type, required for front-end display */
   component_type?: string,
 }
 export interface WorkflowTerminatePlan {
-  /** 对应 workflow 结束节点的回答模式：1-返回变量，由Bot生成回答；2-使用设定的内容直接回答 */
+  /** The answer mode corresponding to the end node of the workflow: 1 - Return the variable, and the Bot generates the answer; 2 - Use the set content to answer directly */
   terminate_plan_type: number,
-  /** 对应 terminate_plan_type = 2 的场景配置的返回内容 */
+  /** Return content of scene configuration corresponding to terminate_plan_type = 2 */
   content: string,
 }
 export interface WorkflowNodeParam {
@@ -464,13 +464,13 @@ export interface WorkflowNodeInfo {
   node_id: string,
   node_type: product_common.WorkflowNodeType,
   node_param?: WorkflowNodeParam,
-  /** 节点icon */
+  /** Node icon */
   node_icon_url: string,
-  /** 展示名称（ store 独有的，用于详情页 GUI 展示消息节点的名称） */
+  /** Presentation name (unique to the store, the name used for the details page GUI display message node) */
   show_name?: string,
 }
 export interface WorkflowEntity {
-  /** 商品ID */
+  /** Product ID */
   product_id: string,
   name: string,
   entity_id: string,
@@ -480,48 +480,48 @@ export interface WorkflowEntity {
   entity_name: string,
   readme: string,
   category: ProductCategory,
-  /** 推荐分类                        , */
+  /** Recommended categories, */
   recommended_category?: ProductCategory,
   nodes?: WorkflowNodeInfo[],
   desc: string,
-  /** 入参 图片icon */
+  /** Imported parameters Picture icon */
   case_input_icon_url?: string,
-  /** 出参 图片icon */
+  /** Exported parameters Image icon */
   case_output_icon_url?: string,
   latest_publish_commit_id?: string,
 }
 export interface WorkflowGUIConfig {
-  /** 用于将 workflow 的输入/输出/中间消息节点节点转为用户可视化配置 */
+  /** Used to convert the input/output/intermediate message node of a workflow into a user visual configuration */
   start_node: WorkflowNodeInfo,
   end_node: WorkflowNodeInfo,
-  /** 消息节点会输出中间过程，也需要展示 */
+  /** The message node will output the intermediate process, which also needs to be displayed. */
   message_nodes?: WorkflowNodeInfo[],
 }
 export interface WorkflowExtraInfo {
   related_workflows: WorkflowEntity[],
   duplicate_count?: number,
-  /** workflow画布信息 */
+  /** Workflow canvas information */
   workflow_schema?: string,
   /**
    * api/workflowV2/query  schema_json
-   * 推荐分类
+   * recommended classification
   */
   recommended_category?: ProductCategory,
   nodes?: WorkflowNodeInfo[],
   start_node?: WorkflowNodeInfo,
-  /** 实体名称(用于展示) */
+  /** Entity name (for presentation) */
   entity_name?: string,
-  /** 用例图入参 */
+  /** Use case diagrams imported parameters */
   case_input_icon_url?: string,
-  /** 用例图出参 */
+  /** Use case diagram exported parameters */
   case_output_icon_url?: string,
-  /** 案例执行ID */
+  /** case execution ID */
   case_execute_id?: string,
   hover_text?: string,
   latest_publish_commit_id?: string,
-  /** 试运行次数，从数仓取 */
+  /** Practice running times, take from the number of warehouses */
   used_count?: number,
-  /** 用于将 workflow 的输入/输出/中间消息节点节点转为用户可视化配置 */
+  /** Used to convert the input/output/intermediate message node of a workflow into a user visual configuration */
   gui_config?: WorkflowGUIConfig,
 }
 export interface SocialScenePlayerInfo {
@@ -530,47 +530,47 @@ export interface SocialScenePlayerInfo {
   role_type: product_common.SocialSceneRoleType,
 }
 export interface SocialSceneExtraInfo {
-  /** 角色 */
+  /** role */
   players?: SocialScenePlayerInfo[],
-  /** 使用过的人数 */
+  /** Number of people used */
   used_count: string,
-  /** 开始过的次数 */
+  /** number of times started */
   started_count: string,
-  /** 开闭源 */
+  /** open and closed source */
   publish_mode: product_common.ProductPublishMode,
 }
 export interface ProjectConfig {
-  /** 插件数量 */
+  /** number of plugins */
   plugin_count: number,
-  /** 工作流数量 */
+  /** number of workflows */
   workflow_count: number,
-  /** 知识库数量 */
+  /** Number of knowledge bases */
   knowledge_count: number,
-  /** 数据库数量 */
+  /** Number of databases */
   database_count: number,
 }
 export interface ProjectExtraInfo {
-  /** Project 上架为模板前生成一个模板副本，使用或者复制模板，需要用 TemplateProjectID 和 TemplateProjectVersion */
+  /** Generate a copy of the template before Project is put on the shelves. To use or copy the template, you need to use TemplateProjectID and TemplateProjectVersion */
   template_project_id: string,
   template_project_version: string,
-  /** Project 绑定的 UI 支持的预览类型 */
+  /** Project-bound UI supported preview types */
   preview_types: product_common.UIPreviewType[],
-  /** 用户数 */
+  /** user */
   user_count: number,
-  /** 运行数 */
+  /** number of runs */
   execute_count: number,
-  /** 发布渠道 */
+  /** distribution channel */
   publish_platforms: BotPublishPlatform[],
-  /** 近实时复制量，从数仓接口获取（复制 - 上报埋点 - 数仓计算落库） */
+  /** Near real-time copy volume, obtained from the data warehouse interface (copy-report event tracking-data warehouse calculation drop library) */
   duplicate_count: number,
-  /** 配置 */
+  /** configuration */
   config?: ProjectConfig,
 }
 export interface GetProductDetailRequest {
   product_id?: string,
   entity_type?: product_common.ProductEntityType,
   entity_id?: string,
-  /** 是否查看最新的审核失败草稿 */
+  /** Whether to check the latest audit failure draft */
   need_audit_failed?: boolean,
   "Tt-Agw-Client-Ip"?: string,
 }
@@ -586,7 +586,7 @@ export interface Price {
 }
 export interface SKUInfo {
   id: string,
-  /** 待废弃 */
+  /** to be abandoned */
   price: Price[],
   description: string,
   price_v2: marketplace_common.Price[],
@@ -606,7 +606,7 @@ export interface SellInfo {
     [key: string | number]: SKUInfo
   },
   attr: SellAttr[],
-  /** Key 是 attrkey:attrvalue 路径，value 是 skuID */
+  /** Key is attrkey: attrvalue path, value is skuID */
   sku_attr_ref: {
     [key: string | number]: string
   },
@@ -616,33 +616,33 @@ export interface Topic {
   name: string,
   description: string,
   banner_url: string,
-  /** 背景小图，前端优先加载 */
+  /** Small background image, front-end priority loading */
   banner_url_small: string,
   reason: string,
-  /** 运营提供的专题介绍文档，用户可见 */
+  /** The presentation document provided by the operation is visible to users */
   introduction_url: string,
-  /** 用户是否收藏专题 */
+  /** Does the user collect the topic? */
   is_favorite: boolean,
 }
 export interface ProductDataIndicator {
   /**
-   * 数据分析指标，来源数仓，比如模板购买量、复制量等
-   * 购买量
+   * Data analytics metrics, source number, such as template purchases, replicas, etc
+   * purchase volume
   */
   purchase_count?: number
 }
 export interface GetProductDetailData {
-  /** 下架的商品只返回非 optional 字段 */
+  /** Products removed from the shelves only return non-optional fields */
   meta_info: ProductMetaInfo,
-  /** 用以区分主/客态 */
+  /** To distinguish between host and guest states */
   is_owner: boolean,
-  /** 审核状态，主态下返回需要关注，如果主态且审核中，需要展示审核中状态 */
+  /** Audit status, return in the main state, you need to pay attention. If the main state is under review, you need to show the status under review. */
   audit_status: product_common.ProductDraftStatus,
   sell_info?: SellInfo,
   space_id?: string,
-  /** 详情页返回 */
+  /** Details page Back */
   topic?: Topic,
-  /** 详情页返回 */
+  /** Details page Back */
   can_duplicate?: boolean,
   commercial_setting?: product_common.CommercialSetting,
   plugin_extra?: PluginExtraInfo,
@@ -653,23 +653,23 @@ export interface GetProductDetailData {
   data_indicator?: ProductDataIndicator,
 }
 export interface GetUserFavoriteListV2Request {
-  /** 第一页不传，后续调用时传上一次返回的cursor_id */
+  /** The first page is not passed, and the last returned cursor_id is passed when subsequent calls are made */
   cursor_id?: string,
   page_size: number,
   entity_type?: product_common.ProductEntityType,
   sort_type: product_common.SortType,
-  /** 不为空则搜索 */
+  /** non-empty search */
   keyword?: string,
-  /** 列表页 tab */
+  /** List page tab */
   source?: product_common.FavoriteListSource,
-  /** 是否需要查询用户对Bot的触发器配置，为true时，才会返回EntityUserTriggerConfig */
+  /** Whether you need to query the user's trigger configuration for the Bot, when true, it will return EntityUserTriggerConfig */
   need_user_trigger_config?: boolean,
-  /** 筛选收藏时间 */
+  /** Filter collection time */
   begin_at?: string,
-  /** 筛选收藏时间 */
+  /** Filter collection time */
   end_at?: string,
   entity_types?: product_common.ProductEntityType[],
-  /** 组织ID，企业版想获取用户收藏的所有内容时需传递 */
+  /** Organization ID, Enterprise Edition needs to be passed when you want to get all the content in the user's collection */
   organization_id?: string,
 }
 export interface GetUserFavoriteListV2Response {
@@ -682,7 +682,7 @@ export interface GetUserFavoriteListDataV2 {
   cursor_id: string,
   has_more: boolean,
   /**
-   * 用户定时任务配置，对应flow.bot.task服务的TriggerEnabled
+   * User timed task configuration, corresponding to flow.bot TriggerEnabled of the task service
    * key: entity_id; value: UserTriggerConfig
   */
   entity_user_trigger_config: {
@@ -710,8 +710,8 @@ export interface DuplicateProductResponse {
   data: DuplicateProductData,
 }
 export interface DuplicateProductData {
-  /** 复制后的新id */
+  /** New ID after replication */
   new_entity_id: string,
-  /** workflow对应的插件id */
+  /** Plugin ID for workflow */
   new_plugin_id?: string,
 }

@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** 复制 */
+  /** copy */
   Copy = 1,
-  /** 删除 */
+  /** delete */
   Delete = 2,
-  /** 启用/禁用 */
+  /** enable/disable */
   EnableSwitch = 3,
-  /** 编辑 */
+  /** edit */
   Edit = 4,
-  /** 切换成funcflow */
+  /** Switch to funcflow */
   SwitchToFuncflow = 8,
-  /** 切换成chatflow */
+  /** Switch to chatflow */
   SwitchToChatflow = 9,
-  /** 跨空间复制 */
+  /** Cross-spatial replication */
   CrossSpaceCopy = 10,
 }
 
@@ -52,15 +52,15 @@ export enum AgentTriggerAPIType {
 }
 
 export enum AIGenerateCardStatus {
-  /** AI Schema 生成且格式符合预期 */
+  /** AI Schema generated and formatted as expected */
   Init = 0,
-  /** AI Schema 转 Card 成功 */
+  /** AI Schema Transfer Card Successful */
   Success = 1,
-  /** 格式与预期不符 */
+  /** The format does not match expectations */
   Invalid = 2,
-  /** 格式符合预期但转卡片失败 */
+  /** The format is as expected but the transfer card fails. */
   Failed = 3,
-  /** 手动终止，部分成功 */
+  /** Manual termination, partially successful */
   Interrupt = 4,
 }
 
@@ -71,39 +71,39 @@ export enum AISchemaTransferStatus {
 }
 
 export enum AuditStatus {
-  /** 链接内容不通过 */
+  /** The link content does not pass. */
   LinkRejected = -60,
-  /** 视频内容不通过 */
+  /** Video content does not pass */
   VideoRejected = -50,
-  /** 音频内容不通过 */
+  /** Audio content does not pass */
   AudioRejected = -40,
-  /** 图片内容不通过 */
+  /** The picture content does not pass. */
   ImageRejected = -30,
-  /** 文本内容不通过 */
+  /** Text content does not pass */
   TextRejected = -20,
-  /** 审核不通过(原因见详情) */
+  /** The review failed (see details for the reasons). */
   Rejected = -1,
-  /** 审核通过 */
+  /** approved */
   Approved = 1,
-  /** 待审核 */
+  /** pending review */
   Pending = 100,
 }
 
 export enum CardCategory {
-  /** 模版卡片 */
+  /** template card */
   Template = 1,
-  /** 自定义卡片 */
+  /** custom card */
   Custom = 2,
 }
 
 export enum CardDisplayType {
-  /** 基础 */
+  /** foundation */
   Basic = 1,
-  /** 列表 */
+  /** list */
   List = 2,
-  /** 自定义卡片 */
+  /** custom card */
   Custom = 3,
-  /** 横向列表 */
+  /** horizontal list */
   Slide = 4,
 }
 
@@ -114,19 +114,19 @@ export enum CardStatus {
 }
 
 export enum CardThumbnailStatus {
-  /** 未定义 */
+  /** undefined */
   Default = 0,
-  /** 空卡片 */
+  /** Empty card */
   Empty = 1,
-  /** 待生成 */
+  /** to be generated */
   NeedGenerate = 2,
-  /** 生成中 */
+  /** Generating */
   Generating = 3,
-  /** 生成失败 */
+  /** generation failed */
   Failed = 4,
-  /** 生成成功 */
+  /** Generated successfully */
   Success = 5,
-  /** 已发布卡片编辑过待重新发布 */
+  /** Published card edited to be republished */
   NeedPublish = 6,
 }
 
@@ -152,59 +152,59 @@ export enum CopyStatus {
 }
 
 export enum DocumentType {
-  /** 上传中 */
+  /** Uploading */
   Processing = 0,
-  /** 生效 */
+  /** take effect */
   Enable = 1,
-  /** 失效 */
+  /** failure */
   Disable = 2,
-  /** 删除 */
+  /** delete */
   Deleted = 3,
-  /** 失败 */
+  /** fail */
   Failed = 9,
 }
 
 export enum PublishStatus {
-  /** 未发布 */
+  /** unpublished */
   UnPublished = 1,
-  /** 已发布 */
+  /** Published */
   Published = 2,
 }
 
 export enum Scene {
-  /** 卡片，实际对应文件类型是图片 */
+  /** Card, the actual corresponding file type is picture. */
   Card = 0,
-  /** agent，实际对应文件类型是PDF */
+  /** Agent, the actual corresponding file type is PDF. */
   Agent = 1,
-  /** 音频 */
+  /** Audio */
   Audio = 2,
-  /** 缩略图 */
+  /** thumbnail */
   Thumbnail = 3,
-  /** 视频 */
+  /** video */
   Video = 4,
 }
 
 export enum SliceStatus {
-  /** 未向量化 */
+  /** unvectorized */
   PendingVectoring = 0,
-  /** 已向量化 */
+  /** vectorized */
   FinishVectoring = 1,
-  /** 禁用 */
+  /** disable */
   Deactive = 9,
 }
 
 export enum SortField {
   Default = 0,
-  /** 更新时间 */
+  /** update time */
   UpdateTime = 1,
-  /** 发布时间 */
+  /** release time */
   PublishTime = 2,
 }
 
 export enum SortOrderType {
-  /** 降序 */
+  /** descending order */
   Desc = 0,
-  /** 升序 */
+  /** ascending order */
   Asc = 1,
 }
 
@@ -219,7 +219,7 @@ export enum TccServiceID {
   CardBuilder = 1,
 }
 
-/** -------------- 运营平台接口 end -------------- */
+/** -------------- Operating Platform Interface end -------------- */
 export enum ToolType {
   Plugin = 1,
   Workflow = 2,
@@ -232,9 +232,9 @@ export interface CardMetaInfo {
   thumbnail?: string;
   channel_type?: ChannelType;
   version_num?: string;
-  /** 审核状态 */
+  /** moderation status */
   audit_status?: AuditStatus;
-  /** 审核不通过详情 */
+  /** Failed the review Details */
   audit_failure_details?: Array<number>;
 }
 /* eslint-enable */

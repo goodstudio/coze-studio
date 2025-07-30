@@ -22,32 +22,32 @@
 export type Int64 = string | number;
 
 export enum FollowType {
-  /** 无关系 */
+  /** It doesn't matter. */
   Unknown = 0,
-  /** 关注 */
+  /** follow */
   Followee = 1,
-  /** 粉丝 */
+  /** fan */
   Follower = 2,
-  /** 互相关注 */
+  /** Follow each other */
   MutualFollow = 3,
 }
 
 export enum UserRole {
   Unknown = 0,
-  /** 普通版 */
+  /** regular version */
   Normal = 1,
-  /** 专业版主账号 */
+  /** Professional version main account */
   ProfessionalRootUser = 2,
-  /** 专业版子账号 */
+  /** Professional sub-account */
   ProfessionalBasicAccount = 3,
 }
 
 export interface Price {
-  /** 金额 */
+  /** amount */
   amount?: string;
-  /** 币种，如USD、CNY */
+  /** Currencies such as USD and CNY */
   currency?: string;
-  /** 小数位数 */
+  /** decimal places */
   decimal_num?: number;
 }
 /* eslint-enable */

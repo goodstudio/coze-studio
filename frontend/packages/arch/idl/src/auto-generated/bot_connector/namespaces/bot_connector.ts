@@ -24,13 +24,13 @@ import * as bot_common from './bot_common';
 
 export type Int64 = string | number;
 
-/** ===================================消息接口开始===================================== */
+/** =================================== message interface starts ===================================== */
 export enum ChatMode {
   Normal = 0,
   Group = 1,
 }
 
-/** 上下文允许传输的类型 */
+/** The type of transmission allowed by the context */
 export enum ContextMode {
   Chat = 0,
   FunctionCall_1 = 1,
@@ -50,28 +50,28 @@ export enum LoadDirection {
 }
 
 export enum MessageSource {
-  /** 普通聊天消息 */
+  /** normal chat message */
   Chat = 0,
-  /** 定时任务 */
+  /** timed task */
   TaskManualTrigger = 1,
-  /** 通知 */
+  /** notify */
   Notice = 2,
-  /** 异步结果 */
+  /** asynchronous result */
   AsyncResult = 3,
 }
 
 export enum MetaType {
   /** Compatible value */
   Default_0 = 0,
-  /** 端侧直接替换 */
+  /** End-to-side direct replacement */
   Replaceable = 1,
-  /** 插入引用 */
+  /** insert reference */
   Insertable = 2,
-  /** 文档引用 */
+  /** document citation */
   DocumentRef = 3,
-  /** 知识库引用卡片 本次新增 */
+  /** Knowledge base reference card, new this time */
   KnowledgeCard = 4,
-  /** 嵌入的多媒体信息，只是alice给端上用的，因为全链路复用这一个字段，所以在这儿改了 */
+  /** The embedded multimedia information is only used by Alice for the end. Because full link multiplexing uses this field, it has been changed here. */
   EmbeddedMultimedia = 100,
 }
 
@@ -84,30 +84,30 @@ export enum SuggestReplyMode {
   System = 0,
   Custom = 1,
   Disable = 2,
-  /** (Agent)使用源bot的配置 */
+  /** (Agent) Configuration using the source bot */
   OriBot = 3,
 }
 
 export interface BotInfo {
   /** bot id */
   Id: Int64;
-  /** bot 名称 */
+  /** bot name */
   Name?: string;
-  /** bot 描述 */
+  /** Bot description */
   Description?: string;
-  /** bot 头像 */
+  /** bot avatar */
   Icon?: string;
   /** prompt */
   PromptInfo?: PromptInfo;
-  /** 模型配置 */
+  /** model configuration */
   ModelInfo?: ModelInfo;
-  /** plugin列表 */
+  /** List of plugins */
   PluginList?: Array<PluginInfo>;
-  /** 开场白配置 */
+  /** Opener configuration */
   OnboardingInfo?: OnboardingInfo;
-  /** workflow 列表 */
+  /** Workflow List */
   WorkFlowList?: Array<WorkFlowInfo>;
-  /** suggest配置 */
+  /** Suggested configuration */
   SuggestReplyInfo?: SuggestReplyInfo;
   CreateTime?: Int64;
   UpdateTime?: Int64;
@@ -165,11 +165,11 @@ export interface ClearConversationApiRequest {
 }
 
 export interface ClearConversationApiResponse {
-  /** 错误code */
+  /** Error code */
   code?: Int64;
-  /** 错误消息 */
+  /** error message */
   msg?: string;
-  /** section 信息 */
+  /** Section information */
   data?: Section;
   BaseResp?: base.BaseResp;
 }
@@ -186,7 +186,7 @@ export interface ConversationData {
 
 export interface CreateConversationApiRequest {
   meta_data?: Record<string, string>;
-  /** 校验最多16个 */
+  /** Verify up to 16 */
   messages?: Array<EnterMessage>;
   bot_id?: string;
   connector_id?: string;
@@ -205,9 +205,9 @@ export interface CreateConversationApiResponse {
 
 export interface CreateMessageApiRequest {
   conversation_id: Int64;
-  /** 已TODO 字段打平 */
+  /** TODO field tied */
   role: string;
-  /** 内容 */
+  /** content */
   content?: string;
   meta_data?: Record<string, string>;
   content_type?: string;
@@ -243,7 +243,7 @@ export interface DeleteMessageApiResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** 批量删除message */
+/** Bulk delete messages */
 export interface DeleteMessageBody {
   MessageId: Int64;
   ConversationId: Int64;
@@ -256,7 +256,7 @@ export interface DraftMessageIdInfo {
 
 export interface EnterMessage {
   role: string;
-  /** 内容 */
+  /** content */
   content?: string;
   meta_data?: Record<string, string>;
   /** text/card/object_string */
@@ -271,9 +271,9 @@ export interface IdempotentInfo {
 }
 
 export interface ListChatMessageApiRequest {
-  /** connector层的会话id */
+  /** Session ID of the connector layer */
   conversation_id: string;
-  /** 运行id */
+  /** Run ID */
   chat_id: string;
   Base?: base.Base;
 }
@@ -291,9 +291,9 @@ export interface ListConversationData {
 export interface ListConversationsApiRequest {
   page_num?: Int64;
   page_size?: Int64;
-  /** 可选值：ASC、DESC */
+  /** Optional values: ASC, DESC */
   sort_order?: string;
-  /** 可选值：created_at创建时间 */
+  /** Optional value: created_at creation time */
   sort_field?: string;
   bot_id: string;
   connector_id?: string;
@@ -301,26 +301,26 @@ export interface ListConversationsApiRequest {
 }
 
 export interface ListConversationsApiResponse {
-  /** 错误code */
+  /** Error code */
   code?: Int64;
-  /** 错误消息 */
+  /** error message */
   msg?: string;
   data?: ListConversationData;
   BaseResp?: base.BaseResp;
 }
 
 export interface ListMessageApiRequest {
-  /** connector层的会话id */
+  /** Session ID of the connector layer */
   conversation_id: Int64;
-  /** 每页限制条数  TODO 限制50条 */
+  /** Limit of articles per page TODO limit of 50 articles */
   limit?: Int64;
-  /** 查询顺序  desc倒序 asc正序 TODO 默认倒序 */
+  /** Query order desc reverse order asc positive order TODO default reverse order */
   order?: string;
-  /** 运行id */
+  /** Run ID */
   chat_id?: string;
-  /** 前序消息游标ID  已TODO str */
+  /** Preorder message cursor ID TODO str */
   before_id?: string;
-  /** 后序消息游标ID  已TODO str */
+  /** Post-order message cursor ID TODO str */
   after_id?: string;
   Base?: base.Base;
 }
@@ -345,7 +345,7 @@ export interface Message {
   ConversationId: Int64;
   /** customer meta data */
   CustomerData?: Record<string, string>;
-  /** 创建时间 */
+  /** creation time */
   CreateTime?: Int64;
 }
 
@@ -368,7 +368,7 @@ export interface ModifyMessageApiRequest {
   conversation_id: Int64;
   message_id: Int64;
   meta_data?: Record<string, string>;
-  /** 内容 */
+  /** content */
   content?: string;
   content_type?: string;
   Base?: base.Base;
@@ -382,33 +382,33 @@ export interface ModifyMessageApiResponse {
 export interface MultiData {
   Url: string;
   Name?: string;
-  /** 文件/图片/audio等 */
+  /** File/picture/audio etc */
   Type: FileType;
 }
 
 export interface OnboardingInfo {
-  /** 开场白 */
+  /** opening statement */
   Prologue?: string;
-  /** 建议问题 */
+  /** suggestion question */
   SuggestedQuestions?: Array<string>;
 }
 
 export interface OpenMessage {
-  /** 主键ID */
+  /** primary key ID */
   Id?: Int64;
   /** bot id */
   BotId?: Int64;
   Role?: RoleType;
-  /** 内容 */
+  /** content */
   Content?: string;
   /** conversation id */
   ConversationId?: Int64;
   CustomerData?: Record<string, string>;
-  /** 创建时间 */
+  /** creation time */
   CreatedAt?: Int64;
-  /** 更新时间 */
+  /** update time */
   UpdatedAt?: Int64;
-  /** 多模态数据 */
+  /** multimodal data */
   MultiData?: Array<MultiData>;
   ChatId?: string;
   ContentType?: number;
@@ -419,19 +419,19 @@ export interface OpenMessage {
 }
 
 export interface OpenMessageApi {
-  /** 主键ID */
+  /** primary key ID */
   id?: string;
-  /** bot id //已TODO 所有的i64加注解str,入参和出参都要 */
+  /** Bot id//TODO All i64 plus annotation str, imported parameters and exported parameters are required */str, imported parameters and exported parameters must be */
   bot_id?: string;
   role?: string;
-  /** 内容 */
+  /** content */
   content?: string;
   /** conversation id */
   conversation_id?: string;
   meta_data?: Record<string, string>;
-  /** 创建时间 */
+  /** creation time */
   created_at?: Int64;
-  /** 更新时间 //已TODO 时间改成int */
+  /** Update time//The TODO time has been changed to int. */s been changed to int */
   updated_at?: Int64;
   chat_id?: string;
   content_type?: string;
@@ -468,7 +468,7 @@ export interface PoMessage {
 }
 
 export interface PromptInfo {
-  /** 文本prompt */
+  /** Text prompt */
   Prompt?: string;
 }
 

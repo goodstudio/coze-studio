@@ -45,13 +45,13 @@ export interface BillTaskInfo {
   task_id?: string;
   status?: string;
   file_urls?: Array<string>;
-  /** 过期时间，Unix 时间戳 */
+  /** Expiration time, Unix timestamp */
   expires_at?: Int64;
-  /** 创建时间，Unix 时间戳 */
+  /** Creation time, Unix timestamp */
   created_at?: Int64;
-  /** 开始时间，Unix 时间戳 */
+  /** Start time, Unix timestamp */
   started_at?: Int64;
-  /** 结束时间，Unix 时间戳 */
+  /** End time, Unix timestamp */
   ended_at?: Int64;
 }
 
@@ -72,9 +72,9 @@ export interface CreateBenefitLimitationResponse {
 }
 
 export interface CreateBillDownloadTaskRequest {
-  /** 开始时间，时间戳 */
+  /** Start time, timestamp */
   started_at?: Int64;
-  /** 结束时间，时间戳 */
+  /** End time, timestamp */
   ended_at?: Int64;
 }
 

@@ -55,7 +55,7 @@ export const useExpertModeConfig = (params: {
         res = await MemoryApi.GetModeConfig({
           bot_id: botId,
         });
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- 复制历史文件
+        // eslint-disable-next-line @typescript-eslint/no-exploration-any -- Copy history file
       } catch (error: any) {
         dataReporter.errorEvent(DataNamespace.DATABASE, {
           eventName: REPORT_EVENTS.DatabaseGetExpertConfig,

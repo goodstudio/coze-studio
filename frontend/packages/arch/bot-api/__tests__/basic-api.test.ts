@@ -52,7 +52,7 @@ describe('basic-api', () => {
         headers: { 'Another-Header': 'another-value' },
       };
 
-      // @ts-expect-error - 我们知道这是一个有效的方法调用
+      // @TS-expected-error - we know this is a valid method call
       await basicApi.request(mockParams, mockConfig);
 
       expect(axiosInstance.request).toHaveBeenCalledWith({
@@ -76,7 +76,7 @@ describe('basic-api', () => {
         headers: { 'Custom-Header': 'value' },
       };
 
-      // @ts-expect-error - 我们知道这是一个有效的方法调用
+      // @TS-expected-error - we know this is a valid method call
       await basicApi.request(mockParams);
 
       expect(axiosInstance.request).toHaveBeenCalledWith({
@@ -97,7 +97,7 @@ describe('basic-api', () => {
         method: 'GET',
       };
 
-      // @ts-expect-error - 我们知道这是一个有效的方法调用
+      // @TS-expected-error - we know this is a valid method call
       await basicApi.request(mockParams);
 
       expect(axiosInstance.request).toHaveBeenCalledWith({

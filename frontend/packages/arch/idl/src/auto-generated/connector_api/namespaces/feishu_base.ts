@@ -22,40 +22,40 @@
 export type Int64 = string | number;
 
 export enum InputComponentType {
-  /** 文本输入框，图 4 控件 */
+  /** Text text box, Figure 4 control */
   Text = 1,
-  /** 单选，图 4 控件 */
+  /** Radio, Figure 4 control */
   SingleSelect = 2,
-  /** 多选，图 4 控件 */
+  /** Multi-select, Figure 4 control */
   MultiSelect = 3,
-  /** 字段选择器，图 4 控件 */
+  /** Field selector, Figure 4 control */
   FieldSelector = 4,
 }
 
 export enum OutputSubComponentType {
-  /** 没有子 component */
+  /** No child components */
   None = 0,
-  /** 输出类型为 object */
+  /** The output type is object */
   Object = 1,
 }
 
-/** base 就是多维表格的英文名。所以飞书多维表格是 FeishuBase */
+/** Base is the English name of Bitable. So Bitable is FeishuBase. */
 export interface FeishuBaseConfig {
-  /** markdown，对应“#配置多维飞书表格\n将你的...“ */
+  /** Markdown, corresponding to "#configure multidimensional Feishu table\ nput your..." */
   description: string;
-  /** 所有类型 id 到 info 的映射 */
+  /** Mapping of all types of id to info */
   output_type_list: Array<OutputTypeInfo>;
   output_type: number;
-  /** markdown, 对应“捷径输出类型”旁边的 i */
+  /** Markdown, corresponding to i next to "shortcut output type" */
   output_desc?: string;
   output_sub_component: OutputSubComponent;
   input_config: Array<InputConfig>;
-  /** markdown, 对应“配置多维表格字段”旁边的 i */
+  /** Markdown, corresponding to i next to "Configure Bitable Field" */
   input_desc?: string;
   input_type_list: Array<InputTypeInfo>;
-  /** 输出类型选中 object 后，object value 可选的类型列表 */
+  /** Output type When object is selected, object value is a list of optional types */
   object_value_type_list: Array<OutputTypeInfo>;
-  /** 完善上架信息,  */
+  /** Improve the listing information,  */
   to_complete_info?: ToCompleteInfo;
 }
 
@@ -71,7 +71,7 @@ export interface GetFeishuBaseConfigResponse {
 
 export interface InputComponent {
   type: InputComponentType;
-  /** 仅 Type == Text 有用 */
+  /** Type == Text Only */
   max_char?: number;
   /** Type in [SingleSelect, MultiSelect] */
   choice?: Array<string>;
@@ -85,9 +85,9 @@ export interface InputConfig {
   placeholder?: string;
   input_component: InputComponent;
   required?: boolean;
-  /** markdown, 对应 user_query 旁边的 i */
+  /** Markdown, corresponding to i next to user_query */
   desc?: string;
-  /** 失效了。需要重新配置的时候才会出现 */
+  /** It is invalid. It will only appear when it needs to be reconfigured. */
   invalid?: boolean;
 }
 
@@ -98,39 +98,39 @@ export interface InputTypeInfo {
 
 export interface OutputSubComponent {
   type: OutputSubComponentType;
-  /** 仅 Type == object 会有 */
+  /** Only Type == object will have */
   item_list?: Array<OutputSubComponentItem>;
-  /** eg: 结构化输出配置右边的 i */
+  /** Eg: i to the right of the structured output configuration */
   struct_output_desc?: string;
-  /** 结构化输出，id 列的说明 */
+  /** Structured output, description of the id column */
   struct_id_desc?: string;
-  /** 结构化输出，主属性说明 */
+  /** Structured output, main attribute description */
   struct_primary_desc?: string;
 }
 
 export interface OutputSubComponentItem {
   key: string;
-  /** 同 FeishuBaseConfig.OutputType */
+  /** FeishuBaseConfig. OutputType */
   output_type: number;
-  /** 主属性, 标记该属性为用于排序的主属性。 */
+  /** Primary attribute, marking the attribute as the primary attribute for sorting. */
   is_primary?: boolean;
-  /** 标记该属性会作为Object字段的筛选、分组依据。 */
+  /** Mark this property as the basis for filtering and grouping Object fields. */
   is_group_by_key?: boolean;
 }
 
 export interface OutputTypeInfo {
-  /** 会增加，就不整成 enum 了。 */
+  /** If it will increase, it will not become enum. */
   id: number;
-  /** 名称，例如“文本”，“对象”等 */
+  /** Name, such as "text", "object", etc */
   name: string;
-  /** markdown, 对应图 3 中 “需要在 Persona ...“ */
+  /** Markdown, corresponding to Figure 3 "Need to be in Persona..." */
   tips?: string;
 }
 
 export interface ToCompleteInfo {
-  /** 完善信息的填写地址 */
+  /** Perfect the address for filling in the information */
   url: string;
-  /** 是否填好 */
+  /** Is it filled in? */
   completed: boolean;
 }
 

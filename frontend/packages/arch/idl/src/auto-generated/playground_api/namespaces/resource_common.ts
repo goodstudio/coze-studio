@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** 复制 */
+  /** copy */
   Copy = 1,
-  /** 删除 */
+  /** delete */
   Delete = 2,
-  /** 启用/禁用 */
+  /** enable/disable */
   EnableSwitch = 3,
-  /** 编辑 */
+  /** edit */
   Edit = 4,
-  /** 切换成funcflow */
+  /** Switch to funcflow */
   SwitchToFuncflow = 8,
-  /** 切换成chatflow */
+  /** Switch to chatflow */
   SwitchToChatflow = 9,
-  /** 跨空间复制 */
+  /** Cross-spatial replication */
   CrossSpaceCopy = 10,
 }
 
@@ -42,32 +42,32 @@ export enum CopyStatus {
   Successful = 1,
   Processing = 2,
   Failed = 3,
-  /** 如果是KeepOrigin，表示该资源不需要做变更，资源方不需要设置Target相关信息；引用方直接忽略即可 */
+  /** If it is KeepOrigin, it means that the resource does not need to be changed, and the resource party does not need to set Target related information; the referencing party can directly ignore it. */
   KeepOrigin = 4,
-  /** 表示回滚到草稿时，资源从有->无的变更 */
+  /** Represents when rolling back to draft, the resource changes from Yes - > No */
   Deleted = 5,
 }
 
 export enum ProjectResourceActionKey {
-  /** 重命名 */
+  /** rename */
   Rename = 1,
-  /** 创建副本/复制到当前项目 */
+  /** Create a copy/copy to the current project */
   Copy = 2,
-  /** 复制到资源库 */
+  /** Copy to repository */
   CopyToLibrary = 3,
-  /** 移动到资源库 */
+  /** Move to Library */
   MoveToLibrary = 4,
-  /** 删除 */
+  /** delete */
   Delete = 5,
-  /** 启用 */
+  /** enable */
   Enable = 6,
-  /** 禁用 */
+  /** disable */
   Disable = 7,
-  /** 切换成funcflow */
+  /** Switch to funcflow */
   SwitchToFuncflow = 8,
-  /** 切换成chatflow */
+  /** Switch to chatflow */
   SwitchToChatflow = 9,
-  /** 修改描述 */
+  /** Modify description */
   UpdateDesc = 10,
 }
 
@@ -78,38 +78,38 @@ export enum ProjectResourceGroupType {
 }
 
 export enum PublishStatus {
-  /** 未发布 */
+  /** unpublished */
   UnPublished = 1,
-  /** 已发布 */
+  /** Published */
   Published = 2,
 }
 
 export enum ResourceCopyScene {
-  /** 复制项目内的资源，浅拷贝 */
+  /** Copy resources within the project, shallow copy */
   CopyProjectResource = 1,
-  /** 复制项目资源到Library，复制后要发布 */
+  /** Copy the project resources to the Library, and publish after copying */
   CopyResourceToLibrary = 2,
-  /** 移动项目资源到Library，复制后要发布，后置要删除项目资源 */
+  /** Move project resources to Library, copy to publish, and delete project resources later */
   MoveResourceToLibrary = 3,
-  /** 复制Library资源到项目 */
+  /** Copy Library Resources to Project */
   CopyResourceFromLibrary = 4,
-  /** 复制项目，连带资源要复制。复制当前草稿。 */
+  /** Copy the project, along with the resources. Copy the current draft. */
   CopyProject = 5,
-  /** 项目发布到渠道，连带资源需要发布（含商店）。以当前草稿发布。 */
+  /** The project is published to the channel, and the associated resources need to be published (including the store). Publish with the current draft. */
   PublishProject = 6,
-  /** 复制项目模板。 */
+  /** Copy the project template. */
   CopyProjectTemplate = 7,
-  /** 项目发布到模板，以项目的指定版本发布成临时模板。 */
+  /** The project is published to a template, and the specified version of the project is published as a temporary template. */
   PublishProjectTemplate = 8,
-  /** 模板审核通过，上架，根据临时模板复制正式模板。 */
+  /** The template is approved, put on the shelves, and the official template is copied according to the temporary template. */
   LaunchTemplate = 9,
-  /** 草稿版本存档 */
+  /** Draft version archive */
   ArchiveProject = 10,
-  /** 线上版本加载到草稿，草稿版本加载到草稿 */
+  /** Online version loaded into draft, draft version loaded into draft */
   RollbackProject = 11,
-  /** 单个资源跨空间复制 */
+  /** Cross-spatial replication of a single resource */
   CrossSpaceCopy = 12,
-  /** 项目跨空间复制 */
+  /** item cross-spatial replication */
   CrossSpaceCopyProject = 13,
 }
 
@@ -131,13 +131,13 @@ export enum SyncOperation {
 }
 
 /** struct ResourceCopyExtraInfo{
-    // 表示操作资源后，资源要改成该名称
+    //Indicates that after operating the resource, the resource should be changed to this namefter manipulating the resource, the resource should be changed to this name
     1 : optional string ResourceName (go.tag = "json:\"resource_name\"", agw.key = "resource_name")
-    // 表示资源发布后的版本号
+    //Indicates the version number after the resource is publishedthe version number of the resource after it was published
     2 : optional string VersionNum  (go.tag = "json:\"version_num\"", agw.key = "version_num")
-    // 该版本的版本描述
+    //Version description of this versionion description of this version
     3 : optional string VersionDesc  (go.tag = "json:\"version_desc\"", agw.key = "version_desc")
-    // 每个资源不同的信息，对插件，是个人信息收集声明。schema和各个资源方约定
+    //Different information for each resource, for plugins, is a personal information collection declaration. schema and conventions for each resource partyn, and the plugin is a personal information collection declaration. schema and conventions for each resource party
     4 : optional string ResourceExtendInfo  (go.tag = "json:\"resource_extend_info\"", agw.key = "resource_extend_info")
 } */
 export enum TaskStatus {
@@ -147,83 +147,83 @@ export enum TaskStatus {
   Canceled = 4,
 }
 
-/** 展示用，实现方提供展示信息 */
+/** For display, the implementer provides display information */
 export interface DisplayResourceInfo {
-  /** 资源id */
+  /** Resource ID */
   ResID?: Int64;
-  /** 资源描述 */
+  /** resource description */
   Desc?: string;
-  /** 资源Icon，完整url */
+  /** Resource Icon, full url */
   Icon?: string;
-  /** 资源状态，各类型资源自身定义 */
+  /** Resource status, each type of resource defines itself */
   BizResStatus?: number;
-  /** 是否开启多人编辑 */
+  /** Whether to enable multi-person editing */
   CollaborationEnable?: boolean;
-  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
+  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
   BizExtend?: Record<string, string>;
-  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
+  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
   Actions?: Array<ResourceAction>;
-  /** 是否禁止进详情页 */
+  /** Whether to ban entering the details page */
   DetailDisable?: boolean;
-  /** 资源名称 */
+  /** resource name */
   Name?: string;
-  /** 资源发布状态，1-未发布，2-已发布 */
+  /** Resource release status, 1 - unpublished, 2 - published */
   PublishStatus?: PublishStatus;
-  /** 最近编辑时间, unix秒级时间戳 */
+  /** Last edited, unix timestamp */
   EditTime?: Int64;
 }
 
 export interface ProjectResourceAction {
-  /** 一个操作对应一个唯一的key，key由资源侧约束 */
+  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
   key: ProjectResourceActionKey;
-  /** ture=可以操作该Action，false=置灰 */
+  /** ture = can operate this Action, false = grey out */
   enable: boolean;
-  /** enable=false时，提示文案。后端返回Starling Key，注意放在同一个space下。 */
+  /** When enable = false, prompt the copywriter. The backend returns the Starling Key, be careful to put it under the same space. */
   hint?: string;
 }
 
 export interface ProjectResourceGroup {
-  /** 资源分组 */
+  /** resource grouping */
   group_type?: ProjectResourceGroupType;
   resource_list?: Array<ProjectResourceInfo>;
 }
 
-/** 实现方提供展示信息 */
+/** The implementer provides display information */
 export interface ProjectResourceInfo {
-  /** 资源id */
+  /** Resource ID */
   res_id?: string;
-  /** 资源名称 */
+  /** resource name */
   name?: string;
-  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
+  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
   actions?: Array<ProjectResourceAction>;
-  /** 该用户是否对资源只读
+  /** Is the user read-only to the resource?
 4: bool ReadOnly (go.tag = "json:\"read_only\"", agw.key = "read_only")
-资源类型 */
+resource type */
   res_type?: ResType;
-  /** 资源子类型，由资源实现方定义。Plugin：1-Http; 2-App; 6-Local；Knowledge：0-text; 1-table; 2-image；UI：1-Card */
+  /** Resource subtype, defined by the resource implementer. Plugin: 1-Http; 2-App; 6-Local; Knowledge: 0-text; 1-table; 2-image; UI: 1-Card */
   res_sub_type?: number;
-  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
+  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
   biz_extend?: Record<string, string>;
-  /** 资源状态，各类型资源自身定义。前端与各资源方约定。 */
+  /** Resource status, each type of resource defines itself. The front end agrees with each resource party. */
   biz_res_status?: number;
-  /** 当前资源的编辑态版本 */
+  /** The edited version of the current resource */
   version_str?: string;
   res_third_type?: number;
 }
 
 export interface RefTreeNode {
   ResourceLocator?: ResourceLocator;
-  /** 引用的子资源，子资源在不同层级的引用可以出现多次。A-B, A-C-B, A-D, B可以同时在A和C的ChildrenNodes出现 */
+  /** References to sub-resources can occur multiple times at different levels. A-B, A-C-B, A-D, B can appear in ChildrenNodes of A and C at the same time */
   ChildrenNodes?: Array<RefTreeNode>;
-  /** 当前资源的最新版本，临时使用 */
+  /** The latest version of the current resource, for temporary use */
   LatestPublishVersionStr?: string;
 }
 
-/** Library资源操作 */
+/** Library Resource Operations */
 export interface ResourceAction {
-  /** 一个操作对应一个唯一的key，key由资源侧约束 */
+  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
   key: ActionKey;
-  /** ture=可以操作该Action，false=置灰 */
+  /** ture = can operate this Action, false = grey out */
   enable: boolean;
 }
 
@@ -235,23 +235,23 @@ export interface ResourceCopyCheckFailedReason {
 
 export interface ResourceCopyEnv {
   Scene?: ResourceCopyScene;
-  /** 原项目ID。如果被复制的资源在项目中，则有值。场景：CopyProjectResource、CopyResourceToLibrary、MoveResourceToLibrary、CopyProject */
+  /** Original project ID. Values if the copied resource is in the project. Scenario: CopyProjectResource, CopyResourceToLibrary, MoveResourceToLibrary, CopyProject */
   OriginProjectID?: Int64;
-  /** 目标项目ID。如果复制后的资源要赋值project_id，则有值。场景：CopyProjectResource、CopyResourceFromLibrary、CopyProject */
+  /** Target project ID. If the copied resource is to be assigned project_id, there is a value. Scenario: CopyProjectResource, CopyResourceFromLibrary, CopyProject */
   TargetProjectID?: Int64;
-  /** 被用户选择复制/移动的资源ID。如果操作的目标是资源，则有值。场景：CopyProjectResource、CopyResourceToLibrary、MoveResourceToLibrary、CopyResourceFromLibrary */
+  /** The ID of the resource to be copied/moved by the user. Valued if the target of the operation is a resource. Scenario: CopyProjectResource, CopyResourceToLibrary, MoveResourceToLibrary, CopyResourceFromLibrary */
   ResourceLocator?: ResourceLocator;
-  /** 当次任务的唯一约束，控制幂等。有则传，发起任务时不用传 */
+  /** The only constraint of the secondary task, the control idempotent. If there is one, it will be passed, and there is no need to pass it when initiating the task. */
   TaskUniqKey?: string;
-  /** 项目发布时，项目版本。场景：PublishProject、PublishProjectTemplate */
+  /** When the project is published, the project version. Scenario: PublishProject, PublishProjectTemplate */
   TargetProjectVersion?: Int64;
   OriginProjectSpaceID?: Int64;
   TargetProjectSpaceID?: Int64;
-  /** 操作者用户id */
+  /** operator user id */
   CurrentUserID?: Int64;
-  /** 发布模板时，原项目版本。or 复制模板时，模板的项目版本。 */
+  /** When publishing a template, the original project version. or when copying a template, the project version of the template. */
   OriginProjectVersion?: Int64;
-  /** 0/default-app，默认是app也就是之前的project; 1-bot或者叫agent */
+  /** 0/default-app, the default is app, which is the previous project; 1-bot or agent */
   ProjectType?: number;
 }
 
@@ -260,117 +260,117 @@ export interface ResourceCopyFailedReason {
   res_type?: ResType;
   res_name?: string;
   reason?: string;
-  /** 废弃 */
+  /** abandoned */
   publish_version?: Int64;
-  /** 资源的当前版本，为nil或空字符串都看作是最新版本。项目发布版本或Library发布版本。 */
+  /** The current version of the resource, either nil or empty string, is considered the latest version. Project release or Library release. */
   publish_version_str?: string;
 }
 
-/** 每个资源的复制结果，包含前后映射信息 */
+/** Copy result for each resource, including before and after mapping information */
 export interface ResourceCopyResult {
   OriginResourceLocator?: ResourceLocator;
   TargetResourceLocator?: ResourceLocator;
   CopyStatus?: CopyStatus;
-  /** 发布版本号或版本名，0.0.1 */
+  /** Release version number or version name, 0.0.1 */
   TargetPublishVersionNum?: string;
-  /** 其他的信息，比如plugin的tool映射信息。schema和各资源方约定 */
+  /** Other information, such as plugin tool mapping information. Schema and resource party conventions */
   TargetResInfo?: string;
-  /** 复制不成功的原因 */
+  /** Reasons for unsuccessful replication */
   FailedReason?: string;
 }
 
 export interface ResourceCopyTaskDetail {
   task_id?: string;
-  /** 任务状态 */
+  /** task status */
   status?: TaskStatus;
-  /** 复制后的资源id */
+  /** Replicated resource id */
   res_id?: string;
   res_type?: ResType;
   scene?: ResourceCopyScene;
-  /** 复制前的资源名称 */
+  /** Resource name before replication */
   res_name?: string;
 }
 
-/** 前端用 */
+/** front end */
 export interface ResourceInfo {
-  /** 资源id */
+  /** Resource ID */
   res_id?: string;
-  /** 资源类型 */
+  /** resource type */
   res_type?: ResType;
-  /** 资源子类型，由资源实现方定义。
+  /** Resource subtype, defined by the resource implementer.
 Plugin：1-Http; 2-App; 6-Local；Knowledge：0-text; 1-table; 2-image；UI：1-Card */
   res_sub_type?: number;
-  /** 资源名称 */
+  /** resource name */
   name?: string;
-  /** 资源描述 */
+  /** resource description */
   desc?: string;
-  /** 资源Icon，完整url */
+  /** Resource Icon, full url */
   icon?: string;
-  /** 资源创建者 */
+  /** Resource creator */
   creator_id?: string;
-  /** 资源创建者 */
+  /** Resource creator */
   creator_avatar?: string;
-  /** 资源创建者 */
+  /** Resource creator */
   creator_name?: string;
-  /** 资源创建者 */
+  /** Resource creator */
   user_name?: string;
-  /** 资源发布状态，1-未发布，2-已发布 */
+  /** Resource release status, 1 - unpublished, 2 - published */
   publish_status?: PublishStatus;
-  /** 资源状态，各类型资源自身定义 */
+  /** Resource status, each type of resource defines itself */
   biz_res_status?: number;
-  /** 是否开启多人编辑 */
+  /** Whether to enable multi-person editing */
   collaboration_enable?: boolean;
-  /** 最近编辑时间, unix秒级时间戳 */
+  /** Last edited, unix timestamp */
   edit_time?: Int64;
-  /** 资源所属空间ID */
+  /** Resource Ownership Space ID */
   space_id?: string;
-  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
+  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
   biz_extend?: Record<string, string>;
-  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
+  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
   actions?: Array<ResourceAction>;
-  /** 是否禁止进详情页 */
+  /** Whether to ban entering the details page */
   detail_disable?: boolean;
-  /** [数据延迟优化]删除标识符，true-已删除-前端隐藏该item，false-正常 */
+  /** [Data delay optimization] Delete identifier, true-deleted-frontend hides the item, false-normal */
   del_flag?: boolean;
   res_third_type?: number;
 }
 
-/** 用于定位一个资源数据的结构：某资源的某版本 */
+/** A structure used to locate a resource's data: a version of a resource */
 export interface ResourceLocator {
   ResID?: Int64;
   ResType?: ResType;
-  /** 废弃，不要使用 */
+  /** Discard, do not use */
   PublishVersion?: Int64;
-  /** 资源的当前版本，为nil或空字符串都看作是最新版本。项目发布版本或Library发布版本。 */
+  /** The current version of the resource, either nil or empty string, is considered the latest version. Project release or Library release. */
   PublishVersionStr?: string;
 }
 
-/** 同步用，给ES的关键信息 */
+/** For synchronization, key information for ES */
 export interface StaticResourceInfo {
-  /** 资源id */
+  /** Resource ID */
   res_id: Int64;
-  /** 资源类型，1-Plugin; 2-Workflow; 3-Imageflow; 4-Knowledge; 5-UI; 6-Prompt */
+  /** Resource Type, 1-Plugin; 2-Workflow; 3-Imageflow; 4-Knowledge; 5-UI; 6-Prompt */
   res_type: ResType;
-  /** 资源子类型，由资源实现方定义。Plugin：1-Http; 2-App; 6-Local；Knowledge：1-text; 2-table; 3-image */
+  /** Resource subtype, defined by the resource implementer. Plugin: 1-Http; 2-App; 6-Local; Knowledge: 1-text; 2-table; 3-image */
   res_sub_type?: number;
-  /** 资源名称 */
+  /** resource name */
   name?: string;
-  /** 资源创建者 */
+  /** Resource creator */
   creator_id?: Int64;
-  /** 资源发布状态，1-未发布，2-已发布 */
+  /** Resource release status, 1 - unpublished, 2 - published */
   publish_status?: PublishStatus;
-  /** 最近编辑时间, unix秒级时间戳 */
+  /** Last edited, unix timestamp */
   edit_time?: Int64;
-  /** 资源所属空间ID */
+  /** Resource Ownership Space ID */
   space_id?: Int64;
-  /** 写入资源时的数据版本控制，解决时序问题，无业务含义。可以指定毫秒级时间戳实现。 */
+  /** Data versioning when writing resources, to solve timing issues, no business implications. You can specify a millisecond timestamp implementation. */
   data_version?: Int64;
-  /** 业务自定义字段-对于prompt 是正文，该字段可用于搜索 */
+  /** Business custom field - for prompt is the body, this field can be used to search */
   full_text?: string;
   res_third_type?: number;
 }
 
-/** 同步资源mq补偿 */
+/** synchronous resource mq compensation */
 export interface SyncResourceCompensateMsg {
   /** marshal []*resource_common.StaticResourceInfo） */
   ResourceList?: string;

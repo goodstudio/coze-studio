@@ -21,13 +21,13 @@
 
 export type Int64 = string | number;
 
-/** ComponentMappingType 组件映射类型 */
+/** ComponentMappingType Component Mapping Types */
 export enum ComponentMappingType {
   Undefined = 0,
   MockSet = 1,
 }
 
-/** ComponentType 支持组件类型 */
+/** ComponentType Supports component types */
 export enum ComponentType {
   Undefined = 0,
   /** Coze Plugin */
@@ -36,33 +36,33 @@ export enum ComponentType {
   CozeTool = 10001,
   /** Coze Workflow */
   CozeWorkflow = 10002,
-  /** Coze SubWorkflow，即在Workflow中被引用的子Workflow */
+  /** Coze SubWorkflow, which is referenced in Workflow. */
   CozeSubWorkflow = 10003,
-  /** Coze workflow中的LLM节点 */
+  /** LLM nodes in Coze workflow */
   CozeLLMNode = 10004,
-  /** Coze workflow中的Code节点 */
+  /** Coding nodes in a Coze workflow */
   CozeCodeNode = 10005,
-  /** Coze workflow中的Knowledge节点 */
+  /** Knowledge nodes in Coze workflow */
   CozeKnowledgeNode = 10006,
-  /** Coze workflow中的Tool节点 */
+  /** Tools nodes in Coze workflow */
   CozeToolNode = 10007,
-  /** Coze workflow中的start节点 */
+  /** Coze workflow start node */
   CozeStartNode = 10008,
-  /** Coze workflow中的variable节点 */
+  /** Cozing variable nodes in workflow */
   CozeVariableNode = 10009,
-  /** Coze 虚拟节点用于标识varibale依赖的bot */
+  /** Coze virtual nodes to identify varibale dependent bots */
   CozeVariableBot = 20000,
-  /** Coze 虚拟节点用于标识varibale依赖的chat */
+  /** Coze virtual nodes are used to identify varibale dependent chats */
   CozeVariableChat = 20001,
 }
 
 export enum CozeChannel {
-  /** 默认为Coze, 未来扩展到其他渠道 */
+  /** Default to Coze, expand to other channels in the future */
   Coze = 0,
 }
 
 export enum DebugScene {
-  /** 默认play ground Debug场景 */
+  /** Default play ground Debug scene */
   Debug = 0,
 }
 
@@ -70,44 +70,44 @@ export enum OrderBy {
   UpdateTime = 1,
 }
 
-/** TrafficScene 流量请求场景 */
+/** TrafficScene traffic request scenario */
 export enum TrafficScene {
   Undefined = 0,
-  /** 单Agent调试页 */
+  /** Single Agent Debug Page */
   CozeSingleAgentDebug = 10000,
-  /** 多Agent调试页 */
+  /** Multi-Agent Debug Page */
   CozeMultiAgentDebug = 10001,
-  /** Tool调试页 */
+  /** Tool Debug Page */
   CozeToolDebug = 10002,
-  /** Workflow调试页 */
+  /** Workflow debugging page */
   CozeWorkflowDebug = 10003,
 }
 
-/** BizCtx 业务上下文 */
+/** BizCtx Business Context */
 export interface BizCtx {
   /** connectorID */
   connectorID?: string;
-  /** connector下用户ID */
+  /** User ID under connector */
   connectorUID?: string;
-  /** 业务场景 */
+  /** business scenario */
   trafficScene?: TrafficScene;
-  /** 业务场景组件ID，比如Bot调试页，则trafficSceneID为BotID */
+  /** Business Scenario Component ID, such as Bot Debug Page, where trafficSceneID is BotID */
   trafficCallerID?: string;
-  /** 业务线SpaceID，用于访问控制 */
+  /** Line of business SpaceID for access control */
   bizSpaceID?: string;
-  /** 额外信息 */
+  /** Additional information */
   ext?: Record<string, string>;
 }
 
-/** ComponentSubject 业务组件的二级结构 */
+/** Secondary structure of the ComponentSubject business component */
 export interface ComponentSubject {
-  /** 组件ID，例如Tool ID、Node ID等 */
+  /** Component IDs, such as Tool ID, Node ID, etc */
   componentID?: string;
-  /** 组件类型 */
+  /** component type */
   componentType?: ComponentType;
-  /** 父组件ID，例如Tool->Plugin, Node->Workflow */
+  /** Parent component ID, e.g. Tool- > Plugin, Node- > Workflow */
   parentComponentID?: string;
-  /** 父组件类型 */
+  /** Parent component type */
   parentComponentType?: ComponentType;
 }
 

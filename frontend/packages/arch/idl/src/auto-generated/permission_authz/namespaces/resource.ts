@@ -60,38 +60,38 @@ export enum ResourceType {
 }
 
 export interface AccountInfo {
-  /** Account的Id */
+  /** Account Id */
   id: string;
-  /** Account属性JsonStr */
+  /** Account Properties JsonStr */
   attributes?: string;
 }
 
 export interface ResourceIdentifier {
-  /** 资源类型 */
+  /** resource type */
   type: ResourceType;
-  /** 资源Id */
+  /** Resource Id */
   id: string;
 }
 
 export interface ResourceInAccountInfo {
-  /** 资源标识 */
+  /** resource identifier */
   resource_identifier: ResourceIdentifier;
-  /** Account的Id */
+  /** Account Id */
   account_id: string;
-  /** 资源的Owner */
+  /** Owner of resources */
   owner_id: string;
-  /** 资源属性JsonStr */
+  /** Resource Properties JsonStr */
   attributes?: string;
 }
 
 export interface ResourceInfo {
-  /** 资源标识 */
+  /** resource identifier */
   resource_identifier: ResourceIdentifier;
-  /** 空间标识 */
+  /** spatial identity */
   workspace_id: string;
-  /** 资源的Owner */
+  /** Owner of resources */
   owner_id: string;
-  /** 资源属性JsonStr */
+  /** Resource Properties JsonStr */
   attributes?: string;
 }
 /* eslint-enable */

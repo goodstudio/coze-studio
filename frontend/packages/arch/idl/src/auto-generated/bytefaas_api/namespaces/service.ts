@@ -26,151 +26,151 @@ import * as admin from './admin';
 export type Int64 = string | number;
 
 export interface CreateServiceRequest {
-  /** 管理员
+  /** administrator
 Administrators of the service (comma-separated user IDs) */
   admins?: string;
-  /** 仅对管理员开放的受限访问
+  /** Restricted access only for administrators
 If true, restricts access to administrators only */
   async_mode?: boolean;
-  /** 授权人
+  /** authorized person
 Authorizers for the service (comma-separated user IDs) */
   authorizers?: string;
-  /** 基础镜像
+  /** base image
 Base image used for the service container */
   base_image?: string;
-  /** 服务类型
+  /** service type
 Category of the service */
   category: string;
-  /** 仅用于引用结构体类型，值为 JSON 字符串
+  /** Only used to reference structure types, values are JSON strings
 List of dependencies required by the service */
   dependency?: Array<common.Dependency>;
-  /** 部署方式
+  /** deployment method
 Deployment method for the service. Enums: online-edit, scm, command-line, online-edit, image, lego */
   deploy_method?: string;
-  /** 服务描述, 原来的函数描述
+  /** Service description, original function description
 Description of the service */
   description: string;
-  /** 多环境标识
+  /** multi-environment identification
 Environment name */
   env_name?: string;
-  /** 服务名称, 原来的函数名称
+  /** Service name, original function name
 Name of the service */
   name: string;
-  /** 是否需要审核
+  /** Does it need to be reviewed?
 Whether the service requires approval */
   need_approve?: boolean;
-  /** 服务的来源，除了 faas 也有可能是来自轻服务等
+  /** The source of the service, in addition to faas, may also come from InspireCloud, etc
 Origin of the service */
   origin?: string;
-  /** 服务的 Owner
+  /** Owner of services
 Owner of the service */
   owner: string;
-  /** 服务协议，如 TTHeader 等
+  /** Service agreements, such as TTHeader, etc
 Protocol used by the service */
   protocol: string;
-  /** 服务唯一标识
+  /** service unique identifier
 PSM (Product-Service-Module) unique identifier for the service */
   psm: string;
-  /** 服务树父节点
+  /** ByteTree Parent Node
 Parent ID of the PSM, used only during creation */
   psm_parent_id: number;
-  /** 运行时语言. 可选值: golang/v1,node10/v1,python3/v1,rust1/v1,java8/v1,wasm/v1,v8/v1,native/v1,native-java8/v1
+  /** Runtime language. Optional values: golang/v1, node10/v1, python3/v1, rust1/v1, java8/v1, wasm/v1, v8/v1, native/v1, native-java8/v1
 Runtime language for the service */
   runtime?: string;
-  /** 服务等级
+  /** service level
 Service level */
   service_level: string;
-  /** 服务用途
+  /** service usage
 Purpose of the service */
   service_purpose: string;
-  /** 源码
+  /** source code
 Source code of the service */
   source?: string;
-  /** 源码类型
+  /** source code type
 Type of the source code */
   source_type?: string;
-  /** 订阅人
+  /** subscriber
 List of subscribers to the service */
   subscribers?: Array<string>;
-  /** 基于代码模板创建
+  /** Create based on code templates
 Template name used to create the service code */
   template_name?: string;
-  /** 是否为在线模式
+  /** Is it in online mode?
 If true, the service is in online mode */
   online_mode?: boolean;
-  /** scm 路径信息
+  /** SCM path information
 SCM (Source Code Management) plugin path information */
   plugin_scm_path?: string;
-  /** 代码包大小, 单位 MB, 需要管理员权限
+  /** Code package size, unit MB, requires administrator privileges
 Size of the code file in MB (admin permission required) */
   code_file_size_mb?: number;
-  /** 泳道函数关闭报警, 默认为 false
+  /** Lane function off alarm, default is false
 If true, disables alarm for canary (env) functions */
   disable_ppe_alarm?: boolean;
-  /** 运行时语言
+  /** runtime language
 Programming language used by the service when the runtime is wasm/v1. Enums: c++, golang, rust, assemblyscript, javascript */
   language?: string;
-  /** 运行命令
+  /** Run command
 Command to run the service */
   run_cmd?: string;
-  /** 镜像懒加载
+  /** mirror lazy loading
 If true, enables lazy loading of the image */
   image_lazy_load?: boolean;
-  /** 插件名称
+  /** plugin name
 Name of the plugin associated with the service */
   plugin_name?: string;
-  /** 运行时容器端口
+  /** runtime container port
 Port used by the runtime container */
   runtime_container_port?: number;
-  /** 运行时调试容器端口
+  /** Runtime debugging container port
 Debug port for the runtime container */
   runtime_debug_container_port?: number;
-  /** 健康检查路径
+  /** Health Check Path
 Path used for health checks */
   health_check_path?: string;
-  /** 健康检查失败阈值
+  /** Health check failure threshold
 Threshold for health check failures */
   health_check_failure_threshold?: number;
-  /** 健康检查周期
+  /** Health check cycle
 Period (in seconds) for health checks */
   health_check_period?: number;
-  /** 运行时其他容器端口
+  /** Other container ports at runtime
 List of additional ports for the runtime container */
   runtime_other_container_ports?: Array<number>;
-  /** 是否启用过载保护
+  /** Whether to enable overload protection
 If true, enables overload protection for the service */
   overload_protect_enabled?: boolean;
-  /** 网络队列
+  /** network queue
 Network queue name for the service */
   net_queue?: string;
-  /** 微服务平台服务元参数
+  /** microservice platform service meta parameters
 Meta parameters for MS platform (not stored in DB) */
   ms_service_meta_params?: MSServiceMetaParams;
-  /** 挂载信息
+  /** mount information
 List of mount information for the service */
   mount_info?: Array<string>;
-  /** 是否禁用构建安装
+  /** Whether to disable build installation
 If true, disables build and install steps */
   disable_build_install?: boolean;
-  /** 是否启用懒加载
+  /** Whether to enable lazy loading
 If true, enables lazy loading for the service */
   lazyload?: boolean;
-  /** 审核权限点 [cluster_create, cluster_update, cluster_delete, code_release]
+  /** Review permission spot [cluster_create, cluster_update, cluster_delete, code_release]
 List of approval scopes for the service */
   approval_scope?: Array<string>;
-  /** 消息队列类型
+  /** Message queue type
 Type of message queue used by the service, enums: kafka, rocketmq, tos, eventbus, abase_binlog, vefaas_async_tos, vefaas_bmq */
   mq_type?: string;
-  /** 是否依赖 GPU，所有集群必须使用 GPU 资源
+  /** Whether to rely on GPU, all clusters must use GPU resources
 If true, the service depends on GPU resources */
   use_gpu?: boolean;
-  /** 要创建的 git group
+  /** The git group to create
 Git group to be created for the service */
   git_group?: string;
-  /** 要创建的 git repo
+  /** The git repo to create
 Git repository to be created for the service */
   git_repo?: string;
-  /** 要创建的 scm repo
+  /** The scm repo to create
 SCM repository to be created for the service */
   scm_repo?: string;
   /** enable privileged in pod */
@@ -189,34 +189,34 @@ export interface CrossRegionMigrationMeta {
   /** PSM
 PSM (Product-Service-Module) identifier for migration */
   psm: string;
-  /** 是否启用迁移
+  /** Whether to enable migration
 If true, migration is enabled */
   migration_enabled: boolean;
-  /** 跨区域 Vefaas 集群列表
+  /** List of cross-regional Vefaas clusters
 List of cross-region Vefaas clusters */
   vefaas_clusters: Array<CrossRegionVefaasCluster>;
 }
 
 export interface CrossRegionVefaasCluster {
-  /** 函数 ID
+  /** Function ID
 Function ID for the cross-region cluster */
   function_id: string;
-  /** 区域
+  /** area
 Region of the cluster */
   region: string;
-  /** 集群名称
+  /** cluster name
 Name of the cluster */
   cluster_name: string;
 }
 
 export interface DeleteServiceRequest {
-  /** 服务 ID
+  /** Service ID
 ID of the service to delete */
   service_id: string;
-  /** 如果为 true，则为软删除
+  /** If true, then soft delete
 If true, perform a soft delete */
   soft?: boolean;
-  /** 软删除原因
+  /** Soft delete reason
 Reason for soft deletion */
   reason?: string;
   /** JWT token for authentication */
@@ -230,19 +230,19 @@ export interface DeleteServiceResponse {
 }
 
 export interface FunctionResponseData {
-  /** 函数 ID
+  /** Function ID
 Function ID */
   id?: string;
-  /** 服务 ID
+  /** Service ID
 Service ID associated with the function */
   service_id?: string;
-  /** 函数名称
+  /** function name
 Name of the function */
   name?: string;
-  /** 函数描述
+  /** function description
 Description of the function */
   description?: string;
-  /** 管理员
+  /** administrator
 Administrators of the function (comma-separated user IDs) */
   admins?: string;
   /** Owner
@@ -251,205 +251,205 @@ Owner of the function */
   /** PSM
 PSM (Product-Service-Module) identifier */
   psm?: string;
-  /** 运行时
+  /** runtime
 Runtime language of the function */
   runtime?: string;
-  /** 语言
+  /** language
 Programming language of the function */
   language?: string;
-  /** 运行命令
+  /** Run command
 Command to run the function */
   run_cmd?: string;
-  /** 基础镜像
+  /** base image
 Base image for the function */
   base_image?: string;
-  /** 来源
+  /** source
 Origin of the function */
   origin?: string;
-  /** 服务类型
+  /** service type
 Category of the function */
   category?: string;
-  /** 是否关闭报警
+  /** Whether to turn off the alarm
 If true, disables alarm for the function */
   disable_ppe_alarm?: boolean;
-  /** 初始化函数耗时（秒）
+  /** Initialization time (seconds)
 Time taken by the initializer (in seconds) */
   initializer_sec?: number;
-  /** 延迟（秒）
+  /** Delay (seconds)
 Latency in seconds */
   latency_sec?: number;
-  /** 冷启动耗时（秒）
+  /** Cold start time (seconds)
 Cold start time in seconds */
   cold_start_sec?: number;
-  /** 是否禁用冷启动
+  /** Whether to disable cold start
 If true, disables cold start */
   cold_start_disabled?: boolean;
-  /** 是否需要审核
+  /** Does it need to be reviewed?
 If true, approval is required */
   need_approve?: boolean;
-  /** 是否启用鉴权
+  /** Whether to enable authentication
 If true, authentication is enabled */
   auth_enable?: boolean;
-  /** 是否启用链路追踪
+  /** Whether to enable link tracing
 If true, tracing is enabled */
   trace_enable?: boolean;
-  /** 授权人
+  /** authorized person
 Authorizers for the function (comma-separated user IDs) */
   authorizers?: string;
-  /** 订阅人
+  /** subscriber
 List of subscribers to the function */
   subscribers?: Array<string>;
-  /** 环境变量
+  /** environment variables
 Environment variables for the function (key-value pairs) */
   envs?: Record<string, Record<string, string>>;
-  /** 格式化环境变量
+  /** Formatting environment variables
 Formatted environment variables */
   format_envs?: Record<string, Array<common.FormatEnvs>>;
-  /** 内存大小（MB）
+  /** Memory size (MB)
 Memory size in MB */
   memory_mb?: number;
-  /** 代码包大小（MB）
+  /** Code package size (MB)
 Code file size in MB */
   code_file_size_mb?: number;
-  /** 最大并发数
+  /** maximum concurrency
 Maximum concurrency allowed */
   max_concurrency?: number;
-  /** 自适应并发模式
+  /** adaptive concurrent mode
 Adaptive concurrency mode */
   adaptive_concurrency_mode?: string;
-  /** 是否独占模式
+  /** Exclusive mode
 If true, exclusive mode is enabled */
   exclusive_mode?: boolean;
-  /** 是否异步模式
+  /** Whether asynchronous mode
 If true, async mode is enabled */
   async_mode?: boolean;
-  /** 是否启用 CORS
+  /** Whether to enable CORS
 If true, CORS is enabled */
   cors_enable?: boolean;
-  /** 是否禁用构建安装
+  /** Whether to disable build installation
 If true, disables build and install steps */
   disable_build_install?: boolean;
-  /** 最大修订版本号
+  /** Maximum revision number
 Maximum revision number */
   max_revision_number?: number;
-  /** 微服务注册是否成功
+  /** Was the microservice registration successful?
 If true, MS registration succeeded */
   ms_register_suc?: boolean;
-  /** 是否启用运行时文件日志
+  /** Whether to enable runtime file logging
 If true, runtime file logging is enabled */
   enable_runtime_file_log?: boolean;
-  /** 是否启用运行时控制台日志
+  /** Whether to enable runtime console logging
 If true, runtime console logging is enabled */
   enable_runtime_console_log?: boolean;
-  /** 是否启用运行时流日志
+  /** Whether to enable runtime flow logging
 If true, runtime stream logging is enabled */
   enable_runtime_stream_log?: boolean;
-  /** 是否启用运行时 ES 日志
+  /** Whether to enable runtime ES logging
 If true, runtime Elasticsearch logging is enabled */
   enable_runtime_es_log?: boolean;
-  /** 是否启用运行时 JSON 日志
+  /** Whether to enable runtime JSON logging
 If true, runtime JSON logging is enabled */
   enable_runtime_json_log?: boolean;
-  /** 是否启用系统流日志
+  /** Whether to enable system flow logging
 If true, system stream logging is enabled */
   enable_system_stream_log?: boolean;
-  /** 是否启用系统 ES 日志
+  /** Whether to enable system ES logging
 If true, system Elasticsearch logging is enabled */
   enable_system_es_log?: boolean;
-  /** 运行时流日志速率限制（字节/秒）
+  /** Runtime stream log rate limit (bytes per second)
 Runtime stream log bytes per second */
   runtime_stream_log_bytes_per_sec?: number;
-  /** 系统流日志速率限制（字节/秒）
+  /** System flow log rate limit (bytes per second)
 System stream log bytes per second */
   system_stream_log_bytes_per_sec?: number;
-  /** 日志节流速率（字节/秒）
+  /** Log throttling rate (bytes per second)
 Throttle log bytes per second */
   throttle_log_bytes_per_sec?: number;
-  /** 标准输出日志节流速率（字节/秒）
+  /** Standard output log throttling rate (bytes per second)
 Throttle stdout log bytes per second */
   throttle_stdout_log_bytes_per_sec?: number;
-  /** 标准错误日志节流速率（字节/秒）
+  /** Standard error log throttling rate (bytes per second)
 Throttle stderr log bytes per second */
   throttle_stderr_log_bytes_per_sec?: number;
-  /** 是否启用懒加载
+  /** Whether to enable lazy loading
 If true, lazy loading is enabled */
   lazyload?: boolean;
-  /** 插件名称
+  /** plugin name
 Name of the plugin associated with the function */
   plugin_name?: string;
-  /** 插件 SCM ID
+  /** Plugin SCM ID
 Plugin SCM ID */
   plugin_scm_id?: number;
-  /** 环境名称
+  /** environment name
 Environment name */
   env_name?: string;
-  /** 副本限制
+  /** copy limit
 Replica limits for the function (per environment/cluster) */
   replica_limit?: Record<string, Record<string, common.PodReplicaLimit>>;
-  /** 资源限制
+  /** resource constraints
 Resource limits for the function */
   resource_limit?: common.Resource;
-  /** 是否启用自动伸缩
+  /** Whether to enable auto-scaling
 If true, scaling is enabled */
   scale_enabled?: boolean;
-  /** 伸缩阈值
+  /** scaling threshold
 Threshold for scaling */
   scale_threshold?: number;
-  /** 伸缩类型
+  /** telescopic type
 Type of scaling */
   scale_type?: number;
-  /** 是否启用伸缩优化
+  /** Whether to enable scaling optimization
 If true, scale optimization is enabled */
   enable_scale_optimise?: boolean;
-  /** 是否启用伸缩策略
+  /** Whether to enable scaling policy
 If true, scale strategy is enabled */
   enable_scale_strategy?: boolean;
-  /** 源码类型
+  /** source code type
 Type of the source code */
   source_type?: string;
-  /** 源码
+  /** source code
 Source code of the function */
   source?: string;
-  /** 依赖列表
+  /** dependency list
 List of dependencies for the function */
   dependency?: Array<common.Dependency>;
-  /** 全局 KV 命名空间 ID 列表
+  /** List of global KV namespace IDs
 List of global KV namespace IDs */
   global_kv_namespace_ids?: Array<string>;
-  /** 本地缓存命名空间 ID 列表
+  /** List of local cache namespace IDs
 List of local cache namespace IDs */
   local_cache_namespace_ids?: Array<string>;
-  /** 协议
+  /** agreement
 Protocol used by the function */
   protocol?: string;
-  /** Argos 链接
+  /** Argos link
 Argos link for the function */
   argos_link?: string;
-  /** 创建时间
+  /** creation time
 Creation time of the function */
   created_at?: string;
-  /** 更新时间
+  /** update time
 Last update time of the function */
   updated_at?: string;
-  /** 修订版本 ID
+  /** revision ID
 Revision ID of the function */
   revision_id?: string;
-  /** 网络队列
+  /** network queue
 Network queue name */
   net_queue?: string;
-  /** 挂载信息
+  /** mount information
 List of mount information */
   mount_info?: Array<string>;
-  /** 审核权限点 [cluster_create, cluster_update, cluster_delete, code_release]
+  /** Review permission spot [cluster_create, cluster_update, cluster_delete, code_release]
 List of approval scopes for the function */
   approval_scope?: Array<string>;
 }
 
 export interface GetAllServiceByPsmRequest {
-  /** 服务的 PSM
+  /** Service of PSM
 PSM (Product-Service-Module) identifier of the service */
   psm: string;
-  /** 不包含鉴权信息
+  /** Does not contain authentication information
 If set, do not include authentication info */
   no_auth_info?: string;
 }
@@ -473,10 +473,10 @@ export interface GetCrossRegionMigrationResponse {
 }
 
 export interface GetServiceByPsmAndEnvRequest {
-  /** 通过 psm 和 env 获取服务信息
+  /** Access to service information through psm and env
 Environment name to filter the service */
   env_name: string;
-  /** 服务的 PSM
+  /** Service of PSM
 PSM (Product-Service-Module) identifier of the service */
   psm: string;
   /** JWT token for authentication */
@@ -490,7 +490,7 @@ export interface GetServiceByPsmAndEnvResponse {
 }
 
 export interface GetServiceInspectionListRequest {
-  /** 服务 ID
+  /** Service ID
 ID of the service to inspect */
   service_id: string;
 }
@@ -502,13 +502,13 @@ export interface GetServiceInspectionListResponse {
 }
 
 export interface GetServiceRequest {
-  /** 区域
+  /** area
 Region of the service */
   region?: string;
-  /** 服务 ID
+  /** Service ID
 ID of the service to retrieve */
   service_id: string;
-  /** 如果为 true，获取详细信息（包括集群信息）
+  /** If true, get the details (including cluster information).
 If true, include detailed information with clusters */
   verbose?: boolean;
   /** JWT token for authentication */
@@ -522,46 +522,46 @@ export interface GetServiceResponse {
 }
 
 export interface GetServicesListRequest {
-  /** 是否获取全部，默认为 false
+  /** Whether to get all, the default is false
 If set, retrieves all services (default: false) */
   all?: string;
-  /** 环境名称，可选值: prod/ppe/boe_feature
+  /** Environment name, optional value: prod/ppe/boe_feature
 Environment name to filter services */
   env?: string;
-  /** 按服务 ID 搜索
+  /** Search by service ID
 Search by service ID */
   id?: string;
-  /** 分页限制数量
+  /** page limit
 Limit for pagination */
   limit?: number;
-  /** 按名称搜索
+  /** Search by name
 Search by service name */
   name?: string;
-  /** 不包含 worker 函数
+  /** Does not include worker function
 If true, exclude worker functions */
   no_worker?: boolean;
-  /** 分页偏移量
+  /** paging offset
 Offset for pagination */
   offset?: number;
-  /** 按 owner 搜索
+  /** Search by owner
 Search by owner */
   owner?: string;
-  /** 按 PSM 前缀匹配，仅在 all 不为空时生效
+  /** Match by PSM prefix, only if all is not empty
 Search by PSM prefix (works only if 'all' is set) */
   psm?: string;
-  /** 多字段前缀搜索，缓存
+  /** Multi-field prefix search, cache
 Prefix search across multiple fields */
   search?: string;
-  /** 搜索类型: all/admin/own/subscribe
+  /** Search Type: all/admin/own/subscribe
 Type of search */
   search_type?: string;
-  /** 按服务模型字段排序
+  /** Sort by service model field
 Field to sort by in the service model */
   sort_by?: string;
-  /** 支持的搜索字段: cluster_id/id/name/psm
+  /** Supported search fields: cluster_id/id/name/psm
 Supported search fields (comma-separated) */
   search_fields?: string;
-  /** 过滤软删除服务
+  /** Filter soft deletion service
 If true, filter for soft-deleted services */
   soft_deleted?: boolean;
 }
@@ -573,10 +573,10 @@ export interface GetServicesListResponse {
 }
 
 export interface InspectionLabel {
-  /** 服务等级
+  /** service level
 Service level label */
   service_level?: string;
-  /** 服务 ID
+  /** Service ID
 Service ID label */
   service_id?: string;
   /** PSM
@@ -585,52 +585,52 @@ PSM label */
   /** Owner
 Owner label */
   owner?: string;
-  /** 集群
+  /** cluster
 Cluster label */
   cluster?: string;
-  /** 区域
+  /** area
 Region label */
   region?: string;
 }
 
 export interface InspectionResponseData {
-  /** 检查项名称
+  /** check item name
 Name of the inspection item */
   name?: string;
-  /** 标签信息
+  /** label information
 Labels associated with the inspection */
   labels?: InspectionLabel;
-  /** 检查结果
+  /** Inspection results
 Result of the inspection */
   result?: string;
-  /** 任务名称
+  /** task name
 Name of the inspection task */
   task_name?: string;
-  /** 规则名称
+  /** rule name
 Name of the rule applied during inspection */
   rule_name?: string;
-  /** 目标 ID
+  /** Target ID
 Target ID for the inspection */
   target_id?: string;
-  /** 目标类型
+  /** target type
 Type of the inspection target */
   target_type?: string;
-  /** 风险等级
+  /** risk level
 Risk level identified during inspection */
   risk_level?: string;
-  /** 检查值
+  /** check value
 Value found during inspection */
   value?: string;
-  /** 检查开始时间
+  /** Check start time
 Start time of the inspection */
   start_time?: string;
-  /** 检查结束时间
+  /** Check the end time
 End time of the inspection */
   end_time?: string;
-  /** 创建时间
+  /** creation time
 Creation time of the inspection record */
   created_at?: string;
-  /** 更新时间
+  /** update time
 Last update time of the inspection record */
   updated_at?: string;
 }
@@ -646,7 +646,7 @@ export interface MSServiceMetaParams {
 }
 
 export interface RecoverDeletedClusterRequest {
-  /** 服务 ID
+  /** Service ID
 ID of the service whose cluster is to be recovered */
   service_id: string;
 }
@@ -658,19 +658,19 @@ export interface RecoverDeletedClusterResponse {
 }
 
 export interface RestoreServiceRequest {
-  /** 服务 ID
+  /** Service ID
 ID of the service to restore */
   service_id: string;
 }
 
 export interface SearchFunctionsBySCMRequest {
-  /** 分页查询，每页数量
+  /** Page queries, number of pages per page
 Limit for pagination (number of items per page) */
   limit?: number;
-  /** 分页查询，偏移量，默认为 0
+  /** Paging query, offset, default to 0
 Offset for pagination (default: 0) */
   offset?: number;
-  /** 服务引用的 scm 名称
+  /** The scm name referenced by the service
 SCM name referenced by the service */
   scm: string;
 }
@@ -682,64 +682,64 @@ export interface SearchFunctionsBySCMResponse {
 }
 
 export interface UpdateCodeByServiceIDRequest {
-  /** 仅用于引用结构体类型，值为 JSON 字符串
+  /** Only used to reference structure types, values are JSON strings
 List of dependencies for the service */
   dependency?: Array<common.Dependency>;
-  /** 部署方式
+  /** deployment method
 Deployment method for the service. Enums: online-edit, scm, command-line, online-edit, image, lego */
   deploy_method?: string;
-  /** 是否禁用构建安装
+  /** Whether to disable build installation
 If true, disables build and install steps */
   disable_build_install?: boolean;
-  /** 入口函数
+  /** entry function
 Handler function for the service */
   handler?: string;
-  /** 初始化函数
+  /** initialization function
 Initializer function for the service */
   initializer?: string;
-  /** 是否启用懒加载
+  /** Whether to enable lazy loading
 If true, enables lazy loading */
   lazyload?: boolean;
-  /** 运行命令
+  /** Run command
 Command to run the service */
   run_cmd?: string;
-  /** 运行时. 可选值: golang/v1,node10/v1,python3/v1,rust1/v1,java8/v1,wasm/v1,v8/v1,native/v1,native-java8/v1
+  /** Runtime. Optional values: golang/v1, node10/v1, python3/v1, rust1/v1, java8/v1, wasm/v1, v8/v1, native/v1, native-java8/v1
 Runtime language for the service */
   runtime?: string;
-  /** 运行时容器端口
+  /** runtime container port
 Port for the runtime container */
   runtime_container_port?: number;
-  /** 运行时调试容器端口
+  /** Runtime debugging container port
 Debug port for the runtime container */
   runtime_debug_container_port?: number;
-  /** 服务 ID
+  /** Service ID
 ID of the service to update */
   service_id: string;
-  /** 源码
+  /** source code
 Source code for the service */
   source?: string;
-  /** 源码类型
+  /** source code type
 Type of the source code */
   source_type?: string;
-  /** 代码资源的二进制数据
+  /** Binary data for code resources
 Binary data of the code resource (zip file) */
   zip_file?: UpdateCodeByServiceIDRequestZipFileMessage2;
-  /** 代码包大小
+  /** code package size
 Size of the zip file (in bytes) */
   zip_file_size?: number;
-  /** 是否开启镜像懒加载
+  /** Whether to turn on mirror lazy loading
 If true, enables image lazy loading */
   open_image_lazyload?: boolean;
-  /** 运行时其他容器端口
+  /** Other container ports at runtime
 List of additional ports for the runtime container */
   runtime_other_container_ports?: Array<number>;
-  /** 健康检查失败阈值
+  /** Health check failure threshold
 Threshold for health check failures */
   health_check_failure_threshold?: number;
-  /** 健康检查周期
+  /** Health check cycle
 Period (in seconds) for health checks */
   health_check_period?: number;
-  /** 健康检查路径
+  /** Health Check Path
 Path used for health checks */
   health_check_path?: string;
 }
@@ -753,79 +753,79 @@ export interface UpdateCodeByServiceIDResponse {
 }
 
 export interface UpdateServiceInfoByServiceIDRequest {
-  /** 管理员
+  /** administrator
 Administrators of the service (comma-separated user IDs) */
   admins?: string;
-  /** 授权人
+  /** authorized person
 Authorizers for the service (comma-separated user IDs) */
   authorizers?: string;
-  /** 基础镜像
+  /** base image
 Base image for the service */
   base_image?: string;
-  /** 服务类型
+  /** service type
 Category of the service */
   category?: string;
-  /** 服务描述, 原来的函数描述
+  /** Service description, original function description
 Description of the service */
   description?: string;
-  /** 服务名称, 原来的函数名称
+  /** Service name, original function name
 Name of the service */
   name?: string;
-  /** 是否需要审核
+  /** Does it need to be reviewed?
 If true, approval is required */
   need_approve?: boolean;
-  /** 服务的来源，除了 faas 也有可能是来自轻服务等
+  /** The source of the service, in addition to faas, may also come from InspireCloud, etc
 Origin of the service */
   origin?: string;
-  /** 服务的 Owner
+  /** Owner of services
 Owner of the service */
   owner?: string;
-  /** 绑定的 lego 插件函数名称
+  /** Bound lego plugin function name
 Name of the plugin function bound to the service */
   plugin_name?: string;
-  /** 运行时语言. 可选值: golang/v1,node10/v1,python3/v1,rust1/v1,java8/v1,wasm/v1,v8/v1,native/v1,native-java8/v1
+  /** Runtime language. Optional values: golang/v1, node10/v1, python3/v1, rust1/v1, java8/v1, wasm/v1, v8/v1, native/v1, native-java8/v1
 Runtime language for the service */
   runtime?: string;
-  /** 服务 ID
+  /** Service ID
 ID of the service to update */
   service_id: string;
-  /** 服务等级
+  /** service level
 Service level */
   service_level?: string;
-  /** 服务用途
+  /** service usage
 Purpose of the service */
   service_purpose?: string;
-  /** 订阅人
+  /** subscriber
 List of subscribers to the service */
   subscribers?: Array<string>;
-  /** 代码包上限大小
+  /** code package upper limit size
 Maximum code file size in MB */
   code_file_size_mb?: number;
   /** PSM
 PSM (Product-Service-Module) identifier */
   psm?: string;
-  /** PSM 父节点 ID
+  /** PSM Parent Node ID
 Parent ID of the PSM */
   psm_parent_id?: Int64;
-  /** 是否支持集群级别 run_cmd
+  /** Does it support cluster level run_cmd
 If true, enables cluster-level run command */
   enable_cluster_run_cmd?: boolean;
-  /** 是否关闭报警
+  /** Whether to turn off the alarm
 If true, disables alarm for the service */
   disable_ppe_alarm?: boolean;
-  /** 网络队列
+  /** network queue
 Network queue name */
   net_queue?: string;
-  /** 微服务平台服务元参数
+  /** microservice platform service meta parameters
 Meta parameters for MS platform (not stored in DB) */
   ms_service_meta_params?: MSServiceMetaParams;
-  /** 语言
+  /** language
 Programming language used in the service */
   language?: string;
-  /** 挂载信息
+  /** mount information
 List of mount information for the service */
   mount_info?: Array<string>;
-  /** 审核权限点 [cluster_create, cluster_update, cluster_delete, code_release]
+  /** Review permission spot [cluster_create, cluster_update, cluster_delete, code_release]
 List of approval scopes for the service */
   approval_scope?: Array<string>;
   /** JWT token for authentication */

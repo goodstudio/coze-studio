@@ -84,9 +84,9 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/coze_token_task/create
    *
-   * == BOT 运营后台 - coze token ==
+   * == BOT operation background - coze token ==
    *
-   * 创建 coze token 任务
+   * Create coze token task
    */
   BotOpCreateCozeTokenTask(
     req?: coze_token_task.BotOpCreateCozeTokenTaskRequest,
@@ -108,7 +108,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/coze_token_task/list
    *
-   * 获取 coze token 任务
+   * Get coze token task
    */
   BotOpListCozeTokenTask(
     req?: coze_token_task.BotOpListCozeTokenTaskRequest,
@@ -133,7 +133,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/coze_token_task/list_fulfillment
    *
-   * 获取 coze token 任务对应的履约单
+   * Get the performance slip corresponding to the coze token task
    */
   BotOpListCozeTokenTaskFulfillment(
     req?: coze_token_task.BotOpListCozeTokenTaskFulfillmentRequest,
@@ -151,7 +151,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/coze_token_task/cancel
    *
-   * 取消 coze token 任务
+   * Cancel coze token task
    */
   BotOpCancelCozeTokenTask(
     req?: coze_token_task.BotOpCancelCozeTokenTaskRequest,
@@ -169,9 +169,9 @@ export default class FulfillOperationService<T> {
   /**
    * GET /api/marketplace/fulfill/auto_charge/get_config
    *
-   * == 自动充值 ==
+   * == Automatic recharge ==
    *
-   * 获取自动充值配置
+   * Get automatic recharge configuration
    */
   GetAutoChargeConfig(
     req?: auto_charge.GetAutoChargeConfigRequest,
@@ -189,7 +189,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/fulfill/auto_charge/cancel
    *
-   * 解约
+   * termination
    */
   CancelAutoCharge(
     req?: auto_charge.CancelAutoChargeRequest,
@@ -205,7 +205,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/fulfill/auto_charge/sign
    *
-   * 签约并保存配置
+   * Sign up and save the configuration
    */
   SignAutoCharge(
     req?: auto_charge.SignAutoChargeRequest,
@@ -226,7 +226,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/dist_reward_task/list_fulfillment
    *
-   * 获取发放奖励任务对应的履约单
+   * Obtain the performance slip corresponding to the reward task
    */
   AdminListDistRewardTaskFulfillment(
     req: dist_reward_task.AdminListDistRewardTaskFulfillmentRequest,
@@ -244,7 +244,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/dist_reward_task/create
    *
-   * 创建发放奖励任务
+   * Create a reward task
    */
   AdminCreateDistRewardTask(
     req: dist_reward_task.AdminCreateDistRewardTaskRequest,
@@ -267,7 +267,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/dist_reward_task/list
    *
-   * 列出发放奖励任务
+   * List the reward tasks
    */
   AdminListDistRewardTask(
     req: dist_reward_task.AdminListDistRewardTaskRequest,
@@ -293,7 +293,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/dist_reward_task/cancel
    *
-   * 取消发放奖励任务
+   * Cancel the reward task
    */
   AdminCancelDistRewardTask(
     req: dist_reward_task.AdminCancelDistRewardTaskRequest,
@@ -311,7 +311,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/order/list
    *
-   * 列出订单列表
+   * List orders
    */
   AdminListOrder(
     req: order.AdminListOrderRequest,
@@ -332,7 +332,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/order/refund
    *
-   * 对订单进行退款
+   * Refund the order.
    */
   AdminRefundOrder(
     req: order.AdminRefundOrderRequest,
@@ -353,7 +353,7 @@ export default class FulfillOperationService<T> {
   /**
    * POST /api/marketplace/opt_fulfill/order/refund_order
    *
-   * 获取订单下的退款单
+   * Get the refund slip under the order.
    */
   AdminGetRefundOrderByOrder(
     req: order.AdminGetRefundOrderByOrderRequest,

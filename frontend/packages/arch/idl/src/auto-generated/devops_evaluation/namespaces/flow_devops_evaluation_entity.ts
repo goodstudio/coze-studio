@@ -22,49 +22,49 @@
 export type Int64 = string | number;
 
 export enum CallbackType {
-  /** rpc接口实现 */
+  /** RPC interface implementation */
   RPC = 1,
-  /** 通过psm，http协议访问服务 */
+  /** Access services via psm, http protocol */
   PSMHTTP = 2,
-  /** 为开放评测对象类型；无法通过平台触发评测，被评测对象自行上报数据  */
+  /** It is an open evaluation object type; the evaluation cannot be triggered through the platform, and the evaluated object reports the data by itself  */
   Open = 3,
 }
 
-/** 评估结果数据类型 */
+/** Evaluation result data type */
 export enum EvaluateResultDataType {
   Unknown = 0,
-  /** 数值打分 */
+  /** numerical scoring */
   Score = 1,
-  /** 数值 */
+  /** numerical value */
   Value = 2,
-  /** 选项 */
+  /** option */
   Select = 3,
-  /** 纯文本描述 */
+  /** plain text description */
   PlainText = 4,
 }
 
-/** 数值类型评估结果数值的具体类型 (EvaluateResultDataType = Value) */
+/** Value type evaluation result The specific type of the value (EvaluateResultDataType = Value) */
 export enum EvaluateResultValueType {
-  /** 浮点数数值, 默认 */
+  /** Floating point value, default */
   Double = 0,
-  /** 整数数值 */
+  /** integer value */
   Int = 1,
 }
 
-/** 评估粒度 */
+/** evaluation granularity */
 export enum EvaluatorGranularity {
   Unknown = 0,
-  /** 单轮对话 */
+  /** single round of dialogue */
   Row = 1,
-  /** 对话组 */
+  /** dialogue group */
   RowGroup = 2,
 }
 
-/** faas http函数如果开启auth有自己的鉴权方式，和http不一样。 */
+/** The faas http function has its own authentication method if auth is enabled, which is different from http. */
 export enum HTTPAuthType {
-  /** 默认 */
+  /** default */
   default = 0,
-  /** 如果faas函数开启auth，需要给evaluation的服务账号secret开白名单 */
+  /** If the faas function turns on auth, you need to whitelist the evaluation service account secret */
   JWT = 1,
 }
 
@@ -80,9 +80,9 @@ export enum ModelPlatform {
   MAAS = 2,
 }
 
-/** 评估结果可选项 */
+/** Evaluation results optional */
 export interface EvaluateResultOption {
-  /** 选项名称 */
+  /** Option name */
   name: string;
   color?: string;
 }
@@ -90,38 +90,38 @@ export interface EvaluateResultOption {
 export interface ModelInfo {
   model_id?: Int64;
   model_name?: string;
-  /** 前端展示名称 */
+  /** front-end display name */
   show_name?: string;
-  /** 前端展示名称 */
+  /** front-end display name */
   max_tokens?: Int64;
-  /** 模型家族信息 */
+  /** Model family information */
   model_family?: Int64;
   Platform?: ModelPlatform;
 }
 
-/** Tree 结构 */
+/** Tree structure */
 export interface Node {
-  /** root 节点为空 */
+  /** The root node is empty */
   name?: string;
-  /** 标识该节点的标识ID */
+  /** Identification ID of the node */
   node_id?: Int64;
   children?: Array<Node>;
 }
 
 export interface OpenAPIHeader {
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
 }
 
-/** 评分范围 */
+/** rating range */
 export interface ScoringScope {
-  /** 评分范围上限 */
+  /** Upper Rating Range */
   max_score: number;
-  /** 评分范围下限 */
+  /** Lower limit of rating range */
   min_score: number;
 }
 
@@ -130,10 +130,10 @@ export interface Session {
   'FlowDevops-Agw-AppId'?: number;
 }
 
-/** fornax 标签管理平台的标签 */
+/** Labels for the Fornax tag management platform */
 export interface Tag {
   tag_id: Int64;
-  /** 对于二级标签标签名称格式为: "一级标签名称" + "/" + "二级标签名称" */
+  /** For secondary label label name format: "primary label name " + "/" + " secondary label name" */
   tag_name: string;
 }
 

@@ -64,85 +64,85 @@ export enum IntelligenceTaskStatus {
 }
 
 export enum IntelligenceTaskType {
-  /** 复制项目内的资源到同项目 */
+  /** Copy resources within a project to the same project */
   CopyResourceInProject = 1,
-  /** 复制项目资源到Library */
+  /** Copy Project Resources to Library */
   CopyProjectResourceToLibrary = 2,
-  /** 移动项目资源到Library */
+  /** Move Project Resources to Library */
   MoveProjectResourceToLibrary = 3,
-  /** 复制Library资源到项目 */
+  /** Copy Library Resources to Project */
   CopyLibraryResourceToProject = 4,
-  /** 复制项目 */
+  /** Copy item */
   CopyProject = 5,
-  /** 项目发布到渠道 */
+  /** Project Publish to Channel */
   PublishProject = 6,
-  /** 复制项目模板 */
+  /** Copy project template */
   CopyTemplateToProject = 7,
-  /** 项目发布到模板 */
+  /** Project Publish to Template */
   PublishProjectTemplate = 8,
-  /** 项目模版上架 */
+  /** Project template on the shelves */
   LaunchProjectTemplate = 9,
-  /** 项目存档 */
+  /** Project Archive */
   ArchiveProject = 10,
-  /** 项目回滚 */
+  /** project rollback */
   RollbackProject = 11,
-  /** 单个资源跨空间复制 */
+  /** Cross-spatial replication of a single resource */
   CrossSpaceCopy = 12,
-  /** 项目跨空间复制 */
+  /** item cross-spatial replication */
   CrossSpaceCopyProject = 13,
 }
 
 export interface FailedReasonDetail {
-  /** 失败原因 */
+  /** reason for failure */
   FailedReason?: string;
-  /** 操作实体id */
+  /** Operating Entity ID */
   EntityId?: Int64;
-  /** 操作实体类型 */
+  /** Operating Entity Type */
   EntityType?: IntelligenceTaskEntityType;
-  /** 实体名称 */
+  /** entity name */
   EntityName?: string;
 }
 
 export interface IntelligenceTaskEntityLocationInfo {
-  /** '位置类型' */
+  /** 'Location type' */
   LocationType?: IntelligenceTaskEntityLocationType;
-  /** '位置空间id' */
+  /** 'Location space id' */
   SpaceId?: string;
-  /** '位置project id' */
+  /** 'Location project id' */
   ProjectId?: string;
-  /** '位置实体version' */
+  /** 'Location entity version' */
   Version?: string;
 }
 
-/** task资源方实现接口定义,外部可引用 */
+/** Task resource party implementation interface definition, external referenceable */
 export interface IntelligenceTaskInfo {
-  /** 任务id */
+  /** Task ID */
   TaskId?: string;
-  /** 任务创建者id */
+  /** Task creator id */
   UserId?: string;
-  /** 操作实体类型 */
+  /** Operating Entity Type */
   EntityType?: IntelligenceTaskEntityType;
-  /** 操作实体id */
+  /** Operating Entity ID */
   EntityId?: string;
-  /** '操作类型' */
+  /** 'Type of operation' */
   ActionType?: IntelligenceTaskActionType;
-  /** '源位置信息 */
+  /** 'Source location information */
   SourceLocationInfo?: IntelligenceTaskEntityLocationInfo;
-  /** '目标位置信息' */
+  /** 'Target location information' */
   TargetLocationInfo?: IntelligenceTaskEntityLocationInfo;
-  /** '业务透传字段 json string' */
+  /** 'Business pass-through field json string ' */
   Extra?: string;
-  /** 任务状态 */
+  /** task status */
   Status?: IntelligenceTaskStatus;
-  /** 重试次数 */
+  /** number of retries */
   RetryNum?: number;
-  /** 失败原因汇总 */
+  /** summary of reasons for failure */
   FailedReasons?: Array<FailedReasonDetail>;
-  /** 项目类型 */
+  /** project type */
   TaskType?: IntelligenceTaskType;
-  /** 创建时间 */
+  /** creation time */
   CreateTime?: Int64;
-  /** 更新时间 */
+  /** update time */
   UpdateTime?: Int64;
 }
 

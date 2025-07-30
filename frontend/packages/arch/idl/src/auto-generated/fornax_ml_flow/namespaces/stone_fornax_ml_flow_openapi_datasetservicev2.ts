@@ -27,9 +27,9 @@ import * as datasetv2job from './datasetv2job';
 export type Int64 = string | number;
 
 export interface ConflictField {
-  /** 存在冲突的列名 */
+  /** Conflicting listings */
   fieldName?: string;
-  /** 冲突详情。key: 文件名，val：该文件中包含的类型 */
+  /** Conflict details. key: filename, val: the type contained in this file */
   detailM?: Record<string, datasetv2.FieldSchema>;
 }
 
@@ -45,15 +45,15 @@ export interface OpenBatchCreateDatasetItemsRequest {
   'FlowDevops-Agw-OpenAPI-SpaceId'?: string;
   items: Array<datasetv2.DatasetItem>;
   'FlowDevops-Agw-OpenAPI-AccountId'?: string;
-  /** 是否跳过无效数据 */
+  /** Whether to skip invalid data */
   skipInvalidItems?: boolean;
-  /** 是否允许写入不超过容量限制的数据 */
+  /** Whether to allow writing of data that does not exceed the capacity limit */
   allowPartialAdd?: boolean;
   base?: base.Base;
 }
 
 export interface OpenBatchCreateDatasetItemsResponse {
-  /** key: item在输入数据的索引, value:item的唯一ID */
+  /** Key: item index in input data, value: item's unique ID */
   addedItems?: Record<number, Int64>;
   errors?: Array<datasetv2.ItemErrorGroup>;
   baseResp?: base.BaseResp;
@@ -144,7 +144,7 @@ export interface OpenCreateDatasetVersionRequest {
   datasetID: string;
   'FlowDevops-Agw-OpenAPI-AppId'?: string;
   'FlowDevops-Agw-OpenAPI-SpaceId'?: string;
-  /** 展示版本号，SemVer2三段式，需要大于上一个版本 */
+  /** Display version number, SemVer2 three-stage, needs to be larger than the previous version */
   version: string;
   desc?: string;
   'FlowDevops-Agw-OpenAPI-AccountId'?: string;
@@ -160,11 +160,11 @@ export interface OpenExportDatasetReq {
   datasetID: string;
   'FlowDevops-Agw-OpenAPI-AppId'?: string;
   'FlowDevops-Agw-OpenAPI-SpaceId'?: string;
-  /** 需要导出的数据集版本 id，为 0 表示导出草稿版本 */
+  /** The version id of the dataset to be exported, 0 indicates the exported draft version */
   versionID?: string;
   'FlowDevops-Agw-OpenAPI-AccountId'?: string;
   targetType: datasetv2job.SourceType;
-  /** 此处填写一个文件夹，会将对应的文件生成到该文件夹下 */
+  /** Fill in a folder here, and the corresponding file will be generated under this folder. */
   target: datasetv2job.DatasetIOEndpoint;
   base?: base.Base;
 }
@@ -266,7 +266,7 @@ export interface OpenListDatasetVersionsResponse {
 }
 
 export interface OpenParseImportSourceFileReq {
-  /** 如果 path 为文件夹，此处只默认解析当前路径级别下所有指定类型的文件，不嵌套解析 */
+  /** If path is a folder, only all files of the specified type under the current path level will be parsed by default, not nested. */
   file?: datasetv2job.DatasetIOFile;
   'FlowDevops-Agw-OpenAPI-AppId'?: string;
   'FlowDevops-Agw-OpenAPI-SpaceId'?: string;
@@ -275,13 +275,13 @@ export interface OpenParseImportSourceFileReq {
 }
 
 export interface OpenParseImportSourceFileResp {
-  /** 文件大小，单位为 byte */
+  /** File size in bytes */
   bytes?: string;
-  /** 列名和类型，有多文件的话会取并集返回。如果文件中的列定义存在冲突，此处不返回解析结果，具体冲突详情通过 conflicts 返回 */
+  /** Column name and type. If there are multiple files, it will be merged and returned. If there is a conflict between the column definitions in the file, the resolution result will not be returned here. The specific conflict details will be returned through conflicts. */
   fields?: Array<datasetv2.FieldSchema>;
-  /** 冲突详情。key: 列名，val：冲突详情 */
+  /** Conflict details. key: column name, val: conflict details */
   conflicts?: Array<ConflictField>;
-  /** 存在列定义不明确的文件（即一个列被定义为多个类型），当前仅 jsonl 文件会出现该状况 */
+  /** There are files with poorly defined columns (i.e. a column is defined with multiple types), which currently occurs only in jsonl files */
   filesWithAmbiguousColumn?: Array<string>;
   /** base */
   baseResp?: base.BaseResp;
@@ -293,9 +293,9 @@ export interface OpenPatchDatasetItemRequest {
   'FlowDevops-Agw-OpenAPI-SpaceId'?: string;
   itemID: string;
   'FlowDevops-Agw-OpenAPI-AccountId'?: string;
-  /** 单轮数据内容，当数据集为单轮时，写入此处的值 */
+  /** Single round data content, when the dataset is single round, write the value here */
   data?: Array<datasetv2.FieldData>;
-  /** 多轮对话数据内容，当数据集为多轮对话时，写入此处的值 */
+  /** Multi-round conversation data content, when the dataset is multi-round conversations, write the value here */
   repeatedData?: Array<datasetv2.ItemData>;
   base?: base.Base;
 }

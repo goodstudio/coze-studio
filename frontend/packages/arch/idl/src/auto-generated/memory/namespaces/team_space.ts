@@ -25,7 +25,7 @@ export interface ScriptData {
   DatasetList?: Array<Int64>;
 }
 
-/** --------------------空间资源权限转移-------------------------------- */
+/** -------------------- space resource permission transfer -------------------------------- */
 export interface SpaceItem {
   UserId?: Int64;
   SpaceId?: Int64;

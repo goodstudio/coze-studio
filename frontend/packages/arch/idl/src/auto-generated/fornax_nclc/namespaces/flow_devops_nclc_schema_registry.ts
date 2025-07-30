@@ -29,7 +29,7 @@ export enum FactoryType {
 }
 
 export enum Kind {
-  /** 与 golang 的 reflect.Kind 并不是完全对应的，不能依赖 value 直接转换 */
+  /** It does not correspond exactly to the reflect. Kind of golang and cannot be converted directly by relying on value */
   Invalid = 0,
   String = 1,
   Bool = 2,

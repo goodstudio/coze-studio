@@ -25,17 +25,17 @@ export type Int64 = string | number;
 
 export enum ColumnType {
   Unknown = 0,
-  /** 文本 */
+  /** Text */
   Text = 1,
-  /** 数字 */
+  /** number */
   Number = 2,
-  /** 时间 */
+  /** time */
   Date = 3,
   /** float */
   Float = 4,
   /** bool */
   Boolean = 5,
-  /** 图片 */
+  /** picture */
   Image = 6,
 }
 
@@ -51,15 +51,15 @@ export enum DatasetType {
 }
 
 export enum DocumentSourceType {
-  /** 本地上传 */
+  /** local upload */
   Document = 0,
   /** url */
   Web = 1,
-  /** 自定义类型 */
+  /** custom type */
   Custom = 2,
-  /** 三方 */
+  /** three parties */
   ThirdParty = 3,
-  /** 前端抓取 */
+  /** front-end crawl */
   FrontCrawl = 4,
   Notion = 101,
   GoogleDrive = 102,
@@ -69,19 +69,19 @@ export enum DocumentSourceType {
 }
 
 export enum DocumentStatus {
-  /** 上传中 */
+  /** Uploading */
   Processing = 0,
-  /** 生效 */
+  /** take effect */
   Enable = 1,
-  /** 失效 */
+  /** failure */
   Disable = 2,
-  /** 删除 */
+  /** delete */
   Deleted = 3,
-  /** 重新分片中，前端和上游不感知该状态 */
+  /** In rescaling, the front end and upstream do not perceive this state */
   Resegment = 4,
-  /** 刷新中（刷新成功后会删除） */
+  /** Refreshing (will be deleted after successful refresh) */
   Refreshing = 5,
-  /** 失败 */
+  /** fail */
   Failed = 9,
 }
 
@@ -91,30 +91,30 @@ export enum DocumentUpdateType {
   Append = 2,
 }
 
-/** 文件类型 */
+/** file type */
 export enum FormatType {
-  /** 文本 */
+  /** Text */
   Text = 0,
-  /** 表格 */
+  /** form */
   Table = 1,
-  /** 图片，暂未支持 */
+  /** Image, not yet supported */
   Image = 2,
-  /** 数据库 */
+  /** database */
   Database = 3,
-  /** 火山结构化 火山知识库特有 */
+  /** Volcanic structure, unique to the volcanic knowledge base */
   VolcanoStructured = 4,
-  /** 火山非结构化 火山知识库特有 */
+  /** Volcanoes are unstructured and unique to the Volcano Knowledge Base */
   VolcanoUnstructured = 5,
 }
 
 export enum SliceStatus {
-  /** 未向量化 */
+  /** unvectorized */
   PendingVectoring = 0,
-  /** 已向量化 */
+  /** vectorized */
   FinishVectoring = 1,
-  /** 禁用 */
+  /** disable */
   Deactive = 9,
-  /** 审核不通过 */
+  /** The review failed. */
   AuditFailed = 1000,
 }
 
@@ -129,116 +129,116 @@ export enum VolcanoDatasetStatus {
 }
 
 export enum WebInfoStatus {
-  /** 处理中 */
+  /** Processing */
   Handling = 0,
-  /** 已完成 */
+  /** Completed. */
   Finish = 1,
-  /** 失败 */
+  /** fail */
   Failed = 2,
 }
 
 export interface DataSetInfo {
   data_set_id?: string;
-  /** 数据集名称 */
+  /** Dataset name */
   name?: string;
-  /** 文件列表 */
+  /** file list */
   file_list?: Array<string>;
-  /** 所有文件大小 */
+  /** All file sizes */
   all_file_size?: Int64;
-  /** 使用Bot数 */
+  /** Bot count */
   bot_used_count?: number;
   status?: DataSetStatus;
-  /** 处理中的文件 */
+  /** File in process */
   processing_file_list?: Array<string>;
-  /** 更新时间，秒级时间戳 */
+  /** Update time, second timestamp */
   update_time?: number;
   icon_url?: string;
   description?: string;
   icon_uri?: string;
-  /** 是否可以编辑 */
+  /** Can it be edited? */
   can_edit?: boolean;
-  /** 创建时间，秒级时间戳 */
+  /** Creation time, second timestamp */
   create_time?: number;
-  /** 创建者ID */
+  /** creator ID */
   creator_id?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   creator_name?: string;
   avatar_url?: string;
-  /** 处理失败的文件 */
+  /** Processing failed files */
   failed_file_list?: Array<string>;
   format_type?: FormatType;
-  /** 0=coze知识库 1=火山知识库 */
+  /** 0 = coze knowledge base 1 = volcano knowledge base */
   dataset_type?: DatasetType;
-  /** storage_config详细信息 */
+  /** storage_config details */
   storage_config?: StorageConfig;
 }
 
-/** 表格的列信息 */
+/** Table column information */
 export interface DocTableColumn {
-  /** 列 id */
+  /** Column ID */
   id?: string;
-  /** 列名 */
+  /** listing */
   column_name?: string;
-  /** 是否为语义匹配列 */
+  /** Is it a semantically matched column? */
   is_semantic?: boolean;
-  /** 列原本在 excel 的序号 */
+  /** List the serial number originally in excel */
   sequence?: string;
-  /** 列类型 */
+  /** column type */
   column_type?: ColumnType;
   contains_empty_value?: boolean;
-  /** 描述 */
+  /** describe */
   desc?: string;
 }
 
 export interface DocTableSheet {
-  /** sheet 的编号 */
+  /** Number of sheet */
   id?: Int64;
-  /** sheet 名 */
+  /** Sheet name */
   sheet_name?: string;
-  /** 总行数 */
+  /** total number of rows */
   total_row?: Int64;
 }
 
 export interface DocumentInfo {
   name?: string;
   document_id?: string;
-  /** 文件链接 */
+  /** file link */
   tos_uri?: string;
-  /** 使用的bot数量 */
+  /** Number of bots used */
   bot_used_count?: number;
-  /** 创建时间 */
+  /** creation time */
   create_time?: number;
-  /** 更新时间 */
+  /** update time */
   update_time?: number;
-  /** 创建人 */
+  /** founder */
   creator_id?: string;
-  /** 包含分段数量 */
+  /** number of segments included */
   slice_count?: number;
   type?: string;
-  /** 文件大小 字节数 */
+  /** File size, number of bytes */
   size?: number;
-  /** 字符数 */
+  /** character count */
   char_count?: number;
-  /** 状态 */
+  /** state */
   status?: DocumentStatus;
-  /** 命中次数 */
+  /** hit count */
   hit_count?: number;
-  /** 枚举 */
+  /** enumeration */
   source_type?: DocumentSourceType;
-  /** 更新类型 */
+  /** update type */
   update_type?: DocumentUpdateType;
-  /** 更新间隔 */
+  /** update interval */
   update_interval?: number;
-  /** 切片规则 */
+  /** slicing rule */
   rule?: string;
-  /** 文件类型 */
+  /** file type */
   format_type?: FormatType;
-  /** 表格类型元数据 */
+  /** Table type metadata */
   table_meta?: Array<DocTableColumn>;
-  /** url 地址 */
+  /** URL address */
   web_url?: string;
-  /** 状态的详细信息；如果切片失败，返回失败信息 */
+  /** Details of the status; if the slice fails, return the failure information */
   status_descript?: string;
   source_file_id?: string;
   is_disconnect?: boolean;
@@ -250,22 +250,22 @@ export interface SliceInfo {
   slice_id?: string;
   content?: string;
   status?: SliceStatus;
-  /** 命中次数 */
+  /** hit count */
   hit_count?: string;
-  /** 字符数 */
+  /** character count */
   char_count?: string;
-  /** token数 */
+  /** number of tokens */
   token_count?: string;
-  /** 序号 */
+  /** serial number */
   sequence?: string;
 }
 
 export interface SourceFileInfo {
-  /** local: 本地文件上传的 tos 地址 */
+  /** Local: the tos address of the local file upload */
   tos_uri?: string;
-  /** web url: 如果为第一次 url 上传，传递该值 */
+  /** Web url: If the URL is uploaded for the first time, pass the value */
   submit_web_id?: string;
-  /** google feishu...: 三方源文件 id */
+  /** Google feishu...: three-way source file id */
   source_file_id?: string;
   source_type?: DocumentSourceType;
   /** custom json list<map<string, string>> */
@@ -277,15 +277,15 @@ export interface StorageConfig {
 }
 
 export interface VolcanoDataset {
-  /** 火山侧知识库id 字符串 */
+  /** Volcano side knowledge base id string */
   id?: string;
-  /** 名称 */
+  /** name */
   name?: string;
-  /** 类型 结构化 or 非结构化知识库 */
+  /** Type, structured or unstructured knowledge base */
   format_type?: FormatType;
-  /** 火山知识库详情链接 */
+  /** Volcano Knowledge Base Details Link */
   link?: string;
-  /** 火山知识库状态 是否已失效 */
+  /** Volcano Knowledge Base status, whether it has expired */
   status?: VolcanoDatasetStatus;
 }
 /* eslint-enable */

@@ -24,29 +24,29 @@ import * as auth from './auth';
 export type Int64 = string | number;
 
 export enum GrayReleaseStrategy {
-  /** 不开启灰度 */
+  /** Do not turn on grey release */
   None = 0,
-  /** 实例灰度 */
+  /** Instance grey release */
   InstanceGrayRelease = 1,
 }
 
-/** 空间角色类型 */
+/** Spatial character type */
 export enum SpaceRoleType {
   Undefined = 0,
-  /** 负责人 */
+  /** person in charge */
   Owner = 1,
-  /** 开发者 */
+  /** developer */
   Developer = 2,
-  /** 测试人员 */
+  /** tester */
   Tester = 3,
 }
 
-/** 空间类型 */
+/** space type */
 export enum SpaceType {
   Undefined = 0,
   Personal = 1,
   Team = 2,
-  /** 官方空间 */
+  /** official space */
   Official = 3,
 }
 
@@ -66,62 +66,62 @@ export interface CozeBotFeatureConfig {
   botIDAllowList?: Array<Int64>;
 }
 
-/** 空间配置 */
+/** Space configuration */
 export interface FeatureConfig {
-  /** 开启特性的空间ID */
+  /** Space ID of the enabled feature */
   EnabledSpaceIDList?: Array<Int64>;
-  /** 是否全量开启 */
+  /** Is it fully turned on? */
   EnableAll?: boolean;
 }
 
 export interface ReleaseApprovalConfig {
-  /** 是否开启审核 */
+  /** Whether to open the review */
   enable?: boolean;
-  /** 灰度策略 */
+  /** Grey release strategy */
   gray_release_strategy?: GrayReleaseStrategy;
 }
 
-/** 空间 */
+/** space */
 export interface Space {
-  /** 空间ID */
+  /** Space ID */
   id?: Int64;
-  /** 空间名称 */
+  /** space name */
   name?: string;
-  /** 空间描述 */
+  /** spatial description */
   description?: string;
-  /** 空间类型 */
+  /** space type */
   space_type?: SpaceType;
-  /** 空间创建人 */
+  /** Space creator */
   creator?: string;
-  /** 创建时间 */
+  /** creation time */
   create_tsms?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_tsms?: Int64;
-  /** 发布审核配置 */
+  /** release moderation configuration */
   release_approval_config?: ReleaseApprovalConfig;
-  /** 空间来源 */
+  /** Spatial sources */
   space_origin?: string;
-  /** 服务树节点ID */
+  /** ByteTree Node ID */
   tree_node_id?: string;
-  /** 具体配置内容 */
+  /** Specific configuration content */
   trace_config?: TraceConfig;
 }
 
-/** 空间成员 */
+/** space member */
 export interface SpaceMember {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 成员 */
+  /** member */
   member?: auth.AuthPrincipal;
-  /** 空间角色类型 */
+  /** Spatial character type */
   space_role_type?: SpaceRoleType;
 }
 
-/** 观测配置 */
+/** observation configuration */
 export interface TraceConfig {
-  /** 是否加密trace 默认false */
+  /** Whether to encrypt trace default false */
   trace_encrypt?: boolean;
-  /** ttl天数 默认7，目前合法值有7/30/90 */
+  /** TTL days, the default is 7, the current legal value is 7/30/90 */
   ttl?: number;
 }
 /* eslint-enable */

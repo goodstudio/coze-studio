@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** User 用户信息 */
+/** User information */
 export interface User {
   id?: string;
   name?: string;

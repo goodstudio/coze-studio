@@ -25,56 +25,56 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export enum PhotoSliceType {
-  /** 描述文字 */
+  /** Description Text */
   Caption = 1,
-  /** 标签信息 */
+  /** label information */
   Tags = 2,
 }
 
 export enum SliceStatus {
-  /** 未向量化 */
+  /** unvectorized */
   PendingVectoring = 0,
-  /** 已向量化 */
+  /** vectorized */
   FinishVectoring = 1,
-  /** 禁用 */
+  /** disable */
   Deactive = 9,
-  /** 审核不通过 */
+  /** The review failed. */
   AuditFailed = 1000,
 }
 
 export enum SourceType {
-  /** 使用 TOS 存储，由 Flink 算子获取数据，进行切片和向量化 */
+  /** Using TOS storage, data is retrieved by the Flink operator, sliced, and vectorized */
   TOS = 1,
-  /** 直接传输原始文本数据，向量化原始数据 */
+  /** Direct transmission of raw text data, vectorizing original data source */
   Raw = 2,
 }
 
 export enum VectorRuleType {
-  /** 选择部分列进行向量化 */
+  /** Select parts for vectorization */
   SelectedFields = 1,
 }
 
 export interface CreateSliceRequest {
   /** 1: optional i64  operator_id // deprecated */
   document_id: string;
-  /** 3: optional Source  source  // deprecated, 数据源
-4: optional VectorRule vector_rule  // deprecated, 向量化规则, 未启用 */
+  /** 3: optional Source source//deprecated, data sourcea source
+4: optional VectorRule vector_rule//deprecated, vectorRule, not enabled rule, not enabled */
   raw_text?: string;
   sequence?: string;
   extra?: string;
   tree_node_id?: Int64;
   front_tree_node_id?: Int64;
   parent_tree_node_id?: Int64;
-  /** 用来区分是否是火山知识库，不传默认为coze知识库 */
+  /** It is used to distinguish whether it is a volcano knowledge base. If it is not transmitted, it defaults to coze knowledge base. */
   dataset_id?: string;
-  /** 由于火山侧document是非数字串，新增这个字段传入document_id */
+  /** Since the volcanic side document is a non-numeric string, add this field to pass in document_id */
   document_id_new?: string;
   Base?: base.Base;
 }
 
 export interface CreateSliceResponse {
   slice_id?: string;
-  /** 由于火山侧slice id是非数字串，新增这个字段返回火山侧slice_id */
+  /** Since the volcanic side slice id is a non-numeric string, add this field to return the volcanic side slice_id */
   slice_id_new?: string;
   code: Int64;
   msg: string;
@@ -95,22 +95,22 @@ export interface HitInfo {
   /** 1: i64 operator_id */
   document_id: Int64;
   slice_id: Int64;
-  /** 命中时的用户输入 */
+  /** User input on hit */
   keyword: string;
-  /** 分数 */
+  /** fraction */
   score: number;
 }
 
 export interface ListSliceRequest {
   /** 1:  optional i64    operator_id                     // deprecated */
   document_id?: string;
-  /** 序号 */
+  /** serial number */
   sequence?: string;
-  /** 查询关键字 */
+  /** query keyword */
   keyword?: string;
-  /** 如果只传 dataset_id，则返回该知识库下的分片 */
+  /** If only dataset_id, return sharding under that knowledge base */
   dataset_id?: string;
-  /** 从1开始 */
+  /** Start from 1 */
   page_no?: string;
   page_size?: string;
   sort_field?: string;
@@ -136,16 +136,16 @@ export interface SliceInfo {
   slice_id?: string;
   content?: string;
   status?: SliceStatus;
-  /** 命中次数 */
+  /** hit count */
   hit_count?: string;
-  /** 字符数 */
+  /** character count */
   char_count?: string;
-  /** token数 */
+  /** number of tokens */
   token_count?: string;
-  /** 序号 */
+  /** serial number */
   sequence?: string;
   document_id?: string;
-  /** 分片相关的元信息, 透传 slice 表里的 extra->chunk_info 字段 (json) */
+  /** Meta information related to sharding, extra- > chunk_info field in the transparent slice table (json) */
   chunk_info?: string;
 }
 
@@ -153,7 +153,7 @@ export interface TaskProgress {
   document_id?: Int64;
   progress?: number;
   status?: common.DocumentType;
-  /** 状态的详细描述；如果切片失败，返回失败信息 */
+  /** A detailed description of the status; if the slice fails, a failure message is returned */
   status_descript?: string;
   document_name?: string;
 }
@@ -161,15 +161,15 @@ export interface TaskProgress {
 export interface UpdateSliceRequest {
   /** 1: optional i64  operator_id // deprecated */
   slice_id: string;
-  /** 3: optional Source  source  // deprecated, 数据源
-4: optional VectorRule vector_rule  // 向量化规则, 未启用
+  /** 3: optional Source source//deprecated, data sourcea source
+4: optional VectorRule vector_rule//vectorRule, not enabledion rule, not enabled
 deprecated */
   document_id?: Int64;
-  /** 更新的状态 */
+  /** updated status */
   status?: SliceStatus;
-  /** 要更新的内容 */
+  /** Content to be updated */
   raw_text?: string;
-  /** 表格要更新的单元格内容 */
+  /** Table The cell content to be updated */
   table_unit_text?: string;
   Base?: base.Base;
 }

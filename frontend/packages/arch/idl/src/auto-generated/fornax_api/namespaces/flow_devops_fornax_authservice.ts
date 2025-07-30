@@ -25,7 +25,7 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export interface AuthenticateServiceAccountReq {
-  /** 认证字符串，见  */
+  /** Authentication string, see  */
   'Fornax-Auth': string;
   psm: string;
   cluster?: string;
@@ -34,7 +34,7 @@ export interface AuthenticateServiceAccountReq {
   isTCE: boolean;
   ztiToken?: string;
   payload: string;
-  /** 部署阶段 */
+  /** deployment phase */
   stage?: string;
 }
 

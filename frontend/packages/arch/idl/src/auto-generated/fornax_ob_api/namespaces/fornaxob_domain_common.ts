@@ -24,30 +24,30 @@ export type Int64 = string | number;
 export interface BaseInfo {
   created_by?: UserInfo;
   updated_by?: UserInfo;
-  /** 创建时间,ms timestamp */
+  /** Creation time, ms timestamp */
   created_at?: Int64;
-  /** 更新时间,ms timestamp */
+  /** Update time, ms timestamp */
   updated_at?: Int64;
 }
 
 export interface UserInfo {
-  /** 姓名 */
+  /** name */
   name?: string;
-  /** 英文名称 */
+  /** English name */
   en_name?: string;
-  /** 用户头像url */
+  /** user profile URL */
   avatar_url?: string;
-  /** 72 * 72 头像 */
+  /** 72 * 72 avatar */
   avatar_thumb?: string;
-  /** 用户应用内唯一标识 */
+  /** unique user ID within the app */
   open_id?: string;
-  /** 用户应用开发商内唯一标识 */
+  /** unique identifier within the user application developer */
   union_id?: string;
-  /** 企业标识 */
+  /** Corporate identity */
   tenant_key?: string;
-  /** 用户在租户内的唯一标识 */
+  /** The unique identity of the user within the tenant */
   user_id?: string;
-  /** 用户邮箱 */
+  /** user email */
   email?: string;
 }
 /* eslint-enable */

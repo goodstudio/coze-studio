@@ -61,7 +61,7 @@ export const SwitchAgent = (props: SwitchAgentProps) => {
     if (!editedShortcut.agent_id) {
       return {
         defaultAgentId: '',
-        // @ts-expect-error --后面替换
+        // @TS-expected-error -- replace later
         defaultName: I18n.t('Do not specify'),
       };
     }

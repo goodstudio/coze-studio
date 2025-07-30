@@ -77,13 +77,13 @@ export * from './namespaces/waimai_ShopcartOperationResponse';
 export type Int64 = string | number;
 
 export enum ChunkingStrategy {
-  /** 基于plain text切分 */
+  /** Segmentation based on plain text */
   PLAIN_TEXT = 0,
-  /** 基于[paragraph/段落]的切分 */
+  /** Segmentation based on [paragraph/paragraph] */
   PARAGRAPH = 1,
-  /** 基于文档逻辑结构（文档树/章节）切分 */
+  /** Segmentation based on document logical structure (document tree/chapter) */
   DOC_TREE = 2,
-  /** 基于文档的语义标签(如摘要、引言等)切分 */
+  /** Document-based semantic tagging (e.g. abstract, introduction, etc.) segmentation */
   SEMANTIC = 3,
 }
 
@@ -725,7 +725,7 @@ export default class PluginImplApiService<T> {
   /**
    * POST /encyclopedia/search_encyclopedia
    *
-   * 百科 -------
+   * Encyclopedia -------
    */
   SearchEncyclopedia(
     req: encyclopedia.SearchEncyclopediaRequest,
@@ -753,7 +753,7 @@ export default class PluginImplApiService<T> {
   /**
    * POST /file_code/csv_data_analysis
    *
-   * 文件代码分析
+   * file code analysis
    */
   CsvDataAnalysis(
     req?: file_code.CsvDataAnalysisRequest,

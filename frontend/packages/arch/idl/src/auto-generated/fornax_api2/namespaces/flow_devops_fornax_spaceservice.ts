@@ -26,11 +26,11 @@ import * as auth from './auth';
 export type Int64 = string | number;
 
 export interface AddSpaceMemberOApiReq {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 添加空间成员 */
+  /** Add space member */
   space_members?: Array<space.SpaceMember>;
-  /** FornaxSDK 鉴权  */
+  /** FornaxSDK Authentication  */
   Authorization?: string;
   Base?: base.Base;
 }
@@ -42,9 +42,9 @@ export interface AddSpaceMemberOApiResp {
 }
 
 export interface AddSpaceMemberRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 添加空间成员 */
+  /** Add space member */
   space_members?: Array<space.SpaceMember>;
   Base?: base.Base;
 }
@@ -56,18 +56,18 @@ export interface AddSpaceMemberResponse {
 }
 
 export interface CreateSpaceRequest {
-  /** 空间名称 */
+  /** space name */
   name: string;
-  /** 空间描述 */
+  /** spatial description */
   description?: string;
   space_type?: space.SpaceType;
-  /** 服务树节点 ID */
+  /** ByteTree Node ID */
   byte_tree_node_id?: Int64;
   Base?: base.Base;
 }
 
 export interface CreateSpaceResponse {
-  /** 创建空间 */
+  /** Create space */
   space?: space.Space;
   code?: number;
   msg?: string;
@@ -75,14 +75,14 @@ export interface CreateSpaceResponse {
 }
 
 export interface GetByteTreeNodeByIDRequest {
-  /** 服务树节点ID */
+  /** ByteTree Node ID */
   node_id: Int64;
   'x-jwt-token'?: string;
   Base?: base.Base;
 }
 
 export interface GetByteTreeNodeByIDResponse {
-  /** 服务树节点信息 */
+  /** ByteTree Node Information */
   node?: space.ByteTreeNode;
   code?: number;
   msg?: string;
@@ -97,18 +97,18 @@ export interface GetFeatureConfigBySpaceIDResp {
   cozeBot?: space.CozeBotFeatureConfig;
   featureSwitchMap?: Record<string, boolean>;
   IsRelatedToDoubao?: boolean;
-  /** 功能黑名单，该列表代表这些功能要被隐藏 */
+  /** Feature blacklist, which represents the features to be hidden */
   BlockFeatureList?: Array<string>;
 }
 
 export interface GetSpaceRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   Base?: base.Base;
 }
 
 export interface GetSpaceResponse {
-  /** 空间 */
+  /** space */
   space?: space.Space;
   code?: number;
   msg?: string;
@@ -116,7 +116,7 @@ export interface GetSpaceResponse {
 }
 
 export interface GetUserSpaceRolesRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   Base?: base.Base;
 }
@@ -129,16 +129,16 @@ export interface GetUserSpaceRolesResponse {
 }
 
 export interface HasPermByteTreeNodeRequest {
-  /** 服务树节点ID */
+  /** ByteTree Node ID */
   byte_tree_node_id: string;
   'x-jwt-token'?: string;
   Base?: base.Base;
 }
 
 export interface HasPermByteTreeNodeResponse {
-  /** 是否有权限 */
+  /** Do you have permission? */
   has_permission?: boolean;
-  /** 无权限时展示申请工单链接 */
+  /** Show the application ticket link when there is no permission. */
   applyTicketURL?: string;
   code?: number;
   msg?: string;
@@ -150,7 +150,7 @@ export interface ListUserSpaceRequest {
 }
 
 export interface ListUserSpaceResponse {
-  /** 空间列表 */
+  /** space list */
   spaces?: Array<space.Space>;
   code?: number;
   msg?: string;
@@ -158,7 +158,7 @@ export interface ListUserSpaceResponse {
 }
 
 export interface QuerySpaceMemberRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   role_type?: space.SpaceRoleType;
   page?: number;
@@ -167,10 +167,10 @@ export interface QuerySpaceMemberRequest {
 }
 
 export interface QuerySpaceMemberResponse {
-  /** 空间成员 */
+  /** space member */
   space_members?: Array<space.SpaceMember>;
   total?: number;
-  /** 成员租户分布，去重 */
+  /** Member-tenant distribution, deduplicated */
   member_tenant?: Array<auth.TenantType>;
   code?: number;
   msg?: string;
@@ -178,11 +178,11 @@ export interface QuerySpaceMemberResponse {
 }
 
 export interface RemoveSpaceMemberOApiReq {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 移除空间成员 */
+  /** Remove space member */
   space_members?: Array<space.SpaceMember>;
-  /** FornaxSDK 鉴权  */
+  /** FornaxSDK Authentication  */
   Authorization?: string;
   Base?: base.Base;
 }
@@ -194,9 +194,9 @@ export interface RemoveSpaceMemberOApiResp {
 }
 
 export interface RemoveSpaceMemberRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 移除空间成员 */
+  /** Remove space member */
   space_members?: Array<space.SpaceMember>;
   Base?: base.Base;
 }
@@ -208,17 +208,17 @@ export interface RemoveSpaceMemberResponse {
 }
 
 export interface UpdateSpaceRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 空间名称 */
+  /** space name */
   name?: string;
-  /** 空间描述 */
+  /** spatial description */
   description?: string;
-  /** 发布审批配置 */
+  /** release approval configuration */
   release_approval_config?: space.ReleaseApprovalConfig;
-  /** 服务树节点ID */
+  /** ByteTree Node ID */
   byte_tree_node_id?: Int64;
-  /** 具体配置内容 */
+  /** Specific configuration content */
   trace_config?: space.TraceConfig;
   'x-jwt-token'?: string;
   Base?: base.Base;

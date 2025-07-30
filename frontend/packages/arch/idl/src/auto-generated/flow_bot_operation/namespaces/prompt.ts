@@ -24,16 +24,16 @@ import * as agw_common from './agw_common';
 export type Int64 = string | number;
 
 export enum FrontedTagType {
-  /** 文本 */
+  /** Text */
   TEXT = 0,
-  /** 时间，用时间戳，单位是毫秒 */
+  /** Time, with timestamp, in milliseconds */
   TIME = 1,
-  /** 时间间隔，单位是毫秒 */
+  /** Time interval, in milliseconds */
   TIME_DURATION = 2,
 }
 
 export enum InputOutputType {
-  /** 文本类型 */
+  /** Text type */
   TEXT = 0,
 }
 
@@ -75,13 +75,13 @@ export interface FetchMsgListResponse {
 
 export interface FrontendTag {
   key: string;
-  /** 多语，如无配置时值沿用 key */
+  /** Multilingual, if there is no configuration value, use the key */
   key_alias?: string;
   tag_type: TagType;
   value?: Value;
-  /** 前端类型，用于前端处理 */
+  /** Front-end type for front-end processing */
   frontend_tag_type?: FrontedTagType;
-  /** 是否可复制 */
+  /** Can it be copied? */
   can_copy?: boolean;
 }
 
@@ -120,9 +120,9 @@ export interface Span {
   type?: string;
   name?: string;
   parent_id?: string;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   duration?: Int64;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   start_time?: Int64;
   status_code?: number;
   tags?: Array<Tag>;
@@ -158,13 +158,13 @@ export interface TraceFrontendSpan {
   name?: string;
   alias_name?: string;
   parent_id?: string;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   duration?: Int64;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   start_time?: Int64;
   status_code?: number;
   tags?: Array<Tag>;
-  /** 节点详情 */
+  /** node details */
   summary?: SpanSummary;
   input?: SpanInputOutput;
   output?: SpanInputOutput;
@@ -176,9 +176,9 @@ export interface TraceFrontendSpan {
 }
 
 export interface TraceHeader {
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   duration?: Int64;
-  /** 输入消耗token数 */
+  /** Enter the number of tokens consumed */
   tokens?: number;
   status_code?: number;
   tags?: Array<FrontendTag>;

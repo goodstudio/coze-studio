@@ -25,7 +25,7 @@ import * as ml_flow_domain_model from './ml_flow_domain_model';
 export type Int64 = string | number;
 
 export interface GetModelFilterParamsRequest {
-  /** 因为coze暂时给不了rpc接口，所以后端需要拿到cookie去请求coze的前端接口 */
+  /** Because coze can't give the rpc interface for the time being, the backend needs to get the cookie to request the front-end interface of coze. */
   cookie?: string;
   base?: base.Base;
 }
@@ -40,11 +40,11 @@ export interface GetModelFilterParamsResponse {
 }
 
 export interface GetModelRequest {
-  /** 本期只支持BotEngine(等于llm gateway等于coze) */
+  /** This issue only supports BotEngine (equal to llm gateway equal to coze) */
   provider?: ml_flow_domain_model.Provider;
   providerModelID?: string;
   spaceID?: Int64;
-  /** 因为coze暂时给不了rpc接口，所以后端需要拿到cookie去请求coze的前端接口 */
+  /** Because coze can't give the rpc interface for the time being, the backend needs to get the cookie to request the front-end interface of coze. */
   cookie?: string;
   base?: base.Base;
 }
@@ -56,7 +56,7 @@ export interface GetModelResponse {
 
 export interface GetModelUsageRequest {
   modelIdentification?: string;
-  /** 本期只支持llm gateway */
+  /** This issue only supports llm gateway. */
   provider?: ml_flow_domain_model.Provider;
   spaceID?: Int64;
   base?: base.Base;
@@ -70,11 +70,11 @@ export interface GetModelUsageResponse {
 export interface ListModelRequest {
   cursorID?: string;
   limit?: number;
-  /** 筛选项 */
+  /** filter */
   filter?: ModelFilter;
-  /** coze空间id */
+  /** Coze space id */
   spaceID?: Int64;
-  /** 因为coze暂时给不了rpc接口，所以后端需要拿到cookie去请求coze的前端接口 */
+  /** Because coze can't give the rpc interface for the time being, the backend needs to get the cookie to request the front-end interface of coze. */
   cookie?: string;
   base?: base.Base;
 }
@@ -88,26 +88,26 @@ export interface ListModelResponse {
 }
 
 export interface ModelContextRange {
-  /** 上限，不传代表不设限 */
+  /** Upper limit, no pass means no limit */
   upperBound?: number;
-  /** 下限，不传代表不设限 */
+  /** Lower limit, no pass means no limit */
   lowerBound?: number;
 }
 
 export interface ModelFilter {
-  /** 模型tag过滤项，value中list内部各个元素在过滤时是or关系，各个key之间在过滤时是and关系 */
+  /** Model tag filter item, each element inside the list in value is an or relationship when filtering, and each key is an and relationship when filtering */
   modelFilterTags?: Partial<
     Record<ml_flow_domain_model.ModelFilterKey, Array<string>>
   >;
-  /** 模型状态 */
+  /** model state */
   modelStatuses?: Array<ml_flow_domain_model.CommercialModelStatus>;
-  /** 模型支持的上下文长度的范围 */
+  /** The range of context lengths supported by the model */
   modelContextRange?: ModelContextRange;
-  /** 模型厂商 */
+  /** Model manufacturer */
   modelVendors?: Array<string>;
-  /** 名称关键字 */
+  /** name keyword */
   name?: string;
-  /** 特殊场景 */
+  /** special scenario */
   modelFilterScene?: ml_flow_domain_model.ModelFilterScene;
 }
 

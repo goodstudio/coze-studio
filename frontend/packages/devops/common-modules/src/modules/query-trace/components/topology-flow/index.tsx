@@ -31,15 +31,15 @@ import s from './index.module.less';
 const TopologyFlowContent = (props: TopologyFlowProps) => {
   const { style, className, renderHeader, ...restProps } = props;
 
-  // 计算topo数据
+  // Calculate topo data
   const [loading, topologicalData] = useGenerateTopology({
     ...restProps,
   });
 
-  // 每次topo数据变更后，计算topo布局信息
+  // After each topo data change, calculate the topo layout information
   const [topologyFlowDomRef] = useLayoutTopology(topologicalData);
 
-  // 渲染外部自定义header实现（带有业务语义）
+  // Rendering external custom header implementations (with business semantics)
   const topologyHeader = useMemo(() => {
     if (!renderHeader || !topologicalData) {
       return null;
@@ -65,7 +65,7 @@ const TopologyFlowContent = (props: TopologyFlowProps) => {
           {topologyHeader}
           <div className={s['topology-flow-container-flow']}>
             <ReactFlow
-              // @ts-expect-error 使用number类型枚举SpanType作为自定义type，可忽略报错
+              // @TS-expected-error Use the number type to enumerate SpanType as a custom type, the error can be ignored
               nodes={topologicalData.nodes}
               edges={topologicalData.edges}
               nodeTypes={CUSTOM_NODES}

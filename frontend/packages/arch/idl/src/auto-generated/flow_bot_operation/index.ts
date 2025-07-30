@@ -139,7 +139,7 @@ export default class FlowBotOperationService<T> {
   /**
    * GET /api/bot/opt/menu/list
    *
-   * 获取列表
+   * Get list
    */
   QueryMenuList(
     req?: menu.QueryMenuListRequest,
@@ -232,7 +232,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/udpate_doc
    *
-   * 更新API文档
+   * Update API Documentation
    */
   UpdateAPIDoc(
     req?: api_manage.UpdateAPIDocRequest,
@@ -252,7 +252,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/update_visible
    *
-   * 更新接口可见性
+   * Update interface visibility
    */
   UpdateAPIVisible(
     req?: api_manage.UpdateAPIVisibleRequest,
@@ -274,7 +274,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/create_doc
    *
-   * 创建API文档
+   * Create API Documentation
    */
   CreateAPIDocument(
     req?: api_manage.CreateAPIDocumentRequest,
@@ -290,7 +290,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/create_psm
    *
-   * 创建PSM
+   * Create PSM
    */
   CreatePSM(
     req?: api_manage.CreatePSMRequest,
@@ -365,7 +365,7 @@ export default class FlowBotOperationService<T> {
   /**
    * GET /api/bot/common/search_byte_tree
    *
-   * 获取服务树
+   * Get ByteTree
    */
   GetByteTreeByName(
     req?: byte_tree.GetByteTreeByNameReq,
@@ -398,7 +398,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/permission/upsert
    *
-   * 创建权限
+   * create permission
    */
   UpsertPermission(
     req: api_manage.UpsertPermissionReq,
@@ -417,7 +417,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/bind
    *
-   * 接口绑定权限
+   * interface binding permission
    */
   BindApiPermission(
     req: api_manage.BindApiPermissionReq,
@@ -437,7 +437,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/permission/list
    *
-   * 获取权限列表
+   * Get permission list
    */
   GetPermissionList(
     req?: api_manage.GetPermissionListReq,
@@ -460,7 +460,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/permission/level_list
    *
-   * 获取下级权限
+   * Get subordinate permissions
    */
   GetPermissionListByParentId(
     req: api_manage.GetPermissionListByParentIdReq,
@@ -481,7 +481,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/permission/delete
    *
-   * 删除权限
+   * delete permission
    */
   DeletePermission(
     req: api_manage.DeletePermissionReq,
@@ -500,7 +500,7 @@ export default class FlowBotOperationService<T> {
   /**
    * GET /api/bot/punish/get_punish_meta_info
    *
-   * 处罚中心
+   * Punishment Center
    */
   GetPunishMetaInfo(
     req?: punish.GetPunishMetaInfoRequest,
@@ -625,7 +625,7 @@ export default class FlowBotOperationService<T> {
   /**
    * GET /api/bot/api_manage/detail
    *
-   * 接口详情
+   * interface details
    */
   GetAPIDetailById(
     req: api_manage.GetAPIDetailByIdReq,
@@ -641,7 +641,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/init_attribute
    *
-   * 接口初始化字段
+   * interface initialization field
    */
   InitAttributeInfo(
     req?: api_manage.InitAttributeInfoReq,
@@ -657,7 +657,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/set_limit
    *
-   * 接口设置限流
+   * The limited viewership of interface settings
    */
   SetAPIRequestLimitRule(
     req?: api_manage.SetAPIRequestLimitRuleReq,
@@ -677,7 +677,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/set_attribute
    *
-   * 接口初始化字段
+   * interface initialization field
    */
   SetAttributeInfo(
     req?: api_manage.SetAttributeInfoReq,
@@ -697,7 +697,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/model/update_model_func_config
    *
-   * 模型相关
+   * model correlation
    */
   UpdateModelFuncConfig(
     req: model.UpdateModelFuncConfigRequest,
@@ -788,7 +788,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/prompt/fetch_msg_list
    *
-   * prompt相关
+   * Prompt related
    */
   FetchMsgList(
     req?: prompt.FetchMsgListRequest,
@@ -844,7 +844,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/list
    *
-   * 接口列表
+   * interface list
    */
   GetAPIList(
     req?: api_manage.GetAPIListRequest,
@@ -931,7 +931,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/voice/get_support_language
    *
-   * 音色管理相关
+   * Sound management related
    */
   GetSupportLanguage(
     req?: voice.GetSupportLanguageRequest,
@@ -984,7 +984,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/home_banner/imagex_upload
    *
-   * home banner管理
+   * Home banner management
    */
   ImageXUpload(
     req: home_banner.ImageXUploadRequest,
@@ -1018,7 +1018,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/op_bot/get_draft_bot_model_detail
    *
-   * bot管理
+   * bot management
    */
   GetDraftBotModelDetail(
     req: op_bot.GetDraftBotModelDetailRequest,
@@ -1039,7 +1039,7 @@ export default class FlowBotOperationService<T> {
   /**
    * POST /api/bot/api_manage/update_api_playground
    *
-   * 更新 api playground 配置
+   * Update API playground configuration
    */
   UpdateApiPlayground(
     req?: api_manage.UpdateApiPlaygroundReq,
@@ -1058,7 +1058,7 @@ export default class FlowBotOperationService<T> {
   /**
    * GET /api/bot/api_manage/ratelimit/get
    *
-   * openapi 限流
+   * The limited viewership of OpenAPI
    */
   GetRateLimitOperation(
     req: api_manage.GetRateLimitOperationReq,

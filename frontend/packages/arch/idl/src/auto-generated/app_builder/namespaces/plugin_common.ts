@@ -65,7 +65,7 @@ export enum InstallStatus {
   USING = 1,
   REMOVE = 2,
   OFFLINE = 3,
-  /** 查询不传，展示用 */
+  /** Inquiry is not passed on, for display */
   NOTINSTALL = 4,
 }
 
@@ -118,21 +118,21 @@ export enum ModelType {
   SeedForMap = 47,
   SeedForMusic = 48,
   XiaoningWithMem = 49,
-  /** 功能性bot的模型从100开始，旧版bot的模型在100以下  pangzhiqiang@bytedance.com */
+  /** Models for functional bots start at 100, and models for older bots are below 100 pangzhiqiang@bytedance.com */
   GPT_35Turbo = 100,
   GPT_35Turbo0301 = 101,
   GPT_4 = 102,
   GPT_40314 = 103,
   GPT_432k = 104,
   GPT_432k0314 = 105,
-  /** seed 主模型 */
+  /** seed master model */
   Seed_Beta = 106,
   Seed_Music = 107,
   GPT4_32k0613 = 108,
   Seed_Img2Text = 109,
-  /** seed主模型 + browsing */
+  /** Seed main model + browsing */
   Seed_WebGPT = 110,
-  /** seed主模型 + browsing + (plugin暂为开放) */
+  /** Seed main model + browsing + (plugin is temporarily open) */
   Seed_WithPlugins = 111,
   GPT_35Turbo0613 = 112,
   GPT_35Turbo16K = 113,
@@ -142,22 +142,22 @@ export enum ModelType {
   Seed_Sota_Browsing = 115,
   /** strong character */
   Seed_WithSystem = 116,
-  /** 三合一, 主模型 + plugin + browsing, 但plugin是固定的 */
+  /** 3-in-1, main model + plugin + browsing, but the plugin is fixed */
   Seed_Omni = 118,
   /** seed function calling */
   SeedFunctionCall = 119,
-  /** seed 主模型， 带"是的你说的对" */
+  /** Seed master model with "yes you are right" */
   Seed_Main = 120,
-  /** 联网策略实验 */
+  /** networking strategy experiment */
   SeedBrowsingExperiment = 121,
-  /** browsing单模型 */
+  /** Browsing Single Model */
   SeedBrowsingOnly = 122,
-  /** 虚假的 llm，function call 协议，一直调用第一个 function */
+  /** False llm, function call protocol, always calls the first function */
   Echo = 123,
   GPT_40613 = 124,
   /** for seed test */
   Seed_WithSystemForTest = 125,
-  /** 地图 */
+  /** Map */
   Seed_Map = 126,
   SeedSuggest = 127,
   Seed_ComplexInstructionTest = 128,
@@ -225,9 +225,9 @@ export enum SchemaType {
 }
 
 export enum ScopeType {
-  /** 所有 */
+  /** all */
   All = 0,
-  /** 自己 */
+  /** himself */
   Self = 1,
 }
 
@@ -258,7 +258,7 @@ export enum TerminatePlanType {
   USESETTING = 2,
 }
 
-/** 状态，1不可发布 2可发布  3已发布 4删除 */
+/** Status, 1 Unpublishable 2 Publishable 3 Published 4 Deleted */
 export enum WorkFlowStatus {
   CanNotPublish = 1,
   CanPublish = 2,

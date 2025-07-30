@@ -54,9 +54,9 @@ export interface BotOpenMonetizationConfData {
 
 export interface PublicGetBotMonetizationConfigRequest {
   bot_id?: string;
-  /** bot 收费配置是草稿还是正式的 */
+  /** Is the bot charging configuration draft or official? */
   bot_monetization_mode?: BotMonetizationMode;
-  /** 是否回退，如 mode 指定为 Draft 时，如果无配置，是否取 Released 中的值 */
+  /** Whether to fallback, such as when mode is specified as Draft, if there is no configuration, whether to take the value in Released */
   is_fallback?: boolean;
   entity_id?: string;
   entity_type?: benefit_common.MonetizationEntityType;

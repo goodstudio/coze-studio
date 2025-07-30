@@ -110,7 +110,7 @@ export default class FornaxPluginService<T> {
   /**
    * POST /api/devops/plugin/platform/release_plugin
    *
-   * 发布Plugin版本
+   * Release Plugin Version
    */
   ObjectRelease(
     req: flow_devops_plugin_platform.ObjectReleaseRequest,
@@ -135,7 +135,7 @@ export default class FornaxPluginService<T> {
   /**
    * POST /api/devops/plugin/platform/publish_plugin
    *
-   * 上架Plugin到Hub
+   * Add Plugins to Hub
    */
   PublishPlugin(
     req?: flow_devops_plugin_platform.PublishPluginRequest,
@@ -149,7 +149,7 @@ export default class FornaxPluginService<T> {
   /**
    * POST /api/devops/plugin/platform/submit_plugin
    *
-   * 提交Plugin版本记录
+   * Submit Plugin Version Record
    */
   SubmitPlugin(
     req: flow_devops_plugin_platform.SubmitPluginRequest,

@@ -63,9 +63,9 @@ export enum IntelligenceTaskStatus {
 }
 
 export enum IntelligenceTaskType {
-  /** 存档 */
+  /** Archive */
   Archive = 1,
-  /** 回滚 */
+  /** Rollback */
   Rollback = 2,
 }
 
@@ -110,9 +110,9 @@ export interface DiffModeInfo {
 
 /** ************************** task  ************************************** */
 export interface EntityTaskData {
-  /** 实体ID */
+  /** Entity ID */
   entity_id?: string;
-  /** 实体状态 */
+  /** entity state */
   entity_status?: intelligence_common_struct.IntelligenceStatus;
 }
 
@@ -148,7 +148,7 @@ export interface EntityTaskSearchResponseData {
 
 export interface GetDiffModeInfoData {
   diff_mode_info?: DiffModeInfo;
-  /** 是否有对比中数据 */
+  /** Is there any comparison data? */
   has_comparison_data?: boolean;
 }
 
@@ -184,7 +184,7 @@ export interface IntelligenceTaskInfo {
 export interface ListIntelligenceCollaborationData {
   owner_info?: common_struct.User;
   collaborator_info?: Array<common_struct.User>;
-  /** key: uid, value: 角色列表 */
+  /** Key: uid, value: list of characters */
   collaboration_role_map?: Record<string, Array<CollaborationRole>>;
 }
 
@@ -208,11 +208,11 @@ export interface PingResponse {
 }
 
 export interface ProcessEntityTaskRequest {
-  /** 实体ID */
+  /** Entity ID */
   entity_id?: string;
-  /** 任务动作 */
+  /** task action */
   action?: TaskAction;
-  /** 批量实体ID */
+  /** Bulk Entity ID */
   task_id_list?: Array<string>;
 }
 
@@ -227,9 +227,9 @@ export interface ProcessEntityTaskResponseData {
 }
 
 export interface ResourceIdentifier {
-  /** 资源类型 */
+  /** resource type */
   Type: PermissionResourceType;
-  /** 资源Id */
+  /** Resource Id */
   Id: string;
 }
 
@@ -241,9 +241,9 @@ export interface TaskData {
 }
 
 export interface TaskStruct {
-  /** 实体ID */
+  /** Entity ID */
   entity_id?: string;
-  /** task类型 */
+  /** Task type */
   task_type?: TaskType;
 }
 
@@ -254,11 +254,11 @@ export interface UpdateDiffModeInfoData {
 export interface UpdateDiffModeInfoRequest {
   target_type: DiffModeTargetType;
   target_id: string;
-  /** 更新/初始化时传 */
+  /** Update/Initialize Time Pass */
   diff_mode_info?: DiffModeInfo;
-  /** 退出并保存时传 */
+  /** Exit and save time pass */
   exit_and_save?: boolean;
-  /** 退出并丢弃时传 */
+  /** Exit and discard time pass */
   exit_and_discard?: boolean;
   Base?: base.Base;
 }

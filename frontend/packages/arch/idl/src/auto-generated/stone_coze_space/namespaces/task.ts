@@ -24,38 +24,38 @@ import * as exper_agent from './exper_agent';
 export type Int64 = string | number;
 
 export enum CozeSpaceTaskStatus {
-  /** 运行中，Chat和任务执行都算在运行中 */
+  /** Running, Chat and task execution are counted as running */
   Running = 1,
-  /** 暂停 */
+  /** pause */
   Pause = 2,
-  /** 一轮任务完成 */
+  /** One round of tasks completed */
   TaskFinish = 3,
-  /** 初始化 */
+  /** initialization */
   Init = 4,
-  /** 终止 */
+  /** terminate */
   Stop = 5,
-  /** 中断 */
+  /** interrupt */
   Interrupt = 6,
-  /** 存在非法内容 */
+  /** There is illegal content */
   IllegalContent = 7,
-  /** 异常中断 */
+  /** abnormal interrupt */
   AbnormalInterrupt = 8,
-  /** 休眠 */
+  /** sleep */
   Sleep = 9,
 }
 
 export enum CozeSpaceTaskType {
-  /** 通用任务 */
+  /** general task */
   General = 1,
-  /** 用研专家任务 */
+  /** Usage research expert task */
   UserResearch = 2,
-  /** 股票任务 */
+  /** Stock Task */
   Stock = 3,
-  /** 舆情专家 */
+  /** public opinion expert */
   AnalyzePublicOpinion = 5,
   /** PPT Agent */
   PPTAgent = 6,
-  /** 同程专家agent */
+  /** The same process expert agent */
   TongCheng = 9,
 }
 
@@ -71,7 +71,7 @@ export enum MessageType {
 }
 
 export enum MilvTaskType {
-  /** 审查，起草，法律问答 */
+  /** Review, drafting, legal questions and answers */
   Review = 1,
   Draft = 2,
   LawQA = 3,
@@ -87,41 +87,41 @@ export enum OperateType {
   Stop = 7,
 }
 
-/** 定时任务状态 */
+/** Timed task state */
 export enum ScheduledTaskStatus {
-  /** 初始化 */
+  /** initialization */
   Init = 1,
-  /** 启用中 */
+  /** Enabling */
   Enabled = 2,
-  /** 弃用 */
+  /** deprecated */
   Disabled = 3,
 }
 
-/** 定时任务调度状态 */
+/** Timed Task Scheduling Status */
 export enum ScheduledTaskTriggerStatus {
-  /** 初始化状态 */
+  /** initialization state */
   Pending = 1,
-  /** 调度成功 */
+  /** dispatch successful */
   Success = 2,
-  /** 调度回避 */
+  /** scheduling avoidance */
   Avoid = 3,
-  /** 调度失败 */
+  /** scheduling failure */
   Failed = 4,
 }
 
 export enum StockSearchType {
-  /** 初始化传 */
+  /** initialization pass */
   Init = 1,
-  /** 搜股票传 */
+  /** Search stock biography */
   Stock = 2,
-  /** 搜板块传 */
+  /** search plate */
   Sector = 3,
 }
 
 export enum StockTaskType {
-  /** 普通咨询任务 */
+  /** general consulting assignment */
   GeneralChat = 1,
-  /** 定时任务 */
+  /** timed task */
   Scheduled = 2,
 }
 
@@ -158,39 +158,39 @@ export enum UploadUserResearchFileAction {
 }
 
 export interface Action {
-  /** 主键ID */
+  /** primary key ID */
   action_id?: string;
   action_sort_id?: string;
-  /** 文本 */
+  /** Text */
   content?: string;
-  /** 容器输出的文本 */
+  /** Text output from the container */
   computer_content?: string;
   create_time?: Int64;
-  /** 产物文件 */
+  /** product file */
   file_list?: Array<File>;
-  /** 动作类型 */
+  /** Action type */
   action_type?: string;
-  /** 工具操作类型 */
+  /** Tool operation type */
   tool_operation_type?: string;
-  /** 缩进 */
+  /** indent */
   parent_step_ids?: Array<string>;
 }
 
 export interface AnalyzePublicOpinionConfig {
-  /** 关键词 */
+  /** keyword */
   key_word?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 关联词 */
+  /** Related Words */
   related_words?: Array<RelatedWord>;
-  /** 已授权的渠道 */
+  /** Authorized channels */
   authorized_channels?: Array<Channel>;
-  /** 是否开启联网搜索 */
+  /** Whether to open online search */
   is_open_search?: boolean;
 }
 
 export interface BrowserResumeData {
-  /** 是否跳过接管 */
+  /** Whether to skip takeover */
   skip_takeover?: boolean;
 }
 
@@ -199,7 +199,7 @@ export interface Channel {
   name?: string;
   is_authorization?: boolean;
   icon?: string;
-  /** 不在白名单里面的URL */
+  /** URL that is not in the whitelist */
   extra_web_url?: string;
   is_open?: boolean;
 }
@@ -222,14 +222,14 @@ export interface CozeSpaceChatRequest {
   files?: Array<File>;
   mcp_list?: Array<Mcp>;
   chat_type?: string;
-  /** pause - resume 时需传入 */
+  /** Pause - required when resuming */
   pause_reason?: string;
   task_run_mode?: TaskRunMode;
   expert_agent_run_config?: ExpertTaskRunConfig;
   scheduled_task_config?: ScheduledTaskConfig;
-  /** 禁用团队模式 */
+  /** Disable team mode */
   disable_team_mode?: boolean;
-  /** resume 时相关表单数据 */
+  /** Resume related form data */
   resume_data?: ResumeData;
 }
 
@@ -255,18 +255,18 @@ export interface CozeSpaceTask {
   mcp_tool_list?: Array<Mcp>;
   expert_agent_config?: ExpertAgentConfig;
   parent_id?: string;
-  /** 是否是定时任务 */
+  /** Is it a timed task? */
   is_scheduled_task?: boolean;
-  /** task 关联的定时任务相关信息 */
+  /** Task-related timed task related information */
   scheduled_task?: TaskScheduledInfo;
-  /** 是否开启团队模式 */
+  /** Whether to enable team mode */
   team_mode?: boolean;
 }
 
 export interface CozeSpaceTaskDisplayInfo {
-  /** 是否置顶 */
+  /** Whether to stick to the top */
   is_pin?: boolean;
-  /** 是否免打扰 */
+  /** Do not disturb */
   is_dnd?: boolean;
 }
 
@@ -277,18 +277,18 @@ export interface CreateCozeScheduledTaskData {
 }
 
 export interface CreateCozeScheduledTaskRequest {
-  /** 是否需要试运行 */
+  /** Need to practice running */
   is_need_try_run?: boolean;
   scheduled_task_name?: string;
   trigger?: string;
-  /** 源任务 id */
+  /** source task id */
   source_task_id?: string;
-  /** 任务计划 */
+  /** mission plan */
   task_plan?: string;
   description?: string;
-  /** 执行的时间点，格式为 10:00 */
+  /** The time point of execution, in the format 10:00 */
   daily_executed_at?: string;
-  /** 新版的plan，一个普通的string，优先取这个，没有就取 task_plan */
+  /** The new version of plan, an ordinary string, takes this first, and takes task_plan if not */
   task_plan_v2?: string;
 }
 
@@ -354,17 +354,17 @@ export interface DeleteCozeSpaceTaskResponse {
 }
 
 export interface DiscountTravelConfig {
-  /** 出发地 */
+  /** Departure point */
   departure?: string;
-  /** 目的地 */
+  /** destination */
   destination?: string;
-  /** 出发时间 */
+  /** Departure time */
   departure_time?: string;
-  /** 出行人数 */
+  /** number of travelers */
   return_time?: string;
-  /** 出行方式 */
+  /** mode of travel */
   travel_mode?: Array<string>;
-  /** 个性化需求 */
+  /** personalized requirements */
   personal_demand?: string;
 }
 
@@ -372,7 +372,7 @@ export interface ExpertAgentConfig {
   user_research_config?: UserResearchConfig;
   stock_config?: StockConfig;
   analyze_public_opinion_config?: AnalyzePublicOpinionConfig;
-  /** callback时透传 */
+  /** pass-through on callback */
   external_config?: Record<string, string>;
   milv_config?: MilvConfig;
   tongcheng_agent_config?: TongChengTravelAgentConfig;
@@ -432,9 +432,9 @@ export interface GetCozeSpaceTaskListResponse {
 
 export interface GetMessageListRequest {
   task_id?: string;
-  /** 游标,如果为空 从头开始 */
+  /** Cursor, if empty, starts from the beginning */
   cursor?: string;
-  /** 获取几个 */
+  /** Get a few */
   size?: Int64;
 }
 
@@ -446,11 +446,11 @@ export interface GetMessageListResponse {
 
 export interface GetMessageListResponseData {
   messages?: Array<Message>;
-  /** 游标 */
+  /** Cursor */
   cursor?: string;
   task_status?: CozeSpaceTaskStatus;
   task_run_mode?: TaskRunMode;
-  /** poll传入的next_key */
+  /** Poll Incoming next_key */
   next_key?: string;
   run_time?: Int64;
 }
@@ -607,14 +607,14 @@ export interface Message {
   content?: string;
   file_list?: Array<File>;
   create_time?: Int64;
-  /** resume 时相关表单数据 */
+  /** Resume related form data */
   resume_data?: ResumeData;
 }
 
 export interface MilvConfig {
-  /** 类型 */
+  /** type */
   type?: MilvTaskType;
-  /** 文件id */
+  /** File ID */
   fileId?: string;
   review_config?: exper_agent.ReviewConfig;
   draft_config?: exper_agent.DraftConfig;
@@ -625,7 +625,7 @@ export interface MilvConfig {
 export interface NameDesc {
   name?: string;
   desc?: string;
-  /** analyze csv时返回展示使用，后续无需携带 */
+  /** Return to display when analyzing csv, no need to carry it later */
   ori_name?: string;
 }
 
@@ -641,9 +641,9 @@ export interface OperatePausedTaskResponse {
 }
 
 export interface OperateTaskData {
-  /** OperateType=Resume时返回 */
+  /** Returns when OperateType = Resume */
   answer_id?: string;
-  /** OperateType=Resume时返回 */
+  /** Returns when OperateType = Resume */
   message_id?: string;
 }
 
@@ -661,9 +661,9 @@ export interface OperateTaskReplayResponse {
 export interface OperateTaskRequest {
   task_id?: string;
   operate_type?: OperateType;
-  /** pause - resume 时需传入 */
+  /** Pause - required when resuming */
   pause_reason?: string;
-  /** browser pause - resume 时需传入 */
+  /** Browser pause - required when resuming */
   browser?: BrowserResumeData;
 }
 
@@ -716,14 +716,14 @@ export interface RestoreExampleFileResponse {
 }
 
 export interface ResumeData {
-  /** 幻灯片 */
+  /** slide show */
   slide_resume_data?: SlideResumeData;
 }
 
 export interface ScheduledRecord {
-  /** 调度状态 */
+  /** scheduling status */
   trigger_status?: ScheduledTaskTriggerStatus;
-  /** 调度时间 */
+  /** scheduling time */
   trigger_time?: string;
 }
 
@@ -731,29 +731,29 @@ export interface ScheduledTask {
   scheduled_task_id?: string;
   scheduled_task_name?: string;
   trigger?: string;
-  /** 定时任务状态 */
+  /** Timed task state */
   status?: ScheduledTaskStatus;
   task_type?: CozeSpaceTaskType;
   mcp_tool_list?: Array<Mcp>;
   expert_agent_config?: ExpertAgentConfig;
-  /** 任务步骤，对应 agent 中的 PlanUpdateData 结构 */
+  /** Task steps, corresponding to the PlanUpdateData structure in the agent */
   task_plan?: string;
   description?: string;
-  /** 执行的时间点，格式为 10:00 */
+  /** The time point of execution, in the format 10:00 */
   daily_executed_at?: string;
-  /** 新版的plan，一个普通的string，优先取这个，没有就取 task_plan */
+  /** The new version of plan, an ordinary string, takes this first, and takes task_plan if not */
   task_plan_v2?: string;
 }
 
 export interface ScheduledTaskConfig {
   plan_update_config?: string;
-  /** 如果用户通过时间选择窗口修改了执行时间就传 true */
+  /** Pass true if the user modifies the execution time through the time selection window */
   save_with_new_time?: boolean;
-  /** 用户保存计划时的 cron 表达式 */
+  /** The cron expression when the user saves the schedule */
   cron_exp?: string;
-  /** 用于间隔 xx 天场景，具体的执行时刻 */
+  /** For scenarios with an interval of xx days, the specific execution time */
   execute_time?: string;
-  /** plan卡片，用户希望通过query修改定时任务时传true */
+  /** Plan card, pass true when the user wants to modify the scheduled task through query */
   save_and_modify_with_query?: boolean;
 }
 
@@ -785,9 +785,9 @@ export interface SearchStockData {
 
 export interface SearchStockRequest {
   search_type: StockSearchType;
-  /** 股票代码，前缀匹配 */
+  /** Stock code, prefix matching */
   stock_search_word?: string;
-  /** 股票名称，前缀匹配 */
+  /** Stock name, prefix match */
   sector_search_word?: string;
 }
 
@@ -803,41 +803,41 @@ export interface Slide {
 }
 
 export interface SlideResumeData {
-  /** 总页数 */
+  /** total number of pages */
   total_page_number?: Int64;
-  /** PPT场景 */
+  /** PPT scene */
   scene_key?: string;
-  /** 大纲 */
+  /** outline */
   slides?: Array<Slide>;
 }
 
 export interface Step {
-  /** 主键ID */
+  /** primary key ID */
   step_id?: string;
   answer_id?: string;
   step_sort_id?: string;
-  /** 动作列表 */
+  /** action list */
   action_list?: Array<Action>;
   create_time?: Int64;
   is_finish?: boolean;
 }
 
 export interface StockConfig {
-  /** 股票任务细分类型 */
+  /** Stock task segmentation type */
   stock_task_type?: StockTaskType;
-  /** 是否需要定时任务 */
+  /** Is a timed task required? */
   sheduled_task_switch: boolean;
-  /** 用户选定的股票 */
+  /** User-selected stocks */
   stock_info_list?: Array<StockInfo>;
-  /** 用户选定的板块 */
+  /** User-selected section */
   sector_list?: Array<string>;
-  /** 保存设置后需要发送的query（不支持接口修改） */
+  /** The query that needs to be sent after saving the settings (interface modification is not supported) */
   user_send_query?: string;
-  /** 保存设置后直接展示的开场白（不支持接口修改） */
+  /** The opening line displayed directly after saving the settings (interface modification is not supported) */
   onboarding?: string;
-  /** 是否有定时任务在运行（不支持接口修改） */
+  /** Is there a scheduled task running (interface modification is not supported)? */
   is_scheduled_task_running?: boolean;
-  /** 是否为早报准备时间（不支持修改） */
+  /** Whether it is the preparation time for the morning report (modification is not supported) */
   is_morning_report_preparing?: boolean;
 }
 
@@ -851,7 +851,7 @@ export interface StockTaskRunConfig {
 }
 
 export interface TaskExample {
-  /** 案例的 id */
+  /** ID of the case */
   id?: string;
   name?: string;
   description?: string;
@@ -882,46 +882,46 @@ export interface TaskReplay {
 }
 
 export interface TaskScheduledInfo {
-  /** 源定时任务信息 */
+  /** source timing task information */
   source_scheduled_task?: ScheduledTask;
-  /** 定时任务调度记录 */
+  /** timed task scheduling record */
   scheduled_record?: ScheduledRecord;
 }
 
 export interface TongChengTravelAgentConfig {
-  /** 旅游攻略配置 */
+  /** Travel guide configuration */
   travel_guide_config?: TravelGuideConfig;
-  /** 优惠出行配置 */
+  /** Preferential travel configuration */
   discount_travel_config?: DiscountTravelConfig;
-  /** 保存设置后需要发送的query（不支持接口修改) */
+  /** The query that needs to be sent after saving the settings (interface modification is not supported) */
   user_send_query?: string;
 }
 
 export interface TravelGuideConfig {
-  /** 出发地 */
+  /** Departure point */
   departure?: string;
-  /** 目的地 */
+  /** destination */
   destination?: string;
-  /** 出发时间 */
+  /** Departure time */
   departure_time?: string;
-  /** 返程时间 */
+  /** Return time */
   return_time?: string;
-  /** 预算 */
+  /** budget */
   budget?: string;
-  /** 个性化需求 */
+  /** personalized requirements */
   personal_demand?: string;
-  /** 出行人数 */
+  /** number of travelers */
   travel_people?: TravelPeople;
 }
 
 export interface TravelPeople {
-  /** 成人人数 */
+  /** Number of adults */
   adult_num?: Int64;
-  /** 儿童人数 */
+  /** Number of children */
   child_num?: Int64;
-  /** 婴儿人数 */
+  /** Number of infants */
   infant_num?: Int64;
-  /** 宠物人数 */
+  /** Number of pets */
   pet_num?: Int64;
 }
 
@@ -950,22 +950,22 @@ export interface UpdateCozeScheduledTaskData {
 export interface UpdateCozeScheduledTaskRequest {
   scheduled_task_id: string;
   task_type: CozeSpaceTaskType;
-  /** 定时任务状态 */
+  /** Timed task state */
   status?: ScheduledTaskStatus;
   scheduled_task_name?: string;
   trigger?: string;
   mcp_tool_list?: Array<Mcp>;
   expert_agent_config?: ExpertAgentConfig;
-  /** 任务计划, 对应 agent 的PlanUpdateData 结构 */
+  /** Task plan, PlanUpdateData structure corresponding to the agent */
   task_plan?: string;
-  /** 是否需要试运行 */
+  /** Need to practice running */
   is_need_try_run?: boolean;
   description?: string;
-  /** 请求来自于哪个 task_id，如果是来自管理页面就不用传 */
+  /** Which task_id does the request come from? If it comes from the management page, there is no need to send it. */
   task_id?: string;
-  /** 执行的时间点，格式为 10:00 */
+  /** The time point of execution, in the format 10:00 */
   daily_executed_at?: string;
-  /** 新版的plan，一个普通的string，优先取这个，没有就取 task_plan */
+  /** The new version of plan, an ordinary string, takes this first, and takes task_plan if not */
   task_plan_v2?: string;
 }
 
@@ -977,9 +977,9 @@ export interface UpdateCozeScheduledTaskResponse {
 
 export interface UpdateCozeSpaceTaskData {
   task_name?: string;
-  /** 保存设置后需要发送的query */
+  /** The query to be sent after saving the settings */
   user_send_query?: string;
-  /** 保存设置后直接展示的开场白 */
+  /** The opening line displayed directly after saving the settings */
   onboarding?: string;
 }
 
@@ -1042,7 +1042,7 @@ export interface UploadTaskFileResponse {
 }
 
 export interface UploadUserResearchFileData {
-  /** csv/xlsx 字段名称+描述 */
+  /** CSV/XLSX field name + description */
   fields?: Array<NameDesc>;
   /** other file */
   uri?: string;
@@ -1051,15 +1051,15 @@ export interface UploadUserResearchFileData {
 export interface UploadUserResearchFileRequest {
   task_id: string;
   action: UploadUserResearchFileAction;
-  /** 文件类型，csv/xlsx */
+  /** File type, csv/xlsx */
   file_type: string;
-  /** 文件名，对应data_table */
+  /** File name, corresponding to data_table */
   file_name: string;
   file_content?: Blob;
-  /** 后续信息为提交字段，触发上传文件到DB，否则只解析文件字段名称和描述
-表描述 */
+  /** The follow-up information is the submit field, which triggers the upload of the file to the DB, otherwise only the file field name and description are parsed.
+table description */
   desc?: string;
-  /** 字段名称+描述 */
+  /** Field name + description */
   fields?: Array<NameDesc>;
 }
 
@@ -1070,9 +1070,9 @@ export interface UploadUserResearchFileResponse {
 }
 
 export interface UserResearchConfig {
-  /** create/update可修改 */
+  /** Create/update can be modified */
   product_intro: string;
-  /** 不支持create，update可传最新的列表(name、type必传)仅做删除使用 */
+  /** Do not support create, update can pass the latest list (name, type must pass) only for deletion */
   user_research_file_list?: Array<UserResearchFile>;
 }
 
@@ -1083,7 +1083,7 @@ export interface UserResearchFile {
 }
 
 export interface UserResearchRunConfig {
-  /** 传name即可 */
+  /** Just pass the name */
   cited_documents?: Array<UserResearchFile>;
 }
 /* eslint-enable */

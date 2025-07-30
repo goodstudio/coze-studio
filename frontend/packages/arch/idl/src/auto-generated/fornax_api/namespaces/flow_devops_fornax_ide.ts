@@ -46,7 +46,7 @@ export interface CheckCloudIDESpaceReq {
 }
 
 export interface CheckCloudIDESpaceResp {
-  /** cloud ide workspace 是否存在 (90d 回收) */
+  /** Cloud ide workspace (90d recovery) */
   exist?: boolean;
   BaseResp?: base.BaseResp;
 }
@@ -73,7 +73,7 @@ export interface GetCloudIDESpaceResp {
 
 export interface IDELaunchReq {
   'X-Jwt-Token': string;
-  /** 从团队空间创建需要携带agentID，从个人空间创建还没有agentid就不需要传 */
+  /** To create from the team space, you need to carry the agentID. To create from the personal space, you don't need to pass it without agentid. */
   agentID?: Int64;
   repoName?: string;
   branch?: string;

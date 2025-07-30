@@ -25,11 +25,11 @@ export type Int64 = string | number;
 
 export enum SubscriptionRenewalType {
   Unknown = 0,
-  /** 手动续费 */
+  /** Manual renewal */
   ManualRenewal = 1,
-  /** 自动续费 */
+  /** Automatic renewal */
   AutoRenewal = 2,
-  /** 到期不续费续费 */
+  /** No renewal due Renewal */
   DontRenewal = 3,
 }
 
@@ -75,7 +75,7 @@ export interface BenefitTypeInfo {
   ItemInfos?: Array<BenefitTypeInfoItem>;
   ResourceID?: string;
   BenefitType?: benefit_common.BenefitType;
-  /** 实际生效总量 */
+  /** actual effective total */
   Effective?: benefit_common.CommonCounter;
 }
 
@@ -113,11 +113,11 @@ export interface EntityBenefit {
   status?: benefit_common.EntityBenefitStatus;
   entity_type?: benefit_common.BenefitEntityType;
   entity_id?: string;
-  /** 开始时间，秒级别时间戳 */
+  /** Start time, second level timestamp */
   started_at?: Int64;
-  /** 结束时间，秒级别时间戳 */
+  /** End time, second level timestamp */
   ended_at?: Int64;
-  /** 取消时间，秒级别时间戳 */
+  /** Cancel time, second level timestamp */
   canceled_at?: Int64;
   common_counter?: benefit_common.CommonCounter;
   volc_account_id?: Int64;
@@ -201,11 +201,11 @@ export interface PublicCreateBenefitLimitationResponse {
 }
 
 export interface PublicGetUserBenefitRequest {
-  /** 不传仅返回用户信息 */
+  /** Do not pass, only return user information */
   benefit_types?: Array<benefit_common.BenefitType>;
-  /** 必填。这里指的是Coze的AccountID */
+  /** Required. This refers to Coze's AccountID. */
   coze_account_id?: string;
-  /** 这里指的是Coze的AccountType */
+  /** This refers to Coze's AccountType. */
   coze_account_type?: benefit_common.CozeAccountType;
 }
 
@@ -248,10 +248,10 @@ export interface PublicUpdateBenefitLimitationResponse {
 }
 
 export interface PublicUpdateSubscriptionRenewalInfoRequest {
-  /** 这里指的是Coze的AccountID */
+  /** This refers to Coze's AccountID. */
   coze_account_id?: string;
   coze_account_type?: benefit_common.CozeAccountType;
-  /** 续费类型 */
+  /** Renewal Type */
   renewal_type?: SubscriptionRenewalType;
   renewal_period_times?: Int64;
 }
@@ -267,9 +267,9 @@ export interface RefundTopUpCreditInfo {
 }
 
 export interface SubscriptionRenewalInfo {
-  /** 续费类型 */
+  /** Renewal Type */
   renewal_type?: SubscriptionRenewalType;
-  /** 单次自动续费的周期数量，比如包月，就是每次自动续费几个月 */
+  /** The number of cycles for a single automatic renewal, such as a monthly subscription, is a few months for each automatic renewal */
   renewal_period_times?: Int64;
 }
 
@@ -282,7 +282,7 @@ export interface UserBasicBenefit {
 }
 
 export interface UserBenefitData {
-  /** 用户基本信息 */
+  /** basic user information */
   user_basic_info: benefit_common.PublicUserBasicInfo;
   benefit_type_infos?: Partial<
     Record<benefit_common.BenefitType, benefit_common.CommonCounter>
@@ -306,12 +306,12 @@ export interface UserBenefitHistroy {
   Date?: Int64;
   Type?: benefit_common.BenefitHistoryType;
   ConnectorID?: Int64;
-  /** 已废弃 */
+  /** Abandoned */
   HistoryBotInfo?: HistoryBotInfo;
   IsExpired?: boolean;
-  /** 已废弃 */
+  /** Abandoned */
   HistoryWorkflowInfo?: HistoryWorkflowInfo;
-  /** 后续废弃，用EntityItems */
+  /** Subsequent abandonment, use EntityItems */
   ModelHistoryItems?: Array<HistoryConsumeItem>;
   PluginHistoryItems?: Array<HistoryConsumeItem>;
   EntityInfo?: HistoryEntityInfo;
@@ -322,9 +322,9 @@ export interface UserExtraBenefit {
   uuid?: string;
   counter?: benefit_common.CommonCounter;
   resource_id?: string;
-  /** 对应 entity_config表才有 */
+  /** Corresponding entity_config table only */
   benefit_id?: string;
-  /** 对应EntityBenefitStatus，entity_config表才有 */
+  /** Corresponding to EntityBenefitStatus, only entity_config table */
   entity_status?: benefit_common.EntityBenefitStatus;
 }
 /* eslint-enable */

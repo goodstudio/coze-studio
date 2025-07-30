@@ -65,7 +65,7 @@ export interface CreateEvalTargetParam {
   source_target_version?: string;
   eval_target_type?: eval_target.EvalTargetType;
   bot_info_type?: eval_target.CozeBotInfoType;
-  /** 如果是发布版本则需要填充这个字段 */
+  /** If it is a release version, this field needs to be populated */
   bot_publish_version?: string;
 }
 
@@ -120,7 +120,7 @@ export interface GetEvalTargetVersionResponse {
 export interface ListSourceEvalTargetRequest {
   space_id: Int64;
   target_type?: eval_target.EvalTargetType;
-  /** 用户模糊搜索bot名称、promptkey */
+  /** User fuzzy search bot name, promptkey */
   name?: string;
   page_size?: number;
   cursor?: string;

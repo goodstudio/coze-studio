@@ -33,7 +33,7 @@ export interface Channel {
 export interface Item {
   doc_id?: string;
   score?: number;
-  /** chunk数据 */
+  /** chunk data */
   slice?: string;
   slice_meta?: string;
   knowledge_meta?: KnowledgeRetrieveMeta;

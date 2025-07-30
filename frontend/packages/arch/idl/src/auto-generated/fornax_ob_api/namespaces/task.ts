@@ -39,7 +39,7 @@ export interface EffectiveTime {
 }
 
 export interface FieldMapping {
-  /** 数据集字段约束 */
+  /** Dataset field constraints */
   field_schema: eval_set.FieldSchema;
   trace_field_key: string;
   trace_field_jsonpath: string;
@@ -48,56 +48,56 @@ export interface FieldMapping {
 
 /** Rule */
 export interface Rule {
-  /** Span 过滤条件 */
+  /** Span filter condition */
   span_filters?: filter.SpanFilters;
-  /** 采样配置 */
+  /** sampling configuration */
   sampler?: Sampler;
-  /** 生效时间窗口 */
+  /** effective time window */
   effective_time?: EffectiveTime;
 }
 
 export interface Sampler {
-  /** 采样率 */
+  /** sample rate */
   sample_rate?: number;
-  /** 采样上限 */
+  /** upper limit of sampling */
   sample_size?: Int64;
-  /** 是否启动任务循环 */
+  /** Whether to start the task loop */
   is_cycle?: boolean;
-  /** 采样单次上限 */
+  /** Sampling single upper limit */
   cycle_count?: Int64;
-  /** 循环间隔 */
+  /** Cycle interval */
   cycle_interval?: Int64;
-  /** 循环时间单位 */
+  /** Cycle time unit */
   cycle_time_unit?: string;
 }
 
 /** Task */
 export interface Task {
-  /** 任务 id */
+  /** Task ID */
   id?: Int64;
-  /** 名称 */
+  /** name */
   name: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 所在空间 */
+  /** Location */
   workspace_id?: Int64;
-  /** 类型 */
+  /** type */
   task_type: string;
-  /** 状态 */
+  /** state */
   task_status?: string;
-  /** 规则 */
+  /** rule */
   rule?: Rule;
-  /** 配置 */
+  /** configuration */
   task_config?: TaskConfig;
-  /** 任务状态详情 */
+  /** task status details */
   task_detail?: TaskDetail;
-  /** 基础信息 */
+  /** basic information */
   base_info?: fornaxob_domain_common.BaseInfo;
 }
 
 /** TaskConfig */
 export interface TaskConfig {
-  /** 配置的评测规则信息 */
+  /** Configured evaluation rule information */
   auto_evaluate_configs?: Array<AutoEvaluateConfig>;
 }
 

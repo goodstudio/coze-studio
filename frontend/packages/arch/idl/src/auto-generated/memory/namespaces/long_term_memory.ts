@@ -22,7 +22,7 @@
 export type Int64 = string | number;
 
 export interface ChatContext {
-  /** 上下文携带的历史消息 */
+  /** Context carried chat history */
   MessageContext: Array<Message>;
 }
 
@@ -32,14 +32,14 @@ export interface Message {
 }
 
 export interface SearchItem {
-  /** 本轮的query */
+  /** This round of queries */
   Query: string;
 }
 
 export interface SearchResultItem {
-  /** 事件文本 */
+  /** event text */
   Text: string;
-  /** 时间戳 */
+  /** timestamp */
   EventMs?: Int64;
 }
 /* eslint-enable */

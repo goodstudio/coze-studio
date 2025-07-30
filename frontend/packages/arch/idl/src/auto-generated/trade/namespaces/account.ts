@@ -96,9 +96,9 @@ export interface PluginCostRule {
   per_funcation_call_token_cost?: Int64;
 }
 
-/** 获取用户的订阅付费信息 */
+/** Obtain user subscription payment information */
 export interface SubsMsgCreditData {
-  /** 订阅付费类型 */
+  /** Subscription payment type */
   SubsMsgCreditLevel: common.SubsMsgCreditLevel;
 }
 /* eslint-enable */

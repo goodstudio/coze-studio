@@ -22,9 +22,9 @@
 export type Int64 = string | number;
 
 export enum DataType {
-  /** 默认，纯文本类型 */
+  /** Default, plain text type */
   PlainText = 0,
-  /** markdown-box 类型，用于展示markdown内容，字节基于标准 markdown 语法进行了扩展和修改
+  /** Markdown-box type, used to display markdown content, bytes are extended and modified based on standard markdown syntax
 @flow-web/md-box:  */
   MarkdownBox = 11,
   Image = 12,
@@ -56,8 +56,8 @@ export enum Role {
 }
 
 export interface CardInfo {
-  /** card string 是json序列化字段，只透传obric/card返回的内容，具体cardBody，参考
-前端可以直接根据前端组件解析这个字段 */
+  /** Card string is a json serialization field, only the content returned by obric/card is passed through. For the specific cardBody, refer to
+The front end can parse this field directly from the front end component */
   card_body?: string;
 }
 
@@ -71,8 +71,8 @@ export interface Content {
   text_file?: TextFile;
   multi_content_info?: MultiContentInfo;
   defined_text?: DefinedText;
-  /** #31开始是输出字段
-card不单独作为类型，与其他DataType组合返回，不为空，即需要解析 */
+  /** #31 starts with an output field
+Card is not a separate type, it is returned in combination with other DataTypes, it is not empty, that is, it needs to be resolved */
   card_infos?: Array<CardInfo>;
 }
 

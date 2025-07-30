@@ -78,7 +78,7 @@ export default class FornaxNclcService<T> {
   /**
    * POST /api/nclc/v1/test_run/:space_id/:flow_id
    *
-   * TestRun 测试运行工作流.
+   * TestRun test run workflow.
    */
   TestRun(
     req: flow_devops_nclc_workflow.TestRunRequest,
@@ -101,7 +101,7 @@ export default class FornaxNclcService<T> {
   /**
    * POST /api/nclc/v1/create_flow
    *
-   * CreateFlow 创建工作流.
+   * CreateFlow Creates a workflow.
    */
   CreateFlow(
     req: flow_devops_nclc_workflow.CreateFlowRequest,
@@ -118,7 +118,7 @@ export default class FornaxNclcService<T> {
   /**
    * POST /api/nclc/v1/export/:space_id/:flow_id
    *
-   * Export 导出工作流.
+   * Export the export workflow.
    */
   Export(
     req: flow_devops_nclc_workflow.ExportRequest,
@@ -137,7 +137,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/query_flow/:space_id/:flow_id
    *
-   * QueryFlow 查询工作流.
+   * QueryFlow query workflow.
    */
   QueryFlow(
     req: flow_devops_nclc_workflow.QueryFlowRequest,
@@ -156,7 +156,7 @@ export default class FornaxNclcService<T> {
   /**
    * POST /api/nclc/v1/delete_flow/:space_id/:flow_id
    *
-   * DeleteFlow 删除工作流.
+   * DeleteFlow removes a workflow.
    */
   DeleteFlow(
     req: flow_devops_nclc_workflow.DeleteFlowRequest,
@@ -175,7 +175,7 @@ export default class FornaxNclcService<T> {
   /**
    * PUT /api/nclc/v1/update_flow_meta/:space_id/:flow_id
    *
-   * UpdateFlowMeta 更新工作流元信息.
+   * UpdateFlowMeta Updates workflow meta information.
    */
   UpdateFlowMeta(
     req: flow_devops_nclc_workflow.UpdateFlowMetaRequest,
@@ -194,7 +194,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/list_flows/:space_id
    *
-   * ListFlows 按 spaceID 查询工作流.
+   * ListFlows queries workflows by spaceID.
    */
   ListFlows(
     req: flow_devops_nclc_workflow.ListFlowsRequest,
@@ -211,7 +211,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/list_components/:space_id
    *
-   * ListComponents 按 space 拉取组件元信息.
+   * ListComponents pulls component meta information by space.
    */
   ListComponents(
     req: flow_devops_nclc_schema_frontend.ListComponentsRequest,
@@ -230,7 +230,7 @@ export default class FornaxNclcService<T> {
   /**
    * PUT /api/nclc/v1/update_flow/:space_id/:flow_id
    *
-   * UpdateFlow 更新工作流.
+   * UpdateFlow update workflow.
    */
   UpdateFlow(
     req: flow_devops_nclc_workflow.UpdateFlowRequest,
@@ -249,7 +249,7 @@ export default class FornaxNclcService<T> {
   /**
    * PUT /api/nclc/v1/component/update
    *
-   * 更新组件
+   * update component
    */
   UpdateCustomComponent(
     req: flow_devops_nclc_custom_component.UpdateCustomComponentRequest,
@@ -270,7 +270,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/component/list
    *
-   * 获取组件列表
+   * Get component list
    */
   ListCustomComponent(
     req: flow_devops_nclc_custom_component.ListCustomComponentRequest,
@@ -294,7 +294,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/component/get
    *
-   * 获取组件详情
+   * Get component details
    */
   GetCustomComponent(
     req: flow_devops_nclc_custom_component.GetCustomComponentRequest,
@@ -315,7 +315,7 @@ export default class FornaxNclcService<T> {
   /**
    * DELETE /api/nclc/v1/component/delete
    *
-   * 删除组件
+   * Delete component
    */
   DeleteCustomComponent(
     req: flow_devops_nclc_custom_component.DeleteCustomComponentRequest,
@@ -339,7 +339,7 @@ export default class FornaxNclcService<T> {
   /**
    * POST /api/nclc/v1/component/release
    *
-   * 发布组件
+   * publishing component
    */
   ReleaseCustomComponent(
     req: flow_devops_nclc_custom_component.ReleaseCustomComponentRequest,
@@ -366,7 +366,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/component/type/list
    *
-   * 获取组件类型列表
+   * Get a list of component types
    */
   ListSupportComponentType(
     req: flow_devops_nclc_custom_component.ListSupportComponentTypeRequest,
@@ -405,9 +405,9 @@ export default class FornaxNclcService<T> {
   /**
    * POST /api/nclc/v1/component/create
    *
-   * 自定义组件
+   * custom component
    *
-   * 创建组件
+   * Create component
    */
   CreateCustomComponent(
     req: flow_devops_nclc_custom_component.CreateCustomComponentRequest,
@@ -428,7 +428,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/component/release/list
    *
-   * 获取组件版本发布列表
+   * Get the component version release list
    */
   ListCustomComponentReleaseRecord(
     req: flow_devops_nclc_custom_component.ListCustomComponentReleaseRecordRequest,
@@ -451,7 +451,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/component/release/get
    *
-   * 获取组件版本发布详情, 用于轮询发布状态
+   * Get component version release details for polling release status
    */
   GetCustomComponentReleaseRecord(
     req: flow_devops_nclc_custom_component.GetCustomComponentReleaseRecordRequest,
@@ -473,7 +473,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v2/component/template_info/list
    *
-   * 获取组件模板信息列表
+   * Get a list of component template information
    */
   ListComponentTemplateInfo(
     req: flow_devops_nclc_custom_component.ListComponentTemplateInfoRequest,
@@ -490,7 +490,7 @@ export default class FornaxNclcService<T> {
   /**
    * GET /api/nclc/v1/component/component_key_valid
    *
-   * 用于创建前校验ComponentKey冲突
+   * Verify ComponentKey conflicts before creation
    */
   IsComponentKeyValid(
     req: flow_devops_nclc_custom_component.IsComponentKeyValidRequest,

@@ -22,11 +22,11 @@
 export type Int64 = string | number;
 
 export enum FieldItemType {
-  /** 文本 */
+  /** Text */
   Text = 1,
-  /** 数字 */
+  /** number */
   Number = 2,
-  /** 时间 */
+  /** time */
   Date = 3,
   /** float */
   Float = 4,
@@ -77,7 +77,7 @@ export interface FieldItem {
   desc?: string;
   type?: FieldItemType;
   must_required?: boolean;
-  /** 字段Id 新增为0 */
+  /** The field Id is added as 0. */
   id?: Int64;
 }
 

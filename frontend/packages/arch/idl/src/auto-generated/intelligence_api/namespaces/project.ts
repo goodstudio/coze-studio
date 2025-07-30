@@ -26,16 +26,16 @@ import * as publish from './publish';
 export type Int64 = string | number;
 
 export enum HistoryType {
-  /** 发布 */
+  /** publish */
   Publish = 0,
-  /** 存档 */
+  /** Archive */
   Archive = 1,
 }
 
 export enum OperateScene {
-  /** 用户页面操作 */
+  /** user page actions */
   User = 0,
-  /** NL2App场景 */
+  /** NL2App scenario */
   NL2App = 1,
 }
 
@@ -45,7 +45,7 @@ export interface AppData {
   name?: string;
   description?: string;
   icon_url?: string;
-  /** 变量列表 */
+  /** Variable list */
   variables?: Array<common_struct.Variable>;
 }
 
@@ -57,9 +57,9 @@ export interface ArchiveProjectData {
 
 export interface ArchiveProjectRequest {
   project_id: string;
-  /** 描述 */
+  /** describe */
   description: string;
-  /** 操作场景 */
+  /** operation scenario */
   scene: OperateScene;
 }
 
@@ -100,7 +100,7 @@ export interface DraftProjectCreateRequest {
   description?: string;
   icon_uri?: string;
   monetization_conf?: MonetizationConf;
-  /** 创建来源  navi:导航栏 space:空间 */
+  /** Create source navi: navbar space: space */
   create_from?: string;
   folder_id?: string;
 }
@@ -183,11 +183,11 @@ export interface ProjectHistory {
   version?: string;
   history_type?: HistoryType;
   description?: string;
-  /** 操作人 */
+  /** operator */
   operator?: common_struct.User;
-  /** 操作时间 */
+  /** operating time */
   operate_time?: Int64;
-  /** 历史记录为发布类型时有值 */
+  /** Value when history is a publish type */
   publish_detail?: publish.PublishRecordDetail;
 }
 
@@ -200,9 +200,9 @@ export interface ProjectHistoryListData {
 export interface ProjectHistoryListRequest {
   project_id: string;
   history_type?: HistoryType;
-  /** 游标，首次调用不传 */
+  /** Cursor, not passed on the first call */
   cursor?: string;
-  /** 默认20，最大100 */
+  /** Default 20, max 100 */
   size?: number;
 }
 
@@ -224,15 +224,15 @@ export interface ProjectResourceInfo {
 export interface ResourceInfo {
   resource_id?: Int64;
   resource_type?: common_struct.ResourceType;
-  /** A-B, A-C-B, B可以同时在A和C的Children出现 */
+  /** A-B, A-C-B, B can appear simultaneously in Children of A and C */
   resource_children?: Array<ResourceInfo>;
 }
 
 export interface RollbackProjectRequest {
   project_id: string;
-  /** 回退到的版本 */
+  /** Fallback to version */
   rollback_version: string;
-  /** 操作场景 */
+  /** operation scenario */
   scene: OperateScene;
 }
 
@@ -243,13 +243,13 @@ export interface RollbackProjectResponse {
 }
 
 export interface TemplateRelation {
-  /** 源ProjectID */
+  /** Source ProjectID */
   origin_project_id?: Int64;
-  /** 源Project版本 */
+  /** Source Project Version */
   origin_project_version?: Int64;
-  /** 模板ProjectID */
+  /** Template ProjectID */
   template_project_id?: Int64;
-  /** 模板Project版本 */
+  /** Template Project Version */
   template_project_version?: Int64;
 }
 /* eslint-enable */

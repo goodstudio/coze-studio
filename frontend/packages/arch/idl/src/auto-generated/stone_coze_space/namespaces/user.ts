@@ -30,7 +30,7 @@ export interface AddUserAuthorizationRequest {
   task_id?: string;
   url?: string;
   clear_arg?: string;
-  /** 添加cookie所要透传给沙箱的参数 */
+  /** Add the parameters to pass the cookie to the sandbox */
   add_arg?: string;
 }
 
@@ -40,11 +40,11 @@ export interface AddUserAuthorizationResponse {
 }
 
 export interface CozeSpaceUserInfo {
-  /** 是否近期活跃 */
+  /** Has it been active recently? */
   is_recently_active?: boolean;
-  /** 火山用户信息 */
+  /** Volcano user information */
   volcano_user_info?: VolcanoUserInfo;
-  /** 用户选择的职业信息 */
+  /** User-selected career information */
   job_info?: UserJobInfo;
 }
 
@@ -59,7 +59,7 @@ export interface DeleteUserAuthorizationResponse {
 }
 
 export interface GetCozeSpaceUserInfoRequest {
-  /** 是否需要火山用户信息 */
+  /** Do you need volcano user information? */
   need_volcano_info?: boolean;
   need_user_job_info?: boolean;
 }

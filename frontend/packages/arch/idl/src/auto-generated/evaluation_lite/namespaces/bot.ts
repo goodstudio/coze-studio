@@ -21,17 +21,17 @@
 
 export type Int64 = string | number;
 
-/** BotSnapshotVersion 评测的快照Bot */
+/** BotSnapshotVersion Review Snapshot Bot */
 export interface BotSnapshotVersion {
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
   /** BotID */
   bot_id?: string;
-  /** 用于展示的语义化快照version */
+  /** Semantic snapshot version for presentation */
   snap_version?: string;
-  /** 版本创建时间 */
+  /** version creation time */
   create_time_ms?: string;
-  /** 对应的commmit版本 */
+  /** Corresponding commmit version */
   commit_version?: string;
 }
 /* eslint-enable */

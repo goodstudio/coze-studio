@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** tpm扩容记录聚合领域结构体 * */
+/** TPM Extended Record Aggregation Domain Structure * */
 export enum TpmExpansionStatus {
   OrderSuccess = 0,
   UpdateTpmThresholdSuccess = 1,

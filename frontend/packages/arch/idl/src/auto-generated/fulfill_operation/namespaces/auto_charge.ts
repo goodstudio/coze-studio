@@ -29,9 +29,9 @@ export interface AutoChargeConfig {
 }
 
 export interface AutoChargeConfigData {
-  /** 自动充值相关配置 */
+  /** Automatic recharge related configuration */
   auto_charge_config?: AutoChargeConfig;
-  /** 自动充值状态 */
+  /** Automatic recharge status */
   auto_charge_state?: AutoChargeState;
 }
 

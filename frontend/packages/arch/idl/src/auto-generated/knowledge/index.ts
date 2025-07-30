@@ -96,7 +96,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/slice/delete
    *
-   * 切片 - 通用 *
+   * Slicing - Universal *
    */
   DeleteSlice(
     req?: slice.DeleteSliceRequest,
@@ -177,7 +177,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/table_schema/get
    *
-   * 表格解析 *
+   * Table parsing *
    */
   GetTableSchema(
     req?: document.GetTableSchemaRequest,
@@ -292,7 +292,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/web_url/submit
    *
-   * web 获取 *
+   * Web access *
    */
   SubmitWebUrl(
     req?: document.SubmitWebUrlRequest,
@@ -367,7 +367,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/create
    *
-   * 知识库 - 通用 *
+   * Knowledge Base - General *
    */
   CreateDataset(
     req?: dataset.CreateDatasetRequest,
@@ -478,7 +478,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/icon/get
    *
-   * 为前端提供查询支持库图标
+   * Provide query support library icons for the front end
    */
   GetIcon(
     req?: dataset.GetIconRequest,
@@ -513,7 +513,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /open_api/knowledge/document/create
    *
-   * 文档 - OpenAPI *
+   * Documentation - OpenAPI *
    */
   CreateDocumentOpenAPI(
     req?: document.CreateDocumentRequest,
@@ -588,7 +588,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/photo/list
    *
-   * for 图片知识库 *
+   * Knowledge base for pictures *
    */
   ListPhoto(
     req: document.ListPhotoRequest,
@@ -642,7 +642,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/connector/file_tree_doc_list
    *
-   * connector相关API *
+   * Connector related API *
    */
   GetFileTreeDocList(
     req: connector.GetFileTreeDocListRequest,
@@ -690,7 +690,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/document/refresh_document
    *
-   * RefreshDocument 从 source 拉取最新的内容，重新分片，生成新的 document
+   * RefreshDocument Pull the latest content from the source, re-sharding, and generate a new document
    */
   RefreshDocument(
     req?: document.RefreshDocumentRequest,
@@ -763,7 +763,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/review/create
    *
-   * 预分片相关 *
+   * Pre-sharding related *
    */
   CreateDocumentReview(
     req?: review.CreateDocumentReviewRequest,
@@ -785,7 +785,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/get_tree_chunk_rec
    *
-   * 获取是否推荐层级分配方式，传入多个本地文件的存储tos
+   * Get whether the hierarchical allocation method is recommended, pass in the storage tos of multiple local files
    */
   GetTreeChunkRec(
     req?: dataset.GetTreeChunkRecRequest,
@@ -858,7 +858,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /v1/datasets
    *
-   * 知识库 - OpenAPI *
+   * Knowledge Base - OpenAPI *
    */
   CreateDatasetOpenAPI(
     req?: openapi.CreateDatasetOpenApiRequest,
@@ -911,7 +911,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /v1/datasets/:dataset_id/documents_v2
    *
-   * 预留接口，create document支持form方式上传 *
+   * Reserved interface, create document support form upload *
    */
   CreatePhotoDocumentV2OpenAPI(
     req: openapi.CreateDocumentV2OpenAPIRequest,
@@ -942,7 +942,7 @@ export default class KnowledgeService<T> {
   /**
    * PUT /v1/datasets/:dataset_id/images/:document_id
    *
-   * 图片 - OpenAPI *
+   * Image - OpenAPI *
    */
   UpdatePhotoCaptionOpenAPI(
     req: openapi.UpdatePhotoCaptionOpenApiRequest,
@@ -978,7 +978,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/document/set_append_frequency
    *
-   * 追加频率
+   * append frequency
    */
   SetAppendFrequency(
     req: document.SetAppendFrequencyRequest,
@@ -1053,7 +1053,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/opensearch/connection
    *
-   * 火山云搜索相关接口
+   * Volcano cloud search related interface
    */
   TestConnection(
     req: opensearch.TestConnectionRequest,
@@ -1149,7 +1149,7 @@ export default class KnowledgeService<T> {
   /**
    * POST /api/knowledge/volcano_dataset/project_list
    *
-   * 火山知识库相关
+   * Volcano Knowledge Base
    */
   GetVolcanoDatasetProjectList(
     req: volcano_dataset.GetVolcanoDatasetProjectListRequest,

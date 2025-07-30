@@ -46,13 +46,13 @@ export interface CreateReleaseRequest {
   zone_traffic_config?: Record<string, common.MapMessage>;
   /** jwt token */
   'X-Jwt-Token'?: string;
-  /** 0 - 先杀后起， 1 - 先起后杀 */
+  /** 0 - kill first, then start, 1 - kill first */
   rolling_strategy?: number;
-  /** 滚动间隔，单位（s） */
+  /** Rolling interval, unit (s) */
   rolling_interval?: number;
-  /** 滚动完成判断条件 1：最少百分之 N 的容器创建；数值范围（1-100） */
+  /** Scroll completion criterion 1: At least N% of containers created; range of values (1-100) */
   min_created_percentage?: number;
-  /** 滚动完成判断条件 2：最少百分之 N 的容器启动完成；数值范围（1-100） */
+  /** Scroll completion judgment condition 2: At least N% of the container is started; value range (1-100) */
   min_ready_percentage?: number;
 }
 
@@ -66,37 +66,37 @@ export interface CreateReleaseResponse {
 }
 
 export interface CreateTicketRequest {
-  /** approved user. 审核人 */
+  /** Approved user. Reviewer */
   approved_by?: string;
-  /** type of approved user. 审核用户类型。Enums: "person_account","service_account" */
+  /** Type of approved user. Enums: "person_account", "service_account" */
   approved_by_usertype?: string;
-  /** release cluster, use default cluster when without it. 发布的集群, 不填则为默认集群 */
+  /** Release cluster, use default cluster when without it */
   cluster?: string;
-  /** ID of used code revision, lower priority than use_latest_code_revision. 代码版本 ID, 用指定代码版本进行发布 */
+  /** ID of used code revision, lower priority than use_latest_code_revision */
   code_revision_id?: string;
-  /** description of this release. 发布描述 */
+  /** Description of this release */
   description?: string;
-  /** release region. 发布的 region */
+  /** Release region. Release region */
   region: string;
-  /** release type, enums: runtime_update、runtime_release. 发布类型 */
+  /** Release type, enums: runtime_update, runtime_release. Release type */
   release_type?: string;
-  /** replica limit. 实例数，只用作第一次发布时需要。 */
+  /** Replica limit. Number of instances, only needed for the first release. */
   replica_limit?: Record<string, common.EmptyObject>;
-  /** ID of revision, only works when rollback is true, lower priority than code_revision_id. 版本 ID, 回滚至某一个 revision */
+  /** ID of revision, only works when rollback is true, lower priority than code_revision_id */
   revision_id?: string;
-  /** create ticket of rollback action. 回滚 */
+  /** Create ticket of rollback action. Rollback */
   rollback?: boolean;
-  /** rolling step. 滚动比例 */
+  /** Rolling step. Rolling scale */
   rolling_step?: number;
   /** ID of service */
   service_id: string;
-  /** use latest code revision. 使用最新的代码版本进行发布 */
+  /** Use the latest code revision */
   use_latest_code_revision?: boolean;
-  /** grey mqevent config. 灰度触发器配置 */
+  /** Grey mqevent config.grey release trigger configuration */
   grey_mqevent_config?: Array<common.GreyMQEvent>;
-  /** the code config. 发布的代码配置 */
+  /** The code config. Published code config */
   code_source?: string;
-  /** the mqevent release type, enums: hot_load, deployment_rolling. 触发器发布类型配置 */
+  /** The mqevent release type, enums: hot_load, deployment_rolling */
   mqevent_release_type?: string;
   /** whether use pipeline to drive this ticket execution */
   is_pipeline_ticket?: boolean;
@@ -104,13 +104,13 @@ export interface CreateTicketRequest {
   pipeline_template_type?: string;
   /** pipeline template id */
   pipeline_template_id?: string;
-  /** 0 - 先杀后起， 1 - 先起后杀 */
+  /** 0 - kill first, then start, 1 - kill first */
   rolling_strategy?: number;
-  /** 滚动间隔，单位（s） */
+  /** Rolling interval, unit (s) */
   rolling_interval?: number;
-  /** 滚动完成判断条件 1：最少百分之 N 的容器创建；数值范围（1-100） */
+  /** Scroll completion criterion 1: At least N% of containers created; range of values (1-100) */
   min_created_percentage?: number;
-  /** 滚动完成判断条件 2：最少百分之 N 的容器启动完成；数值范围（1-100） */
+  /** Scroll completion judgment condition 2: At least N% of the container is started; value range (1-100) */
   min_ready_percentage?: number;
 }
 
@@ -306,32 +306,32 @@ export interface MultiCusterReleaseInfo {
   format_zone_traffic_config?: Array<CreateTicketRequestFormatZoneTrafficConfigMessage>;
   /** Grey MQ event configuration */
   grey_mqevent_config?: Array<common.GreyMQEvent>;
-  /** 0 - 先杀后起， 1 - 先起后杀 */
+  /** 0 - kill first, then start, 1 - kill first */
   rolling_strategy?: number;
-  /** 滚动间隔，单位（s） */
+  /** Rolling interval, unit (s) */
   rolling_interval?: number;
-  /** 滚动完成判断条件 1：最少百分之 N 的容器创建；数值范围（1-100） */
+  /** Scroll completion criterion 1: At least N% of containers created; range of values (1-100) */
   min_created_percentage?: number;
-  /** 滚动完成判断条件 2：最少百分之 N 的容器启动完成；数值范围（1-100） */
+  /** Scroll completion judgment condition 2: At least N% of the container is started; value range (1-100) */
   min_ready_percentage?: number;
 }
 
 export interface MultiCusterReleaseTicketRequest {
-  /** approved user. 审核人 */
+  /** Approved user. Reviewer */
   approved_by?: string;
-  /** type of approved user. 审核用户类型。Enums: "person_account","service_account" */
+  /** Type of approved user. Enums: "person_account", "service_account" */
   approved_by_usertype?: string;
-  /** ID of used code revision, lower priority than use_latest_code_revision. 代码版本 ID, 用指定代码版本进行发布 */
+  /** ID of used code revision, lower priority than use_latest_code_revision */
   code_revision_id?: string;
-  /** description of this release. 发布描述 */
+  /** Description of this release */
   description?: string;
-  /** create ticket of rollback action. 回滚 */
+  /** Create ticket of rollback action. Rollback */
   rollback?: boolean;
-  /** use latest code revision. 使用最新的代码版本进行发布 */
+  /** Use the latest code revision */
   use_latest_code_revision?: boolean;
-  /** the code config. 发布的代码配置 */
+  /** The code config. Published code config */
   code_source?: string;
-  /** the mqevent release type, enums: hot_load, deployment_rolling. 触发器发布类型配置 */
+  /** The mqevent release type, enums: hot_load, deployment_rolling */
   mqevent_release_type?: string;
   /** pipeline template type, enums: NormalRelease, IdcRelease, MultiClusterGrayNormalRelease, MultiClusterGrayIdcRelease, MultiClusterNormalRelease, MultiClusterIdcRelease, ClusterUpdate, ClusterCreate, ClusterDelete, LegoRelease, LegoIdcRelease, MultiClusterLegoGrayNormalRelease, MultiClusterLegoGrayIdcRelease, MultiClusterLegoNormalRelease, MultiClusterLegoIdcRelease, MultiClusterLegoAMLRelease, MqCanaryRelease */
   pipeline_template_type?: string;
@@ -378,13 +378,13 @@ export interface PatchReleaseRequest {
   zone_traffic_config?: Record<string, common.MapMessage>;
   /** JWT token */
   'X-Jwt-Token'?: string;
-  /** 0 - 先杀后起， 1 - 先起后杀 */
+  /** 0 - kill first, then start, 1 - kill first */
   rolling_strategy?: number;
-  /** 滚动间隔，单位（s） */
+  /** Rolling interval, unit (s) */
   rolling_interval?: number;
-  /** 滚动完成判断条件 1：最少百分之 N 的容器创建；数值范围（1-100） */
+  /** Scroll completion criterion 1: At least N% of containers created; range of values (1-100) */
   min_created_percentage?: number;
-  /** 滚动完成判断条件 2：最少百分之 N 的容器启动完成；数值范围（1-100） */
+  /** Scroll completion judgment condition 2: At least N% of the container is started; value range (1-100) */
   min_ready_percentage?: number;
 }
 
@@ -505,13 +505,13 @@ export interface ReleaseRecord {
   target_zone_traffic_config?: Record<string, common.MapMessage>;
   /** Time when the release was last updated */
   updated_at?: string;
-  /** 0 - 先杀后起， 1 - 先起后杀 */
+  /** 0 - kill first, then start, 1 - kill first */
   rolling_strategy?: number;
-  /** 滚动间隔，单位（s） */
+  /** Rolling interval, unit (s) */
   rolling_interval?: number;
-  /** 滚动完成判断条件 1：最少百分之 N 的容器创建；数值范围（1-100） */
+  /** Scroll completion criterion 1: At least N% of containers created; range of values (1-100) */
   min_created_percentage?: number;
-  /** 滚动完成判断条件 2：最少百分之 N 的容器启动完成；数值范围（1-100） */
+  /** Scroll completion judgment condition 2: At least N% of the container is started; value range (1-100) */
   min_ready_percentage?: number;
 }
 

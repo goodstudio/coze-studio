@@ -30,18 +30,18 @@ export interface AccountFilter {
 }
 
 export interface CheckUserHasDeployPermRequest {
-  /** 目前只支持merlin */
+  /** Currently only merlin is supported. */
   provider: model.Provider;
   byteTreeNodeID?: string;
-  /** provider=merlin时必传 */
+  /** Provider = merlin */
   'x-jwt-token'?: string;
 }
 
 export interface CheckUserHasDeployPermResponse {
   hasPerm?: boolean;
-  /** 用户无权限时展示详情 */
+  /** Show details when the user has no permission */
   detail?: string;
-  /** 无权限时展示申请工单链接 */
+  /** Show the application ticket link when there is no permission. */
   applyTicketURL?: string;
 }
 
@@ -49,7 +49,7 @@ export interface CloneTrainingDatasetReq {
   datasetID?: string;
   name?: string;
   desc?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -61,9 +61,9 @@ export interface CreateProviderAccountRequest {
   spaceID: string;
   name: string;
   provider?: model.Provider;
-  /** [20, 30) provider 账号 */
+  /** [20, 30) provider account */
   maasAccount?: model.MaasAuth;
-  /** 用于 JwtToken 鉴权 */
+  /** For JwtToken authentication */
   Authorization?: string;
 }
 
@@ -75,7 +75,7 @@ export interface CreateSftTaskRequest {
   spaceID?: string;
   accountID?: string;
   task?: model.SftTask;
-  /** 创建merlin任务时必传 */
+  /** Required when creating a merlin task */
   jwtToken?: string;
 }
 
@@ -89,7 +89,7 @@ export interface CreateTrainingDataImportTaskReq {
   fileType?: model.TrainingDataFileType;
   mode?: model.DataImportMode;
   dataSource?: model.DataSource;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -101,7 +101,7 @@ export interface CreateTrainingDatasetReq {
   name?: string;
   type?: model.TrainingDatasetType;
   desc?: string;
-  /** 空间ID */
+  /** Space ID */
   spaceID?: string;
 }
 
@@ -125,7 +125,7 @@ export interface DeleteSftTaskRequest {
   spaceID?: string;
   accountID?: string;
   taskID?: Int64;
-  /** 用于 JwtToken 鉴权 */
+  /** For JwtToken authentication */
   Authorization?: string;
 }
 
@@ -134,7 +134,7 @@ export interface DeleteSftTaskResponse {}
 export interface DeleteTrainingDataRowsReq {
   dataset_id?: string;
   rowIDs?: Array<string>;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -144,7 +144,7 @@ export interface DeleteTrainingDataRowsResp {
 
 export interface DeleteTrainingDatasetReq {
   dataset_id?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -153,20 +153,20 @@ export interface DeleteTrainingDatasetResp {
 }
 
 export interface ExportSftTaskOutputToProviderRequest {
-  /** 必填，本期只支持merlin */
+  /** Required, only merlin is supported in this issue. */
   provider?: model.Provider;
-  /** 空间ID，必填用于权限校验 */
+  /** Space ID, required for permission verification */
   spaceID?: string;
-  /** 任务ID，必填 */
+  /** Task ID, required */
   taskID?: string;
-  /** 任务产出的名称 */
+  /** The name of the task output */
   taskOutputName?: string;
-  /** provider=merlin时必传，必须传未过期的用户的token */
+  /** It must be passed when provider = merlin, and the token of the user who has not expired must be passed. */
   jwtToken?: string;
 }
 
 export interface ExportSftTaskOutputToProviderResponse {
-  /** 任务产出在导出后的属性，此接口已改为异步，这个属性已弃用 */
+  /** The exported property of the task output, this interface has been changed to asynchronous, and this property has been deprecated */
   outputAfterExport?: model.SftTaskOutput;
 }
 
@@ -188,9 +188,9 @@ export interface GetAccountsResponse {
 }
 
 export interface GetAvailableQuotaByByteTreeNodeRequest {
-  /** 服务树节点ID */
+  /** ByteTree Node ID */
   byte_tree_node_id: string;
-  /** 单实例资源配置 */
+  /** single instance resource allocation */
   resourceOption: model.InstanceResourceOption;
   'x-jwt-token'?: string;
 }
@@ -255,7 +255,7 @@ export interface GetSftTaskCustomModelRequest {
   spaceID?: string;
   accountID?: string;
   customModelID?: string;
-  /** 只支持火山方舟 */
+  /** Only Volcano Ark is supported. */
   providerType?: model.Provider;
 }
 
@@ -266,12 +266,12 @@ export interface GetSftTaskCustomModelResponse {
 export interface GetSftTaskFoundationModelConfigRequest {
   spaceID?: string;
   accountID?: string;
-  /** Provider为merlin时传空 */
+  /** Provider is empty when merlin */
   modelVersionConfigID?: string;
   providerType?: model.Provider;
-  /** Provider为merlin时传vendor/model_name */
+  /** Provider is merlin by vendor/model_name */
   foundationModelName?: string;
-  /** 训练类型 */
+  /** training type */
   trainingMethod?: model.SftTaskTrainingMethod;
 }
 
@@ -291,11 +291,11 @@ export interface GetSFTTaskOutputAbilityResponse {
 }
 
 export interface GetSftTaskProgressRequest {
-  /** 必填，暂时只支持merlin */
+  /** Required, only merlin is supported for the time being. */
   provider?: model.Provider;
-  /** 空间ID，必填用于权限校验 */
+  /** Space ID, required for permission verification */
   spaceID?: string;
-  /** 任务ID，必填 */
+  /** Task ID, required */
   taskID?: string;
 }
 
@@ -307,7 +307,7 @@ export interface GetSftTaskRequest {
   spaceID?: string;
   accountID?: string;
   taskID?: string;
-  /** 用于JwtToken鉴权，这种情况下spaceID和accountID在鉴权后获得 */
+  /** For JwtToken authentication, in this case spaceID and accountID are obtained after authentication */
   Authorization?: string;
 }
 
@@ -327,7 +327,7 @@ export interface GetTrainingDataImportTaskResp {
 export interface GetTrainingFileUploadMaterialReq {
   fileName?: string;
   opType?: model.TrainingFileOpType;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -342,16 +342,16 @@ export interface GetUserProviderAuthStatusRequest {
 }
 
 export interface GetUserProviderAuthStatusResponse {
-  /** 是否已授权，当剩余时长小于一周时，会被置为未授权，此时需要用户再次授权 */
+  /** Whether it has been authorized, when the remaining time is less than one week, it will be set to unauthorized, and the user needs to authorize again at this time. */
   isAuthorized?: boolean;
-  /** 授权剩余时长, 单位 s */
+  /** License remaining time, unit s */
   expiresIn?: Int64;
 }
 
 export interface InsertTrainingDataRowsReq {
   dataset_id?: string;
   row_groups?: Array<flow_devops_evaluation_dataset.RowGroup>;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -362,7 +362,7 @@ export interface InsertTrainingDataRowsResp {
 export interface ListModelAndAccountRequest {
   spaceID?: Int64;
   isPublicModel?: boolean;
-  /** 根据模型状态进行过滤, 默认返回所有状态的模型 */
+  /** Filter by model state, returning models in all states by default */
   modelStatuses?: Array<model.ModelStatus>;
 }
 
@@ -372,7 +372,7 @@ export interface ListModelAndAccountResponse {
 
 export interface ListModelRequest {
   spaceID?: Int64;
-  /** 根据模型状态进行过滤, 默认返回所有状态的模型 */
+  /** Filter by model state, returning models in all states by default */
   modelStatuses?: Array<model.ModelStatus>;
 }
 
@@ -385,7 +385,7 @@ export interface ListProviderAccountsBySpaceRequest {
 }
 
 export interface ListProviderAccountsBySpaceResponse {
-  /** 账号列表 notice: 此处不返回 secretKey */
+  /** Account list notice: secretKey is not returned here */
   accounts?: Array<model.ProviderAccount>;
   hasOperationPerm?: boolean;
 }
@@ -393,10 +393,10 @@ export interface ListProviderAccountsBySpaceResponse {
 export interface ListSftTaskCustomModelsRequest {
   spaceID?: string;
   accountID?: string;
-  /** 支持火山方舟/merlin */
+  /** Support Volcano Ark/merlin */
   providerType?: model.Provider;
   nameKeyword?: string;
-  /** providerType=merlin时必传 */
+  /** providerType = merlin */
   userJwtToken?: string;
   pageNum?: number;
   pageSize?: number;
@@ -427,7 +427,7 @@ export interface ListSftTaskFoundationModelVersionsRequest {
   modelName?: string;
   trainingType?: model.SftTaskTrainingType;
   trainingMethod?: model.SftTaskTrainingMethod;
-  /** 只支持火山方舟 */
+  /** Only Volcano Ark is supported. */
   providerType?: model.Provider;
   pageNum?: number;
   pageSize?: number;
@@ -439,11 +439,11 @@ export interface ListSftTaskFoundationModelVersionsResponse {
 }
 
 export interface ListSftTaskResourceRequest {
-  /** 必填，本期只支持merlin */
+  /** Required, only merlin is supported in this issue. */
   provider?: model.Provider;
-  /** 空间ID，必填用于权限校验 */
+  /** Space ID, required for permission verification */
   spaceID?: string;
-  /** 用于 JwtToken 鉴权 */
+  /** For JwtToken authentication */
   Authorization?: string;
 }
 
@@ -457,13 +457,13 @@ export interface ListSftTasksRequest {
   creator?: string;
   taskNameKeyWord?: string;
   taskID?: string;
-  /** 暂时只支持Completed */
+  /** Only Completed is supported for the time being. */
   status?: model.SftTaskStatusPhase;
-  /** 非必填，支持maas和merlin */
+  /** Not required, maas and merlin are supported. */
   provider?: model.Provider;
   pageNum?: number;
   pageSize?: number;
-  /** 用于JwtToken鉴权 */
+  /** For JwtToken authentication */
   Authorization?: string;
 }
 
@@ -493,24 +493,24 @@ export interface ModelAccount {
 }
 
 export interface ModelContextRange {
-  /** 上限，不传代表不设限 */
+  /** Upper limit, no pass means no limit */
   UpperBound?: number;
-  /** 下限，不传代表不设限 */
+  /** Lower limit, no pass means no limit */
   LowerBound?: number;
 }
 
 export interface ModelFilter {
-  /** 模型tag过滤项，value中list内部各个元素在过滤时是or关系，各个key之间在过滤时是and关系 */
+  /** Model tag filter item, each element inside the list in value is an or relationship when filtering, and each key is an and relationship when filtering */
   modelFilterTags?: Partial<Record<model.ModelFilterKey, Array<string>>>;
-  /** 模型状态 */
+  /** model state */
   modelStatuses?: Array<model.ModelStatus>;
-  /** 模型支持的上下文长度的范围 */
+  /** The range of context lengths supported by the model */
   modelContextRange?: ModelContextRange;
-  /** 模型厂商 */
+  /** Model manufacturer */
   modelVendors?: Array<string>;
-  /** 名称关键字 */
+  /** name keyword */
   name?: string;
-  /** coze空间id */
+  /** Coze space id */
   cozeSpaceID?: Int64;
 }
 
@@ -542,7 +542,7 @@ export interface OApiUpdateModelStatusRequest {
   spaceID?: Int64;
   modelID?: Int64;
   Authorization?: string;
-  /** SSO用户名 */
+  /** SSO Username */
   ssoUsername?: string;
   status?: model.ModelStatus;
 }
@@ -552,12 +552,12 @@ export interface OApiUpdateModelStatusResponse {}
 export interface OApiUpsertModelAndAccountRequest {
   modelAccount?: ModelAccount;
   Authorization?: string;
-  /** SSO用户名 */
+  /** SSO Username */
   ssoUsername?: string;
 }
 
 export interface OApiUpsertModelAndAccountResponse {
-  /** 修改后的model和acccount信息 */
+  /** Modified model and acccount information */
   modelAccount?: ModelAccount;
 }
 
@@ -572,9 +572,9 @@ export interface SaaSGetModelFilterParamsResponse {
 export interface SaaSListModelRequest {
   cursorID?: string;
   limit?: number;
-  /** 筛选项 */
+  /** filter */
   Filter?: ModelFilter;
-  /** 因为coze暂时给不了rpc接口，所以后端需要拿到cookie去请求coze的前端接口 */
+  /** Because coze can't give the rpc interface for the time being, the backend needs to get the cookie to request the front-end interface of coze. */
   cookie?: string;
 }
 
@@ -586,15 +586,15 @@ export interface SaaSListModelResponse {
 
 export interface SearchByteTreeNodesRequest {
   name?: string;
-  /** 英文搜索 */
+  /** English Search */
   i18nSearch?: string;
-  /** 仅搜索叶子节点 */
+  /** Search leaf nodes only */
   isLeaf?: boolean;
-  /** 父节点ID */
+  /** Parent ID */
   parentID?: Int64;
-  /** 搜索父节点下满足条件的子孙节点 */
+  /** Search for descendant nodes that meet the conditions under the parent node */
   inherit?: boolean;
-  /** 根据节点包含的 resource provider 过滤，仅叶节点有 provider 信息 */
+  /** Filter according to the resource provider contained in the node, only the leaf node has provider information */
   resourceProvider?: Array<model.ByteTreeNodeResourceProvider>;
   'x-jwt-token'?: string;
 }
@@ -613,7 +613,7 @@ export interface SyncModelStatusResponse {}
 export interface SyncTrainingDatasetToVolcanoTOSReq {
   dataset_id?: string;
   accountID?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -627,7 +627,7 @@ export interface TerminateSftTaskRequest {
   spaceID?: string;
   accountID?: string;
   taskID?: string;
-  /** 用于 JwtToken 鉴权 */
+  /** For JwtToken authentication */
   Authorization?: string;
 }
 
@@ -646,9 +646,9 @@ export interface UpdateProviderAccountRequest {
   accountID: string;
   provider?: model.Provider;
   name?: string;
-  /** [20, 30) provider 账号 */
+  /** [20, 30) provider account */
   maasAccount?: model.MaasAuth;
-  /** 用于 JwtToken 鉴权 */
+  /** For JwtToken authentication */
   Authorization?: string;
 }
 
@@ -657,7 +657,7 @@ export interface UpdateProviderAccountResponse {}
 export interface UpdateTrainingDataRowsReq {
   dataset_id?: string;
   row_group?: flow_devops_evaluation_dataset.RowGroup;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -667,12 +667,12 @@ export interface UpdateTrainingDataRowsResp {
 
 export interface UpsertModelAndAccountRequest {
   modelAccount?: ModelAccount;
-  /** 从精调任务新创建 merlin 模型时必传，用于调用 Bernard 服务 */
+  /** Required when creating a new merlin model from a fine-tuning task, used to invoke the Bernard service */
   'x-jwt-token'?: string;
 }
 
 export interface UpsertModelAndAccountResponse {
-  /** 修改后的model和acccount信息 */
+  /** Modified model and acccount information */
   modelAccount?: ModelAccount;
 }
 
@@ -681,7 +681,7 @@ export interface ValidateProviderAccountRequest {
   isUpdate: boolean;
   provider?: model.Provider;
   maasAccount?: model.MaasAuth;
-  /** 用于 JwtToken 鉴权 */
+  /** For JwtToken authentication */
   Authorization?: string;
 }
 

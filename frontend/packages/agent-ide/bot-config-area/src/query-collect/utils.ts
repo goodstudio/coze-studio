@@ -21,7 +21,7 @@ export function isValidUrl(url: string): boolean {
     // cp-disable-next-line
     const urlObject = new URL(`https://${url}`);
     return DOMAIN_REGEXP.test(urlObject.hostname);
-    // eslint-disable-next-line @coze-arch/use-error-in-catch -- 根据函数功能无需 throw error
+    // eslint-disable-next-line @code-arch/use-error-in-catch -- no need to throw error according to function function
   } catch {
     return false;
   }

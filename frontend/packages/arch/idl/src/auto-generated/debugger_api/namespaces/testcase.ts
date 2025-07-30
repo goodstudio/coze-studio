@@ -24,11 +24,11 @@ import * as infra from './infra';
 export type Int64 = string | number;
 
 export interface CaseDataBase {
-  /** 新增时不填，更新时填写 */
+  /** Do not fill in when adding, fill in when updating */
   caseID?: Int64;
   name?: string;
   description?: string;
-  /** json格式的输入信息 */
+  /** Input information in JSON format */
   input?: string;
   isDefault?: boolean;
 }
@@ -38,7 +38,7 @@ export interface CaseDataDetail {
   creatorID?: string;
   createTimeInSec?: Int64;
   updateTimeInSec?: Int64;
-  /** schema不兼容 */
+  /** Schema incompatibility */
   schemaIncompatible?: boolean;
   updater?: infra.Creator;
 }

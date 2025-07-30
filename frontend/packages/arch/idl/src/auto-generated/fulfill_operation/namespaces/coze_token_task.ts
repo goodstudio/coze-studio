@@ -25,21 +25,21 @@ import * as fulfill_common from './fulfill_common';
 
 export type Int64 = string | number;
 
-/** coze token 任务的状态 */
+/** The status of the coze token task */
 export enum CozeTokenTaskStatus {
   Unknown = 0,
-  /** 审核中 */
+  /** Under review. */
   InReview = 1,
-  /** 已拒绝 */
+  /** Rejected */
   Rejected = 2,
-  /** 已通过 */
+  /** Passed */
   Approved = 3,
-  /** 已撤回 */
+  /** Withdrawn */
   Canceled = 4,
 }
 
 export interface BotOpCancelCozeTokenTaskRequest {
-  /** 主键 */
+  /** primary key */
   id?: string;
 }
 
@@ -49,11 +49,11 @@ export interface BotOpCancelCozeTokenTaskResponse {
 }
 
 export interface BotOpCreateCozeTokenTaskRequest {
-  /** 发放给谁 */
+  /** To whom? */
   to_uid_list?: Array<string>;
-  /** 给每个人多少 token */
+  /** How many tokens to give each person */
   single_user_token?: Int64;
-  /** 原因 */
+  /** reason */
   reason?: string;
 }
 
@@ -64,12 +64,12 @@ export interface BotOpCreateCozeTokenTaskResponse {
 }
 
 export interface BotOpCreateCozeTokenTaskResponseData {
-  /** 任务主键 id */
+  /** Task primary key id */
   id?: string;
 }
 
 export interface BotOpListCozeTokenTaskFulfillmentRequest {
-  /** 任务主键 id */
+  /** Task primary key id */
   task_id?: string;
 }
 
@@ -80,22 +80,22 @@ export interface BotOpListCozeTokenTaskFulfillmentResponse {
 }
 
 export interface BotOpListCozeTokenTaskFulfillmentResponseData {
-  /** 履约单列表 */
+  /** performance order list */
   fulfillment_list?: Array<Fulfillment>;
 }
 
 export interface BotOpListCozeTokenTaskRequest {
-  /** 页码, >=1 */
+  /** Page number, > = 1 */
   page?: Int64;
-  /** 每页数量, 1-200 */
+  /** Number of pages, 1-200 */
   count?: Int64;
-  /** 状态 */
+  /** state */
   status_in?: Array<CozeTokenTaskStatus>;
-  /** 创建时间开始，秒时间戳 */
+  /** Creation time start, seconds timestamp */
   created_at_begin?: Int64;
-  /** 发给哪个 uid 了 */
+  /** Which uid did you send it to? */
   uid?: string;
-  /** 是否禁用环境隔离 */
+  /** Whether to disable environmental isolation */
   disable_env?: boolean;
 }
 
@@ -106,50 +106,50 @@ export interface BotOpListCozeTokenTaskResponse {
 }
 
 export interface BotOpListCozeTokenTaskResponseData {
-  /** 任务列表 */
+  /** task list */
   task_list?: Array<CozeTokenTask>;
-  /** 总数 */
+  /** total */
   total?: Int64;
 }
 
-/** coze token 的实体 */
+/** Coze token entity */
 export interface CozeTokenTask {
-  /** 主键 */
+  /** primary key */
   id?: string;
-  /** 谁创建的 */
+  /** Who created it? */
   op_user?: bot_operation_common.ByteDanceUser;
-  /** 谁审批的 */
+  /** Who approved it? */
   approval_user?: bot_operation_common.ByteDanceUser;
-  /** 给每个人多少 token */
+  /** How many tokens to give each person */
   single_user_token?: Int64;
-  /** 一共给多少人 */
+  /** How many people are given in total? */
   user_count?: Int64;
-  /** 状态 */
+  /** state */
   status?: CozeTokenTaskStatus;
-  /** 原因 */
+  /** reason */
   reason?: string;
-  /** 创建时间，秒时间戳 */
+  /** Creation time, seconds timestamp */
   created_at?: Int64;
-  /** 审批实例 code */
+  /** Approval instance code */
   approval_instance_code?: string;
-  /** uid 的 列表 */
+  /** Uid, list */
   uid_list?: Array<string>;
-  /** 数据所属环境，为空表示基准环境，否则为多环境 */
+  /** Data belongs to the environment, empty indicates the base environment, otherwise it is a multi-environment */
   env?: string;
 }
 
 export interface Fulfillment {
-  /** 主键 */
+  /** primary key */
   id?: string;
-  /** 实体类型 */
+  /** entity type */
   entity_type?: common.EntityType;
-  /** 数量 */
+  /** quantity */
   amount?: Int64;
-  /** 状态 */
+  /** state */
   status?: fulfill_common.FulfillmentStatus;
-  /** 创建时间，秒时间戳 */
+  /** Creation time, seconds timestamp */
   created_at?: Int64;
-  /** 发送给谁的 */
+  /** Who was it sent to? */
   to_user?: bot_operation_common.PassportUser;
 }
 /* eslint-enable */

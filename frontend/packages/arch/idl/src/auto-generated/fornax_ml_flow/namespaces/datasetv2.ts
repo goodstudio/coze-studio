@@ -25,29 +25,29 @@ import * as tag from './tag';
 export type Int64 = string | number;
 
 export enum ContentType {
-  /** 基础类型 */
+  /** base type */
   Text = 1,
   Image = 2,
   Audio = 3,
   Video = 4,
-  /** 图文混排 */
+  /** Mixed text and graphics */
   MultiPart = 100,
 }
 
 export enum DatasetCategory {
-  /** 数据集 */
+  /** dataset */
   General = 1,
-  /** 训练集 (暂无) */
+  /** Training dataset (not yet available) */
   Training = 2,
-  /** 验证集 (暂无) */
+  /** Validation set (not yet available) */
   Validation = 3,
-  /** 评测集 (暂无) */
+  /** Review set (not yet available) */
   Evaluation = 4,
 }
 
 export enum DatasetLockReason {
   Undefined = 0,
-  /** 众包标注任务正在运行 */
+  /** The crowdsourced annotation task is running */
   CrowdsourcingAnnotateJobRunning = 1,
 }
 
@@ -61,11 +61,11 @@ export enum DatasetStatus {
 }
 
 export enum DatasetVisibility {
-  /** 所有空间可见 */
+  /** All spaces are visible */
   Public = 1,
-  /** 当前空间可见 */
+  /** The current space is visible */
   Space = 2,
-  /** 用户不可见 */
+  /** user invisible */
   System = 3,
 }
 
@@ -84,34 +84,34 @@ export enum FieldStatus {
 }
 
 export enum FieldTransformationType {
-  /** 移除未在当前列的 jsonSchema 中定义的字段（包括 properties 和 patternProperties），仅在列类型为 struct 时有效 */
+  /** Remove fields not defined in the current jsonSchema (including properties and patternProperties), only valid if the column type is struct */
   RemoveExtraFields = 1,
 }
 
 export enum ItemErrorType {
-  /** schema 不匹配 */
+  /** Schema mismatch */
   MismatchSchema = 1,
-  /** 空数据 */
+  /** empty data */
   EmptyData = 2,
-  /** 单条数据大小超限 */
+  /** Single data size exceeds limit */
   ExceedMaxItemSize = 3,
-  /** 数据集容量超限 */
+  /** Dataset capacity exceeded */
   ExceedDatasetCapacity = 4,
-  /** 文件格式错误 */
+  /** File format error */
   MalformedFile = 5,
-  /** 包含非法内容 */
+  /** Contains illegal content */
   IllegalContent = 6,
-  /** 缺少必填字段 */
+  /** Required fields are missing */
   MissingRequiredField = 7,
-  /** 数据嵌套层数超限 */
+  /** Data nesting level limit exceeded */
   ExceedMaxNestedDepth = 8,
-  /** 数据转换失败 */
+  /** Data conversion failed */
   TransformItemFailed = 9,
   /** system error */
   InternalError = 100,
-  /** 清空数据集失败 */
+  /** Failed to clear dataset */
   ClearDatasetFailed = 101,
-  /** 读写文件失败 */
+  /** Failed to read or write file */
   RWFileFailed = 102,
 }
 
@@ -121,7 +121,7 @@ export enum SchemaKey {
   Float = 3,
   Bool = 4,
   Message = 5,
-  /** 单选 */
+  /** radio */
   SingleChoice = 6,
 }
 
@@ -144,13 +144,13 @@ export enum StorageProvider {
   VETOS = 2,
   HDFS = 3,
   ImageX = 4,
-  /** 后端内部使用 */
+  /** Backend internal use */
   Abase = 100,
   RDS = 101,
   LocalFS = 102,
 }
 
-/** Dataset 数据集实体 */
+/** Dataset Entity */
 export interface Dataset {
   id: string;
   appID?: number;
@@ -159,99 +159,99 @@ export interface Dataset {
   name?: string;
   description?: string;
   status?: DatasetStatus;
-  /** 业务场景分类 */
+  /** business scenario classification */
   category?: DatasetCategory;
-  /** 提供给上层业务定义数据集类别 */
+  /** Provide upper-level business definition dataset categories */
   bizCategory?: string;
-  /** 当前数据集结构 */
+  /** The current dataset structure */
   schema?: DatasetSchema;
-  /** 密级 */
+  /** Classification */
   securityLevel?: SecurityLevel;
-  /** 可见性 */
+  /** visibility */
   visibility?: DatasetVisibility;
-  /** 规格限制 */
+  /** Specification restrictions */
   spec?: DatasetSpec;
-  /** 数据集功能开关 */
+  /** Dataset function switch */
   features?: DatasetFeatures;
-  /** 最新的版本号 */
+  /** The latest version number */
   latestVersion?: string;
-  /** 下一个的版本号 */
+  /** The next version number */
   nextVersionNum?: Int64;
-  /** 数据条数 */
+  /** number of data bars */
   itemCount?: string;
-  /** 通用信息 */
+  /** general information */
   createdBy?: string;
   createdAt?: string;
   updatedBy?: string;
   updatedAt?: string;
   expiredAt?: string;
-  /** DTO 专用字段
-是否有未提交的修改 */
+  /** DTO dedicated field
+Are there any uncommitted changes? */
   changeUncommitted?: boolean;
-  /** 数据集锁定信息 */
+  /** Dataset lock information */
   lockInfo?: Array<DatasetLockInfo>;
 }
 
 export interface DatasetFeatures {
-  /** 变更 schema */
+  /** Change schema */
   editSchema?: boolean;
-  /** 多轮数据 */
+  /** multiple rounds of data */
   repeatedData?: boolean;
-  /** 多模态 */
+  /** multimodal */
   multiModal?: boolean;
 }
 
-/** DatasetItem 数据内容 */
+/** DatasetItem */
 export interface DatasetItem {
-  /** 主键 ID，创建时可以不传 */
+  /** Primary key ID, can be created without passing */
   id?: string;
-  /** 冗余 app ID，创建时可以不传 */
+  /** Redundant app IDs can be created without passing them on. */
   appID?: number;
-  /** 冗余 space ID，创建时可以不传 */
+  /** Redundant space ID, can be created without passing */
   spaceID?: string;
-  /** 所属的 data ID，创建时可以不传 */
+  /** The data ID to which it belongs, you can leave it alone when creating. */
   datasetID?: string;
-  /** 插入时对应的 schema ID，后端根据 req 参数中的 datasetID 自动填充 */
+  /** The schema ID corresponding to the insertion, which is automatically filled by the backend according to the datasetID in the req parameter */
   schemaID?: string;
-  /** 数据在当前数据集内的唯一 ID，不随版本发生改变 */
+  /** The unique ID of the data within the current dataset, which does not change with version */
   itemID?: string;
-  /** 数据插入的幂等 key */
+  /** Idempotent key for data insertion */
   itemKey?: string;
-  /** 数据内容 */
+  /** data content */
   data?: Array<FieldData>;
-  /** 多轮数据内容，与 data 互斥 */
+  /** Multiple rounds of data content, mutual exclusion with data */
   repeatedData?: Array<ItemData>;
-  /** 通用信息 */
+  /** general information */
   createdBy?: string;
   createdAt?: string;
   updatedBy?: string;
   updatedAt?: string;
-  /** DTO 专用字段
-数据（data 或 repeatedData）是否省略。列表查询 item 时，特长的数据内容不予返回，可通过单独 Item 接口获取内容 */
+  /** DTO dedicated field
+Whether the data (data or repeatedData) is omitted. When querying the item in the list, the data content of the specialty will not be returned, and the content can be obtained through a separate Item interface */
   dataOmitted?: boolean;
 }
 
 export interface DatasetLockInfo {
   reason?: DatasetLockReason;
-  /** 众包标注任务ID */
+  /** crowdsourced annotation task ID */
   crowdsourcingAnnotateJobID?: string;
 }
 
-/** DatasetSchema 数据集 Schema，包含数据集列的类型限制等信息 */
+/** DatasetSchema Dataset Schema, which contains information such as type restrictions for dataset columns */
 export interface DatasetSchema {
-  /** 主键 ID，创建时可以不传 */
+  /** Primary key ID, can be created without passing */
   id?: string;
-  /** schema 所在的空间 ID，创建时可以不传 */
+  /** The space ID where the schema is located, which can be created without passing */
   appID?: number;
-  /** schema 所在的空间 ID，创建时可以不传 */
+  /** The space ID where the schema is located, which can be created without passing */
   spaceID?: string;
-  /** 数据集 ID，创建时可以不传 */
+  /** Dataset ID, you can leave it alone when creating. */
   datasetID?: string;
-  /** 数据集列约束 */
+  /** Dataset column constraints */
   fields?: Array<FieldSchema>;
-  /** 是否不允许编辑 */
+  /** Is editing not allowed? */
   immutable?: boolean;
-  /** 通用信息 */
+  /** general information */
   createdBy?: string;
   createdAt?: string;
   updatedBy?: string;
@@ -260,39 +260,39 @@ export interface DatasetSchema {
 }
 
 export interface DatasetSpec {
-  /** 条数上限 */
+  /** maximum number of items */
   maxItemCount?: string;
-  /** 字段数量上限 */
+  /** maximum number of fields */
   maxFieldCount?: number;
-  /** 单条数据字数上限 */
+  /** maximum number of words per piece of data */
   maxItemSize?: string;
-  /** 单条 array/struct 数据嵌套上限 */
+  /** Single array/struct data nesting upper limit */
   maxItemDataNestedDepth?: number;
 }
 
-/** DatasetVersion 数据集版本元信息，不包含数据本身 */
+/** DatasetVersion Dataset version metadata, excluding the data itself */
 export interface DatasetVersion {
   id: string;
   appID?: number;
   spaceID: string;
   datasetID: string;
   schemaID: string;
-  /** 展示的版本号，SemVer2 三段式 */
+  /** The displayed version number, SemVer2 three-stage */
   version?: string;
-  /** 后端记录的数字版本号，从 1 开始递增 */
+  /** The digital version number recorded on the backend, incremented from 1 */
   versionNum?: string;
-  /** 版本描述 */
+  /** version description */
   description?: string;
-  /** marshal 后的版本保存时的数据集元信息，不包含 schema */
+  /** Dataset metadata when the marshaled version is saved, excluding schema */
   datasetBrief?: string;
-  /** 数据条数 */
+  /** number of data bars */
   itemCount?: string;
-  /** 当前版本的快照状态 */
+  /** Snapshot status of the current version */
   snapshotStatus?: SnapshotStatus;
-  /** 通用信息 */
+  /** general information */
   createdBy?: string;
   createdAt?: string;
-  /** 版本禁用的时间 */
+  /** The time when the version is disabled */
   disabledAt?: string;
   updatedBy?: string;
   updatedAt?: string;
@@ -300,62 +300,62 @@ export interface DatasetVersion {
 
 export interface FieldData {
   key?: string;
-  /** 字段名，写入 Item 时 key 与 name 提供其一即可，同时提供时以 key 为准 */
+  /** Field name, when writing Item, you can provide one of the key and name, and the key shall prevail when provided at the same time. */
   name?: string;
   contentType?: ContentType;
   content?: string;
-  /** 外部存储信息 */
+  /** externally stored information */
   attachments?: Array<ObjectStorage>;
-  /** 数据的渲染格式 */
+  /** Rendering format of data */
   format?: FieldDisplayFormat;
-  /** 图文混排时，图文内容 */
+  /** When the graphic is mixed, the graphic content */
   parts?: Array<FieldData>;
-  /** 这条数据生成traceID */
+  /** This data generates a traceID. */
   traceID?: string;
-  /** 是否生成失败 */
+  /** Whether the generation failed */
   genFail?: boolean;
-  /** 标签回流失败后的展示名称 */
+  /** The display name after the label reflow fails */
   fallbackDisplayName?: string;
 }
 
 export interface FieldSchema {
-  /** 数据集 schema 版本变化中 key 唯一，新建时自动生成，不需传入 */
+  /** The key is unique in the schema version change of the dataset, and it is automatically generated when new, no need to pass in */
   key?: string;
-  /** 展示名称 */
+  /** display name */
   name?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 类型，如 文本，图片，etc. */
+  /** Type, such as, text, pictures, etc. */
   contentType?: ContentType;
-  /** 默认渲染格式，如 code, json, etc. */
+  /** Default rendering formats such as code, json, etc. */
   defaultFormat?: FieldDisplayFormat;
-  /** 对应的内置 schema */
+  /** Corresponding built-in schema */
   schemaKey?: SchemaKey;
-  /** [20,50) 内容格式限制相关
-文本内容格式限制，格式为 JSON schema，协议参考 https://json-schema.org/specification */
+  /** [20, 50) Content format restrictions related
+Text content formatting restrictions, formatted as JSON schema, protocol reference https://json-schema.org/specification */
   textSchema?: string;
-  /** 多模态规格限制 */
+  /** Multimodal specification limitations */
   multiModelSpec?: MultiModalSpec;
-  /** 当前列的数据是否必填，不填则会报错 */
+  /** Whether the data in the current column is required, if not, an error will be reported. */
   isRequired?: boolean;
-  /** 用户是否不可见 */
+  /** Is the user invisible? */
   hidden?: boolean;
-  /** 当前列的状态，创建/更新时可以不传 */
+  /** The status of the current column can be left unposted when creating/updating */
   status?: FieldStatus;
-  /** 是否开启相似度索引 */
+  /** Whether to enable similarity index */
   similaritySearchConfig?: SimilaritySearchConfig;
-  /** 质量分配置 */
+  /** mass distribution */
   qualityScoreConfig?: QualityScoreConfig;
-  /** 标签字段配置 */
+  /** Label field configuration */
   tagFieldConfig?: TagFieldConfig;
-  /** 默认的预置转换配置，目前在数据校验后执行 */
+  /** Default preset conversion configuration, currently executed after data validation */
   defaultTransformations?: Array<FieldTransformationConfig>;
 }
 
 export interface FieldTransformationConfig {
-  /** 预置的转换类型 */
+  /** Preset conversion type */
   transType?: FieldTransformationType;
-  /** 当前转换配置在这一列上的数据及其嵌套的子结构上均生效 */
+  /** The current transformation configuration takes effect on both the data on this column and its nested substructures */
   global?: boolean;
 }
 
@@ -374,30 +374,30 @@ export interface ItemData {
 
 export interface ItemErrorDetail {
   message?: string;
-  /** 单条错误数据在输入数据中的索引。从 0 开始，下同 */
+  /** The index of a single error data in the input data. Start from 0, the same below */
   index?: number;
-  /** [startIndex, endIndex] 表示区间错误范围, 如 ExceedDatasetCapacity 错误时 */
+  /** [StartIndex, endIndex] Indicates the range of interval errors, such as when ExceedDatasetCapacity errors */
   startIndex?: number;
   endIndex?: number;
-  /** ItemErrorType=MismatchSchema, key 为 FieldSchema.name, value 为错误信息 */
+  /** ItemErrorType=MismatchSchema, key is FieldSchema.name, value is error message */
   messagesByField?: Record<string, string>;
 }
 
 export interface ItemErrorGroup {
   type?: ItemErrorType;
   summary?: string;
-  /** 错误条数 */
+  /** number of errors */
   errorCount?: number;
-  /** 批量写入时，每类错误至多提供 5 个错误详情；导入任务，至多提供 10 个错误详情 */
+  /** When writing in batches, provide up to 5 error details per type of error; import tasks provide up to 10 error details */
   details?: Array<ItemErrorDetail>;
 }
 
 export interface MultiModalSpec {
-  /** 文件数量上限 */
+  /** maximum number of files */
   maxFileCount?: Int64;
-  /** 文件大小上限 */
+  /** maximum file size */
   maxFileSize?: Int64;
-  /** 文件格式 */
+  /** file format */
   supportedFormats?: Array<string>;
 }
 
@@ -410,30 +410,30 @@ export interface ObjectStorage {
 }
 
 export interface OrderBy {
-  /** 排序字段 */
+  /** sort field */
   field?: string;
-  /** 升序，默认倒序 */
+  /** Ascending, Default Reverse */
   isAsc?: boolean;
 }
 
-/** 质量分配置 */
+/** mass distribution */
 export interface QualityScoreConfig {
-  /** 列是否为质量分 */
+  /** Is the column a mass score? */
   enabled?: boolean;
 }
 
-/** 相似度算法的配置 */
+/** Configuration of similarity algorithm */
 export interface SimilaritySearchConfig {
-  /** 是否开启相似度索引 */
+  /** Whether to enable similarity index */
   enabled?: boolean;
-  /** 配置了哪个相似度算法 */
+  /** Which similarity algorithm is configured? */
   similarityAlgorithm?: datasetv2similarity.SimilarityAlgorithm;
-  /** 所使用的相似度模型 */
+  /** The similarity model used */
   embeddingType?: datasetv2similarity.EmbeddingModel;
 }
 
 export interface TagFieldConfig {
-  /** tag配置 */
+  /** Tag Configuration */
   tagInfo?: tag.TagInfo;
 }
 /* eslint-enable */

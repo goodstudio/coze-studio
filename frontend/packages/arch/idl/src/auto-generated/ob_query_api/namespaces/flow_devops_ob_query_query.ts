@@ -22,9 +22,9 @@
 export type Int64 = string | number;
 
 export enum CalFieldStatus {
-  /** 字段计算中 */
+  /** Field is being calculated */
   CalFieldStatusNotReady = 0,
-  /** 字段生产完成，可展示 */
+  /** The field production is completed and can be displayed. */
   CalFieldStatusOK = 1,
 }
 
@@ -38,15 +38,15 @@ export interface ExportQueryToCsvRequest {
   space_id: string;
   /** bot id */
   bot_id: string;
-  /** 筛选参数 */
+  /** filter parameters */
   query_filter?: QueryFilter;
 }
 
 export interface ExportQueryToCsvResponse {
   body?: Blob;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
@@ -60,22 +60,22 @@ export interface GetQueryEnumsResponse {
   intent?: Array<Intent>;
   /** key: connector_id, value: connector_name */
   connectors?: Array<KV>;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface GetQueryStatData {
-  /** Trace总数量 */
+  /** Total Number of Traces */
   total_count?: number;
-  /** 错误率，例如0.3代表30% */
+  /** Error rate, e.g. 0.3 represents 30%. */
   error_rate?: number;
-  /** 总tokens消耗 */
+  /** Total tokens consumption */
   tokens?: Percentile;
-  /** 总时延 */
+  /** total time delay */
   latency?: Percentile;
-  /** 首字符回复时延 */
+  /** first character reply delay */
   latency_first_resp?: Percentile;
 }
 
@@ -89,9 +89,9 @@ export interface GetQueryStatRequest {
 
 export interface GetQueryStatResponse {
   data: GetQueryStatData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
@@ -118,23 +118,23 @@ export interface ListQueryRequest {
   space_id: string;
   /** bot id */
   bot_id: string;
-  /** 筛选参数 */
+  /** filter parameters */
   query_filter?: QueryFilter;
   /** default 20 max 200 */
   limit?: number;
-  /** 上次请求带过来的分页参数 */
+  /** Paging parameters from the last request */
   page_token?: string;
 }
 
 export interface ListQueryResponse {
   data: Array<QueryData>;
-  /** 下一页的分页token，前端拉取下一页数据时回传 */
+  /** The paging token of the next page, which is returned when the front end pulls the data on the next page */
   next_page_token: string;
-  /** 是否有更多数据 */
+  /** Is there any more data? */
   has_more: boolean;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
@@ -145,39 +145,39 @@ export interface Percentile {
 
 export interface QueryData {
   query_id?: string;
-  /** trace_id，用于查询trace细节 */
+  /** trace_id to query trace details */
   trace_id?: string;
-  /** 状态 */
+  /** state */
   status?: Status;
-  /** 用户ID */
+  /** user ID */
   user_id?: string;
-  /** 对话ID */
+  /** Conversation ID */
   message_id?: string;
-  /** 会话ID */
+  /** Session ID */
   session_id?: string;
-  /** 用户输入 */
+  /** user input */
   input?: string;
-  /** bot输出 */
+  /** bot output */
   output?: string;
-  /** 模型输入长度 */
+  /** model input length */
   input_tokens?: number;
-  /** 模型输出长度 */
+  /** model output length */
   output_tokens?: number;
-  /** 发起请求时间 */
+  /** initiation request time */
   start_time?: string;
-  /** 整体耗时 */
+  /** overall time consuming */
   latency?: Int64;
-  /** 首token时延 */
+  /** first token delay */
   latency_first_resp?: Int64;
-  /** 渠道名称 */
+  /** channel name */
   connector?: string;
-  /** 意图标签 */
+  /** intent tag */
   intent?: string;
-  /** 意图字段生产状态 */
+  /** Intent field production status */
   intent_status?: CalFieldStatus;
-  /** session字段生产状态 */
+  /** Session field Production status */
   session_id_status?: CalFieldStatus;
-  /** 会话ID（connector platform上报原始值） */
+  /** Session ID (the original value reported by the connector platform) */
   conversation_id?: string;
 }
 

@@ -64,55 +64,55 @@ export enum IntelligenceTaskStatus {
 }
 
 export enum IntelligenceTaskType {
-  /** 复制项目内的资源到同项目 */
+  /** Copy resources within a project to the same project */
   CopyResourceInProject = 1,
-  /** 复制项目资源到Library */
+  /** Copy Project Resources to Library */
   CopyProjectResourceToLibrary = 2,
-  /** 移动项目资源到Library */
+  /** Move Project Resources to Library */
   MoveProjectResourceToLibrary = 3,
-  /** 复制Library资源到项目 */
+  /** Copy Library Resources to Project */
   CopyLibraryResourceToProject = 4,
-  /** 复制项目 */
+  /** Copy item */
   CopyProject = 5,
-  /** 项目发布到渠道 */
+  /** Project Publish to Channel */
   PublishProject = 6,
-  /** 复制项目模板 */
+  /** Copy project template */
   CopyTemplateToProject = 7,
-  /** 项目发布到模板 */
+  /** Project Publish to Template */
   PublishProjectTemplate = 8,
-  /** 项目模版上架 */
+  /** Project template on the shelves */
   LaunchProjectTemplate = 9,
-  /** 项目存档 */
+  /** Project Archive */
   ArchiveProject = 10,
-  /** 项目回滚 */
+  /** project rollback */
   RollbackProject = 11,
-  /** 单个资源跨空间复制 */
+  /** Cross-spatial replication of a single resource */
   CrossSpaceCopy = 12,
-  /** 项目跨空间复制 */
+  /** item cross-spatial replication */
   CrossSpaceCopyProject = 13,
 }
 
 export interface ExtraInfo {
-  /** 主操作实体关联的子实体id列表 '业务透传字段 json string' */
+  /** List of child entity IDs associated with the main operating entity'Business pass-through field json string ' */
   SubSourceInfoList?: Array<SubSourceInfo>;
-  /** 子实体映射的id列表 '业务透传字段 json string' */
+  /** ID list for child entity mapping'business passthrough field json string' */
   SourceMappingList?: Array<SourceMapping>;
-  /** 主操作实体的名称 */
+  /** The name of the main operating entity */
   Name?: string;
-  /** 主操作实体的图标 url */
+  /** Icon URL of the main operating entity */
   Icon?: string;
-  /** agent复制映射关系 */
+  /** Agent replication mapping */
   OldAgentIdToNewIdMap?: Record<Int64, Int64>;
 }
 
 export interface FailedReasonDetail {
-  /** 失败原因 */
+  /** reason for failure */
   FailedReason?: string;
-  /** 操作实体id */
+  /** Operating Entity ID */
   EntityId?: Int64;
-  /** 操作实体类型 */
+  /** Operating Entity Type */
   EntityType?: IntelligenceTaskEntityType;
-  /** 实体名称 */
+  /** entity name */
   EntityName?: string;
 }
 
@@ -120,52 +120,52 @@ export interface FailedReasonDetail {
 export interface IntelligenceTaskActionEventMsg {
   TaskId?: Int64;
   EventType?: IntelligenceTaskActionEventMsgEventType;
-  /** 事件时间 ms */
+  /** Event time ms */
   TimeStamp?: Int64;
-  /** task详情信息 */
+  /** Task details */
   TaskInfo?: IntelligenceTaskInfo;
 }
 
 export interface IntelligenceTaskEntityLocationInfo {
-  /** '位置类型' */
+  /** 'Location type' */
   LocationType?: IntelligenceTaskEntityLocationType;
-  /** '位置空间id' */
+  /** 'Location space id' */
   SpaceId?: string;
-  /** '位置project id' */
+  /** 'Location project id' */
   ProjectId?: string;
-  /** '位置实体version' */
+  /** 'Location entity version' */
   Version?: string;
 }
 
-/** task资源方实现接口定义,外部可引用 */
+/** Task resource party implementation interface definition, external referenceable */
 export interface IntelligenceTaskInfo {
-  /** 任务id */
+  /** Task ID */
   TaskId?: string;
-  /** 任务创建者id */
+  /** Task creator id */
   UserId?: string;
-  /** 操作实体类型 */
+  /** Operating Entity Type */
   EntityType?: IntelligenceTaskEntityType;
-  /** 操作实体id */
+  /** Operating Entity ID */
   EntityId?: string;
-  /** '操作类型' */
+  /** 'Type of operation' */
   ActionType?: IntelligenceTaskActionType;
-  /** '源位置信息 */
+  /** 'Source location information */
   SourceLocationInfo?: IntelligenceTaskEntityLocationInfo;
-  /** '目标位置信息' */
+  /** 'Target location information' */
   TargetLocationInfo?: IntelligenceTaskEntityLocationInfo;
-  /** '业务透传字段 json string' */
+  /** 'Business pass-through field json string ' */
   Extra?: string;
-  /** 任务状态 */
+  /** task status */
   Status?: IntelligenceTaskStatus;
-  /** 重试次数 */
+  /** number of retries */
   RetryNum?: number;
-  /** 失败原因汇总 */
+  /** summary of reasons for failure */
   FailedReasons?: Array<FailedReasonDetail>;
-  /** 项目类型 */
+  /** project type */
   TaskType?: IntelligenceTaskType;
-  /** 创建时间 */
+  /** creation time */
   CreateTime?: Int64;
-  /** 更新时间 */
+  /** update time */
   UpdateTime?: Int64;
 }
 
@@ -175,7 +175,7 @@ export interface SourceMapping {
   EntityType: IntelligenceTaskEntityType;
   OriginalId: Int64;
   TargetId: Int64;
-  /** 其他的信息，比如plugin的tool映射信息 */
+  /** Other information, such as plugin tool mapping information */
   TargetResInfo?: string;
 }
 
@@ -195,7 +195,7 @@ export interface TaskChangeRefRequest {
 }
 
 export interface TaskChangeRefResponse {
-  /** 失败时可选返回的失败原因 */
+  /** Optionally returned failure reason on failure */
   FailedReasons?: Array<FailedReasonDetail>;
 }
 
@@ -204,9 +204,9 @@ export interface TaskExecuteRequest {
 }
 
 export interface TaskExecuteResponse {
-  /** 失败时可选返回的失败原因 */
+  /** Optionally returned failure reason on failure */
   FailedReasons?: Array<FailedReasonDetail>;
-  /** 子实体映射的id列表 */
+  /** ID list for child entity mapping */
   SourceMappingList?: Array<SourceMapping>;
 }
 
@@ -215,7 +215,7 @@ export interface TaskPostProcessRequest {
 }
 
 export interface TaskPostProcessResponse {
-  /** 失败时可选返回的失败原因 */
+  /** Optionally returned failure reason on failure */
   FailedReasons?: Array<FailedReasonDetail>;
 }
 
@@ -224,19 +224,19 @@ export interface TaskPreCheckRequest {
 }
 
 export interface TaskPreCheckResponse {
-  /** 失败时可选返回的失败原因 */
+  /** Optionally returned failure reason on failure */
   FailedReasons?: Array<FailedReasonDetail>;
 }
 
 export interface TaskSubSourceRequest {
-  /** 任务要处理的实体，对应的子资源 */
+  /** The entity to be processed by the task, and the corresponding sub-resource */
   TaskInfo: IntelligenceTaskInfo;
 }
 
 export interface TaskSubSourceResponse {
-  /** 失败时可选返回的失败原因 */
+  /** Optionally returned failure reason on failure */
   FailedReasons?: Array<FailedReasonDetail>;
-  /** 实体对应的子资源列表 */
+  /** List of sub-resources corresponding to the entity */
   SubSourceMap?: Record<Int64, Array<SubSourceInfo>>;
 }
 /* eslint-enable */

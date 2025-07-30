@@ -183,7 +183,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/grant_bot_qualification
    *
-   * 授权
+   * authorization
    */
   GrantBotQualification(
     req?: op_bots.GrantBotQualificationRequest,
@@ -205,7 +205,7 @@ export default class PromptEvaluateApiService<T> {
    *
    * -----------wait list-----------
    *
-   * 获取当前列表
+   * Get the current list
    */
   ListWaitingQueue(
     req: op_bots.ListWaitingQueueRequest,
@@ -228,7 +228,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/get_wait_list_statistical
    *
-   * 获取统计信息
+   * Obtain statistical information
    */
   GetWaitListStatistical(
     req?: op_bots.GetWaitListStatisticalRequest,
@@ -298,7 +298,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * GET /api/op_bots/get_category_list
    *
-   * 获取分类列表
+   * Get category list
    */
   GetCategoryList(
     req?: op_bots.GetCategoryListRequest,
@@ -312,7 +312,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/save_category
    *
-   * 保存分类
+   * Save Category
    */
   SaveCategory(
     req?: op_bots.SaveCategoryRequest,
@@ -588,9 +588,9 @@ export default class PromptEvaluateApiService<T> {
   /**
    * GET /api/op_bots/get_all_user_label
    *
-   * 标签管理和用户标签配置
+   * Tag management and user tag configuration
    *
-   * 显示所有标签
+   * Show all tabs
    */
   GetAllUserLabel(
     req?: op_bots.GetAllUserLabelRequest,
@@ -604,7 +604,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/save_user_label
    *
-   * 创建或更新标签
+   * Create or update tags
    */
   SaveUserLabel(
     req?: op_bots.SaveUserLabelRequest,
@@ -620,7 +620,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/update_user_label
    *
-   * 更新用户标签
+   * Update user tag
    */
   UpdateUserLabel(
     req?: op_bots.UpdateUserLabelRequest,
@@ -636,7 +636,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/delete_user_label
    *
-   * 删除标签
+   * Delete Tag
    */
   DeleteUserLabel(
     req?: op_bots.DeleteUserLabelRequest,
@@ -652,7 +652,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/get_labelled_user
    *
-   * 显示已配置标签的用户
+   * Show users with configured labels
    */
   GetLabelledUser(
     req?: op_bots.GetLabelledUserRequest,
@@ -673,7 +673,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/mget_user_label_info
    *
-   * 根据ID或者Name查找用户信息
+   * Find User Information by ID or Name
    */
   MGetUserLabelInfo(
     req?: op_bots.MGetUserLabelInfoRequest,
@@ -692,7 +692,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/upload_file
    *
-   * 上传图片
+   * Upload image
    */
   UploadFile(
     req?: op_bots.UploadFileRequest,
@@ -708,7 +708,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/intent_case/detail
    *
-   * 意图识别获取case详情
+   * Intent recognition Get case details
    */
   GetIntentCaseDetail(
     req?: op_bots.GetIntentCaseDetailRequest,
@@ -731,7 +731,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/intent_case/stats
    *
-   * 意图识别case统计
+   * Intent recognition case statistics
    */
   GetIntentCaseStats(
     req?: op_bots.GetIntentCaseStatsRequest,
@@ -751,7 +751,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * POST /api/op_bots/intent_case/export
    *
-   * 意图识别抽样case导出
+   * Intent identification sampling case export
    */
   ExportIntentCase(
     req?: op_bots.ExportIntentCaseRequest,
@@ -775,7 +775,7 @@ export default class PromptEvaluateApiService<T> {
   /**
    * GET /api/op_bots/get_user_info
    *
-   * 获取用户信息
+   * Acquire user information
    */
   GetUserInfo(
     req?: op.OpGetUserInfoRequest,

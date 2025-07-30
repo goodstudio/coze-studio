@@ -129,7 +129,7 @@ export const getBasicConfig = () => ({
   },
   [UnitType.TEXT_WECHAT]: {
     unitType: UnitType.TEXT_WECHAT,
-    // @ts-expect-error -- 暂时没有翻译 TODO: hzf
+    // @TS-expected-error -- no translation yet TODO: hzf
     name: I18n.t('公众号'),
     icon: <IconCozWechatFill className="w-4 h-4 [&>path]:fill-current" />,
   },

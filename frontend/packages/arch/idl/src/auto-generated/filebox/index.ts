@@ -64,7 +64,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/update_filebox_usage_status
    *
-   * 用户打开/关闭FileBox开关（同时提供给function call+plugin模式使用）
+   * The user turns on/off the FileBox switch (also provided to function call + plugin mode)
    */
   UpdateFileBoxUsageStatus(
     req: file.UpdateFileBoxUsageStatusRequest,
@@ -84,7 +84,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/batch_delete_file
    *
-   * 批量删除文件（同时提供给function call+plugin模式使用）
+   * Bulk delete files (also provided to function call + plugin mode)
    */
   BatchDeleteFile(
     req: file.BatchDeleteFileRequest,
@@ -105,7 +105,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/create_album
    *
-   * 创建相册（同时提供给function call+plugin模式使用）
+   * Create an album (also provided to function call + plugin mode)
    */
   CreateAlbum(
     req: file.CreateAlbumRequest,
@@ -126,7 +126,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/add_photos_to_album
    *
-   * 上传图片、视频到相册（同时提供给function call+plugin模式使用）
+   * Upload pictures and videos to the album (at the same time provide it to the function call + plugin mode)
    */
   AddPhotosToAlbum(
     req: file.AddPhotosToAlbumRequest,
@@ -147,7 +147,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/update_album
    *
-   * 更新相册名称、描述（同时提供给function call+plugin模式使用）
+   * Update the album name and description (also provided to function call + plugin mode)
    */
   UpdateAlbum(
     req: file.UpdateAlbumRequest,
@@ -170,7 +170,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/recall_files
    *
-   * 接入RAG，语义召回文件信息列表（同时提供给function call+plugin模式使用）
+   * Access RAG, semantic recall file information list (also provided to function call + plugin mode)
    */
   RecallFileMetaInfos(
     req: file.RecallFileMetaInfosRequest,
@@ -195,9 +195,9 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/batch_update_file_meta
    *
-   * 批量更新文件元信息
+   * Bulk update of file meta information
    *
-   * plugin 调用
+   * Plugin call
    */
   BatchUpdateFileMeta(
     req: file.BatchUpdateFileMetaRequest,
@@ -217,7 +217,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/show_album
    *
-   * 浏览相册 注意：仅支持语义召回相册，不支持语义召回相册内图片视频
+   * Browse the album, note: Only semantic recall albums are supported, not pictures and videos in semantic recall albums.
    */
   ShowAlbum(
     req: file.ShowAlbumRequest,
@@ -240,7 +240,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/get_file_meta_info
    *
-   * 获取文件信息（同时提供给function call+plugin模式使用）
+   * Get file information (also provided to function call + plugin mode)
    */
   GetFileMetaInfo(
     req: file.GetFileMetaInfoRequest,
@@ -260,7 +260,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/del_album
    *
-   * 删除相册（同时提供给function call+plugin模式使用）
+   * Delete the album (also provided to the function call + plugin mode)
    */
   DelAlbum(
     req: file.DelAlbumRequest,
@@ -281,7 +281,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/summary_file
    *
-   * 获取文件总结内容
+   * Get document summary content
    */
   SummaryFile(
     req: file.SummaryFileRequest,
@@ -304,7 +304,7 @@ export default class FileboxService<T> {
   /**
    * GET /api/filebox/display_apis
    *
-   * Coze 编辑页获取要展示的 Filebox API 信息
+   * Coze edit page to get the Filebox API information to display
    */
   GetDisplayAPIs(
     req?: file.GetDisplayAPIsRequest,
@@ -320,7 +320,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/show_album_list
    *
-   * 展示相册列表
+   * show album list
    */
   ShowAlbumList(
     req: file.ShowAlbumListRequest,
@@ -339,7 +339,7 @@ export default class FileboxService<T> {
   /**
    * GET /api/filebox/card_detail_info
    *
-   * 点击Card获取详情页信息
+   * Click Card for details page
    */
   GetMDCardDetailPageInfo(
     req: file.GetMDCardDetailPageInfoRequest,
@@ -365,7 +365,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/files/batch_create
    *
-   * 批量创建文件
+   * Create files in batches
    */
   BatchCreateFiles(
     req: file.BatchCreateFilesRequest,
@@ -385,7 +385,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/public/filebox/file/update
    *
-   * 对外 HTTP 接口：详情页更新图片元信息
+   * External HTTP interface: details page update picture meta information
    */
   PublicUpdateFile(
     req: file.PublicUpdateFileRequest,
@@ -408,7 +408,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/public/filebox/file/batch_delete
    *
-   * 对外 HTTP 接口：详情页批量删除图片
+   * External HTTP interface: details page batch delete pictures
    */
   PublicBatchDeleteFiles(
     req: file.PublicBatchDeleteFilesRequest,
@@ -431,7 +431,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/public/filebox/album/delete
    *
-   * 对外 HTTP 接口：详情页删除相册
+   * External HTTP interface: details page delete album
    */
   PublicDeleteAlbum(
     req: file.PublicDeleteAlbumRequest,
@@ -453,7 +453,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/public/filebox/album/batch_remove_photo
    *
-   * 对外 HTTP 接口：详情页从相册移除图片
+   * External HTTP interface: details page Remove images from albums
    */
   PublicBatchRemovePhotos(
     req: file.PublicBatchRemovePhotosRequest,
@@ -476,7 +476,7 @@ export default class FileboxService<T> {
   /**
    * GET /api/public/filebox/page/is_writable
    *
-   * 对外 HTTP 接口：判断当前是否可以在详情页渲染写入口
+   * External HTTP interface: Determine whether the write entry can be rendered on the details page at present
    */
   PageIsWritable(
     req: file.PageIsWritableRequest,
@@ -519,7 +519,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/public/filebox/v1/file_list
    *
-   * 对外 HTTP 接口：查询文件列表
+   * External HTTP interface: Query file list
    */
   FileList(
     req: http_model.FileListRequest,
@@ -545,7 +545,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/public/filebox/v1/upload_files
    *
-   * 对外 HTTP 接口：文件上传
+   * External HTTP interface: file upload
    */
   UploadFiles(
     req: http_model.UploadFilesRequest,
@@ -567,7 +567,7 @@ export default class FileboxService<T> {
   /**
    * POST /api/filebox/stream_summary_file
    *
-   * 插件 HTTP 接口：流式总结
+   * Plugin HTTP Interface: Streaming Summary
    */
   StreamSummaryForPlugin(
     req: rpc_model.StreamSummaryRequestForPlugin,

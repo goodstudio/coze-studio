@@ -32,7 +32,7 @@ export interface CreateTaskExampleRequest {
   example_name?: string;
   example_description: string;
   icon_uri?: string;
-  /** 强制排序的位次，0 或者不传就是不强排 */
+  /** The order of forced sorting, 0 or no pass is not strong */
   index?: number;
   category_id: string;
   user_query: string;
@@ -124,7 +124,7 @@ export interface UpdateTaskExampleRequest {
   example_name?: string;
   example_description?: string;
   icon_uri?: string;
-  /** 强制排序的位次，0 或者不传就是不强排 */
+  /** The order of forced sorting, 0 or no pass is not strong */
   index?: number;
   category_id?: string;
   user_query?: string;

@@ -50,22 +50,22 @@ export enum InstanceStatus {
 }
 
 export enum TableRightStatus {
-  /** 有权限 */
+  /** Have permission */
   HasRight = 1,
-  /** 无权限 */
+  /** No permission */
   HasNoRight = 2,
 }
 
-/** 火山数据库状态（Coze的火山数据库其实就是一张火山数据表，这里本质就是表的状态） */
+/** Volcano database state (Coze's volcano database is actually a volcano data table, which is essentially the state of the table) */
 export enum VolcanoDatabaseStatus {
-  /** 生效 */
+  /** take effect */
   Valid = 1,
-  /** 失效 */
+  /** failure */
   Invalid = 2,
 }
 
 export interface BatchAssociateResult {
-  /** 保存table_name和database id的映射 */
+  /** Save table_name and database id mappings */
   table_map?: Record<string, string>;
 }
 
@@ -97,15 +97,15 @@ export interface MysqlInstanceDetailList {
 }
 
 export interface RegionDetail {
-  /** 区域id */
+  /** Area ID */
   region_id?: string;
-  /** 区域名称 */
+  /** area name */
   region_name?: string;
 }
 
 export interface TableDetail {
   table_name?: string;
-  /** 是否已经被关联 */
+  /** Has it been linked? */
   has_associate?: boolean;
 }
 
@@ -131,7 +131,7 @@ export interface VolcaDatabaseBatchAssociateRequest {
   space_id?: string;
   region_id?: string;
   database_bind_info?: VolcanoDatabaseBindInfo;
-  /** 火山创建的table名称列表 */
+  /** List of table names created by Volcano */
   volcano_table_list?: Array<string>;
   /** project id */
   project_id?: string;
@@ -147,9 +147,9 @@ export interface VolcaDatabaseBatchAssociateResponse {
 
 export interface VolcaDatabaseChangeTableRightRequest {
   space_id?: string;
-  /** 这里只需要传入 user_name 和 user_pwd 就可以了 */
+  /** Just pass in user_name and user_pwd here */
   connect_info?: VolcanoDatabaseConnectInfo;
-  /** 转移权限的id列表（online id） */
+  /** List of IDs for transferring permissions (online IDs) */
   database_ids?: Array<string>;
   Base?: base.Base;
 }
@@ -177,7 +177,7 @@ export interface VolcaDatabaseConnectCheckResponse {
 export interface VolcaDatabaseGetTableRightRequest {
   space_id?: string;
   database_id?: string;
-  /** 这里只需要传入 user_name 和 user_pwd 就可以了 */
+  /** Just pass in user_name and user_pwd here */
   connect_info?: VolcanoDatabaseConnectInfo;
   Base?: base.Base;
 }
@@ -191,7 +191,7 @@ export interface VolcaDatabaseGetTableRightResponse {
 
 export interface VolcaDatabaseListDatabaseRequest {
   space_id: string;
-  /** 区域id */
+  /** Area ID */
   region_id: string;
   connect_info?: VolcanoDatabaseConnectInfo;
   page_num?: Int64;
@@ -209,7 +209,7 @@ export interface VolcaDatabaseListDatabaseResponse {
 export interface VolcaDatabaseListInstanceRequest {
   space_id: string;
   project_name: string;
-  /** 区域id */
+  /** Area ID */
   region_id: string;
   page_num?: Int64;
   page_size?: Int64;
@@ -237,9 +237,9 @@ export interface VolcaDatabaseListProjectResponse {
 
 export interface VolcaDatabaseListTableRequest {
   space_id: string;
-  /** 区域id */
+  /** Area ID */
   region_id?: string;
-  /** 传入user_name、user_pwd、instance_id */
+  /** Incoming user_name, user_pwd, instance_id */
   database_bind_info?: VolcanoDatabaseBindInfo;
   page_num?: Int64;
   page_size?: Int64;
@@ -264,16 +264,16 @@ export interface VolcanoDatabaseConnectInfo {
   instance_id?: string;
 }
 
-/** 火山数据库详情 */
+/** Volcano Database Details */
 export interface VolcanoDatabaseDetail {
   mysql_instance_detail?: MysqlInstanceDetail;
-  /** 火山数据库名 */
+  /** Volcano database name */
   volcano_db_name?: string;
-  /** 火山数据表名 */
+  /** Volcano data table name */
   volcano_table_name?: string;
-  /** 火山数据库详情连接 */
+  /** Volcano Database Details Link */
   link?: string;
-  /** 火山数据库状态 */
+  /** Volcano database status */
   status?: VolcanoDatabaseStatus;
 }
 

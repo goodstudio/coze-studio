@@ -32,7 +32,7 @@ export interface CreateAIAnnotateTaskReq {
   promptVersion?: string;
   userPromptColumnName?: string;
   promptVariables?: Array<ai_annotate.PromptVariable>;
-  /** 打标并发度 */
+  /** Marking concurrency */
   executeConcurrency?: number;
   space_id?: string;
   base?: base.Base;
@@ -65,7 +65,7 @@ export interface DryRunAIAnnotateTaskReq {
   promptVersion?: string;
   userPromptColumnName?: string;
   promptVariables?: Array<ai_annotate.PromptVariable>;
-  /** 不指定则默认读取数据集前5条样本数据 */
+  /** If not specified, the first 5 sample data in the dataset will be read by default */
   sampleCount?: Int64;
   space_id?: string;
   base?: base.Base;
@@ -135,7 +135,7 @@ export interface UpdateAIAnnotateTaskReq {
   promptVersion?: string;
   userPromptColumnName?: string;
   promptVariables?: Array<ai_annotate.PromptVariable>;
-  /** 打标并发度 */
+  /** Marking concurrency */
   executeConcurrency?: number;
   space_id?: string;
   base?: base.Base;

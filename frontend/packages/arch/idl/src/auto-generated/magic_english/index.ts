@@ -145,7 +145,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/get_message_tip
    *
-   * 消息提示
+   * message prompt
    */
   GetMessageTip(
     req?: entity.GetMessageTipReq,
@@ -161,7 +161,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/message_eval
    *
-   * 用户消息评测
+   * user message review
    */
   MessageEval(
     req?: entity.MessageEvalReq,
@@ -213,7 +213,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/translate_message
    *
-   * 消息翻译
+   * message translation
    */
   TranslateMessage(
     req: entity.TranslateMessageReq,
@@ -229,7 +229,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/resume_conversation
    *
-   * 恢复对话
+   * Restore conversation
    */
   ResumeConversation(
     req: entity.ResumeConversationReq,
@@ -248,7 +248,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/close_conversation
    *
-   * 结束对话
+   * End the conversation
    */
   CloseConversation(
     req: entity.CloseConversationReq,
@@ -267,7 +267,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/get_last_conversation
    *
-   * 获取节点上次对话
+   * Get the last conversation of the node
    */
   GetLastConversation(
     req: entity.GetLastConversationReq,
@@ -283,7 +283,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/conversation/record
    *
-   * 获取对话练习记录
+   * Get dialogue practice records
    */
   ListConversationRecord(
     req?: entity.ListConversationRecordReq,
@@ -305,7 +305,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/conversation/detail
    *
-   * 获取对话详情
+   * Get conversation details
    */
   GetConversationDetail(
     req: entity.GetConversationDetailReq,
@@ -321,7 +321,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/report
    *
-   * 生成对话报告
+   * Generate conversation reports
    */
   CreateConversationReport(
     req: entity.CreateConversationReportReq,
@@ -340,7 +340,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/get_js_sdk_config
    *
-   * 获取JSSDK配置
+   * Get JSSDK configuration
    */
   GetJSSDKConfig(
     req: entity.GetJSSDKConfigReq,
@@ -356,7 +356,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/calendar/duration
    *
-   * 更新使用时长
+   * update usage time
    */
   UpdateStudyDuration(
     req: entity.UpdateStudyDurationReq,
@@ -376,7 +376,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/calendar/duration/today
    *
-   * 获取今日使用时长
+   * Get today's usage time
    */
   GetTodayDuration(
     req?: entity.GetTodayDurationReq,
@@ -392,7 +392,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/calendar/duration/total
    *
-   * 获取累计使用时长
+   * Get cumulative usage time
    */
   GetTotalDuration(
     req?: entity.GetTotalDurationReq,
@@ -408,7 +408,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/start
    *
-   * 开始学习会议
+   * Start learning session
    */
   StartMeeting(
     req: entity.StartMeetingReq,
@@ -424,7 +424,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/continue
    *
-   * 继续下一题
+   * Moving on to the next question.
    */
   ContinueMeeting(
     req: entity.ContinueMeetingReq,
@@ -448,7 +448,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/complete
    *
-   * 完成学习
+   * Complete learning
    */
   CompleteMeeting(
     req: entity.CompleteMeetingReq,
@@ -464,9 +464,9 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/slide
    *
-   * -- 场景会议 -- //
+   * -- Scene meeting --//
    *
-   * 首页轮播
+   * Home Carousel
    */
   GetMeetingSlide(
     req?: entity.GetMeetingSlideReq,
@@ -482,7 +482,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/list
    *
-   * 列表接口
+   * list interface
    */
   GetMeetingList(
     req: entity.GetMeetingListReq,
@@ -503,7 +503,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/category
    *
-   * 分类信息
+   * classified information
    */
   GetMeetingCategory(
     req: entity.GetMeetingCategoryReq,
@@ -522,7 +522,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/chat_room/detail
    *
-   * 获取ai chat详情 （学完后重新进入）
+   * Get AI chat details (re-enter after learning)
    */
   GetMeetingAIChatDetail(
     req: entity.GetMeetingAIChatDetailReq,
@@ -538,7 +538,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/meeting/ai/role_message
    *
-   * 生成角色消息
+   * Generate Role Messages
    */
   GenerateRoleMessage(
     req: entity.GenerateRoleMessageReq,
@@ -558,7 +558,7 @@ export default class MagicEnglishService<T> {
   /**
    * GET /api/magic/meeting/ai/suggestion
    *
-   * 获取 AI 对话回复建议
+   * Get AI conversation reply suggestions
    */
   GetAISuggestion(
     req: entity.GetAISuggestionReq,
@@ -577,7 +577,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/check_user_audio
    *
-   * 保存音频，语音转文本,检查准确度
+   * Save audio, speech to text, check accuracy
    */
   CheckUserAudio(
     req: entity.CheckUserAudioReq,
@@ -600,7 +600,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/meeting/ai/leave
    *
-   * 离开 AI 对话
+   * Leave the AI conversation
    */
   LeaveAiChatRoom(
     req: entity.LeaveAiChatRoomReq,
@@ -619,7 +619,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/meeting/check_text_accuracy
    *
-   * 检查文本的准确度
+   * Check the accuracy of the text
    */
   CheckTextAccuracy(
     req: entity.CheckTextAccuracyReq,
@@ -639,9 +639,9 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/translate
    *
-   * -- 刷题 -- //
+   * -- Brush the question --//
    *
-   * 翻译
+   * translate
    */
   TranslateMessageV2(
     req: entity.TranslateMessageV2Req,
@@ -661,7 +661,7 @@ export default class MagicEnglishService<T> {
   /**
    * POST /api/magic/oral_score
    *
-   * 口语评测
+   * oral evaluation
    */
   GetOralScore(
     req: entity.GetOralScoreReq,

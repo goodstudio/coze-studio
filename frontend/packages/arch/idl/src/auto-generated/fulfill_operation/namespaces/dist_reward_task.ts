@@ -25,26 +25,26 @@ import * as fulfill_common from './fulfill_common';
 
 export type Int64 = string | number;
 
-/** 发放奖励任务的状态 */
+/** The status of issuing reward tasks */
 export enum DistRewardTaskStatus {
   Unknown = 0,
-  /** 审核中 */
+  /** Under review. */
   InReview = 1,
-  /** 已拒绝 */
+  /** Rejected */
   Rejected = 2,
-  /** 已通过 */
+  /** Passed */
   Approved = 3,
-  /** 已撤回 */
+  /** Withdrawn */
   Canceled = 4,
 }
 
 export enum DistRewardType {
   Unknonw = 0,
-  /** 需传递 AddMessageCreditsRewardStruct 结构体 */
+  /** AddMessageCreditsRewardStruct structure to be passed */
   MessageCredits = 1,
-  /** 暂时不支持，后续迁移过来 */
+  /** It is not supported for the time being, and it will be migrated later. */
   CozeToken = 2,
-  /** 退款申请，复用审批任务 */
+  /** Refund application, reuse approval task */
   Refund = 3,
 }
 
@@ -58,7 +58,7 @@ export interface AddMessageCreditsRewardStruct {
 }
 
 export interface AdminCancelDistRewardTaskRequest {
-  /** 主键 */
+  /** primary key */
   id: string;
 }
 
@@ -68,13 +68,13 @@ export interface AdminCancelDistRewardTaskResponse {
 }
 
 export interface AdminCreateDistRewardTaskRequest {
-  /** 发放给谁 */
+  /** To whom? */
   to_uid_list: Array<string>;
-  /** 发放奖励的类型 */
+  /** Types of rewards issued */
   dist_reward_type: DistRewardType;
-  /** 发放奖励具体内容 */
+  /** The specific content of the reward will be issued. */
   reward_detail: RewardDetail;
-  /** 原因 */
+  /** reason */
   reason: string;
 }
 
@@ -85,12 +85,12 @@ export interface AdminCreateDistRewardTaskResponse {
 }
 
 export interface AdminCreateDistRewardTaskResponseData {
-  /** 任务主键 id */
+  /** Task primary key id */
   id?: string;
 }
 
 export interface AdminListDistRewardTaskFulfillmentRequest {
-  /** 任务主键 id */
+  /** Task primary key id */
   task_id: string;
 }
 
@@ -101,22 +101,22 @@ export interface AdminListDistRewardTaskFulfillmentResponse {
 }
 
 export interface AdminListDistRewardTaskFulfillmentResponseData {
-  /** 履约单列表 */
+  /** performance order list */
   fulfillment_list?: Array<Fulfillment>;
 }
 
 export interface AdminListDistRewardTaskRequest {
-  /** 页码, >=1 */
+  /** Page number, > = 1 */
   page: Int64;
-  /** 每页数量, 1-200 */
+  /** Number of pages, 1-200 */
   count: Int64;
-  /** 状态 */
+  /** state */
   status_in?: Array<DistRewardTaskStatus>;
-  /** 创建时间开始，秒时间戳 */
+  /** Creation time start, seconds timestamp */
   created_at_begin?: Int64;
-  /** 发给哪个 uid 了 */
+  /** Which uid did you send it to? */
   uid?: string;
-  /** 是否禁用环境隔离 */
+  /** Whether to disable environmental isolation */
   disable_env?: boolean;
   dist_reward_type?: DistRewardType;
 }
@@ -128,50 +128,50 @@ export interface AdminListDistRewardTaskResponse {
 }
 
 export interface AdminListDistRewardTaskResponseData {
-  /** 任务列表 */
+  /** task list */
   task_list?: Array<DistRewardTask>;
-  /** 总数 */
+  /** total */
   total?: Int64;
 }
 
-/** dist Reward task 的实体 */
+/** Dist Reward task entity */
 export interface DistRewardTask {
-  /** 主键 */
+  /** primary key */
   id?: string;
-  /** 谁创建的 */
+  /** Who created it? */
   op_user?: bot_operation_common.ByteDanceUser;
-  /** 谁审批的 */
+  /** Who approved it? */
   approval_user?: bot_operation_common.ByteDanceUser;
-  /** 发放奖励的类型 */
+  /** Types of rewards issued */
   dist_reward_type?: DistRewardType;
-  /** 发放奖励具体内容 */
+  /** The specific content of the reward will be issued. */
   reward_detail?: RewardDetail;
-  /** 一共给多少人 */
+  /** How many people are given in total? */
   user_count?: Int64;
-  /** 状态 */
+  /** state */
   status?: DistRewardTaskStatus;
-  /** 原因 */
+  /** reason */
   reason?: string;
-  /** 创建时间，秒时间戳 */
+  /** Creation time, seconds timestamp */
   created_at?: Int64;
-  /** 审批实例 code */
+  /** Approval instance code */
   approval_instance_code?: string;
-  /** 数据所属环境，为空表示基准环境，否则为多环境 */
+  /** Data belongs to the environment, empty indicates the base environment, otherwise it is a multi-environment */
   env?: string;
-  /** uid 的 列表 */
+  /** Uid, list */
   uid_list?: Array<string>;
 }
 
 export interface Fulfillment {
-  /** 主键 */
+  /** primary key */
   id?: string;
-  /** 实体类型 */
+  /** entity type */
   entity_type?: common.EntityType;
-  /** 状态 */
+  /** state */
   status?: fulfill_common.FulfillmentStatus;
-  /** 创建时间，秒时间戳 */
+  /** Creation time, seconds timestamp */
   created_at?: Int64;
-  /** 发送给谁的 */
+  /** Who was it sent to? */
   to_user?: bot_operation_common.PassportUser;
 }
 
@@ -187,9 +187,9 @@ export interface RefundStruct {
 }
 
 export interface RewardDetail {
-  /** DistRewardType 为 MessageCredits 需要传该结构体 */
+  /** DistRewardType for MessageCredits needs to pass this structure */
   add_message_credits_reward_struct?: AddMessageCreditsRewardStruct;
-  /** DistRewardType 为 CozeToken 需要传该结构体 */
+  /** DistRewardType is CozeToken, you need to pass this structure */
   add_coze_token_struct?: AddCozeTokenStruct;
   RefundStruct?: RefundStruct;
 }

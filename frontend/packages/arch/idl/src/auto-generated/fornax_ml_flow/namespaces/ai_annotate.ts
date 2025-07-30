@@ -53,19 +53,19 @@ export enum ErrorType {
 
 export enum PromptVariableValueType {
   Undefined = 0,
-  /** 固定值 */
+  /** fixed value */
   Fixed = 1,
-  /** 数据集列，使用数据集列的值 */
+  /** Dataset columns, using the values of the dataset columns */
   useColumn = 2,
 }
 
 export interface AIAnnotateResultItem {
-  /** key: 变量名，value: 变量值 */
+  /** Key: variable name, value: variable value */
   variables?: Record<string, string>;
   userPromptColumnValue?: flow_devops_evaluation_callback_common.Content;
-  /** 执行结果 */
+  /** execution result */
   output?: string;
-  /** 执行错误，为空表示执行成功 */
+  /** Execution error, null indicates successful execution */
   error?: string;
 }
 
@@ -79,16 +79,16 @@ export interface AIAnnotateTask {
   userPromptColumnName?: string;
   promptVariables?: Array<PromptVariable>;
   latestTaskRunID?: string;
-  /** 打标并发度 */
+  /** Marking concurrency */
   executeConcurrency?: number;
   spaceID?: string;
-  /** 创建人ID */
+  /** creator ID */
   createdBy?: string;
-  /** 创建时间，ms */
+  /** Creation time, ms */
   createdAt?: string;
-  /** 更新人ID */
+  /** Updater ID */
   updatedBy?: string;
-  /** 更新时间，ms */
+  /** Update time, ms */
   updatedAt?: string;
 }
 
@@ -98,22 +98,22 @@ export interface AIAnnotateTaskRun {
   taskRunType?: AIAnnotateTaskRunType;
   status?: AIAnnotateTaskStatus;
   totalCount?: Int64;
-  /** 执行成功的数量 */
+  /** Number of successful executions */
   succeedCount?: Int64;
-  /** 执行失败的数量 */
+  /** Number of execution failures */
   failedCount?: Int64;
-  /** 成功插入的数量 */
+  /** Number of successful insertions */
   updatedCount?: Int64;
   taskRunErrorInfos?: Array<TaskRunErrorInfo>;
   taskBrief?: AIAnnotateTask;
   LastOutputCursor?: Int64;
-  /** 创建人ID */
+  /** creator ID */
   createdBy?: string;
-  /** 创建时间，ms */
+  /** Creation time, ms */
   createdAt?: string;
-  /** 更新人ID */
+  /** Updater ID */
   updatedBy?: string;
-  /** 更新时间，ms */
+  /** Update time, ms */
   updatedAt?: string;
 }
 

@@ -22,26 +22,26 @@
 export type Int64 = string | number;
 
 export enum DocumentSourceType {
-  /** 本地上传 */
+  /** local upload */
   Document = 0,
   /** url */
   Web = 1,
-  /** 自定义 */
+  /** custom */
   Custom = 2,
-  /** 第三方 */
+  /** third party */
   ThirdParty = 3,
 }
 
 export enum DocumentStatus {
-  /** 上传中 */
+  /** Uploading */
   Processing = 0,
-  /** 生效 */
+  /** take effect */
   Enable = 1,
-  /** 失效 */
+  /** failure */
   Disable = 2,
-  /** 删除 */
+  /** delete */
   Deleted = 3,
-  /** 失败 */
+  /** fail */
   Failed = 9,
 }
 
@@ -51,20 +51,20 @@ export enum DocumentUpdateType {
   Append = 2,
 }
 
-/** 文件类型 */
+/** file type */
 export enum FormatType {
-  /** 文本 */
+  /** Text */
   Text = 0,
-  /** 表格 */
+  /** form */
   Table = 1,
 }
 
 export interface CreateDocumentRequest {
-  /** 知识库 id */
+  /** Knowledge Base ID */
   dataset_id?: string;
-  /** 空间 id */
+  /** Space ID */
   space_id?: string;
-  /** 文件信息 */
+  /** file information */
   document?: DocumentInfo;
 }
 
@@ -75,84 +75,84 @@ export interface CreateDocumentResponse {
   id?: string;
 }
 
-/** 表格的列信息 */
+/** Table column information */
 export interface DocTableColumn {
   id?: string;
-  /** 列名 */
+  /** listing */
   column_name?: string;
-  /** 是否为语义匹配列 */
+  /** Is it a semantically matched column? */
   is_semantic?: boolean;
-  /** 列原本在 excel 的序号 */
+  /** List the serial number originally in excel */
   sequence?: string;
 }
 
 export interface DocTableSheet {
-  /** sheet 的编号 */
+  /** Number of sheet */
   id?: Int64;
-  /** sheet 名 */
+  /** Sheet name */
   sheet_name?: string;
-  /** 总行数 */
+  /** total number of rows */
   total_row?: Int64;
 }
 
-/** 文件信息 */
+/** file information */
 export interface DocumentInfo {
   name?: string;
   document_id?: string;
-  /** 文件资源 */
+  /** file resource */
   tos_uri?: string;
-  /** 使用的bot数量 */
+  /** Number of bots used */
   bot_used_count?: number;
-  /** 创建时间 */
+  /** creation time */
   create_time?: number;
-  /** 更新时间 */
+  /** update time */
   update_time?: number;
-  /** 创建人 */
+  /** founder */
   creator_id?: string;
-  /** 包含分段数量 */
+  /** number of segments included */
   slice_count?: number;
-  /** 文件名后缀 */
+  /** filename suffix */
   type?: string;
-  /** 文件大小 字节数 */
+  /** File size, number of bytes */
   size?: number;
-  /** 字符数 */
+  /** character count */
   char_count?: number;
-  /** 状态 */
+  /** state */
   status?: DocumentStatus;
-  /** 命中次数 */
+  /** hit count */
   hit_count?: number;
-  /** 来源 */
+  /** source */
   source_type?: DocumentSourceType;
-  /** 更新类型 */
+  /** update type */
   update_type?: DocumentUpdateType;
-  /** 更新间隔 */
+  /** update interval */
   update_interval?: number;
-  /** 切片规则 */
+  /** slicing rule */
   rule?: string;
-  /** 文件类型 */
+  /** file type */
   format_type?: FormatType;
-  /** 表格类型的表结构 */
+  /** Table structure for table types */
   table_meta?: Array<DocTableColumn>;
-  /** url 地址 */
+  /** URL address */
   web_url?: string;
-  /** 状态的详细信息；如果切片失败，返回失败信息 */
+  /** Details of the status; if the slice fails, return the failure information */
   status_descript?: string;
-  /** 三方同步过来的文档是否已断开连接 */
+  /** Has the document synchronized by the three parties been disconnected? */
   is_disconnect?: boolean;
-  /** 三方文件 id */
+  /** Tripartite file id */
   data_source_id?: Int64;
 }
 
 export interface GetDocumentTableInfoRequest {
-  /** 如果为第一次 url 上传的表格，传递该值 */
+  /** If the table is uploaded for the first URL, pass the value */
   submit_web_id?: string;
-  /** 如果为第一次本地文件上传的表格，传递该值 */
+  /** If the table is uploaded for the first local file, pass the value */
   tos_uri?: string;
-  /** 如果为已有 document 的表格，传递该值 */
+  /** If it is a table with an existing document, pass the value */
   document_id?: string;
-  /** 三方数据源的文件 id */
+  /** File ID of the tripartite data source */
   source_file_id?: string;
-  /** 文件类型 */
+  /** file type */
   source_type?: DocumentSourceType;
 }
 
@@ -188,7 +188,7 @@ export interface UpdateDocumentRequest {
   document_id?: string;
   status?: DocumentStatus;
   document_name?: string;
-  /** 表格类型元数据信息 */
+  /** Table type metadata */
   table_meta?: Array<DocTableColumn>;
 }
 

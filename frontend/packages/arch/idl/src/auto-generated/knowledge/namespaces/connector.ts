@@ -52,13 +52,13 @@ export interface FileNode {
   icon?: string;
   file_type?: string;
   file_url?: string;
-  /** wiki, 知识空间id */
+  /** Wiki, Wiki Workspace id */
   space_id?: string;
-  /** wiki, 表示知识空间类型（团队空间 或 个人空间） */
+  /** Wiki, representing a Wiki Workspace type (team space, or personal space) */
   space_type?: string;
-  /** wiki, 对应文档类型的token，可根据 obj_type 判断属于哪种文档类型 */
+  /** Wiki, the token corresponding to the document type, which can be judged according to the obj_type */
   obj_token?: string;
-  /** wiki, 文档类型，对于快捷方式，该字段是对应的实体的obj_type */
+  /** Wiki, document type, for shortcuts, this field is the obj_type of the corresponding entity */
   obj_type?: string;
   create_time?: Int64;
   update_time?: Int64;
@@ -71,22 +71,22 @@ export interface GetFileTreeDocListRequest {
   page_token?: string;
   space_id?: string;
   doc_source_type: DocSourceType;
-  /** 本次新增 */
+  /** This new addition */
   time_filter?: TimeFilterEnum;
   search_keywords?: string;
-  /** 强制获取最新，拉增量 */
+  /** Force to get the latest, pull increments */
   force_get_latest?: boolean;
-  /** 本次新增 */
+  /** This new addition */
   page_size?: Int64;
   Base?: base.Base;
 }
 
 export interface GetFileTreeDocListResponse {
-  /** 三方数据平台文件列表 */
+  /** Tripartite Data Platform File List */
   file_tree_doc_list?: Array<FileNode>;
-  /** 是否还有下一页 */
+  /** Is there a next page? */
   has_more?: boolean;
-  /** 分页token */
+  /** Paging token */
   page_token?: string;
   TotalCount?: Int64;
   code: Int64;

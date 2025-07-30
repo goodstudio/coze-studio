@@ -26,125 +26,125 @@ export enum AccountStatus {
   Unavailable = 2,
 }
 
-/** 协议状态 */
+/** protocol status */
 export enum AgreementStatus {
-  /** 停用 */
+  /** deactivate */
   Closed = 0,
-  /** 有效 */
+  /** effective */
   InEffect = 1,
 }
 
 export enum AmountType {
-  /** 日后可以拓展为满减、sku 数量折扣等 */
+  /** It can be expanded to price-break discounts, sku quantity discounts, etc in the future. */
   Unknown = 0,
   ChargeAmount = 1,
 }
 
-/** 权益类型。同 benefit_common.thrift 对齐。此处用于业务层使用。 */
+/** Equity type. Aligned with benefit_common. Used here for business tier use. */
 export enum BenefitType {
-  /** 海外 */
+  /** overseas */
   SubsMessageCredit = 1,
   UserFreeChat = 2,
   TopUpMessageCredit = 3,
   BonusMessageCredit = 4,
-  /** 40 -59 免费次数 */
+  /** 40 -59 free times */
   Freetimes = 40,
-  /** 评测免费次数 */
+  /** number of free reviews */
   EvaluateFree = 41,
-  /** Workflow 测试运行免费次数 */
+  /** Workflow test runs free times */
   WorkflowTestRunFree = 42,
-  /** App 测试运行免费次数 */
+  /** App test runs for free */
   AppTestRunFree = 43,
-  /** Plugin 测试运行免费次数 */
+  /** Plugin test run free times */
   PluginRunFree = 44,
-  /** API 运行免费次数 */
+  /** API runs for free */
   APIRunFree = 45,
-  /** SDK 运行免费次数 */
+  /** Number of free SDK runs */
   SDKRunFree = 46,
-  /** 60 - 99 限流
-模型 RPM 限流 */
+  /** 60 - 99 limited viewership of
+The limited viewership of model RPM */
   RateLimitModelRPM = 60,
-  /** 模型 Input TPM 限流 */
+  /** Input limited viewership of TPM */
   RateLimitModelInputTPM = 61,
-  /** 模型 Output TPM 限流 */
+  /** Output TPM limited viewership of model */
   RateLimitModelOutputTPM = 62,
-  /** 基础模型 Input TPM 限流 */
+  /** Input limited viewership of TPM */
   RateLimitModelInputTPMBasic = 63,
-  /** 基础模型 Output TPM 限流 */
+  /** Output TPM limited viewership of base model */
   RateLimitModelOutputTPMBasic = 64,
-  /** Plugin 运行 QPS 限流 */
+  /** Plugin running limited viewership of QPS */
   PluginRunQPS = 65,
-  /** Plugin 运行并发度限流 */
+  /** The limited viewership of Plugin runtime */
   PluginRunParallel = 66,
-  /** 图像节点
-Workflow 运行 QPS 限流 */
+  /** image node
+Workflow limited viewership of QPS */
   WorkflowRunQPS = 67,
-  /** Workflow 运行并发度限流 */
+  /** The limited viewership of Workflow */
   WorkflowRunParallel = 68,
-  /** API 运行 QPS 限流 */
+  /** API running QPS limited viewership of */
   APIRunQPS = 70,
-  /** 语音 QPS 限流 */
+  /** The limited viewership of voice QPS */
   VoiceQPS = 71,
-  /** 语音并发度限流 */
+  /** The limited viewership of speech concurrency */
   VoiceParallel = 72,
-  /** 100-109 资源点
-资源点总量 */
+  /** 100-109 resource points
+total number of resource points */
   ResourcePoint = 100,
-  /** 免费资源点，废弃 */
+  /** Free resource points, abandoned */
   FreeResourcePoint = 101,
-  /** 火山购买的资源点 */
+  /** Resource points purchased by Volcano */
   VolcProResourcePoint = 102,
-  /** 周期性资源点 */
+  /** periodic resource point */
   PeriodicResourcePoint = 103,
-  /** 渠道递减资源点 */
+  /** channel decreasing resource point */
   ChannelResourcePoint = 104,
-  /** 试算资源点 */
+  /** trial resource point */
   CutAndTryResourcePoint = 109,
   /** 110-129 Fornax
-Trace 用量 */
+Trace usage */
   TraceAmount = 111,
-  /** Trace 存储时长 */
+  /** Trace storage time */
   TraceStorageDuration = 112,
   /** 130-149 WorkSpace
-Space 总量 */
+Total Space */
   SpaceAmount = 131,
-  /** Space 人数 */
+  /** Space capacity */
   SpacePeopleNumber = 132,
-  /** Space 下协作者人数 */
+  /** Number of Collaborators in Space */
   SpaceCollaboratorNumber = 133,
-  /** Space 下协作实体数量 */
+  /** Number of Collaborating Entities in Space */
   SpaceCollabEntityNumber = 134,
-  /** 150-169 运维
-日志存储时长 */
+  /** 150-169 Operation and maintenance
+log storage duration */
   LogStorageDuration = 151,
-  /** 日志导出 */
+  /** log export */
   LogExport = 152,
-  /** 170-179 知识库
-知识库容量 */
+  /** 170-179 Knowledge Base
+knowledge base capacity */
   Capacity = 170,
-  /** 180-199 语音
-音色克隆总数 */
+  /** 180-199 voice
+Total number of timbre clones */
   VoiceCloneNumber = 180,
-  /** 音色克隆基础数量 */
+  /** Number of tone clone bases */
   VoiceCloneNumberBasic = 181,
-  /** 200-219 租户相关
-席位数上限 */
+  /** 200-219 Tenant related
+maximum number of seats */
   SeatNumberLimit = 200,
-  /** 基础席位数 */
+  /** base number of seats */
   SeatNumberBasic = 201,
-  /** 移除水印 */
+  /** Remove watermark */
   RemoveWatermark = 220,
-  /** 240-269 配置
-安心用 */
+  /** 240-269 configuration
+Use with peace of mind */
   ConfidenceUsing = 240,
 }
 
 export enum BenefitUseMode {
-  /** 按额度使用 */
+  /** Use according to quota */
   ByQuota = 1,
-  /** 无限使用 */
+  /** Unlimited use */
   Unlimited = 2,
-  /** 不可用 */
+  /** Not Available */
   UnAvailable = 10,
 }
 
@@ -161,23 +161,23 @@ export enum ChargeableEntityType {
   Seat = 60,
 }
 
-/** 支付侧拒付状态 */
+/** Payment side rejection status */
 export enum ChargebackPayStatus {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** 发生拒付 */
+  /** chargebacks occur */
   Chargeback = 1,
-  /** 已拒付返还 */
+  /** Refused return */
   ChargebackReverse = 2,
 }
 
-/** 拒付状态 */
+/** chargeback status */
 export enum ChargebackStatus {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** 发生拒付 */
+  /** chargebacks occur */
   Chargeback = 1,
-  /** 已拒付返还 */
+  /** Refused return */
   ChargebackReverse = 2,
 }
 
@@ -188,39 +188,39 @@ export enum ChargeScene {
 }
 
 export enum CozeAccountType {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** 组织账号 */
+  /** Organization account */
   Organization = 1,
-  /** 个人账号 */
+  /** personal account */
   Personal = 2,
 }
 
 export enum CreditChangeType {
   TopUp = 1,
   Bonus = 2,
-  /** 智能体 */
+  /** Agent */
   BotConsume = 3,
   WorkflowConsume = 4,
   EvaluateConsume = 5,
-  /** 应用 */
+  /** application */
   ProjectConsume = 6,
-  /** 扣子罗盘 */
+  /** Button Compass */
   FornaxConsume = 7,
-  /** 智能语音 */
+  /** Intelligent Voice */
   IntelligentVoiceConsume = 8,
   Expired = 20,
 }
 
 export enum CreditType {
-  /** 海外 */
+  /** overseas */
   Premium = 1,
   TopUp = 2,
   Bonus = 3,
-  /** 国内
-免费资源点 */
+  /** domestic
+Free Resource Points */
   FreePoint = 100,
-  /** 充值资源点 */
+  /** Recharge resource point */
   TopUpPonit = 101,
 }
 
@@ -231,177 +231,177 @@ export enum DiscountCalculationType {
 }
 
 export enum InstanceLimitStatus {
-  /** 未受限 */
+  /** unrestricted */
   UnLimited = 1,
-  /** 受限中（欠费） */
+  /** Limited (in arrears) */
   Limited = 2,
 }
 
 export enum InstanceStatus {
-  /** 创建中, 理论上不会返回该状态 */
+  /** Created, it will not return to this state in theory */
   InstanceStatusCreating = 0,
-  /** 运行中 */
+  /** Running */
   Running = 1,
-  /** 创建失败, 理论上不会返回该状态 */
+  /** The creation failed, and the state will not be returned in theory */
   InstanceStatusFailed = 2,
-  /** 退订回收 */
+  /** unsubscribe recycling */
   UnsubsRecycled = 3,
-  /** 到期关停 */
+  /** expiration shutdown */
   ExpiredClosed = 4,
-  /** 到期回收 */
+  /** Recycling at maturity */
   ExpiredRecycled = 5,
-  /** 欠费关停 */
+  /** shutdown due */
   InstanceStatusOverdueShutdown = 6,
-  /** 欠费回收 */
+  /** Arrears recovery */
   InstanceStatusOverdueRecycled = 7,
-  /** 退订关停 */
+  /** unsubscribe shutdown */
   InstanceStatusTerminatedShutdown = 8,
 }
 
-/** 订单逆向状态 */
+/** Order reverse state */
 export enum OrderReverseStatus {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** 退款中 */
+  /** Refund is in progress. */
   RefundProcessing = 1,
-  /** 退款成功 */
+  /** Refund was successful. */
   RefundSuccess = 2,
-  /** 退款失败 */
+  /** Refund failed. */
   RefundFailed = 3,
-  /** 发生拒付 */
+  /** chargebacks occur */
   Chargeback = 11,
-  /** 已拒付返还 */
+  /** Refused return */
   ChargebackReverse = 12,
 }
 
-/** 订单状态 */
+/** Order status */
 export enum OrderStatus {
-  /** 初始化 */
+  /** initialization */
   Init = 0,
-  /** 成功 */
+  /** success */
   Success = 1,
-  /** 失败 */
+  /** fail */
   Failed = 2,
-  /** 关闭 */
+  /** close */
   Closed = 3,
 }
 
-/** 订单类型 */
+/** Order type */
 export enum OrderType {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** Token充值 */
+  /** Token recharge */
   TokenCharge = 1,
-  /** Token自动充值 */
+  /** Token automatic recharge */
   TokenAutoCharge = 2,
-  /** MessageCredit订阅 */
+  /** MessageCredit subscription */
   SubMessageCredit = 11,
-  /** MessageCredit充值 */
+  /** MessageCredit recharge */
   MessageCredit = 12,
-  /** 模板购买 */
+  /** Template purchase */
   PurchaseTemplate = 21,
 }
 
-/** 支付状态 */
+/** payment status */
 export enum PayStatus {
-  /** 初始状态，未完成支付 */
+  /** Initial status, outstanding payment */
   Init = 0,
-  /** 支付成功，这是最终状态 */
+  /** The payment was successful, this is the final status. */
   Success = 1,
-  /** 支付失败或关闭，这是最终状态 */
+  /** Payment failure or closure, this is the final state */
   Closed = 2,
 }
 
-/** 支付侧退款状态 */
+/** Payment side refund status */
 export enum RefundByType {
-  /** 业务平台发起 */
+  /** business platform initiation */
   ByBizPlatform = 0,
-  /** 用户发起 */
+  /** user initiated */
   ByUser = 1,
 }
 
-/** 支付侧退款状态 */
+/** Payment side refund status */
 export enum RefundPayStatus {
-  /** 退款中 */
+  /** Refund is in progress. */
   Processing = 0,
-  /** 退款成功 */
+  /** Refund was successful. */
   Success = 1,
-  /** 退款失败 */
+  /** Refund failed. */
   Failed = 2,
 }
 
-/** 退款状态 */
+/** Refund status */
 export enum RefundStatus {
-  /** 退款中 */
+  /** Refund is in progress. */
   Processing = 0,
-  /** 退款成功 */
+  /** Refund was successful. */
   Success = 1,
-  /** 退款失败 */
+  /** Refund failed. */
   Failed = 2,
 }
 
 export enum ResourcePackageType {
-  /** 模型TPM */
+  /** Model TPM */
   ModelTPM = 1,
-  /** 音色克隆 */
+  /** timbre clone */
   VoiceClone = 21,
 }
 
 export enum ResourceUsageStrategy {
-  /** 无限制 */
+  /** Unlimited */
   UnLimit = 1,
-  /** 限制 */
+  /** restriction */
   Forbidden = 2,
-  /** 通过额度校验 */
+  /** Pass the quota verification */
   ByQuota = 3,
 }
 
-/** 业务场景 */
+/** business scenario */
 export enum Scene {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** Token充值 */
+  /** Token recharge */
   TokenCharge = 1,
-  /** Token自动充值 */
+  /** Token automatic recharge */
   TokenAutoCharge = 2,
-  /** MessageCredit订阅 */
+  /** MessageCredit subscription */
   SubMessageCredit = 11,
-  /** MessageCredit充值 */
+  /** MessageCredit recharge */
   MessageCredit = 12,
-  /** 模板购买 */
+  /** Template purchase */
   PurchaseTemplate = 21,
-  /** 音色克隆 */
+  /** timbre clone */
   VoiceClone = 100,
-  /** 音色克隆存储 */
+  /** Tone Clone Storage */
   VoiceCloneStorage = 101,
 }
 
 export enum SubscriptionRenewalType {
   Unknown = 0,
-  /** 手动续费 */
+  /** Manual renewal */
   ManualRenewal = 1,
-  /** 自动续费 */
+  /** Automatic renewal */
   AutoRenewal = 2,
-  /** 到期不续费续费 */
+  /** No renewal due Renewal */
   DontRenewal = 3,
 }
 
 export enum SubscriptionStatus {
-  /** 初始化 */
+  /** initialization */
   Init = 0,
-  /** 待支付 */
+  /** pending payment */
   Pending = 1,
-  /** 订阅中 */
+  /** Subscribing */
   SUBSCRIBED = 2,
-  /** 已取消 */
+  /** Cancelled */
   CANCELED = 3,
-  /** 已终止 */
+  /** terminated */
   REVOKE = 4,
-  /** 已关闭 */
+  /** Closed */
   Closed = 5,
-  /** 已过期 */
+  /** Expired */
   Expired = 6,
-  /** 欠费 */
+  /** arrears */
   InDebt = 7,
 }
 
@@ -409,7 +409,7 @@ export enum SubscriptionType {
   MessageCredit = 0,
 }
 
-/** 订阅 SKU 级别 */
+/** subscription SKU level */
 export enum SubsMsgCreditLevel {
   Free = 0,
   PremiumLite = 10,
@@ -418,35 +418,35 @@ export enum SubsMsgCreditLevel {
 }
 
 export enum SubsSKUType {
-  /** 自动续费 */
+  /** Automatic renewal */
   AutoRenew = 0,
-  /** 一次性订阅 */
+  /** one-time subscription */
   OneOff = 1,
 }
 
 export enum TradeSourceType {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
   Bot = 1,
 }
 
 export enum UserLevel {
-  /** 免费版。 */
+  /** The free version. */
   Free = 0,
-  /** 海外
+  /** overseas
 PremiumLite */
   PremiumLite = 10,
   /** Premium */
   Premium = 15,
   PremiumPlus = 20,
-  /** 国内
-V1火山专业版 */
+  /** domestic
+V1 Volcano Pro */
   V1ProInstance = 100,
-  /** 个人旗舰版 */
+  /** Personal flagship version */
   ProPersonal = 110,
-  /** 团队版 */
+  /** Team Edition */
   Team = 120,
-  /** 企业版 */
+  /** Enterprise Edition */
   Enterprise = 130,
 }
 
@@ -457,31 +457,31 @@ export enum VolcanoUserType {
 }
 
 export enum VolcInstanceType {
-  /** 正常版本 */
+  /** Normal version */
   Normal = 1,
-  /** 渠道版本 */
+  /** channel version */
   Channel = 2,
 }
 
 export interface ChannelInfo {
-  /** 渠道ID */
+  /** Channel ID */
   channel_id: string;
-  /** 渠道名称 */
+  /** channel name */
   channel_name: string;
-  /** 渠道 icon */
+  /** Channel icon */
   icon_url: string;
 }
 
 export interface CommonCounter {
-  /** 当 Strategy == ByQuota 时, 表示已使用量, 若权益无相关用量数据则返回 0 */
+  /** When Strategy == ByQuota, it indicates the amount used, and returns 0 if there is no relevant usage data for the equity. */
   used?: number;
-  /** 当 Strategy == ByQuota 时, 表示用量上限 */
+  /** When Strategy == ByQuota, the usage limit is indicated */
   total?: number;
-  /** 资源使用策略 */
+  /** resource usage strategy */
   strategy?: ResourceUsageStrategy;
-  /** 开始时间，单位秒 */
+  /** Start time in seconds */
   start_at?: Int64;
-  /** 结束时间，单位秒 */
+  /** End time in seconds */
   end_at?: Int64;
 }
 /* eslint-enable */

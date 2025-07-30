@@ -22,27 +22,27 @@
 export type Int64 = string | number;
 
 export enum ProjectVersionAuditStatus {
-  /** 未审核/审核中 */
+  /** Unreviewed/Under review */
   Default = 0,
-  /** 审核通过 */
+  /** approved */
   AuditPass = 1,
-  /** 审核不通过 */
+  /** The review failed. */
   AuditNotPass = 2,
 }
 
 export enum ProjectVersionStatus {
-  /** 版本创建中 */
+  /** Version creation in progress */
   Default = 0,
-  /** 版本可用（创建成功） */
+  /** Version available (created successfully) */
   Available = 1,
-  /** 版本不可用（创建失败） */
+  /** Version unavailable (creation failed) */
   Unavailable = 2,
 }
 
 export enum ProjectVersionType {
-  /** 发布 */
+  /** publish */
   Publish = 0,
-  /** 存档 */
+  /** Archive */
   Archive = 1,
 }
 /* eslint-enable */

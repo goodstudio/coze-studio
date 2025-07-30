@@ -24,15 +24,15 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export interface SyncBamApiByPsmRequest {
-  /** 要同步接口的psm */
+  /** To synchronize the psm of the interface */
   psm: string;
-  /** 分支 */
+  /** branch */
   branch?: string;
   Base?: base.Base;
 }
 
 export interface SyncBamApiByPsmResponse {
-  /** 同步psm接过 */
+  /** Sync psm take over */
   sync_result: boolean;
   BaseResp?: base.BaseResp;
 }

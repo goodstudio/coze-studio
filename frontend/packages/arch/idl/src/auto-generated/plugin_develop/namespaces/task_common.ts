@@ -64,31 +64,31 @@ export enum IntelligenceTaskStatus {
 }
 
 export enum IntelligenceTaskType {
-  /** 复制项目内的资源到同项目 */
+  /** Copy resources within a project to the same project */
   CopyResourceInProject = 1,
-  /** 复制项目资源到Library */
+  /** Copy Project Resources to Library */
   CopyProjectResourceToLibrary = 2,
-  /** 移动项目资源到Library */
+  /** Move Project Resources to Library */
   MoveProjectResourceToLibrary = 3,
-  /** 复制Library资源到项目 */
+  /** Copy Library Resources to Project */
   CopyLibraryResourceToProject = 4,
-  /** 复制项目 */
+  /** Copy item */
   CopyProject = 5,
-  /** 项目发布到渠道 */
+  /** Project Publish to Channel */
   PublishProject = 6,
-  /** 复制项目模板 */
+  /** Copy project template */
   CopyTemplateToProject = 7,
-  /** 项目发布到模板 */
+  /** Project Publish to Template */
   PublishProjectTemplate = 8,
-  /** 项目模版上架 */
+  /** Project template on the shelves */
   LaunchProjectTemplate = 9,
-  /** 项目存档 */
+  /** Project Archive */
   ArchiveProject = 10,
-  /** 项目回滚 */
+  /** project rollback */
   RollbackProject = 11,
-  /** 单个资源跨空间复制 */
+  /** Cross-spatial replication of a single resource */
   CrossSpaceCopy = 12,
-  /** 项目跨空间复制 */
+  /** item cross-spatial replication */
   CrossSpaceCopyProject = 13,
 }
 /* eslint-enable */

@@ -22,9 +22,9 @@
 export type Int64 = string | number;
 
 export enum CozeBotInfoType {
-  /** 草稿 bot */
+  /** Draft bot */
   DraftBot = 1,
-  /** 商店 bot */
+  /** Shop bot */
   ProductBot = 2,
 }
 
@@ -49,9 +49,9 @@ export enum ModelPlatform {
 
 export enum SubmitStatus {
   Undefined = 0,
-  /** 未提交 */
+  /** not submitted */
   UnSubmit = 1,
-  /** 已提交 */
+  /** Submitted */
   Submitted = 2,
 }
 /* eslint-enable */

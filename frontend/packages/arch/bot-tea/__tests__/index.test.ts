@@ -101,7 +101,7 @@ describe('bot-tea', () => {
     const mockParams = { foo: 'bar' };
 
     it('should send event with UG params when FEATURE_ENABLE_TEA_UG is true', () => {
-      // @ts-expect-error - 模拟全局变量
+      // @TS-expected-error - simulate global variables
       window.FEATURE_ENABLE_TEA_UG = true;
       const savedUrl = 'https://example.com/saved';
       mockSessionStorage.getItem.mockReturnValue(savedUrl);
@@ -125,7 +125,7 @@ describe('bot-tea', () => {
     });
 
     it('should send event without UG params when FEATURE_ENABLE_TEA_UG is false', () => {
-      // @ts-expect-error - 模拟全局变量
+      // @TS-expected-error - simulate global variables
       window.FEATURE_ENABLE_TEA_UG = false;
 
       sendTeaEvent(mockEvent, mockParams);
@@ -140,7 +140,7 @@ describe('bot-tea', () => {
     });
 
     it('should handle undefined params', () => {
-      // @ts-expect-error - 模拟全局变量
+      // @TS-expected-error - simulate global variables
       window.FEATURE_ENABLE_TEA_UG = false;
 
       sendTeaEvent(mockEvent);

@@ -35,13 +35,13 @@ export interface AdminGetRefundOrderByOrderResponse {
 }
 
 export interface AdminListOrderRequest {
-  /** 页码, >=1 */
+  /** Page number, > = 1 */
   page: string;
-  /** 每页数量, 1-200 */
+  /** Number of pages, 1-200 */
   count: string;
-  /** 用户 id */
+  /** user id */
   user_id?: string;
-  /** 订单 id */
+  /** Order ID */
   order_id?: string;
 }
 
@@ -52,9 +52,9 @@ export interface AdminListOrderResponse {
 }
 
 export interface AdminListOrderResponseData {
-  /** 订单列表 */
+  /** order list */
   order_list?: Array<OpOrder>;
-  /** 总数 */
+  /** total */
   total?: Int64;
 }
 
@@ -72,29 +72,29 @@ export interface AdminRefundOrderResponse {
 
 export interface OpOrder {
   order_id?: string;
-  /** 时间戳，单位秒 */
+  /** Timestamp in seconds */
   order_timestamp?: string;
-  /** 下单国家，可能为空 */
+  /** Order country, may be empty */
   submit_country?: string;
-  /** 商品类型，可能为 Premium lite,Premium,Premium plus,Coze token,Message credits, AutoCharge Coze Token */
+  /** Product type, may be Premium lite, Premium, Premium plus, Coze token, Message credits, AutoCharge Coze Token */
   goods_type_display?: string;
-  /** 订单类型，1 为 TokenAutoCharge，2 为 TokenAutoCharge，3 为 SubMessageCredit */
+  /** Order type, 1 is TokenAutoCharge, 2 is TokenAutoCharge, and 3 is SubMessageCredit. */
   order_type?: bot_operation_common.OrderType;
-  /** 支付金额 */
+  /** Payment amount */
   purchase_amount?: string;
-  /** 退款金额 */
+  /** Refund amount */
   refund_amount?: string;
-  /** 退款单 id */
+  /** Refund form id */
   refund_order_id?: string;
-  /** 订单状态 */
+  /** Order status */
   order_status?: bot_operation_common.OrderStatus;
-  /** 能否退款 */
+  /** Can I get a refund? */
   can_refund?: boolean;
-  /** 是否存在退款单 */
+  /** Is there a refund slip? */
   has_refund_order?: boolean;
-  /** 不能退款原因 */
+  /** No reason for refund. */
   cant_refund_reason?: string;
-  /** 审批单列表 */
+  /** list of approval orders */
   approve_task_list?: Array<SimpleApproveTask>;
 }
 

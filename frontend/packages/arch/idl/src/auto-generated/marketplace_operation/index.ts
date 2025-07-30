@@ -84,7 +84,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/listing
    *
-   * ** 商品 **
+   * ** Product **
    */
   PublicListingProduct(
     req: public_api.ListingProductRequest,
@@ -164,7 +164,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/favorite
    *
-   * ** 收藏 **
+   * ** Collection **
    */
   PublicFavoriteProduct(
     req: public_api.FavoriteProductRequest,
@@ -199,7 +199,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/category/list
    *
-   * ** 分类 **
+   * ** Category **
    */
   PublicGetProductCategoryList(
     req?: public_api.GetProductCategoryListRequest,
@@ -239,9 +239,9 @@ export default class MarketplaceOperationService<T> {
    *
    * *****************************************
    *
-   * 外部用户 API 接口
+   * external user API interface
    *
-   * ** 开发者认证 **
+   * ** Developer Certification **
    */
   PublicGetDeveloperInfo(
     req?: public_api.GetDeveloperInfoRequest,
@@ -440,7 +440,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/platforms
    *
-   * ** 渠道 **
+   * ** Channel **
    */
   PublicGetPublishPlatforms(
     req?: public_api.GetPublishPlatformsRequest,
@@ -626,7 +626,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/search
    *
-   * ** 搜索 **
+   * ** Search **
    */
   PublicSearchProduct(
     req: public_api.SearchProductRequest,
@@ -684,7 +684,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/url/preview
    *
-   * ** 飞书链接预览 **
+   * ** Feishu Link Preview **
    */
   PublicPreviewURL(
     req: public_api.PreviewURLRequest,
@@ -724,7 +724,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/admin/score/bots
    *
-   * bot 测评相关
+   * bot evaluation related
    */
   AdminGetBotScoreList(
     req: admin_api.GetBotScoreListRequest,
@@ -808,7 +808,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/admin/topic/set
    *
-   * 专题相关
+   * Topic related
    */
   AdminSetTopic(
     req?: admin_api.SetTopicRequest,
@@ -824,7 +824,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/topic/get_current
    *
-   * 专题
+   * special topic
    */
   PublicGetCurrentTopicList(
     req?: public_api.GetCurrentTopicListRequst,
@@ -897,7 +897,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/share/create
    *
-   * ** 分享 **
+   * ** Share **
    */
   PublicCreateProductShare(
     req?: public_api.CreateProductShareRequest,
@@ -918,7 +918,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/translate/md
    *
-   * ** 翻译相关接口 **
+   * ** Translation related interface **
    */
   PublicTransMD(
     req: public_api.TransMDReq,
@@ -977,7 +977,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/generate_listing_info
    *
-   * 自动生成商品分类/介绍
+   * Automatically generate product categories/descriptions
    */
   PublicGenerateProductListingInfo(
     req: public_api.GenerateProductListingInfoRequest,
@@ -998,7 +998,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/user_product/list
    *
-   * 用户商品
+   * user product
    */
   PublicGetUserProductList(
     req: public_api.GetUserProductListRequest,
@@ -1039,9 +1039,9 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /NS5J4lCu75.txt
    *
-   * 外部开放平台接口相关
+   * External open API interface related
    *
-   * 到其他平台注册服务的时候需要验证，这个接口专门用来做验证服务的工作
+   * When registering services on other platforms, verification is required. This interface is specifically used to verify the service
    */
   DouyinRegister(
     req?: public_api.DouyinServerRegisterCallbackReq,
@@ -1082,7 +1082,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/admin/global_product/history
    *
-   * 全局商品相关
+   * global commodity correlation
    */
   AdminGetGlobalProductHistory(
     req: admin_api.AdminGetGlobalProductHistoryRequest,
@@ -1123,7 +1123,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/feed/list
    *
-   * feed卡片
+   * Feed card
    */
   PublicGetFeedList(
     req?: public_api.GetFeedListRequest,
@@ -1143,7 +1143,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/template/white_list/config
    *
-   * 模板白名单
+   * template whitelist
    */
   PublicGetTemplateWhiteListConfig(
     req?: public_api.GetTemplateWhiteListConfigRequest,
@@ -1171,9 +1171,9 @@ export default class MarketplaceOperationService<T> {
   /**
    * POST /api/marketplace/product/image/upload
    *
-   * 图片上传
+   * image upload
    *
-   * 废弃
+   * abandoned
    */
   PublicUploadImage(
     req?: public_api.UploadImageRequest,
@@ -1215,7 +1215,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/customer_case_list
    *
-   * 客户案例
+   * Customer case
    */
   PublicGetCustomerCaseList(
     req?: public_api.GetCustomerCaseListRequest,
@@ -1231,7 +1231,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/landing_info
    *
-   * Landing 页配置信息
+   * Landing page configuration information
    */
   PublicGetLandingInfo(
     req?: public_api.GetLandingInfoRequest,
@@ -1245,7 +1245,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/admin/landing/config
    *
-   * landing页配置相关
+   * Landing page configuration related
    */
   AdminGetLandingConfig(
     req?: admin_api.GetLandingConfigRequest,
@@ -1267,7 +1267,7 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/developer_voice
    *
-   * 开发者声音
+   * Developer Voice
    */
   PublicGetDeveloperVoice(
     req?: public_api.GetDeveloperVoiceRequest,
@@ -1318,9 +1318,9 @@ export default class MarketplaceOperationService<T> {
   /**
    * GET /api/marketplace/product/image/get_url
    *
-   * 图片上传采用 imageX 建议的方式，客户端上传：
+   * The image is uploaded in the way suggested by imageX, and the client side uploads:
    *
-   * 需要下面两个接口：获取临时上传 token；获取图片 url
+   * The following two interfaces are required: get the temporary upload token; get the image url
    */
   PublicGetImageURL(
     req?: public_api.GetImageURLRequest,

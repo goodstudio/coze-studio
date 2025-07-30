@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** ================ 同程 ================ */
+/** ================ the same journey ================ */
 export enum CitySearchType {
   hot_city = 1,
   city = 2,
@@ -34,9 +34,9 @@ export enum ExportFileType {
 }
 
 export enum Language {
-  /** 中文 */
+  /** Chinese */
   Chinese = 0,
-  /** 英文 */
+  /** English */
   English = 1,
 }
 
@@ -66,39 +66,39 @@ export interface AuthorizedChannelMatchResponse {
 }
 
 export interface CityInfo {
-  /** 展示的名字，放在括号前面 */
+  /** Show the name before the brackets */
   name?: string;
-  /** 城市名，不一定有，当搜到的是区/县级才有 */
+  /** City name, not necessarily, only when the search is at the district/county level */
   city_name?: string;
-  /** 省名，不一定有，国内直搜省名才有，国外不会有这个字段 */
+  /** The name of the province may not be available. Only the name of the province can be directly searched at home, and this field will not be available abroad. */
   province_name?: string;
-  /** 国家名，一定有 */
+  /** Country name, there must be */
   country_name?: string;
 }
 
 export interface ContractFileInfo {
-  /** 文件名 */
+  /** file name */
   name?: string;
-  /** 文件uri */
+  /** File URI */
   file_uri?: string;
 }
 
 export interface DraftConfig {
-  /** 起草文件名 */
+  /** Drafting file name */
   name?: string;
-  /** 业务背景 */
+  /** Business background */
   background?: string;
-  /** 合同最小字数 */
+  /** Contract minimum word count */
   contractMinLength?: number;
-  /** 合同最大字数 */
+  /** Contract maximum word count */
   contractMaxLength?: number;
-  /** 草稿最小字数 */
+  /** minimum word count in draft */
   draftMinLength?: number;
-  /** 代表的立场 */
+  /** Representative's position */
   representativePosition?: string;
-  /** 优势等级 */
+  /** level of advantage */
   advantageLevel?: number;
-  /** 语言 */
+  /** language */
   language?: Language;
 }
 
@@ -108,11 +108,11 @@ export interface ExportPPTAgentFileData {
 }
 
 export interface ExportPPTAgentFileRequest {
-  /** 源文件URI */
+  /** source file URI */
   source_uri?: string;
-  /** 任务ID */
+  /** Task ID */
   task_id?: string;
-  /** 导出文件类型 */
+  /** Export file type */
   export_type?: ExportFileType;
 }
 
@@ -160,7 +160,7 @@ export interface GetHtmlHeightFixResponse {
 }
 
 export interface LawQAConfig {
-  /** 问题 */
+  /** question */
   question?: string;
 }
 
@@ -170,13 +170,13 @@ export interface RelatedWord {
 }
 
 export interface ReviewConfig {
-  /** 主体名称 */
+  /** principal name */
   holderName?: string;
-  /** 主体角色 */
+  /** main role */
   holderRole?: string;
-  /** 审查目的 */
+  /** review purpose */
   objectives?: Array<string>;
-  /** 背景 */
+  /** background */
   background?: string;
 }
 

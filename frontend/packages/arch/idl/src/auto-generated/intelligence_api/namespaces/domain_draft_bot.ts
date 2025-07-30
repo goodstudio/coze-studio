@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** 草稿bot聚合领域结构体 */
+/** Draft bot aggregate domain structure */
 export enum BusinessType {
   Default = 0,
   DouyinAvatar = 1,

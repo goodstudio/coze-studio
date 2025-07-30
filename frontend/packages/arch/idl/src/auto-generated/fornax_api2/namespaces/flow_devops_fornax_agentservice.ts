@@ -26,7 +26,7 @@ export type Int64 = string | number;
 
 export interface AgentReleaseRequest {
   info?: agent.AgentReleaseInfo;
-  /** 操作类型 */
+  /** operation type */
   operationType: agent.OperationType;
 }
 
@@ -52,7 +52,7 @@ export interface CreateAgentReq {
   avatar?: agent.Image;
   desc?: string;
   repo?: agent.TemplateRepo;
-  /** agent关联的仓库 */
+  /** Agent associated repository */
   associatedRepo?: agent.AssociatedRepo;
   faasInfo?: agent.FaaSInfo;
   larkInfo?: agent.LarkInfo;
@@ -129,9 +129,9 @@ export interface ListAgentOpenAPIAccountsResp {
 
 export interface ListAgentReleaseRecordRequest {
   agentID: Int64;
-  /** 渠道 */
+  /** channel */
   channels: Array<agent.Channel>;
-  /** 起始为空，滚动传入Response里的NextCursor */
+  /** Start with null, scroll into NextCursor in Response */
   cursor?: Int64;
   pageSize: Int64;
 }
@@ -145,7 +145,7 @@ export interface ListAgentReleaseRecordResponse {
 
 export interface ListAgentsBySpaceReq {
   spaceID: Int64;
-  /** 根据名称模糊搜索 */
+  /** A fuzzy search by name */
   name?: string;
 }
 

@@ -21,17 +21,17 @@
 
 export type Int64 = string | number;
 
-/** BotVersionOperation 操作类型
+/** BotVersionOperation type
  NEXT ID: 5 */
 export enum BotVersionOperation {
   Undefined = 0,
-  /** 上线 */
+  /** go online */
   Publish = 1,
-  /** 修改内容 */
+  /** Modify content */
   Modify = 2,
-  /** 下线 */
+  /** go offline */
   Offline = 3,
-  /** 回滚 */
+  /** Rollback */
   Rollback = 4,
 }
 
@@ -42,7 +42,7 @@ export enum GrayFieldType {
   CustomKey = 3,
 }
 
-/** HistoryVersionStatus 描述版本状态
+/** HistoryVersionStatus Description Version Status
  NEXT ID: 3 */
 export enum HistoryVersionStatus {
   Undefined = 0,
@@ -50,31 +50,31 @@ export enum HistoryVersionStatus {
   InValid = 2,
 }
 
-/** HistoryVersionType 版本记录类型
+/** HistoryVersionType Version record type
  NEXT ID: 6 */
 export enum HistoryVersionType {
   Undefined = 0,
-  /** 提交版本 */
+  /** submitted version */
   Commit = 1,
-  /** 线上发布 */
+  /** online publishing */
   Online = 2,
-  /** 预发布PPE */
+  /** pre-release PPE */
   PrePublish = 3,
-  /** 灰度发布 */
+  /** grey release */
   Gray = 4,
-  /** 回滚版本 */
+  /** Rollback version */
   Rollback = 5,
 }
 
-/** PublishVersionType 当前生效版本发布类型
+/** PublishVersionType Current version Release type
  NEXT ID: 4 */
 export enum PublishVersionType {
   Undefined = 0,
-  /** 线上正式版 */
+  /** Online official version */
   Online = 1,
-  /** 预发布PPE */
+  /** pre-release PPE */
   PrePublish = 2,
-  /** 灰度发布 */
+  /** grey release */
   Gray = 3,
 }
 
@@ -91,35 +91,35 @@ export enum VersionType {
   Gray = 3,
 }
 
-/** 当前生效的策略 */
+/** Policies currently in effect */
 export interface ActiveRule {
-  /** 策略id */
+  /** Policy ID */
   rule_id?: string;
-  /** 渠道信息 */
+  /** Channel information */
   connector_info?: ConnectorInfo;
-  /** 创建人名字 */
+  /** creator name */
   creator_name?: string;
-  /** 创建时间 */
+  /** creation time */
   create_time?: string;
-  /** 版本，commit version */
+  /** Version, commit version */
   version?: string;
-  /** pre类型/灰度类型 */
+  /** Pre/grey release type */
   version_type?: VersionType;
-  /** 泳道名，VersionType=XTtEnv时用 */
+  /** Lane name, used when VersionType = XTtEnv */
   x_tt_env?: string;
-  /** 版本标识，VersionType=VersionIdentifier时用 */
+  /** Version ID, used when VersionType=VersionIdentifier */
   version_identifier?: string;
-  /** bot version，用来换取commit version */
+  /** Bot version in exchange for committed version */
   bot_version?: string;
-  /** [Deprecated]灰度id列表，VersionType=Gray时用(灰度id列表) */
+  /** [Deprecated] grey release id list, used when VersionType = Gray (grey release id list) */
   gray_id_list?: Array<string>;
-  /** 规则状态 */
+  /** rule state */
   status?: RuleStatus;
-  /** 下线时间 */
+  /** offline time */
   offline_time?: string;
-  /** 操作人名字 */
+  /** Operator name */
   operator_name?: string;
-  /** 灰度配置，VersionType=Gray时使用(支持黑白名单，灰度比例) */
+  /** Grey release configuration, used when VersionType = Gray (supports black and white list, grey release ratio) */
   gray_config?: GrayConfig;
 }
 
@@ -131,132 +131,132 @@ export interface AllowedConnector {
 /** AllowList
  NEXT ID: 3 */
 export interface AllowList {
-  /** 比较字段 */
+  /** compare fields */
   field?: GrayField;
-  /** 比较字段值 */
+  /** Compare field values */
   values?: Array<string>;
 }
 
 /** BlockList
  NEXT ID: 3 */
 export interface BlockList {
-  /** 比较字段 */
+  /** compare fields */
   field?: GrayField;
-  /** 比较字段值 */
+  /** Compare field values */
   values?: Array<string>;
 }
 
-/** BotHistoryVersion 版本历史
+/** BotHistoryVersion history
  NEXT ID: 14 */
 export interface BotHistoryVersion {
-  /** 记录id */
+  /** record id */
   history_id?: string;
-  /** 记录类型 */
+  /** record type */
   history_version_type?: HistoryVersionType;
-  /** 创建人信息 */
+  /** creator information */
   creator?: Creator;
-  /** 创建时间 */
+  /** creation time */
   create_time?: string;
-  /** 版本说明 */
+  /** imprint */
   remark?: string;
-  /** 渠道信息, 提交版本没有此项 */
+  /** Channel information, the submitted version does not have this item. */
   connector_infos?: Array<ConnectorInfo>;
-  /** bot发布版本号 */
+  /** bot release version number */
   bot_version?: string;
-  /** 版本对应的提交版本号 */
+  /** The commit version number corresponding to the version */
   commit_version?: string;
-  /** 当前版本状态 */
+  /** current version status */
   history_version_status?: HistoryVersionStatus;
-  /** 预发布PPE的env名称 */
+  /** The env name of the pre-release PPE */
   x_tt_env?: string;
-  /** [Deprecated]灰度id列表 */
+  /** [Deprecated] grey release id list */
   gray_id_list?: Array<string>;
-  /** 下线时间 */
+  /** offline time */
   offline_time?: string;
-  /** 规则ID */
+  /** rule ID */
   rule_id?: string;
-  /** 发布时候的id, commit操作没有 */
+  /** The id at the time of publication, the commit operation is not available. */
   publish_id?: string;
-  /** 灰度配置，VersionType=Gray时使用(支持黑白名单，灰度比例) */
+  /** Grey release configuration, used when VersionType = Gray (supports black and white list, grey release ratio) */
   gray_config?: GrayConfig;
 }
 
-/** BotOperationHistory 历史操作
+/** BotOperationHistory
  NEXT ID: 14 */
 export interface BotOperationHistory {
-  /** 记录id */
+  /** record id */
   history_id?: string;
-  /** 操作类型 */
+  /** operation type */
   bot_version_operation?: BotVersionOperation;
-  /** 记录类型 */
+  /** record type */
   history_version_type?: HistoryVersionType;
-  /** 操作人信息 */
+  /** Operator information */
   creator?: Creator;
-  /** 操作时间 */
+  /** operating time */
   create_time?: string;
-  /** 版本说明 */
+  /** imprint */
   remark?: string;
-  /** 渠道信息, 提交版本没有此项 */
+  /** Channel information, the submitted version does not have this item. */
   connector_infos?: Array<ConnectorInfo>;
-  /** bot发布版本号 */
+  /** bot release version number */
   bot_version?: string;
-  /** 版本对应的提交版本号 */
+  /** The commit version number corresponding to the version */
   commit_version?: string;
-  /** 当前生效状态 */
+  /** Current effective status */
   history_version_status?: HistoryVersionStatus;
-  /** 预发布PPE的env名称 */
+  /** The env name of the pre-release PPE */
   x_tt_env?: string;
-  /** [Deprecated]灰度id列表 */
+  /** [Deprecated] grey release id list */
   gray_id_list?: Array<string>;
-  /** 规则ID */
+  /** rule ID */
   rule_id?: string;
-  /** 发布时候的id, commit操作没有 */
+  /** The id at the time of publication, the commit operation is not available. */
   publish_id?: string;
-  /** 灰度配置，VersionType=Gray时使用(支持黑白名单，灰度比例) */
+  /** Grey release configuration, used when VersionType = Gray (supports black and white list, grey release ratio) */
   gray_config?: GrayConfig;
 }
 
-/** BotPublishVersion 当前生效发布版本信息
+/** BotPublishVersion Current release version information
  NEXT ID: 11 */
 export interface BotPublishVersion {
   bot_id?: string;
-  /** 渠道信息 */
+  /** Channel information */
   connector_info?: ConnectorInfo;
-  /** 创建人信息 */
+  /** creator information */
   creator?: Creator;
-  /** 创建时间 */
+  /** creation time */
   create_time?: string;
-  /** 版本说明 */
+  /** imprint */
   remark?: string;
-  /** 发布版本类型 */
+  /** release type */
   publish_version_type?: PublishVersionType;
-  /** bot发布版本号 */
+  /** bot release version number */
   bot_version?: string;
-  /** 版本对应的提交版本号 */
+  /** The commit version number corresponding to the version */
   commit_version?: string;
-  /** PPE和灰度发布关联的规则ID */
+  /** PPE and grey release associated rule IDs */
   rule_id?: string;
-  /** PPE预发布，表示泳道名字 */
+  /** PPE pre-release, indicating lane names */
   x_tt_env?: string;
-  /** [Deprecated]灰度id列表，VersionType=Gray时用(灰度id列表) */
+  /** [Deprecated] grey release id list, used when VersionType = Gray (grey release id list) */
   gray_id_list?: Array<string>;
-  /** 发布时候的id */
+  /** ID at time of publication */
   publish_id?: string;
-  /** 是否支持回滚 */
+  /** Whether to support rollback */
   support_rollback?: boolean;
-  /** 灰度配置，VersionType=Gray时使用(支持黑白名单，灰度比例) */
+  /** Grey release configuration, used when VersionType = Gray (supports black and white list, grey release ratio) */
   gray_config?: GrayConfig;
 }
 
 export interface ConnectorInfo {
   id?: string;
-  /** 渠道名 */
+  /** channel name */
   name?: string;
-  /** 渠道图标 */
+  /** channel icon */
   icon?: string;
 }
 
-/** Creator 用户信息
+/** Creator User Information
  NEXT ID: 4 */
 export interface Creator {
   id?: string;
@@ -264,33 +264,33 @@ export interface Creator {
   avatar_url?: string;
 }
 
-/** GrayBucket 百分比灰度配置
+/** GrayBucket percentage grey release configuration
  NEXT ID: 4 */
 export interface GrayBucket {
-  /** 灰度计算字段 */
+  /** Grey release calculation field */
   field?: GrayField;
-  /** 灰度比例, 取[0, size]的大小 */
+  /** Grey release ratio, take the size of [0, size] */
   in_gray?: number;
-  /** bucket 大小, 默认10000 */
+  /** Bucket size, default 10000 */
   size?: number;
 }
 
-/** GrayConfig 灰度配置
- 目前顺序为 BlockList -> AllowList -> Bucket的校验顺序
+/** GrayConfig grey release configuration
+ The current order is BlockList - > AllowList - > Bucket's check order
  NEXT ID: 4 */
 export interface GrayConfig {
-  /** 在blockList中的表示不命中 */
+  /** Representation misses in blockList */
   block_list?: BlockList;
-  /** 在allowList中的表示命中，未命中的走bucket */
+  /** Hit and miss buckets in allowList */
   allow_list?: AllowList;
-  /** 百分比灰度配置 */
+  /** Percent grey release configuration */
   bucket?: GrayBucket;
 }
 
 export interface GrayField {
-  /** 灰度字段类型 */
+  /** Grey release field type */
   type: GrayFieldType;
-  /** 自定义字段json path */
+  /** Custom field json path */
   custom_field_path?: string;
 }
 /* eslint-enable */

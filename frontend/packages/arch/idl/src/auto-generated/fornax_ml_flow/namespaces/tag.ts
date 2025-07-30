@@ -39,40 +39,40 @@ export enum ChangeTargetType {
 }
 
 export enum OperationType {
-  /** 创建 */
+  /** create */
   Create = 1,
-  /** 更新 */
+  /** update */
   Update = 2,
-  /** 删除 */
+  /** delete */
   Delete = 3,
 }
 
 export enum TagStatus {
-  /** 启用 */
+  /** enable */
   Active = 1,
-  /** 禁用 */
+  /** disable */
   Inactive = 2,
-  /** 弃用,旧版本状态 */
+  /** Deprecated, old version status */
   Deprecated = 99,
 }
 
 export enum TagType {
-  /** 标签类型 */
+  /** label type */
   Tag = 1,
-  /** 单选类型 */
+  /** radio type */
   Option = 2,
 }
 
 export interface ChangeLog {
-  /** 变更的属性 */
+  /** changed properties */
   target?: ChangeTargetType;
-  /** 变更类型: create, update, delete */
+  /** Change type: create, update, delete */
   operation?: OperationType;
-  /** 变更前的值 */
+  /** Value before change */
   beforValue?: string;
-  /** 变更后的值 */
+  /** Changed value */
   afterValue?: string;
-  /** 变更属性的值：如果是标签选项变更，该值为变更属选项值名字 */
+  /** Change the value of the attribute: If the label option is changed, the value is the name of the changed attribute option value */
   targetValue?: string;
 }
 
@@ -80,24 +80,24 @@ export interface TagInfo {
   ID?: string;
   appID?: number;
   spaceID?: string;
-  /** 数字版本号 */
+  /** digital version number */
   versionNum?: number;
-  /** SemVer 三段式版本号 */
+  /** SemVer three-stage version number */
   version?: string;
   /** tag key id */
   tagKeyID?: string;
   /** tag key name */
   tagKeyName?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 状态，启用active、禁用inactive、弃用deprecated(最新版之前的版本的状态) */
+  /** Status, enabled active, disabled inactive, deprecated (status of versions prior to the latest version) */
   status?: TagStatus;
-  /** 类型: tag: 标签管理中的标签类型; option: 临时单选类型 */
+  /** Type: tag: tag type in tag management; option: temporary radio type */
   tagType?: TagType;
   parentTagKeyID?: string;
-  /** 标签值 */
+  /** label value */
   tagValues?: Array<TagValue>;
-  /** 变更历史 */
+  /** change history */
   changeLogs?: Array<ChangeLog>;
   createdBy?: string;
   createdAt?: string;
@@ -106,29 +106,29 @@ export interface TagInfo {
 }
 
 export interface TagValue {
-  /** 创建时不传 */
+  /** Not passed on when created */
   ID?: string;
-  /** 创建时不传 */
+  /** Not passed on when created */
   appID?: number;
-  /** 创建时不传 */
+  /** Not passed on when created */
   spaceID?: string;
-  /** 创建时不传 */
+  /** Not passed on when created */
   tagKeyID?: string;
-  /** 创建时不传 */
+  /** Not passed on when created */
   tagValueID?: string;
-  /** 标签值 */
+  /** label value */
   tagValueName?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 状态，启用active、禁用inactive、弃用deprecated(最新版之前的版本的状态) */
+  /** Status, enabled active, disabled inactive, deprecated (status of versions prior to the latest version) */
   status?: TagStatus;
-  /** 数字版本号 */
+  /** digital version number */
   versionNum?: number;
-  /** 父标签选项的ID */
+  /** ID of parent tag option */
   parentValueID?: string;
-  /** 子标签 */
+  /** child label */
   children?: Array<TagValue>;
-  /** 是否是系统标签而非用户标签 */
+  /** Is it a system label instead of a user label? */
   isSystem?: boolean;
   createdBy?: string;
   createAt?: string;

@@ -33,15 +33,15 @@ export interface Answer {
 }
 
 export interface ChatWithLLMReq {
-  /** 文本内容 */
+  /** text content */
   text?: string;
-  /** 时长 */
+  /** Duration */
   duration?: number;
-  /** 音频 ID */
+  /** Audio ID */
   audio_id?: string;
-  /** 对话 ID */
+  /** Conversation ID */
   conversation_id?: string;
-  /** 消息 ID, 若为空则创建新消息 */
+  /** Message ID, create a new message if empty */
   message_id?: Int64;
   base?: base.Base;
 }
@@ -62,7 +62,7 @@ export interface CheckTextAccuracyReq {
 }
 
 export interface CheckTextAccuracyResp {
-  /** 准确度合格 */
+  /** Qualified accuracy */
   accuracy_qualified?: boolean;
   base_resp?: base.BaseResp;
 }
@@ -70,7 +70,7 @@ export interface CheckTextAccuracyResp {
 export interface CheckUserAudioReq {
   body: Blob;
   'Content-Type': string;
-  /** 3-5仅为声明，不使用，从body的Form中解析 */
+  /** 3-5 Declarations only, not used, parsed from the form of the body */
   audio_body?: string;
   original_content?: string;
   need_check_accuracy?: boolean;
@@ -78,11 +78,11 @@ export interface CheckUserAudioReq {
 }
 
 export interface CheckUserAudioResp {
-  /** 音频id */
+  /** Audio ID */
   audio_id?: Int64;
-  /** 音频文本内容 */
+  /** audio text content */
   text?: string;
-  /** 准确度合格 */
+  /** Qualified accuracy */
   accuracy_qualified?: boolean;
   base_resp?: base.BaseResp;
 }
@@ -98,7 +98,7 @@ export interface CloseConversationResp {
 }
 
 export interface CompleteMeetingReq {
-  /** 学习记录id */
+  /** Learning record ID */
   learning_id: Int64;
   base?: base.Base;
 }
@@ -108,17 +108,17 @@ export interface CompleteMeetingResp {
 }
 
 export interface ContinueMeetingReq {
-  /** 学习记录id */
+  /** Learning record ID */
   learning_id: Int64;
-  /** 题目id */
+  /** Topic ID */
   exercise_id: Int64;
-  /** 题号 */
+  /** title number */
   exercise_seq: Int64;
-  /** 用户答案 */
+  /** User answer */
   user_answer?: string;
-  /** 用户音频id */
+  /** user audio id */
   user_audio_id?: Int64;
-  /** 原句 */
+  /** original sentence */
   original_content: string;
   base?: base.Base;
 }
@@ -137,43 +137,43 @@ export interface CreateConversationReportResp {
   base_resp?: base.BaseResp;
 }
 
-/** 题目 */
+/** title */
 export interface Exercise {
-  /** 题目id */
+  /** Topic ID */
   exercise_id?: Int64;
-  /** 角色id */
+  /** character id */
   role_id?: Int64;
-  /** 题号 */
+  /** title number */
   exercise_seq?: number;
-  /** 题型 */
+  /** question type */
   exercise_type?: common.EnglishExerciseType;
-  /** 原句 */
+  /** original sentence */
   original_content?: string;
-  /** 挖空的题 */
+  /** Hollow question */
   mask_content?: string;
-  /** 选项 */
+  /** option */
   options?: Array<ExerciseOption>;
-  /** 正确答案 */
+  /** correct answer */
   correct_answer?: Array<Answer>;
-  /** 题目音频 */
+  /** title audio */
   exercise_audio?: common.AudioDetail;
-  /** 问题翻译 */
+  /** Problem translation */
   answer_translate?: string;
-  /** 答案解析 */
+  /** answer analysis */
   answer_analysis?: string;
   created_at?: Int64;
   updated_at?: Int64;
 }
 
-/** 题目选项 */
+/** Topic options */
 export interface ExerciseOption {
   content?: string;
 }
 
 export interface GenerateRoleMessageReq {
-  /** 会话id */
+  /** session id */
   conversation_id: Int64;
-  /** 用户回答 */
+  /** User answer */
   user_response?: string;
   base?: base.Base;
 }
@@ -185,7 +185,7 @@ export interface GenerateRoleMessageResp {
 }
 
 export interface GetAISuggestionReq {
-  /** 会话id */
+  /** session id */
   conversation_id: Int64;
   base?: base.Base;
 }
@@ -248,7 +248,7 @@ export interface GetLearningPathResp {
 }
 
 export interface GetMeetingAIChatDetailReq {
-  /** 学习记录id */
+  /** Learning record ID */
   learning_id: Int64;
   base?: base.Base;
 }
@@ -274,7 +274,7 @@ export interface GetMeetingCategoryResp {
 export interface GetMeetingListReq {
   meeting_type: common.MeetingType;
   category_id?: Int64;
-  /** 是否只返回未学习的 */
+  /** Whether to return only unlearned ones */
   only_not_learn?: boolean;
   base?: base.Base;
 }
@@ -352,7 +352,7 @@ export interface GetUserLevelResp {
 }
 
 export interface LeaveAiChatRoomReq {
-  /** 会话id */
+  /** session id */
   conversation_id: Int64;
   base?: base.Base;
 }
@@ -421,7 +421,7 @@ export interface MeetingListItem {
   estimate_duration?: Int64;
   learning_status?: common.MeetingLearningStatus;
   learning_id?: Int64;
-  /** 是否有进行过ai_chat */
+  /** Have any ai_chat */
   has_ai_chat?: boolean;
   max_oral_score?: Int64;
   updated_at?: Int64;
@@ -455,7 +455,7 @@ export interface ResumeConversationResp {
 }
 
 export interface SelectPhaseReq {
-  /** 阶段 id */
+  /** Phase ID */
   phase_id: string;
   base?: base.Base;
 }
@@ -466,7 +466,7 @@ export interface SelectPhaseResp {
 }
 
 export interface StartChatReq {
-  /** 练习 id */
+  /** Practice ID */
   exercise_id: string;
   /** conversation id */
   conversation_id?: Int64;
@@ -483,13 +483,13 @@ export interface StartChatResp {
 }
 
 export interface StartMeetingReq {
-  /** 会议素材id */
+  /** Conference material id */
   meeting_id: Int64;
   base?: base.Base;
 }
 
 export interface StartMeetingResp {
-  /** 学习记录id */
+  /** Learning record ID */
   learning_id?: Int64;
   meeting_detail?: MeetingDetail;
   meeting_role_list?: Array<MeetingRole>;

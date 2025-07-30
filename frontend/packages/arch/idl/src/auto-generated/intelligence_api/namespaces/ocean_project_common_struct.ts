@@ -27,7 +27,7 @@ export enum OceanProjectStatus {
 }
 
 /** *
-和前端交互的视图结构体 */
+View structures that interact with the front end */
 export interface OceanProjectBasicInfo {
   id?: string;
   name?: string;

@@ -95,7 +95,7 @@ export default class FornaxKnowledgeService<T> {
   /**
    * POST /api/devops/knowledge_platform/v1/knowledge/upsert
    *
-   * ============== 平台接口 ==============
+   * ============== Platform Interface ==============
    */
   UpsertKnowledge(
     req?: flow_devops_knowledge_platform.UpsertKnowledgeReq,
@@ -215,7 +215,7 @@ export default class FornaxKnowledgeService<T> {
   /**
    * POST /api/devops/knowledge_platform/v1/retrieve
    *
-   * ============== 召回接口 ==============
+   * ============== recall interface ==============
    */
   Retrieve(
     req?: flow_devops_knowledge_retrive.RetrieveReq,
@@ -336,7 +336,7 @@ export default class FornaxKnowledgeService<T> {
   /**
    * POST /api/devops/knowledge_platform/v1/knowledge_event/callback
    *
-   * ============== 回调接口 ==============
+   * ============== callback interface ==============
    */
   EventCallback(
     req?: flow_devops_knowledge_platform.EventCallbackReq,
@@ -465,7 +465,7 @@ export default class FornaxKnowledgeService<T> {
   /**
    * POST /open-apis/knowledge/v1/data/import_table_entry
    *
-   * ============== OpenAPI接口 ==============
+   * ============== OpenAPI interface ==============
    */
   ImportKnowledgeTableData(
     req?: flow_devops_knowledge_runtime.ImportKnowledgeTableDataReq,

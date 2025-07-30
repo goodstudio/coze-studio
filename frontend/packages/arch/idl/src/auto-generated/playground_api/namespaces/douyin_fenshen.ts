@@ -22,20 +22,20 @@
 export type Int64 = string | number;
 
 export enum DouYinDeployStatus {
-  /** 部署中 */
+  /** Deploying */
   Deploying = 0,
-  /** 部署成功 */
+  /** Successful deployment */
   Successful = 1,
-  /** 部署失败 */
+  /** deployment failed */
   Failed = 2,
 }
 
 export enum DouYinFenShenBindStatus {
-  /** 全部状态 */
+  /** All status */
   All = 0,
-  /** 绑定状态 */
+  /** Binding state */
   Bind = 1,
-  /** 未绑定状态 */
+  /** unbound state */
   UnBind = 2,
 }
 
@@ -60,15 +60,15 @@ export interface DebugDouYinResponse {
 }
 
 export interface DouYinAuthUserInfo {
-  /** 抖音昵称 */
+  /** Douyin nickname */
   nickname: string;
-  /** 抖音头像 */
+  /** Douyin avatar */
   icon: string;
-  /** 分身应用appId */
+  /** doppelganger app */
   app_id: string;
-  /** 授权时间 */
+  /** authorization time */
   create_time: string;
-  /** 绑定状态 1绑定 2未绑定 */
+  /** Binding Status 1 Bound 2 Unbound */
   bind_status: DouYinFenShenBindStatus;
 }
 
@@ -78,13 +78,13 @@ export interface DouYinAuthUserListData {
 }
 
 export interface DouYinAuthUserListRequest {
-  /** 从1开始 */
+  /** Start from 1 */
   page_index: number;
-  /** 最大50 */
+  /** Up to 50 */
   page_size: number;
-  /** 绑定状态，默认全部 */
+  /** Binding status, default all */
   bind_status?: DouYinFenShenBindStatus;
-  /** 排序，默认按照创建时间 */
+  /** Sort by creation time by default */
   order_by?: DouYinFenShenOrderBy;
 }
 
@@ -105,9 +105,9 @@ export interface DouYinCallbackResponse {
 }
 
 export interface GetDouYinAppAuthTokenRequest {
-  /** 抖音分身关联的对象ID */
+  /** The object ID associated with the Douyin doppelganger */
   AssociateEntityId: Int64;
-  /** 抖音分身ID */
+  /** Douyin doppelganger ID */
   AppId?: string;
 }
 
@@ -119,9 +119,9 @@ export interface GetDouYinAppAuthTokenResponse {
 }
 
 export interface GetDouYinAuthCodeData {
-  /** 授权码链接对应的二维码，使用base64转换成图片后扫码 */
+  /** The QR code corresponding to the authorization code link, use base64 to convert it into a picture and scan the code. */
   qr_code_pic_base64: string;
-  /** 授权二维码过期时间，秒级时间戳 */
+  /** Authorization QR code expiration time, second timestamp */
   expires_in: string;
 }
 
@@ -134,18 +134,18 @@ export interface GetDouYinAuthCodeResponse {
 }
 
 export interface GetDouyinAvatarInfoData {
-  /** bot_common.botInfo 的 json string */
+  /** bot_common json string for botInfo */
   bot_info?: string;
-  /** 模型映射 key = model_id value = 抖音ep_name */
+  /** Model mapping key = model_id value = Douyin ep_name */
   model_info?: Record<string, string>;
-  /** 模型能力 key = model_id value = model_manage返回的model_desc结构序列化 */
+  /** Model capability key = model_id value = model_manage model_desc structure serialization returned */
   model_desc?: Record<string, string>;
 }
 
 export interface GetDouyinAvatarInfoRequest {
-  /** 分身应用app_id 从请求的header = Open-Platform-App-ID 中解出 */
+  /** The doppelganger application app_id extracted from the request header = Open-Platform-App-ID */
   'Open-Platform-App-ID'?: string;
-  /** 是否草稿 */
+  /** Is it a draft? */
   is_draft?: boolean;
   body?: Blob;
   'Byte-Signature'?: string;

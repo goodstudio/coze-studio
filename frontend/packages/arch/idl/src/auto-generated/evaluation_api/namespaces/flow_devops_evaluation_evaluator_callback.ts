@@ -24,30 +24,30 @@ import * as flow_devops_evaluation_callback_common from './flow_devops_evaluatio
 export type Int64 = string | number;
 
 /** https://lilianweng.github.io/posts/2023-06-23-agent/agent-overview.png
- Agent 包含：Planning、Memory、Tools 等。
- 这里 Action 泛指 Agent 下的各种子组件的类型的执行 */
+ Agents include: Planning, Memory, Tools, etc.
+ Here Action refers to the execution of various subcomponents under the Agent */
 export enum ActionType {
   Unknown = 0,
   LLMPlanning = 1,
   ToolCall = 2,
-  /** coze agent 思考过程 */
+  /** Cozing agent thought process */
   CozeVerbose = 100,
 }
 
 export enum BuiltinEvaluatorType {
-  /** 以用户定制输入的 PromptTemplate 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** Using the PromptTemplate input by the user as the configuration information of the evaluator, the input and output of the evaluation object are evaluated */
   Prompt = 1,
-  /** 以用户定制输入的 Python Code 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** The user-customized input Python Code is used as the configuration information of the evaluator to evaluate the input and output of the evaluation object */
   PythonCode = 2,
-  /** 以用户定制输入的 JS Code 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** Using the JS Code input by the user as the configuration information of the evaluator, the input and output of the evaluation object are evaluated */
   JSCode = 3,
-  /** 人工评测 */
+  /** manual evaluation */
   Manual = 7,
-  /** prompt开发中的prompt */
+  /** Prompt in development */
   FornaxPrompt = 10,
-  /** coze2.0 裁判模型评估器 */
+  /** Coze2.0 referee model evaluator */
   CozePrompt = 11,
-  /** 以用户定制输入的 Func 静态参数 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** The input and output of the evaluation object are evaluated by using the Func static parameters input by the user as the configuration information of the evaluator */
   BuiltinEquals = 10000,
   BuiltinNotEquals = 10001,
   BuiltinContains = 10002,
@@ -89,58 +89,58 @@ export enum BuiltinEvaluatorType {
   BuiltinDetailCriteriaEval = 20012,
   /** must labeled, CotQA */
   BuiltinCorrectnessEval = 20013,
-  /** 语言一致性 */
+  /** language consistency */
   BuiltinSpecTestLanguageConsistency = 20014,
-  /** 回复拒答检查 */
+  /** Reply to Refuse Check */
   BuiltinSpecTestResponseDenialCheck = 20015,
-  /** 内容真实性 */
+  /** content authenticity */
   BuiltinSpecTestContentAuthenticity = 20016,
-  /** 内容准确性 */
+  /** content accuracy */
   BuiltinSpecTestContentAccuracy = 20017,
-  /** 满足需求性 */
+  /** Meet demand */
   BuiltinSpecTestNeedFulfillment = 20018,
-  /** 回复时效性 */
+  /** timeliness of reply */
   BuiltinSpecTestResponseTimeliness = 20019,
-  /** 回复冗余性 */
+  /** redundancy of recovery */
   BuiltinSpecTestResponseRedundancy = 20020,
-  /** 符合人设 */
+  /** fit the character */
   BuiltinSpecTestCharacterConsistency = 20021,
-  /** 拟人程度 */
+  /** degree of anthropomorphism */
   BuiltinSpecTestAnthropomorphismLevel = 20022,
-  /** 输入-输出语义相似度 */
+  /** input-output semantic similarity */
   BuiltinSpecTestIOSematicSimilarity = 20023,
-  /** 答案-输出语义相似度 */
+  /** Answer - output semantic similarity */
   BuiltinSpecTestAOSematicSimilarity = 20024,
-  /** 生图一致性 */
+  /** graph consistency */
   BuiltinSpecTestImageGenerationConsistency = 20025,
-  /** 图片美观性 */
+  /** Image aesthetics */
   BuiltinSpecTestImageAesthetics = 20026,
-  /** 回复完整性 */
+  /** reply integrity */
   BuiltinSpecTestResponseCompleteness = 20027,
-  /** 文生图完整性 */
+  /** Text-to-Image Integrity */
   BuiltinSpecTestTextToImageGenerationCompleteness = 20028,
-  /** 代码生成质量 */
+  /** code generation quality */
   BuiltinSpecTestCodeGenerationScoring = 20029,
-  /** 插件调用正确性 for coze bot */
+  /** Calling correctness for coze bots */
   BuiltinSpecTestPluginCallingCorrectness = 20030,
-  /** 插件入参正确性 for coze bot */
+  /** Correctness of imported parameters for cozed bots */
   BuiltinSpecTestPluginParametersCorrectness = 20031,
-  /** Workflow调用正确性 for coze bot */
+  /** Workflow call correctness for coze bots */
   BuiltinSpecTestWorkflowCallingCorrectness = 20032,
-  /** Workflow入参正确性 for coze bot */
+  /** Workflow imported parameter correctness for cozing bots */
   BuiltinSpecTestWorkflowParametersCorrectness = 20033,
-  /** 触发器调用正确性 for coze bot */
+  /** Trigger call correctness for coze bots */
   BuiltinSpecTestTriggerCallingCorrectness = 20034,
-  /** 触发器入参正确性 for coze bot */
+  /** Correctness of imported parameters for cozed bots */
   BuiltinSpecTestTriggerParametersCorrectness = 20035,
-  /** 流程编排准确性 for coze bot */
+  /** Coze bots for process orchestration accuracy */
   BuiltinSpecTestChoreographyAccuracy = 20036,
-  /** Fornax prompt 泄露检测 */
+  /** Fornax prompt leak detection */
   BuiltinFornaxPromptLeakDetection = 20200,
-  /** 自定义指标
-系统内置指标 */
+  /** custom metrics
+System built-in indicators */
   BuiltinDefaultMetric = 30001,
-  /** 用户上报自定义指标 */
+  /** User reporting custom metrics */
   BuiltinCustomMetric = 30002,
 }
 
@@ -152,7 +152,7 @@ export enum EvaluatorState {
 /** A full description of an action for an Agent to execute. */
 export interface AgentAction {
   agent_type?: ActionType;
-  /** 本次执行工具的标识、名称等信息。由评测对象接入方自主定义其格式 */
+  /** The identification, name and other information of the execution tool this time. The format is independently defined by the access party of the evaluation object */
   action_meta?: string;
   /** Additional information to log about the action.
 This log can be used in a few ways. First, it can be used to audit
@@ -173,36 +173,36 @@ this field is mainly used to show more information for human */
 
 export interface Evaluator {
   type?: Int64;
-  /** 在评估器管理平台上注册时，提供了需要透传的 RuleMeta 信息。 建议采用 JSON 序列化 */
+  /** When registering on the evaluator management platform, RuleMeta information that needs to be passed through is provided. JSON serialization is recommended */
   evaluator_meta?: string;
 }
 
-/** 以一行数据集为例：
-列名：      input             output         context              person
-列值：  "我适合什么样的工作"   "你适合休息"   "不喜欢挑战、不喜欢出力"   "{性别：男， 年龄：18， 文凭：名牌大学毕业}"
-Input 参数构建：
-  Input: "我适合什么样的工作"
-  Variables: map{ context: "不喜欢挑战、不喜欢出力", person: "{性别：男， 年龄：18， 文凭：名牌大学毕业}" }
+/** Take a one-row dataset as an example:
+Column name: input output context person
+Column value: "What kind of job is suitable for me" "You are suitable for rest" "I don't like challenges and don't like to contribute" "{Gender: Male, Age: 18, Diploma: Graduated from a famous university}"
+Input parameter construction:
+  Input: "What kind of job is suitable for me"
+  Variables: map {context: "I don't like challenges, I don't like to contribute", person: "{Gender: Male, Age: 18, Diploma: Graduated from a famous university}"}
   Histories: null */
 export interface Input {
-  /** 数据集中的 input 列，一般代表评测Case中的用户输入 */
+  /** The input column in the dataset, typically representing the user input in the evaluation Case */
   input?: string;
-  /** 数据集中，除 input、output 列之外，其他所有的列均视为是 Variable，列名作为 key、列值作为 value */
+  /** In the dataset, all columns except the input and output columns are regarded as Variables, with the column name as the key and the column value as the value. */
   variables?: Record<string, flow_devops_evaluation_callback_common.Content>;
-  /** 多轮评测场景中，数据集中的一行数据中又可拆分成 n 轮评测输入。
-在第 n 轮的评测中，Histories 传入 [1 ~ n-1] 的信息，采用 Json 序列化。 第 n 轮的信息由 Input 字段传入
-此处前 n-1 轮的信息，采用 Json 序列化。序列化的 Schema 由评测任务制定，由评估器进行解析使用
-例如：
-Input: "我今天出门适合什么穿搭？"
-Histories：[{ "human": "我在XX市XX区，今天天气怎么样", "assistant": "经过查询天气API，今天有雷阵雨，5级大风，温度5度左右" }] */
+  /** In the multi-round evaluation scenario, one row of data in the dataset can be divided into n rounds of evaluation input.
+In the nth round of evaluation, Histories passes in the information of [1~ n-1], using Json serialization. The information of the nth round is passed in by the Input field
+The information in the first n-1 rounds here is serialized by Json. The serialized schema is formulated by the evaluation task and parsed and used by the evaluator
+For example:
+Input: "What do I wear when I go out today?"
+Histories: [{"human": "I'm in XX District, XX City, what's the weather like today", "assistant": "After checking the weather API, there are thundershowers today, a level 5 gale, and the temperature is about 5 degrees"}] */
   histories?: Array<flow_devops_evaluation_callback_common.Message>;
-  /** 数据集中的 output 列，一般代表评测Case中, 预期评测对象要产生的输出，通常作为评测的 Reference。 可以是 string，也可以是 Json 序列化 */
+  /** The output column in the dataset, which generally represents the output expected to be produced by the evaluation object in the evaluation Case, and is usually used as the Reference for the evaluation. It can be a string or a Json serialization. */
   output?: string;
-  /** 评估对象的输出信息。评估器会以数据集中 output 列为基准，对评估对象输出的 Prediction 进行评测
-Prediction 可以是 string、也可以是 JSON 结构体，需要与评估器对齐解析方式 */
+  /** The output information of the evaluation object. The evaluator will use the output in the dataset as a benchmark to evaluate the Prediction of the output of the evaluation object
+Prediction can be a string or a JSON structure, which needs to be aligned with the evaluator */
   prediction?: string;
-  /** 非文本模态时，评估器会以 output_v2 为基准，对评估对象输出的 prediction_v2 进行评测
-文本模态时，可以继续使用 1~5 号字段 */
+  /** In non-text mode, the evaluator will evaluate the prediction_v2 of the evaluation object output based on output_v2
+When in text mode, you can continue to use fields 1 to 5 */
   input_v2?: flow_devops_evaluation_callback_common.Content;
   output_v2?: flow_devops_evaluation_callback_common.Content;
   prediction_v2?: flow_devops_evaluation_callback_common.Content;
@@ -210,44 +210,44 @@ Prediction 可以是 string、也可以是 JSON 结构体，需要与评估器�
 }
 
 export interface Metrics {
-  /** 运行开始时间 */
+  /** run start time */
   start_time?: Int64;
-  /** 运行结束时间 */
+  /** run end time */
   end_time?: Int64;
 }
 
 export interface Result {
-  /** 规则运行状态 */
+  /** rule running status */
   state: EvaluatorState;
-  /** 报错时的信息 */
+  /** Information at the time of error */
   err_msg?: string;
-  /** 打分结果 */
+  /** scoring result */
   score?: number;
-  /** 打分过程与结果相关信息 */
+  /** Information on the scoring process and results */
   reasoning?: string;
   usage?: Usage;
   metrics?: Metrics;
-  /** 冗余，暂无使用场景 */
+  /** Redundancy, no usage scenarios yet */
   ext?: Record<string, string>;
 }
 
 export interface RuleConfig {
-  /** ID 用于定位一个 JSON Schema, 来解析下面的 string JSON content */
+  /** ID is used to locate a JSON Schema to parse the following string JSON content */
   id: Int64;
-  /** 用户选定评估器时，需要提供该评估器的配置内容，方能组合成一条可正常运行的 Rule
-每个评估器的配置内容，是由评估器提供方定义的。评估器管理平台回调评估器时，需要根据评估器要求的 JSON Schema，构造配置内容 */
+  /** When the user selects an evaluator, they need to provide the configuration content of the evaluator in order to combine it into a working rule.
+The configuration content of each evaluator is defined by the evaluator provider. When the evaluator manages the platform to call back the evaluator, it needs to construct the configuration content according to the JSON Schema required by the evaluator */
   data: string;
 }
 
 export interface Trajectory {
-  /** 端到端测试时，评测对象内部执行的每一步的 Action 信息
-list 中的 index 代表评测对象执行时，观测到的 Step
-注：随着观测节点的增加，一个 AgentAction 所处的 step 会发生变化 */
+  /** In end-to-end testing, action information for each step performed within the object is evaluated
+The index in the list represents the observed Steps when the evaluation object is executed
+Note: As the number of observation nodes increases, the step of an AgentAction will change */
   actions?: Array<AgentAction>;
 }
 
 export interface Usage {
-  /** 计费信息。一次评估对象Playground执行时，内部总的输入、输出的Tokens的消耗 */
+  /** Billing information. The consumption of internal total input and output tokens when an evaluation object Playground is executed */
   input_tokens?: Int64;
   output_tokens?: Int64;
 }

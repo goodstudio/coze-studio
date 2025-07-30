@@ -27,14 +27,14 @@ export enum Action {
   Revoke = 2,
 }
 
-/** 主体类型 */
+/** subject type */
 export enum AuthPrincipalType {
   Undefined = 0,
-  /** 用户 */
+  /** user */
   User = 1,
-  /** 部门 */
+  /** department */
   Department = 2,
-  /** Coze标识 */
+  /** Coze logo */
   CozeIdentifier = 3,
 }
 
@@ -45,7 +45,7 @@ export enum Connector {
   gitlab = 3,
 }
 
-/** 资源类型 */
+/** resource type */
 export enum ResourceType {
   Undefined = 0,
   Space = 1,
@@ -57,43 +57,43 @@ export enum ResourceType {
 }
 
 export enum TenantType {
-  /** 字节 */
+  /** Byte */
   ByteDance = 0,
-  /** 懂车帝 */
+  /** Dcar */
   Dcar = 1,
 }
 
-/** 操作信息 */
+/** operation information */
 export interface AuthAction {
-  /** 唯一标识 */
+  /** unique identifier */
   unique_key?: string;
-  /** 操作展示名称 */
+  /** Operation display name */
   name?: string;
-  /** 实体类型，世纪不绑定实体，仅记录操作对象 */
+  /** Entity type, century does not bind entities, only records operation objects */
   entity_type?: string;
 }
 
-/** Coze标识 */
+/** Coze logo */
 export interface AuthCozeIdentifier {
-  /** 身份票据 */
+  /** identity ticket */
   identity_ticket?: string;
 }
 
-/** 鉴权部门 */
+/** authentication department */
 export interface AuthDepartment {
-  /** 部门ID */
+  /** Department ID */
   department_id?: string;
 }
 
-/** 鉴权资源，客体 */
+/** Authentication resources, objects */
 export interface AuthEntity {
-  /** 实体唯一ID */
+  /** entity unique ID */
   id?: string;
-  /** 实体类型 */
+  /** entity type */
   entity_type?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
-  /** 实体owner用户ID */
+  /** Entity owner user ID */
   owner_user_id?: string;
 }
 
@@ -105,37 +105,37 @@ export interface AuthorizationRecord {
   is_expired?: boolean;
 }
 
-/** 鉴权主体 */
+/** Authentication subject */
 export interface AuthPrincipal {
-  /** 主体类型 */
+  /** subject type */
   auth_principal_type?: AuthPrincipalType;
-  /** 鉴权用户 */
+  /** authenticated user */
   auth_user?: AuthUser;
-  /** 鉴权部门 */
+  /** authentication department */
   auth_department?: AuthDepartment;
-  /** Coze标识 */
+  /** Coze logo */
   auth_coze_identifier?: AuthCozeIdentifier;
 }
 
-/** 角色信息 */
+/** Role Information */
 export interface AuthRole {
-  /** 唯一标识 */
+  /** unique identifier */
   unique_key?: string;
-  /** 角色展示名称 */
+  /** character display name */
   name?: string;
-  /** 关联的Action列表 */
+  /** Associated Action List */
   actions?: Array<AuthAction>;
-  /** 实体类型 */
+  /** entity type */
   entity_type?: string;
 }
 
-/** 鉴权用户 */
+/** authenticated user */
 export interface AuthUser {
-  /** 邮箱前缀，与FornaxUserID传一个即可 */
+  /** Email prefix, just send one with FornaxUserID. */
   sso_username?: string;
-  /** Fornax用户ID */
+  /** Fornax User ID */
   fornax_user_id?: string;
-  /** 租户类型 */
+  /** tenant type */
   tenant?: TenantType;
 }
 
@@ -154,31 +154,31 @@ export interface ServiceAccount {
   secretKeyCipher?: string;
 }
 
-/** 主体+客体+权限点，鉴权结果 */
+/** Subject + object + permission spot, authentication result */
 export interface SubjectActionObjectAuthRes {
-  /** 主体+客体+权限点 鉴权对 */
+  /** Subject + object + permission spot authentication pair */
   subject_action_objects?: SubjectActionObjects;
-  /** 是否允许 */
+  /** Is it allowed? */
   is_allowed?: boolean;
 }
 
-/** 主体+客体+权限点，鉴权组合信息 */
+/** Subject + object + permission spot, authentication combination information */
 export interface SubjectActionObjects {
-  /** 主体，鉴权时通常为用户 */
+  /** Subject, usually the user when authenticating */
   subject?: AuthPrincipal;
-  /** 权限唯一标识 */
+  /** permission unique identifier */
   action?: string;
-  /** 客体列表，默认按照或的逻辑处理 */
+  /** Object list, handled by default according to the logic of or */
   objects?: Array<AuthEntity>;
 }
 
-/** 主体+客体+角色 */
+/** Subject + Object + Role */
 export interface SubjectRoleObject {
-  /** 主体，授权时可以时用户或部门 */
+  /** Principal, when authorized, user or department */
   subject?: AuthPrincipal;
-  /** 角色信息 */
+  /** Role Information */
   role?: AuthRole;
-  /** 客体 */
+  /** object */
   object?: AuthEntity;
 }
 

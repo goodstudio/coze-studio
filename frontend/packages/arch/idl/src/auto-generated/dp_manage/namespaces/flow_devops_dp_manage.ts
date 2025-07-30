@@ -25,14 +25,14 @@ import * as multi_version from './multi_version';
 
 export type Int64 = string | number;
 
-/** 分支 */
+/** branch */
 export enum Branch {
   Undefined = 0,
-  /** 草稿 */
+  /** draft */
   PersonalDraft = 1,
-  /** space草稿 */
+  /** Space draft */
   Base = 2,
-  /** 发布版本 */
+  /** release version */
   Publish = 3,
 }
 
@@ -42,13 +42,13 @@ export enum DiffActionType {
   Delete = 2,
   Modify = 3,
   Remove = 4,
-  /** 不变，空更新 */
+  /** No change, empty update */
   Remain = 5,
 }
 
-/** - env boe-online环境的隔离(暂无)
- - publish 草稿态-发布态的隔离
- - version 版本之间的隔离，个人草稿之间，不同渠道之间都属于这个粒度 */
+/** - Isolation of env boe-online environment (not yet available)
+ - publish draft state - publish state isolation
+ - Isolation between versions, between individual drafts, between different channels all belong to this granularity */
 export enum DiffIsolation {
   Env = 10,
   Publish = 20,
@@ -66,7 +66,7 @@ export enum DiffScene {
 
 export enum DiffStyle {
   Default = 0,
-  /** 文本详情 */
+  /** Text Details */
   TextDetail = 1,
 }
 
@@ -109,11 +109,11 @@ export interface ArenaChatStreamReq {
   user?: string;
   query: string;
   extra?: Record<string, string>;
-  /** 文件 file 图片 image 等 */
+  /** Files files pictures images etc */
   content_type?: string;
-  /** 重试消息id */
+  /** Retry message id */
   regen_message_id?: string;
-  /** 前端本地的message_id 在extra_info 里面透传返回 */
+  /** The local message_id on the front end is passed back in the extra_info */
   local_message_id?: string;
   insert_history_message_list?: Array<string>;
   device_id?: string;
@@ -137,12 +137,12 @@ export interface ArenaGetConfResp {
 }
 
 export interface ArenaGetConfRespData {
-  /** 空bot的product id */
+  /** Empty bot product id */
   blank_bot_product_id?: string;
   bot_types?: Array<model_arena.ArenaBotType>;
   question_bank_types?: Array<model_arena.ArenaQuestionBankType>;
   leaderboards?: Array<model_arena.ArenaLeaderboardBasic>;
-  /** 是否有权限查看排行榜 */
+  /** Do you have permission to view the leaderboard? */
   access_to_leaderboard?: boolean;
 }
 
@@ -159,7 +159,7 @@ export interface ArenaGetModelListResp {
 }
 
 export interface ArenaGetModelListRespData {
-  /** 模型信息 */
+  /** model information */
   models?: Array<model_arena.ArenaModel>;
 }
 
@@ -179,18 +179,18 @@ export interface ArenaLeaderBoardGetResp {
 }
 
 export interface ArenaLeaderBoardGetRespData {
-  /** 榜单公开时间 */
+  /** List opening time */
   reveal_time?: string;
-  /** 按照1-n排名的顺序返回 */
+  /** Return in order of 1-n rank */
   ranks?: Array<model_arena.ArenaRank>;
-  /** 本期榜单的投票统计截止时间 */
+  /** Voting statistics deadline for this list */
   data_ddl_time?: string;
-  /** 投票数 */
+  /** Votes */
   vote_count?: string;
 }
 
 export interface ArenaLeaderboardGetV2Req {
-  /** 排行榜id */
+  /** leaderboard id */
   id?: string;
   Host?: string;
   Base?: base.Base;
@@ -242,7 +242,7 @@ export interface ArenaRandQuestionResp {
 
 export interface ArenaRandQuestionRespData {
   questions?: Array<model_arena.ArenaQuestion>;
-  /** 数组内的seqid=req中的seqid+本次随机到的seqid */
+  /** Seqid in the array = seqid in req + seqid randomly arrived this time. */
   used_seq_id_list?: Array<number>;
 }
 
@@ -310,11 +310,11 @@ export interface ArenaVoteRespData {
 export interface BotDiff3WayReq {
   space_id: string;
   bot_id: string;
-  /** 当前用户草稿 */
+  /** current user draft */
   current_version: BotVersion;
-  /** 目标space草稿 */
+  /** Target space draft */
   target_version: BotVersion;
-  /** 文本行级diff时传diff_template_v2 */
+  /** Text line level diff diff_template_v2 */
   template_key?: string;
   Base?: base.Base;
 }
@@ -328,11 +328,11 @@ export interface BotDiff3WayResp {
 
 export interface BotDiff3WayRespDate {
   diff_res?: Array<DiffDisplay3WayNode>;
-  /** bot的详情，merge时用 */
+  /** Details of the bot, used when merging */
   origin_bot_dl: string;
-  /** 目标分支的版本号 */
+  /** The version number of the target branch */
   target_version: string;
-  /** 最新的公共草稿的版本 */
+  /** The latest version of the public draft */
   latest_commit_version?: string;
   BaseResp?: base.BaseResp;
 }
@@ -343,7 +343,7 @@ export interface BotDiffReq {
   left: BotVersion;
   right: BotVersion;
   filter?: DiffFilter;
-  /** 草稿diff时传diff_template_v2，发布diff时传diff_template_when_publish_v2 */
+  /** diff_template_v2 when the draft diff is issued, and diff_template_when_publish_v2 when the diff is issued */
   template_key?: string;
   Base?: base.Base;
 }
@@ -358,7 +358,7 @@ export interface BotDiffResp {
 export interface BotDiffRespData {
   diff_display_node?: Array<DiffDisplayNode>;
   origin_bot_dl: string;
-  /** 公共分支的版本号 */
+  /** The version number of the public branch */
   target_version?: string;
 }
 
@@ -418,7 +418,7 @@ export interface CozeIDEPluginFgResponse {
 }
 
 export interface CreateArenaPKReq {
-  /** 当随机bot or 选择bot时，下方所有参数都必填；当直接评测模型时，都不用填 */
+  /** When selecting a random bot or bot, all parameters below are required; when evaluating the model directly, they are not required */
   product_id?: string;
   bot_id?: string;
   bot_version?: string;
@@ -444,46 +444,46 @@ export interface CreateArenaPKRespData {
 }
 
 export interface DiffDisplay3WayNode {
-  /** 节点展示名称 */
+  /** Node display name */
   display_name: string;
-  /** 当前分支相对公共祖先，该节点发生的变化 */
+  /** Changes to the current branch relative to the common ancestor */
   diff_res_current?: DiffDisplayAction;
-  /** 目标合入分支相对公共祖先，该节点发生的变化 */
+  /** The change of the target joining branch relative to the common ancestor */
   diff_res_target?: DiffDisplayAction;
-  /** 子节点列表 */
+  /** sub-node list */
   sub_nodes?: Array<DiffDisplay3WayNode>;
-  /** 该节点是否冲突 */
+  /** Does the node conflict? */
   is_conflict?: boolean;
 }
 
 export interface DiffDisplayAction {
   action: DiffActionType;
-  /** 用于前端展示的旧值 */
+  /** Old value for front-end display */
   display_left?: string;
-  /** 用于前端展示的新值，如果旧值和新值都为空字符串，则不展示 */
+  /** The new value used for front-end display, if both the old value and the new value are empty strings, it will not be displayed */
   display_right?: string;
-  /** 透传即可，后端UpdateBotDraft时需用到 */
+  /** Pass-through is enough, it needs to be used when the backend UpdateBotDraft is used. */
   origin_left?: string;
-  /** 透传即可，后端UpdateBotDraft时需用到 */
+  /** Pass-through is enough, it needs to be used when the backend UpdateBotDraft is used. */
   origin_right?: string;
-  /** 记录用户的merge结果 */
+  /** Record user merge results */
   selected_value?: string;
-  /** 透传即可，后端UpdateBotDraft时需用到 */
+  /** Pass-through is enough, it needs to be used when the backend UpdateBotDraft is used. */
   json_path?: string;
-  /** 如果有此值，最终展示以该字段为准 */
+  /** If there is this value, the final display is subject to this field. */
   overwrite_display?: string;
-  /** diff风格，为1时说明当前节点支持查看文本详情的diff */
+  /** Diff style, when 1, indicating that the current node supports diff for viewing text details */
   diff_style?: DiffStyle;
-  /** 手动merge时merge结果记录在这个字段中，此时不需要赋值selectedValue */
+  /** When merging manually, the merge result is recorded in this field, and there is no need to assign selectedValue at this time. */
   manual_merge_value?: string;
 }
 
 export interface DiffDisplayNode {
-  /** 节点展示名称 */
+  /** Node display name */
   display_name: string;
-  /** 该节点发生的变化 */
+  /** Changes to this node */
   diff_res?: DiffDisplayAction;
-  /** 子节点列表 */
+  /** sub-node list */
   sub_nodes?: Array<DiffDisplayNode>;
 }
 
@@ -505,15 +505,15 @@ export interface GetDiffRespData {
 export interface GetMultiVersionActiveListRequest {
   space_id: Int64;
   bot_id: Int64;
-  /** 默认从0开始 */
+  /** Default starts from 0 */
   page?: number;
-  /** 默认20条 */
+  /** Default 20 */
   size?: number;
-  /** 发布类型 */
+  /** post type */
   version_type?: multi_version.VersionType;
-  /** 查询发布类型 */
+  /** query publish type */
   query_type?: multi_version.VersionType;
-  /** 指定生效的版本, commitVersion */
+  /** Specify the effective version, commitVersion */
   version?: Int64;
   Base?: base.Base;
 }
@@ -583,11 +583,11 @@ export interface InactivateMultiVersionResponse {
 }
 
 export interface ListArenaBotReq {
-  /** 1选填，不传就代表获得全部类型，1-3一起使用，分页获得全部or某种类型的bot列表 */
+  /** 1 Optional, if you don't pass it, it means you get all types. Use 1-3 together to get a list of all or certain types of bots by pagination. */
   bot_type_id?: string;
   page_size?: number;
   page_number?: number;
-  /** 4单独使用，获得所有分类，且每个分类随机返回3个bot */
+  /** 4 Used alone, get all categories, and randomly return 3 bots for each category */
   rand3?: boolean;
   Base?: base.Base;
 }
@@ -618,9 +618,9 @@ export interface ListCurrentPublishVersionsResponse {
 export interface ListHistoryVersionsRequest {
   space_id: Int64;
   bot_id: Int64;
-  /** 不传则返回所有类型的 */
+  /** If not passed, all types of */
   version_types?: Array<multi_version.HistoryVersionType>;
-  /** 不传则返回所有渠道 */
+  /** If not passed on, return to all channels */
   connector_ids?: Array<string>;
   Base?: base.Base;
 }
@@ -633,9 +633,9 @@ export interface ListHistoryVersionsResponse {
 export interface ListOperationHistoryRequest {
   space_id: Int64;
   bot_id: Int64;
-  /** 不传则返回所有类型的 */
+  /** If not passed, all types of */
   version_types?: Array<multi_version.HistoryVersionType>;
-  /** 不传则返回所有渠道 */
+  /** If not passed on, return to all channels */
   connector_ids?: Array<string>;
   Base?: base.Base;
 }
@@ -676,17 +676,17 @@ export interface PublishMultiVersionRequest {
   bot_id: Int64;
   connector_ids: Array<string>;
   version_type: multi_version.VersionType;
-  /** 发布幂等 */
+  /** publish idempotent */
   publish_id: string;
   x_tt_env?: string;
   version_identifier?: string;
-  /** 标识用户身份的ID列表 */
+  /** List of IDs that identify the user */
   gray_id_list?: Array<string>;
-  /** pre发布到灰度发布时需要指定commitversion */
+  /** You need to specify a commitversion when pre-publishing to a grey release. */
   commit_version?: string;
-  /** ppe发布到灰度发布时需要 */
+  /** Required when ppe is released to grey release */
   bot_version?: string;
-  /** 灰度配置 */
+  /** Grey release configuration */
   gray_config?: multi_version.GrayConfig;
   Base?: base.Base;
 }
@@ -731,11 +731,11 @@ export interface RollbackBotRequest {
   space_id: Int64;
   bot_id: Int64;
   connector_ids: Array<string>;
-  /** 回滚到的commitVersion */
+  /** Roll back to the commitVersion */
   commit_version?: string;
-  /** 回滚到的botVersion(用于校验) */
+  /** botVersion to roll back to (for validation) */
   bot_version?: string;
-  /** 幂等 */
+  /** idempotent */
   publish_id?: string;
   Base?: base.Base;
 }

@@ -89,7 +89,7 @@ export interface OpenRunAnnotationJobRequest {
   'FlowDevops-Agw-OpenAPI-SpaceId'?: string;
   jobID: string;
   'FlowDevops-Agw-OpenAPI-AccountId'?: string;
-  /** 离线推理需要 */
+  /** Offline reasoning is required */
   jwtToken?: string;
   base?: base.Base;
 }

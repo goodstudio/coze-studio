@@ -30,7 +30,7 @@ export enum HttpServiceAuthType {
 export enum ServiceType {
   FornaxHttp = 1,
   FornaxThrift = 2,
-  /** 详情见  */
+  /** For details, see  */
   SeedPluginPlatform = 3,
 }
 
@@ -45,7 +45,7 @@ export interface HttpServiceInfo {
   headers?: Record<string, string>;
 }
 
-/** Plugin 表示注册在Fornax上插件，围绕大模型应用构建的插件体系。一个Plugin可以认为是一个Tool Group。 */
+/** Plugins represent plugins registered on Fornax, built around large model applications. A Plugin can be considered a Tool Group. */
 export interface Plugin {
   id?: Int64;
   name?: string;

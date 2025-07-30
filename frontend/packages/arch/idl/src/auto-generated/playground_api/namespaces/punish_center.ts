@@ -27,25 +27,25 @@ export enum CozePunishTaskStatus {
 }
 
 export interface CozePunishRequest {
-  /** 处罚措施id，通过这个id来选择执行哪个处罚 */
+  /** Penalty measure id, use this id to choose which penalty to execute */
   PunishMeasureID: Int64;
-  /** 处罚对象id列表 */
+  /** Penalty object id list */
   ObjectIDs: Array<string>;
-  /** 处罚人uid */
+  /** Punisher uid */
   OperatorUID?: Int64;
-  /** 处罚人邮箱 */
+  /** Penalty mailbox */
   OperatorEmail?: string;
-  /** 处罚源 */
+  /** source of punishment */
   Source?: string;
-  /** 处罚持续时间 */
+  /** Duration of penalty */
   Duration?: Int64;
-  /** 处罚原因 */
+  /** Reason for punishment */
   Remark?: string;
 }
 
 export interface CozePunishResponse {
-  /** 处罚系统无法感知和校验处罚对象id，需要接入方返回处罚结果
-key:对象id；value:处罚结果 */
+  /** The penalty system cannot perceive and verify the penalty object id, and the access party needs to return the penalty result.
+Key: object id; value: penalty result */
   PunishResultMap: Record<string, CozePunishTaskResult>;
 }
 

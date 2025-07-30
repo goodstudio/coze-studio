@@ -30,15 +30,15 @@ export interface BatchCreateEvaluationSetItemsReq {
   space_id: Int64;
   evaluation_set_id: Int64;
   items?: Array<eval_set.EvaluationSetItem>;
-  /** items 中存在无效数据时，默认不会写入任何数据；设置 skipInvalidItems=true 会跳过无效数据，写入有效数据                                                    // items 中存在无效数据时，默认不会写入任何数据；设置 skipInvalidItems=true 会跳过无效数据，写入有效数据 */
+  /** When there is invalid data in items, no data will be written by default; set skipInvalidItems=true will skip invalid data and write valid data//When there is invalid data in items, no data will be written by default; set skipInvalidItems=true will skip invalid data and write valid data */ult; setting skipInvalidItems=true will skip invalid data and write valid data */
   skip_invalid_items?: boolean;
-  /** 批量写入 items 如果超出数据集容量限制，默认不会写入任何数据；设置 partialAdd=true 会写入不超出容量限制的前 N 条 */
+  /** Bulk write items If the dataset capacity limit is exceeded, no data will be written by default; setting partialAdd = true will write the first N items that do not exceed the capacity limit */
   allow_partial_add?: boolean;
   base?: base.Base;
 }
 
 export interface BatchCreateEvaluationSetItemsResp {
-  /** key: item 在 items 中的索引 */
+  /** Key: item index in items */
   added_items?: Record<number, Int64>;
   errors?: Array<datasetv2.ItemErrorGroup>;
   baseResp?: base.BaseResp;
@@ -96,7 +96,7 @@ export interface CreateEvaluationSetResp {
 export interface CreateEvaluationSetVersionReq {
   space_id: Int64;
   evaluation_set_id: Int64;
-  /** 展示的版本号，SemVer2 三段式，需要大于上一版本 */
+  /** The displayed version number, SemVer2 three-stage, needs to be larger than the previous version */
   version?: string;
   desc?: string;
   base?: base.Base;
@@ -148,7 +148,7 @@ export interface ListEvaluationSetItemsReq {
   evaluation_set_id: Int64;
   version_id?: Int64;
   page?: number;
-  /** 分页大小 (0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   page_size?: number;
   cursor?: string;
   orderBy?: common.OrderBy;
@@ -164,15 +164,15 @@ export interface ListEvaluationSetItemsResp {
 
 export interface ListEvaluationSetsReq {
   space_id: Int64;
-  /** 支持模糊搜索 */
+  /** Support fuzzy search */
   name?: string;
   creators?: Array<string>;
   evaluation_set_ids?: Array<Int64>;
   page?: number;
-  /** 分页大小 (0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   page_size?: number;
   cursor?: string;
-  /** 排列顺序，默认按照 createdAt 顺序排列，目前仅支持按照 createdAt 和 UpdatedAt 排序 */
+  /** Sort order, the default is arranged in createdAt order, currently only supports sorting by createdAt and UpdatedAt */
   orderBy?: common.OrderBy;
   base?: base.Base;
 }
@@ -187,10 +187,10 @@ export interface ListEvaluationSetsResp {
 export interface ListEvaluationSetVersionsReq {
   space_id: Int64;
   evaluation_set_id: Int64;
-  /** 根据版本号模糊匹配 */
+  /** Based on version number fuzzy match */
   version_like?: string;
   page?: number;
-  /** 分页大小 (0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   page_size?: number;
   cursor?: string;
   base?: base.Base;
@@ -207,7 +207,7 @@ export interface UpdateEvaluationSetItemReq {
   space_id: Int64;
   evaluation_set_id: Int64;
   item_id: Int64;
-  /** 每轮对话 */
+  /** Each round of dialogue */
   turns?: Array<eval_set.Turn>;
   base?: base.Base;
 }
@@ -231,10 +231,10 @@ export interface UpdateEvaluationSetResp {
 export interface UpdateEvaluationSetSchemaReq {
   space_id: Int64;
   evaluation_set_id: Int64;
-  /** fieldSchema.key 为空时：插入新的一列
-fieldSchema.key 不为空时：更新对应的列
-硬删除（不支持恢复数据）的情况下，不需要写入入参的 field list；
-软删（支持恢复数据）的情况下，入参的 field list 中仍需保留该字段，并且需要把该字段的 deleted 置为 true */
+  /** When fieldSchema.key is empty: insert a new column
+When fieldSchema.key is not empty: update the corresponding column
+In the case of hard deletion (data recovery is not supported), there is no need to write the field list of imported parameters;
+In the case of soft deletion (supporting data recovery), the field list of imported parameters still needs to be retained, and the delete of this field needs to be set to true */
   fields?: Array<eval_set.FieldSchema>;
   base?: base.Base;
 }

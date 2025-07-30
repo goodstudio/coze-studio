@@ -136,7 +136,7 @@ describe('getSubmitFieldFromComponentTypeForm', () => {
   });
 
   it('returns TextInput type for unrecognized type', () => {
-    // @ts-expect-error -- 无视
+    // @TS-expected-error -- ignore
     const values: ComponentTypeItem = { type: 'unknown' };
     const result = getSubmitFieldFromComponentTypeForm(values);
     expect(result).toEqual({ input_type: InputType.TextInput });

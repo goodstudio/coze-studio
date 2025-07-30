@@ -51,15 +51,15 @@ export interface CheckSourceFileRequest {
 export interface CheckSourceFileResponse {
   is_exist?: boolean;
   is_authorized?: boolean;
-  /** 未授权or文件不存在会返回授权链接 */
+  /** Unauthorized or the file does not exist will return the authorized link */
   authorization_url?: string;
-  /** 未授权or文件不存在会返回授权列表 */
+  /** Unauthorized or the file does not exist will return the authorization list */
   data_source_infos?: Array<DataSourceInfo>;
   code: Int64;
   msg: string;
 }
 
-/** 数据源的基本信息 */
+/** Basic information about the data source */
 export interface DataSourceInfo {
   data_source_id?: string;
   data_source_type?: data_connector_common.DataSourceType;
@@ -84,7 +84,7 @@ export interface GetAuthorizationFileListRequest {
 }
 
 export interface GetAuthorizationFileListResponse {
-  /** 三方数据平台文件列表 */
+  /** Tripartite Data Platform File List */
   third_party_file_tree?: Array<FileNode>;
   code: Int64;
   msg: string;
@@ -102,7 +102,7 @@ export interface GetConnectorGrayResponse {
 }
 
 export interface GetUserDataSourceListRequest {
-  /** 授权成功之后跳转的前端url */
+  /** Front-end URL to jump to after successful authorization */
   redirect_url?: string;
   host?: string;
   Base?: base.Base;

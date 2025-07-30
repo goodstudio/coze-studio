@@ -223,31 +223,31 @@ export interface BasicCluster {
   adaptive_concurrency_mode?: string;
   /** traffic aliases */
   aliases?: Record<string, common.Alias>;
-  /** restricted access, only open to administrators. 保留字段，仅 admin 可修改 */
+  /** Restricted access, only open to administrators. Reserved fields, modifiable only by admin */
   async_mode?: boolean;
-  /** auth switch. 鉴权开关 */
+  /** Auth switch. Authentication switch */
   auth_enable?: boolean;
   cell?: string;
-  /** cluster name, starts with faas-. 集群名 */
+  /** Cluster name, starts with faas- */
   cluster: string;
-  /** ID of code revision. 部署代码版本 ID */
+  /** ID of code revision. Deployment code version ID */
   code_revision_id?: string;
-  /** number of code revision. 部署代码版本号 */
+  /** Number of code revisions. Deployment code version number */
   code_revision_number?: string;
-  /** cold start switch. 冷启动开关，true 为关闭 */
+  /** Cold start switch.cold start switch, true is off */
   cold_start_disabled?: boolean;
-  /** CORS switch. CORS 开关 */
+  /** CORS switch. CORS switch */
   cors_enable?: boolean;
   created_at: string;
   enable_colocate_scheduling?: boolean;
   enable_scale_optimise?: boolean;
   enable_scale_strategy?: boolean;
   env_name: string;
-  /** exclusive mode. 独占模式 */
+  /** Exclusive mode. Exclusive mode */
   exclusive_mode?: boolean;
   format_envs?: Array<common.FormatEnvs>;
   function_id: string;
-  /** GDPR switch. GDPR 鉴权开关 */
+  /** GDPR switch. GDPR authentication switch */
   gdpr_enable?: boolean;
   global_kv_namespace_ids?: Array<string>;
   handler: string;
@@ -263,14 +263,14 @@ export interface BasicCluster {
   max_concurrency?: number;
   memory_mb?: number;
   region: string;
-  /** function reserved mode switch. 函数预留模式开关 */
+  /** Function reserved mode switch */
   reserved_dp_enabled?: boolean;
   resource_limit?: common.ResourceLimitWithAlias;
-  /** ID of revision. 版本 ID */
+  /** ID of revision. Version ID */
   revision_id?: string;
-  /** number of revision. 版本号 */
+  /** Number of revisions. Version number */
   revision_number?: number;
-  /** function routing strategy, enums：prefer_reserved, prefer_elastic. 函数路由调度策略 */
+  /** Function routing strategy, enums: prefer_reserved, prefer_elastic */
   routing_strategy?: string;
   /** runtime. Optional values: golang/v1,node10/v1,python3/v1,rust1/v1,java8/v1,wasm/v1,v8/v1,native/v1,native-java8/v1 */
   runtime: string;
@@ -282,7 +282,7 @@ export interface BasicCluster {
   updated_at: string;
   /** zone throttle log bytes */
   zone_throttle_log_bytes_per_sec?: Record<string, number>;
-  /** ZTI switch. ZTI 鉴权开关 */
+  /** ZTI switch. ZTI authentication switch */
   zti_enable?: boolean;
   online_mode?: boolean;
   enable_runtime_file_log?: boolean;
@@ -429,11 +429,11 @@ export interface FuncCommonScaleSettings {
   scale_down_max_step?: number;
   scale_up_max_step?: number;
   continuous_scale_down_min_interval_sec?: number;
-  /** 缩容步长比例 */
+  /** step size ratio */
   scale_down_max_step_ratio?: number;
-  /** 扩容步长比例 */
+  /** Expansion step ratio */
   scale_up_max_step_ratio?: number;
-  /** 消费托管是否开启rebalance敏感型 */
+  /** Whether consumer escrow is rebalancing sensitive */
   mqapp_rebalance_sensitive?: boolean;
 }
 
@@ -515,9 +515,9 @@ export interface GetMQTriggerTemplateResponse {
 }
 
 export interface GetReleaseOverviewRequest {
-  /** 格式 2024-01-04T06:49:59+00:00 */
+  /** Format 2024-01-04 T06:49:59 + 00:00 */
   start_time?: string;
-  /** 格式 2024-01-04T06:49:59+00:00 */
+  /** Format 2024-01-04 T06:49:59 + 00:00 */
   end_time?: string;
 }
 

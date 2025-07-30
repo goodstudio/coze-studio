@@ -98,7 +98,7 @@ export default class WorkflowApiService<T> {
    *
    * HTTP
    *
-   * 创建流程
+   * Create process
    */
   CreateWorkflow(
     req: workflow.CreateWorkflowRequest,
@@ -126,7 +126,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/save
    *
-   * 保存流程
+   * save process
    */
   SaveWorkflow(
     req: workflow.SaveWorkflowRequest,
@@ -153,7 +153,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/latest
    *
-   * 检查流程最新的提交版本。在多人协作场景下，用这个接口检查自己的草稿版本是否基于最新的提交版本分支出来的
+   * Check the latest commit version of the process. In multi-person collaboration scenarios, use this interface to check whether your draft version is branched based on the latest commit version
    */
   CheckLatestSubmitVersion(
     req: workflow.CheckLatestSubmitVersionRequest,
@@ -279,7 +279,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/workflow_references
    *
-   * 查询指定工作流被哪些其他工作流所引用。
+   * The query specifies which other workflows are referenced by the workflow.
    */
   GetWorkflowReferences(
     req: workflow.GetWorkflowReferencesRequest,
@@ -324,7 +324,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/canvas
    *
-   * 获取流程编辑态详情，包括画布信息、节点信息、边信息、变量信息、权限信息、版本信息等
+   * Get process edit state details, including canvas information, node information, edge information, variable information, permission information, version information, etc
    */
   GetCanvasInfo(
     req: workflow.GetCanvasInfoRequest,
@@ -390,7 +390,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/workflow_list
    *
-   * 获取流程列表。
+   * Gets a list of processes.
    */
   GetWorkFlowList(
     req?: workflow.GetWorkFlowListRequest,
@@ -425,7 +425,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/node_type
    *
-   * 查询流程中的节点类型
+   * Node types in the query flow
    */
   QueryWorkflowNodeTypes(
     req?: workflow.QueryWorkflowNodeTypeRequest,
@@ -445,7 +445,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/list_collaborators
    *
-   * 查询协作者列表
+   * Query the list of collaborators
    */
   ListCollaborators(
     req: workflow.ListCollaboratorsRequest,
@@ -465,7 +465,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/test_run
    *
-   * 试运行流程（test run）异步接口，需要轮询GetWorkFlowProcess接口来进行流程运行结果的检查
+   * Practice run process (test run) asynchronous interface, you need to poll the GetWorkFlowProcess interface to check the process running results
    */
   WorkFlowTestRun(
     req: workflow.WorkFlowTestRunRequest,
@@ -490,7 +490,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/publish
    *
-   * 发布流程。该接口的用途是发布非 project 内部的流程。
+   * Publish process. The purpose of this interface is to publish processes that are not internal to the project.
    */
   PublishWorkflow(
     req: workflow.PublishWorkflowRequest,
@@ -516,7 +516,7 @@ export default class WorkflowApiService<T> {
   /**
    * GET /api/workflow_api/get_process
    *
-   * 查看试运行执行历史。在试运行时需要轮询查看一个流程的试运行执行历史。
+   * View practice run execution history. During practice run, you need to poll to view the practice run execution history of a process.
    */
   GetWorkFlowProcess(
     req: workflow.GetWorkflowProcessRequest,
@@ -573,7 +573,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/upload/auth_token
    *
-   * 文件上传
+   * file upload
    */
   GetUploadAuthToken(
     req?: workflow.GetUploadAuthTokenRequest,
@@ -793,7 +793,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/node_template_list
    *
-   * 查询节点模板列表
+   * Query node template list
    */
   NodeTemplateList(
     req?: workflow.NodeTemplateListRequest,
@@ -831,7 +831,7 @@ export default class WorkflowApiService<T> {
    *
    * OpenAPI
    *
-   * OpenAPI运行流程。执行已发布的工作流 (非流式)
+   * OpenAPI runflow. Execute published workflows (non-streaming)
    */
   OpenAPIRunFlow(
     req?: workflow.OpenAPIRunFlowRequest,
@@ -898,7 +898,7 @@ export default class WorkflowApiService<T> {
   /**
    * GET /api/workflow_api/apiDetail
    *
-   * 获取workflow引用的插件工具详情
+   * Get the plug-in tool details referenced by workflow
    */
   GetApiDetail(
     req?: workflow.GetApiDetailRequest,
@@ -1080,7 +1080,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/test_resume
    *
-   * 流程中断后的恢复，部分流程在运行中会中断，在流程挂起后需要用该接口恢复运行流程
+   * Recovery after the process is interrupted. Some processes will be interrupted during operation. After the process is suspended, you need to use this interface to resume the running process.
    */
   WorkFlowTestResume(
     req: workflow.WorkflowTestResumeRequest,
@@ -1166,7 +1166,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /v1/workflow/stream_run
    *
-   * OpenAPI流式运行流程。执行资源库内已发布的工作流 或 project内的工作流，响应方式为流式响应。
+   * OpenAPI Streaming process. Executes a published workflow in a repository, or a workflow in a project, with a streaming response.
    */
   OpenAPIStreamRunFlow(
     req?: workflow.OpenAPIRunFlowRequest,
@@ -1195,7 +1195,7 @@ export default class WorkflowApiService<T> {
   /**
    * GET /v1/workflow/get_run_history
    *
-   * OpenAPI查询工作流异步执行结果。工作流异步运行后，查看执行结果。
+   * OpenAPI query workflow asynchronous execution results. After the workflow is run asynchronously, view the execution results.
    */
   OpenAPIGetWorkflowRunHistory(
     req: workflow.GetWorkflowRunHistoryRequest,
@@ -1214,7 +1214,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /v1/workflow/stream_resume
    *
-   * OpenAPI恢复运行工作流。恢复运行已中断的工作流，响应方式为流式响应。
+   * OpenAPI resumes running the workflow. Resume running the interrupted workflow with a streaming response.
    */
   OpenAPIStreamResumeFlow(
     req?: workflow.OpenAPIStreamResumeFlowRequest,
@@ -1257,7 +1257,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/behavior_auth
    *
-   * 用于处理用户在工作流相关操作（如协作者管理）时的权限校验和配置获取的核心接口。它根据用户尝试的行为类型（ActionType）和相关上下文（如 WorkflowId, SpaceId），判断用户是否有权执行该操作，并返回相应的权限结果以及与用户等级相关的配置信息。
+   * The core interface used to handle permission checksum configuration fetching for users during workflow-related operations such as collaborator management. It determines whether the user is authorized to perform the operation based on the type of behavior the user is attempting (ActionType) and the relevant context (e.g. WorkflowId, SpaceId), and returns the corresponding permission results and configuration information related to the user level.
    */
   UserBehaviorAuth(
     req: workflow.UserBehaviorAuthRequest,
@@ -1299,7 +1299,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/stream_run_flow
    *
-   * 给工作流模版提供的流式运行接口
+   * Streaming Interface for Workflow Templates
    */
   StreamRunFlowHTTP(
     req: workflow.RunFlowHTTPRequest,
@@ -1366,7 +1366,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/op_workflow/canvas
    *
-   * 运维后台的接口，接口以OP为前缀，http的path前缀为 /api/op_workflow/
+   * The interface in the operation and maintenance background, the interface is prefixed with OP, and the path prefix of http is /api/op_workflow/
    */
   OPGetCanvasInfo(
     req: workflow.GetCanvasInfoRequest,
@@ -1541,7 +1541,7 @@ export default class WorkflowApiService<T> {
    *
    * Trace
    *
-   * 列出历史执行的trace
+   * List traces of historical execution
    */
   ListRootSpans(
     req: trace.ListRootSpansRequest,
@@ -1584,7 +1584,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/llm_fc_setting_detail
    *
-   * 获取llm节点使用的技能的详情信息
+   * Get details about the skills used by the llm node
    */
   GetLLMNodeFCSettingDetail(
     req: workflow.GetLLMNodeFCSettingDetailRequest,
@@ -1716,7 +1716,7 @@ export default class WorkflowApiService<T> {
   /**
    * GET /api/workflow_api/get_trigger
    *
-   * 获取触发器详情
+   * Get trigger details
    */
   GetTrigger(
     req: trigger.GetTriggerRequest,
@@ -1806,7 +1806,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/project_conversation/delete
    *
-   * 删除项目中的会话定义，如果会话没有绑定过工作流可以直接删除，否则不传递replace字段会先返回绑定的流程列表，之后需要传递 replace 字段，将会话绑定的工作流替换成其他会话同时删除原会话。
+   * Delete the session definition in the project. If the session is not bound to the workflow, it can be deleted directly. Otherwise, if the replace field is not passed, the bound process list will be returned first. After that, the replace field needs to be passed to replace the session-bound workflow with another session and delete the original session.
    */
   DeleteProjectConversationDef(
     req: workflow.DeleteProjectConversationDefRequest,
@@ -1874,7 +1874,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /v1/workflows/chat
    *
-   * OpenAPI流式运行对话流
+   * OpenAPI Streaming Dialog Streaming
    */
   OpenAPIChatFlowRun(
     req?: workflow.ChatFlowRunRequest,
@@ -1940,7 +1940,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/example_workflow_list
    *
-   * 获取示例流程列表
+   * Get a list of sample processes
    */
   GetExampleWorkFlowList(
     req?: workflow.GetExampleWorkFlowListRequest,
@@ -2111,7 +2111,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/region_gray
    *
-   * 按国家地区控制灰度的接口
+   * Interface for controlling grey release by country
    */
   RegionGray(
     req: workflow.RegionGrayRequest,
@@ -2127,7 +2127,7 @@ export default class WorkflowApiService<T> {
   /**
    * GET /api/workflow_api/get_node_execute_history
    *
-   * 查询节点执行历史。在试运行时需要轮询查看一个节点的执行历史。
+   * Query node execution history. When the practice runs, you need to poll to see the execution history of a node.
    */
   GetNodeExecuteHistory(
     req: workflow.GetNodeExecuteHistoryRequest,
@@ -2153,7 +2153,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/workflow_detail_info
    *
-   * 获取子流程的详情
+   * Get the details of the subprocess
    */
   GetWorkflowDetailInfo(
     req?: workflow.GetWorkflowDetailInfoRequest,
@@ -2438,7 +2438,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/node_panel_search
    *
-   * 节点面板搜索
+   * Node Panel Search
    */
   NodePanelSearch(
     req?: workflow.NodePanelSearchRequest,
@@ -2463,7 +2463,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/dependency_tree
    *
-   * 查询流程的资源引用树，能够查询到流程引用到的子流程、插件等
+   * Query the resource reference tree of the process, and can query the sub-processes, plug-ins, etc. referenced by the process
    */
   DependencyTree(
     req: workflow.DependencyTreeRequest,
@@ -2484,7 +2484,7 @@ export default class WorkflowApiService<T> {
   /**
    * POST /api/workflow_api/encapsulate
    *
-   * 封装流程。此接口具备三种功能。功能一：仅对 schema 执行等同于 validate 的校验操作；功能二：先对 schema 进行校验，然后依次执行创建、保存和发布流程的操作，该功能相当于 validate、create、save、publish 功能的组合；功能三：在某project下，对 schema 进行校验并创建保存流程，但不执行发布操作。
+   * Encapsulate the process. This interface has three functions. Function 1: Perform only the validation operation equivalent to validate on the schema; Function 2: Verify the schema first, and then execute the operation of creating, saving and publishing the process in turn. This function is equivalent to the combination of validate, create, save and publish functions; Function 3: Under a project, validate the schema and create the saving process, but do not perform the publishing operation.
    */
   EncapsulateWorkflow(
     req: workflow.EncapsulateWorkflowRequest,
@@ -2628,7 +2628,7 @@ export default class WorkflowApiService<T> {
   /**
    * GET /api/workflow_api/get_node_field_config
    *
-   * 查询节点的属性配置
+   * Query node attribute configuration
    */
   GetNodeFieldConfig(
     req?: workflow.GetNodeFieldConfigRequest,

@@ -41,26 +41,26 @@ export enum ContentType {
   OutputSearchResult = 200,
 }
 
-/** Evaluator 执行时的处理流程的类型，表达 Evaluator 实现方式的属性信息
- EvaluatorID 是不可枚举的，但 EvaluatorProcessType 是可枚举的
- EvaluatorProcessType 是创建 Evaluator 时必须确定下来的信息。 */
+/** The type of processing flow when the Evaluator executes, expressing the attribute information of the Evaluator implementation
+ EvaluatorID is not enumerable, but EvaluatorProcessType is enumerable
+ EvaluatorProcessType is the information that must be determined when creating the Evaluator. */
 export enum EvaluatorProcessType {
   Prompt = 1,
   PythonCode = 2,
   JSCode = 3,
   BuildinFunc = 4,
   BuildinPrompt = 5,
-  /** 目前包含了RPCCallback 和 HTTPCallback */
+  /** Currently includes RPCCallback and HTTPCallback. */
   CustomCallback = 6,
-  /** 人工评测 */
+  /** manual evaluation */
   Manual = 7,
-  /** 自定义指标上报 */
+  /** custom metric reporting */
   CustomMetric = 8,
-  /** 专项测试规则 */
+  /** Dedicated test rules */
   BuiltinSpecTest = 9,
-  /** fornax平台Prompt开发中的prompt */
+  /** Fornax platform Prompt development prompts */
   FornaxPrompt = 10,
-  /** coze2.0 裁判模型评估器 */
+  /** Coze2.0 referee model evaluator */
   CozePrompt = 11,
 }
 
@@ -81,7 +81,7 @@ export enum ReplyType {
 }
 
 export enum RuleRunState {
-  /** 运行状态, 异步下状态流转, 同步下只有 Success / Fail */
+  /** Running state, state flow under asynchronous, only Success/Fail under synchronization */
   NotInit = 0,
   Init = 1,
   Processing = 2,
@@ -96,11 +96,11 @@ export enum SupportUpdateRuleGroupField {
 
 export interface AddToHubEvaluatorTypeMeta {
   evaluator_hub_id: Int64;
-  /** 展示用名称 */
+  /** display name */
   name?: string;
-  /** 权重 */
+  /** weight */
   weight?: Int64;
-  /** 评测粒度 */
+  /** evaluation granularity */
   granularity?: flow_devops_evaluation_entity.EvaluatorGranularity;
   prompt_rule?: PromptRule;
   python_rule?: PythonRule;
@@ -114,7 +114,7 @@ export interface BatchGetRuleGroupMetaRequest {
   space_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
   rule_group_ids: Array<Int64>;
-  /** true 时 response 返回 rules 数量, 目前对接口性能有影响 */
+  /** True response returns the number of rules, which currently affects the performance of the interface */
   need_rules_count?: boolean;
   Base?: base.Base;
 }
@@ -131,7 +131,7 @@ export interface BuildinFuncRule {
 export interface BuildinPromptRule {
   contents?: Array<string>;
   model_name?: string;
-  /** 20240815 服务端内部使用 */
+  /** 20240815 server level internal use */
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
@@ -140,20 +140,20 @@ export interface CopyRuleGroupRequest {
   space_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
   source_rule_group_id: Int64;
-  /** 为空时创建一个新的 rule_group_id，不为空时向目标 rule_group 中添加 rules */
+  /** Creates a new rule_group_id for empty time and adds rules to the target rule_group without empty time */
   target_rule_group_id?: Int64;
-  /** 复制到目标空间，为空时，默认复制到 SpaceID 空间 */
+  /** Copy to target space, when empty, copy to SpaceID space by default */
   to_space_id?: Int64;
   cid?: string;
   Base?: base.Base;
 }
 
 export interface CopyRuleGroupResponse {
-  /** 如果 req.TargetRuleGroupID 为空则是生成的新 id, 不为空则是 TargetRuleGroupID */
+  /** If the req. TargetRuleGroupID is empty, it is the generated new id. If it is not empty, it is the TargetRuleGroupID. */
   rule_group_id: Int64;
-  /** copy 出来的 rules, id 都是新的 */
+  /** The copied rules, IDs are all new */
   copied_rules: Array<Rule>;
-  /** 复制到的目标空间ID */
+  /** Destination space ID copied to */
   to_space_id?: Int64;
   BaseResp?: base.BaseResp;
 }
@@ -169,7 +169,7 @@ export interface CreateRuleAndSaveToHubRequest {
   'FlowDevops-Agw-AppId'?: number;
   rule: Rule;
   rule_group_id: Int64;
-  /** 保存到Hub时，支持对evaluatorType打自定义标签以及模态标签 */
+  /** When saving to the Hub, support custom tagging and modal tagging of evaluatorType */
   tags?: Array<string>;
   modal_tags?: Array<string>;
   cid?: string;
@@ -187,10 +187,10 @@ export interface CreateRuleGroupRequest {
   name?: string;
   desc?: string;
   'FlowDevops-Agw-AppId'?: number;
-  /** 规则界面可见 */
+  /** Rules interface visible */
   publish_to_rule_group?: boolean;
   space_id: Int64;
-  /** 是否打上tag, 默认不打上 */
+  /** Whether to tag, not by default */
   tag_list?: Array<flow_devops_evaluation_entity.TagInfo>;
   cid?: string;
   Base?: base.Base;
@@ -205,7 +205,7 @@ export interface CreateRuleRequest {
   'FlowDevops-Agw-UserId'?: string;
   space_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
-  /** 向目标 rule_group 添加 rule */
+  /** Add rule to target rule_group */
   rule_group_id: Int64;
   rule: Rule;
   cid?: string;
@@ -221,7 +221,7 @@ export interface CreateRulesRequest {
   'FlowDevops-Agw-UserId'?: string;
   space_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
-  /** 向目标 rule_group 添加 rule */
+  /** Add rule to target rule_group */
   rule_group_id: Int64;
   rules: Array<Rule>;
   cid?: string;
@@ -235,11 +235,11 @@ export interface CreateRulesResponse {
 
 export interface CustomCallback {
   content?: string;
-  /** 回调业务方的env */
+  /** Callback the env of the business party */
   env?: string;
 }
 
-/** 自定义指标规则 */
+/** custom indicator rules */
 export interface CustomMetricsRule {
   data_type: flow_devops_evaluation_entity.EvaluateResultDataType;
   value_type?: flow_devops_evaluation_entity.EvaluateResultValueType;
@@ -301,22 +301,22 @@ export interface EvalautorTypeMeta {
   process_type: EvaluatorProcessType;
   tool_tip_content?: string;
   is_positive?: boolean;
-  /** 与评估器绑定的评估器规则的 Json Schema 描述 */
+  /** Json Schema description of evaluator rules bound to evaluators */
   rule_config_json_schema?: string;
-  /** 仅 process_type = 4 生效, true 时代表 Is, false 时代表 NotIs，其余规则为空 */
+  /** Only process_type = 4 takes effect, true for Is, false for NotIs, and the rest of the rules are empty */
   builtin_func_use_is_syntax?: boolean;
   receive_chat_history?: boolean;
-  /** 规则可选的模型列表 */
+  /** List of optional models for the rule */
   available_model_name?: Array<string>;
-  /** 模态标签 */
+  /** modal label */
   modal_tag?: Array<string>;
-  /** 自定义标签显示 */
+  /** Custom label display */
   tags?: Array<string>;
-  /** 为true时,代表是保存到hub的 */
+  /** When true, it means it was saved to the hub */
   is_add_to_hub?: boolean;
-  /** 用户保存到hub中EvalautorTypeMeta信息 */
+  /** User saves EvalautorTypeMeta information to hub */
   hub_evaluator_type_meta?: AddToHubEvaluatorTypeMeta;
-  /** 样例 */
+  /** sample */
   sample?: string;
 }
 
@@ -326,7 +326,7 @@ export interface EvaluatorTypeDetailInfo {
   space_id: string;
   callback_type: flow_devops_evaluation_entity.CallbackType;
   description?: string;
-  /** 与评估器绑定的评估器规则的 Json Schema 描述 */
+  /** Json Schema description of evaluator rules bound to evaluators */
   rule_config_json_schema?: string;
   creator_id?: Int64;
   rpc_callback_evaluator_params?: RPCCallbackEvaluatorParams;
@@ -334,11 +334,11 @@ export interface EvaluatorTypeDetailInfo {
 }
 
 export interface FornaxPromptRule {
-  /** prompt开发中prompt的唯一标识 */
+  /** The unique identifier of prompt in prompt development */
   prompt_id: Int64;
-  /** prompt版本 */
+  /** Prompt version */
   version?: string;
-  /** 服务端内部使用 */
+  /** Server level internal use */
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
@@ -390,7 +390,7 @@ export interface GetRulesRequest {
 }
 
 export interface GetRulesResponse {
-  /** len 和下标与 MGetRulesRequest.RuleIDs 一致 */
+  /** Len and subscripts are consistent with MGetRulesRequest. RuleIDs */
   rules?: Array<Rule>;
   BaseResp?: base.BaseResp;
 }
@@ -398,7 +398,7 @@ export interface GetRulesResponse {
 export interface HttpCallbackEvaluatorParams {
   psm?: string;
   cluster?: string;
-  /** 单位ms */
+  /** Unit ms */
   timeout?: Int64;
   agent_execute_path?: string;
   http_auth_type?: flow_devops_evaluation_entity.HTTPAuthType;
@@ -409,7 +409,7 @@ export interface JSRule {
   code: string;
 }
 
-/** ListCustomSupportRuleTypeFilter 请求过滤规则 */
+/** ListCustomSupportRuleTypeFilter request filtering rules */
 export interface ListCustomSupportRuleTypeFilter {
   evaluator_type_name?: string;
 }
@@ -417,10 +417,10 @@ export interface ListCustomSupportRuleTypeFilter {
 export interface ListCustomSupportRuleTypeRequest {
   'FlowDevops-Agw-UserId'?: string;
   space_id: Int64;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   'FlowDevops-Agw-AppId'?: number;
-  /** 默认 20 */
+  /** Default 20 */
   limit?: Int64;
   list_custom_support_rule_type_filter?: ListCustomSupportRuleTypeFilter;
   Base?: base.Base;
@@ -438,7 +438,7 @@ export interface ListEvaluatorTypeDetailRequest {
   space_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
   list_evaluator_type_filter?: ListEvaluatorTypeFilter;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   limit?: Int64;
 }
@@ -450,7 +450,7 @@ export interface ListEvaluatorTypeDetailResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** ListEvaluatorTypeFilter 请求过滤规则 */
+/** ListEvaluatorTypeFilter request filtering rules */
 export interface ListEvaluatorTypeFilter {
   evaluator_type_name?: string;
   callback_type?: flow_devops_evaluation_entity.CallbackType;
@@ -460,12 +460,12 @@ export interface ListEvaluatorTypeFilter {
 export interface ListRuleGroupMetaRequest {
   'FlowDevops-Agw-UserId'?: string;
   space_id: Int64;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   'FlowDevops-Agw-AppId'?: number;
-  /** 默认 20 */
+  /** Default 20 */
   limit?: Int64;
-  /** true 时 response 返回 rules 数量, 目前对接口性能有影响 */
+  /** True response returns the number of rules, which currently affects the performance of the interface */
   need_rules_count?: boolean;
   tag_name?: string;
   tag_value?: string;
@@ -476,7 +476,7 @@ export interface ListRuleGroupMetaRequest {
 }
 
 export interface ListRuleGroupMetaResponse {
-  /** 只返回 meta */
+  /** Return to meta only */
   metas?: Array<RuleGroupMeta>;
   has_more?: boolean;
   next_cursor?: string;
@@ -486,10 +486,10 @@ export interface ListRuleGroupMetaResponse {
 export interface ListSupportRuleTypeRequest {
   'FlowDevops-Agw-UserId'?: string;
   space_id: Int64;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   'FlowDevops-Agw-AppId'?: number;
-  /** 默认 20 */
+  /** Default 20 */
   limit?: Int64;
   Base?: base.Base;
 }
@@ -507,11 +507,11 @@ export interface LLMSetting {
   respose_max_length: Int64;
 }
 
-/** 多维度人工评测评分规则 */
+/** Multi-dimensional manual evaluation scoring rules */
 export interface ManualRule {
-  /** 数据类型：数值评分、选项、纯文本 */
+  /** Data types: numeric ratings, options, plain text */
   data_type: flow_devops_evaluation_entity.EvaluateResultDataType;
-  /** 评分范围 */
+  /** rating range */
   scope?: flow_devops_evaluation_entity.ScoringScope;
   options?: Array<flow_devops_evaluation_entity.EvaluateResultOption>;
 }
@@ -531,7 +531,7 @@ export interface ModelInfo {
 export interface PromptRule {
   setting: LLMSetting;
   content: string;
-  /** 20240815 服务端内部使用 */
+  /** 20240815 server level internal use */
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
@@ -575,29 +575,29 @@ export interface ReplyContent {
 export interface RPCCallbackEvaluatorParams {
   psm?: string;
   cluster?: string;
-  /** 单位ms */
+  /** Unit ms */
   timeout?: Int64;
 }
 
 export interface Rule {
-  /** 规则 id */
+  /** rule id */
   rule_id?: Int64;
-  /** 评估器标识 */
+  /** evaluator identifier */
   evaluator_type: Int64;
   process_type: EvaluatorProcessType;
-  /** 自定义评估器的名称 */
+  /** Custom evaluator name */
   evaluator_type_name?: string;
-  /** 权重 */
+  /** weight */
   weight?: Int64;
   creator_id?: Int64;
-  /** 展示用名称 */
+  /** display name */
   name?: string;
-  /** 评测粒度 */
+  /** evaluation granularity */
   granularity?: flow_devops_evaluation_entity.EvaluatorGranularity;
   receive_chat_history?: boolean;
-  /** 数据类型 */
+  /** data type */
   data_type?: flow_devops_evaluation_entity.EvaluateResultDataType;
-  /** 不同的 EvaluatorProcessType 对应着不同的结构体定义 */
+  /** Different EvaluatorProcessType correspond to different structure definitions */
   prompt_rule?: PromptRule;
   python_rule?: PythonRule;
   js_rule?: JSRule;
@@ -622,69 +622,69 @@ export interface RuleGroupMeta {
   name?: string;
   desc?: string;
   space_id: Int64;
-  /** true 时该 rule group 在规则界面可见 */
+  /** When true, the rule group is visible in the rules interface */
   is_published?: boolean;
   creator_id?: Int64;
   created_at?: Int64;
   updated_at?: Int64;
   deleted_at?: Int64;
-  /** 默认为空 */
+  /** Default is empty */
   rules_count?: Int64;
 }
 
 export interface RunRuleInput {
   /** task id */
   TaskID?: Int64;
-  /** 评测规则 id */
+  /** evaluation rule id */
   RuleID: Int64;
-  /** 评测数据输入: 数据集行内容 + 评测目标输出内容与历史记录 + 评测目标的 trace */
+  /** Evaluation data input: data set line content + evaluation target output content and history + evaluation target trace */
   InputData: RunRuleInputData;
 }
 
 export interface RunRuleInputData {
-  /** 1: optional dataset.Row Row              // 数据集内容, 包含 本轮输入 与 预期输出
-历史会话记录 */
+  /** 1: optional dataset. Row Row//Dataset content, including current input and expected outputuding current input and expected output
+session history */
   history_messages?: Array<flow_devops_evaluation_callback_common.Message>;
-  /** 评测目标本轮输入 */
+  /** Evaluation target current round input */
   input?: flow_devops_evaluation_callback_common.Message;
-  /** 评测目标本轮输出 */
+  /** Evaluation target current round output */
   prediction?: ReplyContent;
-  /** 评测目标预期输出 */
+  /** Evaluate target expected output */
   output?: string;
-  /** 变量 */
+  /** variable */
   variables?: Record<string, flow_devops_evaluation_callback_common.Content>;
-  /** 评测目标本轮输入 v2 */
+  /** Evaluation target This round input v2 */
   input_v2?: flow_devops_evaluation_callback_common.Content;
-  /** 评测目标预期输出 v2 */
+  /** Evaluation target expected output v2 */
   output_v2?: flow_devops_evaluation_callback_common.Content;
-  /** 评测目标本轮输出 v2 */
+  /** Evaluation target current round output v2 */
   prediction_v2?: flow_devops_evaluation_callback_common.Content;
-  /** 评测目标运行轨迹 */
+  /** Evaluate target trajectory */
   trajectory?: flow_devops_evaluation_evaluator_callback.Trajectory;
-  /** 预留的扩展字段，暂无使用场景。由评测平台传递定制信息给评估器Rule的实现方 */
+  /** Reserved extended field, no use scenario yet. The evaluation platform passes the customized information to the implementer of the evaluator Rule */
   ext?: Record<string, string>;
 }
 
 export interface RunRuleResult {
-  /** 规则运行状态 */
+  /** rule running status */
   run_state: RuleRunState;
-  /** 报错时的信息 */
+  /** Information at the time of error */
   err_msg?: string;
-  /** 打分 */
+  /** score */
   score?: number;
-  /** 打分过程与结果相关信息 */
+  /** Information on the scoring process and results */
   score_content?: string;
   /** token count */
   tokens?: Int64;
-  /** 运行开始时间 */
+  /** run start time */
   start_time?: Int64;
-  /** 运行结束时间 */
+  /** run end time */
   end_time?: Int64;
-  /** 冗余 */
+  /** redundancy */
   extra?: string;
   input_tokens?: Int64;
   output_tokens?: Int64;
-  /** 打分范围，如 Coze 场景下由用户 LLM Prompt 决定评估器输出打分范围 */
+  /** The scoring range, such as the user LLM Prompt in the Coze scenario, determines the output scoring range of the evaluator */
   scoring_scope?: flow_devops_evaluation_entity.ScoringScope;
 }
 

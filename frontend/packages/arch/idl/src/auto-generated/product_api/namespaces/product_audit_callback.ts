@@ -21,85 +21,85 @@
 
 export type Int64 = string | number;
 
-/** 回调类型枚举值 */
+/** Callback type enumeration value */
 export enum CallbackType {
-  /** 未知类型回调 */
+  /** Unknown type callback */
   Unknown = 0,
-  /** 普通回调 */
+  /** normal callback */
   Normal = 1,
-  /** 直接提交 */
+  /** submit directly */
   DirectSubmit = 2,
-  /** 上一页超时提交 */
+  /** Previous Timeout Submit */
   PreviousPageTimeout = 3,
-  /** 失败重试回调 */
+  /** Failure retry callback */
   FailedRetry = 4,
-  /** 手动回调 */
+  /** manual callback */
   ManualRetry = 5,
-  /** 仅回调不审出 */
+  /** Callback only, no review */
   OnlyCallBack = 6,
-  /** 仲裁轮审出 */
+  /** Round of arbitration */
   Arbitration = 7,
 }
 
 export enum EventType {
-  /** task abandoned  任务废弃事件 */
+  /** Task abandoned */
   abandon_task = 1,
-  /** task postponed  任务被押后事件 */
+  /** Task postponed event */
   postponed_task = 2,
-  /** task normal closed  任务关闭事件 */
+  /** Task normal closed event */
   close_task = 3,
 }
 
 export enum ProjectMode {
   /** label. multi-round labelling mode, once configured number of rounds done,
 merged result is effetive, no audting
-多轮标注. 配置的轮数标注完后, merge结果生效. 无质检 */
+Multiple rounds of labeling. After the configured number of rounds is marked, the merge result will take effect. No quality inspection */
   label = 1,
   /** QA. First round result is effective result. Blind review round will happen based on sampling rate
 (by default blind review result does not callback). If blind review result is not consistent with
 previous results, audit will happen and audit result will be effective
 
-质检. 一审结果直接生效, 抽样盲审(盲审结果默认不回调), 盲审不一致的进行质检. 质检结果生效. */
+Quality inspection. The results of the first trial take effect directly, sampling blind moderation (blind moderation results do not call back by default), blind moderation inconsistent quality inspection. Quality inspection results take effect. */
   audit = 2,
   /** double_review(dual moderation). Blind review with 100% sampling rate, after 2 round，merge results
 (at the moment you need merge the results yourself). Inconsistent results between 2 rounds
 lead to an audit.
 
-双审. 100%盲省, 一, 二盲完成后，merge结果生效(暂时只支持业务自行merge). 不一致结果进行质检. */
+Double review. 100% blind province, after the completion of the first and second blinds, the merge result will take effect (temporarily only support the business to merge by itself). Inconsistent results will be subject to quality inspection. */
   double_review = 3,
   /** QA sampling. Samples of the tasks go to auditing round after first round. Auditing requires
 a additional labelling on whether the first round result is correct.
 
-抽检. 一轮初审后按照一定比例进入质检轮, 质检需要额外标注初审的结果是否正确 */
+Sampling inspection. After a round of preliminary review, enter the quality inspection round according to a certain proportion. The quality inspection needs to be additionally marked whether the results of the preliminary review are correct. */
   sample_audit = 4,
   /** Semi-custom. Based on first round results to decide which process to follow
 next (label/audit/double_review/sample_audit)
 
-可视化自定义. 根据初审结果决定任务具体走哪个模式(标注/质检/双审/抽检) */
+Visual customization. Decide which mode to take for the task according to the results of the first review (labeling/quality inspection/double review/random inspection) */
   custom = 5,
   /** Custom. Under this mode, the task does not follow particular process.
 User of this mode need to plugin code in order to define the process.
 
-完全自定义. 该模式下的任务没有固定的流程,具体的审核方式需要写代码插件进行自定义 */
+Fully customized. There is no fixed process for tasks in this mode, and the specific review method needs to be customized by writing code plugins. */
   full_custom = 6,
 }
 
 /** response status code used by interfaces under this service
-服务rsp的通用状态码 */
+Universal status code for the service RSP */
 export enum RspStatusCode {
   OK = 0,
-  /** input does not meet the requirements  输入不符合要求 */
+  /** Input does not meet the requirements */
   BAD_REQUEST = 400,
-  /** internal server error   内部服务异常 */
+  /** Internal server error Internal service exception */
   INTERNAL_SERVER_ERROR = 500,
 }
 
 export enum TaskMode {
-  /** 多轮标注. 配置的轮数标注完后, merge结果生效. 无质检 */
+  /** Multiple rounds of labeling. After the configured number of rounds is marked, the merge result will take effect. No quality inspection */
   label = 1,
-  /** 质检. 一审结果直接生效, 抽样盲审, 盲审不一致的进行质检. 质检结果生效. */
+  /** Quality inspection. The first trial results take effect directly, sampling blind moderation, blind moderation inconsistent quality inspection. Quality inspection results take effect. */
   audit = 2,
-  /** 双审. 100%盲省, 一, 二盲完成后，merge结果生效(暂时只支持业务自行merge). 不一致结果进行质检. */
+  /** Double review. 100% blind province, after the completion of the first and second blinds, the merge result will take effect (temporarily only support the business to merge by itself). Inconsistent results will be subject to quality inspection. */
   double_review = 3,
 }
 
@@ -114,26 +114,26 @@ export interface NodeResult {
 
 export interface ProjectMeta {
   /** Project ID
-队列id */
+queue id */
   project_id?: Int64;
   /** Project type, business layer doesn't need to care about this property
-tcs内部产品线 */
+TCS internal product line */
   product_type?: string;
   /** Project tag
-队列组 */
+queue group */
   project_group?: string;
   /** Project ID */
   project_slug?: string;
   /** Project mode
-模式：1标注 2质检 3双审 4抽检 5自定义 */
+Mode: 1 label 2 quality inspection 3 double review 4 random inspection 5 custom */
   project_mode?: ProjectMode;
   /** Task mode */
   task_mode?: TaskMode;
   /** Project name/title
-队列中文名 */
+queue Chinese name */
   project_title?: string;
   /** Project tags
-队列标签 */
+queue label */
   tags?: Array<string>;
   /** Project type:
 0 = normal queue, 1 = shared task pool queue, 2 = monitor queue */
@@ -178,21 +178,21 @@ nor under audit mode where blind_review callback setting is not enabled. */
 
 /** result for a round of review */
 export interface VerifyResult {
-  /** unique id for current review result    本次审核结果的唯一标识 */
+  /** Unique id for current review results */
   verify_id?: Int64;
-  /** review result, structure can reference the page template   本次审核的结果，内部结构可参考页面模板 */
+  /** Review results, structure can refer to the page template The results of this review, the internal structure can refer to the page template */
   verify_result?: string;
-  /** the reviwer   本次审核人 */
+  /** The reviwer of this review */
   verifier?: string;
   /** >=0 means current round number in a multi-round process
 -1 means auditing,
 -2 means direct modification.
 
->=0表示多轮审核中本次审核的轮数. -1表示质检, -2表示直接修改 */
+> = 0 indicates the number of rounds of this review in multiple rounds of review. -1 indicates quality inspection, -2 indicates direct modification */
   turn?: number;
-  /** the assign time of the task, millsecondes timestamp with utc+8, must minus 8hour when convert to CST time   任务领取时间,时间戳 */
+  /** The assigned time of the task, millsecondes timestamp with utc + 8, must minus 8hours when converted to CST time */
   assign_time?: Int64;
-  /** the submission time of the review, millsecondes timestamp with utc+8, must minus 8hour when convert to CST time  任务提交时间,时间戳 */
+  /** The submission time of the review, millsecondes timestamp with utc + 8, must minus 8hours when converted to CST time */
   resolve_time?: Int64;
   /** review cost time */
   duration?: number;

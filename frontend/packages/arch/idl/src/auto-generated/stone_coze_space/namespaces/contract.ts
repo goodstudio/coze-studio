@@ -66,13 +66,13 @@ export interface GetContractLawInfoResponseData {
   content?: string;
 }
 
-/** 持方 */
+/** stakeholders */
 export interface Holder {
-  /** 主体名称 */
+  /** principal name */
   name?: string;
-  /** 主体角色 */
+  /** main role */
   part?: string;
-  /** 审查目的 */
+  /** review purpose */
   objectives?: Array<string>;
 }
 

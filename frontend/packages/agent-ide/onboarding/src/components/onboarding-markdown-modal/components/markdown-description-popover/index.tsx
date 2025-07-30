@@ -14,7 +14,7 @@
  * limitations under the License.
  */
  
-/* eslint-disable @coze-arch/no-deep-relative-import -- 纯 ui 渲染  */
+/* Eslint-disable @coze-arch/no-deep-relative-import -- pure ui rendering  */
 import { type PropsWithChildren, type ComponentProps } from 'react';
 
 import { I18n } from '@coze-arch/i18n';

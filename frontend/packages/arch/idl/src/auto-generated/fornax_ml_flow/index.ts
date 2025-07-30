@@ -161,7 +161,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/dataset_io_tasks
    *
-   * 数据集导入导出
+   * Dataset import and export
    */
   CreateDatasetIOTask(
     req: stone_fornax_ml_flow_datasetservice.CreateDatasetIOTaskReq,
@@ -184,7 +184,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks
    *
-   * 创建打标规则
+   * Create a marking rule
    */
   CreateAIAnnotateTask(
     req?: stone_fornax_ml_flow_annotateservice.CreateAIAnnotateTaskReq,
@@ -212,7 +212,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks
    *
-   * 获取打标规则列表
+   * Get a list of marking rules
    */
   ListAIAnnotateTask(
     req?: stone_fornax_ml_flow_annotateservice.ListAIAnnotateTaskReq,
@@ -230,7 +230,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * DELETE /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks/:task_id
    *
-   * 删除打标规则
+   * Delete marking rules
    */
   DeleteAIAnnotateTask(
     req?: stone_fornax_ml_flow_annotateservice.DeleteAIAnnotateTaskReq,
@@ -248,7 +248,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks/:task_id
    *
-   * 获取打标规则详情
+   * Get the details of the marking rules
    */
   GetAIAnnotateTask(
     req?: stone_fornax_ml_flow_annotateservice.GetAIAnnotateTaskReq,
@@ -266,7 +266,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks/:task_id/run
    *
-   * 运行打标任务
+   * Run the marking task
    */
   RunAIAnnotate(
     req?: stone_fornax_ml_flow_annotateservice.RunAIAnnotateReq,
@@ -284,7 +284,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks/:task_id/task_runs/:task_run_id
    *
-   * 获取任务执行情况信息
+   * Get task execution information
    */
   GetAIAnnotateTaskRun(
     req?: stone_fornax_ml_flow_annotateservice.GetAIAnnotateTaskRunReq,
@@ -302,7 +302,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks/:task_id
    *
-   * 更新打标规则
+   * Update the marking rules
    */
   UpdateAIAnnotateTask(
     req?: stone_fornax_ml_flow_annotateservice.UpdateAIAnnotateTaskReq,
@@ -328,7 +328,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks/:task_id/task_runs/:task_run_id/terminate
    *
-   * 终止任务
+   * terminate task
    */
   TerminateAIAnnotateTaskRun(
     req?: stone_fornax_ml_flow_annotateservice.TerminateAIAnnotateTaskRunReq,
@@ -346,7 +346,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/spaces/:space_id/ai_annotate_tasks/dry_run
    *
-   * 试运行
+   * practice run
    */
   DryRunAIAnnotate(
     req?: stone_fornax_ml_flow_annotateservice.DryRunAIAnnotateTaskReq,
@@ -373,7 +373,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID
    *
-   * 数据集当前信息（不包括数据）
+   * Data set current information (excluding data)
    */
   GetDataset(
     req: stone_fornax_ml_flow_datasetservicev2.GetDatasetReq,
@@ -395,7 +395,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * DELETE /api/ml_flow/v2/datasets/:datasetID
    *
-   * 删除数据集
+   * Delete dataset
    */
   DeleteDataset(
     req: stone_fornax_ml_flow_datasetservicev2.DeleteDatasetReq,
@@ -413,7 +413,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets
    *
-   * 新增数据集
+   * new dataset
    */
   CreateDataset(
     req: stone_fornax_ml_flow_datasetservicev2.CreateDatasetReq,
@@ -444,7 +444,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v2/datasets/:datasetID
    *
-   * 修改数据集
+   * Modify the dataset
    */
   UpdateDataset(
     req: stone_fornax_ml_flow_datasetservicev2.UpdateDatasetReq,
@@ -467,7 +467,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/items
    *
-   * 分页查询当前数据
+   * Paging to query current data
    */
   ListDatasetItems(
     req: stone_fornax_ml_flow_datasetservicev2.ListDatasetItemsReq,
@@ -493,7 +493,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/versions
    *
-   * 版本列表
+   * version list
    */
   ListDatasetVersions(
     req: stone_fornax_ml_flow_datasetservicev2.ListDatasetVersionsReq,
@@ -519,7 +519,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/versions
    *
-   * 生成一个新版本
+   * Generate a new version
    */
   CreateDatasetVersion(
     req: stone_fornax_ml_flow_datasetservicev2.CreateDatasetVersionReq,
@@ -542,7 +542,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v2/datasets/:datasetID/items/:itemID
    *
-   * 更新数据
+   * update data
    */
   UpdateDatasetItem(
     req: stone_fornax_ml_flow_datasetservicev2.UpdateDatasetItemReq,
@@ -565,7 +565,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/items/batch
    *
-   * 批量新增数据
+   * batch new data
    */
   BatchCreateDatasetItems(
     req: stone_fornax_ml_flow_datasetservicev2.BatchCreateDatasetItemsReq,
@@ -589,7 +589,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * DELETE /api/ml_flow/v2/datasets/:datasetID/items/:itemID
    *
-   * 删除数据
+   * Delete data
    */
   DeleteDatasetItem(
     req: stone_fornax_ml_flow_datasetservicev2.DeleteDatasetItemReq,
@@ -607,7 +607,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/items/:itemID
    *
-   * 获取一行数据
+   * Get a row of data
    */
   GetDatasetItem(
     req: stone_fornax_ml_flow_datasetservicev2.GetDatasetItemReq,
@@ -625,7 +625,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v2/datasets/:datasetID/schema
    *
-   * 覆盖更新 schema
+   * Override update schema
    */
   UpdateDatasetSchema(
     req: stone_fornax_ml_flow_datasetservicev2.UpdateDatasetSchemaReq,
@@ -647,7 +647,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/items/batch_delete
    *
-   * 批量删除数据
+   * batch deletion
    */
   BatchDeleteDatasetItems(
     req: stone_fornax_ml_flow_datasetservicev2.BatchDeleteDatasetItemsReq,
@@ -669,7 +669,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/schema
    *
-   * 获取数据集当前的 schema
+   * Get the current schema of the dataset
    */
   GetDatasetSchema(
     req: stone_fornax_ml_flow_datasetservicev2.GetDatasetSchemaReq,
@@ -691,7 +691,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/import
    *
-   * 导入数据
+   * import data
    */
   ImportDataset(
     req: stone_fornax_ml_flow_datasetservicev2.ImportDatasetReq,
@@ -715,7 +715,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/search
    *
-   * 获取数据集列表
+   * Get a list of datasets
    */
   SearchDatasets(
     req: stone_fornax_ml_flow_datasetservicev2.SearchDatasetsReq,
@@ -744,7 +744,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/versions/:versionID/items
    *
-   * 分页查询指定版本的数据
+   * Paging to query the specified version of the data
    */
   ListDatasetItemsByVersion(
     req: stone_fornax_ml_flow_datasetservicev2.ListDatasetItemsByVersionReq,
@@ -770,7 +770,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/get_model
    *
-   * 获取模型详情(商业化)
+   * Get model details (commercialization)
    */
   GetModel(
     req?: stone_fornax_ml_flow_modelservice.GetModelRequest,
@@ -793,7 +793,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/get_model_usage
    *
-   * 获取模型Token用量(商业化)
+   * Acquire Model Token Usage (Commercialization)
    */
   GetModelUsage(
     req?: stone_fornax_ml_flow_modelservice.GetModelUsageRequest,
@@ -815,7 +815,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/v1/list
    *
-   * 获取模型列表(商业化)
+   * Get a list of models (commercial)
    */
   ListModel(
     req?: stone_fornax_ml_flow_modelservice.ListModelRequest,
@@ -839,7 +839,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/model_manage/v1/get_model_filter_params
    *
-   * 获取模型列表过滤参数(商业化)
+   * Get model list filter parameters (commercial)
    */
   GetModelFilterParams(
     req?: stone_fornax_ml_flow_modelservice.GetModelFilterParamsRequest,
@@ -877,7 +877,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/dataset_io_jobs/:jobID
    *
-   * 任务(导入、导出、转换)详情
+   * Task (Import, Export, Transform) Details
    */
   GetDatasetIOJob(
     req: stone_fornax_ml_flow_datasetservicev2.GetDatasetIOJobReq,
@@ -895,7 +895,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/items/batch_get
    *
-   * 批量获取数据
+   * bulk data acquisition
    */
   BatchGetDatasetItems(
     req: stone_fornax_ml_flow_datasetservicev2.BatchGetDatasetItemsReq,
@@ -917,7 +917,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/versions/:versionID/items/batch_get
    *
-   * 批量获取指定版本的数据
+   * Get the specified version of the data in bulk
    */
   BatchGetDatasetItemsByVersion(
     req: stone_fornax_ml_flow_datasetservicev2.BatchGetDatasetItemsByVersionReq,
@@ -939,7 +939,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/batch_get
    *
-   * 批量获取数据集
+   * Batch acquisition of datasets
    */
   BatchGetDatasets(
     req: stone_fornax_ml_flow_datasetservicev2.BatchGetDatasetsReq,
@@ -961,7 +961,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/versioned_datasets/batch_get
    *
-   * 批量获取指定版本的数据集详情
+   * Get the dataset details of the specified version in bulk
    */
   BatchGetVersionedDatasets(
     req: stone_fornax_ml_flow_datasetservicev2.BatchGetVersionedDatasetsReq,
@@ -983,7 +983,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/io_jobs
    *
-   * 数据集任务列表，用于获取当前数据集的导入任务
+   * Dataset task list, used to obtain the import task for the current dataset
    */
   ListDatasetIOJobsOfDataset(
     req: stone_fornax_ml_flow_datasetservicev2.ListDatasetIOJobsOfDatasetReq,
@@ -1006,7 +1006,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/dataset_versions/:versionID
    *
-   * 获取指定版本的数据集详情
+   * Get the dataset details for the specified version
    */
   GetDatasetVersion(
     req: stone_fornax_ml_flow_datasetservicev2.GetDatasetVersionReq,
@@ -1028,7 +1028,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/versions/:versionID/items/batch_get
    *
-   * 批量获取固定版本数据行
+   * Get fixed version rows in bulk
    */
   OpenBatchGetDatasetItemsByVersion(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenBatchGetDatasetItemsByVersionRequest,
@@ -1052,7 +1052,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /open-api/ml_flow/v2/datasets/:datasetID/items
    *
-   * 草稿态的数据行列表
+   * List of rows in draft mode
    */
   OpenListDatasetItems(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenListDatasetItemsRequest,
@@ -1076,7 +1076,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PATCH /open-api/ml_flow/v2/datasets/:datasetID/items/:itemID
    *
-   * 更新数据行的数据内容
+   * Update the data content of the data row
    */
   OpenPatchDatasetItem(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenPatchDatasetItemRequest,
@@ -1104,7 +1104,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/items/batch_get
    *
-   * 批量获取草稿态数据行
+   * Get draft data rows in bulk
    */
   OpenBatchGetDatasetItems(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenBatchGetDatasetItemsRequest,
@@ -1128,7 +1128,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/items/batch_delete
    *
-   * 批量删除草稿态数据行
+   * Batch deletion of draft data rows
    */
   OpenBatchDeleteDatasetItems(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenBatchDeleteDatasetItemsRequest,
@@ -1152,7 +1152,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/versions
    *
-   * 创建数据集版本
+   * Create a dataset version
    */
   OpenCreateDatasetVersion(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenCreateDatasetVersionRequest,
@@ -1180,7 +1180,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/items/clear
    *
-   * 清空草稿态数据行
+   * Clear draft data rows
    */
   OpenClearDatasetItems(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenClearDatasetItemsRequest,
@@ -1204,7 +1204,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /open-api/ml_flow/v2/datasets/:datasetID/versions/:versionID/items
    *
-   * 固定版本的数据行列表
+   * Fixed version of the row list
    */
   OpenListDatasetItemsByVersion(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenListDatasetItemsByVersionRequest,
@@ -1228,7 +1228,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /open-api/ml_flow/v2/datasets/:datasetID/versions
    *
-   * 获取数据集版本列表
+   * Get a list of dataset versions
    */
   OpenListDatasetVersions(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenListDatasetVersionsRequest,
@@ -1252,7 +1252,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/items/batch
    *
-   * 批量新增
+   * batch new
    */
   OpenBatchCreateDatasetItems(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenBatchCreateDatasetItemsRequest,
@@ -1281,7 +1281,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/search
    *
-   * 获取数据集列表
+   * Get a list of datasets
    */
   OpenSearchDatasets(
     req?: stone_fornax_ml_flow_openapi_datasetservicev2.OpenSearchDatasetsRequest,
@@ -1308,7 +1308,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v2/spaces/:spaceID/dataset_io_jobs/:jobID/cancel
    *
-   * 取消一个任务
+   * Cancel a task
    */
   CancelDatasetIOJob(
     req: stone_fornax_ml_flow_datasetservicev2.CancelDatasetIOJobReq,
@@ -1326,7 +1326,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v2/spaces/:spaceID/dataset_versions/:versionID
    *
-   * 更新一个版本
+   * Update a version
    */
   UpdateDatasetVersion(
     req: stone_fornax_ml_flow_datasetservicev2.UpdateDatasetVersionReq,
@@ -1344,7 +1344,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs/:jobID
    *
-   * 更新质量分任务
+   * update quality sub-task
    */
   UpdateQualityScoreJob(
     req: stone_fornax_ml_flow_annotationjobservice.UpdateQualityScoreJobRequest,
@@ -1362,7 +1362,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs
    *
-   * 创建质量分任务
+   * Create quality sub-tasks
    */
   CreateQualityScoreJob(
     req: stone_fornax_ml_flow_annotationjobservice.CreateQualityScoreJobRequest,
@@ -1380,7 +1380,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs/:jobID
    *
-   * 获取质量分任务
+   * Get quality sub-task
    */
   GetQualityScoreJob(
     req: stone_fornax_ml_flow_annotationjobservice.GetQualityScoreJobRequest,
@@ -1398,7 +1398,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * DELETE /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs/:jobID
    *
-   * 删除质量分任务
+   * Delete Quality Subtask
    */
   DeleteQualityScoreJob(
     req: stone_fornax_ml_flow_annotationjobservice.DeleteQualityScoreJobRequest,
@@ -1416,7 +1416,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs/dry_run
    *
-   * 试运行质量分任务
+   * Practice running quality sub-tasks
    */
   DryRunQualityScoreJob(
     req: stone_fornax_ml_flow_annotationjobservice.DryRunQualityScoreJobRequest,
@@ -1438,7 +1438,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs
    *
-   * 获取质量分任务
+   * Get quality sub-task
    */
   ListQualityScoreJobs(
     req: stone_fornax_ml_flow_annotationjobservice.ListQualityScoreJobsRequest,
@@ -1461,7 +1461,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/items/:id/source
    *
-   * 查询 item 的来源信息
+   * Query the source information of the item
    */
   GetDatasetItemSource(
     req: stone_fornax_ml_flow_datasetservicev2.GetDatasetItemSourceReq,
@@ -1479,7 +1479,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/deduplicate/dedup_jobs/:jobID
    *
-   * 获取判重任务
+   * Get heavy task
    */
   GetItemDeduplicateJob(
     req: stone_fornax_ml_flow_datasetservicev2.GetItemDeduplicateJobReq,
@@ -1503,7 +1503,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/deduplicate/dedup_jobs
    *
-   * 创建判重任务
+   * Create weighted tasks
    */
   CreateItemDeduplicateJob(
     req: stone_fornax_ml_flow_datasetservicev2.CreateItemDeduplicateJobReq,
@@ -1530,7 +1530,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/deduplicate/dedup_jobs/:jobID/confirm
    *
-   * 确认疑似重复任务
+   * Confirm suspected duplicate tasks
    */
   ConfirmItemDeduplicate(
     req: stone_fornax_ml_flow_datasetservicev2.ConfirmItemDeduplicateReq,
@@ -1552,7 +1552,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_job_instances/:jobID
    *
-   * 获取任务执行情况信息
+   * Get task execution information
    */
   GetQualityScoreJobInstance(
     req: stone_fornax_ml_flow_annotationjobservice.GetQualityScoreJobInstanceRequest,
@@ -1570,7 +1570,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs/:jobID/instances/:instanceID/terminate
    *
-   * 终止任务
+   * terminate task
    */
   TerminateQualityScoreJobInstance(
     req: stone_fornax_ml_flow_annotationjobservice.TerminateQualityScoreJobInstanceRequest,
@@ -1588,7 +1588,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /open-api/ml_flow/v2/datasets/:datasetID/items/:itemID
    *
-   * 获取某条数据行&血缘数据，主键ID
+   * Get a certain data row & bloodline data, primary key ID
    */
   OpenGetDatasetItem(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenGetDatasetItemRequest,
@@ -1615,7 +1615,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/io_jobs/search
    *
-   * 数据集任务列表，用于获取当前数据集的导入任务(POST 方法，便于传参)
+   * Dataset task list, used to obtain the import task of the current dataset (POST method, easy to pass parameters)
    */
   SearchDatasetIOJobsOfDataset(
     req: stone_fornax_ml_flow_datasetservicev2.SearchDatasetIOJobsOfDatasetReq,
@@ -1638,7 +1638,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/versions/:versionID/items/search
    *
-   * 分页查询指定版本的数据(POST 方法，便于传参)
+   * Paging to query the specified version of the data (POST method, easy to pass parameters)
    */
   SearchDatasetItemsByVersion(
     req: stone_fornax_ml_flow_datasetservicev2.SearchDatasetItemsByVersionReq,
@@ -1664,7 +1664,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/versions/search
    *
-   * 版本列表(POST 方法，便于传参)
+   * Version list (POST method, easy to pass parameters)
    */
   SearchDatasetVersions(
     req: stone_fornax_ml_flow_datasetservicev2.SearchDatasetVersionsReq,
@@ -1690,7 +1690,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:datasetID/items/search
    *
-   * 分页查询当前数据(POST 方法，便于传参)
+   * Paging to query the current data (POST method, easy to pass parameters)
    */
   SearchDatasetItems(
     req: stone_fornax_ml_flow_datasetservicev2.SearchDatasetItemsReq,
@@ -1716,7 +1716,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/create_with_import
    *
-   * 从数据集导入数据
+   * Import data from a dataset
    */
   CreateDatasetWithImport(
     req: stone_fornax_ml_flow_datasetservicev2.CreateDatasetWithImportReq,
@@ -1744,7 +1744,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/datasets/:datasetID/items/:id/deep_sources
    *
-   * 查询 item 的溯源信息
+   * Query the traceability information of the item
    */
   GetDatasetItemDeepSources(
     req: stone_fornax_ml_flow_datasetservicev2.GetDatasetItemDeepSourcesReq,
@@ -1762,7 +1762,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs/:jobID/run
    *
-   * 运行打标任务
+   * Run the marking task
    */
   RunQualityScoreJob(
     req: stone_fornax_ml_flow_annotationjobservice.RunQualityScoreJobRequest,
@@ -1784,7 +1784,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/quality_score_jobs/:jobID/sync_run
    *
-   * 同步运行几条打分任务
+   * Run several scoring tasks simultaneously
    */
   RunQualityScoreSync(
     req: stone_fornax_ml_flow_annotationjobservice.RunQualityScoreSyncRequest,
@@ -1802,7 +1802,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/items
    *
-   * 创建数据行
+   * Create data row
    */
   CreateDatasetItem(
     req: stone_fornax_ml_flow_datasetservicev2.CreateDatasetItemReq,
@@ -1827,7 +1827,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/fields_meta_info
    *
-   * 获取筛选元数据
+   * Get filter metadata
    */
   GetFieldsMetaInfo(
     req: stone_fornax_ml_flow_datasetservicev2.GetFieldsMetaInfoRequest,
@@ -1844,7 +1844,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/tags
    *
-   * 创建标签
+   * Create label
    */
   CreateTag(
     req: stone_fornax_ml_flow_tagservice.CreateTagRequest,
@@ -1869,7 +1869,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/tags/search
    *
-   * 查询标签列表
+   * query tag list
    */
   SearchTags(
     req: stone_fornax_ml_flow_tagservice.SearchTagsRequest,
@@ -1896,7 +1896,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PATCH /api/ml_flow/v2/spaces/:spaceID/tags/:tagKeyID
    *
-   * 更新标签
+   * update tab
    */
   UpdateTag(
     req: stone_fornax_ml_flow_tagservice.UpdateTagRequest,
@@ -1921,7 +1921,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/tags/batch_update_status
    *
-   * 批量更新标签状态
+   * Bulk update label status
    */
   BatchUpdateTagStatus(
     req: stone_fornax_ml_flow_tagservice.BatchUpdateTagStatusRequest,
@@ -1943,7 +1943,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/export
    *
-   * 导出数据
+   * export data
    */
   ExportDataset(
     req: stone_fornax_ml_flow_datasetservicev2.ExportDatasetReq,
@@ -1966,7 +1966,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/tags/:tagKeyID/archive_option_tag
    *
-   * 将单选标签归档进标签管理
+   * Archive radio labels into label management
    */
   ArchiveOptionTag(
     req: stone_fornax_ml_flow_tagservice.ArchiveOptionTagRequest,
@@ -1988,7 +1988,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/tags/:tagKeyID
    *
-   * 获取标签明细
+   * Get label details
    */
   GetTagDetail(
     req: stone_fornax_ml_flow_tagservice.GetTagDetailRequest,
@@ -2006,7 +2006,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /open-api/ml_flow/v2/dataset_io_jobs/:jobID
    *
-   * 任务(导入、导出、转换)详情
+   * Task (Import, Export, Transform) Details
    */
   OpenGetDatasetIOJob(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenGetDatasetIOJobReq,
@@ -2030,7 +2030,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/import
    *
-   * 导入数据
+   * import data
    */
   OpenImportDataset(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenImportDatasetReq,
@@ -2059,7 +2059,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/export
    *
-   * 导出数据
+   * export data
    */
   OpenExportDataset(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenExportDatasetReq,
@@ -2088,7 +2088,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /open-api/ml_flow/v2/dataset_io_jobs/:jobID/cancel
    *
-   * 取消一个任务
+   * Cancel a task
    */
   OpenCancelDatasetIOJob(
     req: stone_fornax_ml_flow_openapi_datasetservicev2.OpenCancelDatasetIOJobReq,
@@ -2112,7 +2112,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/parse_import_source_file
    *
-   * 解析源文件
+   * Parsing source files
    */
   ParseImportSourceFile(
     req: stone_fornax_ml_flow_datasetservicev2.ParseImportSourceFileReq,
@@ -2130,7 +2130,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/:jobID/run
    *
-   * 运行标注任务
+   * Run annotation tasks
    */
   RunAnnotationJob(
     req: stone_fornax_ml_flow_annotationjobservice.RunAnnotationJobRequest,
@@ -2152,7 +2152,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/:jobID/job_run_instances/:jobRunID/terminate
    *
-   * 终止正在运行的打标任务
+   * Terminate a running marking task
    */
   TerminateAnnotationJob(
     req: stone_fornax_ml_flow_annotationjobservice.TerminateAnnotationJobRequest,
@@ -2170,7 +2170,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/process
    *
-   * 查看当前数据集进行中标注任务进度
+   * View the progress of the current dataset to win the bidding
    */
   GetAnnotationJobProcess(
     req: stone_fornax_ml_flow_annotationjobservice.GetAnnotationJobProcessRequest,
@@ -2188,7 +2188,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/associated
    *
-   * 获取数据集每列关联的标注任务
+   * Get the annotation task associated with each column of the dataset
    */
   GetAnnotationJobsWithDataset(
     req: stone_fornax_ml_flow_annotationjobservice.GetAnnotationJobsWithDatasetRequest,
@@ -2206,7 +2206,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/:jobID
    *
-   * 获取单个标注任务详情
+   * Get individual annotation task details
    */
   GetAnnotationJobDetail(
     req: stone_fornax_ml_flow_annotationjobservice.GetAnnotationJobDetailRequest,
@@ -2224,7 +2224,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /open-api/ml_flow/v2/datasets/:datasetID/annotation_jobs/:jobID/instances
    *
-   * 查看任务实例状态
+   * View task instance status
    */
   OpenGetAnnotationJobInstance(
     req: stone_fornax_ml_flow_openapi_annotationjobservice.OpenGetAnnotationJobInstanceRequest,
@@ -2248,7 +2248,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/annotation_jobs/:jobID/run
    *
-   * 运行任务
+   * Run task
    */
   OpenRunAnnotationJob(
     req: stone_fornax_ml_flow_openapi_annotationjobservice.OpenRunAnnotationJobRequest,
@@ -2272,7 +2272,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /open-api/ml_flow/v2/datasets/:datasetID/annotation_jobs
    *
-   * 列举数据集的标注任务
+   * Labeling tasks for enumerating datasets
    */
   OpenListAnnotationJobs(
     req: stone_fornax_ml_flow_openapi_annotationjobservice.OpenListAnnotationJobsRequest,
@@ -2296,7 +2296,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/annotation_jobs/:jobID/instances/:instanceID/terminate
    *
-   * 终止标注任务
+   * Terminate labeling task
    */
   OpenTerminateAnnotationJob(
     req: stone_fornax_ml_flow_openapi_annotationjobservice.OpenTerminateAnnotationJobInstanceRequest,
@@ -2320,7 +2320,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/datasets/:dataset_id/items/clear
    *
-   * 清除(草稿)数据项
+   * Clear (draft) data items
    */
   ClearDatasetItem(
     req: stone_fornax_ml_flow_datasetservicev2.ClearDatasetItemRequest,
@@ -2338,7 +2338,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/job_run_instances/search
    *
-   * 搜索标注任务列表
+   * Search Annotated Task List
    */
   SearchAnnotationJobInstances(
     req: stone_fornax_ml_flow_annotationjobservice.SearchAnnotationjobInstancesRequest,
@@ -2364,7 +2364,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/insight/field_distribute
    *
-   * 获取洞察分布
+   * Gain insights into distribution
    */
   QueryFieldDistribute(
     req: stone_fornax_ml_flow_tagservice.QueryFieldDistributeRequest,
@@ -2386,7 +2386,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * PUT /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/:jobID
    *
-   * 更新标注任务
+   * update annotation task
    */
   UpdateAnnotationJob(
     req: stone_fornax_ml_flow_annotationjobservice.UpdateAnnotationJobRequest,
@@ -2408,7 +2408,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs
    *
-   * 创建标注任务
+   * Create annotation task
    */
   CreateAnnotationJob(
     req: stone_fornax_ml_flow_annotationjobservice.CreateAnnotationJobRequest,
@@ -2430,7 +2430,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/dataset_items/validate
    *
-   * 校验数据
+   * validation data
    */
   ValidateDatasetItems(
     req?: stone_fornax_ml_flow_datasetservicev2.ValidateDatasetItemsReq,
@@ -2453,7 +2453,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/datasets/:datasetID/annotation_jobs/:jobID/clone
    *
-   * 复用标注任务
+   * reuse annotation task
    */
   OpenCloneAnnotationJob(
     req: stone_fornax_ml_flow_openapi_annotationjobservice.OpenCloneAnnotationJobRequest,
@@ -2481,7 +2481,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * DELETE /open-api/ml_flow/v2/datasets/:datasetID/annotation_jobs/:jobID
    *
-   * 删除数据集的标注任务
+   * Delete the annotation task of the dataset
    */
   OpenDeleteAnnotationJob(
     req?: stone_fornax_ml_flow_openapi_annotationjobservice.OpenDeleteAnnotationJobRequest,
@@ -2505,7 +2505,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * DELETE /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/:jobID
    *
-   * 删除标注任务
+   * Delete annotation task
    */
   DeleteAnnotationJob(
     req: stone_fornax_ml_flow_annotationjobservice.DeleteAnnotationJobRequest,
@@ -2523,7 +2523,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/datasets/:datasetID/annotation_jobs/preview
    *
-   * 预览标注任务效果
+   * Preview annotation task effect
    */
   PreviewAnnotation(
     req: stone_fornax_ml_flow_annotationjobservice.PreviewAnnotationRequest,
@@ -2545,7 +2545,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v2/spaces/:spaceID/annotation_jobs/search
    *
-   * 搜索标注任务
+   * search annotation task
    */
   SearchAnnotationJobs(
     req: stone_fornax_ml_flow_annotationjobservice.SearchAnnotationJobsRequest,
@@ -2570,7 +2570,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/batch_infer/list_model_cards
    *
-   * 获取模型card列表
+   * Get a list of model cards
    */
   ListModelCards(
     req?: stone_fornax_ml_flow_batchinferservice.ListModelCardsReq,
@@ -2593,7 +2593,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/batch_infer/parse_model_config
    *
-   * 解析模型配置
+   * parsing model configuration
    */
   ParseModelConfig(
     req?: stone_fornax_ml_flow_batchinferservice.ParseModelConfigReq,
@@ -2617,7 +2617,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/batch_infer/get_recommend_resource
    *
-   * 根据模型card获得推荐的merlin资源信息
+   * Recommended merlin resource information based on model card
    */
   GetRecommendResource(
     req?: stone_fornax_ml_flow_batchinferservice.GetRecommendResourceReq,
@@ -2639,7 +2639,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * GET /api/ml_flow/v2/spaces/:spaceID/tags/spec
    *
-   * 获取spaceid维度标签配置
+   * Get spaceid dimension label configuration
    */
   GetTagSpec(
     req: stone_fornax_ml_flow_tagservice.GetTagSpecRequest,
@@ -2786,7 +2786,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /api/ml_flow/v1/spaces/:space_id/batch_infer/:task_id
    *
-   * 获取批量推理任务详情
+   * Get batch inference task details
    */
   GetBatchInferTask(
     req?: stone_fornax_ml_flow_batchinferservice.GetBatchInferTaskReq,
@@ -2854,7 +2854,7 @@ export default class FornaxMlFlowService<T> {
   /**
    * POST /open-api/ml_flow/v2/parse_import_source_file
    *
-   * 解析导入文件的列配置
+   * Parse the column configuration of the imported file
    */
   OpenParseImportSourceFile(
     req?: stone_fornax_ml_flow_openapi_datasetservicev2.OpenParseImportSourceFileReq,

@@ -27,7 +27,7 @@ export interface BuiAuditInfo {
   AuditStatus?: user_common.PassportAuditStatus;
   UnPassReason?: string;
   LastModifyTime?: Int64;
-  /** map[string]AuditInfo 的序列化字段，下面的注释是具体的struct结构 */
+  /** Map [string] The serialized field of AuditInfo, the following comment is the specific struct structure */
   AuditInfoJson?: string;
 }
 /* eslint-enable */

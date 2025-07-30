@@ -41,87 +41,87 @@ export enum ModelProvider {
 }
 
 export enum ModelTagKeyID {
-  /** 用户权益 */
+  /** user rights and interests */
   UserRights = 1,
-  /** 模型类型 */
+  /** model type */
   ModelType = 2,
-  /** 模型特色 */
+  /** Model Features */
   ModelFeatures = 3,
-  /** 模型支持功能 */
+  /** Model support function */
   ModelCapabilities = 4,
-  /** 模型应用场景 */
+  /** Model application scenario */
   ModelScene = 5,
-  /** 自定义标签 */
+  /** custom label */
   CustomTag = 6,
-  /** 模型厂商 */
+  /** Model manufacturer */
   ModelManufacturer = 7,
-  /** 参数量 */
+  /** parameter quantity */
   ParameterQuantity = 8,
-  /** 火山方舟标签 */
+  /** Volcano Ark Tag */
   MaasTag = 9,
-  /** 模型系列 */
+  /** Model series */
   ModelSeries = 10,
-  /** 下线日期 */
+  /** offline date */
   OfflineDate = 11,
-  /** 替换模型 */
+  /** replacement model */
   ReplaceModel = 12,
-  /** 更新日志 */
+  /** changelog */
   UpdateLog = 13,
-  /** 一句话描述 */
+  /** Describe in one sentence */
   BriefDescription = 14,
-  /** 付费标签 */
+  /** paid label */
   PaidTag = 15,
-  /** 模型运行时能力 */
+  /** model runtime capability */
   ModelAbility = 16,
 }
 
 export interface ModelEntity {
-  /** 模型 id */
+  /** Model ID */
   ModelID?: string;
-  /** 模型名称 */
+  /** Model name */
   ModelName?: string;
-  /** 模型分流规则 */
+  /** Model shunting rule */
   Targets?: Array<ModelRuleTarget>;
   biz?: number;
-  /** 创建者 */
+  /** creator */
   CreaterEmail?: string;
-  /** 最后修改人 */
+  /** Last Modifier */
   UpdaterEmail?: string;
-  /** 模型创建时间 */
+  /** model creation time */
   CreateTime?: Int64;
-  /** 模型修改时间 */
+  /** model modification time */
   UpdateTime?: Int64;
 }
 
 export interface ModelParameter {
-  /** 配置字段，如max_tokens */
+  /** Configuration fields, such as max_tokens */
   name?: string;
-  /** 类型 */
+  /** type */
   type?: ModelParamType;
-  /** 是否必填 */
+  /** Is it required? */
   is_required?: boolean;
-  /** 数值类型参数，允许设置的最小值 */
+  /** Numerical type parameters, the minimum value allowed to be set */
   min?: string;
-  /** 数值类型参数，允许设置的最大值 */
+  /** Numerical type parameter, the maximum value allowed to be set */
   max?: string;
-  /** float类型参数的精度 */
+  /** Precision of float type parameters */
   precision?: number;
-  /** 不同风格的参数默认值 */
+  /** Default values for different styles of parameters */
   default_value?: Record<string, string>;
-  /** 枚举值，如response_format支持text,markdown,json */
+  /** Enumeration values such as response_format support text, markdown, json */
   options?: Array<string>;
-  /** 是否自动修正该参数到[min, max]范围内， 默认为false */
+  /** Whether to automatically fix this parameter to the range [min, max], the default is false */
   auto_fix?: boolean;
 }
 
 export interface ModelRuleTarget {
-  /** 要打到的模型元数据ID */
+  /** Model metadata ID to hit */
   ModelMetaID?: string;
-  /** 要命中的流量比例区间开始 */
+  /** The traffic ratio interval in the dead begins */
   RangeStart?: Int64;
-  /** 要命中的流量比例区间结束 */
+  /** The end of the traffic ratio interval in the dead */
   RangeEnd?: Int64;
-  /** 逗号拼接的要命中的用户名列表 */
+  /** Comma splicing of the list of terrible usernames in */
   ConnectorUIDs?: Array<string>;
 }
 /* eslint-enable */

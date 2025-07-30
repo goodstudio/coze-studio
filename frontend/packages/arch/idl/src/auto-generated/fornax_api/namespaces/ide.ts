@@ -21,23 +21,23 @@
 
 export type Int64 = string | number;
 
-/** 空间类型 */
+/** space type */
 export enum SpaceType {
   Undefined = 0,
   Personal = 1,
   Team = 2,
-  /** 官方空间 */
+  /** official space */
   Official = 3,
 }
 
 export interface SpaceInfo {
-  /** 空间id */
+  /** Space ID */
   id: Int64;
-  /** 空间accessKey */
+  /** Space accessKey */
   accessKey?: string;
-  /** 空间secretKey */
+  /** Space secretKey */
   secretKey?: string;
-  /** 空间类型 */
+  /** space type */
   spaceType?: SpaceType;
 }
 /* eslint-enable */

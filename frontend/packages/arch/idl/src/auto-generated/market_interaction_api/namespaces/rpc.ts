@@ -24,15 +24,15 @@ import * as flow_marketplace_interaction_common from './flow_marketplace_interac
 export type Int64 = string | number;
 
 export enum SearchField {
-  /** 仅更新部分字段
-帖子相关 */
+  /** Update only some fields
+post related */
   PostStatus = 1,
   PostCommentCount = 2,
-  /** 帖子评分 */
+  /** Post rating */
   PostEvaluationScore = 3,
-  /** 评论相关 */
+  /** comment related */
   CommentStatus = 10,
-  /** 评论评分 */
+  /** Review Rating */
   CommentEvaluationScore = 11,
 }
 
@@ -46,7 +46,7 @@ export interface CommentInfo {
   Content?: string;
   CommentID?: Int64;
   Resource?: Record<string, flow_marketplace_interaction_common.Resource>;
-  /** user_id 和 bot_id 二选一 */
+  /** Choose between user_id and bot_id */
   AuthorUserID?: Int64;
   CreatedAt?: Int64;
   BotReplyStatus?: flow_marketplace_interaction_common.CommentBotReplyStatus;
@@ -60,7 +60,7 @@ export interface PostInfo {
   Title?: string;
   Label?: flow_marketplace_interaction_common.PostLabel;
   AuthorUserID?: Int64;
-  /** uri -> 资源的映射 */
+  /** URI - > resource mapping */
   Resource?: Record<string, flow_marketplace_interaction_common.Resource>;
   Content?: string;
   CreatedAt?: Int64;

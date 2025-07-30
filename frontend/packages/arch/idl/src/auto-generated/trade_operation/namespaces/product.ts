@@ -56,34 +56,34 @@ export interface SKUInfo {
   description?: string;
   price?: Array<marketplace_common.Price>;
   attr?: Array<SKUAttr>;
-  /** 订阅类商品才会有 */
+  /** Subscription products will only be available. */
   SubscriptionInfo?: SubscriptionSKUDetail;
 }
 
 export interface SubscriptionAutoRenewSKU {
-  /** 购买周期 */
+  /** buying cycle */
   billing_period?: SubscriptionPeriod;
-  /** 订阅整个周期数目(trail期和intro期也被计算在内),单位是一个SubscriptionPeriod。续费超过该次数后，不再继续续费。0或不输入均表示不限制。 */
+  /** The number of subscription cycles (trail period and intro period are also counted), in a Subscription Period. After the renewal exceeds this number of times, the renewal will not continue. 0 or no input means no limit. */
   billing_period_count?: number;
-  /** 折扣期 */
+  /** Discount period */
   trial_period?: SubscriptionPeriod;
-  /** 折扣期次数（最小为1） */
+  /** Number of discount periods (minimum 1) */
   trial_period_count?: number;
-  /** 宽限期 */
+  /** grace period */
   grade_period?: SubscriptionPeriod;
 }
 
 export interface SubscriptionPeriod {
-  /** 时间周期单位，YEAR/MONTH/DAY/HOUR/MINUTE/WEEK */
+  /** Time period unit, YEAR/MONTH/DAY/HOUR/MINUTE/WEEK */
   unit?: string;
-  /** 时间周期长度，单位是一个unit */
+  /** Time period length, unit is a unit */
   length?: number;
   unit_type?: UnitType;
 }
 
 export interface SubscriptionSKUDetail {
   sku_type?: common.SubsSKUType;
-  /** 对于SubsMessageCredit：0-Free；10-premium，20-Premium Plus */
+  /** For SubsMessageCredit: 0-Free; 10-Premium, 20-Premium Plus */
   sku_level?: number;
   auto_renew_detail?: SubscriptionAutoRenewSKU;
 }

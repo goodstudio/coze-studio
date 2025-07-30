@@ -42,11 +42,11 @@ export interface FileListRPCMeta {
   Name?: string;
   CreateTime?: Int64;
   Format?: string;
-  /** 文件大小 */
+  /** file size */
   Size?: Int64;
-  /** 文件大类, 精确匹配 */
+  /** Large file categories, exact matching */
   MdType?: number;
-  /** 可访问url, 不保证持久化 */
+  /** Accessible URL, no guarantee of persistence */
   Url?: string;
 }
 
@@ -67,18 +67,18 @@ export interface FileMetaInfo {
   conversation_id: Int64;
   biz_type: string;
   biz_id: string;
-  /** 注意：该字段返回给前端可能因精度丢失而不一致 */
+  /** Note: The field returned to the frontend may be inconsistent due to loss of precision */
   bot_id: Int64;
   message_id: Int64;
-  /** 原图地址 */
+  /** original image address */
   normal_file_url?: FileURL;
-  /** 缩略图地址 */
+  /** Thumbnail address */
   thumbnail_file_url?: FileURL;
-  /** 图片 meta 信息，当文件类型为图片时有效 */
+  /** Image meta information, valid when the file type is image */
   image_meta?: ImageMeta;
-  /** 255:文件未构建索引; 254:没有启用byterag; 0:rag索引构建成功; 1:rag索引构建中; 2:rag索引构建失败; 3:rag索引已删除 */
+  /** 255: file not indexed; 254: byterag not enabled; 0: rag index built successfully; 1: rag index building in progress; 2: rag index build failed; 3: rag index deleted */
   rag_document_status?: Int64;
-  /** rag内容的切片数 */
+  /** Number of slices of rag content */
   rag_content_chunk_num?: number;
 }
 
@@ -98,9 +98,9 @@ export interface FileURLData {
 }
 
 export interface ImageMeta {
-  /** 图片宽度，单位：px */
+  /** Image width, unit: px */
   width: number;
-  /** 图片高度，单位：px */
+  /** Image height, unit: px */
   height: number;
 }
 /* eslint-enable */

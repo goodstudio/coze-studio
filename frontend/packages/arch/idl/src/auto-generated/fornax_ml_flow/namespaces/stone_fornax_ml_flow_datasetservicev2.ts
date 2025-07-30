@@ -32,15 +32,15 @@ export interface BatchCreateDatasetItemsReq {
   spaceID?: string;
   datasetID: string;
   items?: Array<datasetv2.DatasetItem>;
-  /** items 中存在无效数据时，默认不会写入任何数据；设置 skipInvalidItems=true 会跳过无效数据，写入有效数据 */
+  /** When there is invalid data in items, no data will be written by default; setting skipInvalidItems=true will skip invalid data and write valid data */
   skipInvalidItems?: boolean;
-  /** 批量写入 items 如果超出数据集容量限制，默认不会写入任何数据；设置 partialAdd=true 会写入不超出容量限制的前 N 条 */
+  /** Bulk write items If the dataset capacity limit is exceeded, no data will be written by default; setting partialAdd = true will write the first N items that do not exceed the capacity limit */
   allowPartialAdd?: boolean;
   base?: base.Base;
 }
 
 export interface BatchCreateDatasetItemsResp {
-  /** key: item 在 items 中的索引 */
+  /** Key: item index in items */
   addedItems?: Record<number, Int64>;
   errors?: Array<datasetv2.ItemErrorGroup>;
   /** base */
@@ -98,7 +98,7 @@ export interface BatchGetDatasetsResp {
 export interface BatchGetVersionedDatasetsReq {
   spaceID?: string;
   versionIDs: Array<string>;
-  /** 是否返回已删除的数据，默认不返回 */
+  /** Whether to return deleted data, not by default */
   withDeleted?: boolean;
   base?: base.Base;
 }
@@ -131,7 +131,7 @@ export interface ClearDatasetItemResponse {
 export interface ConfirmItemDeduplicateReq {
   spaceID?: string;
   jobID: string;
-  /** 批量确认 */
+  /** batch confirmation */
   pairs: Array<ConfirmItemPair>;
   /** base */
   base?: base.Base;
@@ -142,30 +142,30 @@ export interface ConfirmItemDeduplicateResp {
 }
 
 export interface ConfirmItemPair {
-  /** 新导入的条目主键 */
+  /** Newly imported entry primary key */
   newItemsUniqKey: string;
   importConfirmType: datasetv2job.ImportConfirmType;
 }
 
 export interface ConflictField {
-  /** 存在冲突的列名 */
+  /** Conflicting listings */
   fieldName?: string;
-  /** 冲突详情。key: 文件名，val：该文件中包含的类型 */
+  /** Conflict details. key: filename, val: the type contained in this file */
   detailM?: Record<string, datasetv2.FieldSchema>;
 }
 
 export interface CreateDatasetItemReq {
   spaceID: string;
   datasetID: string;
-  /** 数据插入的幂等 key，前端创建时可以不传 */
+  /** The idempotent key for data insertion, which can not be passed when the front end is created. */
   itemKey?: string;
-  /** 数据内容 */
+  /** data content */
   data?: Array<datasetv2.FieldData>;
-  /** 多轮数据内容，与 data 互斥 */
+  /** Multiple rounds of data content, mutual exclusion with data */
   repeatedData?: Array<datasetv2.ItemData>;
-  /** 如果有来源 item，可以通过该字段指定是否保留与克隆的源 item 的血缘关系 */
+  /** If there is a source item, this field allows you to specify whether to retain the kinship to the cloned source item */
   keepLineage?: boolean;
-  /** 源 item id，在 keepLineage 为 true 时必填 */
+  /** Source item id, required if keepLineage is true */
   sourceItemID?: string;
   base?: base.Base;
 }
@@ -200,7 +200,7 @@ export interface CreateDatasetResp {
 export interface CreateDatasetVersionReq {
   spaceID?: string;
   datasetID: string;
-  /** 展示的版本号，SemVer2 三段式，需要大于上一版本 */
+  /** The displayed version number, SemVer2 three-stage, needs to be larger than the previous version */
   version: string;
   desc?: string;
   base?: base.Base;
@@ -218,9 +218,9 @@ export interface CreateDatasetWithImportReq {
   source: datasetv2job.DatasetIOEndpoint;
   fieldMappings?: Array<datasetv2job.FieldMapping>;
   option?: datasetv2job.DatasetIOJobOption;
-  /** 新建数据集名称 */
+  /** New dataset name */
   targetDatasetName: string;
-  /** 新建数据集描述 */
+  /** New dataset description */
   targetDatasetDesc?: string;
   category?: datasetv2.DatasetCategory;
   fields?: Array<datasetv2.FieldSchema>;
@@ -240,20 +240,20 @@ export interface CreateItemDeduplicateJobReq {
   file?: datasetv2job.DatasetIOFile;
   fieldMappings?: Array<datasetv2job.FieldMapping>;
   option?: datasetv2job.DatasetIOJobOption;
-  /** 任务id，重入时用 */
+  /** Task id, used when reentering */
   jobID?: string;
-  /** 根据哪一列去重 */
+  /** According to which column deduplicate */
   fieldKey?: string;
-  /** 去重算法 */
+  /** deduplicate algorithm */
   similarityAlgorithm?: datasetv2similarity.SimilarityAlgorithm;
-  /** 阈值 */
+  /** threshold */
   threshold?: Int64;
   /** base */
   base?: base.Base;
 }
 
 export interface CreateItemDeduplicateJobResp {
-  /** 任务id，前端后续用这个id去获取 待确认列表 */
+  /** Task id, the front end will use this id to get it later, the list to be confirmed */
   jobID: string;
   baseResp?: base.BaseResp;
 }
@@ -282,10 +282,10 @@ export interface DeleteDatasetResp {
 export interface ExportDatasetReq {
   spaceID: string;
   datasetID: string;
-  /** 需要导出的数据集版本 id，为 0 表示导出草稿版本 */
+  /** The version id of the dataset to be exported, 0 indicates the exported draft version */
   versionID?: string;
   targetType: datasetv2job.SourceType;
-  /** 此处填写一个文件夹，会将对应的文件生成到该文件夹下 */
+  /** Fill in a folder here, and the corresponding file will be generated under this folder. */
   target: datasetv2job.DatasetIOEndpoint;
   /** base */
   base?: base.Base;
@@ -298,19 +298,19 @@ export interface ExportDatasetResp {
 }
 
 export interface FieldMeta {
-  /** 字段类型 */
+  /** field type */
   field_type: string;
-  /** 当前字段支持的操作类型 */
+  /** The type of operation supported by the current field */
   query_types: Array<string>;
   display_name: string;
-  /** 支持的可选项 */
+  /** Supported options */
   field_options?: FieldOptions;
-  /** 当前字段在schema中是否存在 */
+  /** Does the current field exist in the schema? */
   exist?: boolean;
 }
 
 export interface FieldMetaInfoData {
-  /** 字段元信息 */
+  /** field meta information */
   field_metas: Record<string, FieldMeta>;
 }
 
@@ -336,13 +336,13 @@ export interface GetDatasetIOJobResp {
 export interface GetDatasetItemDeepSourcesReq {
   spaceID: string;
   datasetID: string;
-  /** item 的主键 id */
+  /** Primary key id of item */
   id: string;
   base?: base.Base;
 }
 
 export interface GetDatasetItemDeepSourcesResp {
-  /** 按照从 root 到当前 item 的顺序返回 */
+  /** Returns in order from root to current item */
   deepSources?: Array<datasetv2lineage.ItemSource>;
   baseResp?: base.BaseResp;
 }
@@ -362,7 +362,7 @@ export interface GetDatasetItemResp {
 export interface GetDatasetItemSourceReq {
   spaceID: string;
   datasetID: string;
-  /** item 的主键 id */
+  /** Primary key id of item */
   id: string;
   base?: base.Base;
 }
@@ -375,7 +375,7 @@ export interface GetDatasetItemSourceResp {
 export interface GetDatasetReq {
   spaceID?: string;
   datasetID: string;
-  /** 数据集已删除时是否返回 */
+  /** Whether to return when the dataset has been deleted */
   withDeleted?: boolean;
   base?: base.Base;
 }
@@ -388,7 +388,7 @@ export interface GetDatasetResp {
 export interface GetDatasetSchemaReq {
   spaceID?: string;
   datasetID: string;
-  /** 是否获取已经删除的列，默认不返回 */
+  /** Whether to get the deleted column, it is not returned by default */
   withDeleted?: boolean;
   base?: base.Base;
 }
@@ -401,7 +401,7 @@ export interface GetDatasetSchemaResp {
 export interface GetDatasetVersionReq {
   spaceID?: string;
   versionID: string;
-  /** 是否返回已删除的数据，默认不返回 */
+  /** Whether to return deleted data, not by default */
   withDeleted?: boolean;
   base?: base.Base;
 }
@@ -439,7 +439,7 @@ export interface ImportDatasetReq {
   spaceID?: string;
   datasetID: string;
   file?: datasetv2job.DatasetIOFile;
-  /** 待外场前端修复后再加上 vt.elem.skip = "false" */
+  /** Add vt.elem.skip = "false" after the outfield front end is fixed. */
   fieldMappings?: Array<datasetv2job.FieldMapping>;
   option?: datasetv2job.DatasetIOJobOption;
   /** base */
@@ -470,9 +470,9 @@ export interface ListDatasetItemsByVersionReq {
   versionID: string;
   /** pagination */
   page?: number;
-  /** 分页大小(0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   pageSize?: number;
-  /** 与 page 同时提供时，优先使用 cursor */
+  /** Preferred cursor when served with page */
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
   filter?: filter.Filter;
@@ -493,9 +493,9 @@ export interface ListDatasetItemsReq {
   datasetID: string;
   /** pagination */
   page?: number;
-  /** 分页大小(0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   pageSize?: number;
-  /** 与 page 同时提供时，优先使用 cursor */
+  /** Preferred cursor when served with page */
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
   filter?: filter.Filter;
@@ -514,13 +514,13 @@ export interface ListDatasetItemsResp {
 export interface ListDatasetVersionsReq {
   spaceID?: string;
   datasetID: string;
-  /** 根据版本号模糊匹配 */
+  /** Based on version number fuzzy match */
   versionLike?: string;
   /** pagination */
   page?: number;
-  /** 分页大小(0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   pageSize?: number;
-  /** 与 page 同时提供时，优先使用 cursor */
+  /** Preferred cursor when served with page */
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
   base?: base.Base;
@@ -541,20 +541,20 @@ export interface ObjectFieldOption {
 
 export interface ParseImportSourceFileReq {
   spaceID: string;
-  /** 如果 path 为文件夹，此处只默认解析当前路径级别下所有指定类型的文件，不嵌套解析 */
+  /** If path is a folder, only all files of the specified type under the current path level will be parsed by default, not nested. */
   file?: datasetv2job.DatasetIOFile;
   /** base */
   base?: base.Base;
 }
 
 export interface ParseImportSourceFileResp {
-  /** 文件大小，单位为 byte */
+  /** File size in bytes */
   bytes?: string;
-  /** 列名和类型，有多文件的话会取并集返回。如果文件中的列定义存在冲突，此处不返回解析结果，具体冲突详情通过 conflicts 返回 */
+  /** Column name and type. If there are multiple files, it will be merged and returned. If there is a conflict between the column definitions in the file, the resolution result will not be returned here. The specific conflict details will be returned through conflicts. */
   fields?: Array<datasetv2.FieldSchema>;
-  /** 冲突详情。key: 列名，val：冲突详情 */
+  /** Conflict details. key: column name, val: conflict details */
   conflicts?: Array<ConflictField>;
-  /** 存在列定义不明确的文件（即一个列被定义为多个类型），当前仅 jsonl 文件会出现该状况 */
+  /** There are files with poorly defined columns (i.e. a column is defined with multiple types), which currently occurs only in jsonl files */
   filesWithAmbiguousColumn?: Array<string>;
   /** base */
   baseResp?: base.BaseResp;
@@ -579,9 +579,9 @@ export interface SearchDatasetItemsByVersionReq {
   versionID: string;
   /** pagination */
   page?: number;
-  /** 分页大小(0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   pageSize?: number;
-  /** 与 page 同时提供时，优先使用 cursor */
+  /** Preferred cursor when served with page */
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
   filter?: filter.Filter;
@@ -602,9 +602,9 @@ export interface SearchDatasetItemsReq {
   datasetID: string;
   /** pagination */
   page?: number;
-  /** 分页大小(0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   pageSize?: number;
-  /** 与 page 同时提供时，优先使用 cursor */
+  /** Preferred cursor when served with page */
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
   filter?: filter.Filter;
@@ -624,15 +624,15 @@ export interface SearchDatasetsReq {
   spaceID: string;
   datasetIDs?: Array<string>;
   category?: datasetv2.DatasetCategory;
-  /** 支持模糊搜索 */
+  /** Support fuzzy search */
   name?: string;
   createdBys?: Array<string>;
   bizCategories?: Array<string>;
   /** pagination */
   page?: number;
-  /** 分页大小(0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   pageSize?: number;
-  /** 与 page 同时提供时，优先使用 cursor */
+  /** Preferred cursor when served with page */
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
   base?: base.Base;
@@ -649,13 +649,13 @@ export interface SearchDatasetsResp {
 export interface SearchDatasetVersionsReq {
   spaceID?: string;
   datasetID: string;
-  /** 根据版本号模糊匹配 */
+  /** Based on version number fuzzy match */
   versionLike?: string;
   /** pagination */
   page?: number;
-  /** 分页大小(0, 200]，默认为 20 */
+  /** Page size (0,200], default is 20 */
   pageSize?: number;
-  /** 与 page 同时提供时，优先使用 cursor */
+  /** Preferred cursor when served with page */
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
   base?: base.Base;
@@ -671,7 +671,7 @@ export interface SearchDatasetVersionsResp {
 
 export interface SignUploadFileTokenReq {
   spaceID?: string;
-  /** 支持 ImageX, TOS */
+  /** Support ImageX, TOS */
   storage?: datasetv2.StorageProvider;
   fileName?: string;
   /** base */
@@ -690,9 +690,9 @@ export interface UpdateDatasetItemReq {
   spaceID?: string;
   datasetID: string;
   itemID: string;
-  /** 单轮数据内容，当数据集为单轮时，写入此处的值 */
+  /** Single round data content, when the dataset is single round, write the value here */
   data?: Array<datasetv2.FieldData>;
-  /** 多轮对话数据内容，当数据集为多轮对话时，写入此处的值 */
+  /** Multi-round conversation data content, when the dataset is multi-round conversations, write the value here */
   repeatedData?: Array<datasetv2.ItemData>;
   base?: base.Base;
 }
@@ -716,9 +716,9 @@ export interface UpdateDatasetResp {
 export interface UpdateDatasetSchemaReq {
   spaceID?: string;
   datasetID: string;
-  /** fieldSchema.key 为空时：插入新的一列
-fieldSchema.key 不为空时：更新对应的列
-使用示例参考： */
+  /** When fieldSchema.key is empty: insert a new column
+When fieldSchema.key is not empty: update the corresponding column
+Use example reference: */
   fields?: Array<datasetv2.FieldSchema>;
   base?: base.Base;
 }
@@ -741,18 +741,18 @@ export interface UpdateDatasetVersionResp {
 export interface ValidateDatasetItemsReq {
   spaceID?: string;
   items?: Array<datasetv2.DatasetItem>;
-  /** 添加到已有数据集时提供 */
+  /** Provided when adding to an existing dataset */
   datasetID?: string;
-  /** 新建数据集并添加数据时提供 */
+  /** Provided when creating a new dataset and adding data */
   datasetCategory?: datasetv2.DatasetCategory;
-  /** 新建数据集并添加数据时，必须提供；添加到已有数据集时，如非空，则覆盖已有 schema 用于校验 */
+  /** When creating a new dataset and adding data, it must be provided; when adding to an existing dataset, if not empty, overwrite the existing schema for validation */
   datasetFields?: Array<datasetv2.FieldSchema>;
-  /** 添加到已有数据集时，现有数据条数，做容量校验时不做考虑，仅考虑提供 items 数量是否超限 */
+  /** When adding to an existing dataset, the number of existing data bars is not considered when doing capacity verification, only whether the number of items provided exceeds the limit */
   ignoreCurrentItemCount?: boolean;
 }
 
 export interface ValidateDatasetItemsResp {
-  /** 合法的 item 索引，与 ValidateCreateDatasetItemsReq.items 中的索引对应 */
+  /** A valid item index, corresponding to the index in ValidateCreateDatasetItemsReq */
   validItemIndices?: Array<number>;
   errors?: Array<datasetv2.ItemErrorGroup>;
   /** base */

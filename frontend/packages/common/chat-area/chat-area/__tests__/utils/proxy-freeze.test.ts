@@ -21,7 +21,7 @@ vi.stubGlobal('IS_DEV_MODE', true);
 describe('proxyFreeze', () => {
   it('should return the same object for non-objects', () => {
     const nonObject = 42;
-    // @ts-expect-error -- 测试使用
+    // @TS-expected-error -- test use
     expect(proxyFreeze(nonObject)).toBe(nonObject);
   });
 

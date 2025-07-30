@@ -30,33 +30,33 @@ export enum AsyncStatus {
 }
 
 export enum CozeBotInfoType {
-  /** 草稿 bot */
+  /** Draft bot */
   DraftBot = 1,
-  /** 商店 bot */
+  /** Shop bot */
   ProductBot = 2,
 }
 
-/** 回调的壳子：
- 既作为服务端返回参数
- 关联对象时候，又作为前端传参的壳子 */
+/** Callback shell:
+ Both as server level return parameters
+ When the object is associated, it is also used as the shell for front-end parameter transmission */
 export interface Object {
   object_type: Int64;
-  /** UI上针对评估对象的拉列表页展示的名称,objectMetaName */
+  /** The name of the pull list page displayed on the UI for the evaluation object, objectMetaName */
   name?: string;
-  /** 一方 Agent 中子评估对象的唯一标识和配置等相关信息。建议采用 Json 序列化透传
-ObjectMeta 的生产、传递、消费路径：SearchObject(生产方)->评测平台UI->评测平台用户圈选->评测平台服务端->评测对象Playground(消费方)
-ObjectMeta 由 评估对象服务方 生成和解析，评测平台仅透传
-像内置的接口没有这个字段 */
+  /** The unique identity and configuration of the neutron evaluation object of one agent. It is recommended to use Json serialized passthrough
+The production, delivery and consumption path of ObjectMeta: SearchObject (producer) - > evaluation platform UI- > evaluation platform user circle - > evaluation platform server level - > evaluation object Playground (consumer)
+ObjectMeta is generated and parsed by the evaluation object server, and the evaluation platform is transparent only
+Like the built-in interface does not have this field */
   object_meta?: string;
-  /** 用于筛选哪些object可见 */
+  /** Used to filter which objects are visible */
   space_id: Int64;
-  /** 只用于展示的object信息，例如bot头像 */
+  /** Display-only object information, such as bot avatars */
   avatar_url?: string;
-  /** 回调业务方的env, 前端透传该值，由evaluation解析后执行对应泳道的回调 */
+  /** Callback the env of the business party, pass the value through the front end, and perform the callback of the corresponding lane after evaluation analysis */
   env?: string;
-  /** UI在用例列表展示唯一子对象的id，需回调业务方填 */
+  /** The UI displays the id of the unique child object in the use case list, which needs to be filled in by the callback business party */
   object_meta_id?: string;
-  /** UI在用例列表展示，用户在前端选中评测对象后，快照存储用于在用例列表中展示 */
+  /** The UI is displayed in the use case list. After the user selects the evaluation object on the front end, the snapshot store is used to display it in the use case list. */
   object_type_name?: string;
   callback_type?: flow_devops_evaluation_entity.CallbackType;
 }

@@ -23,28 +23,28 @@ export type Int64 = string | number;
 
 export interface AppAgentData {
   agent_id?: Int64;
-  /** 最低可展示的版本号 */
+  /** Minimum Displayable Version Number */
   min_app_version?: string;
 }
 
 export interface AppUpdateData {
-  /** 最新版本号 */
+  /** latest version number */
   last_app_version?: string;
-  /** 最低可用的app版本号，低于该版本触发升级弹窗 */
+  /** The lowest available app version number, lower than this version triggers the upgrade pop-up window */
   min_app_version?: string;
-  /** 升级弹窗标题 */
+  /** Upgrade pop-up title */
   update_title?: string;
-  /** 升级弹窗文案 */
+  /** Upgrade pop-up copy */
   update_desc?: string;
-  /** 最新版本链接 */
+  /** Latest version link */
   android_update_url?: string;
-  /** 最新版本链接 */
+  /** Latest version link */
   ios_update_url?: string;
 }
 
 export interface GetAppInfoData {
   app_update?: AppUpdateData;
-  /** 允许展示的agent列表 */
+  /** List of allowed agents */
   expert_agent?: Array<AppAgentData>;
 }
 

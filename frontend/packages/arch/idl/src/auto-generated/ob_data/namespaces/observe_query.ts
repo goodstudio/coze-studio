@@ -27,24 +27,24 @@ export type Int64 = string | number;
 export interface ExportQueryToCsvV2Request {
   /** space id */
   space_id: string;
-  /** 场景参数  不同场景使用的通用参数 */
+  /** Scene parameters, common parameters used in different scenarios */
   scene_param: common.SceneCommonParam;
-  /** 筛选参数 */
+  /** filter parameters */
   query_filter?: QueryFilterV2;
 }
 
 export interface ExportQueryToCsvV2Response {
   body?: Blob;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface GetQueryEnumsV2Request {
   /** space id */
   space_id: string;
-  /** 场景参数  不同场景使用的通用参数参数 */
+  /** Scene parameters, common parameters used in different scenarios */
   scene_param: common.SceneCommonParam;
 }
 
@@ -52,100 +52,100 @@ export interface GetQueryEnumsV2Response {
   intent?: Array<ob_query.Intent>;
   /** key: connector_id, value: connector_name */
   connectors?: Array<ob_query.KV>;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface GetQueryStatV2Request {
   /** space id */
   space_id: string;
-  /** 场景参数  不同场景使用的通用参数 */
+  /** Scene parameters, common parameters used in different scenarios */
   scene_param: common.SceneCommonParam;
   query_filter?: QueryFilterV2;
 }
 
 export interface GetQueryStatV2Response {
   data: ob_query.GetQueryStatData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface ListQueryV2Request {
   /** space id */
   space_id: string;
-  /** 场景参数  不同场景使用的通用参数 */
+  /** Scene parameters, common parameters used in different scenarios */
   scene_param: common.SceneCommonParam;
-  /** 筛选参数 */
+  /** filter parameters */
   query_filter?: QueryFilterV2;
   /** default 20 max 200 */
   limit?: number;
-  /** 上次请求带过来的分页参数 */
+  /** Paging parameters from the last request */
   page_token?: string;
 }
 
 export interface ListQueryV2Response {
   data: Array<QueryDataV2>;
-  /** 下一页的分页token，前端拉取下一页数据时回传 */
+  /** The paging token of the next page, which is returned when the front end pulls the data on the next page */
   next_page_token: string;
-  /** 是否有更多数据 */
+  /** Is there any more data? */
   has_more: boolean;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface QueryDataV2 {
   query_id?: string;
-  /** trace_id，用于查询trace细节 */
+  /** trace_id to query trace details */
   trace_id?: string;
-  /** 状态 */
+  /** state */
   status?: ob_query.Status;
-  /** 用户ID */
+  /** user ID */
   user_id?: string;
-  /** 对话ID */
+  /** Conversation ID */
   message_id?: string;
-  /** 会话ID */
+  /** Session ID */
   session_id?: string;
-  /** 用户输入 */
+  /** user input */
   input?: string;
-  /** bot输出 */
+  /** bot output */
   output?: string;
-  /** 模型输入长度 */
+  /** model input length */
   input_tokens?: number;
-  /** 模型输出长度 */
+  /** model output length */
   output_tokens?: number;
-  /** 发起请求时间 */
+  /** initiation request time */
   start_time?: string;
-  /** 整体耗时 */
+  /** overall time consuming */
   latency?: Int64;
-  /** 首token时延 */
+  /** first token delay */
   latency_first_resp?: Int64;
-  /** 渠道名称 */
+  /** channel name */
   connector?: string;
-  /** 意图标签 */
+  /** intent tag */
   intent?: string;
-  /** 意图字段生产状态 */
+  /** Intent field production status */
   intent_status?: ob_query.CalFieldStatus;
-  /** session字段生产状态 */
+  /** Session field Production status */
   session_id_status?: ob_query.CalFieldStatus;
-  /** 会话ID（connector platform上报原始值） */
+  /** Session ID (the original value reported by the connector platform) */
   conversation_id?: string;
-  /** 发布管理新增
-运行id */
+  /** release management new
+Run ID */
   workflow_execute_id?: string;
   trigger_id?: string;
-  /** 触发器name--来源name, */
+  /** Trigger name-- source name, */
   trigger_name?: string;
-  /** Project版本 对外用户填写的 */
+  /** Project version, filled in by external users */
   version?: string;
-  /** Project版本 时间戳 */
+  /** Project Versiontimestamp */
   version_code?: string;
-  /** 运行token */
+  /** Run token */
   total_tokens?: number;
 }
 
@@ -163,7 +163,7 @@ export interface QueryFilterV2 {
   latency_first_resp?: ob_query.I64Range;
   connector_ids?: Array<string>;
   second_class_intents?: Array<string>;
-  /** 发布管理新增 */
+  /** release management new */
   workflow_execute_ids?: Array<string>;
   trigger_ids?: Array<string>;
   trigger_name?: string;

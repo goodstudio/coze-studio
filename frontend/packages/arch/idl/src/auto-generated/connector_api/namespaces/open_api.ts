@@ -24,13 +24,13 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export enum ConnectorAuditStatus {
-  /** 未知、无审核 */
+  /** Unknown, Unaudited */
   Unknown = 0,
-  /** 审核中 */
+  /** Under review. */
   Progress = 1,
-  /** 审核通过 */
+  /** approved */
   Audited = 2,
-  /** 审核拒绝 */
+  /** moderation rejection */
   Reject = 3,
 }
 

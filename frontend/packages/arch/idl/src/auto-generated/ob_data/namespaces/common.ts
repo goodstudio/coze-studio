@@ -27,11 +27,11 @@ export enum LogBizScene {
   LogBizSceneWorkflowAPI = 2,
 }
 
-/** 运行载体 */
+/** running vector */
 export interface SceneCommonParam {
-  /** 场景type */
+  /** Scene type */
   log_biz_scene: LogBizScene;
-  /** 不同场景含义不同， */
+  /** Different scenarios have different meanings. */
   entity_id?: string;
 }
 /* eslint-enable */

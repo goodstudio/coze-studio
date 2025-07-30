@@ -26,9 +26,9 @@ export type Int64 = string | number;
 export interface CreateOfflineEvalTaskRequest {
   task?: modeleval.OfflineEvalTask;
   userJwtToken?: string;
-  /** 此托管的方舟账号的id */
+  /** The ID of this hosted Ark account. */
   accountID?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -39,7 +39,7 @@ export interface CreateOfflineEvalTaskResponse {
 export interface GetOfflineEvalTaskRequest {
   task_id?: string;
   userJwtToken?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -54,7 +54,7 @@ export interface ListOfflineEvalTaskRequest {
   userJwtToken?: string;
   pageSize?: Int64;
   pageNum?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -66,9 +66,9 @@ export interface ListOfflineEvalTaskResponse {
 
 export interface ModelSupportedMethodsRequest {
   model?: modeleval.OfflineEvalTaskModel;
-  /** 如果是方舟，还需要传accountID */
+  /** If it is an ark, you also need to pass on the accountID. */
   accountID?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -81,7 +81,7 @@ export interface ParseMerlinSeedModelConfigRequest {
   modelSid?: string;
   trainingJobRunID?: string;
   userJwtToken?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -97,7 +97,7 @@ export interface ParseMerlinSeedModelConfigResponse {
 export interface TerminateOfflineEvalTaskRequest {
   taskID?: string;
   userJwtToken?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: string;
 }
 

@@ -35,7 +35,7 @@ export const UIFormInput: FC<CommonFieldProps & InputProps> = ({
   return (
     <div
       style={{
-        // @ts-expect-error ts 无法识别 css 自定义变量
+        // @TS-expected-error ts cannot recognize css custom variable
         '--var-error-msg-offset': props.addonBefore
           ? `${inputRef.current?.offsetLeft ?? 0}px`
           : '0px',

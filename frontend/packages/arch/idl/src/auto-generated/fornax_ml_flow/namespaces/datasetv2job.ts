@@ -28,7 +28,7 @@ export enum FileFormat {
   JSONL = 1,
   Parquet = 2,
   CSV = 3,
-  /** [100, 200) 压缩格式 */
+  /** [100, 200] compressed format */
   ZIP = 100,
 }
 
@@ -38,22 +38,22 @@ export enum ImportConfirmType {
   ConfirmedNotDuplicated = 2,
 }
 
-/** 通用任务状态 */
+/** general task state */
 export enum JobStatus {
   Undefined = 0,
-  /** 待处理 */
+  /** pending */
   Pending = 1,
-  /** 处理中 */
+  /** Processing */
   Running = 2,
-  /** 已完成 */
+  /** Completed. */
   Completed = 3,
-  /** 失败 */
+  /** fail */
   Failed = 4,
-  /** 已取消 */
+  /** Cancelled */
   Cancelled = 5,
 }
 
-/** 通用任务类型 */
+/** generic task type */
 export enum JobType {
   ImportFromFile = 1,
   ExportToFile = 2,
@@ -69,9 +69,9 @@ export interface DatasetIODataset {
   spaceID?: string;
   datasetID: string;
   versionID?: string;
-  /** 数据集详情，在接口上返回，不写入 */
+  /** Dataset details, returned on the interface, not written */
   dataset?: datasetv2.Dataset;
-  /** 版本详情，在接口上返回，不写入 */
+  /** Version details, returned on the interface, not written */
   version?: datasetv2.DatasetVersion;
 }
 
@@ -83,34 +83,34 @@ export interface DatasetIOEndpoint {
 export interface DatasetIOFile {
   provider: datasetv2.StorageProvider;
   path: string;
-  /** 数据文件的格式 */
+  /** Data file format */
   format?: FileFormat;
-  /** 压缩包格式 */
+  /** compressed package format */
   compressFormat?: FileFormat;
-  /** path 为文件夹或压缩包时，数据文件列表, 服务端设置 */
+  /** Path to folder or zip, data file list, server level settings */
   files?: Array<string>;
-  /** 原始的文件名，创建文件时由前端写入。为空则与 path 保持一致 */
+  /** The original file name, written by the frontend when the file was created. Empty is consistent with path */
   originalFileName?: string;
 }
 
-/** DatasetIOJob 数据集导入导出任务 */
+/** DatasetIOJob dataset import and export task */
 export interface DatasetIOJob {
   id: string;
   appID?: number;
   spaceID: string;
-  /** 导入导出到文件时，为数据集 ID；数据集间转移时，为目标数据集 ID */
+  /** When importing and exporting to a file, it is the dataset ID; when transferring between datasets, it is the target dataset ID. */
   datasetID: string;
   jobType: JobType;
   source: DatasetIOEndpoint;
   target: DatasetIOEndpoint;
-  /** 字段映射 */
+  /** data field mapping */
   fieldMappings?: Array<FieldMapping>;
   option?: DatasetIOJobOption;
-  /** 运行数据, [20, 100) */
+  /** Operational data, [20, 100] */
   status?: JobStatus;
   progress?: DatasetIOJobProgress;
   errors?: Array<datasetv2.ItemErrorGroup>;
-  /** 通用信息 */
+  /** general information */
   createdBy?: string;
   createdAt?: string;
   updatedBy?: string;
@@ -120,27 +120,27 @@ export interface DatasetIOJob {
 }
 
 export interface DatasetIOJobOption {
-  /** 覆盖数据集，仅在导入任务中生效 */
+  /** Overwriting the dataset only takes effect in the import task */
   overwriteDataset?: boolean;
-  /** 需要按照手动打标的taskID结果导入，被确认无需导入的不会被导入，仅在导入任务中生效 */
+  /** You need to import according to the manually marked taskID result. If it is confirmed that you do not need to import, it will not be imported, and will only take effect in the import task. */
   jobID?: Int64;
 }
 
 export interface DatasetIOJobProgress {
-  /** 总量 */
+  /** total */
   total?: Int64;
-  /** 已处理数量 */
+  /** Number processed */
   processed?: Int64;
-  /** 已成功处理的数量 */
+  /** Number of successfully processed */
   added?: Int64;
-  /** 已跳过的数量 */
+  /** Number skipped */
   skipped?: Int64;
-  /** 下一个扫描的游标，在数据源为数据集时生效 */
+  /** The next scanned cursor, which takes effect when the data source is a dataset */
   cursor?: string;
-  /** 子任务
-可空, 表示子任务的名称 */
+  /** subtask
+Nullable, indicating the name of the subtask */
   name?: string;
-  /** 子任务的进度 */
+  /** Progress of subtasks */
   subProgresses?: Array<DatasetIOJobProgress>;
 }
 
@@ -153,38 +153,38 @@ export interface ItemDeduplicateJob {
   id: string;
   spaceID: string;
   datasetID: string;
-  /** 导入文件需要的数据 */
+  /** Import the data required for the file */
   jobType?: JobType;
   source?: DatasetIOEndpoint;
   target?: DatasetIOEndpoint;
-  /** 字段映射 */
+  /** data field mapping */
   fieldMappings?: Array<FieldMapping>;
   option?: DatasetIOJobOption;
-  /** job信息
-如果status=Completed,则表明已经处理完成 */
+  /** Job information
+If status = Completed, it indicates that the processing has been completed */
   status?: JobStatus;
-  /** 任务当时的简要信息，冗余存储 */
+  /** Brief information at the time of the task, redundant storage */
   itemDedupJobBrief?: string;
-  /** 根据哪一列去重 */
+  /** According to which column deduplicate */
   fieldKey?: string;
-  /** 去重算法 */
+  /** deduplicate algorithm */
   similarityAlgorithm?: datasetv2similarity.SimilarityAlgorithm;
-  /** 阈值 */
+  /** threshold */
   threshold?: Int64;
-  /** job中需要处理的总数据，不跟随筛选条件变动 */
+  /** The total data to be processed in the job does not follow the filter criteria */
   jobTotal?: Int64;
-  /** 已确认的重复条数，不跟随筛选条件变动 */
+  /** The number of confirmed duplicates does not follow the filter criteria */
   confirmedDedupItemsCount?: Int64;
-  /** 已确认的不重复条数，不跟随筛选条件变动 */
+  /** The number of confirmed non-repeating items does not change with the filter criteria */
   confirmedNotDedupItemsCount?: Int64;
-  /** 错误信息，当 JobStatus=Failed时使用 */
+  /** Error message, used when JobStatus = Failed */
   error?: string;
-  /** 去重列表信息
-去重列表的内容 */
+  /** Deduplicate list information
+Contents of the deduplicate list */
   pairs?: Array<ItemDeduplicatePair>;
-  /** pairs总条数，跟随筛选条件变动 */
+  /** The total number of pairs changes with the filter criteria */
   total?: Int64;
-  /** 通用信息 */
+  /** general information */
   createdBy?: string;
   createdAt?: string;
   updatedBy?: string;
@@ -195,13 +195,13 @@ export interface ItemDeduplicateJob {
 
 export interface ItemDeduplicatePair {
   id: string;
-  /** 本条主键 */
+  /** primary key */
   uniqKey: string;
-  /** 新导入的内容 */
+  /** newly imported content */
   newItem?: datasetv2.DatasetItem;
-  /** 可能重复的内容 */
+  /** Possible duplicate content */
   items?: Array<SuspectedDupItemInfo>;
-  /** 是否确认 */
+  /** Whether to confirm */
   importConfirmType?: ImportConfirmType;
   createdBy?: string;
   createdAt?: string;
@@ -210,9 +210,9 @@ export interface ItemDeduplicatePair {
 }
 
 export interface SuspectedDupItemInfo {
-  /** 行内容 */
+  /** line content */
   item?: datasetv2.DatasetItem;
-  /** 相似度评分 */
+  /** similarity score */
   score?: Int64;
 }
 /* eslint-enable */

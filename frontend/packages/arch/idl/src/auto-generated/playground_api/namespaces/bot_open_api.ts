@@ -24,20 +24,20 @@ import * as bot_common from './bot_common';
 export type Int64 = string | number;
 
 export enum SearchStrategy {
-  /** 语义搜索 */
+  /** semantic search */
   SemanticSearch = 0,
-  /** 混合搜索 */
+  /** Hybrid Search */
   HybridSearch = 1,
-  /** 全文搜索 */
+  /** Full Text Search */
   FullTextSearch = 20,
 }
 
 export interface ApiInfo {
   /** api id */
   api_id?: string;
-  /** api名称 */
+  /** API name */
   name?: string;
-  /** api描述 */
+  /** API description */
   description?: string;
 }
 
@@ -45,16 +45,16 @@ export interface BackgroundImageDetail {
   origin_image_url?: string;
   image_url?: string;
   theme_color?: string;
-  /** 渐变位置 */
+  /** Gradual change of position */
   gradient_position?: GradientPosition;
-  /** 裁剪画布位置 */
+  /** Crop canvas position */
   canvas_position?: CanvasPosition;
 }
 
 export interface BackgroundImageInfo {
-  /** web端背景图 */
+  /** Web background cover */
   web_background_image?: BackgroundImageDetail;
-  /** 移动端背景图 */
+  /** Mobile end background cover */
   mobile_background_image?: BackgroundImageDetail;
 }
 
@@ -66,45 +66,45 @@ export interface BotConfig {
 export interface BotInfo {
   /** bot id */
   bot_id?: string;
-  /** bot名称 */
+  /** bot name */
   name?: string;
-  /** bot描述 */
+  /** Bot description */
   description?: string;
-  /** bot图像url */
+  /** Bot image url */
   icon_url?: string;
-  /** 创建时间 */
+  /** creation time */
   create_time?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_time?: Int64;
-  /** 版本 */
+  /** version */
   version?: string;
-  /** prompt 信息 */
+  /** Prompt message */
   prompt_info?: PromptInfo;
-  /** 开场白 */
+  /** opening statement */
   onboarding_info?: OnboardingInfoV2;
-  /** bot 类型，single agent or multi agent */
+  /** Bot type, single agent or multi agent */
   bot_mode?: bot_common.BotMode;
-  /** 选择的语音信息 */
+  /** Selected voice message */
   voice_data_list?: Array<VoiceData>;
-  /** 模型信息 */
+  /** model information */
   model_info?: ModelInfo;
-  /** 插件信息列表 */
+  /** Plugin information list */
   plugin_info_list?: Array<PluginInfo>;
-  /** 知识库信息 */
+  /** Knowledge Base Information */
   knowledge?: CommonKnowledge;
-  /** workflow信息列表 */
+  /** Workflow information list */
   workflow_info_list?: Array<WorkflowInfo>;
-  /** 快捷指令信息列表 */
+  /** Quick Command Information List */
   shortcut_commands?: Array<ShortcutCommandInfo>;
-  /** 音色配置 */
+  /** Timbre Configuration */
   voice_info_list?: Array<Voice>;
-  /** 默认用户输入类型 */
+  /** Default user input type */
   default_user_input_type?: string;
-  /** 用户问题建议 */
+  /** User Question Suggestions */
   suggest_reply_info?: SuggestReplyInfo;
-  /** 背景图片 */
+  /** background image */
   background_image_info?: BackgroundImageInfo;
-  /** 变量列表 */
+  /** Variable list */
   variables?: Array<Variable>;
   /** owner_id */
   owner_user_id?: string;
@@ -140,13 +140,13 @@ export interface ChatMessage {
   reply_id?: string;
   section_id?: string;
   extra_info?: Record<string, string>;
-  /** 正常、打断状态 拉消息列表时使用，chat运行时没有这个字段 */
+  /** Normal, interrupted state, used when pulling the message list, this field is not available when chat is running. */
   status?: string;
-  /** 打断位置 */
+  /** interrupt position */
   broken_pos?: number;
   meta_data?: MetaData;
   name?: string;
-  /** 思考内容 */
+  /** Think content */
   reasoning_content?: string;
 }
 
@@ -160,7 +160,7 @@ export interface ChatV1Req {
   extra?: Record<string, string>;
   stream?: boolean;
   custom_variables?: Record<string, string>;
-  /** 前端本地的message_id 在extra_info 里面透传返回 */
+  /** The local message_id on the front end is passed back in the extra_info */
   local_message_id?: string;
   content_type?: string;
 }
@@ -202,11 +202,11 @@ export interface ChatV2Req {
   meta_data?: MetaData;
   content_type?: string;
   tools?: Array<Tool>;
-  /** 模型id，暂时不暴露，内部使用. */
+  /** Model ID, temporarily not exposed, internal use. */
   model_id?: string;
-  /** 当前轮对话的 bot_name */
+  /** bot_name of the current round of dialogue */
   bot_name?: string;
-  /** 透传参数到 plugin/workflow 等下游 */
+  /** Pass parameters to plugin/workflow etc downstream */
   extra_params?: Record<string, string>;
 }
 
@@ -232,13 +232,13 @@ export interface ChatV3Request {
   meta_data?: Record<string, string>;
   tools?: Array<Tool>;
   custom_config?: CustomConfig;
-  /** 透传参数到 plugin/workflow 等下游 */
+  /** Pass parameters to plugin/workflow etc downstream */
   extra_params?: Record<string, string>;
-  /** 手动指定渠道 id 聊天。目前仅支持 websdk(=999) */
+  /** Manually specify channel id chat. Currently only supports websdk (= 999) */
   connector_id?: string;
-  /** 指定快捷指令 */
+  /** Specify shortcut instructions */
   shortcut_command?: ShortcutCommandDetail;
-  /** key=参数名 value=值 传递给 workflows parameters 参数 */
+  /** Key = parameter name value = value, passed to the workflows parameters parameter */
   parameters?: string;
   enable_card?: boolean;
 }
@@ -251,7 +251,7 @@ export interface ChatV3Response {
 }
 
 export interface CommonKnowledge {
-  /** 知识库信息 */
+  /** Knowledge Base Information */
   knowledge_infos?: Array<KnowledgeInfo>;
 }
 
@@ -263,7 +263,7 @@ export interface CreateDraftBotRequest {
   space_id: string;
   name: string;
   description?: string;
-  /** 头像文件id */
+  /** avatar file id */
   icon_file_id?: string;
   prompt_info?: PromptInfo;
   plugin_id_list?: PluginIdList;
@@ -288,14 +288,14 @@ export interface CustomConfig {
 export interface EnterMessage {
   /** user / assistant */
   role?: string;
-  /** 如果是非 text，需要解析 JSON */
+  /** If it is not text, you need to parse JSON. */
   content?: string;
   meta_data?: Record<string, string>;
   /** text, card, object_string */
   content_type?: string;
-  /** function_call, tool_output, knowledge, answer, follow_up, verbose, (普通请求可以不填)
-用户输入时可用：function_call，tool_output
-不支持用户输入使用：follow_up，knowledge，verbose，answer */
+  /** function_call, tool_output, knowledge, answer, follow_up, verbose,
+Available when user enters: function_call, tool_output
+User input is not supported: follow_up, knowledge, verbose, answer */
   type?: string;
   name?: string;
 }
@@ -311,7 +311,7 @@ export interface ExchangeTokenInfo {
 
 export interface File {
   url: string;
-  /** 后缀名. 参考platform */
+  /** Suffix name. Reference platform */
   suffix_type: string;
   file_name?: string;
 }
@@ -324,9 +324,9 @@ export interface FileData {
 export interface GetBotInfoReq {
   /** botId */
   bot_id: string;
-  /** 渠道id，外部使用时传 */
+  /** Channel ID, when used externally */
   connector_id: string;
-  /** bot版本，不传则获取最新版本 */
+  /** bot version, get the latest version if you don't pass it on. */
   version?: string;
 }
 
@@ -336,14 +336,14 @@ export interface GetBotInfoResp {
   bot_info?: BotInfo;
 }
 
-/** -------个人开发者开放接口-------
+/** Open interface ------- individual developers -------
  req */
 export interface GetBotOnlineInfoReq {
   /** botId */
   bot_id: string;
-  /** 先保留，不暴露且不使用该字段 */
+  /** Keep it first, don't expose it, and don't use the field */
   connector_id?: string;
-  /** bot版本，不传则获取最新版本 */
+  /** bot version, get the latest version if you don't pass it on. */
   version?: string;
 }
 
@@ -357,9 +357,9 @@ export interface GetBotOnlineInfoResp {
 export interface GetSpacePublishedBotsListReq {
   /** botId */
   space_id: string;
-  /** 先保留，不透传且不使用该字段 */
+  /** Keep it first, do not pass it through, and do not use the field */
   connector_id?: string;
-  /** 空间下 bots 分页查询参数 */
+  /** Spatial bots paging query parameters */
   page_index?: number;
   page_size?: number;
 }
@@ -375,7 +375,7 @@ export interface GetVoiceListReq {}
 export interface GetVoiceListResp {
   code: Int64;
   msg: string;
-  /** 支持的语音信息 */
+  /** Supported voice messages */
   voice_data_list?: Array<VoiceData>;
 }
 
@@ -390,18 +390,18 @@ export interface Image {
 }
 
 export interface Knowledge {
-  /** 更新知识库列表 全量覆盖更新 */
+  /** Update Knowledge Base List replace all updates */
   dataset_ids?: Array<string>;
-  /** 自动调用 or 按需调用 */
+  /** Call automatically or on demand */
   auto_call?: boolean;
-  /** 搜索策略 */
+  /** search strategy */
   search_strategy?: SearchStrategy;
 }
 
 export interface KnowledgeInfo {
-  /** 知识库id */
+  /** Knowledge Base ID */
   id?: string;
-  /** 知识库名称 */
+  /** Knowledge base name */
   name?: string;
 }
 
@@ -415,62 +415,62 @@ export interface ModelConfig {
 }
 
 export interface ModelInfo {
-  /** 模型id */
+  /** Model ID */
   model_id?: string;
-  /** 模型名称 */
+  /** Model name */
   model_name?: string;
-  /** 生成随机性 没配置不返回 */
+  /** Generate randomness, do not return without configuration */
   temperature?: number;
-  /** top p 没配置不返回 */
+  /** Top p does not return without configuration */
   top_p?: number;
-  /** 频率惩罚 没配置不返回 */
+  /** Frequency penalty, no return without configuration */
   frequency_penalty?: number;
-  /** 存在惩罚 没配置不返回 */
+  /** There is a penalty, no configuration will not return. */
   presence_penalty?: number;
-  /** 生成时，采样候选集的大小 没配置不返回 */
+  /** When generating, sample the size of the candidate set and do not return if not configured */
   top_k?: number;
-  /** 携带上下文轮数 */
+  /** number of carry context rounds */
   context_round?: number;
-  /** 最大回复长度 */
+  /** Maximum reply length */
   max_tokens?: number;
-  /** 输出格式 text、markdown、json */
+  /** Output format text, markdown, json */
   response_format?: string;
-  /** 缓存配置 */
+  /** cache configuration */
   cache_type?: string;
-  /** sp拼接当前时间 */
+  /** SP splicing current time */
   sp_current_time?: boolean;
-  /** sp拼接防泄露指令 */
+  /** SP splicing anti-leakage instruction */
   sp_anti_leak?: boolean;
-  /** 模型个性化配置参数 */
+  /** Model personalized configuration parameters */
   parameters?: Record<string, string>;
 }
 
 export interface ModelInfoConfig {
-  /** 模型id */
+  /** Model ID */
   model_id: string;
-  /** 生成随机性 */
+  /** Generative randomness */
   temperature?: number;
   /** top p */
   top_p?: number;
-  /** 频率惩罚 */
+  /** frequency penalty */
   frequency_penalty?: number;
-  /** 存在惩罚 */
+  /** There is punishment */
   presence_penalty?: number;
-  /** 生成时，采样候选集的大小 */
+  /** When generating, sample the size of the candidate set */
   top_k?: number;
-  /** 携带上下文轮数 */
+  /** number of carry context rounds */
   context_round?: number;
-  /** 最大回复长度 */
+  /** Maximum reply length */
   max_tokens?: number;
-  /** 输出格式 text、markdown、json */
+  /** Output format text, markdown, json */
   response_format?: string;
-  /** 缓存配置 */
+  /** cache configuration */
   cache_type?: string;
-  /** sp拼接当前时间 */
+  /** SP splicing current time */
   sp_current_time?: boolean;
-  /** sp拼接防泄露指令 */
+  /** SP splicing anti-leakage instruction */
   sp_anti_leak?: boolean;
-  /** 模型个性化配置参数 */
+  /** Model personalized configuration parameters */
   parameters?: Record<string, string>;
 }
 
@@ -482,13 +482,13 @@ export interface OauthAuthorizationCodeReq {
 export interface OauthAuthorizationCodeResp {}
 
 export interface OauthCallbackReq {
-  /** tw仅使用 */
+  /** TW use only */
   oauth_token?: string;
   oauth_token_secret?: string;
   oauth_callback_confirmed?: boolean;
-  /** 储存自定义json结构 */
+  /** Store custom JSON structure */
   state?: string;
-  /** tw仅使用 */
+  /** TW use only */
   oauth_verifier?: string;
 }
 
@@ -511,23 +511,23 @@ export interface Onboarding {
 }
 
 export interface OnboardingInfo {
-  /** 开场白 */
+  /** opening statement */
   prologue?: string;
-  /** 建议问题 */
+  /** suggestion question */
   suggested_questions?: Array<string>;
 }
 
 export interface OnboardingInfoV2 {
-  /** 对应 Coze Opening Dialog
-开场白 */
+  /** Coze Opening Dialog
+opening statement */
   prologue?: string;
-  /** 建议问题 */
+  /** suggestion question */
   suggested_questions?: Array<string>;
-  /** 开场白模型 */
+  /** Opener model */
   onboarding_mode?: bot_common.OnboardingMode;
-  /** LLM生成，用户自定义 Prompt */
+  /** LLM Generation, User-defined Prompt */
   customized_onboarding_prompt?: string;
-  /** 开场白预设问题展示方式 默认0 随机展示 */
+  /** The opening statement presets the problem display method, and the default is 0 random display. */
   suggested_questions_show_mode?: bot_common.SuggestedQuestionsShowMode;
 }
 
@@ -541,32 +541,32 @@ export interface PluginIdList {
 }
 
 export interface PluginInfo {
-  /** 插件id */
+  /** Plugin ID */
   plugin_id?: string;
-  /** 插件名称 */
+  /** plugin name */
   name?: string;
-  /** 插件描述 */
+  /** Plugin description */
   description?: string;
-  /** 插件图片url */
+  /** Plugin image url */
   icon_url?: string;
-  /** 插件包含的api列表 */
+  /** List of APIs included in the plugin */
   api_info_list?: Array<ApiInfo>;
 }
 
 export interface PrefixPromptInfo {
-  /** 前缀提示词 */
+  /** prefix cue word */
   prefix_prompt?: string;
-  /** 不支持前缀提示词部分 */
+  /** Prefix prompt word part is not supported */
   dynamic_prompt?: string;
 }
 
-/** bot管理 */
+/** bot management */
 export interface PromptInfo {
-  /** 文本prompt */
+  /** Text prompt */
   prompt?: string;
-  /** 提示词模式 */
+  /** cue word pattern */
   prompt_mode?: string;
-  /** 前缀提示词模式下的prompt内容 */
+  /** Prompt content in prefix prompt word mode */
   prefix_prompt_info?: PrefixPromptInfo;
 }
 
@@ -592,57 +592,57 @@ export interface SenderInfo {
 }
 
 export interface ShortcutCommandComponent {
-  /** panel参数
-参数名字 */
+  /** Panel parameters
+parameter name */
   name?: string;
-  /** 参数描述 */
+  /** parameter description */
   description?: string;
-  /** 输入类型 text、select、file */
+  /** Input type text, select, file */
   type?: string;
-  /** 请求工具时，参数的key 对应tool的参数名称，没有则为不返回 */
+  /** When requesting a tool, the key of the parameter corresponds to the parameter name of the tool. If not, it will not be returned. */
   tool_parameter?: string;
-  /** type为select时的可选项列表 or type为file时，支持哪些类型 image、doc、table、audio、video、zip、code、txt、ppt */
+  /** Options list when type is select or what types are supported when type is file image, doc, table, audio, video, zip, code, txt, ppt */
   options?: Array<string>;
-  /** 默认值 没配置时不返回 */
+  /** Default value, not returned when not configured */
   default_value?: string;
-  /** 是否隐藏不展示 线上bot tool类型的快捷指令不返回hide=true的component */
+  /** Whether to hide or not to show, the shortcut command of the online bot tool type does not return the component with hide = true */
   is_hide?: boolean;
 }
 
 export interface ShortcutCommandDetail {
   command_id: string;
-  /** key=参数名 value=值  object_string object 数组序列化之后的 JSON String */
+  /** Key = parameter name value = value object_string JSON String after object array serialization */
   parameters?: Record<string, string>;
 }
 
 export interface ShortcutCommandInfo {
-  /** 快捷指令id */
+  /** Quick Command ID */
   id?: string;
-  /** 快捷指令按钮名称 */
+  /** Shortcut button name */
   name?: string;
-  /** 快捷指令 */
+  /** Quick Instruction */
   command?: string;
-  /** 快捷指令描述 */
+  /** shortcut description */
   description?: string;
-  /** 指令query模版 */
+  /** Command query template */
   query_template?: string;
-  /** 快捷指令icon */
+  /** Quick command icon */
   icon_url?: string;
-  /** 组件列表（参数列表） */
+  /** Component list (parameter list) */
   components?: Array<ShortcutCommandComponent>;
-  /** tool信息 */
+  /** Tool information */
   tool?: ShortcutCommandToolInfo;
-  /** multi的指令时，该指令由哪个节点执行 没配置不返回 */
+  /** When the multi instruction is executed by which node, it will not be returned without configuration */
   agent_id?: string;
-  /** chatsdk 使用 */
+  /** Chatsdk usage */
   send_type?: string;
-  /** chatsdk 使用，表单的schema */
+  /** ChatSDK usage, form schema */
   card_schema?: string;
 }
 
 export interface ShortcutCommandToolInfo {
   name?: string;
-  /** tool类型 workflow plugin */
+  /** Tool type workflow plugin */
   type?: string;
   plugin_id?: string;
   plugin_api_name?: string;
@@ -656,7 +656,7 @@ export interface ShortcutToolParam {
   description?: string;
   type?: string;
   default_value?: string;
-  /** 是否是panel参数 */
+  /** Is it a panel parameter? */
   is_refer_component?: boolean;
 }
 
@@ -683,20 +683,20 @@ export interface SubmitToolOutputsRequest {
 }
 
 export interface SuggestReplyInfo {
-  /** 回复模式 */
+  /** recovery mode */
   reply_mode?: string;
-  /** custom 模式下的自定义 prompt */
+  /** Custom prompts in custom mode */
   customized_prompt?: string;
 }
 
-/** 对齐 platform，传递 tools */
+/** Align platform, transfer tools */
 export interface Tool {
   plugin_id?: Int64;
   parameters?: string;
   api_name?: string;
 }
 
-/** 续聊时提交的执行结果 */
+/** Execution results submitted during the continuation of the chat */
 export interface ToolOutput {
   tool_call_id: string;
   output: string;
@@ -736,43 +736,43 @@ export interface UploadResp {
 }
 
 export interface Variable {
-  /** 变量名 */
+  /** variable name */
   keyword?: string;
-  /** 默认值 */
+  /** default value */
   default_value?: string;
-  /** 变量类型 */
+  /** Variable type */
   variable_type?: string;
-  /** 变量来源 */
+  /** Variable source */
   channel?: string;
-  /** 变量描述 */
+  /** variable description */
   description?: string;
-  /** 是否启用 */
+  /** Whether to enable */
   enable?: boolean;
-  /** 变量默认支持在Prompt中访问，取消勾选后将不支持在Prompt中访问（仅能在Workflow中访问 */
+  /** Variables support access in Prompt by default. After unchecking, access in Prompt will not be supported (only accessible in Workflow) */
   prompt_enable?: boolean;
 }
 
 export interface Voice {
-  /** 唯一id */
+  /** unique id */
   voice_id?: string;
-  /** 音色语种code */
+  /** timbre language code */
   language_code?: string;
 }
 
 export interface VoiceData {
-  /** 唯一id */
+  /** unique id */
   id?: string;
-  /** 音色语种code */
+  /** timbre language code */
   language_code?: string;
-  /** 音色语种名称 */
+  /** timbre language name */
   language_name?: string;
-  /** 音色名称 */
+  /** timbre name */
   name?: string;
-  /** 音色 style_id */
+  /** Tone style_id */
   style_id?: string;
-  /** 预览文本内容 */
+  /** Preview text content */
   preview_text?: string;
-  /** 预览音色内容 */
+  /** preview timbre content */
   preview_audio?: string;
 }
 
@@ -787,11 +787,11 @@ export interface WorkflowIdList {
 export interface WorkflowInfo {
   /** workflow_id */
   id?: string;
-  /** workflow名称 */
+  /** Workflow name */
   name?: string;
-  /** workflow描述 */
+  /** Workflow description */
   description?: string;
-  /** workflow图片url */
+  /** Workflow image url */
   icon_url?: string;
 }
 /* eslint-enable */

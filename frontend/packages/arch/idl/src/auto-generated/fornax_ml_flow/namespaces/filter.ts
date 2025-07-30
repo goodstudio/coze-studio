@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export interface FieldMeta {
-  /** 字段类型 */
+  /** field type */
   field_type: string;
-  /** 当前字段支持的操作类型 */
+  /** The type of operation supported by the current field */
   query_types: Array<string>;
   display_name: string;
-  /** 支持的可选项 */
+  /** Supported options */
   field_options?: FieldOptions;
-  /** 当前字段在schema中是否存在 */
+  /** Does the current field exist in the schema? */
   exist?: boolean;
 }
 
 export interface FieldMetaInfoData {
-  /** 字段元信息 */
+  /** field meta information */
   field_metas: Record<string, FieldMeta>;
 }
 

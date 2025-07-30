@@ -24,7 +24,7 @@ export type Int64 = string | number;
 export enum EnvType {
   Online = 0,
   BOE = 1,
-  /** 废弃 */
+  /** abandoned */
   All = 2,
 }
 
@@ -35,7 +35,7 @@ export enum OrderType {
 }
 
 export enum PlatformType {
-  /** 废弃 */
+  /** abandoned */
   Fornax = 0,
   Coze = 1,
   PSM = 2,

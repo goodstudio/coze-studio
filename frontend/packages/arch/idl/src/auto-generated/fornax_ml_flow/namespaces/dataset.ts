@@ -23,17 +23,17 @@ export type Int64 = string | number;
 
 export enum DatasetIOTaskStatus {
   Undefined = 0,
-  /** 正在初始化 */
+  /** Initializing now. */
   Initializing = 1,
-  /** 正在运行 */
+  /** Running now. */
   Running = 2,
-  /** 成功完成 */
+  /** successfully completed */
   Done = 3,
-  /** 失败 */
+  /** fail */
   Failed = 4,
-  /** 手动终止 */
+  /** manual termination */
   Terminated = 5,
-  /** 成功完成，但有错误 */
+  /** Completed successfully, but with errors */
   DoneWithError = 6,
 }
 
@@ -46,7 +46,7 @@ export enum FileFormat {
   JSONL = 1,
   Parquet = 2,
   CSV = 3,
-  /** 压缩格式 */
+  /** compressed format */
   ZIP = 100,
 }
 
@@ -55,11 +55,11 @@ export enum StorageProvider {
   HDFS = 2,
   VETOS = 3,
   ImageX = 4,
-  /** 后端测试使用 */
+  /** Back-end test usage */
   LocalFS = 5,
 }
 
-/** DatasetIOTask 数据集导入导出文件任务 */
+/** DatasetIOTask dataset import export file task */
 export interface DatasetIOTask {
   id: string;
   spaceID: string;
@@ -67,7 +67,7 @@ export interface DatasetIOTask {
   file: StorageFile;
   ioType: DatasetIOType;
   option?: DatasetIOTaskOption;
-  /** 运行数据, [10, 100) */
+  /** Operational data, [10, 100] */
   status?: DatasetIOTaskStatus;
   progress?: DatasetIOTaskProgress;
   logs?: Array<TaskLog>;
@@ -80,33 +80,33 @@ export interface DatasetIOTask {
 }
 
 export interface DatasetIOTaskOption {
-  /** 覆盖数据集 */
+  /** overlay dataset */
   overwriteDataset?: boolean;
-  /** 导出文件时，覆盖已有文件 */
+  /** When exporting a file, overwrite an existing file */
   overwriteFile?: boolean;
 }
 
 export interface DatasetIOTaskProgress {
-  /** 可空, 表示具体文件导入进度时, 值为文件名 */
+  /** Nullable, indicating the import progress of a specific file, the value is the file name */
   name?: string;
-  /** 总量 */
+  /** total */
   total?: Int64;
-  /** 已处理数量 */
+  /** Number processed */
   processed?: Int64;
-  /** 已成功处理的数量 */
+  /** Number of successfully processed */
   added?: Int64;
-  /** 各文件的进度, 导入源为文件夹时使用 */
+  /** The progress of each file, used when importing the source as a folder */
   fileProgresses?: Array<DatasetIOTaskProgress>;
 }
 
 export interface StorageFile {
   provider: StorageProvider;
   path: string;
-  /** 数据文件的格式 */
+  /** Data file format */
   format?: FileFormat;
-  /** 压缩包格式 */
+  /** compressed package format */
   compressFormat?: FileFormat;
-  /** path 为文件夹或压缩包时，数据文件列表, 服务端设置 */
+  /** Path to folder or zip, data file list, server level settings */
   files?: Array<string>;
 }
 

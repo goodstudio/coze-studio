@@ -29,7 +29,7 @@ export type Int64 = string | number;
 export interface CheckBatchTaskReq {
   space_id: string;
   bot_id: string;
-  /** 评测历史使用 */
+  /** evaluation history */
   batch_task_ids?: Array<string>;
   Base?: base.Base;
 }
@@ -60,7 +60,7 @@ export interface GetBatchTaskReportDetailReq {
   batch_task_id?: string;
   offset?: number;
   limit?: number;
-  /** key: field名称，对应 GetTaskReportFieldMetasResp.field_metas 的key */
+  /** Key: field name, corresponding to GetTaskReportFieldMetasResp field_metas key */
   filters?: Record<string, task.QueriesFilter>;
   Base?: base.Base;
 }
@@ -76,9 +76,9 @@ export interface GetBatchTaskReportDetailResp {
 export interface GetBatchTaskReportOverallReq {
   space_id: string;
   bot_id: string;
-  /** 评测历史使用 */
+  /** evaluation history */
   batch_task_id?: string;
-  /** 点击评测用例，查看该用例最新的一个BatchTask时使用 */
+  /** Click on the evaluation use case to view the latest BatchTask for that use case */
   scene_id?: string;
   Base?: base.Base;
 }
@@ -124,7 +124,7 @@ export interface GetTaskReportFilterMetaReq {
 }
 
 export interface GetTaskReportFilterMetaResp {
-  /** key: field名称，如"GroupID"，"Input"，"Rules"等，对应 GetBatchTaskReportDetailReq.filters 的key */
+  /** Key: field name, such as "GroupID", "Input", "Rules", etc., corresponding to the key of GetBatchTaskReportDetailReq. Filters */
   field_metas?: Record<string, task.FieldMeta>;
   code: number;
   msg: string;
@@ -212,17 +212,17 @@ export interface SetupResp {
 }
 
 export interface SubmitTaskReq {
-  /** Bot机器人ID */
+  /** Bot ID */
   space_id: string;
-  /** Bot机器人ID */
+  /** Bot ID */
   bot_id: string;
-  /** 评测场景ID */
+  /** review scenario ID */
   scene_id?: string;
   Base?: base.Base;
 }
 
 export interface SubmitTaskResp {
-  /** 批量任务id */
+  /** batch task id */
   batch_task_id?: string;
   code: number;
   msg: string;

@@ -21,39 +21,39 @@
 
 export type Int64 = string | number;
 
-/** 模型系列，特别指不同模型接入商 */
+/** Model family, especially for different model access providers */
 export enum ModelClass {
   Undefined = 0,
   /** gpt */
   GPT = 1,
-  /** 字节 */
+  /** Byte */
   SEED = 2,
   /** google */
   Gemini = 3,
-  /** 亚马逊 */
+  /** Amazon */
   Claude = 4,
-  /** 文心一言 */
+  /** ERNIE Bot */
   Ernie = 5,
-  /** 百川 */
+  /** baichuan */
   Baichuan = 6,
-  /** 阿里 */
+  /** Ali */
   Qwen = 7,
-  /** 智谱 */
+  /** Zhipu */
   GML = 8,
-  /** 深度求索 */
+  /** deep search */
   DeepSeek = 9,
 }
 
 export enum Provider {
-  /** GPT OpenAPI平台 */
+  /** GPT OpenAPI Platform */
   GPTOpenAPI = 1,
-  /** 火山方舟 */
+  /** Volcano Ark */
   Maas = 2,
-  /** 暂时特指seed从bot_engine接入 */
+  /** Temporarily specific seed from bot_engine access */
   BotEngine = 3,
-  /** merlin平台 */
+  /** Merlin Platform */
   Merlin = 4,
-  /** merlin-seed平台 */
+  /** Merlin-seed platform */
   MerlinSeed = 5,
 }
 
@@ -65,9 +65,9 @@ export enum Role {
 }
 
 export enum TenantType {
-  /** 字节 */
+  /** Byte */
   ByteDance = 0,
-  /** 懂车帝 */
+  /** Dcar */
   Dcar = 1,
 }
 
@@ -80,25 +80,25 @@ export interface BaseInfo {
 }
 
 export interface UserInfo {
-  /** 姓名 */
+  /** name */
   name?: string;
-  /** 英文名称 */
+  /** English name */
   en_name?: string;
-  /** 用户头像url */
+  /** user profile URL */
   avatar_url?: string;
-  /** 72 * 72 头像 */
+  /** 72 * 72 avatar */
   avatar_thumb?: string;
-  /** 用户应用内唯一标识 */
+  /** unique user ID within the app */
   open_id?: string;
-  /** 用户应用开发商内唯一标识 */
+  /** unique identifier within the user application developer */
   union_id?: string;
-  /** 企业标识 */
+  /** Corporate identity */
   tenant_key?: string;
-  /** 用户在租户内的唯一标识 */
+  /** The unique identity of the user within the tenant */
   user_id?: string;
-  /** 用户邮箱 */
+  /** user email */
   email?: string;
-  /** 租户 */
+  /** tenant */
   tenant?: TenantType;
 }
 /* eslint-enable */

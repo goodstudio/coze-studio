@@ -72,7 +72,7 @@ export default class BotOpenApiService<T> {
   /**
    * GET /api/oauth/callback
    *
-   * 飞书老接口 已弃用
+   * Feishu old interface, deprecated
    */
   OauthCallback(
     req?: bot_open_api.OauthCallbackReq,
@@ -106,7 +106,7 @@ export default class BotOpenApiService<T> {
   /**
    * POST /open_api/v1/chat
    *
-   * chat 接口
+   * Chat interface
    */
   ChatV1(
     req: bot_open_api.ChatV1Req,
@@ -134,7 +134,7 @@ export default class BotOpenApiService<T> {
   /**
    * POST /open_api/v1/web_chat
    *
-   * web chat 接口
+   * Web chat interface
    */
   WebChatV1(
     req: bot_open_api.ChatV2Req,
@@ -208,7 +208,7 @@ export default class BotOpenApiService<T> {
   /**
    * POST /open_api/v1/file/upload
    *
-   * 文件上传
+   * file upload
    */
   UploadV1(
     req?: bot_open_api.UploadReq,
@@ -224,7 +224,7 @@ export default class BotOpenApiService<T> {
   /**
    * GET /open_api/v1/bot/onboarding
    *
-   * 开场白
+   * opening statement
    */
   BotOnboarding(
     req?: bot_open_api.BotOnboardingReq,
@@ -240,7 +240,7 @@ export default class BotOpenApiService<T> {
   /**
    * GET /open_api/connector/bot/get_bot_info
    *
-   * Bot 相关 OpenAPI
+   * Bot related OpenAPI
    */
   GetBotInfo(
     req: bot_open_api.GetBotInfoReq,
@@ -293,7 +293,7 @@ export default class BotOpenApiService<T> {
   /**
    * POST /v3/chat
    *
-   * Chat 相关 OpenAPI
+   * Chat with OpenAPI
    */
   ChatV3(
     req: bot_open_api.ChatV3Request,
@@ -370,7 +370,7 @@ export default class BotOpenApiService<T> {
   /**
    * GET /v1/bot/get_voice_list
    *
-   * 获取渠道资源、Bot管理相关信息
+   * Acquire channel resources and Bot management related information
    */
   GetVoiceList(
     req?: bot_open_api.GetVoiceListReq,

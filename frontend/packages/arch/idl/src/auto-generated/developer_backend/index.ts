@@ -66,9 +66,9 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/permission/list
    *
-   * API权限管理
+   * API permission management
    *
-   * 获取权限列表
+   * Get permission list
    */
   GetPermissionList(
     req?: open_api.GetPermissionListReq,
@@ -91,9 +91,9 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /api/data/analytics
    *
-   * ---API 数据展示---
+   * ---API data display ---
    *
-   * 分析页
+   * analysis page
    */
   GetAPIAnalytics(
     req: open_api.APIAnalyticsReq,
@@ -114,7 +114,7 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /api/data/details
    *
-   * 详情页
+   * details page
    */
   GetAPIDetails(
     req: open_api.APIDetailsReq,
@@ -153,11 +153,11 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /api/open/playground/item_list
    *
-   * 以下是 playground 的接口, 技术方案： 
+   * The following is the interface of the playground, technical solution: 
    *
-   * 不需要登陆态
+   * No login required.
    *
-   * 获取所有 playground 的所有接口与 websdk
+   * Get all interfaces of all playgrounds with websdk
    */
   GetPlaygroundItemList(
     req?: open_api.GetPlaygroundItemListReq,
@@ -173,7 +173,7 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /api/open/playground/api_info
    *
-   * 通过 playground api name 获取详情
+   * Get details by playground api name
    */
   GetPlaygroundApiInfo(
     req: open_api.GetPlaygroundApiInfoReq,
@@ -193,7 +193,7 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /api/open/playground/websdk_info
    *
-   * 获取 websdk 代码
+   * Get websdk code
    */
   GetPlaygroundWebSdkInfo(
     req?: open_api.GetPlaygroundWebSdkInfoReq,
@@ -209,11 +209,11 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/developer_backend/playground/sync_from_apihub
    *
-   * openapi 用的 api
+   * API for OpenAPI
    *
-   * 内网接口，从 apihub 同步 openapi swagger
+   * Intranet interface, sync openAPI swagger from apihub
    *
-   * 从 apihub 同步最新的 openapi 接口与描述
+   * Sync the latest OpenAPI interface and description from apihub
    *
    * boe:
    */
@@ -233,7 +233,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/playground/doc
    *
-   * arcosite 请求转发. 对外屏蔽 ak/sk
+   * Arcosite request forwarding. Externally block ak/sk
    */
   PlaygroundOpenApiDoc(
     req?: open_api.PlaygroundOpenApiDocReq,
@@ -279,7 +279,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/api_apps/update
    *
-   * 4. 更新回调
+   * 4. Update callback
    */
   UpdateApiApp(
     req: open_api.UpdateApiAppReq,
@@ -300,7 +300,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/api_apps/delete
    *
-   * 5. 删除回调
+   * Step 5 Delete the callback
    */
   DeleteApiApp(
     req: open_api.DeleteApiAppReq,
@@ -316,13 +316,13 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /api/open/api_apps/list_normal
    *
-   * --- API 回调能力 ---
+   * --- API callback capability ---
    *
-   * 技术方案: 
+   * Technical solution: 
    *
-   * 网页上用的 api
+   * API used on web pages
    *
-   * 1. 获取普通回调列表
+   * 1. Get the list of normal callbacks
    */
   GetNormalApiAppList(
     req?: open_api.GetNormalApiAppListReq,
@@ -343,7 +343,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/api_apps/create
    *
-   * 3. 创建回调
+   * 3. Create a callback
    */
   CreateApiApp(
     req: open_api.CreateApiAppReq,
@@ -367,7 +367,7 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /api/open/api_apps/list_connector
    *
-   * 2. 获取渠道回调列表
+   * 2. Get a list of channel callbacks
    */
   GetConnectorApiAppList(
     req?: open_api.GetConnectorApiAppListReq,
@@ -388,7 +388,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/api_apps/unsubscribe
    *
-   * 7. 取消订阅事件
+   * 7. Unsubscribe from events
    */
   UnsubscribeApiAppEvent(
     req: open_api.UnsubscribeApiAppEventReq,
@@ -408,7 +408,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/api_apps/subscribe
    *
-   * 6. 订阅事件
+   * 6. Subscribe to events
    */
   SubscribeApiAppEvent(
     req: open_api.SubscribeApiAppEventReq,
@@ -428,13 +428,13 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /v1/api_apps
    *
-   * --- API 回调能力 ---
+   * --- API callback capability ---
    *
-   * 技术方案: 
+   * Technical solution: 
    *
    * openapi
    *
-   * 1. 获取普通回调列表
+   * 1. Get the list of normal callbacks
    */
   GetApiAppListOpen(
     req?: open_api.GetApiAppListOpenReq,
@@ -455,7 +455,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /v1/api_apps
    *
-   * 2. 创建回调
+   * 2. Create a callback
    */
   CreateApiAppOpen(
     req?: open_api.CreateApiAppOpenReq,
@@ -476,7 +476,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /api/open/playground/save_run_history
    *
-   * 调试页面，保存/获取运行记录
+   * Debug page, save/get running records
    */
   SavePlaygroundRunHistory(
     req?: open_api.SavePlaygroundRunHistoryReq,
@@ -515,7 +515,7 @@ export default class DeveloperBackendService<T> {
   /**
    * DELETE /v1/api_apps/:api_app_id/events
    *
-   * 6. 取消订阅事件
+   * 6. Unsubscribe from events
    */
   UnsubscribeApiAppEventOpen(
     req?: open_api.UnsubscribeApiAppEventOpenReq,
@@ -532,7 +532,7 @@ export default class DeveloperBackendService<T> {
   /**
    * PUT /v1/api_apps/:api_app_id
    *
-   * 3. 更新回调
+   * 3. Update callback
    */
   UpdateApiAppOpen(
     req?: open_api.UpdateApiAppOpenReq,
@@ -552,7 +552,7 @@ export default class DeveloperBackendService<T> {
   /**
    * DELETE /v1/api_apps/:api_app_id
    *
-   * 4. 删除回调
+   * Step 4 Delete the callback
    */
   DeleteApiAppOpen(
     req?: open_api.DeleteApiAppOpenReq,
@@ -568,7 +568,7 @@ export default class DeveloperBackendService<T> {
   /**
    * POST /v1/api_apps/:api_app_id/events
    *
-   * 5. 订阅事件
+   * Step 5 Subscribe to events
    */
   SubscribeApiAppEventOpen(
     req?: open_api.SubscribeApiAppEventOpenReq,
@@ -584,7 +584,7 @@ export default class DeveloperBackendService<T> {
   /**
    * GET /v1/api_apps/:api_app_id/events
    *
-   * 7. 获取订阅事件
+   * 7. Get subscription events
    */
   ListSubscribedApiAppEventOpen(
     req?: open_api.ListSubscribedApiAppEventOpenReq,

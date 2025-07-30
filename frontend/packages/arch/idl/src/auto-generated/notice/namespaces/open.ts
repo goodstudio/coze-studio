@@ -22,7 +22,7 @@
 export type Int64 = string | number;
 
 export interface UIDVariables {
-  /** 用户ID */
+  /** user ID */
   uid: string;
   variables?: Record<string, string>;
 }

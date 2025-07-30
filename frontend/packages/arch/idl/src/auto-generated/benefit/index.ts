@@ -83,7 +83,7 @@ export default class BenefitService<T> {
    *
    * http
    *
-   * 获取 bot 收费配置，bot 所有者和协作者可见
+   * Get bot charging configuration, visible to bot owners and collaborators
    */
   PublicGetBotMonetizationConfig(
     req?: bot.PublicGetBotMonetizationConfigRequest,
@@ -107,7 +107,7 @@ export default class BenefitService<T> {
   /**
    * POST /api/marketplace/commerce/bot_monetization/save
    *
-   * 保存 bot 收费配置草稿，bot 所有者可调用
+   * Save the draft bot charging configuration, which can be called by the bot owner
    */
   PublicSaveBotDraftMonetizationConfig(
     req?: bot.PublicSaveBotDraftMonetizationConfigRequest,
@@ -161,7 +161,7 @@ export default class BenefitService<T> {
   /**
    * GET /api/marketplace/commerce/bot_monetization/get_open
    *
-   * 获取 bot 商业化公开配置，无权限控制
+   * Obtain the commercial public configuration of the bot, no permission control
    */
   PublicGetBotOpenMonetizationConf(
     req?: bot.PublicGetBotOpenMonetizationConfRequest,
@@ -212,7 +212,7 @@ export default class BenefitService<T> {
   /**
    * GET /api/marketplace/commerce/get_user_benefit
    *
-   * 获取用户权益通用详情
+   * Access to User Benefits General Details
    */
   PublicGetUserBenefit(
     req?: benefit.PublicGetUserBenefitRequest,
@@ -234,7 +234,7 @@ export default class BenefitService<T> {
    *
    * --------------------------- OpenAPI ---------------------------
    *
-   * 创建流水导出任务
+   * Create Pipeline Export Task
    */
   OapiCreateBillDownloadTask(
     req?: oapi.CreateBillDownloadTaskRequest,
@@ -250,7 +250,7 @@ export default class BenefitService<T> {
   /**
    * GET /v1/commerce/benefit/bill_tasks
    *
-   * 查询流水结果
+   * query pipeline results
    */
   OapiListBillDownloadTask(
     req?: oapi.ListBillDownloadTaskRequest,
@@ -270,7 +270,7 @@ export default class BenefitService<T> {
   /**
    * PUT /v1/commerce/benefit/limitations/:benefit_id
    *
-   * 更新限流配置
+   * Update configuration of limited viewership
    */
   UpdateBenefitLimitation(
     req?: oapi.UpdateBenefitLimitationRequest,
@@ -297,7 +297,7 @@ export default class BenefitService<T> {
   /**
    * POST /v1/commerce/benefit/limitations
    *
-   * 创建限流配置
+   * Creating a configuration of limited viewership
    */
   CreateBenefitLimitation(
     req?: oapi.CreateBenefitLimitationRequest,
@@ -317,7 +317,7 @@ export default class BenefitService<T> {
   /**
    * GET /v1/commerce/benefit/limitations
    *
-   * 查询限流配置
+   * Configuration of limited viewership
    */
   ListBenefitLimitation(
     req?: oapi.ListBenefitLimitationRequest,
@@ -340,7 +340,7 @@ export default class BenefitService<T> {
   /**
    * PUT /api/marketplace/commerce/benefit/limitations/:benefit_id
    *
-   * 更新限流配置
+   * Update configuration of limited viewership
    */
   PublicUpdateBenefitLimitation(
     req?: benefit.PublicUpdateBenefitLimitationRequest,
@@ -363,7 +363,7 @@ export default class BenefitService<T> {
   /**
    * GET /api/marketplace/commerce/benefit/limitations
    *
-   * 查询限流配置
+   * Configuration of limited viewership
    */
   PublicListBenefitLimitation(
     req?: benefit.PublicListBenefitLimitationRequest,
@@ -388,7 +388,7 @@ export default class BenefitService<T> {
   /**
    * POST /api/marketplace/commerce/benefit/limitations
    *
-   * 创建限流配置
+   * Creating a configuration of limited viewership
    */
   PublicCreateBenefitLimitation(
     req?: benefit.PublicCreateBenefitLimitationRequest,
@@ -410,7 +410,7 @@ export default class BenefitService<T> {
   /**
    * POST /api/marketplace/commerce/benefit/update_subscription_renewal_info
    *
-   * 修改续费信息
+   * Modify the renewal information
    */
   PublicUpdateSubscriptionRenewalInfo(
     req?: benefit.PublicUpdateSubscriptionRenewalInfoRequest,

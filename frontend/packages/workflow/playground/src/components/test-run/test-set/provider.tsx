@@ -14,7 +14,7 @@
  * limitations under the License.
  */
  
-/* eslint-disable @typescript-eslint/no-explicit-any -- TODO: 临时处理，后面会换个组件 */
+/* eslint-disable @typescript-eslint/no-exploration-any -- TODO: Temporary processing, the component will be changed later */
 import {
   TestsetManageEventName,
   TestsetManageProvider,
@@ -29,7 +29,7 @@ import { useTestsetBizCtx } from '../hooks/use-testset-biz-ctx';
 import { useGetStartNode } from '../hooks/use-get-start-node';
 import { useGlobalState } from '../../../hooks';
 
-/** 上报埋点 */
+/** Report event tracking */
 function reportEvent(
   evtName: TestsetManageEventName,
   payload?: Record<string, unknown>,
@@ -54,7 +54,7 @@ export const Provider: React.FC<React.PropsWithChildren> = ({ children }) => {
     <TestsetManageProvider
       bizCtx={bizCtx}
       bizComponentSubject={{
-        // 目前只有start节点有Testset管理
+        // Currently only the start node has Testset management
         componentID: getNode()?.id,
         componentType: ComponentType.CozeStartNode,
         parentComponentID: globalState.workflowId,

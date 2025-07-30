@@ -33,51 +33,51 @@ export enum ChargeItemType {
 }
 
 export interface ByteTree {
-  /** 必填
-rds传_read/_write两个psm，其他产品传一个 */
+  /** Required
+Rds pass _read/_write two psm, other products pass one */
   PSMs?: Array<string>;
-  /** TreeOperationCreate/TreeOperationDelete 时必填
-服务树provider */
+  /** TreeOperationCreate/TreeOperationDelete Required
+ByteTree provider */
   Provider?: string;
-  /** 需要挂载的服务树的位置 */
+  /** The location of the ByteTree to be mounted */
   ParentNodeID?: Int64;
-  /** 租户ID，用于选账号逻辑 */
+  /** Tenant ID, used to select account logic */
   TenantID?: string;
-  /** 环境：boe/prod/ppe */
+  /** Environment: boe/prod/ppe */
   Env?: string;
-  /** 对应的region，比如cn */
+  /** Corresponding region, such as cn */
   Region?: string;
-  /** 对应的partition，比如cn */
+  /** Corresponding partition, such as cn */
   Partition?: string;
-  /** TreeOperationCreate 时必填
-控制面对应资源的链接 */
+  /** Required when TreeOperationCreate
+Links to resources corresponding to the control plane */
   ResourceLink?: ResourceLink;
-  /** 挂树操作人 */
+  /** Hanging tree operator */
   OpUser?: string;
-  /** TreeOperationCreate 时选填
-服务树描述 */
+  /** Optional when TreeOperationCreate
+ByteTree description */
   Description?: string;
-  /** 该资源初始化时候IAM的owner的个人账号 */
+  /** The personal account of the owner of IAM when the resource is initialized */
   OwnerList?: Array<string>;
-  /** 该资源初始化时候IAM的owner的服务账号 */
+  /** The service account of the owner of IAM when the resource was initialized */
   ServiceAccountList?: Array<string>;
-  /** 服务树标签 */
+  /** ByteTree label */
   Tags?: Record<string, string>;
-  /** 仅MQ挂载group的时候需要 */
+  /** Only required when MQ mounts a group */
   GroupName?: string;
-  /** 仅MQ挂载topic的时候需要 */
+  /** Only required when MQ mounts a topic */
   TopicName?: string;
 }
 
-/** 配置单 */
+/** configuration sheet */
 export interface ChargeItem {
   Flavor: string;
   BeforeValue: number;
   AfterValue: number;
   ChargeItemType: ChargeItemType;
-  /** 根据业务是否按VDC分配quota而定 */
+  /** Depending on whether the business is allocated according to the VDC quota */
   VDC?: string;
-  /** babi售卖区，有的计费项比较奇怪，这里支持直接传值 */
+  /** Babi sales area, some billing items are strange, and direct value transfer is supported here. */
   SalesArea?: string;
   IsForPrice?: boolean;
 }
@@ -113,10 +113,10 @@ export interface GetOrderConfigRequest {
 
 export interface GetOrderConfigResp {
   ResponseMetaData: ResponseMetaData;
-  /** 用于挂树预检查和选火山账号使用 */
+  /** For hanging tree pre-check and selecting Huoshan Account */
   ByteTree: ByteTree;
   /** 10: optional ark.ArkData ArkData
-99: optional list<OrderConfig> OrderConfigs // 兼容tce等组件可以跨region下单 */
+99: optional list < OrderConfig > OrderConfigs//compatible with tce and other components can be ordered across regionsts such as tce can be ordered across regions */
   OrderConfig?: OrderConfig;
 }
 
@@ -182,7 +182,7 @@ export interface PrescanResponse {
 export interface ResourceLink {
   Schema?: string;
   Action?: string;
-  /** 在Thrift中没有完全直接对应的any原生类型 */
+  /** There is no exact direct counterpart to any native type in Thrift */
   Params?: Record<string, string>;
 }
 

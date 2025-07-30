@@ -22,39 +22,39 @@
 export type Int64 = string | number;
 
 export enum AsyncTaskStatusForPlugin {
-  /** 未知状态 */
+  /** unknown state */
   Unknown = 0,
-  /** 创建成功 */
+  /** Created successfully */
   CreateSucceed = 1,
-  /** 运行 */
+  /** run */
   Executing = 2,
-  /** 推送中 */
+  /** Pushing */
   Pushing = 3,
-  /** 执行成功 */
+  /** successful execution */
   ExecuteSucceed = 10,
-  /** 执行失败 */
+  /** execution failed */
   ExecuteFailed = 11,
 }
 
 export enum AsyncTaskStatusForUser {
-  /** 未知状态 */
+  /** unknown state */
   Unknown = 0,
-  /** 执行中 */
+  /** in progress */
   Executing = 1,
-  /** 执行成功 */
+  /** successful execution */
   ExecuteSucceed = 2,
-  /** 执行失败 */
+  /** execution failed */
   ExecuteFailed = 3,
 }
 
 export enum AsyncType {
-  /** 未知类型 */
+  /** Unknown type */
   Unknown = 0,
-  /** 插件异步任务 */
+  /** plugin asynchronous task */
   Workflow = 1,
-  /** 原生异步插件 */
+  /** native asynchronous plugin */
   NativeAsyncPlugin = 2,
-  /** 同步转异步插件 */
+  /** synchronous to asynchronous plugin */
   SyncToAsyncPlugin = 3,
 }
 
@@ -79,9 +79,9 @@ export enum DebugExampleStatus {
 
 export enum FeedbackType {
   Unknown = 0,
-  /** 未找到需要的插件 */
+  /** The required plugin was not found */
   NotFoundPlugin = 1,
-  /** 官方插件反馈 */
+  /** Official plugin feedback */
   OfficialPlugin = 2,
 }
 
@@ -90,23 +90,23 @@ export enum GrantType {
   ClientCredential = 2,
 }
 
-/** 操作类型 */
+/** operation type */
 export enum OperateType {
   Add = 0,
   Delete = 1,
 }
 
-/** 新增channel id */
+/** Add channel id */
 export enum PluginChannel {
-  /** 所有渠道 */
+  /** All channels */
   All = 0,
-  /** 素材 */
+  /** material */
   Material = 1,
-  /** 商店 */
+  /** store */
   Store = 2,
 }
 
-/** 融合plugin product上下架和审核状态 给前端使用 */
+/** Fusion plugin product upload and removal and review status, for front-end use */
 export enum PluginProductStatus {
   Default = 0,
   Listed = 1,
@@ -114,11 +114,11 @@ export enum PluginProductStatus {
   Reviewing = 3,
 }
 
-/** plugin update 类型 */
+/** Plugin update type */
 export enum PluginUpdateEventType {
-  /** 转移空间 */
+  /** transfer space */
   TransferSpace = 1,
-  /** 转移owner */
+  /** Transfer owner */
   TransferOwner = 2,
 }
 
@@ -127,18 +127,18 @@ export enum PrivacyAuthStatus {
   Authorized = 2,
 }
 
-/** plugin插件授权类型 */
+/** Plugin authorization type */
 export enum PrivacyAuthType {
-  /** 询问 */
+  /** ask */
   Ask = 0,
-  /** 仅本次允许 */
+  /** Only this time allowed */
   Once = 1,
-  /** 始终允许 */
+  /** Always allow */
   Always = 2,
 }
 
 /** ==================== Project IDE Begin ====================
- authz 接口 */
+ AuthZ interface */
 export enum ResourceType {
   Account = 1,
   Workspace = 2,
@@ -168,11 +168,11 @@ export enum ServiceAuthSubType {
 }
 
 export enum TcsAuditStatus {
-  /** 默认状态 */
+  /** default state */
   Default = 0,
-  /** 审核通过 */
+  /** approved */
   AuditPass = 1,
-  /** 审核不通过 */
+  /** The review failed. */
   AuditReject = 2,
 }
 /* eslint-enable */

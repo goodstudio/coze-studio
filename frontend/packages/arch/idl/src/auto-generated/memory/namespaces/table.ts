@@ -25,103 +25,103 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** 复制 */
+  /** copy */
   Copy = 1,
-  /** 删除 */
+  /** delete */
   Delete = 2,
-  /** 启用/禁用 */
+  /** enable/disable */
   EnableSwitch = 3,
-  /** 编辑 */
+  /** edit */
   Edit = 4,
-  /** 跨空间复制 */
+  /** Cross-spatial replication */
   CrossSpaceCopy = 10,
 }
 
 export enum BotTableRWMode {
-  /** 单用户模式 */
+  /** single user mode */
   LimitedReadWrite = 1,
-  /** 只读模式 */
+  /** read-only mode */
   ReadOnly = 2,
-  /** 多用户模式 */
+  /** multi-user mode */
   UnlimitedReadWrite = 3,
-  /** Max 边界值 */
+  /** Max boundary value */
   RWModeMax = 4,
 }
 
 export enum BotTableStatus {
-  /** 已上线 */
+  /** It's online now. */
   Online = 1,
-  /** 删除 */
+  /** delete */
   Delete = 2,
 }
 
 export enum ColumnType {
   Unknown = 0,
-  /** 文本 */
+  /** Text */
   Text = 1,
-  /** 数字 */
+  /** number */
   Number = 2,
-  /** 时间 */
+  /** time */
   Date = 3,
   /** float */
   Float = 4,
   /** bool */
   Boolean = 5,
-  /** 图片 */
+  /** picture */
   Image = 6,
 }
 
 /** *****  bot_table start   ******* */
 export enum DatabaseType {
   All = -1,
-  /** Coze上创建的数据库 */
+  /** Database created on Coze */
   Coze = 0,
-  /** 火山引擎数据库 */
+  /** Volcano Engine Database */
   Volcano = 1,
 }
 
 export enum FieldFunction {
-  /** 当前时间戳 */
+  /** Current timestamp */
   CURRENT_TIMESTAMP = 1,
-  /** 当前日期 */
+  /** Current date */
   CURRENT_DATE = 2,
-  /** 当前时间 */
+  /** Current time */
   CURRENT_TIME = 3,
-  /** 当前日期和时间（等同于 CURRENT_TIMESTAMP） */
+  /** Current date and time (equivalent to CURRENT_TIMESTAMP) */
   NOW = 4,
-  /** 当前 UTC 时间戳 */
+  /** Current UTC timestamp */
   UTC_TIMESTAMP = 5,
-  /** 当前 UTC 日期 */
+  /** Current UTC date */
   UTC_DATE = 6,
-  /** 当前 UTC 时间 */
+  /** Current UTC time */
   UTC_TIME = 7,
-  /** 生成 UUID */
+  /** Generate UUID */
   UUID = 8,
-  /** 生成随机数 */
+  /** Generate random numbers */
   RAND = 9,
-  /** 当前用户 */
+  /** current user */
   USER = 10,
-  /** 当前数据库 */
+  /** current database */
   DATABASE = 11,
-  /** MySQL 版本 */
+  /** MySQL version */
   VERSION = 12,
-  /** 最后插入的 ID */
+  /** Last Inserted ID */
   LAST_INSERT_ID = 13,
 }
 
 export enum FieldItemType {
   Unknown = 0,
-  /** 文本 */
+  /** Text */
   Text = 1,
-  /** 数字 */
+  /** number */
   Number = 2,
-  /** 时间 */
+  /** time */
   Date = 3,
   /** float */
   Float = 4,
   /** bool */
   Boolean = 5,
-  /** 二进制 */
+  /** binary */
   Binary = 6,
 }
 
@@ -135,7 +135,7 @@ export enum OperateType {
 export enum Operation {
   /** "=" */
   EQUAL = 1,
-  /** "<>" 或 "!=" */
+  /** "< >" or "! =" */
   NOT_EQUAL = 2,
   /** ">" */
   GREATER_THAN = 3,
@@ -153,16 +153,16 @@ export enum Operation {
   IS_NULL = 9,
   /** "IS NOT NULL" */
   IS_NOT_NULL = 10,
-  /** "LIKE" 模糊匹配字符串 */
+  /** "LIKE" fuzzy match string */
   LIKE = 11,
-  /** "NOT LIKE" 反向模糊匹配 */
+  /** "NOT LIKE" inverse fuzzy match */
   NOT_LIKE = 12,
 }
 
 export enum PublishStatus {
-  /** 未发布 */
+  /** unpublished */
   UnPublished = 1,
-  /** 已发布 */
+  /** Published */
   Published = 2,
 }
 
@@ -173,9 +173,9 @@ export enum RefType {
 }
 
 export enum SceneType {
-  /** bot 个性描述 */
+  /** bot personality description */
   BotPersona = 1,
-  /** 开发者给的模型文本描述 */
+  /** Text description of the model given by the developer */
   ModelDesc = 2,
 }
 
@@ -191,11 +191,11 @@ export enum SortDirection {
 }
 
 export enum TableDataType {
-  /** schema sheets 和 preview data */
+  /** Schema sheets and preview data */
   AllData = 0,
-  /** 只需要 schema 结构 & Sheets */
+  /** Only need schema structure & Sheets */
   OnlySchema = 1,
-  /** 只需要 preview data */
+  /** Just preview the data */
   OnlyPreview = 2,
 }
 
@@ -207,42 +207,42 @@ export enum TableRWMode {
 }
 
 export enum TableType {
-  /** 草稿 */
+  /** draft */
   DraftTable = 1,
-  /** 线上 */
+  /** online */
   OnlineTable = 2,
 }
 
 export interface AddDatabaseRequest {
-  /** 创建者id */
+  /** creator id */
   creator_id?: string;
-  /** 空间的id */
+  /** ID of space */
   space_id?: string;
   /** project id */
   project_id?: string;
-  /** 头像url */
+  /** avatar url */
   icon_uri?: string;
-  /** 表名 */
+  /** table name */
   table_name?: string;
-  /** 表描述 */
+  /** table description */
   table_desc?: string;
-  /** 字段信息 */
+  /** Field information */
   field_list?: Array<FieldItem>;
-  /** 读写模式，单用户模式/多用户模式 */
+  /** Read and write mode, single user mode/multi-user mode */
   rw_mode?: BotTableRWMode;
-  /** 是否支持prompt调用 */
+  /** Whether to support prompt calls */
   prompt_disabled?: boolean;
-  /** 扩展信息 */
+  /** extended information */
   extra_info?: Record<string, string>;
   database_type?: DatabaseType;
   volcano_database_bind_info?: volcano_database.VolcanoDatabaseBindInfo;
-  /** 火山region id */
+  /** Volcanic region id */
   region_id?: string;
   Base?: base.Base;
 }
 
 export interface AlterBotTableRequest {
-  /** 修改表信息 */
+  /** Modify table information */
   bot_table?: BotTable;
   Base?: base.Base;
 }
@@ -258,7 +258,7 @@ export interface BinaryDefault {
 }
 
 export interface BindDatabaseToBotRequest {
-  /** 草稿态数据database表主键id，注意是草稿态哈 */
+  /** Draft data database table primary key id, note that it is draft state */
   database_id?: string;
   /** bot_id */
   bot_id?: string;
@@ -276,47 +276,47 @@ export interface BoolDefault {
 }
 
 export interface BotTable {
-  /** 自增id，table id */
+  /** Autoincrement id, table id */
   id?: string;
-  /** 相关id. bot_id */
+  /** Related id bot_id */
   bot_id?: string;
   /** table_id */
   table_id?: string;
-  /** 表名 */
+  /** table name */
   table_name?: string;
-  /** 表描述 */
+  /** table description */
   table_desc?: string;
-  /** 状态 */
+  /** state */
   status?: BotTableStatus;
-  /** 创建着id */
+  /** Creating the ID. */
   creator_id?: Int64;
-  /** 创建时间 */
+  /** creation time */
   create_time?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_time?: Int64;
-  /** 字段信息 */
+  /** Field information */
   field_list?: Array<FieldItem>;
-  /** 数据表实际名称 */
+  /** Data table actual name */
   actual_table_name?: string;
-  /** 读写模式 */
+  /** read and write mode */
   rw_mode?: BotTableRWMode;
-  /** 扩展信息 */
+  /** extended information */
   extra_info?: Record<string, string>;
 }
 
 export interface ComplexCondition {
   conditions?: Array<Condition>;
-  /** 为了拓展，先不用 */
+  /** In order to expand, we don't need to */
   nestedConditions?: ComplexCondition;
-  /** "AND" 或 "OR" */
+  /** "AND" or "OR" */
   logic: string;
 }
 
 export interface Condition {
-  /** 左值填字段名 */
+  /** Lvalue field name */
   left: string;
   operation: Operation;
-  /** 右值 */
+  /** rvalue */
   right: string;
 }
 
@@ -334,73 +334,73 @@ export interface Criterion {
 export interface DatabaseFileProgressData {
   file_name?: string;
   progress?: number;
-  /** 描述信息，如果有代表文件处理失败 */
+  /** Describe the information if there is a representative file processing failure */
   status_descript?: string;
 }
 
 export interface DatabaseInfo {
-  /** online_database_info的主键id */
+  /** online_database_info primary key id */
   id?: string;
-  /** 空间的id */
+  /** ID of space */
   space_id?: string;
   /** project id */
   project_id?: string;
-  /** datamodel侧的表id */
+  /** Table ID on the datamodel side */
   datamodel_table_id?: string;
-  /** 头像url */
+  /** avatar url */
   icon_url?: string;
-  /** 头像url */
+  /** avatar url */
   icon_uri?: string;
-  /** 表名 */
+  /** table name */
   table_name?: string;
-  /** 表描述 */
+  /** table description */
   table_desc?: string;
-  /** 状态 */
+  /** state */
   status?: BotTableStatus;
-  /** 创建者id */
+  /** creator id */
   creator_id?: string;
-  /** 创建时间 */
+  /** creation time */
   create_time?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_time?: Int64;
-  /** 字段信息 */
+  /** Field information */
   field_list?: Array<FieldItem>;
-  /** 数据表实际名称 */
+  /** Data table actual name */
   actual_table_name?: string;
-  /** 读写模式 */
+  /** read and write mode */
   rw_mode?: BotTableRWMode;
-  /** 是否支持prompt调用 */
+  /** Whether to support prompt calls */
   prompt_disabled?: boolean;
-  /** 是否可见 */
+  /** Is it visible? */
   is_visible?: boolean;
-  /** 对应草稿态的id */
+  /** ID corresponding to draft state */
   draft_id?: string;
-  /** 相关id. bot_id，老的有，新的没有 */
+  /** Related id. bot_id, the old one is available, the new one is not. */
   bot_id?: string;
-  /** 扩展信息 */
+  /** extended information */
   extra_info?: Record<string, string>;
-  /** 是否已经添加到bot中 */
+  /** Has it been added to the bot? */
   is_added_to_bot?: boolean;
-  /** 0=coze知识库 1=火山知识库 */
+  /** 0 = coze knowledge base 1 = volcano knowledge base */
   database_type?: DatabaseType;
   volcano_storage_config?: volcano_database.VolcanoStorageConfig;
 }
 
 export interface DateDefault {
-  /** 动态函数（如 CURRENT_TIMESTAMP） */
+  /** Dynamic functions (such as CURRENT_TIMESTAMP) */
   func?: FieldFunction;
-  /** 更新时的动态函数 */
+  /** Dynamic functions at update time */
   on_update?: FieldFunction;
-  /** 静态值（格式：YYYY-MM-DD） */
+  /** Static value (format: YYYY-MM-DD) */
   value?: string;
 }
 
 export interface DateTimeDefault {
-  /** 动态函数（如 CURRENT_TIMESTAMP） */
+  /** Dynamic functions (such as CURRENT_TIMESTAMP) */
   func?: FieldFunction;
-  /** 更新时的动态函数 */
+  /** Dynamic functions at update time */
   on_update?: FieldFunction;
-  /** 静态值（格式：YYYY-MM-DD HH:MM:SS） */
+  /** Static value (format: YYYY-MM-DD HH: MM: SS) */
   value?: string;
 }
 
@@ -422,7 +422,7 @@ export interface DeleteBotTableResponse {
 }
 
 export interface DeleteDatabaseRequest {
-  /** database_info的主键id */
+  /** database_info primary key id */
   id?: string;
   Base?: base.Base;
 }
@@ -433,29 +433,29 @@ export interface DeleteDatabaseResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** 展示用，实现方提供展示信息 */
+/** For display, the implementer provides display information */
 export interface DisplayResourceInfo {
-  /** 资源id */
+  /** Resource ID */
   ResID?: Int64;
-  /** 资源描述 */
+  /** resource description */
   Desc?: string;
-  /** 资源Icon，完整url */
+  /** Resource Icon, full url */
   Icon?: string;
-  /** 资源状态，各类型资源自身定义 */
+  /** Resource status, each type of resource defines itself */
   BizResStatus?: number;
-  /** 是否开启多人编辑 */
+  /** Whether to enable multi-person editing */
   CollaborationEnable?: boolean;
-  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
+  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
   BizExtend?: Record<string, string>;
-  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
+  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
   Actions?: Array<ResourceAction>;
-  /** 是否禁止进详情页 */
+  /** Whether to ban entering the details page */
   DetailDisable?: boolean;
-  /** 资源名称 */
+  /** resource name */
   Name?: string;
-  /** 资源发布状态，1-未发布，2-已发布 */
+  /** Resource release status, 1 - unpublished, 2 - published */
   PublishStatus?: PublishStatus;
-  /** 最近编辑时间, unix秒级时间戳 */
+  /** Last edited, unix timestamp */
   EditTime?: Int64;
   ResSubType?: number;
 }
@@ -469,11 +469,11 @@ export interface EnumDefault {
     2: string        desc
     3: FieldItemType type
     4: bool          must_required
-    5: i64           id                 // 该字段只用来判断是否发布，不为 0 就是已发布的，前端对已发布的字段不能修改字段类型
-    6: i64           alterId            // 修改字段时（alter、publish）用来判断增删改，0 表示新增，非 0 表示修改或删除
-    7: bool          is_primary_key     // 是否是主键
-    8: FieldDefault default_value       // 默认值
-    9: map<string,string> map_ext_meta      // 业务自定义扩展field元数据
+    5: i64 id//This field is only used to determine whether it is published. If it is not 0, it is published. The front end cannot modify the field type for the published field.er it is published. If it is not 0, it is published. The front end cannot modify the field type for the published field.
+    6: i64 alterId//When modifying a field (alter, publish), it is used to judge additions and deletions. 0 means new additions, and non-0 means modification or deletion. used to judge additions and deletions. 0 means new additions, and non-0 means modification or deletion.
+    7: bool is_primary_key//whether it is the primary key the primary key?
+    8: FieldDefault default_value//Defaultault value
+    9: map < string, string > map_ext_meta//business custom extension field metadata extension field metadata
 } */
 export interface FieldDefault {
   /** CHAR、VARCHAR、TEXT */
@@ -509,21 +509,21 @@ export interface FieldItem {
   desc?: string;
   type?: FieldItemType;
   must_required?: boolean;
-  /** 该字段只用来判断是否发布，不为 0 就是已发布的，前端对已发布的字段不能修改字段类型 */
+  /** This field is only used to determine whether it is published. If it is not 0, it is published. The front end cannot modify the field type for the published field. */
   id?: Int64;
-  /** 修改字段时（alter、publish）用来判断增删改，0 表示新增，非 0 表示修改或删除 */
+  /** When modifying a field (alter, publish), it is used to judge additions and deletions. 0 means new additions, and non-0 means modification or deletion. */
   alterId?: Int64;
-  /** 是否是系统字段 */
+  /** Is it a system field? */
   is_system_field?: boolean;
-  /** 是否是主键 */
+  /** Is it the primary key? */
   is_primary_key?: boolean;
-  /** 默认值 */
+  /** default value */
   default_value?: FieldDefault;
-  /** 默认值 */
+  /** default value */
   default_value_str?: string;
-  /** 业务自定义扩展field元数据 */
+  /** Business custom extension field metadata */
   map_ext_meta?: Record<string, string>;
-  /** 原始的数据类型（目前火山数据库会返回这个字段） */
+  /** The original data type (currently the volcano database returns this field) */
   origin_type?: string;
 }
 
@@ -546,7 +546,7 @@ export interface GetBotTableResponse {
 
 export interface GetDatabaseFileProgressRequest {
   database_id?: string;
-  /** table类型 */
+  /** Table type */
   table_type: TableType;
   Base?: base.Base;
 }
@@ -560,13 +560,13 @@ export interface GetDatabaseFileProgressResponse {
 
 export interface GetDatabaseTemplateRequest {
   database_id?: string;
-  /** table类型 */
+  /** Table type */
   table_type: TableType;
   Base?: base.Base;
 }
 
 export interface GetDatabaseTemplateResponse {
-  /** 下载地址 */
+  /** Download address */
   TosUrl?: string;
   BaseResp?: base.BaseResp;
 }
@@ -574,9 +574,9 @@ export interface GetDatabaseTemplateResponse {
 export interface GetModeConfigRequest {
   /** bot id */
   bot_id: Int64;
-  /** 业务线id */
+  /** line of business id */
   connector_id?: Int64;
-  /** 业务线用户id */
+  /** line of business user id */
   connector_uid?: string;
   Base?: base.Base;
 }
@@ -594,17 +594,17 @@ export interface GetModeConfigResponse {
 }
 
 export interface GetNL2SQLRequest {
-  /** 数据库请求的自然语言描述 */
+  /** Natural language description of database requests */
   text: string;
   /** bot id */
   bot_id: Int64;
-  /** 业务线id */
+  /** line of business id */
   connector_id?: Int64;
-  /** 业务线用户id */
+  /** line of business user id */
   connector_uid?: string;
-  /** table类型，分 draft 和 online 两种 */
+  /** Table types, draft and online */
   table_type: TableType;
-  /** 数据库id */
+  /** Database ID */
   database_id?: string;
   Base?: base.Base;
 }
@@ -618,13 +618,13 @@ export interface GetNL2SQLResponse {
 }
 
 export interface GetOnlineDatabaseIdRequest {
-  /** draft 的database_id */
+  /** The draft database_id */
   id: string;
   Base?: base.Base;
 }
 
 export interface GetOnlineDatabaseIdResponse {
-  /** 根据草稿的id查询线上的id */
+  /** Check the online id according to the id of the draft. */
   id?: string;
   BaseResp: base.BaseResp;
 }
@@ -644,19 +644,19 @@ export interface GetSpaceConnectorListResponse {
 }
 
 export interface GetTableSchemaRequest {
-  /** 表格解析信息, 默认初始值0,0,1 */
+  /** Table parsing information, default initial value 0, 0, 1 */
   table_sheet?: TableSheet;
-  /** 不传默认返回所有数据 */
+  /** All data is returned by default without passing it on. */
   table_data_type?: TableDataType;
-  /** 兼容重构前的版本：如果需要拉取的是当前 document 的 schema 时传递该值 */
+  /** Compatible with pre-refactoring versions: pass this value if you need to pull the schema of the current document */
   database_id?: string;
-  /** source file 的信息，新增 segment / 之前逻辑迁移到这里 */
+  /** Source file information, add segment/before logic migrate here */
   source_file?: SourceInfo;
   Base?: base.Base;
 }
 
 export interface InsertBotTableRequest {
-  /** 保存表信息 */
+  /** Save table information */
   bot_table?: BotTable;
   Base?: base.Base;
 }
@@ -674,25 +674,25 @@ export interface JsonDefault {
 export interface ListDatabaseRecordsRequest {
   /** database_id */
   database_id: string;
-  /** bot id，这里是查找bot关联的草稿态数据的时候填这个 */
+  /** bot id, here is to fill in this when looking for the draft state data associated with the bot */
   bot_id?: string;
-  /** workflow_id，，这里是查找wk_flow关联的草稿态表的时候填这个 */
+  /** workflow_id,, here is to fill in this when looking up wk_flow associated draft status sheet */
   workflow_id?: string;
-  /** 为true不根据user_id进行过滤Records */
+  /** Is true does not filter by user_id Records */
   not_filter_by_user_id?: boolean;
-  /** 为true不根据ConnectorID进行过滤Records */
+  /** Records not filtered by ConnectorID */
   not_filter_by_connector_id?: boolean;
-  /** 要查的是草稿态还是线上态 */
+  /** Do you want to check the draft state or the online state? */
   table_type?: TableType;
-  /** 别超过100，建议50 */
+  /** Do not exceed 100, 50 is recommended. */
   limit?: Int64;
-  /** 偏移量 */
+  /** Offset */
   offset?: Int64;
-  /** 同个project下数据不隔离 */
+  /** Data is not isolated under the same project */
   project_id?: string;
-  /** 筛选条件 */
+  /** filter criteria */
   filter_criterion?: ComplexCondition;
-  /** 排序条件 */
+  /** sort condition */
   order_by_list?: Array<OrderBy>;
   Base?: base.Base;
 }
@@ -701,33 +701,33 @@ export interface ListDatabaseRecordsResponse {
   data: Array<Record<string, string>>;
   HasMore: boolean;
   TotalNum: number;
-  /** 字段信息 */
+  /** Field information */
   field_list?: Array<FieldItem>;
   BaseResp: base.BaseResp;
 }
 
 export interface ListDatabaseRequest {
-  /** 获取创建者为某个用户的的数据库 */
+  /** Get a database created by a user */
   creator_id?: string;
-  /** 获取project下的数据库 */
+  /** Get the database under the project */
   project_id?: string;
-  /** 获取空间下的可见数据库 */
+  /** Get the visible database under space */
   space_id?: string;
-  /** 对bot_id进行过滤，过滤掉已经添加到bot中的database */
+  /** Filter bot_id to filter out databases that have been added to the bot */
   bot_id?: string;
-  /** 表格名称，模糊搜索 */
+  /** Table name, fuzzy search */
   table_name?: string;
-  /** 查草稿态database */
+  /** Draft database */
   table_type: TableType;
-  /** 排序 */
+  /** sort */
   order_by?: Array<OrderBy>;
   offset?: number;
   limit?: number;
-  /** 筛选条件 */
+  /** filter criteria */
   filter_criterion?: Criterion;
-  /** 排序条件 */
+  /** sort condition */
   order_by_list?: Array<OrderBy>;
-  /** 数据库类型 0-coze 1-火山 */
+  /** Database Type 0-coze 1-volcano */
   database_type?: DatabaseType;
   Base?: base.Base;
 }
@@ -740,11 +740,11 @@ export interface ListDatabaseResponse {
 }
 
 export interface MigrateOldDataRequest {
-  /** 迁移哪个表 */
+  /** Which table to migrate */
   bot_type?: TableType;
-  /** 迁移哪个bot */
+  /** Which bot to migrate? */
   bot_id?: string;
-  /** 失败重试 */
+  /** Failed retry */
   table_ids?: Array<string>;
   Base?: base.Base;
 }
@@ -780,9 +780,9 @@ export interface RecommendDataModelResponse {
 }
 
 export interface RefInfo {
-  /** 引用类型 */
+  /** reference type */
   ref_type?: RefType;
-  /** 引用 id */
+  /** reference id */
   ref_id?: string;
 }
 
@@ -791,15 +791,15 @@ export interface ResetBotTableRequest {
   bot_id?: string;
   table_id?: string;
   table_type: TableType;
-  /** 业务线id */
+  /** line of business id */
   connector_id?: Int64;
-  /** 业务线用户id */
+  /** line of business user id */
   connector_uid?: string;
-  /** 工作流id */
+  /** Workflow ID */
   workflow_id?: string;
-  /** 用户id */
+  /** user id */
   database_info_id?: string;
-  /** 项目id */
+  /** Project ID */
   project_id?: string;
   Base?: base.Base;
 }
@@ -809,11 +809,11 @@ export interface ResetBotTableResponse {
   msg?: string;
 }
 
-/** Library资源操作 */
+/** Library Resource Operations */
 export interface ResourceAction {
-  /** 一个操作对应一个唯一的key，key由资源侧约束 */
+  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
   key: ActionKey;
-  /** ture=可以操作该Action，false=置灰 */
+  /** ture = can operate this Action, false = grey out */
   enable: boolean;
 }
 
@@ -822,19 +822,19 @@ export interface Row {
 }
 
 export interface SearchBotTableInfoRequest {
-  /** 搜素词,目前忽略 */
+  /** Search term, currently ignored */
   key_word?: string;
   limit?: Int64;
   offset?: Int64;
-  /** 用户id */
+  /** user id */
   connector_uid?: string;
   connector_id?: Int64;
   /** bot id */
   bot_id?: string;
-  /** 目前忽略 */
+  /** Currently ignored */
   table_name?: string;
   table_id?: string;
-  /** 引用信息 */
+  /** citation information */
   ref_info?: RefInfo;
   Base?: base.Base;
 }
@@ -856,13 +856,13 @@ export interface SetDefault {
 }
 
 export interface SingleDatabaseRequest {
-  /** database_info的主键id */
+  /** database_info primary key id */
   id?: string;
-  /** 传入的是否是草稿态数据，默认是false */
+  /** Whether the incoming data is in draft form, the default is false. */
   is_draft?: boolean;
-  /** 是否需要系统字段 */
+  /** Do you need system fields? */
   need_sys_fields?: boolean;
-  /** 版本号，不传默认是最新的 */
+  /** The version number is not passed on, and the default is the latest. */
   version?: string;
   Base?: base.Base;
 }
@@ -873,9 +873,9 @@ export interface SingleDatabaseResponse {
 }
 
 export interface SourceInfo {
-  /** 本地文件上传的 tos 地址 */
+  /** TOS address for local file upload */
   tos_uri?: string;
-  /** imagex_uri, 和 tos_uri 二选一, imagex_uri 优先，需要通过 imagex 的方法获取数据和签发 url */
+  /** imagex_uri, and tos_uri choose one, imagex_uri priority, need to get data and sign url through imagex method */
   imagex_uri?: string;
 }
 
@@ -890,10 +890,10 @@ export interface SqlParamVal {
 export interface SubmitDatabaseInsertRequest {
   database_id?: string;
   file_uri?: string;
-  /** table类型，要往草稿表插入还是线上表插入 */
+  /** Table type, do you want to insert into the draft table or the online table? */
   table_type?: TableType;
   table_sheet?: TableSheet;
-  /** 要写入的渠道id */
+  /** Channel ID to write to */
   connector_id?: string;
   Base?: base.Base;
 }
@@ -905,63 +905,63 @@ export interface SubmitDatabaseInsertResponse {
 }
 
 export interface TableInfo {
-  /** online_database_info的主键id */
+  /** online_database_info primary key id */
   id?: string;
-  /** 头像url */
+  /** avatar url */
   icon_url?: string;
-  /** 表名 */
+  /** table name */
   table_name?: string;
-  /** 表描述 */
+  /** table description */
   table_desc?: string;
-  /** 创建者id */
+  /** creator id */
   creator_id?: string;
-  /** 创建时间 */
+  /** creation time */
   create_time?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_time?: Int64;
   /** project id */
   project_id?: string;
   icon_uri?: string;
-  /** 数据库类型 */
+  /** database type */
   database_type?: DatabaseType;
 }
 
 export interface TableSheet {
-  /** 用户选择的 sheet id */
+  /** User selected sheet id */
   sheet_id?: string;
-  /** 用户选择的表头行数，从 0 开始编号 */
+  /** The number of header rows selected by the user, numbered from 0 */
   header_line_idx?: string;
-  /** 用户选择的起始行号，从 0 开始编号 */
+  /** User-selected starting line number, numbered from 0 */
   start_line_idx?: string;
 }
 
 export interface TextDefault {
-  /** CHAR、VARCHAR、TEXT 的默认值 */
+  /** Default values for CHAR, VARCHAR, TEXT */
   value?: string;
 }
 
 export interface TimeDefault {
-  /** 动态函数（如 CURRENT_TIMESTAMP） */
+  /** Dynamic functions (such as CURRENT_TIMESTAMP) */
   func?: FieldFunction;
-  /** 更新时的动态函数 */
+  /** Dynamic functions at update time */
   on_update?: FieldFunction;
-  /** 静态值（格式：HH:MM:SS） */
+  /** Static value (format: HH: MM: SS) */
   value?: string;
 }
 
 export interface TimestampDefault {
-  /** 动态函数（如 CURRENT_TIMESTAMP） */
+  /** Dynamic functions (such as CURRENT_TIMESTAMP) */
   func?: FieldFunction;
-  /** 更新时的动态函数 */
+  /** Dynamic functions at update time */
   on_update?: FieldFunction;
-  /** 静态值（格式：YYYY-MM-DD HH:MM:SS） */
+  /** Static value (format: YYYY-MM-DD HH: MM: SS) */
   value?: string;
 }
 
 export interface UpdateDatabaseBotSwitchRequest {
   bot_id: string;
   database_id: string;
-  /** 是否禁用prompt */
+  /** Whether to disable prompt */
   prompt_disable: boolean;
   Base?: base.Base;
 }
@@ -975,15 +975,15 @@ export interface UpdateDatabaseBotSwitchResponse {
 export interface UpdateDatabaseRecordsRequest {
   /** database_id */
   database_id: string;
-  /** 新增的 */
+  /** new */
   record_data_add?: Array<Record<string, string>>;
-  /** 修改的 */
+  /** modified */
   record_data_alter?: Array<Record<string, string>>;
-  /** 删除的 */
+  /** deleted */
   record_data_delete?: Array<Record<string, string>>;
-  /** 要更新的的是草稿态还是线上态 */
+  /** Is the draft state or online state to be updated? */
   table_type?: TableType;
-  /** 更新时需穿入connector id */
+  /** The connector id needs to be inserted when updating. */
   ori_connector_id?: string;
   Base?: base.Base;
 }
@@ -994,21 +994,21 @@ export interface UpdateDatabaseRecordsResponse {
 }
 
 export interface UpdateDatabaseRequest {
-  /** database_info的主键id */
+  /** database_info primary key id */
   id?: string;
-  /** 头像url */
+  /** avatar url */
   icon_uri?: string;
-  /** 表名 */
+  /** table name */
   table_name?: string;
-  /** 表描述 */
+  /** table description */
   table_desc?: string;
-  /** 字段信息 */
+  /** Field information */
   field_list?: Array<FieldItem>;
-  /** 读写模式，单用户模式/多用户模式 */
+  /** Read and write mode, single user mode/multi-user mode */
   rw_mode?: BotTableRWMode;
-  /** 是否支持prompt调用 */
+  /** Whether to support prompt calls */
   prompt_disabled?: boolean;
-  /** 扩展信息 */
+  /** extended information */
   extra_info?: Record<string, string>;
   Base?: base.Base;
 }
@@ -1021,7 +1021,7 @@ export interface UpsertValues {
 export interface ValidateTableSchemaRequest {
   space_id?: string;
   database_id?: string;
-  /** source file 的信息 */
+  /** Information from the source file */
   source_file?: SourceInfo;
   table_sheet?: TableSheet;
   table_type?: TableType;
@@ -1030,7 +1030,7 @@ export interface ValidateTableSchemaRequest {
 
 export interface ValidateTableSchemaResponse {
   schema_valid_result?: Record<string, string>;
-  /** 如果失败会返回错误码 */
+  /** If it fails, an error code will be returned. */
   code: Int64;
   msg: string;
 }

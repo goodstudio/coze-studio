@@ -22,30 +22,30 @@
 export type Int64 = string | number;
 
 /** https://lilianweng.github.io/posts/2023-06-23-agent/agent-overview.png
- Agent 包含：Planning、Memory、Tools 等。
- 这里 Action 泛指 Agent 下的各种子组件的类型的执行 */
+ Agents include: Planning, Memory, Tools, etc.
+ Here Action refers to the execution of various subcomponents under the Agent */
 export enum ActionType {
   Unknown = 0,
   LLMPlanning = 1,
   ToolCall = 2,
-  /** coze agent 思考过程 */
+  /** Cozing agent thought process */
   CozeVerbose = 100,
 }
 
 export enum BuiltinEvaluatorType {
-  /** 以用户定制输入的 PromptTemplate 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** Using the PromptTemplate input by the user as the configuration information of the evaluator, the input and output of the evaluation object are evaluated */
   Prompt = 1,
-  /** 以用户定制输入的 Python Code 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** The user-customized input Python Code is used as the configuration information of the evaluator to evaluate the input and output of the evaluation object */
   PythonCode = 2,
-  /** 以用户定制输入的 JS Code 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** Using the JS Code input by the user as the configuration information of the evaluator, the input and output of the evaluation object are evaluated */
   JSCode = 3,
-  /** 人工评测 */
+  /** manual evaluation */
   Manual = 7,
-  /** prompt开发中的prompt */
+  /** Prompt in development */
   FornaxPrompt = 10,
-  /** coze2.0 裁判模型评估器 */
+  /** Coze2.0 referee model evaluator */
   CozePrompt = 11,
-  /** 以用户定制输入的 Func 静态参数 作为评估器的配置信息，对评估对象的输入输出进行测评 */
+  /** The input and output of the evaluation object are evaluated by using the Func static parameters input by the user as the configuration information of the evaluator */
   BuiltinEquals = 10000,
   BuiltinNotEquals = 10001,
   BuiltinContains = 10002,
@@ -87,58 +87,58 @@ export enum BuiltinEvaluatorType {
   BuiltinDetailCriteriaEval = 20012,
   /** must labeled, CotQA */
   BuiltinCorrectnessEval = 20013,
-  /** 语言一致性 */
+  /** language consistency */
   BuiltinSpecTestLanguageConsistency = 20014,
-  /** 回复拒答检查 */
+  /** Reply to Refuse Check */
   BuiltinSpecTestResponseDenialCheck = 20015,
-  /** 内容真实性 */
+  /** content authenticity */
   BuiltinSpecTestContentAuthenticity = 20016,
-  /** 内容准确性 */
+  /** content accuracy */
   BuiltinSpecTestContentAccuracy = 20017,
-  /** 满足需求性 */
+  /** Meet demand */
   BuiltinSpecTestNeedFulfillment = 20018,
-  /** 回复时效性 */
+  /** timeliness of reply */
   BuiltinSpecTestResponseTimeliness = 20019,
-  /** 回复冗余性 */
+  /** redundancy of recovery */
   BuiltinSpecTestResponseRedundancy = 20020,
-  /** 符合人设 */
+  /** fit the character */
   BuiltinSpecTestCharacterConsistency = 20021,
-  /** 拟人程度 */
+  /** degree of anthropomorphism */
   BuiltinSpecTestAnthropomorphismLevel = 20022,
-  /** 输入-输出语义相似度 */
+  /** input-output semantic similarity */
   BuiltinSpecTestIOSematicSimilarity = 20023,
-  /** 答案-输出语义相似度 */
+  /** Answer - output semantic similarity */
   BuiltinSpecTestAOSematicSimilarity = 20024,
-  /** 生图一致性 */
+  /** graph consistency */
   BuiltinSpecTestImageGenerationConsistency = 20025,
-  /** 图片美观性 */
+  /** Image aesthetics */
   BuiltinSpecTestImageAesthetics = 20026,
-  /** 回复完整性 */
+  /** reply integrity */
   BuiltinSpecTestResponseCompleteness = 20027,
-  /** 文生图完整性 */
+  /** Text-to-Image Integrity */
   BuiltinSpecTestTextToImageGenerationCompleteness = 20028,
-  /** 代码生成质量 */
+  /** code generation quality */
   BuiltinSpecTestCodeGenerationScoring = 20029,
-  /** 插件调用正确性 for coze bot */
+  /** Calling correctness for coze bots */
   BuiltinSpecTestPluginCallingCorrectness = 20030,
-  /** 插件入参正确性 for coze bot */
+  /** Correctness of imported parameters for cozed bots */
   BuiltinSpecTestPluginParametersCorrectness = 20031,
-  /** Workflow调用正确性 for coze bot */
+  /** Workflow call correctness for coze bots */
   BuiltinSpecTestWorkflowCallingCorrectness = 20032,
-  /** Workflow入参正确性 for coze bot */
+  /** Workflow imported parameter correctness for cozing bots */
   BuiltinSpecTestWorkflowParametersCorrectness = 20033,
-  /** 触发器调用正确性 for coze bot */
+  /** Trigger call correctness for coze bots */
   BuiltinSpecTestTriggerCallingCorrectness = 20034,
-  /** 触发器入参正确性 for coze bot */
+  /** Correctness of imported parameters for cozed bots */
   BuiltinSpecTestTriggerParametersCorrectness = 20035,
-  /** 流程编排准确性 for coze bot */
+  /** Coze bots for process orchestration accuracy */
   BuiltinSpecTestChoreographyAccuracy = 20036,
-  /** Fornax prompt 泄露检测 */
+  /** Fornax prompt leak detection */
   BuiltinFornaxPromptLeakDetection = 20200,
-  /** 自定义指标
-系统内置指标 */
+  /** custom metrics
+System built-in indicators */
   BuiltinDefaultMetric = 30001,
-  /** 用户上报自定义指标 */
+  /** User reporting custom metrics */
   BuiltinCustomMetric = 30002,
 }
 

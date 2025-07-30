@@ -26,103 +26,103 @@ export type Int64 = string | number;
 
 /** bot */
 export enum BotConnectorPublishStatus {
-  /** 使用中 */
+  /** In use */
   Using = 0,
-  /** 发布失败或用户注销而删除 */
+  /** Delete due to publishing failure or user logout */
   Delete = 1,
-  /** 禁用或下架 */
+  /** disable or remove */
   Disable = 3,
 }
 
 export enum ConnectorBindType {
-  /** 无需绑定 */
+  /** No binding required */
   NoBindRequired = 1,
-  /** Auth绑定 */
+  /** Auth binding */
   AuthBind = 2,
-  /** Kv绑定 */
+  /** Kv binding */
   KvBind = 3,
-  /** Kv并Auth授权 */
+  /** Kv and Auth authorization */
   KvAuthBind = 4,
-  /** api渠道绑定 */
+  /** API channel binding */
   ApiBind = 5,
   WebSDKBind = 6,
   StoreBind = 7,
-  /** 授权和配置各一个按钮 */
+  /** One button each for authorization and configuration */
   AuthAndConfig = 8,
-  /** 模板渠道绑定 */
+  /** template channel binding */
   TemplateBind = 9,
 }
 
 export enum ConnectorClassification {
-  /** api或sdk */
+  /** API or SDK */
   APIOrSDK = 1,
-  /** 社交平台 */
+  /** social platform */
   SocialPlatform = 2,
-  /** Coze商店/模板 */
+  /** Coze Shop/Template */
   Coze = 3,
-  /** 小程序 */
+  /** Mini Program */
   MiniProgram = 4,
-  /** MCP扩展库 */
+  /** MCP Extension Library */
   CozeSpaceExtensionLibrary = 5,
 }
 
 export enum ConnectorConfigStatus {
-  /** 已配置 */
+  /** Configured */
   Configured = 1,
-  /** 未配置 */
+  /** Not configured */
   NotConfigured = 2,
-  /** Token发生变化 */
+  /** Token changes */
   Disconnected = 3,
-  /** 配置中，授权中 */
+  /** Configuring, authorizing */
   Configuring = 4,
-  /** 需要重新配置  */
+  /** Need to reconfigure  */
   NeedReconfiguring = 5,
 }
 
 /** project */
 export enum ConnectorPublishStatus {
-  /** 发布中 */
+  /** In release */
   Default = 0,
-  /** 审核中 */
+  /** Under review. */
   Auditing = 1,
-  /** 成功 */
+  /** success */
   Success = 2,
-  /** 失败 */
+  /** fail */
   Failed = 3,
-  /** 禁用 */
+  /** disable */
   Disable = 4,
 }
 
 export enum ConnectorStatus {
-  /** 正常 */
+  /** Normal */
   Normal = 0,
-  /** 审核中 */
+  /** Under review. */
   InReview = 1,
-  /** 已下线 */
+  /** offline */
   Offline = 2,
 }
 
 export enum PublishRecordStatus {
-  /** 打包中 */
+  /** Packing */
   Packing = 0,
-  /** 打包失败 */
+  /** Packaging failed */
   PackFailed = 1,
-  /** 审核中 */
+  /** Under review. */
   Auditing = 2,
-  /** 审核未通过 */
+  /** review disapproved */
   AuditNotPass = 3,
-  /** 渠道发布中 */
+  /** Channel is being released. */
   ConnectorPublishing = 4,
-  /** 发布完成 */
+  /** release complete */
   PublishDone = 5,
 }
 
 export enum UserAuthStatus {
-  /** 已授权 */
+  /** Authorized */
   Authorized = 1,
-  /** 未授权 */
+  /** unauthorized */
   UnAuthorized = 2,
-  /** 授权中 */
+  /** Authorizing */
   Authorizing = 3,
 }
 
@@ -153,7 +153,7 @@ export interface CheckProjectVersionNumberResponse {
 }
 
 export interface ConnectorPublishConfig {
-  /** 发布渠道选择的Workflow/ChatFlow */
+  /** Workflow/ChatFlow selected by publishing channel */
   selected_workflows?: Array<SelectedWorkflow>;
 }
 
@@ -161,17 +161,17 @@ export interface ConnectorPublishResult {
   connector_id?: string;
   connector_name?: string;
   connector_icon_url?: string;
-  /** 渠道发布状态 */
+  /** channel release status */
   connector_publish_status?: ConnectorPublishStatus;
-  /** 渠道发布状态补充信息 */
+  /** Channel Release Status Supplementary Information */
   connector_publish_status_msg?: string;
-  /** OpenIn链接 */
+  /** OpenIn Link */
   share_link?: string;
-  /** 小程序渠道下载链接 */
+  /** Mini Program Channel Download Link */
   download_link?: string;
-  /** 渠道发布配置 */
+  /** channel release configuration */
   connector_publish_config?: ConnectorPublishConfig;
-  /** 渠道绑定信息 key字段名 value是值 */
+  /** Channel binding information key field name value is value */
   connector_bind_info?: Record<string, string>;
 }
 
@@ -184,9 +184,9 @@ export interface ConnectorUnionInfo {
 }
 
 export interface ConnectorUnionInfoOption {
-  /** 渠道 ID */
+  /** Channel ID */
   connector_id: string;
-  /** 展示名，如：托管发布、下载代码 */
+  /** Display name, such as: hosted release, download code */
   show_name: string;
 }
 
@@ -202,7 +202,7 @@ export interface GetProjectPublishedConnectorResponse {
 
 export interface GetPublishRecordDetailRequest {
   project_id: string;
-  /** 不传则获取最近一次发布记录 */
+  /** If you don't upload it, get the last release record. */
   publish_record_id?: string;
 }
 
@@ -225,7 +225,7 @@ export interface GetPublishRecordListResponse {
 export interface LastPublishInfo {
   version_number?: string;
   connector_ids?: Array<string>;
-  /** 渠道发布配置 */
+  /** channel release configuration */
   connector_publish_config?: Record<Int64, ConnectorPublishConfig>;
 }
 
@@ -239,54 +239,54 @@ export interface PublishConnectorInfo {
   id: string;
   name: string;
   icon_url: string;
-  /** 描述 */
+  /** describe */
   description: string;
-  /** 描述扩展 */
+  /** description extension */
   description_extra?: string;
-  /** 渠道类型 */
+  /** channel type */
   connector_classification: ConnectorClassification;
-  /** 配置状态 */
+  /** configuration status */
   config_status: ConnectorConfigStatus;
-  /** 渠道状态 */
+  /** channel status */
   connector_status?: ConnectorStatus;
-  /** 绑定类型 */
+  /** binding type */
   bind_type: ConnectorBindType;
-  /** 绑定信息 key字段名 value是值 */
+  /** Binding information key field name value is value */
   bind_info: Record<string, string>;
-  /** 绑定id信息，用于解绑使用 */
+  /** Bind id information for unbinding and use */
   bind_id?: string;
-  /** 用户授权登陆信息 */
+  /** user authorization login information */
   auth_login_info?: AuthLoginInfo;
-  /** 隐私政策 */
+  /** Privacy Policy */
   privacy_policy?: string;
-  /** 用户协议 */
+  /** User Agreement */
   user_agreement?: string;
-  /** 是否允许发布 */
+  /** Whether to allow publishing */
   allow_publish?: boolean;
-  /** 不允许发布的原因 */
+  /** Reasons for not allowing publishing */
   not_allow_publish_reason?: string;
-  /** 渠道集合id，表示需要聚合展示的渠道 */
+  /** Channel collection id, indicating the channel that needs to be aggregated and displayed. */
   connector_union_id?: string;
-  /** UI选项 */
+  /** UI Options */
   UIOptions?: Array<UIOption>;
-  /** 支持商业化 */
+  /** Support commercialization */
   support_monetization?: boolean;
-  /** 安装指引 */
+  /** Installation Guidelines */
   installation_guide?: string;
-  /** 目前仅 bind_type == 8 时这个字段才有  */
+  /** Currently this field is only available bind_type == 8  */
   auth_status?: UserAuthStatus;
-  /** 配置状态toast */
+  /** Configuration status toast */
   config_status_toast?: string;
-  /** connector_status为审核中时补全信息按钮的url */
+  /** connector_status the URL of the Complete Info button while under review */
   to_complete_info_url?: string;
-  /** 渠道发布提示 */
+  /** Channel release tips */
   connector_tips?: string;
 }
 
 export interface PublishConnectorListData {
   connector_list?: Array<PublishConnectorInfo>;
   last_publish_info?: LastPublishInfo;
-  /** 渠道集合信息，key是connector_union_id */
+  /** Channel collection information, the key is connector_union_id */
   connector_union_info_map?: Record<Int64, ConnectorUnionInfo>;
 }
 
@@ -301,12 +301,12 @@ export interface PublishConnectorListResponse {
 }
 
 export interface PublishIntelligenceUnListData {
-  /** key是connector_id，value是下架结果 */
+  /** The key is connector_id, and the value is the removal result. */
   connector_unlist_result_map?: Record<Int64, PublishIntelligenceUnListResult>;
 }
 
 export interface PublishIntelligenceUnListRequest {
-  /** 已发布项目从渠道下架 */
+  /** Published items are removed from the channel */
   intelligence_id: string;
   connector_ids: Array<string>;
   intelligence_type: intelligence_common_struct.IntelligenceType;
@@ -324,21 +324,21 @@ export interface PublishIntelligenceUnListResult {
 }
 
 export interface PublishProjectData {
-  /** 发布记录ID用于前端轮询 */
+  /** Publish record ID for front-end polling */
   publish_record_id?: string;
-  /** 收费配置发布结果，海外环境才有 */
+  /** The charging configuration is released, and the overseas environment is only available. */
   publish_monetization_result?: boolean;
 }
 
 export interface PublishProjectRequest {
   project_id: string;
-  /** 版本号 */
+  /** version number */
   version_number: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** key代表connector_id，value是渠道发布的参数 */
+  /** The key represents connector_id, and the value is the parameter published by the channel */
   connectors?: Record<Int64, Record<string, string>>;
-  /** 渠道发布配置，key代表connector_id */
+  /** Channel release configuration, key represents connector_id */
   connector_publish_config?: Record<Int64, ConnectorPublishConfig>;
 }
 
@@ -351,18 +351,18 @@ export interface PublishProjectResponse {
 export interface PublishRecordDetail {
   publish_record_id?: string;
   version_number?: string;
-  /** 发布状态 */
+  /** release status */
   publish_status?: PublishRecordStatus;
-  /** 该字段废弃，请使用publish_status_detail */
+  /** This field is deprecated, please use publish_status_detail */
   publish_status_msg?: string;
-  /** 渠道发布结果 */
+  /** Channel release results */
   connector_publish_result?: Array<ConnectorPublishResult>;
-  /** 发布状态补充信息 */
+  /** Release status Supplementary information */
   publish_status_detail?: PublishRecordStatusDetail;
 }
 
 export interface PublishRecordStatusDetail {
-  /** 打包失败详情 */
+  /** Packaging failure details */
   pack_failed_detail?: Array<PackFailedDetail>;
 }
 
@@ -372,11 +372,11 @@ export interface SelectedWorkflow {
 }
 
 export interface UIOption {
-  /** UIChannel选项 */
+  /** UIChannel Options */
   ui_channel?: string;
-  /** 是否可选 */
+  /** Is it optional */
   available?: boolean;
-  /** 不可选原因 */
+  /** unselectable reason */
   unavailable_reason?: string;
 }
 /* eslint-enable */

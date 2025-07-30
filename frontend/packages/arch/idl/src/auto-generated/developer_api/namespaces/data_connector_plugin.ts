@@ -23,7 +23,7 @@ export type Int64 = string | number;
 
 export interface GetNotionDocumentInfoRequest {
   document_url?: string;
-  /** 表格内容获取数量 */
+  /** Table content acquisition quantity */
   block_search_size?: Int64;
 }
 

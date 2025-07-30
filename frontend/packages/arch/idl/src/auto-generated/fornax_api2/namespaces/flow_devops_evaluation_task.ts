@@ -24,23 +24,23 @@ import * as flow_devops_evaluation_object_callback from './flow_devops_evaluatio
 
 export type Int64 = string | number;
 
-/** 聚合方式 */
+/** aggregation method */
 export enum AggregatorMode {
   Unknown = 0,
-  /** 按照评测维度标签聚合 */
+  /** Aggregate by review dimension tag */
   EvaluatorTag = 1,
 }
 
-/** 聚合器类型 */
+/** aggregator type */
 export enum AggregatorType {
   Average = 1,
   Sum = 2,
   Max = 3,
   Min = 4,
-  /** 使用double类型来表示百分比。例如50.5%设置为0.505 */
+  /** Use the double type to represent percentages. For example, 50.5% is set to 0.505. */
   PassingRate = 5,
   ExcellentRate = 6,
-  /** 人工选项打分，count 各选项并给出比例分布 */
+  /** Manual options are scored, each option is counted and a proportional distribution is given */
   Count = 7,
   Pct50 = 8,
   Pct90 = 9,
@@ -54,89 +54,89 @@ export enum BatchTaskRetryMode {
 
 export enum BitableStatus {
   Unknown = 0,
-  /** 任务未开始 */
+  /** Task not started */
   Running = 1,
-  /** 任务成功 */
+  /** Mission successful */
   Success = 2,
-  /** 任务失败 */
+  /** Mission failed */
   Failed = 3,
 }
 
-/** ChainTask模版类型 */
+/** ChainTask template type */
 export enum ChainTaskTemplate {
   ChainTaskTemplate_Unknow = 0,
   ChainTaskTemplate_BotTemplate = 1,
 }
 
-/** 分析图表的类型 */
+/** Types of analytical charts */
 export enum ChartType {
   Unknown = 0,
-  /** 指标卡 */
+  /** indicator card */
   KPI = 1,
-  /** 饼图 */
+  /** Pie chart */
   Pie = 2,
-  /** 条形图 */
+  /** bar chart */
   Bar = 3,
-  /** 条形堆积图 */
+  /** bar stack chart */
   StackedBar = 4,
-  /** 雷达图 */
+  /** Radar chart */
   Radar = 5,
-  /** 折线图 */
+  /** line chart */
   Line = 6,
 }
 
 export enum DataType {
-  /** 默认，有小数的浮点数值类型 */
+  /** Default, floating-point value types with decimals */
   Double = 0,
   JSON = 1,
 }
 
-/** 评估器资源 */
+/** Evaluator Resource */
 export enum EvaluateMode {
-  /** 人工 */
+  /** manual */
   Manual = 0,
-  /** 自动 */
+  /** automatic */
   Auto = 1,
-  /** 重置 */
+  /** reset */
   Reset = 2,
 }
 
-/** 关联评估器 */
+/** Correlation Evaluator */
 export enum EvaluateScope {
-  /** data row 范围 */
+  /** Data row range */
   Row = 0,
-  /** 全case默认生效 */
+  /** All cases take effect by default */
   Case = 1,
 }
 
 export enum ExecutionPolicy {
-  /** error 停止运行 */
+  /** Error stop running */
   StopOnAnyError = 1,
-  /** error 继续执行后续任务 */
+  /** Error continue to execute subsequent tasks */
   ContinueOnAnyError = 2,
-  /** 部分失败继续执行后续任务 */
+  /** Partial failure to continue with subsequent tasks */
   OnlyContinueOnPartialError = 3,
 }
 
 export enum ExportCSVSourceType {
-  /** 后续可能迁移单报告为服务端导出 */
+  /** Subsequent possible migration orders are reported as server level exports */
   EvaluationTaskReport = 1,
   ContrastReport = 2,
 }
 
 export enum FilterField {
   Unknown = 0,
-  /** 得分 */
+  /** score */
   Score = 1,
-  /** 数值 */
+  /** numerical value */
   Value = 2,
-  /** 评测结果option value */
+  /** Evaluation result option value */
   OptionValue = 3,
-  /** 标注 */
+  /** label */
   Plaintext = 4,
-  /** 数据集标签 */
+  /** dataset label */
   DataSetTag = 5,
-  /** 评测维度,对应于ruleID */
+  /** Evaluation dimension, corresponding to ruleID */
   RuleID = 6,
 }
 
@@ -148,25 +148,25 @@ export enum FilterLogicOp {
 
 export enum FilterOperatorType {
   Unknown = 0,
-  /** 等于 */
+  /** equal to */
   Equal = 1,
-  /** 不等于 */
+  /** Not equal to */
   NotEqual = 2,
-  /** 包含 */
+  /** contain */
   Contains = 3,
-  /** 不包含 */
+  /** Do not include */
   NotContains = 4,
-  /** 大于 */
+  /** greater than */
   Greater = 5,
-  /** 大于等于 */
+  /** greater than or equal to */
   GreaterOrEqual = 6,
-  /** 小于 */
+  /** less than */
   Less = 7,
-  /** 小于等于 */
+  /** less than or equal to */
   LessOrEqual = 8,
-  /** 空 */
+  /** empty */
   IsNull = 9,
-  /** 非空 */
+  /** non-empty */
   IsNotNull = 10,
 }
 
@@ -189,19 +189,19 @@ export enum GenAnnotationTaskCustomFilterLanguage {
   Python = 3,
 }
 
-/** 分组方式 */
+/** grouping */
 export enum GroupMode {
   Unknown = 0,
-  /** 数据集标签 */
+  /** dataset label */
   DataSetTag = 1,
-  /** 按照option结果分组 */
+  /** Group by option */
   OptionResult = 2,
 }
 
 export enum ManualStatus {
-  /** 不需要人工标注 */
+  /** No manual labeling is required. */
   NoNeed = 0,
-  /** 需要人工标注 */
+  /** Manual labeling is required. */
   Need = 1,
 }
 
@@ -218,7 +218,7 @@ export enum ModelStyle {
   Precise = 3,
 }
 
-/** 评估器资源 */
+/** Evaluator Resource */
 export enum PromptTemplateFormat {
   PromptTemplateFormat_FString = 0,
   PromptTemplateFormat_Jinja2 = 1,
@@ -226,76 +226,76 @@ export enum PromptTemplateFormat {
 
 export enum RetryMode {
   All = 1,
-  /** 重试未成功的rowGroup */
+  /** Retry unsuccessful rowGroup */
   Unsuccessful = 2,
-  /** 指定rowGroupID重试 */
+  /** Specify rowGroupID to retry */
   SpecifyRowGroup = 3,
 }
 
 export enum RowGroupRunState {
   Unknown = -1,
-  /** 排队中 */
+  /** in line */
   Queueing = 0,
-  /** 执行中 */
+  /** in progress */
   Processing = 1,
-  /** 成功 */
+  /** success */
   Success = 2,
-  /** 失败 */
+  /** fail */
   Fail = 3,
-  /** 结果待评估 */
+  /** Results to be evaluated */
   Evaluating = 4,
-  /** 终止执行 */
+  /** terminate execution */
   Terminal = 5,
 }
 
 export enum RowRunState {
-  /** 未开始执行 */
+  /** Not started */
   Queueing = 0,
-  /** 执行成功 */
+  /** successful execution */
   Success = 1,
-  /** 执行失败 */
+  /** execution failed */
   Fail = 2,
 }
 
-/** 表单展示元素类型 */
+/** Form display element type */
 export enum ShowEntityType {
-  /** 评测对象coze bot，对应使用 11:CozeEntityMap */
+  /** Evaluation object coze bot, corresponding to use 11: CozeEntityMap */
   CozeBot = 1,
-  /** 评测对象prompt */
+  /** Object prompt */
   Prompt = 2,
-  /** 用户信息 */
+  /** user information */
   User = 3,
-  /** 注册agent */
+  /** Registered agent */
   Agent = 4,
 }
 
-/** SpecialObjectType 后面可单独在 评估对象管理平台上进行动态注册，注册的会动态分配 */
+/** SpecialObjectType can be dynamically registered on the evaluation object management platform alone later, and the registered ones will be dynamically allocated */
 export enum SpecialObjectType {
   CozeBot = 0,
   Prompt = 1,
   ChainTask = 2,
-  /** 接入 Fornax 的应用，Eino 框架默认集成 */
+  /** Applications connected to Fornax, Eino framework is integrated by default */
   FornaxApp = 3,
-  /** CloudIDE 提供的 FornaxAgent */
+  /** FornaxAgent provided by CloudIDE */
   FornaxAgent = 4,
   PlaygroundCozeBot = 5,
   PlaygroundCozeBotV2 = 6,
-  /** 结果集批量评测类型 */
+  /** Result Set Batch Evaluation Type */
   EvalResultDatasetCollection = 7,
   PlaygroundCozeModel = 8,
   CiciCrawl = 9,
-  /** 自定义评测规则，idgen id 不可枚举, 此 enum 仅用于搜索&过滤的 request */
+  /** Custom evaluation rules, idgen id is not enumerable, this enum is only used for search & filter requests */
   Custom = 100,
 }
 
 export enum TaskAggrReportGenStatus {
-  /** 未生成，任务未执行完成 */
+  /** Not generated, task not completed */
   NotGenerated = 0,
-  /** 更新中 */
+  /** Updating */
   Updating = 1,
-  /** 运行时可查看报告详情，完成 后展示整体得分和【查看聚合报告可点击】 */
+  /** When running, you can view the report details, complete it, and display the overall score and [Click to view the aggregated report]. */
   Generated = 2,
-  /** 完成后如果评分有更新，需要重新聚合计算 */
+  /** If the score is updated after completion, it needs to be re-aggregated. */
   NeedUpdate = 3,
 }
 
@@ -307,48 +307,48 @@ export enum TaskManualStatus {
 
 export enum TaskMode {
   Unknown = 0,
-  /** 平台手动运行Case */
+  /** Platform Manual Operation Case */
   SubmitExec = 1,
-  /** 在线评测场景 */
+  /** Online review scenario */
   OnlineSyncExec = 2,
 }
 
 export enum TaskStatus {
-  /** 评测任务执行中，前端展示【运行中】 */
+  /** The evaluation task is in progress, and the front-end display [running] */
   Processing = 1,
-  /** 评测任务创建中，初始话rowGroup状态等操作，前端展示【创建中】 */
+  /** The evaluation task is being created, the initial session rowGroup status and other operations, and the front-end display [Created] */
   Creating = 4,
-  /** rowgroup持续评测并添加到任务，在线评测场景中使用 */
+  /** Rowgroup continuously reviews and adds to tasks, used in online review scenarios */
   Appending = 10,
-  /** 执行完成且需要人工评分，前端展示【需要人工评分】 */
+  /** The execution is completed and manual scoring is required, and the front-end display [manual scoring is required] */
   NeedManualEval = 20,
-  /** 用户手动取消运行, 前端展示【已终止，用户取消】 */
+  /** The user manually cancels the run, and the front-end display [Terminated, the user cancels] */
   Termination = 21,
-  /** 系统主动终止任务，前端展示【已终止: 系统异常】 */
+  /** The system actively terminates the task, and the front-end display [Terminated: System Abnormal] */
   SystemTermination = 22,
-  /** 任务执行完成，前端展示【成功】 */
+  /** The task execution is completed, and the front-end display [Success] */
   Completed = 30,
-  /** 执行完成，全部 rowGroup 都执行失败，前端展示【失败】 */
+  /** The execution is complete, all rowGroups fail to execute, and the front-end display [Failed] */
   Error = 31,
-  /** 执行完成, 部分rowGroup失败。前端展示【部分失败】 */
+  /** Execution completed, partial rowGroup failed. Front-end display [Partial failure] */
   PartialFailure = 41,
-  /** 任务已创建,等待任务被调度执行 */
+  /** The task has been created, waiting for the task to be scheduled for execution */
   AwaitExecution = 42,
-  /** 等待任务被重试 */
+  /** Wait for the task to be retried */
   AwaitRetry = 43,
 }
 
 export enum UserChangeMode {
-  /** 无限制，用户可读写、运行 */
+  /** Unlimited, users can read, write, and run */
   Default = 0,
-  /** 不可编辑、不可触发运行，可读 */
+  /** Non-editable, non-triggering, readable */
   ReadOnly = 5,
 }
 
 export interface ChainTask {
   task_id: string;
   task_name?: string;
-  /** 评测时候，chainTask的版本，需要前端传 */
+  /** During the evaluation, the version of chainTask needs to be transmitted from the front end. */
   version?: number;
   model_info?: string;
   chain_task_template?: ChainTaskTemplate;
@@ -369,17 +369,17 @@ export interface CozeAgent {
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
-/** 评测CozeBot */
+/** Review CozeBot */
 export interface CozeBot {
   bot_id?: Int64;
-  /** 默认0， 是draft版本
+  /** Default 0, is the draft version
 deprecated */
   is_draft?: number;
-  /** 创建case version 为空，task实体会携带当前case run 时候 bot version */
+  /** Create case version is empty, the task entity will carry the bot version when the current case runs */
   version?: Int64;
-  /** Bot类型，默认0， 是draft版本 */
+  /** Bot type, default 0, is draft version */
   bot_info_type?: flow_devops_evaluation_object_callback.CozeBotInfoType;
-  /** 创建case connector_id 为空，task实体会携带当前case run 时候 bot connector_id */
+  /** Create case connector_id is empty, the task entity will carry the current case run time bot connector_id */
   connector_id?: string;
   model_info?: flow_devops_evaluation_entity.ModelInfo;
   bot_name?: string;
@@ -390,29 +390,29 @@ deprecated */
 }
 
 export interface EvalObject {
-  /** 评测对象的类型。每一个 RPC 接口，视为一种类型 */
+  /** Evaluate the type of the object. Each RPC interface is treated as a type */
   object_type: Int64;
-  /** ObjectType=0 时，传参此字段。 评测对象为 CozeBot 时, 需要设置 CozeBot 信息 */
+  /** When ObjectType = 0, pass this field. When the evaluation object is CozeBot, you need to set the CozeBot information. */
   coze_bot?: CozeBot;
-  /** ObjectType=1 时，传参此字段。 评测对象为 EvalPrompt 时, 需要设置 Prompt 信息 */
+  /** When ObjectType = 1, pass this field. When the evaluation object is EvalPrompt, you need to set the Prompt information */
   prompt?: EvalPrompt;
-  /** ObjectType 为其他时，传参此字段 */
+  /** When ObjectType is other, pass this field */
   object?: flow_devops_evaluation_object_callback.Object;
-  /** ObjectType=2 时，传参此字段。 评测对象为 ChainTask 时, 需要设置 ChainTask 信息 */
+  /** When ObjectType = 2, pass this field. When the evaluation object is ChainTask, you need to set ChainTask information */
   chain_task?: ChainTask;
   fornax_app_object?: FornaxAppObject;
   fornax_agent_object?: FornaxAgentObject;
   playground_coze_bot_v2?: PlaygroundCozeBotV2;
-  /** EvalResultDatasetCollection 类型对象数据 */
+  /** EvalResultDatasetCollection type object data */
   eval_result_dataset_collection?: EvalResultDatasetCollection;
   playground_coze_model?: PlaygroundCozeModel;
   cici_crawl?: CiciCrawl;
 }
 
 export interface EvalPrompt {
-  /** 一个prompt的唯一标识 */
+  /** A unique identifier for a prompt */
   prompt_id: string;
-  /** 评测时候，prompt的版本，需要前端传 */
+  /** When evaluating, the prompt version needs to be transmitted from the front end. */
   version?: string;
   name?: string;
 }
@@ -437,7 +437,7 @@ export interface FornaxAgentObject {
   name?: string;
   avatar_url?: string;
   tmpl_type?: FornaxAgentTmplType;
-  /** 评测的目标 api */
+  /** Target API for evaluation */
   api?: FornaxAgentAPI;
 }
 
@@ -448,16 +448,16 @@ export interface FornaxAppObject {
   region: string;
   app_id: string;
   client_id: string;
-  /** for 二级搜索 */
+  /** For secondary search */
   object?: flow_devops_evaluation_object_callback.Object;
 }
 
 /** Coze2.0Bot */
 export interface PlaygroundCozeBotV2 {
   bot_id?: Int64;
-  /** 创建case version 为空，task实体会携带当前case run 时候 bot version */
+  /** Create case version is empty, the task entity will carry the bot version when the current case runs */
   bot_version?: string;
-  /** Bot类型，默认0， 是draft版本 */
+  /** Bot type, default 0, is draft version */
   bot_info_type?: flow_devops_evaluation_object_callback.CozeBotInfoType;
   model_info?: flow_devops_evaluation_entity.ModelInfo;
   bot_name?: string;
@@ -466,30 +466,30 @@ export interface PlaygroundCozeBotV2 {
 
 /** Coze2.0 model */
 export interface PlaygroundCozeModel {
-  /** 模型id */
+  /** Model ID */
   model_id?: string;
-  /** 温度，模型输出随机性，值越大越随机，越小越保守(0-1] */
+  /** Temperature, model output randomness, the larger the value, the more random, the smaller the more conservative (0-1] */
   temperature?: number;
-  /** 回复最大Token数 */
+  /** Maximum Token Reply */
   max_tokens?: number;
-  /** 另一种模型的输出随机性，值越大越随机[0,1] */
+  /** Another model's output randomness, the larger the value, the more random [0, 1] */
   top_p?: number;
-  /** 生成时，采样候选集的大小 */
+  /** When generating, sample the size of the candidate set */
   top_k?: number;
-  /** 频率惩罚，调整生成内容中的单词频率，正值单词越少见[-1.0,1.0] */
+  /** Frequency penalty, adjust the frequency of words in the generated content, the fewer positive words are [-1.0, 1.0] */
   frequency_penalty?: number;
-  /** 存在惩罚，调整生成内容中新词语频率，正值避免重复单词，用新词[-1.0,1.0] */
+  /** There is a penalty, adjust the frequency of new words in the generated content, avoid repeating words with positive values, and use new words [-1.0, 1.0] */
   presence_penalty?: number;
-  /** 模型回复内容格式 */
+  /** model reply content format */
   response_format?: ModelResponseFormat;
-  /** 模型名称 */
+  /** Model name */
   model_name?: string;
 }
 
 export interface ScoringThreshold {
-  /** 及格率阈值 */
+  /** pass rate threshold */
   pass_threshold?: number;
-  /** 优秀率阈值 */
+  /** Merit Rate Threshold */
   excellent_threshold?: number;
 }
 
@@ -497,47 +497,47 @@ export interface Task {
   id?: Int64;
   status?: TaskStatus;
   dataset_id?: Int64;
-  /** run case时候的评测对象实体，包含版本信息 */
+  /** The evaluation object entity when running the case, including version information */
   eval_object?: EvalObject;
-  /** 运行的测数据行数 */
+  /** Number of rows of test data running */
   row_run_cnt?: Int64;
-  /** 任务整体开销 */
+  /** overall task cost */
   token?: Int64;
-  /** 任务整体耗时 */
+  /** Overall task time */
   consuming?: Int64;
-  /** 任务开始执行时间 */
+  /** Task start time */
   start_time?: Int64;
-  /** 任务执行完成时间 */
+  /** Task execution completion time */
   end_time?: Int64;
   creator_id?: Int64;
-  /** 执行本次任务的log_id */
+  /** log_id to carry out this task */
   log_id?: string;
-  /** 本次执行失败的原因文案 */
+  /** The reason for the failure of this execution */
   object_output_err?: string;
-  /** 任务统计, RowGroup维度 */
+  /** Task Statistics, RowGroup Dimensions */
   task_stats?: TaskStats;
-  /** 任务人工评分统计, Row维度 */
+  /** Task manual scoring statistics, Row dimension */
   task_manual_stats?: TaskManualStats;
-  /** 任务人工评分状态 */
+  /** Task human scoring status */
   task_manual_status?: TaskManualStatus;
-  /** 聚合报告生成状态 */
+  /** Aggregate report generation status */
   aggr_report_gen_status?: TaskAggrReportGenStatus;
   score?: number;
   passing_rate?: number;
   excellent_rate?: number;
-  /** 及格优秀阈值 */
+  /** Passing Merit Threshold */
   threshold?: ScoringThreshold;
-  /** deprecated 评测对象整体 token消耗 */
+  /** Deprecated evaluation object overall token consumption */
   object_token_usage?: TokenUsage;
-  /** 运行时参数，json序列化 */
+  /** Runtime parameters, JSON serialization */
   runtime_parameter?: string;
-  /** 评测对象整体 token 消耗 */
+  /** Overall token consumption */
   object_token_cost?: TokenUsage;
-  /** 数据集名称 */
+  /** Dataset name */
   dataset_name?: string;
-  /** 原始数据集ID */
+  /** Original data source ID */
   original_dataset_id?: Int64;
-  /** 评估器整体 token 消耗 */
+  /** Evaluator overall token consumption */
   evaluator_token_usage?: TokenUsage;
   credit_cost?: number;
   description?: string;
@@ -546,9 +546,9 @@ export interface Task {
 export interface TaskManualStats {
   needed_row_count?: Int64;
   completed_row_count?: Int64;
-  /** 需要group粒度人工评分的对话组数 */
+  /** Number of conversation groups requiring group-granular human scoring */
   needed_row_group_count?: Int64;
-  /** 已完成group粒度人工评分的对话组数 */
+  /** Number of dialogue groups that have completed group-granular manual scoring */
   completed_row_group_count?: Int64;
 }
 
@@ -556,18 +556,18 @@ export interface TaskStats {
   uncompleted_count?: Int64;
   success_count?: Int64;
   fail_count?: Int64;
-  /** 最终执行成功的 row 数量 */
+  /** Number of rows that were successfully executed */
   success_row_count?: Int64;
-  /** 最终执行失败的 row 数量 */
+  /** Number of rows that failed to execute */
   fail_row_count?: Int64;
-  /** 执行过的 row 数量总和 */
+  /** Total number of rows executed */
   total_row_count?: Int64;
 }
 
 export interface TokenUsage {
-  /** input token消耗 */
+  /** Input token consumption */
   input_token: Int64;
-  /** output token消耗 */
+  /** Output token consumption */
   output_token: Int64;
 }
 /* eslint-enable */

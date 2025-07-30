@@ -81,12 +81,12 @@ export interface DelSliceResp {
 
 export interface GetSliceListReq {
   doc_id?: string;
-  /** 序号 */
+  /** serial number */
   sequence?: string;
-  /** 查询关键字 */
+  /** query keyword */
   key_word?: string;
   creator_id?: string;
-  /** 从1开始 */
+  /** Start from 1 */
   page_no?: string;
   page_size?: string;
   sort_field?: string;
@@ -105,7 +105,7 @@ export interface GetSliceListResp {
 export interface UpdateSliceContentReq {
   slice_id: string;
   creator_id?: string;
-  /** 限制2000字 */
+  /** Limit 2000 words */
   content: string;
   Base?: base.Base;
 }

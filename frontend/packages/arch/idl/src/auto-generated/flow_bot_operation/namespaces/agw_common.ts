@@ -23,7 +23,7 @@ import * as agw_common_param from './agw_common_param';
 
 export type Int64 = string | number;
 
-/** 参考： */
+/** Reference: */
 export interface AgwCommonParam {
   UnifyArgs?: agw_common_param.UnifyArgs;
 }

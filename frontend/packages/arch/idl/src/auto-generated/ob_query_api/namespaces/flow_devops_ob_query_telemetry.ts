@@ -37,18 +37,18 @@ export interface BatchGetTracesAdvanceInfoRequest {
 
 export interface BatchGetTracesAdvanceInfoResponse {
   data: BatchGetTracesAdvanceInfoData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface FieldMeta {
-  /** 字段类型 */
+  /** field type */
   value_type: flow_devops_ob_query_telemetry_common.ValueType;
-  /** 支持的操作类型 */
+  /** Supported operation types */
   filter_types: Array<flow_devops_ob_query_telemetry_field_filter.FieldFilterType>;
-  /** 支持的可选项 */
+  /** Supported options */
   field_options?: flow_devops_ob_query_telemetry_field_filter.FieldOptions;
 }
 
@@ -58,17 +58,17 @@ export interface GetTraceByLogIDRequest {
   /** bot id */
   bot_id: string;
   log_id: string;
-  /** ms, 如果未传默认向前搜索十分钟 */
+  /** Ms, if not passed, search forward ten minutes by default */
   start_time?: string;
-  /** ms, end_at >= start_at, 如果未传默认向后搜索十分钟 */
+  /** Ms, end_at > = start_at, if not passed, search backwards for ten minutes by default */
   end_time?: string;
 }
 
 export interface GetTraceByLogIDResponse {
   data: GetTraceData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
@@ -90,16 +90,16 @@ export interface GetTraceRequest {
 
 export interface GetTraceResponse {
   data: GetTraceData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface GetTracesMetaInfoData {
-  /** 字段元信息 */
+  /** field meta information */
   field_metas: Record<string, FieldMeta>;
-  /** span分类, key是分类，value是span type */
+  /** Span classification, key is classification, value is span type */
   span_category: Partial<
     Record<
       flow_devops_ob_query_telemetry_span.SpanCategory,
@@ -112,22 +112,22 @@ export interface GetTracesMetaInfoRequest {}
 
 export interface GetTracesMetaInfoResponse {
   data?: GetTracesMetaInfoData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code?: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg?: string;
 }
 
 export interface GetTracesStatData {
-  /** Trace总数量 */
+  /** Total Number of Traces */
   total_count: number;
-  /** 错误率，例如0.3代表30% */
+  /** Error rate, e.g. 0.3 represents 30%. */
   error_rate: number;
-  /** 总tokens消耗 */
+  /** Total tokens consumption */
   tokens: MetricsValue;
-  /** 总时延 */
+  /** total time delay */
   latency: MetricsValue;
-  /** 首字符回复时延 */
+  /** first character reply delay */
   latency_first_resp: MetricsValue;
 }
 
@@ -142,17 +142,17 @@ export interface GetTracesStatRequest {
 
 export interface GetTracesStatResponse {
   data: GetTracesStatData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
 export interface ListTracesData {
   spans: Array<flow_devops_ob_query_telemetry_span.Span>;
-  /** 下一页的分页token，前端拉取下一页数据时回传。 */
+  /** The paging token on the next page, which is returned when the front end pulls the data on the next page. */
   next_page_token: string;
-  /** 是否有更多数据 */
+  /** Is there any more data? */
   has_more: boolean;
 }
 
@@ -182,7 +182,7 @@ export interface ListTracesRequest {
     string,
     flow_devops_ob_query_telemetry_field_filter.FieldFilter
   >;
-  /** Full-Text search 全文本搜索，会搜input、output、bot_version, os_version这四个字段。可以传入多个关键词，每个关键词之间是and关系 */
+  /** Full-Text search full-text search, will search input, output, bot_version, os_version these four fields. You can pass in multiple keywords, each keyword is and relationship */
   full_text_search?: Array<string>;
   /** default 1000 */
   limit?: number;
@@ -207,22 +207,22 @@ export interface ListTracesRequest {
 
 export interface ListTracesResponse {
   data: ListTracesData;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   code: number;
-  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
+  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
   msg: string;
 }
 
-/** 度量百分位数 */
+/** metric percentile */
 export interface MetricsValue {
   p50?: number;
   p90?: number;
 }
 
 export interface TokenCost {
-  /** 输入消耗token数 */
+  /** Enter the number of tokens consumed */
   input: number;
-  /** 输出消耗token数 */
+  /** Output consumption token */
   output: number;
 }
 
@@ -232,7 +232,7 @@ export interface TraceAdvanceInfo {
   status: flow_devops_ob_query_telemetry_span.SpanStatus;
 }
 
-/** Trace查询参数 */
+/** Trace query parameters */
 export interface TraceQueryParams {
   trace_id: string;
   start_time: string;

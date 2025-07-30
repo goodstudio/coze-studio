@@ -14,8 +14,8 @@
  * limitations under the License.
  */
  
-/* eslint-disable max-lines-per-function -- 代码迁移 */
-/* eslint-disable @coze-arch/max-line-per-function -- 代码迁移 */
+/* Eslint-disable max-lines-per-function -- code migration */
+/* Eslint-disable @code-arch/max-line-per-function -- code migration */
 import { useEffect, useRef } from 'react';
 
 import { nanoid } from 'nanoid';
@@ -149,7 +149,7 @@ export const useInitialGetEnabledMockSet = ({
     }
   };
 
-  // 取消
+  // cancel
   const cancel = () => {
     pollingTurnRef.current = undefined;
     cancelReq.current?.();

@@ -31,12 +31,12 @@ export interface BatchInsertRowGroupsData {
 
 export interface BatchInsertRowGroupsRequest {
   dataset_id: string;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
   row_groups: Array<flow_devops_evaluation_openapi_common.RowGroup>;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   Base?: base.Base;
 }
@@ -50,11 +50,11 @@ export interface BatchInsertRowGroupsResponse {
 
 export interface ClearEvalDatasetRequest {
   dataset_id: Int64;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   Base?: base.Base;
 }
@@ -70,16 +70,16 @@ export interface CreateEvalDatasetData {
 }
 
 export interface CreateEvalDatasetRequest {
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
   name?: string;
   desc?: string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
   column_schema?: Array<flow_devops_evaluation_dataset.ColumnInfo>;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
-  /** 是否发布到 dataset 列表, 默认不发部 */
+  /** Whether to publish to the dataset list, not by default */
   publish_option?: flow_devops_evaluation_dataset.PublishOption;
   Base?: base.Base;
 }
@@ -98,11 +98,11 @@ export interface PullRowGroupsData {
 
 export interface PullRowGroupsRequest {
   dataset_id: Int64;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   page?: Int64;
   page_size?: Int64;

@@ -60,9 +60,9 @@ export interface CommentInfo {
   content?: string;
   comment_id?: string;
   resource?: Record<string, flow_marketplace_interaction_common.Resource>;
-  /** 只有一级评论有 */
+  /** Only first-level comments are available. */
   reply_count?: number;
-  /** user_id 和 bot_id 二选一 */
+  /** Choose between user_id and bot_id */
   user_id?: string;
   created_at?: string;
   bot_reply_status?: flow_marketplace_interaction_common.CommentBotReplyStatus;
@@ -226,7 +226,7 @@ export interface GetLikeStatisticsListResponse {
 
 export interface GetMetaData {
   user_role?: UserRole;
-  /** 全局封禁 */
+  /** global ban */
   is_global_ban?: boolean;
   status?: flow_marketplace_interaction_common.DiscussionStatus;
   user_status?: flow_marketplace_interaction_common.UserStatus;
@@ -245,11 +245,11 @@ export interface GetMetaResponse {
 
 export interface GetPostDetailData {
   post_info?: PostInfo;
-  /** 帖子互动数据统计 */
+  /** Post interaction statistics */
   post_emoji_count?: Partial<
     Record<flow_marketplace_interaction_common.EmojiType, number>
   >;
-  /** 用户互动信息 */
+  /** user engagement information */
   user_emoji_list?: Array<flow_marketplace_interaction_common.EmojiType>;
   author_user_info?: UserInfo;
   mention_list?: Array<flow_marketplace_interaction_common.Mention>;
@@ -350,19 +350,19 @@ export interface GetUploadTokenResponse {
 }
 
 export interface GetUserInteractionData {
-  /** 关注数 */
+  /** followers */
   followee_count?: number;
-  /** 粉丝数 */
+  /** followers */
   follower_count?: number;
-  /** 收获点赞数 */
+  /** harvest likes */
   gain_like_count?: number;
-  /** 关注类型 */
+  /** type of attention */
   follow_type?: marketplace_common.FollowType;
 }
 
 export interface GetUserInteractionDataRequest {
   user_id?: string;
-  /** 是否需要获赞数 */
+  /** Do you need likes? */
   need_gain_like_count?: boolean;
 }
 
@@ -414,10 +414,10 @@ export interface PackCommentInfo {
   user_info?: UserInfo;
   bot_info?: BotInfo;
   is_author?: boolean;
-  /** 若为一级评论，则返回两条该评论下的回复 */
+  /** If it is a first-level comment, two replies under that comment will be returned. */
   pack_reply_info_list?: Array<PackReplyInfo>;
   comment_info?: CommentInfo;
-  /** 当前用户 emoji */
+  /** Current user emoji */
   user_emoji_list?: Array<flow_marketplace_interaction_common.EmojiType>;
   emoji_count?: Partial<
     Record<flow_marketplace_interaction_common.EmojiType, number>
@@ -438,7 +438,7 @@ export interface PackReplyInfo {
   user_info?: UserInfo;
   bot_info?: BotInfo;
   mention_list?: Array<flow_marketplace_interaction_common.Mention>;
-  /** 当前用户 reaction */
+  /** Current user reaction */
   user_emoji_list?: Array<flow_marketplace_interaction_common.EmojiType>;
   emoji_count?: Partial<
     Record<flow_marketplace_interaction_common.EmojiType, number>
@@ -463,13 +463,13 @@ export interface PostInfo {
   title?: string;
   label?: flow_marketplace_interaction_common.PostLabel;
   user_id?: string;
-  /** uri -> 资源的映射 */
+  /** URI - > resource mapping */
   resource?: Record<string, flow_marketplace_interaction_common.Resource>;
   content?: string;
   created_at?: string;
-  /** 分享对话内容 */
+  /** Share the conversation. */
   conversation?: flow_marketplace_interaction_common.Conversation;
-  /** 置顶类型 */
+  /** top type */
   pin_type?: flow_marketplace_interaction_common.PinType;
   status?: flow_marketplace_interaction_common.PostStatus;
 }
@@ -477,12 +477,12 @@ export interface PostInfo {
 export interface PublishCommentData {
   comment_id?: string;
   comment_info?: CommentInfo;
-  /** 如果提及机器人，那么会返回这个字段 */
+  /** If a robot is mentioned, this field will be returned */
   pack_bot_reply_info?: PackBotReplyInfo;
 }
 
 export interface PublishCommentRequest {
-  /** 评论所属的帖子 id */
+  /** The post id to which the comment belongs */
   item_id?: string;
   item_type?: flow_marketplace_interaction_common.InteractionItemType;
   mention_list?: Array<flow_marketplace_interaction_common.Mention>;
@@ -500,7 +500,7 @@ export interface PublishCommentResponse {
 
 export interface PublishPostData {
   post_id?: string;
-  /** 如果提及机器人，那么会返回这个字段 */
+  /** If a robot is mentioned, this field will be returned */
   pack_bot_reply_info?: PackBotReplyInfo;
 }
 
@@ -511,9 +511,9 @@ export interface PublishPostRequest {
   content: string;
   label?: string;
   resource?: Record<string, flow_marketplace_interaction_common.Resource>;
-  /** 提及 */
+  /** mention */
   mention_list?: Array<flow_marketplace_interaction_common.Mention>;
-  /** 分享对话内容 */
+  /** Share the conversation. */
   conversation?: flow_marketplace_interaction_common.Conversation;
   content_text?: string;
   Cookie?: string;
@@ -527,13 +527,13 @@ export interface PublishPostResponse {
 
 export interface ReplyCommentData {
   reply_comment_id?: string;
-  /** 如果提及机器人，那么会返回这个字段 */
+  /** If a robot is mentioned, this field will be returned */
   pack_bot_reply_info?: PackBotReplyInfo;
   reply_info?: ReplyInfo;
 }
 
 export interface ReplyCommentRequest {
-  /** 评论所属的帖子 id */
+  /** The post id to which the comment belongs */
   item_id?: string;
   item_type?: flow_marketplace_interaction_common.InteractionItemType;
   mention_list?: Array<flow_marketplace_interaction_common.Mention>;
@@ -552,7 +552,7 @@ export interface ReplyCommentResponse {
 
 export interface ReplyInfo {
   reply_id?: string;
-  /** user_id 和 bot_id 二选一 */
+  /** Choose between user_id and bot_id */
   user_id?: string;
   bot_id?: string;
   created_at?: string;
@@ -574,7 +574,7 @@ export interface ReportUserBehaviorResponse {
 }
 
 export interface SetSelfViewRequest {
-  /** 评论ID */
+  /** Comment ID */
   item_id?: string;
   item_type?: flow_marketplace_interaction_common.InteractionItemType;
 }
@@ -585,11 +585,11 @@ export interface SetSelfViewResponse {
 }
 
 export interface StreamReplyRequest {
-  /** 评论ID */
+  /** Comment ID */
   comment_id?: string;
-  /** chunk 序列开始号，<=0表示从首包开始 */
+  /** Chunk sequence start number, < = 0 means starting from the first package */
   seq_start?: Int64;
-  /** 非必传，chunk 序列结束号，<=0表示无穷大（直到消息结束） */
+  /** Not required, chunk sequence end number, < = 0 for infinity (until the end of the message) */
   seq_end?: Int64;
 }
 

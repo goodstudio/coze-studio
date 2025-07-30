@@ -29,13 +29,13 @@ export type Int64 = string | number;
 
 export enum AnnotationItemDataType {
   Unknown = 0,
-  /** 数值打分 */
+  /** numerical scoring */
   Score = 1,
-  /** 数值 */
+  /** numerical value */
   Value = 2,
-  /** 选项 */
+  /** option */
   Select = 3,
-  /** 纯文本描述 */
+  /** plain text description */
   PlainText = 4,
 }
 
@@ -51,68 +51,68 @@ export enum ManualAnnotationTaskCreateStatus {
   Success = 3,
 }
 
-/** 标注任务回写状态 */
+/** label task write-back status */
 export enum ManualAnnotationTaskWriteBackStatus {
   Unknown = 0,
-  /** 任务进行中 */
+  /** Mission in Progress */
   Running = 1,
-  /** 任务成功 */
+  /** Mission successful */
   Success = 2,
-  /** 任务失败 */
+  /** Mission failed */
   Failed = 3,
 }
 
 export enum ManualStatus {
-  /** 不需要人工标注 */
+  /** No manual labeling is required. */
   NoNeed = 0,
-  /** 需要人工标注 */
+  /** Manual labeling is required. */
   Need = 1,
 }
 
 export enum ObjectType {
-  /** 评测任务row，objectID为task_id+row_id */
+  /** Evaluation task row with objectID task_id + row_id */
   EvaluationTaskRow = 1,
 }
 
 export enum RowGroupRunState {
   Unknown = -1,
-  /** 排队中 */
+  /** in line */
   Queueing = 0,
-  /** 执行中 */
+  /** in progress */
   Processing = 1,
-  /** 成功 */
+  /** success */
   Success = 2,
-  /** 失败 */
+  /** fail */
   Fail = 3,
-  /** 结果待评估 */
+  /** Results to be evaluated */
   Evaluating = 4,
-  /** 终止执行 */
+  /** terminate execution */
   Terminal = 5,
 }
 
 export enum RowRunState {
-  /** 未开始执行 */
+  /** Not started */
   Queueing = 0,
-  /** 执行成功 */
+  /** successful execution */
   Success = 1,
-  /** 执行失败 */
+  /** execution failed */
   Fail = 2,
 }
 
 export enum SourceType {
-  /** 评测对比报告，sourceID为评测对比报告ID */
+  /** Evaluation comparison report, sourceID is the evaluation comparison report ID */
   EvaluationContrastReport = 1,
-  /** 评测任务，sourceID为评测任务ID */
+  /** Evaluation task, sourceID is the evaluation task ID */
   EvaluationTask = 2,
-  /** 无来源 */
+  /** No source */
   NoSource = 100,
 }
 
 export enum VisibleArea {
   Unknown = 0,
-  /** 在评测模块可见 */
+  /** Visible in the evaluation module */
   Evaluation = 1,
-  /** 在标注模块可见 */
+  /** Visible in the annotation module */
   ManuaAnnotation = 2,
 }
 
@@ -124,11 +124,11 @@ export interface BizError {
 export interface ColumnRuleInfo {
   rule_id: Int64;
   evaluator_type: Int64;
-  /** 自定义评估器名称 */
+  /** Custom Evaluator Name */
   evaluator_type_name: string;
-  /** 规则名称 */
+  /** rule name */
   name?: string;
-  /** 用于对话组粒度规则的合并单元格 */
+  /** Merge cells for dialog group granularity rules */
   granularity?: flow_devops_evaluation_entity.EvaluatorGranularity;
 }
 
@@ -136,36 +136,36 @@ export interface DashboardRowGroupPayload {
   row_group_id?: Int64;
   rows?: Array<DashboardRowPayload>;
   row_group_system_info?: RowGroupSystemInfo;
-  /** rowGroup粒度评测规则ruleID -> 结果 */
+  /** rowGroup granularity evaluation ruleID - > Results */
   row_group_rule_eval_reports?: Array<RowEvalReport>;
 }
 
 export interface DashboardRowPayload {
   row_id?: Int64;
-  /** 评测数据准备阶段产生 */
+  /** Evaluation data preparation phase generation */
   dataset?: RowDataset;
-  /** 评测对象结果上报产生 */
+  /** Evaluation object result report generation */
   object_output?: RowObjectOutput;
-  /** 评测规则执行上报产生 */
+  /** Evaluation rule execution report generation */
   rule_output?: RowRuleOutput;
-  /** 人工规则执行上报产生 */
+  /** Manual rule execution report generation */
   manual_rule_output?: RowManualRuleOutput;
-  /** 评测指标上报产生 */
+  /** Evaluation indicators are reported and generated */
   metrics_output?: RowMetricsOutput;
-  /** 评测系统托管任务运行产生 */
+  /** Evaluation system managed task running generation */
   system_info?: RowSystemInfo;
-  /** 标注项结果信息 */
+  /** Label result information */
   annotation_payload?: RowAnnotationPayload;
 }
 
 export interface EvaluateResult {
-  /** 打分 */
+  /** score */
   score?: number;
-  /** 打分过程与结果相关信息 */
+  /** Information on the scoring process and results */
   reasoning?: string;
-  /** 是否需要人工打分, 当前rule 没有自动评测结果时候， ManualStatus = ManualStatus */
+  /** Whether manual scoring is required, when the current rules do not automatically evaluate the results, ManualStatus = ManualStatus */
   manual_status?: ManualStatus;
-  /** 评估器错误 */
+  /** Evaluator error */
   error?: RowRunError;
   data?: EvaluateResultData;
 }
@@ -180,7 +180,7 @@ export interface EvaluateResultData {
 }
 
 export interface ManualAnnotationLabelResult {
-  /** 人工标注项ID */
+  /** human callout ID */
   manual_annotation_item_id?: Int64;
   score?: number;
   value?: string;
@@ -188,21 +188,21 @@ export interface ManualAnnotationLabelResult {
   plain_text?: string;
   reasoning?: string;
   data_type?: flow_devops_evaluation_entity.EvaluateResultDataType;
-  /** 是否已选用 */
+  /** Has it been selected? */
   selected?: boolean;
 }
 
 export interface ManualAnnotationLabelTask {
-  /** 人工标注子任务ID */
+  /** human annotation subtask ID */
   id?: Int64;
-  /** 人工标注任务ID */
+  /** human annotation task ID */
   manual_annotation_task_id?: Int64;
   space_id?: Int64;
-  /** 标注对象行唯一标识 */
+  /** label object row unique identifier */
   object_id?: string;
-  /** 标注对象行类型 */
+  /** annotation object row type */
   object_type?: ObjectType;
-  /** 人工标注结果 */
+  /** manually label the results */
   manual_annotation_label_results?: Array<ManualAnnotationLabelResult>;
   status?: ManualAnnotationLabelTaskStatus;
   assign_annotator_id?: Int64;
@@ -211,7 +211,7 @@ export interface ManualAnnotationLabelTask {
   source_num?: Int64;
   serial_num?: Int64;
   payload?: DashboardRowGroupPayload;
-  /** 打标任务对应row在rowGroup中的轮次 */
+  /** The marking task corresponds to the rows in the rowGroup */
   round_in_row_group?: Int64;
   creator_id?: Int64;
   delete_time?: Int64;
@@ -228,22 +228,22 @@ export interface RowDataset {
   data?: Array<flow_devops_evaluation_callback_common.Content>;
 }
 
-/** 每个评估器对应的评分 */
+/** The score corresponding to each evaluator */
 export interface RowEvalReport {
   evaluator_type?: Int64;
   row_eval_result?: EvaluateResult;
-  /** 评估器的名称 */
+  /** The name of the evaluator */
   evaluator_type_name?: string;
   weight?: Int64;
-  /** 如果是行级规则需要在单独的列展示 */
+  /** If it is a row-level rule, it needs to be displayed in a separate column */
   is_row_evaluator?: boolean;
   name?: string;
 }
 
 export interface RowGroupSystemInfo {
-  /** rowGroup在标注详情页的的编号，从1开始 */
+  /** The number of the rowGroup on the marked details page, starting with 1 */
   row_group_serial_num?: Int64;
-  /** rowGroup在数据集中的编号，从1开始 */
+  /** The number of rowGroup in the dataset, starting from 1 */
   source_num?: Int64;
   tags?: Array<string>;
 }
@@ -258,20 +258,20 @@ export interface RowMetricsOutput {
   row_metrics?: Array<RowEvalReport>;
 }
 
-/** 对话粒度的评测对象输出数据 */
+/** Evaluation Object Output Data for Dialogue Granularity */
 export interface RowObjectOutput {
-  /** 评测对象输出
-实际输出 */
+  /** evaluation object output
+actual output */
   multi_output?: flow_devops_evaluation_object_callback.Output;
-  /** 评测中间过程信息
-轨迹信息 */
+  /** Evaluate intermediate process information
+track information */
   trajectory?: flow_devops_evaluation_evaluator_callback.Trajectory;
 }
 
 export interface RowRuleOutput {
   columns?: Array<ColumnRuleInfo>;
   rule_eval_reports?: Array<RowEvalReport>;
-  /** 该row所有自动评测rule按权重聚合后的总分 */
+  /** The total score of all automatic evaluation rules in this row aggregated by weight */
   score?: number;
 }
 
@@ -285,10 +285,10 @@ export interface RowRunError {
 
 export interface RowSystemInfo {
   run_state?: RowRunState;
-  /** Row执行时关联的logID */
+  /** Row the associated logID at execution time */
   log_id?: string;
   error?: RowRunError;
-  /** 是否跳转评估对象调用 trace */
+  /** Whether to jump evaluation object call trace */
   direct_object_trace?: boolean;
 }
 /* eslint-enable */

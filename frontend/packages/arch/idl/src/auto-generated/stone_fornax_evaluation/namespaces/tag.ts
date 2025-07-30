@@ -39,27 +39,27 @@ export enum ChangeTargetType {
 }
 
 export enum OperationType {
-  /** 创建 */
+  /** create */
   Create = 1,
-  /** 更新 */
+  /** update */
   Update = 2,
-  /** 删除 */
+  /** delete */
   Delete = 3,
 }
 
 export enum TagStatus {
-  /** 启用 */
+  /** enable */
   Active = 1,
-  /** 禁用 */
+  /** disable */
   Inactive = 2,
-  /** 弃用,旧版本状态 */
+  /** Deprecated, old version status */
   Deprecated = 99,
 }
 
 export enum TagType {
-  /** 标签类型 */
+  /** label type */
   Tag = 1,
-  /** 单选类型 */
+  /** radio type */
   Option = 2,
 }
 /* eslint-enable */

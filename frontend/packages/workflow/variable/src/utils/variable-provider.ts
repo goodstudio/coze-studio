@@ -26,7 +26,7 @@ import {
 } from '@flowgram-adapter/free-layout-editor';
 
 /**
- * 根据 VariableProvider 生成 FormV2 的 Effect
+ * Generating FormV2 Effects from VariableProvider
  * @param options
  * @returns
  */
@@ -75,12 +75,12 @@ export function createEffectFromVariableProvider(
           scope,
           options,
           formItem: undefined,
-          // @ts-expect-error 新表单引擎不支持
+          // @TS-expected-error New form engine not supported
           triggerSync: undefined,
         });
 
         if (disposable) {
-          // 作用域销毁时同时销毁该监听
+          // Destroy the listener at the same time when the scope is destroyed
           scope.toDispose.push(disposable);
         }
 

@@ -638,7 +638,7 @@ export default class StoneCozeSpaceService<T> {
   /**
    * POST /api/coze_space/pre_get_contract_info
    *
-   * milv agent 幂律专家agent
+   * Milv agent power law expert agent
    */
   PreGetContractInfo(
     req?: contract.PreGetContractInfoRequest,
@@ -985,7 +985,7 @@ export default class StoneCozeSpaceService<T> {
   /**
    * POST /api/coze_space/get_task_example_list
    *
-   * task example 相关接口
+   * Task example related interface
    */
   GetTaskExampleList(
     req?: task.GetTaskExampleListRequest,
@@ -1005,7 +1005,7 @@ export default class StoneCozeSpaceService<T> {
   /**
    * POST /api/coze_space/admin/create_task_example
    *
-   * 管理后台相关接口，先放在这
+   * Manage the relevant interfaces in the background, put them here first.
    */
   AdminCreateTaskExample(
     req: admin.CreateTaskExampleRequest,
@@ -1156,7 +1156,7 @@ export default class StoneCozeSpaceService<T> {
   /**
    * POST /api/coze_space/restore_example_file
    *
-   * 用来给前端转存文件的，需要把案例的文件转存到 task 的文件中去
+   * It is used to dump the file to the front end. You need to dump the case file to the task file.
    */
   RestoreExampleFile(
     req: task.RestoreExampleFileRequest,

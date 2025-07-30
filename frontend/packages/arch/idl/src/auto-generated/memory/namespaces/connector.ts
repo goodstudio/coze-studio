@@ -135,13 +135,13 @@ export interface FileNode {
   icon?: string;
   file_type?: string;
   file_url?: string;
-  /** wiki, 知识空间id */
+  /** Wiki, Wiki Workspace id */
   space_id?: string;
-  /** wiki, 表示知识空间类型（团队空间 或 个人空间） */
+  /** Wiki, representing a Wiki Workspace type (team space, or personal space) */
   space_type?: string;
-  /** wiki, 对应文档类型的token，可根据 obj_type 判断属于哪种文档类型 */
+  /** Wiki, the token corresponding to the document type, which can be judged according to the obj_type */
   obj_token?: string;
-  /** wiki, 文档类型，对于快捷方式，该字段是对应的实体的obj_type */
+  /** Wiki, document type, for shortcuts, this field is the obj_type of the corresponding entity */
   obj_type?: string;
 }
 
@@ -153,11 +153,11 @@ export interface GetConnectionEntityRequest {
 export interface GetConnectionEntityResponse {
   connection_id?: string;
   auth_id?: string;
-  /** 三方数据平台文件列表 */
+  /** Tripartite Data Platform File List */
   file_node?: FileNode;
   is_exist: boolean;
   is_authorized: boolean;
-  /** 该字段暂时不返回 */
+  /** This field is temporarily not returned */
   auth_info_list?: Array<AuthInfo>;
   code: Int64;
   msg: string;
@@ -182,7 +182,7 @@ export interface GetDataSourceFileTreeRequest {
 }
 
 export interface GetDataSourceFileTreeResponse {
-  /** 三方数据平台文件列表 */
+  /** Tripartite Data Platform File List */
   data_source_file_tree?: Array<FileNode>;
   code: Int64;
   msg: string;

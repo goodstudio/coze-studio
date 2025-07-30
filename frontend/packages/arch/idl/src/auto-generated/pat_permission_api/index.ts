@@ -206,11 +206,11 @@ export interface CreateJoinApplicationResponse {
 }
 
 export interface CreatePersonalAccessTokenAndPermissionRequest2 {
-  /** PAT名称 */
+  /** PAT name */
   name: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** PAT用户枚举过期时间 1、30、60、90、180、365、permanent */
+  /** PAT user enumeration expiration time 1, 30, 60, 90, 180, 365, permanent */
   duration_day?: string;
   /** organization id */
   organization_id?: string;
@@ -229,13 +229,13 @@ export interface CreatePersonalAccessTokenAndPermissionResponse2 {
 }
 
 export interface CreateServiceIdentityRequest2 {
-  /** 服务身份名称 */
+  /** service identity name */
   name: string;
-  /** 所属组织id */
+  /** Organization ID */
   organization_id?: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** 可枚举过期时间 */
+  /** Enumerable expiration time */
   duration_day?: openapi.DurationDay;
   permission: openapi.ServicePermission;
   /** x-tt-env bytedance env tag */
@@ -472,9 +472,9 @@ export interface GetVolcanoMaskedMobileRequest {}
 export interface GetVolcanoMaskedMobileResponse2 {
   code: number;
   msg: string;
-  /** 是否有火山账号信息 */
+  /** Is there Huoshan Account Information? */
   have_volcano: boolean;
-  /** 掩码手机号 */
+  /** Mask mobile phone number */
   mobile?: string;
 }
 
@@ -879,7 +879,7 @@ export interface UpdatePersonalAccessTokenAndPermissionRequest2 {
   enterprise_permission?: openapi.EnterprisePermission;
   /** PAT Id */
   id: string;
-  /** PAT 名称 */
+  /** PAT name */
   name?: string;
   /** x-tt-env bytedance env tag */
   'x-tt-env'?: string;
@@ -892,13 +892,13 @@ export interface UpdatePersonalAccessTokenAndPermissionResponse {
 
 export interface UpdateServiceIdentityRequest2 {
   permission?: openapi.ServicePermission;
-  /** 服务身份id */
+  /** service id */
   id: string;
-  /** 服务身份名称 */
+  /** service identity name */
   name?: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** 可枚举过期时间 */
+  /** Enumerable expiration time */
   duration_day?: openapi.DurationDay2;
   /** x-tt-env bytedance env tag */
   'x-tt-env'?: string;
@@ -2497,9 +2497,9 @@ export default class PatPermissionApiService<T> {
   /**
    * POST /api/permission_api/service/create_service_identity
    *
-   * 创建服务身份
+   * Create service identity
    *
-   * 创建服务身份
+   * Create service identity
    */
   create_service_identity(
     req: CreateServiceIdentityRequest2,
@@ -2524,9 +2524,9 @@ export default class PatPermissionApiService<T> {
   /**
    * GET /api/permission_api/service/get_service_identity
    *
-   * 获取服务身份
+   * Obtain service identity
    *
-   * 获取服务身份
+   * Obtain service identity
    */
   get_service_identity(
     req: GetServiceIdentityRequest,
@@ -2544,9 +2544,9 @@ export default class PatPermissionApiService<T> {
   /**
    * POST /api/permission_api/service/update_service_identity
    *
-   * 更新服务身份
+   * Update service identity
    *
-   * 更新服务身份
+   * Update service identity
    */
   update_service_identity(
     req: UpdateServiceIdentityRequest2,
@@ -2571,9 +2571,9 @@ export default class PatPermissionApiService<T> {
   /**
    * POST /api/permission_api/service/delete_service_identity
    *
-   * 删除服务身份
+   * Delete service identity
    *
-   * 删除服务身份
+   * Delete service identity
    */
   delete_service_identity(
     req: DeleteServiceIdentityRequest,
@@ -2591,9 +2591,9 @@ export default class PatPermissionApiService<T> {
   /**
    * GET /api/permission_api/service/list_service_identities
    *
-   * 列出服务身份
+   * List service identities
    *
-   * 列出服务身份
+   * List service identities
    */
   list_service_identities(
     req?: ListServiceIdentitiesRequest,

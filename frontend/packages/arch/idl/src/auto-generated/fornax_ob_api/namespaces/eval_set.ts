@@ -24,38 +24,38 @@ import * as datasetv2 from './datasetv2';
 
 export type Int64 = string | number;
 
-/** EvaluationSetSchema 评测集 Schema，包含字段的类型限制等信息 */
+/** EvaluationSetSchema The evaluation set Schema contains information such as type restrictions for fields */
 export interface EvaluationSetSchema {
-  /** 主键&外键 */
+  /** Primary & Foreign Keys */
   id?: Int64;
   app_id?: number;
   space_id?: Int64;
   evaluation_set_id?: Int64;
-  /** 数据集字段约束 */
+  /** Dataset field constraints */
   field_schemas?: Array<FieldSchema>;
-  /** 系统信息 */
+  /** System information */
   base_info?: evaluation_domain_common.BaseInfo;
 }
 
 export interface FieldSchema {
-  /** 唯一键 */
+  /** unique key */
   key?: string;
-  /** 展示名称 */
+  /** display name */
   name?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 类型，如 文本，图片，etc. */
+  /** Type, such as, text, pictures, etc. */
   content_type?: string;
-  /** 默认渲染格式，如 code, json, etc.mai */
+  /** Default rendering formats such as code, json, etc. mai */
   default_display_format?: datasetv2.FieldDisplayFormat;
-  /** 当前列的状态 */
+  /** current state */
   status?: datasetv2.FieldStatus;
-  /** [20,50) 内容格式限制相关
-文本内容格式限制，格式为 JSON schema，协议参考 https://json-schema.org/specification */
+  /** [20, 50) Content format restrictions related
+Text content formatting restrictions, formatted as JSON schema, protocol reference https://json-schema.org/specification */
   text_schema?: string;
-  /** 多模态规格限制 */
+  /** Multimodal specification limitations */
   multi_model_spec?: datasetv2.MultiModalSpec;
-  /** 用户是否不可见 */
+  /** Is the user invisible? */
   hidden?: boolean;
 }
 /* eslint-enable */

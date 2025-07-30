@@ -28,18 +28,18 @@ export enum DomainMachineFileSource {
 }
 
 export enum DomainMilvTaskType {
-  /** 审查 */
+  /** review */
   Review = 1,
-  /** 起草 */
+  /** draft */
   Draft = 2,
-  /** 法律问答 */
+  /** Legal Q & A */
   LawQA = 3,
 }
 
 export enum DomainStockTaskType {
-  /** 普通咨询任务 */
+  /** general consulting assignment */
   GeneralChat = 1,
-  /** 定时任务 */
+  /** timed task */
   Scheduled = 2,
 }
 
@@ -51,11 +51,11 @@ export enum DomainTaskStatus {
   Init = 4,
   Terminated = 5,
   Interrupted = 6,
-  /** 存在非法内容 */
+  /** There is illegal content */
   IllegalContent = 7,
-  /** 异常中断 */
+  /** abnormal interrupt */
   AbnormalInterrupted = 8,
-  /** 休眠 */
+  /** sleep */
   Sleep = 9,
 }
 

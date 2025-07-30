@@ -78,7 +78,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/package/get
    *
-   * 获取 package 详情
+   * Get package details
    */
   GetPackage(
     req?: app_builder_api.GetPackageRequest,
@@ -99,7 +99,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/package/list
    *
-   * 获取 package 列表
+   * Get package list
    */
   GetPackageList(
     req?: app_builder_api.GetPackageListRequest,
@@ -122,7 +122,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/package/delete
    *
-   * 删除 package 信息
+   * Delete package information
    */
   DeletePackage(
     req?: app_builder_api.DeletePackageRequest,
@@ -143,7 +143,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/package/create
    *
-   * 创建 / 注册 / 修改 package 信息
+   * Create/register/modify package information
    */
   CreatePackage(
     req: app_builder_api.CreatePackageRequest,
@@ -169,7 +169,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/app/get
    *
-   * 获取 app 详情
+   * Get app details
    */
   GetAgentApp(
     req?: app_builder_api.GetAgentAppRequest,
@@ -193,7 +193,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/app/create
    *
-   * 创建 / 注册 agent app 信息
+   * Create/register agent app information
    */
   CreateAgentApp(
     req?: app_builder_api.CreateAgentAppRequest,
@@ -219,7 +219,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/app/publish/list
    *
-   * 获取发布历史记录
+   * Get release history
    */
   GetAgentAppPublishList(
     req?: app_builder_api.GetAgentAppPublishListRequest,
@@ -245,7 +245,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/app/update
    *
-   * 修改 agent app 信息
+   * Modify agent app information
    */
   UpdateAgentApp(
     req?: app_builder_api.UpdateAgentAppRequest,
@@ -267,7 +267,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/app/publish/create
    *
-   * 创建发布
+   * Create Publish
    */
   PublishAgentApp(
     req?: app_builder_api.PublishAgentAppRequest,
@@ -295,7 +295,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/app/preview
    *
-   * 预览接口
+   * preview interface
    */
   PreviewAgentApp(
     req?: app_builder_api.PreviewAgentAppRequest,
@@ -316,7 +316,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/starry/proxy
    *
-   * 星夜接口代理
+   * Starry Night Interface Agent
    */
   AgentAppBuilderProxy(
     req?: app_builder_api.AgentAppBuilderProxyRequest,
@@ -333,7 +333,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/package/batch_get
    *
-   * 批量获取 package 详情
+   * Get package details in bulk
    */
   BatchGetPackage(
     req?: app_builder_api.BatchGetPackageListRequest,
@@ -353,7 +353,7 @@ export default class AppBuilderService<T> {
    *
    * ai builder
    *
-   * ai生成内容
+   * AI-generated content
    */
   AIGenerateContent(
     req?: app_builder_api.AIGenerateContentRequest,
@@ -378,7 +378,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/app/gen_agent_app
    *
-   * 生成agent app
+   * Generate agent app
    */
   GenAgentApp(
     req?: app_builder_api.GenAgentAppRequest,
@@ -402,7 +402,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/app/update_agent_bot
    *
-   * 更新bot
+   * Update bot
    */
   UpdateAgentBot(
     req?: app_builder_api.UpdateAgentBotRequest,
@@ -699,7 +699,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/app/publish/get
    *
-   * 获取发布结果
+   * Get published results
    */
   GetAgentAppPublish(
     req?: app_builder_api.GetAgentAppPublishRequest,
@@ -724,25 +724,25 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/plugin/do_action
    *
-   * CreateAppResponse CreateApp(1:CreateAppRequest req)                                             (agw.method = 'POST',   agw.uri = '/api/app_builder/v1/app/create')                         // 创建 / 修改 App Widget
+   * CreateAppResponse CreateApp (1: CreateAppRequest req) (agw.method = 'POST', agw.uri = '/api/app_builder/v1/app/create')//Create/Modify App WidgetWidgets
    *
-   * GetAppResponse GetApp(1:GetAppRequest req)                                                      (agw.method = 'GET',    agw.uri = '/api/app_builder/v1/app/get')                            // 获取 App / Widget 详情
+   * GetAppResponse GetApp (1: GetAppRequest req) (agw.method = 'GET', agw.uri = '/api/app_builder/v1/app/get')//Get App/Widget Detailsails
    *
-   * GetAppListResponse GetAppList(1:GetAppListRequest req)                                          (agw.method = 'GET',    agw.uri = '/api/app_builder/v1/app/list')                           // 获取 App / Widget 列表
+   * GetAppListResponse GetAppList (1: GetAppListRequest req) (agw.method = 'GET', agw.uri = '/api/app_builder/v1/app/list')//Get App/Widget Listt
    *
-   * PublishAppResponse PublishApp(1:PublishAppRequest req)                                          (agw.method = 'POST',   agw.uri = '/api/app_builder/v1/app/publish/create')                 // 创建发布
+   * PublishAppResponse PublishApp (1: PublishAppRequest req) (agw.method = 'POST', agw.uri = '/api/app_builder/v1/app/publish/create')//create a publicationte Publish
    *
-   * GetPublishResponse GetAppPublish(1:GetPublishRequest req)                                       (agw.method = 'GET',    agw.uri = '/api/app_builder/v1/app/publish/get')                    // 获取发布结果
+   * GetPublishResponse GetAppPublish (1: GetPublishRequest req) (agw.method = 'GET', agw.uri = '/api/app_builder/v1/app/publish/get')//Get the publishing resultblished results
    *
-   * GetPublishListResponse GetAppPublishList(1:GetPublishListRequest req)                           (agw.method = 'GET',    agw.uri = '/api/app_builder/v1/app/publish/list')                   // 获取发布历史记录
+   * GetPublishListResponse GetAppPublishList (1: GetPublishListRequest req) (agw.method = 'GET', agw.uri = '/api/app_builder/v1/app/publish/list')//Get publishing historyase history
    *
-   * PublishCallBackResponse PublishCallBack(1:PublishCallBackRequest req)                           (agw.method = 'POST',   agw.uri = '/api/app_builder/v1/app/publish/callback')               // 获取发布结果
+   * PublishCallBackResponse PublishCallBack (1: PublishCallBackRequest req) (agw.method = 'POST', agw.uri = '/api/app_builder/v1/app/publish/callback')//Get publishing resultsblished results
    *
-   * RequestGPTResponse RequestGPT(1:RequestGPTRequest req)                                          (agw.method = 'POST',   agw.uri = '/api/app_builder/v1/gpt/request')                        // 请求 Chat-GPT
+   * RequestGPTResponse RequestGPT (1: RequestGPTRequest req) (agw.method = 'POST', agw.uri = '/api/app_builder/v1/gpt/request')//Request Chat-GPTt-GPT
    *
-   * RequestCozeResponse RequestCoze(1:RequestCozeRequest req)                                       (agw.method = 'POST',   agw.uri = '/api/app_builder/v1/coze/request')                       // 请求 Coze Bot
+   * RequestCozeResponse RequestCoze (1: RequestCozeRequest req) (agw.method = 'POST', agw.uri = '/api/app_builder/v1/coze/request')//Request Coze Bote Bot
    *
-   * 请求 plugin
+   * Request plugin
    */
   DoAction(
     req: app_builder_api.DoActionRequest,
@@ -770,9 +770,9 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/upload_file
    *
-   * Filebox 相关
+   * Filebox related
    *
-   * 上传资源
+   * Upload resources
    */
   UploadFile(
     req?: app_builder_api.UploadFileRequest,
@@ -809,7 +809,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/app/add_database
    *
-   * 新增database
+   * Add database
    */
   AddDatabase(
     req?: app_builder_api.AddDatabaseRequest,
@@ -831,7 +831,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/plugin/update
    *
-   * 修改 local plugin
+   * Modify local plugin
    */
   UpdateLocalPlugin(
     req: app_builder_api.UpdateLocalPluginRequest,
@@ -859,7 +859,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/plugin/create
    *
-   * 创建 / 注册 local plugin
+   * Create/register local plugins
    */
   CreateLocalPlugin(
     req: app_builder_api.CreateLocalPluginRequest,
@@ -884,7 +884,7 @@ export default class AppBuilderService<T> {
   /**
    * POST /api/agent_app_builder/v1/package/update
    *
-   * 修改 package 信息
+   * Modify package information
    */
   UpdatePackage(
     req: app_builder_api.UpdatePackageRequest,
@@ -909,7 +909,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/package/version/list
    *
-   * 获取 package version
+   * Get the package version
    */
   GetPackageVersionList(
     req?: app_builder_api.GetPackageVersionListRequest,
@@ -952,7 +952,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/get_file_list
    *
-   * 文件 list 功能
+   * File list function
    */
   GetFileList(
     req: app_builder_api.GetFileListRequest,
@@ -978,7 +978,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/search_file
    *
-   * 文件 search
+   * File search
    */
   SearchFile(
     req: app_builder_api.SearchFileRequest,
@@ -1000,7 +1000,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/get_list_file_chunk
    *
-   * 获取单文件 Slice
+   * Get Single File Slice
    */
   GetListFileChunk(
     req: app_builder_api.GetListFileChunkRequest,
@@ -1026,7 +1026,7 @@ export default class AppBuilderService<T> {
   /**
    * GET /api/agent_app_builder/v1/file/url
    *
-   * 获取 file URL
+   * Get file URL
    */
   GetFileURL(
     req: app_builder_api.GetFileURLRequest,

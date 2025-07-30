@@ -107,7 +107,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /v1/audio/voices/clone
    *
-   * 实际上是open网关通过 rpc 调用过来
+   * In fact, it is called by the open gateway through rpc.
    */
   PublicCloneVoice(
     req?: api.CloneVoiceRequest,
@@ -150,7 +150,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/check_create_voice
    *
-   * 创建音色权限判定
+   * Create timbre permission determination
    */
   APICheckCreateVoice(
     req?: voice_api.CheckCreateVoiceRequest,
@@ -164,7 +164,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/clone_voice
    *
-   * 克隆音色
+   * Clone timbre
    */
   APICloneVoice(
     req: voice_api.CloneVoiceRequest,
@@ -187,7 +187,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/voices
    *
-   * 获取音色列表
+   * Get a list of sounds
    */
   APIMGetVoice(
     req?: voice_api.MGetVoiceRequest,
@@ -217,7 +217,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/create_voice
    *
-   * 创建音色
+   * Create timbre
    */
   APICreateVoice(
     req: voice_api.CreateVoiceRequest,
@@ -239,7 +239,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/audio/speech
    *
-   * 获取音色列表
+   * Get a list of sounds
    */
   APIAudioSpeech(
     req: voice_api.AudioSpeechRequest,
@@ -264,7 +264,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/update_voice
    *
-   * 更新音色
+   * update tone
    */
   APIUpdateVoice(
     req: voice_api.UpdateVoiceRequest,
@@ -286,7 +286,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/voice_menu
    *
-   * 获取音色相关的菜单栏
+   * Get the timbre related menu bar
    */
   APIGetVoiceMenu(
     req?: voice_api.GetVoiceMenuRequest,
@@ -300,7 +300,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/voice/fg
    *
-   * 音色资源开关
+   * Tone resource switch
    */
   APIVoiceFeatureGateway(
     req?: voice_api.VoiceFeatureGatewayRequest,
@@ -344,7 +344,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/audio/transcriptions
    *
-   * 获取音色列表
+   * Get a list of sounds
    */
   APIAudioTranscriptions(
     req?: voice_api.AudioTranscriptionsRequest,
@@ -495,7 +495,7 @@ export default class MultimediaApiService<T> {
   /**
    * GET /v1/audio/voiceprint_groups
    *
-   * 根据voiceprint_api.thrift添加的新接口
+   * New interface added according to voiceprint_api
    */
   PublicGetVoicePrintGroupList(
     req?: voiceprint_api.GetVoicePrintGroupListRequest,
@@ -518,7 +518,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/purchase_voice_clone_package
    *
-   * 购买语音克隆包
+   * Buy Voice Clone Pack
    */
   APIPurchaseVoiceClonePackage(
     req: voice_api.PurchaseVoiceClonePackageRequest,
@@ -539,7 +539,7 @@ export default class MultimediaApiService<T> {
   /**
    * POST /api/resource/audio/delete_voice
    *
-   * 删除音色
+   * Delete timbre
    */
   APIDeleteVoice(
     req: voice_api.DeleteVoiceRequest,

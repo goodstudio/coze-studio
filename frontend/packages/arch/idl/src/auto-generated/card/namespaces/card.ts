@@ -25,19 +25,19 @@ import * as shortcut_command from './shortcut_command';
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** 复制 */
+  /** copy */
   Copy = 1,
-  /** 删除 */
+  /** delete */
   Delete = 2,
-  /** 启用/禁用 */
+  /** enable/disable */
   EnableSwitch = 3,
-  /** 编辑 */
+  /** edit */
   Edit = 4,
-  /** 切换成funcflow */
+  /** Switch to funcflow */
   SwitchToFuncflow = 8,
-  /** 切换成chatflow */
+  /** Switch to chatflow */
   SwitchToChatflow = 9,
-  /** 跨空间复制 */
+  /** Cross-spatial replication */
   CrossSpaceCopy = 10,
 }
 
@@ -55,15 +55,15 @@ export enum AgentTriggerAPIType {
 }
 
 export enum AIGenerateCardStatus {
-  /** AI Schema 生成且格式符合预期 */
+  /** AI Schema generated and formatted as expected */
   Init = 0,
-  /** AI Schema 转 Card 成功 */
+  /** AI Schema Transfer Card Successful */
   Success = 1,
-  /** 格式与预期不符 */
+  /** The format does not match expectations */
   Invalid = 2,
-  /** 格式符合预期但转卡片失败 */
+  /** The format is as expected but the transfer card fails. */
   Failed = 3,
-  /** 手动终止，部分成功 */
+  /** Manual termination, partially successful */
   Interrupt = 4,
 }
 
@@ -74,39 +74,39 @@ export enum AISchemaTransferStatus {
 }
 
 export enum AuditStatus {
-  /** 链接内容不通过 */
+  /** The link content does not pass. */
   LinkRejected = -60,
-  /** 视频内容不通过 */
+  /** Video content does not pass */
   VideoRejected = -50,
-  /** 音频内容不通过 */
+  /** Audio content does not pass */
   AudioRejected = -40,
-  /** 图片内容不通过 */
+  /** The picture content does not pass. */
   ImageRejected = -30,
-  /** 文本内容不通过 */
+  /** Text content does not pass */
   TextRejected = -20,
-  /** 审核不通过(原因见详情) */
+  /** The review failed (see details for the reasons). */
   Rejected = -1,
-  /** 审核通过 */
+  /** approved */
   Approved = 1,
-  /** 待审核 */
+  /** pending review */
   Pending = 100,
 }
 
 export enum CardCategory {
-  /** 模版卡片 */
+  /** template card */
   Template = 1,
-  /** 自定义卡片 */
+  /** custom card */
   Custom = 2,
 }
 
 export enum CardDisplayType {
-  /** 基础 */
+  /** foundation */
   Basic = 1,
-  /** 列表 */
+  /** list */
   List = 2,
-  /** 自定义卡片 */
+  /** custom card */
   Custom = 3,
-  /** 横向列表 */
+  /** horizontal list */
   Slide = 4,
 }
 
@@ -117,19 +117,19 @@ export enum CardStatus {
 }
 
 export enum CardThumbnailStatus {
-  /** 未定义 */
+  /** undefined */
   Default = 0,
-  /** 空卡片 */
+  /** Empty card */
   Empty = 1,
-  /** 待生成 */
+  /** to be generated */
   NeedGenerate = 2,
-  /** 生成中 */
+  /** Generating */
   Generating = 3,
-  /** 生成失败 */
+  /** generation failed */
   Failed = 4,
-  /** 生成成功 */
+  /** Generated successfully */
   Success = 5,
-  /** 已发布卡片编辑过待重新发布 */
+  /** Published card edited to be republished */
   NeedPublish = 6,
 }
 
@@ -155,59 +155,59 @@ export enum CopyStatus {
 }
 
 export enum DocumentType {
-  /** 上传中 */
+  /** Uploading */
   Processing = 0,
-  /** 生效 */
+  /** take effect */
   Enable = 1,
-  /** 失效 */
+  /** failure */
   Disable = 2,
-  /** 删除 */
+  /** delete */
   Deleted = 3,
-  /** 失败 */
+  /** fail */
   Failed = 9,
 }
 
 export enum PublishStatus {
-  /** 未发布 */
+  /** unpublished */
   UnPublished = 1,
-  /** 已发布 */
+  /** Published */
   Published = 2,
 }
 
 export enum Scene {
-  /** 卡片，实际对应文件类型是图片 */
+  /** Card, the actual corresponding file type is picture. */
   Card = 0,
-  /** agent，实际对应文件类型是PDF */
+  /** Agent, the actual corresponding file type is PDF. */
   Agent = 1,
-  /** 音频 */
+  /** Audio */
   Audio = 2,
-  /** 缩略图 */
+  /** thumbnail */
   Thumbnail = 3,
-  /** 视频 */
+  /** video */
   Video = 4,
 }
 
 export enum SliceStatus {
-  /** 未向量化 */
+  /** unvectorized */
   PendingVectoring = 0,
-  /** 已向量化 */
+  /** vectorized */
   FinishVectoring = 1,
-  /** 禁用 */
+  /** disable */
   Deactive = 9,
 }
 
 export enum SortField {
   Default = 0,
-  /** 更新时间 */
+  /** update time */
   UpdateTime = 1,
-  /** 发布时间 */
+  /** release time */
   PublishTime = 2,
 }
 
 export enum SortOrderType {
-  /** 降序 */
+  /** descending order */
   Desc = 0,
-  /** 升序 */
+  /** ascending order */
   Asc = 1,
 }
 
@@ -222,7 +222,7 @@ export enum TccServiceID {
   CardBuilder = 1,
 }
 
-/** -------------- 运营平台接口 end -------------- */
+/** -------------- Operating Platform Interface end -------------- */
 export enum ToolType {
   Plugin = 1,
   Workflow = 2,
@@ -234,13 +234,13 @@ export interface AgentBizUniversalData {
 }
 
 export interface AgentBizUniversalRequest {
-  /** API 路径，需要包含路径参数 */
+  /** API path, you need to include path parameters */
   api_path: string;
-  /** 请求方式 */
+  /** request method */
   method: AgentBizUniversalMethod;
-  /** query 参数，格式 "a=1&b=2" */
+  /** Query parameter, format "a = 1 & b = 2" */
   query?: string;
-  /** body 参数 */
+  /** Body parameters */
   body?: string;
   'Content-Type': string;
   Base?: base.Base;
@@ -254,51 +254,51 @@ export interface AgentBizUniversalResponse {
 }
 
 export interface AgentConfig {
-  /** 快捷指令绑定配置 */
+  /** shortcut instruction binding configuration */
   command_relation_map?: Record<string, string>;
 }
 
 export interface AgentInfo {
   /** agentID */
   agent_id: string;
-  /** 对应平台的botID */
+  /** botID of the corresponding platform */
   bot_id?: string;
-  /** 名称 */
+  /** name */
   name?: string;
-  /** 额外信息 */
+  /** Additional information */
   description?: string;
-  /** 创建时间戳 */
+  /** Create timestamp */
   create_time?: Int64;
-  /** 更新时间戳 */
+  /** Update timestamp */
   update_time?: Int64;
-  /** Bot版本号 */
+  /** Bot version number */
   bot_version?: string;
-  /** 快捷指令配置列表 */
+  /** Quick Command Configuration List */
   shortcut_command_list?: Array<shortcut_command.ShortcutCommand>;
-  /** agent通用配置 */
+  /** Agent common configuration */
   agent_config?: AgentConfig;
 }
 
 export interface AgentInstanceInfo {
   /** agentID */
   agent_id: string;
-  /** 对应平台的botID */
+  /** botID of the corresponding platform */
   bot_id?: string;
-  /** 实例ID */
+  /** Instance ID */
   instance_id: string;
-  /** 会话ID */
+  /** Session ID */
   session_id?: string;
-  /** 名称 */
+  /** name */
   name?: string;
-  /** 创建者ID */
+  /** creator ID */
   creator_id?: string;
-  /** 内容（论文tos地址 or 调研报告内容） */
+  /** Content (thesis tos address or research report content) */
   content?: string;
-  /** 额外信息 */
+  /** Additional information */
   init_param_info?: Record<string, string>;
-  /** 创建时间戳 */
+  /** Create timestamp */
   create_time?: Int64;
-  /** 更新时间戳 */
+  /** Update timestamp */
   update_time?: Int64;
 }
 
@@ -307,11 +307,11 @@ export interface AgentTriggerCozeAPIData {
 }
 
 export interface AgentTriggerCozeAPIRequest {
-  /** 场景，用以获取对应的coze token */
+  /** Scene to obtain the corresponding coze token */
   scene: string;
-  /** 类型，需要调用哪个流式的api  // 目前只支持 workflow */
+  /** Type, which streaming API needs to be called//Currently only workflow is supported. */pports workflow */
   api_type: AgentTriggerAPIType;
-  /** 鉴权token */
+  /** Authentication token */
   token: string;
   /** api body, json string */
   body?: string;
@@ -324,11 +324,11 @@ export interface AgentTriggerCozeAPIResponse {
 }
 
 export interface AgentTriggerOpenAPIStreamRequest {
-  /** 场景，用以获取对应的coze token */
+  /** Scene to obtain the corresponding coze token */
   scene: string;
-  /** 类型，需要调用哪个流式的api */
+  /** Type, which streaming API needs to be called */
   api_type: AgentTriggerAPIType;
-  /** 鉴权token */
+  /** Authentication token */
   token: string;
   /** api body, json string */
   body?: string;
@@ -336,7 +336,7 @@ export interface AgentTriggerOpenAPIStreamRequest {
 }
 
 export interface AgentTriggerOpenAPIStreamResponse {
-  /** 具体内容 */
+  /** specific content */
   message?: string;
   finished?: boolean;
   BaseResp?: base.BaseResp;
@@ -345,21 +345,21 @@ export interface AgentTriggerOpenAPIStreamResponse {
 export interface AgentUploadFileData {
   /** URI */
   name?: string;
-  /** 尺寸 */
+  /** size */
   size?: Int64;
-  /** 文件类型 */
+  /** file type */
   content_type?: string;
   /** URI */
   uri?: string;
-  /** 缩略图 URI */
+  /** Thumbnail URI */
   thumbnail_uri?: string;
-  /** 上传到 Coze 侧的 URI */
+  /** URI uploaded to Coze side */
   coze_uri?: string;
   tiny_uri?: string;
 }
 
 export interface AgentUploadFileRequest {
-  /** multipart/form-data 格式，二进制中只包含一个文件，且其 name="resource" */
+  /** Multipart/form-data format, containing only one file in the binary with name = "resource" */
   data?: Blob;
   'Content-Type'?: string;
   Base?: base.Base;
@@ -373,15 +373,15 @@ export interface AgentUploadFileResponse {
 }
 
 export interface AnalyseAgentReferenceRequest {
-  /** 参考资料 */
+  /** reference */
   references?: Array<ReferenceData>;
-  /** 快速模式：加并发且设置超时时间，提高返回速度 */
+  /** Fast mode: add concurrency and set timeout to improve return speed */
   fast_mode?: boolean;
   Base?: base.Base;
 }
 
 export interface AnalyseAgentReferenceResponse {
-  /** 解析过滤后剩余的数据 */
+  /** Parse the remaining data after filtering */
   data?: Array<ReferenceData>;
   code?: Int64;
   msg?: string;
@@ -389,7 +389,7 @@ export interface AnalyseAgentReferenceResponse {
 }
 
 export interface AnalyzingPaperRequest {
-  /** 需要和平台确定，是否 agent 中还需要SpaceID 的概念。 */
+  /** It needs to be determined with the platform whether the concept of SpaceID is still required in the agent. */
   'space-id'?: string;
   uri: string;
   name: string;
@@ -397,11 +397,11 @@ export interface AnalyzingPaperRequest {
 }
 
 export interface AnalyzingPaperResponse {
-  /** 论文ID ，agent 侧的唯一ID */
+  /** Paper ID, unique ID on the agent side */
   paper_id: string;
-  /** 数据集ID ， 用于轮训解析进度 */
+  /** Dataset ID, used for rotation analysis progress */
   dataset_id: string;
-  /** 文档ID ，  用于轮训解析进度 */
+  /** Document ID, used for rotation analysis progress */
   document_id: string;
   code: Int64;
   msg: string;
@@ -422,52 +422,52 @@ export interface AsyncGenThumbnailResponse {
 
 export interface CardBasicInfo {
   card_id?: string;
-  /** 草稿ID */
+  /** Draft ID */
   draft_card_id?: string;
-  /** 卡片名称 */
+  /** Card name */
   name?: string;
-  /** 作者ID */
+  /** Author ID */
   creator_id?: string;
-  /** 卡片类型 */
+  /** Card type */
   card_category?: CardCategory;
-  /** 卡片展示类型 */
+  /** Card display type */
   card_display_type?: CardDisplayType;
-  /** 卡片版本号 */
+  /** Card version number */
   version_num?: Int64;
-  /** 卡片版本名称 */
+  /** Card version name */
   version_name?: string;
-  /** 发布描述 */
+  /** release description */
   description?: string;
-  /** 主缩略图 */
+  /** Primary thumbnail */
   thumbnail?: string;
-  /** 毫秒级时间戳 */
+  /** Millisecond timestamp */
   update_time?: Int64;
-  /** 属性信息 */
+  /** attribute information */
   properties?: string;
   properties_hash?: string;
-  /** 模版卡片才会有 */
+  /** The template card will only be available. */
   basic_card_id?: string;
-  /** 模版卡片才会有 */
+  /** The template card will only be available. */
   list_card_id?: string;
-  /** 发布状态 */
+  /** release status */
   card_status?: CardStatus;
-  /** 发布时间 */
+  /** release time */
   publish_time?: Int64;
-  /** 卡片缩略图生成状态 */
+  /** Card thumbnail generation status */
   thumb_status?: CardThumbnailStatus;
-  /** 卡片创建者名称 */
+  /** Card creator name */
   creator_name?: string;
-  /** 卡片创建者头像' */
+  /** Card creator avatar ' */
   creator_avatar?: string;
-  /** 审核状态 */
+  /** moderation status */
   audit_status?: AuditStatus;
-  /** 审核不通过详情 */
+  /** Failed the review Details */
   audit_failure_details?: Array<number>;
-  /** 最新的审核通过的字符串版本号 */
+  /** The latest approved string version number */
   latest_approved_version_name?: string;
-  /** 最新的审核通过的数字版本号 */
+  /** The latest approved digital version number. */
   latest_approved_version_code?: string;
-  /** 空间 ID */
+  /** Space ID */
   space_id?: string;
 }
 
@@ -479,7 +479,7 @@ export interface CardChannelInfo {
 export interface CardChannelsThumbnail {
   imgUrl?: string;
   imgUri?: string;
-  /** 线上兼容，用string */
+  /** Online compatibility, with string */
   channel?: string;
   status?: number;
 }
@@ -497,24 +497,24 @@ export interface CardCondition {
 }
 
 export interface CardCopyResult {
-  /** 复制结果状态 0 成功 1 失败 */
+  /** Copy result status 0 success 1 failure */
   CopyStatus?: CopyStatus;
-  /** 失败原因 */
+  /** reason for failure */
   FailReason?: string;
-  /** 复制后卡片ID */
+  /** Copy card ID */
   CardID?: Int64;
 }
 
 export interface CardGenerateRecordInfo {
   id?: string;
   card_id?: string;
-  /** 保存时间 */
+  /** save time */
   create_time?: string;
-  /** 用户输入 */
+  /** user input */
   user_description?: string;
-  /** AI 输出信息 */
+  /** AI output information */
   ai_schema?: string;
-  /** 各渠道卡片信息 */
+  /** Card information for each channel */
   channel_info?: Array<CardChannelInfo>;
 }
 
@@ -525,32 +525,32 @@ export interface CardHistoryData {
 
 export interface CardInfoData {
   card_id?: string;
-  /** 草稿ID */
+  /** Draft ID */
   draft_card_id?: string;
-  /** 卡片名称 */
+  /** Card name */
   name?: string;
   creator_id?: string;
-  /** 卡片类型 */
+  /** Card type */
   card_category?: CardCategory;
-  /** 卡片展示类型 */
+  /** Card display type */
   card_display_type?: CardDisplayType;
-  /** 卡片版本号 */
+  /** Card version number */
   version_num?: string;
-  /** 卡片版本名称 */
+  /** Card version name */
   version_name?: string;
-  /** 发布描述 */
+  /** release description */
   description?: string;
-  /** 毫秒级时间戳 */
+  /** Millisecond timestamp */
   update_time?: string;
   properties_hash?: string;
   card_meta_info?: Array<CardMetaInfo>;
   card_status?: CardStatus;
   properties?: string;
-  /** 卡片缩略图生成状态 */
+  /** Card thumbnail generation status */
   thumb_status?: CardThumbnailStatus;
-  /** 审核状态 */
+  /** moderation status */
   audit_status?: AuditStatus;
-  /** 审核不通过详情 */
+  /** Failed the review Details */
   audit_failure_details?: Array<number>;
   card_basic_info?: CardBasicInfo;
 }
@@ -568,7 +568,7 @@ export interface CardInfoForOP {
 }
 
 export interface CardInstanceInfo {
-  /** 卡片实例ID */
+  /** Card Instance ID */
   InstanceID?: Int64;
   CardBody?: string;
 }
@@ -579,27 +579,27 @@ export interface CardMetaInfo {
   thumbnail?: string;
   channel_type?: ChannelType;
   version_num?: string;
-  /** 审核状态 */
+  /** moderation status */
   audit_status?: AuditStatus;
-  /** 审核不通过详情 */
+  /** Failed the review Details */
   audit_failure_details?: Array<number>;
 }
 
 export interface CardMetaPublishData {
   card_id: string;
   version_num: string;
-  /** 审核状态 */
+  /** moderation status */
   audit_status: number;
-  /** 审核不通过详情 */
+  /** Failed the review Details */
   audit_failure_details?: Array<number>;
 }
 
 export interface CardMetaPublishRequest {
-  /** 作者 */
+  /** author */
   creator_id: Int64;
-  /** 草稿卡片ID */
+  /** Draft Card ID */
   draft_card_id: string;
-  /** 卡片ID */
+  /** Card ID */
   card_id: string;
   description?: string;
   version_name: string;
@@ -627,15 +627,15 @@ export interface CardSuggestionData {
 }
 
 export interface CardTemplateInfo {
-  /** 模版ID */
+  /** template ID */
   template_id: string;
-  /** 创建者ID */
+  /** creator ID */
   creator_id: string;
-  /** 模版名称 */
+  /** template name */
   name: string;
-  /** 渠道 */
+  /** channel */
   channel_type: ChannelType;
-  /** 缩略图uri */
+  /** Thumbnail URI */
   thumbnail: string;
   /** dsl */
   dsl_content: string;
@@ -656,13 +656,13 @@ export interface CardUpdateInfo {
 }
 
 export interface CardUploadFileRequest {
-  /** 文件名 */
+  /** file name */
   file_name?: string;
-  /** 文件数据 */
+  /** file data */
   data?: Blob;
   /** MIME type */
   'Content-Type'?: string;
-  /** 场景 */
+  /** scene */
   scene?: Scene;
   base?: base.Base;
 }
@@ -680,7 +680,7 @@ export interface CardVersion {
 }
 
 export interface CheckCardLengthRequest {
-  /** 草稿id */
+  /** Draft ID */
   DraftID: string;
   'use-builder-psm'?: string;
   Base?: base.Base;
@@ -694,25 +694,25 @@ export interface CheckCardLengthResponse {
 }
 
 export interface CreateAgentInstanceRequest {
-  /** agentID, 对应平台botID */
+  /** agentID, corresponding to the platform botID */
   agent_id: string;
-  /** 名称 (不一定有，可能要自动生成一个名称) */
+  /** Name (not necessarily, a name may be generated automatically) */
   name: string;
-  /** 各个agent特有参数，如论文agent需要的datasetID */
+  /** Parameters specific to each agent, such as the datasetID required by the paper agent */
   init_param?: Record<string, string>;
-  /** agent内容，如论文大师是一个tos的uri */
+  /** Agent content, such as thesis master is a TOS URI */
   content?: string;
-  /** 幂等键（如果传了则会幂等处理） */
+  /** Idempotent key (if passed, it will be handled idempotently) */
   idem_key?: string;
   base?: base.Base;
 }
 
 export interface CreateAgentInstanceResponse {
-  /** 实例ID ，agent 自己生成 */
+  /** Instance ID, generated by the agent itself */
   instance_id: string;
-  /** 会话ID ，关联会话ID */
+  /** Session ID, Association Session ID */
   session_id: string;
-  /** 名称 */
+  /** name */
   name: string;
   code?: Int64;
   msg?: string;
@@ -722,7 +722,7 @@ export interface CreateAgentInstanceResponse {
 export interface DeleteAgentInstanceRequest {
   /** agentID */
   agent_id: string;
-  /** 实例ID */
+  /** Instance ID */
   instance_id: string;
   base?: base.Base;
 }
@@ -738,11 +738,11 @@ export interface DeleteCardTemplateData {
 }
 
 export interface DeleteCardTemplateRequest {
-  /** 创建者ID */
+  /** creator ID */
   creator_id: string;
-  /** 模版ID */
+  /** template ID */
   template_id: string;
-  /** 空间ID */
+  /** Space ID */
   'space-id': string;
   base?: base.Base;
 }
@@ -754,33 +754,33 @@ export interface DeleteCardTemplateResponse {
   BaseResp: base.BaseResp;
 }
 
-/** 展示用，实现方提供展示信息 */
+/** For display, the implementer provides display information */
 export interface DisplayResourceInfo {
-  /** 资源id */
+  /** Resource ID */
   ResID?: Int64;
-  /** 资源描述 */
+  /** resource description */
   Desc?: string;
-  /** 资源Icon，完整url */
+  /** Resource Icon, full url */
   Icon?: string;
-  /** 资源状态，各类型资源自身定义 */
+  /** Resource status, each type of resource defines itself */
   BizResStatus?: number;
-  /** 是否开启多人编辑 */
+  /** Whether to enable multi-person editing */
   CollaborationEnable?: boolean;
-  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
+  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
   BizExtend?: Record<string, string>;
-  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
+  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
   Actions?: Array<ResourceAction>;
-  /** 是否禁止进详情页 */
+  /** Whether to ban entering the details page */
   DetailDisable?: boolean;
-  /** 资源名称 */
+  /** resource name */
   Name?: string;
-  /** 资源发布状态，1-未发布，2-已发布 */
+  /** Resource release status, 1 - unpublished, 2 - published */
   PublishStatus?: PublishStatus;
-  /** 最近编辑时间, unix秒级时间戳 */
+  /** Last edited, unix timestamp */
   EditTime?: Int64;
 }
 
-/** 上线兼容，不打tag */
+/** Online compatibility, no tagging */
 export interface GenCardChannelsThumbnailData {
   Thumbnails?: Array<CardChannelsThumbnail>;
 }
@@ -801,18 +801,18 @@ export interface GenCardChannelsThumbnailResponse {
 }
 
 export interface GeneralGetTccConfigData {
-  /** 配置值，一个json-string */
+  /** Configuration value, a json-string. */
   config?: string;
 }
 
 export interface GeneralGetTccConfigRequest {
   /** tcc key */
   key: string;
-  /** tcc 空间名 */
+  /** TCC space name */
   space: string;
-  /** tcc 服务id */
+  /** TCC service id */
   tcc_service_id: TccServiceID;
-  /** 值处理选项 */
+  /** value handling options */
   value_option?: ValueOption;
   Base?: base.Base;
 }
@@ -866,7 +866,7 @@ export interface GenerateCardStreamRequest {
   UserID: Int64;
   language?: string;
   user_data?: string;
-  /** prompt版本，对应一个task，二期需求加入，2为二期，以此类推 */
+  /** Prompt version, corresponding to a task, the second phase needs to be added, 2 is the second phase, and so on */
   prompt_version?: string;
   reference?: string;
   base?: base.Base;
@@ -905,7 +905,7 @@ export interface GenerateCardVariablesRequest {
   card_id: string;
   language: string;
   desc: string;
-  /** 渠道类型 */
+  /** channel type */
   channel_type: ChannelType;
   base?: base.Base;
 }
@@ -944,9 +944,9 @@ export interface GetAgentAccompaniedImageForPluginResponse {
 }
 
 export interface GetAgentAccompaniedImageRequest {
-  /** 调用场景 */
+  /** call scenario */
   scene?: string;
-  /** 调用workflow需要传的参数（jsonString) */
+  /** Parameters that need to be passed to call workflow (jsonString) */
   param?: string;
   Base?: base.Base;
 }
@@ -965,7 +965,7 @@ export interface GetAgentDetailRequest {
 }
 
 export interface GetAgentDetailResponse {
-  /** 实例信息 */
+  /** instance information */
   agent?: AgentInfo;
   code?: Int64;
   msg?: string;
@@ -975,13 +975,13 @@ export interface GetAgentDetailResponse {
 export interface GetAgentInstanceDetailRequest {
   /** agentID */
   agent_id: string;
-  /** 实例ID */
+  /** Instance ID */
   instance_id: string;
   base?: base.Base;
 }
 
 export interface GetAgentInstanceDetailResponse {
-  /** 实例信息 */
+  /** instance information */
   instance?: AgentInstanceInfo;
   code?: Int64;
   msg?: string;
@@ -1007,7 +1007,7 @@ export interface GetAgentUserSettingsData {
 export interface GetAgentUserSettingsRequest {
   /** agentID */
   agent_id: string;
-  /** 用户配置key */
+  /** User configuration key */
   setting_keys?: Array<string>;
   Base?: base.Base;
 }
@@ -1021,12 +1021,12 @@ export interface GetAgentUserSettingsResponse {
 
 export interface GetCardInfoRequest {
   card_id: string;
-  /** 不指定渠道，就返回所有渠道 */
+  /** If you don't specify a channel, return to all channels */
   channel_type?: ChannelType;
-  /** 如果不指定版本，那么就返回最新的版本 */
+  /** If no version is specified, then the latest version is returned */
   version_num?: string;
   creator_id?: string;
-  /** 空间ID */
+  /** Space ID */
   'space-id'?: string;
   base?: base.Base;
 }
@@ -1058,15 +1058,15 @@ export interface GetCardUserSettingsData {
 }
 
 export interface GetCardUserSettingsRequest {
-  /** 用户id */
+  /** user id */
   creator_id?: string;
-  /** 用户配置key */
+  /** User configuration key */
   setting_keys?: Array<string>;
   Base?: base.Base;
 }
 
 export interface GetCardUserSettingsResponse {
-  /** 用户id */
+  /** user id */
   data?: GetCardUserSettingsData;
   code?: Int64;
   msg?: string;
@@ -1106,7 +1106,7 @@ export interface GetFileInfoData {
 
 export interface GetFileInfoRequest {
   file_name?: string;
-  /** 优先使用url，如果url失败，在看fileName */
+  /** Priority is given to using the url. If the url fails, look at the fileName. */
   file_url?: string;
   need_data?: boolean;
   'x-jwt-token'?: string;
@@ -1150,7 +1150,7 @@ export interface GetJwtTokenForPluginData {
 
 export interface GetJwtTokenForPluginRequest {
   Authorization: string;
-  /** 需要额外存入JWT鉴权参数 对应的配置Key, 不传取默认配置 */
+  /** Additional JWT authentication parameters need to be stored, and the corresponding configuration Key will not be transferred to the default configuration. */
   scene?: string;
   Base?: base.Base;
 }
@@ -1176,7 +1176,7 @@ export interface GetJwtTokenResponse {
 
 export interface GetPaperTranslateResultRequest {
   agent_id: string;
-  /** 论文对应InstanceID */
+  /** Paper corresponding InstanceID */
   instance_id: string;
   base?: base.Base;
 }
@@ -1203,30 +1203,30 @@ export interface GetTaskProgressResponse {
 }
 
 export interface InstanceUpdateParam {
-  /** 名称 */
+  /** name */
   name?: string;
-  /** 内容 */
+  /** content */
   content?: string;
-  /** 各个agent特有参数，如论文agent需要的datasetID */
+  /** Parameters specific to each agent, such as the datasetID required by the paper agent */
   init_param?: Record<string, string>;
 }
 
 export interface ListAgentInstanceRequest {
   /** agentID */
   agent_id: string;
-  /** 分页大小 */
+  /** paging size */
   size?: number;
-  /** 页数 */
+  /** page count */
   page?: number;
-  /** 排序字段 */
+  /** sort field */
   sort_cond?: SortCondition;
   base?: base.Base;
 }
 
 export interface ListAgentInstanceResponse {
-  /** 实例列表 */
+  /** instance list */
   instance_list: Array<AgentInstanceInfo>;
-  /** 总量 */
+  /** total */
   total: Int64;
   code?: Int64;
   msg?: string;
@@ -1257,7 +1257,7 @@ export interface ListCardGenerateHistoryResponse {
 export interface ListSliceRequest {
   /** agentID */
   agent_id: string;
-  /** 实例ID */
+  /** Instance ID */
   InstanceID: string;
   dataset_id: string;
   document_id: string;
@@ -1294,13 +1294,13 @@ export interface MGetCardTemplateData {
 }
 
 export interface MGetCardTemplateRequest {
-  /** 用户ID */
+  /** user ID */
   creator_id?: string;
-  /** 分页大小 */
+  /** paging size */
   size?: Int64;
-  /** 分页 */
+  /** paging */
   page?: Int64;
-  /** 渠道 */
+  /** channel */
   channel_type: ChannelType;
   category: CardCategory;
   'space-id'?: string;
@@ -1315,16 +1315,16 @@ export interface MGetCardTemplateResponse {
 }
 
 export interface PreviewCardData {
-  /** {渠道：DSL} */
+  /** {Channel: DSL} */
   Content: string;
-  /** 预览SDK地址 */
+  /** Preview SDK address */
   SDKUrl?: string;
 }
 
 export interface PreviewCardRequest {
-  /** 草稿id */
+  /** Draft ID */
   DraftID?: string;
-  /** 渠道id */
+  /** Channel ID */
   ChannelType?: ChannelType;
   'use-builder-psm'?: string;
   Base?: base.Base;
@@ -1339,21 +1339,21 @@ export interface PreviewCardResponse {
 
 export interface PublishHistoryInfo {
   card_id?: string;
-  /** 卡片草稿 id */
+  /** Card draft id */
   draft_id?: string;
-  /** 卡片名称 */
+  /** Card name */
   name?: string;
-  /** 卡片版本号 */
+  /** Card version number */
   version_num?: string;
-  /** 发布时间 */
+  /** release time */
   publish_time?: string;
-  /** 卡片版本名称 */
+  /** Card version name */
   version_name?: string;
-  /** 发布描述 */
+  /** release description */
   description?: string;
-  /** 审核状态 */
+  /** moderation status */
   audit_status: number;
-  /** 审核不通过详情 */
+  /** Failed the review Details */
   audit_failure_details?: Array<number>;
 }
 
@@ -1374,22 +1374,22 @@ export interface QueryCardHistoryResponse {
 }
 
 export interface QueryCardListCondition {
-  /** 只展示自己创建的 */
+  /** Only show what you create. */
   only_myself?: boolean;
-  /** 状态 */
+  /** state */
   status?: CardStatus;
-  /** 搜索关键词 */
+  /** Search keywords */
   keyword?: string;
-  /** 排序条件 */
+  /** sort condition */
   sort_condition?: SortCondition;
 }
 
 export interface QueryCardListRequest {
-  /** 空间ID */
+  /** Space ID */
   'space-id'?: Int64;
   page?: number;
   size?: number;
-  /** 额外查询条件 */
+  /** Additional query conditions */
   condition?: QueryCardListCondition;
   base?: base.Base;
 }
@@ -1422,29 +1422,29 @@ export interface QueryCardsResponse {
 export interface ReferenceData {
   /** Url */
   url?: string;
-  /** 内容 */
+  /** content */
   content?: string;
   /** icon */
   icon?: string;
-  /** 站点名称 */
+  /** Site name */
   website_name?: string;
-  /** 标题 */
+  /** title */
   title?: string;
-  /** 是否是用户手动添加的 */
+  /** Was it manually added by the user? */
   is_user_add?: boolean;
 }
 
 export interface ResourceAction {
-  /** 一个操作对应一个唯一的key，key由资源侧约束 */
+  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
   key: ActionKey;
-  /** ture=可以操作该Action，false=置灰 */
+  /** ture = can operate this Action, false = grey out */
   enable: boolean;
 }
 
 export interface SaveAgentUserSettingsRequest {
   /** agentID */
   agent_id: string;
-  /** 用户配置 */
+  /** user configuration */
   setting?: Array<UserSetting>;
   Base?: base.Base;
 }
@@ -1460,17 +1460,17 @@ export interface SaveCardData {
 }
 
 export interface SaveCardTemplateRequest {
-  /** 创建者ID */
+  /** creator ID */
   creator_id: string;
-  /** 渠道类型 */
+  /** channel type */
   channel_type: ChannelType;
-  /** 缩略图uri */
+  /** Thumbnail URI */
   thumbnail: string;
-  /** 模版名称 */
+  /** template name */
   name: string;
   /** dsl */
   dsl_content: string;
-  /** 空间ID */
+  /** Space ID */
   'space-id': string;
   base?: base.Base;
 }
@@ -1483,9 +1483,9 @@ export interface SaveCardTemplateResponse {
 }
 
 export interface SaveCardUserSettingsRequest {
-  /** 用户id */
+  /** user id */
   creator_id?: string;
-  /** 用户配置 */
+  /** user configuration */
   user_settings?: Array<UserSetting>;
   Base?: base.Base;
 }
@@ -1501,9 +1501,9 @@ export interface SaveGenerateHistoryRequest {
   card_id: string;
   'space-id': string;
   UserID: Int64;
-  /** AI schema to card UIDL 转换结果 */
+  /** AI schema to card UIDL conversion result */
   transfer_status?: AISchemaTransferStatus;
-  /** 各渠道卡片信息 */
+  /** Card information for each channel */
   channel_info?: Array<CardChannelInfo>;
   /** AI schema */
   ai_schema?: string;
@@ -1518,37 +1518,37 @@ export interface SliceInfo {
   slice_id?: string;
   content?: string;
   Status?: SliceStatus;
-  /** 序号 */
+  /** serial number */
   sequence?: string;
-  /** 分片相关的元信息, 透传 slice 表里的 extra->chunk_info 字段 (json) */
+  /** Meta information related to sharding, extra- > chunk_info field in the transparent slice table (json) */
   chunk_meta_info?: string;
 }
 
 export interface SortCondition {
-  /** 排序字段 */
+  /** sort field */
   field?: SortField;
-  /** 排序类型 */
+  /** sort type */
   order_type?: SortOrderType;
 }
 
 export interface TaskProgressData {
   document_id?: string;
-  /** 进度，0-100 */
+  /** Progress, 0-100 */
   progress?: number;
   status?: DocumentType;
-  /** 状态的详细描述；如果切片失败，返回失败信息 */
+  /** A detailed description of the status; if the slice fails, a failure message is returned */
   status_descript?: string;
 }
 
 export interface ThumbnailInfo {
   channel_type?: ChannelType;
-  /** 缩略图 */
+  /** thumbnail */
   thumbnail?: string;
-  /** 是否是主图 */
+  /** Is it the main image? */
   main_image?: boolean;
 }
 
-/** -------------- 运营平台接口 start -------------- */
+/** -------------- Operating Platform Interface start -------------- */
 export interface TimeRange {
   start_time: string;
   end_time: string;
@@ -1556,7 +1556,7 @@ export interface TimeRange {
 
 export interface TranslatePaperRequest {
   agent_id: string;
-  /** 论文对应InstanceID */
+  /** Paper corresponding InstanceID */
   instance_id: string;
   base?: base.Base;
 }
@@ -1568,27 +1568,27 @@ export interface TranslatePaperResponse {
 }
 
 export interface TranslateResult {
-  /** 图片地址 */
+  /** Image address */
   image_url?: string;
-  /** 解析后文本信息tos地址 */
+  /** Parsed text message tos address */
   text_blocks_url?: string;
-  /** 原始图片地址 */
+  /** Original image address */
   ori_image_url?: string;
-  /** 页码 0开始 */
+  /** Page 0 Start */
   page_no?: number;
-  /** 该页处理状态(0 未开始 1 成功 2 失败) */
+  /** The page processing status (0 Not started 1 Success 2 Failed) */
   status?: number;
 }
 
 export interface TranslateResultData {
-  /** 任务状态（0 未开始 1 进行中 2 完成 3 失败） */
+  /** Task status (0 not started 1 in progress 2 completed 3 failed) */
   task_status?: number;
-  /** 返回结果 */
+  /** Return result */
   result?: Array<TranslateResult>;
 }
 
 export interface TranslateTextData {
-  /** 翻译结果 */
+  /** translation result */
   trans_result?: Record<string, string>;
 }
 
@@ -1609,9 +1609,9 @@ export interface TranslateTextResponse {
 export interface UpdateAgentInstanceInfoRequest {
   /** agentID */
   agent_id: string;
-  /** 实例ID */
+  /** Instance ID */
   instance_id: string;
-  /** 更新参数 */
+  /** update parameters */
   update_param?: InstanceUpdateParam;
   base?: base.Base;
 }
@@ -1627,7 +1627,7 @@ export interface UpdateCardInfoRequest {
   name?: string;
   card_status?: CardStatus;
   creator_id?: string;
-  /** 是否编辑了卡片 */
+  /** Have you edited the card? */
   edit_card?: boolean;
   base?: base.Base;
 }
@@ -1652,9 +1652,9 @@ export interface UpdateTemplateResponse {
 }
 
 export interface UploadFileData {
-  /** 文件url */
+  /** File URL */
   upload_url?: string;
-  /** 文件uri，提交使用这个 */
+  /** File URI, submit using this */
   upload_uri?: string;
 }
 
@@ -1664,9 +1664,9 @@ export interface UserSetting {
 }
 
 export interface ValueOption {
-  /** 移除换行符 */
+  /** Remove line breaks */
   remove_newline?: boolean;
-  /** 移除空格 */
+  /** Remove spaces */
   remove_space?: boolean;
 }
 /* eslint-enable */

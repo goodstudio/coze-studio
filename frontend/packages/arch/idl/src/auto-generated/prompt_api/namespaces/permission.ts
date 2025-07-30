@@ -70,9 +70,9 @@ export interface AttributeValue {
 }
 
 export interface ResourceIdentifier {
-  /** 资源类型 */
+  /** resource type */
   type: ResourceType;
-  /** 资源Id */
+  /** Resource Id */
   id: string;
 }
 /* eslint-enable */

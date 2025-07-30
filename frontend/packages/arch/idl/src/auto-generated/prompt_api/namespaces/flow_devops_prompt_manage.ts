@@ -27,32 +27,32 @@ export type Int64 = string | number;
 
 export enum CheckPublishPromptConflictType {
   NoConflict = 0,
-  /** prompt有更新 */
+  /** Prompt for an update */
   ExistPromptUpdated = 1,
 }
 
-/** prompt生成方法 */
+/** Prompt generation method */
 export enum GeneratePromptType {
   Undefined = 0,
-  /** 结构化模板框架 */
+  /** Structured Template Framework */
   StructuredPromptGenerate = 1,
-  /** 一步优化 */
+  /** one-step optimization */
   OneStepOptimize = 2,
-  /** SP快捷反思优化 */
+  /** SP quick reflection optimization */
   FeedbackOptimize = 3,
 }
 
-/** 结构化模板框架类型 */
+/** Structured Template Framework Type */
 export enum StructuredPromptType {
   Undefined = 0,
-  /** 基础模板框架 */
+  /** Basic Template Framework */
   Basic = 1,
-  /** CRISPE模板框架 */
+  /** CRISPE Template Framework */
   CRISPE = 2,
 }
 
 export interface CancelReleaseTaskRequest {
-  /** 发布工单id */
+  /** Publish ticket id */
   release_task_id: Int64;
   base?: base.Base;
 }
@@ -64,17 +64,17 @@ export interface CancelReleaseTaskResponse {
 }
 
 export interface ChatWithPromptBotRequest {
-  /** 用户输入 */
+  /** user input */
   message?: flow_devops_prompt_common.Message;
-  /** 历史对话记录 */
+  /** Historical conversation */
   contexts?: Array<flow_devops_prompt_common.Message>;
-  /** 开场白/下一轮迭代引导 */
+  /** Opening remarks/next round of iteration guidance */
   get_next_guide?: boolean;
-  /** 上一次生成的prompt */
+  /** Last generated prompt */
   last_generated_prompt?: string;
-  /** prompt名称 */
+  /** Prompt name */
   prompt_name?: string;
-  /** prompt描述 */
+  /** Prompt description */
   prompt_desc?: string;
   base?: base.Base;
 }
@@ -89,19 +89,19 @@ export interface ChatWithPromptBotResponse {
 export interface CheckPublishPromptRequest {
   /** Prompt ID */
   prompt_id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 草稿关联版本 */
+  /** draft associated version */
   draft_base_version?: string;
   base?: base.Base;
 }
 
 export interface CheckPublishPromptResponse {
-  /** 冲突 */
+  /** conflict */
   conflict_type?: CheckPublishPromptConflictType;
-  /** 更新的prompt */
+  /** Updated prompts */
   prompt?: flow_devops_prompt_common.Prompt;
-  /** 新候选版本号 */
+  /** new version candidate */
   candidate_version?: string;
   code?: number;
   msg?: string;
@@ -109,17 +109,17 @@ export interface CheckPublishPromptResponse {
 }
 
 export interface ClonePromptRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 源PromptID */
+  /** PromptID */
   prompt_id?: Int64;
-  /** 源版本 */
+  /** source version */
   version?: string;
-  /** 新的PromptKey */
+  /** New PromptKey */
   dest_prompt_key?: string;
-  /** 新的展示名称 */
+  /** New display name */
   dest_display_name?: string;
-  /** 新的描述 */
+  /** new description */
   dest_description?: string;
   base?: base.Base;
 }
@@ -132,42 +132,42 @@ export interface ClonePromptResponse {
 }
 
 export interface CreatePromptRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 提示词类型 */
+  /** Cue word type */
   prompt_type?: flow_devops_prompt_common.PromptType;
-  /** Prompt名称 */
+  /** Prompt name */
   display_name: string;
-  /** Prompt唯一键 */
+  /** Prompt unique key */
   prompt_key: string;
-  /** Prompt描述 */
+  /** Prompt description */
   description?: string;
-  /** 模型 */
+  /** model */
   model_config?: flow_devops_prompt_common.ModelConfig;
   /** PromptText */
   prompt_text?: flow_devops_prompt_common.PromptText;
-  /** Prompt输入 */
+  /** Prompt input */
   prompt_input?: flow_devops_prompt_common.PromptInput;
-  /** 标签 */
+  /** label */
   labels?: Array<Int64>;
-  /** 工具定义 */
+  /** Tool Definition */
   tools?: Array<flow_devops_prompt_common.ToolCombine>;
-  /** 密级标签 */
+  /** secret label */
   security_level?: flow_devops_prompt_common.SecurityLevel;
   tool_call_config?: flow_devops_prompt_common.ToolCallConfig;
-  /** 模版引擎的类型 */
+  /** Types of template engines */
   template_type?: string;
-  /** 元数据 */
+  /** metadata */
   metadata?: Record<string, string>;
-  /** 标签id */
+  /** Tag ID */
   tag_ids?: Array<Int64>;
-  /** MCP服务列表 */
+  /** MCP service list */
   mcp_servers?: Array<flow_devops_prompt_common.MCPServerCombine>;
   base?: base.Base;
 }
 
 export interface CreatePromptResponse {
-  /** 创建成功返回Prompt */
+  /** Successful Creation Returns Prompt */
   prompt?: flow_devops_prompt_common.Prompt;
   code?: number;
   msg?: string;
@@ -175,27 +175,27 @@ export interface CreatePromptResponse {
 }
 
 export interface CreateReleaseTaskRequest {
-  /** 空间id */
+  /** Space ID */
   space_id: Int64;
-  /** 发布Prompt列表(暂不支持批量) */
+  /** Publish Prompt List (Batch is not supported yet) */
   release_resources?: Array<flow_devops_prompt_common.ReleaseResource>;
-  /** 发布环境 */
+  /** release environment */
   env: flow_devops_prompt_common.Env;
-  /** 发布泳道 */
+  /** launch lane */
   feature?: string;
-  /** 发布配置 */
+  /** publish configuration */
   release_config?: flow_devops_prompt_common.ReleaseConfig;
-  /** 发布备注 */
+  /** Post a note */
   comment?: string;
-  /** 发布label */
+  /** Publish label */
   label?: string;
   base?: base.Base;
 }
 
 export interface CreateReleaseTaskResponse {
-  /** 发布任务id */
+  /** Publish task id */
   release_task_id?: Int64;
-  /** 变更管控校验结果 */
+  /** Change Control Validation Results */
   release_check_result?: release.CheckResult;
   code?: number;
   msg?: string;
@@ -205,7 +205,7 @@ export interface CreateReleaseTaskResponse {
 export interface DeletePromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   base?: base.Base;
 }
@@ -217,9 +217,9 @@ export interface DeletePromptResponse {
 }
 
 export interface FulldosePromptGrayReleaseRequest {
-  /** 发布单id */
+  /** release order id */
   release_id: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   /** Prompt ID */
   prompt_id?: Int64;
@@ -233,43 +233,43 @@ export interface FulldosePromptGrayReleaseResponse {
 }
 
 export interface GeneratePromptRequest {
-  /** prompt生成方法 */
+  /** Prompt generation method */
   generate_prompt_type?: GeneratePromptType;
-  /** 原始prompt */
+  /** Original prompt */
   original_prompt?: string;
-  /** prompt名称 */
+  /** Prompt name */
   prompt_name?: string;
-  /** prompt描述 */
+  /** Prompt description */
   prompt_desc?: string;
   /** PromptKey */
   prompt_key?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   /** Prompt ID */
   prompt_id?: Int64;
-  /** 是否重试 */
+  /** Whether to Try Again */
   is_retry?: boolean;
-  /** 结构化模板框架额外参数
-结构化模板框架类型 */
+  /** Structured Template Framework Extra Parameters
+Structured Template Framework Type */
   structured_prompt_type?: StructuredPromptType;
-  /** 结构化表单（JSON） */
+  /** Structured Forms (JSON) */
   structured_context?: string;
-  /** SP 快捷反思优化额外参数
-用户输入 */
+  /** SP Quick Reflection Optimization Extra Parameters
+user input */
   user_message?: flow_devops_prompt_common.Message;
-  /** 模型输出 */
+  /** model output */
   assistant_message?: flow_devops_prompt_common.Message;
-  /** 参数内容 */
+  /** parameter content */
   variables?: Array<flow_devops_prompt_common.Variable>;
-  /** 用户反馈问题 */
+  /** user feedback problem */
   feedback?: string;
   base?: base.Base;
 }
 
 export interface GeneratePromptResponse {
-  /** 流式返回生成的prompt */
+  /** Streaming back the generated prompt */
   item?: flow_devops_prompt_common.ReplyItem;
-  /** 生成记录ID */
+  /** Generate record ID */
   record_id?: Int64;
   code?: number;
   msg?: string;
@@ -280,7 +280,7 @@ export interface GetClipboardRequest {
   prompt_id?: Int64;
   space_id?: Int64;
   content_key?: string;
-  /** 要粘贴的目标版本 */
+  /** Target version to paste */
   version?: string;
   base?: base.Base;
 }
@@ -293,9 +293,9 @@ export interface GetClipboardResponse {
 }
 
 export interface GetPromptReleaseRequest {
-  /** 发布单id */
+  /** release order id */
   release_id: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   /** Prompt ID */
   prompt_id?: Int64;
@@ -303,7 +303,7 @@ export interface GetPromptReleaseRequest {
 }
 
 export interface GetPromptReleaseResponse {
-  /** 发布配置信息 */
+  /** Publish configuration information */
   release_info?: flow_devops_prompt_common.ReleaseInfo;
   code?: number;
   msg?: string;
@@ -313,21 +313,21 @@ export interface GetPromptReleaseResponse {
 export interface GetPromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 版本 */
+  /** version */
   version?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 获取个人草稿 */
+  /** Get a personal draft */
   personal_draft?: boolean;
   base?: base.Base;
 }
 
 export interface GetPromptResponse {
-  /** 返回Prompt */
+  /** Return to Prompt */
   prompt?: flow_devops_prompt_common.Prompt;
-  /** 子Prompt列表 */
+  /** Prompt List */
   sub_prompts?: Record<string, flow_devops_prompt_common.Prompt>;
-  /** 展开后的完整PromptText */
+  /** Expanded Full PromptText */
   full_prompt_text?: flow_devops_prompt_common.PromptText;
   code?: number;
   msg?: string;
@@ -335,13 +335,13 @@ export interface GetPromptResponse {
 }
 
 export interface GetReleaseTaskDetailRequest {
-  /** 发布工单id */
+  /** Publish ticket id */
   release_task_id: Int64;
   base?: base.Base;
 }
 
 export interface GetReleaseTaskDetailResponse {
-  /** 发布工单详情（没有变更时不返回） */
+  /** Post ticket details (not returned if there are no changes) */
   release_task?: flow_devops_prompt_common.ReleaseTask;
   code?: number;
   msg?: string;
@@ -374,15 +374,15 @@ export interface ListLabelResponse {
 export interface ListOfficialPromptRequest {
   page: number;
   page_size: number;
-  /** name/key前缀匹配 */
+  /** Name/key prefix match */
   key_word?: string;
-  /** 标签筛选 */
+  /** label filter */
   labels?: Array<Int64>;
   base?: base.Base;
 }
 
 export interface ListOfficialPromptResponse {
-  /** Prompt列表 */
+  /** Prompt list */
   prompts?: Array<flow_devops_prompt_common.Prompt>;
   total?: number;
   code?: number;
@@ -393,19 +393,19 @@ export interface ListOfficialPromptResponse {
 export interface ListPromptBasicOApiRequest {
   page: number;
   page_size: number;
-  /** name/key前缀匹配 */
+  /** Name/key prefix match */
   key_word?: string;
-  /** 创建人 */
+  /** founder */
   creator?: string;
-  /** 过滤初始创建的PromptType类型 */
+  /** Filter the initially created PromptType type */
   filter_prompt_types?: Array<flow_devops_prompt_common.PromptType>;
-  /** 用于fornax鉴权 */
+  /** For fornax authentication */
   Authorization?: string;
   base?: base.Base;
 }
 
 export interface ListPromptBasicOApiResponse {
-  /** Prompt列表 */
+  /** Prompt list */
   prompts?: Array<flow_devops_prompt_common.PromptBasic>;
   total?: number;
   code?: number;
@@ -416,19 +416,19 @@ export interface ListPromptBasicOApiResponse {
 export interface ListPromptReleaseInfoRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 版本 */
+  /** version */
   version?: string;
-  /** 环境 */
+  /** environment */
   env?: flow_devops_prompt_common.Env;
-  /** 泳道 */
+  /** lane */
   feature?: string;
-  /** 发布状态 */
+  /** release status */
   status?: flow_devops_prompt_common.ReleaseStatus;
-  /** 发布label */
+  /** Publish label */
   label?: string;
-  /** 版本信息模糊查询 */
+  /** version information fuzzy query */
   version_like?: string;
-  /** 起始为空，滚动传入Response里的NextCursor */
+  /** Start with null, scroll into NextCursor in Response */
   cursor?: Int64;
   page_size: Int64;
   base?: base.Base;
@@ -444,29 +444,29 @@ export interface ListPromptReleaseInfoResponse {
 }
 
 export interface ListPromptRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   page: number;
   page_size: number;
-  /** name/key前缀匹配 */
+  /** Name/key prefix match */
   key_word?: string;
-  /** 创建人 */
+  /** founder */
   creator?: string;
-  /** 过滤初始创建的PromptType类型 */
+  /** Filter the initially created PromptType type */
   filter_prompt_types?: Array<flow_devops_prompt_common.PromptType>;
-  /** 发布状态 */
+  /** release status */
   publish_statuses?: Array<flow_devops_prompt_common.PublishStatus>;
-  /** 标签筛选 */
+  /** label filter */
   tag_ids?: Array<Int64>;
-  /** 排序参数 */
+  /** sorting parameter */
   order_param?: flow_devops_prompt_common.OrderParam;
-  /** 创建人列表筛选 */
+  /** creator list filter */
   creator_list?: Array<string>;
   base?: base.Base;
 }
 
 export interface ListPromptResponse {
-  /** Prompt列表 */
+  /** Prompt list */
   prompts?: Array<flow_devops_prompt_common.Prompt>;
   total?: number;
   code?: number;
@@ -477,21 +477,21 @@ export interface ListPromptResponse {
 export interface ListPromptVersionRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 起始为空，滚动传入Response里的NextCursor */
+  /** Start with null, scroll into NextCursor in Response */
   cursor?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 过滤草稿 */
+  /** Filter draft */
   filter_draft?: boolean;
-  /** 分页数量，默认20 */
+  /** Number of pages, default 20 */
   page_size?: Int64;
-  /** 版本信息模糊查询 */
+  /** version information fuzzy query */
   version_like?: string;
   base?: base.Base;
 }
 
 export interface ListPromptVersionResponse {
-  /** Prompt列表 */
+  /** Prompt list */
   prompts?: Array<flow_devops_prompt_common.Prompt>;
   next_cursor?: Int64;
   has_more?: boolean;
@@ -501,13 +501,13 @@ export interface ListPromptVersionResponse {
 }
 
 export interface ListReleaseApproverRequest {
-  /** 空间id */
+  /** Space ID */
   space_id?: Int64;
   base?: base.Base;
 }
 
 export interface ListReleaseApproverResponse {
-  /** 审批人列表 */
+  /** list of approvers */
   approvers?: Array<flow_devops_prompt_common.UserInfo>;
   code?: number;
   msg?: string;
@@ -515,27 +515,27 @@ export interface ListReleaseApproverResponse {
 }
 
 export interface ListReleaseTaskRequest {
-  /** 空间id */
+  /** Space ID */
   space_id?: Int64;
   /** PromptID */
   prompt_id?: Int64;
-  /** 发布环境 */
+  /** release environment */
   env?: flow_devops_prompt_common.Env;
-  /** 发布泳道 */
+  /** launch lane */
   feature?: string;
-  /** 页码(从1开始) */
+  /** Page number (starting from 1) */
   page?: number;
-  /** 每页数量 */
+  /** number of pages per page */
   page_size?: number;
-  /** 发布label */
+  /** Publish label */
   label?: string;
   base?: base.Base;
 }
 
 export interface ListReleaseTaskResponse {
-  /** 发布工单列表 */
+  /** Publish ticket list */
   release_tasks?: Array<flow_devops_prompt_common.ReleaseTask>;
-  /** 总数 */
+  /** total */
   total?: Int64;
   code?: number;
   msg?: string;
@@ -543,15 +543,15 @@ export interface ListReleaseTaskResponse {
 }
 
 export interface MConvertURI2URLRequest {
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** URI列表 */
+  /** URI list */
   uris?: Array<string>;
   base?: base.Base;
 }
 
 export interface MConvertURI2URLResponse {
-  /** URL列表 */
+  /** URL list */
   url_map?: Record<string, string>;
   base_resp?: base.BaseResp;
 }
@@ -559,18 +559,18 @@ export interface MConvertURI2URLResponse {
 export interface MGetPromptQuery {
   /** Prompt ID */
   prompt_id?: Int64;
-  /** 版本 */
+  /** version */
   version?: string;
   /** PromptKey */
   prompt_key?: string;
-  /** 发布label */
+  /** Publish label */
   release_label?: string;
 }
 
 export interface NotifyReleaseApproverRequest {
-  /** 发布工单id */
+  /** Publish ticket id */
   release_task_id: Int64;
-  /** 通知审批人列表 */
+  /** Notification Approver List */
   notify_approvers?: Array<string>;
   base?: base.Base;
 }
@@ -582,9 +582,9 @@ export interface NotifyReleaseApproverResponse {
 }
 
 export interface OfflinePromptGrayReleaseRequest {
-  /** 发布单id */
+  /** release order id */
   release_id: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   /** Prompt ID */
   prompt_id?: Int64;
@@ -600,15 +600,15 @@ export interface OfflinePromptGrayReleaseResponse {
 export interface OfflinePromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 当前版本 */
+  /** current version */
   version: string;
-  /** 环境 */
+  /** environment */
   env: flow_devops_prompt_common.Env;
-  /** 泳道 */
+  /** lane */
   feature?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 发布label */
+  /** Publish label */
   label?: string;
   base?: base.Base;
 }
@@ -622,15 +622,15 @@ export interface OfflinePromptResponse {
 export interface PublishPromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 版本 */
+  /** version */
   version: string;
-  /** 发布描述 */
+  /** release description */
   publish_description?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 提交个人草稿 */
+  /** Submit a personal draft */
   personal_draft?: boolean;
-  /** 草稿关联版本 */
+  /** draft associated version */
   draft_base_version?: string;
   base?: base.Base;
 }
@@ -644,15 +644,15 @@ export interface PublishPromptResponse {
 export interface ReleasePromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 版本 */
+  /** version */
   version: string;
-  /** 环境 */
+  /** environment */
   env: flow_devops_prompt_common.Env;
-  /** 泳道 */
+  /** lane */
   feature?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 灰度发布配置(废弃，不再生效) */
+  /** Grey release configuration (deprecated, no longer in effect) */
   gray_release_config?: flow_devops_prompt_common.GrayReleaseConfig;
   base?: base.Base;
 }
@@ -677,11 +677,11 @@ export interface ReportEventResponse {
 export interface RevertPromptByVersionRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 版本 */
+  /** version */
   version: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 回滚个人草稿 */
+  /** Roll back personal draft */
   personal_draft?: boolean;
   base?: base.Base;
 }
@@ -695,13 +695,13 @@ export interface RevertPromptByVersionResponse {
 export interface RollBackPreVersionPromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 当前版本 */
+  /** current version */
   version: string;
-  /** 环境 */
+  /** environment */
   env: flow_devops_prompt_common.Env;
-  /** 泳道 */
+  /** lane */
   feature?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   base?: base.Base;
 }
@@ -713,7 +713,7 @@ export interface RollBackPreVersionPromptResponse {
 }
 
 export interface RollbackReleaseTaskRequest {
-  /** 发布工单id */
+  /** Publish ticket id */
   release_task_id: Int64;
   base?: base.Base;
 }
@@ -728,13 +728,13 @@ export interface SaveClipboardRequest {
   prompt_id?: Int64;
   space_id?: Int64;
   content?: string;
-  /** 复制的源版本 */
+  /** copied source version */
   version?: string;
   base?: base.Base;
 }
 
 export interface SaveClipboardResponse {
-  /** 剪切板key，格式为：_fornax_clipboard:xxx */
+  /** Clipboard key in the format _fornax_clipboard: xxx */
   content_key?: string;
   code?: number;
   msg?: string;
@@ -744,38 +744,38 @@ export interface SaveClipboardResponse {
 export interface SavePromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** 模型 */
+  /** model */
   model_config?: flow_devops_prompt_common.ModelConfig;
   /** PromptText */
   prompt_text?: flow_devops_prompt_common.PromptText;
-  /** Prompt输入 */
+  /** Prompt input */
   prompt_input?: flow_devops_prompt_common.PromptInput;
-  /** 老逻辑指修改目标版本 */
+  /** Old logic refers to modifying the target version */
   version?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** Prompt类型 */
+  /** Prompt type */
   prompt_type?: flow_devops_prompt_common.PromptType;
-  /** 新逻辑都要传草稿关联版本，合并时需要传入合并目标版本 */
+  /** The new logic needs to pass the associated version of the draft, and the merged target version needs to be passed in when merging. */
   draft_base_version?: string;
-  /** 工具定义 */
+  /** Tool Definition */
   tools?: Array<flow_devops_prompt_common.ToolCombine>;
   tool_call_config?: flow_devops_prompt_common.ToolCallConfig;
-  /** 模版引擎的类型 */
+  /** Types of template engines */
   template_type?: string;
-  /** 元数据 */
+  /** metadata */
   metadata?: Record<string, string>;
-  /** MCP服务列表 */
+  /** MCP service list */
   mcp_servers?: Array<flow_devops_prompt_common.MCPServerCombine>;
   base?: base.Base;
 }
 
 export interface SavePromptResponse {
-  /** 保存成功返回Prompt */
+  /** Save Successful Return Prompt */
   prompt?: flow_devops_prompt_common.Prompt;
-  /** 子Prompt列表 */
+  /** Prompt List */
   sub_prompts?: Record<string, flow_devops_prompt_common.Prompt>;
-  /** 展开后的完整PromptText */
+  /** Expanded Full PromptText */
   full_prompt_text?: flow_devops_prompt_common.PromptText;
   code?: number;
   msg?: string;
@@ -783,19 +783,19 @@ export interface SavePromptResponse {
 }
 
 export interface TriggerReleaseSubtaskRequest {
-  /** 发布工单id */
+  /** Publish ticket id */
   release_task_id: Int64;
-  /** 子任务key */
+  /** Subtask key */
   subtask_key: string;
-  /** 触发操作 */
+  /** trigger action */
   trigger_operation: flow_devops_prompt_common.TriggerOperation;
-  /** 备注（审批驳回时需要） */
+  /** Remarks (required when approval is rejected) */
   comment?: string;
   base?: base.Base;
 }
 
 export interface TriggerReleaseSubtaskResponse {
-  /** 变更管控校验结果 */
+  /** Change Control Validation Results */
   release_check_result?: release.CheckResult;
   code?: number;
   msg?: string;
@@ -803,19 +803,19 @@ export interface TriggerReleaseSubtaskResponse {
 }
 
 export interface UpdateGenerateRecordRequest {
-  /** 生成记录ID */
+  /** Generate record ID */
   record_id?: Int64;
   /** PromptID */
   prompt_id?: Int64;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 是否点赞 */
+  /** Do you like it? */
   is_liked?: boolean;
-  /** 是否点踩 */
+  /** Do you want to step on it? */
   is_disliked?: boolean;
-  /** 是否采纳 */
+  /** Whether to accept */
   is_accepted?: boolean;
-  /** 是否中断取消 */
+  /** Whether to interrupt Cancel */
   is_canceled?: boolean;
   base?: base.Base;
 }
@@ -827,11 +827,11 @@ export interface UpdateGenerateRecordResponse {
 }
 
 export interface UpdatePromptReleaseRequest {
-  /** 发布单id */
+  /** release order id */
   release_id: Int64;
-  /** 灰度发布配置 */
+  /** Grey release configuration */
   gray_release_config?: flow_devops_prompt_common.GrayReleaseConfig;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
   /** Prompt ID */
   prompt_id?: Int64;
@@ -847,19 +847,19 @@ export interface UpdatePromptReleaseResponse {
 export interface UpdatePromptRequest {
   /** Prompt ID */
   prompt_id: Int64;
-  /** Prompt名称 */
+  /** Prompt name */
   display_name?: string;
-  /** Prompt描述 */
+  /** Prompt description */
   description?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id?: Int64;
-  /** 标签 */
+  /** label */
   labels?: Array<Int64>;
-  /** 密级标签 */
+  /** secret label */
   security_level?: flow_devops_prompt_common.SecurityLevel;
-  /** 密级标签降级理由 */
+  /** Secret label downgrade reason */
   downgrade_reason?: string;
-  /** 标签id列表 */
+  /** tag id list */
   tag_ids?: Array<Int64>;
   base?: base.Base;
 }

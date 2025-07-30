@@ -50,7 +50,7 @@ export interface Comment {
   post_status?: flow_marketplace_interaction_common.PostStatus;
   content?: string;
   resource?: Record<string, flow_marketplace_interaction_common.Resource>;
-  /** ProductEntityType 所属商品的实体类型，当 ItemType = Product 时有对应的值：1-bot商品；2-插件商品；6-应用商品；21-bot模板；23-工作流模板；26-应用模板 */
+  /** The entity type of the product to which ProductEntityType belongs. When ItemType = Product, there are corresponding values: 1-bot product; 2-plug-in product; 6-application product; 21-bot template; 23-workflow template; 26-application template */
   product_entity_type?: number;
 }
 
@@ -68,13 +68,13 @@ export interface Discussion {
   status?: flow_marketplace_interaction_common.DiscussionStatus;
   item_type?: flow_marketplace_interaction_common.InteractionItemType;
   item_id?: string;
-  /** 所属实体展示名称 */
+  /** Owned entity display name */
   item_show_name?: string;
-  /** 回复数 */
+  /** number of replies */
   comment_count?: string;
-  /** 帖子数量 */
+  /** number of posts */
   post_count?: string;
-  /** ProductEntityType 所属商品的实体类型，当 ItemType = Product 时有对应的值：1-bot商品；2-插件商品；6-应用商品；21-bot模板；23-工作流模板；26-应用模板 */
+  /** The entity type of the product to which ProductEntityType belongs. When ItemType = Product, there are corresponding values: 1-bot product; 2-plug-in product; 6-application product; 21-bot template; 23-workflow template; 26-application template */
   product_entity_type?: number;
 }
 
@@ -128,11 +128,11 @@ export interface GetDiscussionListData {
 export interface GetDiscussionListRequest {
   page_num?: number;
   page_size?: number;
-  /** 讨论区关联的实体类型 */
+  /** The entity type associated with the discussion board */
   item_type?: flow_marketplace_interaction_common.InteractionItemType;
-  /** 关联的实体名，用于搜索 */
+  /** The associated entity name for searching */
   item_show_name?: string;
-  /** 关联的实体ID */
+  /** associated entity ID */
   item_id?: string;
   status?: flow_marketplace_interaction_common.DiscussionStatus;
 }
@@ -191,23 +191,23 @@ export interface GetPostListData {
 export interface GetPostListRequest {
   page_num?: number;
   page_size?: number;
-  /** 排序类型 */
+  /** sort type */
   sort_type?: flow_marketplace_interaction_common.SortType;
-  /** 搜索词 */
+  /** Search term */
   keyword?: string;
   post_id?: string;
   item_id?: string;
   item_type?: flow_marketplace_interaction_common.InteractionItemType;
   author_id?: string;
   author_name?: string;
-  /** 发布时间筛选 - 开始时间 */
+  /** Post Time Filter - Start Time */
   publish_begin_at?: string;
-  /** 发布时间筛选 - 结束时间 */
+  /** Post Time Filter - End Time */
   publish_end_at?: string;
   status?: flow_marketplace_interaction_common.PostStatus;
-  /** 标签 */
+  /** label */
   label_id?: string;
-  /** 正负向评分 */
+  /** Positive and Negative Score */
   min_evaluation_score?: number;
   max_evaluation_score?: number;
 }
@@ -264,26 +264,26 @@ export interface Post {
   status?: flow_marketplace_interaction_common.PostStatus;
   item_type?: flow_marketplace_interaction_common.InteractionItemType;
   item_id?: string;
-  /** 所属实体展示名称 */
+  /** Owned entity display name */
   item_show_name?: string;
   author?: AuthorInfo;
-  /** 回复数 */
+  /** number of replies */
   comment_count?: number;
-  /** 发布时间 */
+  /** release time */
   created_at?: string;
   label?: flow_marketplace_interaction_common.PostLabel;
-  /** 内容（列表接口不返回，详情接口返回） */
+  /** Content (list interface does not return, details interface returns) */
   content?: string;
-  /** 帖子内容涉及的资源（列表接口不返回，详情接口返回） */
+  /** The resources involved in the post content (the list interface does not return, the details interface returns) */
   resource?: Record<string, flow_marketplace_interaction_common.Resource>;
-  /** （列表接口不返回，详情接口返回） */
+  /** (The list interface does not return, the details interface returns) */
   conversation?: flow_marketplace_interaction_common.Conversation;
   pin_type?: flow_marketplace_interaction_common.PinType;
-  /** 所属商品的实体ID */
+  /** The entity ID of the product to which it belongs. */
   product_entity_id?: string;
-  /** 帖子的正负向评分，50 为中性，0 未评，100 是最正向 */
+  /** Positive and negative ratings for posts, 50 is neutral, 0 is unrated, and 100 is the most positive */
   evaluation_score?: number;
-  /** ProductEntityType 所属商品的实体类型，当 ItemType = Product 时有对应的值：1-bot商品；2-插件商品；6-应用商品；21-bot模板；23-工作流模板；26-应用模板 */
+  /** The entity type of the product to which ProductEntityType belongs. When ItemType = Product, there are corresponding values: 1-bot product; 2-plug-in product; 6-application product; 21-bot template; 23-workflow template; 26-application template */
   product_entity_type?: number;
 }
 
@@ -310,7 +310,7 @@ export interface SetDiscussionGlobalConfigRequest {
   date_range?: Array<string>;
   'X-Jwt-Token'?: string;
   'X-Bcgw-Username'?: string;
-  /** 审批流程ID，用来识别流程是否是线上的 */
+  /** Approval process ID, used to identify whether the process is online */
   process_id?: number;
 }
 

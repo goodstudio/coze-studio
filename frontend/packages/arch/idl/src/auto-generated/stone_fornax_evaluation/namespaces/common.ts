@@ -23,39 +23,39 @@ import * as datasetv2 from './datasetv2';
 
 export type Int64 = string | number;
 
-/** 模型系列，特别指不同模型接入商 */
+/** Model family, especially for different model access providers */
 export enum ModelClass {
   Undefined = 0,
   /** gpt */
   GPT = 1,
-  /** 字节 */
+  /** Byte */
   SEED = 2,
   /** google */
   Gemini = 3,
-  /** 亚马逊 */
+  /** Amazon */
   Claude = 4,
-  /** 文心一言 */
+  /** ERNIE Bot */
   Ernie = 5,
-  /** 百川 */
+  /** baichuan */
   Baichuan = 6,
-  /** 阿里 */
+  /** Ali */
   Qwen = 7,
-  /** 智谱 */
+  /** Zhipu */
   GML = 8,
-  /** 深度求索 */
+  /** deep search */
   DeepSeek = 9,
 }
 
 export enum Provider {
-  /** GPT OpenAPI平台 */
+  /** GPT OpenAPI Platform */
   GPTOpenAPI = 1,
-  /** 火山方舟 */
+  /** Volcano Ark */
   Maas = 2,
-  /** 暂时特指seed从bot_engine接入 */
+  /** Temporarily specific seed from bot_engine access */
   BotEngine = 3,
-  /** merlin平台 */
+  /** Merlin Platform */
   Merlin = 4,
-  /** merlin-seed平台 */
+  /** Merlin-seed platform */
   MerlinSeed = 5,
 }
 
@@ -67,16 +67,16 @@ export enum Role {
 }
 
 export enum TenantType {
-  /** 字节 */
+  /** Byte */
   ByteDance = 0,
-  /** 懂车帝 */
+  /** Dcar */
   Dcar = 1,
 }
 
 export interface ArgsSchema {
   key?: string;
   support_content_types?: Array<string>;
-  /** 序列化后的jsonSchema字符串，例如："{\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}, \"isStudent\": {\"type\": \"boolean\"}}, \"required\": [\"name\", \"age\", \"isStudent\"]}" */
+  /** Serialized jsonSchema string, for example: "{\" type\ ":\" object\ ",\" properties \": {\" name \": {\" type\ ":\" string \"}, \" age \": {\" type\ ":\" integer \"}, \" isStudent \": {\" type\ ":\" boolean \"}}, \" required \": [\" name\ ",\" age\ ",\" isStudent\ "]}" */
   json_schema?: string;
 }
 
@@ -98,9 +98,9 @@ export interface Content {
   content_type?: string;
   format?: datasetv2.FieldDisplayFormat;
   text?: string;
-  /** 图片内容 */
+  /** image content */
   image?: Image;
-  /** 图文混排时，图文内容 */
+  /** When the graphic is mixed, the graphic content */
   multi_part?: Array<Content>;
   audio?: Audio;
 }
@@ -118,13 +118,13 @@ export interface Message {
   ext?: Record<string, string>;
 }
 
-/** 模型配置数据 */
+/** model configuration data */
 export interface ModelConfig {
-  /** 模型ID */
+  /** Model ID */
   id?: Int64;
-  /** 模型名称 */
+  /** Model name */
   name?: string;
-  /** 模型系列 */
+  /** Model series */
   model_class?: ModelClass;
   temperature?: number;
   max_tokens?: number;
@@ -135,39 +135,39 @@ export interface ModelConfig {
   function_call_mode?: boolean;
   presence_penalty?: number;
   frequency_penalty?: number;
-  /** 模型提供方 */
+  /** model provider */
   provider?: Provider;
-  /** 模型提供方的模型唯一标识（应对saas无法传modelID的场景） */
+  /** The model unique identifier of the model provider (for scenarios where saas cannot pass modelID) */
   provider_model_id?: string;
 }
 
 export interface OrderBy {
-  /** 排序字段 */
+  /** sort field */
   field?: string;
-  /** 是否升序，默认倒序 */
+  /** Whether to ascend, default reverse order */
   is_asc?: boolean;
 }
 
 export interface UserInfo {
-  /** 姓名 */
+  /** name */
   name?: string;
-  /** 英文名称 */
+  /** English name */
   en_name?: string;
-  /** 用户头像url */
+  /** user profile URL */
   avatar_url?: string;
-  /** 72 * 72 头像 */
+  /** 72 * 72 avatar */
   avatar_thumb?: string;
-  /** 用户应用内唯一标识 */
+  /** unique user ID within the app */
   open_id?: string;
-  /** 用户应用开发商内唯一标识 */
+  /** unique identifier within the user application developer */
   union_id?: string;
-  /** 企业标识 */
+  /** Corporate identity */
   tenant_key?: string;
-  /** 用户在租户内的唯一标识 */
+  /** The unique identity of the user within the tenant */
   user_id?: string;
-  /** 用户邮箱 */
+  /** user email */
   email?: string;
-  /** 租户 */
+  /** tenant */
   tenant?: TenantType;
 }
 /* eslint-enable */

@@ -87,7 +87,7 @@ export default class BasicApiService<T> {
   /**
    * POST /api/user/v2/update_profile_check
    *
-   * == 用户信息 ==
+   * == User Information ==
    *
    * -- http --
    */
@@ -136,7 +136,7 @@ export default class BasicApiService<T> {
   /**
    * GET /api/report/get_meta
    *
-   * 查询举报元数据
+   * Inquire and report metadata
    */
   GetReportMeta(
     req?: report_public_api.GetReportMetaRequest,
@@ -150,7 +150,7 @@ export default class BasicApiService<T> {
   /**
    * GET /api/report/query
    *
-   * 查询举报信息
+   * Inquire about reporting information
    */
   ReportQuery(
     req?: report_admin_api.ReportQueryRequest,
@@ -174,11 +174,11 @@ export default class BasicApiService<T> {
   /**
    * POST /api/report/submit
    *
-   * == 举报 ==
+   * == Report ==
    *
    * -- http --
    *
-   * 举报
+   * report
    */
   ReportSubmit(
     req?: report_public_api.ReportSubmitRequest,

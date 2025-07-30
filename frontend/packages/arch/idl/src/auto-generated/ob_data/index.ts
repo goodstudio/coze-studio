@@ -237,7 +237,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_data/bot/pre_check_add_auth
    *
-   * bot分析页授权相关接口（地理位置授权等）
+   * Bot analysis page authorization related interfaces (geolocation authorization, etc.)
    */
   PreCheckAddBotAuth(
     req: ob_data.PreCheckAddBotAuthReq,
@@ -297,9 +297,9 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_query/v1/metrics
    *
-   * bot性能页面相关接口
+   * Bot performance page related interface
    *
-   * 获取 metrics 详情
+   * Get metrics details
    */
   GetMetrics(
     req: performance.GetMetricsRequest,
@@ -324,7 +324,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_query/v1/metrics/tag_v/historical_options
    *
-   * 获取运维指标维度的值的历史选项
+   * History option to get the value of the operational metric dimension
    */
   GetTagVHistoricalOptions(
     req: performance.GetTagVHistoricalOptionsRequest,
@@ -351,7 +351,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_query/v1/metrics/tag_v/latest_options
    *
-   * 获取运维指标维度的值的最新选项
+   * Get the latest option for the value of the Ops metric dimension
    */
   GetTagVLatestOptions(
     req: performance.GetTagVLatestOptionsRequest,
@@ -374,7 +374,7 @@ export default class ObDataService<T> {
   /**
    * GET /api/devops/ob_query/list_debug_queries
    *
-   * 调试台trace List
+   * Debug bench tracing List
    */
   ListDebugQueries(
     req: ob_trace.ListDebugQueriesRequest,
@@ -400,7 +400,7 @@ export default class ObDataService<T> {
   /**
    * GET /api/devops/ob_query/query/enums
    *
-   * 获取 query 枚举选项
+   * Get query enumeration options
    */
   GetQueryEnums(
     req: ob_query.GetQueryEnumsRequest,
@@ -416,7 +416,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_query/v1/traces/batch_get_advance_info
    *
-   * 批量查询链路进阶信息
+   * Batch query link advanced information
    */
   BatchGetTracesAdvanceInfo(
     req: ob_trace.BatchGetTracesAdvanceInfoRequest,
@@ -438,9 +438,9 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_query/query/list
    *
-   * bot query相关接口
+   * Bot query related interface
    *
-   * 查询 query 列表
+   * Query query list
    */
   ListQuery(
     req: ob_query.ListQueryRequest,
@@ -462,7 +462,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_query/query/stat
    *
-   * query 的统计指标
+   * Query statistics
    */
   GetQueryStat(
     req: ob_query.GetQueryStatRequest,
@@ -482,7 +482,7 @@ export default class ObDataService<T> {
   /**
    * GET /api/devops/ob_query/v1/trace/by_log_id
    *
-   * 通过log ID查询链路详情
+   * Query link details by log ID
    */
   GetTraceByLogID(
     req: ob_trace.GetTraceByLogIDRequest,
@@ -504,7 +504,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/devops/ob_query/query/export_to_csv
    *
-   * 将 query 导出为csv
+   * Export query to csv
    */
   ExportQueryToCsv(
     req: ob_query.ExportQueryToCsvRequest,
@@ -524,9 +524,9 @@ export default class ObDataService<T> {
   /**
    * GET /api/devops/ob_query/v1/trace/:trace_id
    *
-   * bot trace相关接口
+   * Bot trace related interface
    *
-   * 通过trace ID查询链路详情
+   * Query link details by trace ID
    */
   GetTrace(
     req: ob_trace.GetTraceRequest,
@@ -549,7 +549,7 @@ export default class ObDataService<T> {
   /**
    * GET /api/devops/ob_query/v1/traces/meta_info
    *
-   * 查询元信息，包括字段类型，filter opertor
+   * Query meta information, including field types, filter opertors
    */
   GetTracesMetaInfo(
     req?: ob_trace.GetTracesMetaInfoRequest,
@@ -563,7 +563,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/observe/query/stat
    *
-   * query 的统计指标
+   * Query statistics
    */
   GetQueryStatV2(
     req: observe_query.GetQueryStatV2Request,
@@ -583,7 +583,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/observe/query/enums
    *
-   * 获取 query 枚举选项
+   * Get query enumeration options
    */
   GetQueryEnumsV2(
     req: observe_query.GetQueryEnumsV2Request,
@@ -602,9 +602,9 @@ export default class ObDataService<T> {
   /**
    * POST /api/observe/query/list
    *
-   * bot query v2相关接口
+   * Bot query v2 related interface
    *
-   * 查询 query 列表
+   * Query query list
    */
   ListQueryV2(
     req: observe_query.ListQueryV2Request,
@@ -626,7 +626,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/observe/query/export_to_csv
    *
-   * 将 query 导出为csv
+   * Export query to csv
    */
   ExportQueryToCsvV2(
     req: observe_query.ExportQueryToCsvV2Request,
@@ -646,7 +646,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/observe/trace/batch_get_advance_info
    *
-   * 批量查询链路进阶信息
+   * Batch query link advanced information
    */
   BatchGetTracesAdvanceInfoV2(
     req: observe_trace.BatchGetTracesAdvanceInfoV2Request,
@@ -666,7 +666,7 @@ export default class ObDataService<T> {
   /**
    * POST /api/observe/trace/get/:trace_id
    *
-   * 通过trace ID查询链路详情
+   * Query link details by trace ID
    */
   GetTraceV2(
     req: observe_trace.GetTraceV2Request,
@@ -687,9 +687,9 @@ export default class ObDataService<T> {
   /**
    * POST /api/observe/data/batch_query
    *
-   * 运营接口
+   * operation interface
    *
-   * 查询分析数据
+   * Query and analyze data
    */
   BatchAPIQueryV2(
     req: ob_data.BatchAPIQueryV2Request,

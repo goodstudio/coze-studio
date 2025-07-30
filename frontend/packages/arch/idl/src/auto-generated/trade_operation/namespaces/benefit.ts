@@ -24,15 +24,15 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export enum BenefitTypeInfoItemStatus {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
   Active = 1,
   Expired = 2,
   Frozen = 3,
   Refunded = 4,
-  /** 取消 */
+  /** cancel */
   Cancel = 5,
-  /** 待生效（此枚举通过计算得出，数据库中并无此项数据） */
+  /** To take effect (this enumeration is calculated and there is no such data in the database) */
   Pending = 6,
 }
 
@@ -43,16 +43,16 @@ export interface BenefitTypeInfoItem {
   benefit_id?: string;
 }
 
-/** 不复用 common 结构体，因为需要删除 api.body，agw 才能从 request 中提取信息，删除旧结构体的 tag 担心影响现有逻辑 */
+/** Do not reuse the common structure, because api.body needs to be deleted, agw can extract information from the request, and delete the tag of the old structure for fear of affecting the existing logic */
 export interface CommonCounter {
-  /** 当 Strategy == ByQuota 时, 表示已使用量, 若权益无相关用量数据则返回 0 */
+  /** When Strategy == ByQuota, it indicates the amount used, and returns 0 if there is no relevant usage data for the equity. */
   used?: number;
-  /** 当 Strategy == ByQuota 时, 表示用量上限 */
+  /** When Strategy == ByQuota, the usage limit is indicated */
   total?: number;
-  /** 3: ResourceUsageStrategy Strategy (agw.key = "strategy", go.tag = "json:\"strategy\""), // 资源使用策略
-开始时间，单位秒 */
+  /** 3: ResourceUsageStrategy Strategy (agw.key = "strategy", go.tag = "json:\" strategy \""), // resource usage strategyce usage strategy
+Start time in seconds */
   start_at?: Int64;
-  /** 结束时间，单位秒 */
+  /** End time in seconds */
   end_at?: Int64;
 }
 

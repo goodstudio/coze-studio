@@ -29,9 +29,9 @@ export enum ByteTreeNodeResourceProvider {
 
 export enum DataImportMode {
   Undefined = 0,
-  /** 追加 */
+  /** add */
   Append = 1,
-  /** 覆盖 */
+  /** cover */
   Overwrite = 2,
 }
 
@@ -90,7 +90,7 @@ export enum IDC {
 export enum MerlinFramework {
   LLMServerPublic = 1,
   Laplace = 2,
-  /** 电商团队专用协议，详见  */
+  /** E-commerce team-specific agreement, see  */
   Mixinfer = 3,
 }
 
@@ -99,21 +99,21 @@ export enum MerlinLLMInterface {
 }
 
 export enum MerlinQuotaPoolType {
-  /** 稳定资源 */
+  /** stable resources */
   Default = 0,
-  /** 潮汐资源 */
+  /** tidal resources */
   Hybrid = 1,
-  /** 常混资源 */
+  /** often mixed resources */
   HybridShare = 2,
-  /** 第三方资源ali */
+  /** Third-party resource ali */
   ALI = 3,
-  /** 第三方资源hw */
+  /** Third-party resources hw */
   HW = 4,
   /** hw arm */
   HWARM = 5,
-  /** 弹性售卖资源，随时可能被抢占 */
+  /** Flexible selling of resources, which may be preempted at any time */
   Spot = 6,
-  /** 可抢占的稳定资源 */
+  /** Preemptible stable resources */
   Preemptible = 20,
 }
 
@@ -136,26 +136,26 @@ export enum ModelParamType {
 
 export enum ModelStatus {
   Undefined = 0,
-  /** 健康可用 */
+  /** Health is available */
   Available = 1,
-  /** 部署中 */
+  /** Deploying */
   Deploying = 2,
-  /** 不可用（已下线） */
+  /** Unavailable (offline) */
   Unavailable = 3,
-  /** 下线中 */
+  /** offline. */
   Offlining = 4,
 }
 
 export enum Provider {
-  /** GPT OpenAPI平台 */
+  /** GPT OpenAPI Platform */
   GPTOpenAPI = 1,
-  /** 火山方舟 */
+  /** Volcano Ark */
   Maas = 2,
-  /** 暂时特指seed从bot_engine接入 */
+  /** Temporarily specific seed from bot_engine access */
   BotEngine = 3,
-  /** merlin平台 */
+  /** Merlin Platform */
   Merlin = 4,
-  /** merlin-seed平台 */
+  /** Merlin-seed platform */
   MerlinSeed = 5,
 }
 
@@ -193,48 +193,48 @@ export enum SftTaskBaseModelType {
 
 export enum SftTaskErrCode {
   Default = 0,
-  /** 前2位代表错误分类，后4位代表具体错误
-10 通用错误 */
+  /** The first 2 digits represent a misclassification, and the last 4 digits represent a specific error
+10 Common Errors */
   InternalErr = 100000,
-  /** 训练集上传到平台方时出错 */
+  /** Error uploading training dataset to platform */
   TrainingSetUploadedErr = 100001,
-  /** 在平台方创建精调任务出错 */
+  /** Error creating fine tuning task on the platform side */
   CreateProviderSftTaskErr = 100002,
-  /** 20 Merlin任务实例整体报错 */
+  /** 20 Merlin task instance overall error */
   MerlinTaskInternalError = 200000,
-  /** gpu cpu mem 套餐配比错误 */
+  /** Gpu cpu mem package matching error */
   MerlinGpuCpuMemRatioBad = 200001,
-  /** 21 Merlin训练脚本主动上报的错误 */
+  /** 21 Merlin training scripts actively reported bugs */
   MerlinReportedInternalErr = 210000,
   MerlinOOM = 210001,
-  /** 没找到模型训练产物 */
+  /** No model training product found */
   MerlinNoModelGenerated = 210002,
-  /** 30 火山方舟任务失败
-方舟通用错误 */
+  /** 30 Volcano Ark mission failed
+ARK universal error */
   MaaSInternalErr = 300000,
-  /** 验证集比例分割异常 */
+  /** Validation set scaling exception */
   MaaSValidationSetSplitErr = 300001,
-  /** 训练数据格式不符合预期 */
+  /** The training data format does not meet expectations */
   MaaSTrainingSetNoValid = 300002,
-  /** 业务方的火山账号没有开通模型服务 */
+  /** The Huoshan Account of the business party has not opened the model service. */
   MaaSAccountModelServiceIsNotActivated = 300003,
-  /** 缺少必要的请求参数。请确认请求参数后重试。 */
+  /** Required request parameters are missing. Please confirm the request parameters and try again. */
   MaaSRequiredParamMissing = 300004,
-  /** 请求参数值不合法。请检查参数值的正确性后重试。 */
+  /** The requested parameter value is invalid. Please check the correctness of the parameter value and try again. */
   MaaSRequestParamInvalid = 300005,
-  /** 对象的标签存在重复Key */
+  /** Object's Label Has Duplicate Keys */
   MaaSDuplicateTags = 300006,
-  /** 无法同时上传验证集和设置训练集取样为验证集百分比，不支持该操作 */
+  /** Cannot upload validation set and set training dataset sampling as validation set percentage at the same time, this operation is not supported */
   MaaSNotSupportedToConfigureValidationSetAndPercentage = 300007,
-  /** 您没有权限访问基础模型的配置，不支持该操作 */
+  /** You do not have permission to access the configuration of the underlying model, and this operation is not supported */
   MaaSNotPermittedToAccessModel = 300008,
-  /** 模型不支持该训练方法，不支持该操作 */
+  /** The model does not support this training method and does not support this operation */
   MaaSModelNotSupportTheTrainingMethod = 300009,
-  /** 基础模型的版本不支持该训练方法，不支持该操作 */
+  /** The version of the base model does not support this training method and does not support this operation */
   MaaSFoundationModelNotSupportTheTrainingMethod = 300010,
-  /** 您的账单已逾期，不支持该操作。请前往火山费用中心充值 */
+  /** Your bill is overdue and this operation is not supported. Please go to the volcano expense center to recharge. */
   MaaSAccountBalanceOverdue = 300011,
-  /** 未知错误，请稍后重试。如果多次尝试仍失败，请提交工单 */
+  /** Unknown error, please try again later. If multiple attempts still fail, please submit a work order. */
   MaaSUnknownErr = 300012,
 }
 
@@ -247,22 +247,22 @@ export enum SftTaskHyperParamType {
 }
 
 export enum SftTaskOutputExportType {
-  /** 导出到新模型 */
+  /** Export to new model */
   NewModel = 1,
-  /** 导出到已有模型 */
+  /** Export to an existing model */
   ExistModel = 2,
 }
 
 export enum SftTaskOutputStatus {
-  /** 未导出 */
+  /** not exported */
   Available = 1,
-  /** 已导出 */
+  /** Exported */
   Exported = 2,
-  /** 已过期 */
+  /** Expired */
   Expired = 3,
-  /** 导出中 */
+  /** Exporting */
   Exporting = 4,
-  /** 导出失败 */
+  /** Export failed */
   ExportFailed = 5,
 }
 
@@ -307,17 +307,17 @@ export enum SftTaskValidationSetType {
 
 export enum TaskStatus {
   Undefined = 0,
-  /** 正在初始化 */
+  /** Initializing now. */
   Initializing = 1,
-  /** 正在运行 */
+  /** Running now. */
   Running = 2,
-  /** 成功完成 */
+  /** successfully completed */
   Done = 3,
-  /** 失败 */
+  /** fail */
   Failed = 4,
-  /** 手动终止 */
+  /** manual termination */
   Terminated = 5,
-  /** 成功完成，但有错误 */
+  /** Completed successfully, but with errors */
   DoneWithError = 6,
 }
 
@@ -340,17 +340,17 @@ export enum TrainingFileOpType {
 }
 
 export enum UsageScenario {
-  /** 默认场景 */
+  /** Default scene */
   Default = 1,
-  /** 评测场景 */
+  /** evaluation scenario */
   Evaluation = 2,
-  /** Prompt as a Service调用 */
+  /** Prompt as a Service */
   PromptAsAService = 3,
-  /** AI打标 */
+  /** AI marking */
   AIAnnotate = 4,
-  /** 质量分 */
+  /** mass score */
   AIScore = 5,
-  /** 数据标签 */
+  /** data label */
   AITag = 6,
 }
 
@@ -361,69 +361,69 @@ export enum ValidateStatus {
 }
 
 export enum VisibleMode {
-  /** 默认（仅模型所属空间可见） */
+  /** Default (visible only in the model's space) */
   Default = 1,
-  /** 指定空间可见 */
+  /** Designated space visible */
   Specified = 2,
-  /** 所有空间可见 */
+  /** All spaces are visible */
   All = 3,
 }
 
 export interface Ability {
-  /** 最大上下文长度 */
+  /** maximum context length */
   maxContextTokens?: Int64;
-  /** 最大输入长度 */
+  /** Maximum input length */
   maxInputTokens?: Int64;
-  /** 最大输出长度 */
+  /** Maximum output length */
   maxOutputTokens?: Int64;
-  /** 是否支持函数调用 */
+  /** Whether to support function calls */
   functionCallEnabled?: boolean;
-  /** 是否支持JSON模式 */
+  /** Whether to support JSON mode */
   jsonModeEnabled?: boolean;
-  /** 是否支持多模态(模型输入) */
+  /** Whether to support multimodality (model input) */
   multiModalEnabled?: boolean;
-  /** 多模态能力配置(模型输入) */
+  /** Multimodal capability configuration (model input) */
   multiModalAbility?: MultiModalAbility;
-  /** 消息预处理hook */
+  /** Message preprocessing hook */
   messagePreHandleHook?: RuntimeHook;
-  /** 模型可用的参数配置，优先级高于原有的maxContextTokens/maxInputTokens/maxOutputTokens */
+  /** The available parameter configuration of the model has a higher priority than the original maxContextTokens/maxInputTokens/maxOutputTokens. */
   modelParams?: Array<ModelParam>;
-  /** 是否支持思考能力开关 */
+  /** Whether to support the thinking ability switch */
   thinkingSwitchEnabled?: boolean;
-  /** 思考能力配置 */
+  /** Thinking ability allocation */
   thinkingAbility?: ThinkingAbility;
-  /** 是否支持多模态(模型输出) */
+  /** Whether to support multimodality (model output) */
   multiModalOutputEnabled?: boolean;
 }
 
 export interface Account {
-  /** 账号id */
+  /** account id */
   id?: Int64;
-  /** 是否为公共账号 */
+  /** Is it a public account? */
   isPublic?: boolean;
-  /** 所属模型id */
+  /** Model ID */
   modelID?: Int64;
-  /** 所属空间id */
+  /** Own space id */
   spaceID?: Int64;
-  /** 区域 */
+  /** area */
   region?: Region;
-  /** 使用场景 */
+  /** usage scenario */
   usageScenario?: UsageScenario;
-  /** 授权认证信息 */
+  /** Authorization authentication information */
   authorization?: Authorization;
-  /** 限流信息 */
+  /** Limited viewership of information */
   quota?: Quota;
-  /** 创建人 */
+  /** founder */
   createdBy?: string;
-  /** 更新人 */
+  /** Update Person */
   updatedBy?: string;
-  /** 创建时间 */
+  /** creation time */
   createdAt?: Int64;
-  /** 更新时间 */
+  /** update time */
   updatedAt?: Int64;
-  /** 编辑版本（用于解决多人同时更新问题） */
+  /** Edit version (used to solve the problem of multiple people updating at the same time) */
   editVersion?: Int64;
-  /** 模型平台账号 id, 引用托管在平台的账号时提供， 直接添加 AKSK/Key 时为空。 */
+  /** Model platform account id, provided when referencing the account hosted on the platform, empty when adding AKSK/Key directly. */
   modelProviderAccountID?: Int64;
 }
 
@@ -437,7 +437,7 @@ export interface BotEngineAuth {
   connectorID?: Int64;
 }
 
-/** notice: 此处仅包含部分信息 */
+/** Notice: Only partial information is included here */
 export interface ByteTreeNode {
   id?: string;
   name?: string;
@@ -461,7 +461,7 @@ export interface DeployQuota {
   displayType?: string;
   region?: string;
   zone?: string;
-  /** 可用量 */
+  /** available */
   available?: Int64;
 }
 
@@ -476,7 +476,7 @@ export interface GPTOpenAPIInfo {
 
 export interface IDCDeployDetail {
   deployID?: string;
-  /** 资源对应服务树节点 id */
+  /** Resource corresponds to ByteTree node id */
   byteNodeID?: string;
   region?: string;
   deviceType?: string;
@@ -486,7 +486,7 @@ export interface IDCDeployDetail {
 
 export interface InstanceResourceOption {
   cpus?: string;
-  /** 单位 GB */
+  /** Unit GB */
   mem?: string;
   gpus?: string;
 }
@@ -504,18 +504,18 @@ export interface MaaSAccountValidate {
 }
 
 export interface MaasAuth {
-  /** 使用多云代理时，ak 可以不传 */
+  /** When using a multi-cloud proxy, ak can not pass */
   ak?: string;
   sk?: string;
-  /** 2.0控制面鉴权方式 */
+  /** 2.0 Control surface authentication method */
   apiKey?: string;
   usedForSFT?: boolean;
   projects?: Array<string>;
-  /** 使用多云代理 */
+  /** Use a multi-cloud proxy */
   useMultiCloud?: boolean;
-  /** 服务账号名称，使用多云代理时必填 */
+  /** Service account name, required when using a multi-cloud proxy */
   serviceAccountName?: string;
-  /** 是否需要迁移至字节云方舟 */
+  /** Do you need to migrate to ByteCloud Ark? */
   needMigArk?: boolean;
 }
 
@@ -524,7 +524,7 @@ export interface MaasInfo {
   region?: string;
   /** v3 sdk */
   baseURL?: string;
-  /** 精调模型任务的 ID */
+  /** The ID of the fine-tuning model task */
   customizationJobsID?: string;
 }
 
@@ -539,106 +539,106 @@ export interface MerlinInfo {
   idcs?: Array<IDC>;
   framework?: MerlinFramework;
   instanceResourceOption?: InstanceResourceOption;
-  /** 资源配置 */
+  /** resource allocation */
   deployDetailM?: Partial<Record<IDC, IDCDeployDetail>>;
-  /** 服务节点id */
+  /** Service Node ID */
   byteTreeNodeID?: Int64;
-  /** 服务树路径 */
+  /** ByteTree path */
   byteTreeNodePath?: string;
-  /** 服务详情链接 */
+  /** Service details link */
   serviceDetailURL?: string;
-  /** LLM 接口信息 */
+  /** LLM interface information */
   llmInterface?: MerlinLLMInterface;
-  /** 是否开启 vllm */
+  /** Whether to turn on vllm */
   useVLLMServe?: boolean;
-  /** 调用 vllm 的 API 路径，仅开启 vllm 时使用 */
+  /** The API path of calling vllm is only used when vllm is enabled */
   vllmAPIPath?: string;
 }
 
 export interface MerlinResourceCluster {
   type?: MerlinQuotaPoolType;
-  /** 是否为可占用资源 */
+  /** Is it an available resource? */
   preemptible?: boolean;
-  /** merlin用户组id */
+  /** Merlin user group id */
   groupID?: Int64;
-  /** merlin用户组名称 */
+  /** Merlin user group name */
   groupName?: string;
-  /** merlin集群id */
+  /** Merlin cluster id */
   clusterID?: string;
-  /** merlin集群名称 */
+  /** Merlin cluster name */
   clusterName?: string;
-  /** key为可选的gpuv型号，value为该型号剩余的gpu数量 */
+  /** The key is the optional GPUV model, and the value is the number of remaining GPUs for that model */
   availableGpuvs?: Record<string, Int64>;
-  /** 剩余cpu数量 */
+  /** Number of remaining CPUs */
   cpuNum?: string;
-  /** 剩余内存数量，单位是MB */
+  /** The amount of remaining memory, in MB */
   memory?: string;
-  /** 机房 */
+  /** computer room */
   dc?: string;
-  /** 描述 */
+  /** describe */
   desc?: string;
-  /** key为可选的gpuv型号，value为该型号推荐的套餐 */
+  /** The key is the optional gpuv model, and the value is the recommended package for this model. */
   gpuvSets?: Record<string, MerlinResourceGpuSet>;
 }
 
 export interface MerlinResourceGpuSet {
-  /** gpu个数 */
+  /** Number of GPUs */
   gpu?: number;
-  /** cpu个数 */
+  /** CPU number */
   cpu?: number;
-  /** 内存，单位是GB */
+  /** Memory, unit is GB. */
   memory?: number;
 }
 
 export interface Model {
-  /** 模型id, 在saas场景下可为空，如果为空则用identification+provider直接调用模型 */
+  /** Model id, can be empty in saas scenario, if it is empty, use identification+provider to call the model directly */
   id?: Int64;
-  /** 模型标识（name，endpoint，与各提供方对齐） */
+  /** Model identification (name, endpoint, alignment with each provider) */
   identification?: string;
-  /** 展示名称 */
+  /** display name */
   displayName?: string;
-  /** 模型描述 */
+  /** model description */
   description?: string;
-  /** 模型家族 */
+  /** Model family */
   family?: Family;
-  /** 提供方 */
+  /** provider */
   provider?: Provider;
-  /** 提供方信息 */
+  /** provider information */
   providerInfo?: ProviderInfo;
-  /** 是否为公共模型 */
+  /** Is it a public model? */
   isPublic?: boolean;
-  /** 可见性 */
+  /** visibility */
   visibility?: Visibility;
-  /** 所属空间id */
+  /** Own space id */
   spaceID?: Int64;
-  /** 模型能力 */
+  /** model capability */
   ability?: Ability;
-  /** 默认运行时参数 */
+  /** Default runtime parameters */
   defaultRuntimeParam?: RuntimeParam;
-  /** 创建人 */
+  /** founder */
   createdBy?: string;
-  /** 更新人 */
+  /** Update Person */
   updatedBy?: string;
-  /** 创建时间 */
+  /** creation time */
   createdAt?: Int64;
-  /** 更新时间 */
+  /** update time */
   updatedAt?: Int64;
-  /** 编辑版本（用于解决多人同时更新问题） */
+  /** Edit version (used to solve the problem of multiple people updating at the same time) */
   editVersion?: Int64;
   modelStatus?: ModelStatus;
-  /** 模型提供方侧的 model id */
+  /** Model ID on the model provider side */
   externalModelID?: string;
-  /** 从精调模型任务的产出中新建推理点产生的模型 */
+  /** Models generated by new inference points from the output of the fine-tuning model task */
   sftTaskID?: Int64;
-  /** 模型版本 */
+  /** model version */
   modelVersion?: string;
-  /** 模型头像 */
+  /** model avatar */
   modelIcon?: string;
-  /** 模型公司 */
+  /** Model Company */
   modelVendor?: string;
-  /** 模型真实名称（展示在vendor右侧，可能是豆包endpoint或其他厂商的模型名称） */
+  /** The real name of the model (displayed on the right side of the vendor, it may be the model name of the bean bag endpoint or other vendors) */
   actualName?: string;
-  /** 模型标签 */
+  /** model label */
   modelTags?: Array<string>;
 }
 
@@ -646,42 +646,42 @@ export interface ModelParam {
   name?: string;
   label?: string;
   desc?: string;
-  /** 类型： bool/int/float等 */
+  /** Type: bool/int/float, etc */
   modelParamType?: ModelParamType;
   min?: string;
   max?: string;
   defaultVal?: string;
-  /** 枚举 */
+  /** enumeration */
   modelParamOptions?: Array<ModelParamOption>;
 }
 
 export interface ModelParamOption {
-  /** 展示值 */
+  /** impression value */
   label?: string;
-  /** 实际值 */
+  /** actual value */
   value?: string;
 }
 
 export interface MultiModalAbility {
-  /** [1, 99] 图片配置
-是否支持图片 */
+  /** [1,99] Image configuration
+Does it support pictures? */
   imageEnabled?: boolean;
-  /** 是否支持二进制图片 */
+  /** Does it support binary images? */
   binaryImageEnabled?: boolean;
-  /** 单张图片大小限制, 范围 [0, 20]MB */
+  /** Single image size limit, range [0, 20] MB */
   maxImageSizeInMB?: number;
-  /** 最大图片数量, 范围 [-1, 100], -1 表示无限制 */
+  /** Maximum number of images, range [-1, 100], -1 means unlimited */
   maxImageCount?: number;
 }
 
 export interface OnlyReadable {
-  /** 是否只读态 */
+  /** Whether read-only */
   onlyReadable?: boolean;
-  /** 只读态原因 */
+  /** read-only reason */
   desc?: string;
 }
 
-/** 托管的模型平台账号信息 */
+/** Hosted model platform account information */
 export interface ProviderAccount {
   id?: string;
   spaceID?: string;
@@ -712,7 +712,7 @@ export interface ProviderInfo {
 export interface ProviderValidateDetail {
   status?: ValidateStatus;
   invalidatedReason?: string;
-  /** 校验不通过时，用户可通过此处的 url 前往指定平台处理 */
+  /** If the verification fails, the user can go to the designated platform through the url here to deal with it. */
   providerURL?: string;
 }
 
@@ -733,19 +733,19 @@ export interface RuntimeHook {
 }
 
 export interface RuntimeParam {
-  /** 最大输出长度 */
+  /** Maximum output length */
   maxTokens?: Int64;
   temperature?: number;
   topP?: number;
   topK?: Int64;
   jsonMode?: boolean;
-  /** 停止词, 值必须是json序列化后的字符串数组 */
+  /** Stop word, the value must be a json serialized string array */
   stopWords?: string;
-  /** 运行时自定义参数 */
+  /** Runtime custom parameters */
   runtimeCustomParams?: Array<RuntimeCustomParam>;
-  /** 是否默认支持思考能力 */
+  /** Does the default support thinking ability? */
   thinkingEnabled?: boolean;
-  /** 当thinkingEnabled==true时有效，含义为默认thinking max token */
+  /** Valid when thinkingEnabled==true, meaning default thinking max token */
   thinkingBudgetTokens?: Int64;
 }
 
@@ -762,39 +762,39 @@ export interface SftTask {
   updateTimeInMS?: string;
   trainingType?: SftTaskTrainingType;
   trainingMethod?: SftTaskTrainingMethod;
-  /** 选择的模型 */
+  /** Selected model */
   sftBasedModel?: SftTaskBaseModel;
-  /** 设置的超参 */
+  /** set superparameter */
   hyperParams?: Array<SftTaskHyperParam>;
-  /** 选择的数据集 */
+  /** Selected dataset */
   dataset?: SftTaskDataset;
-  /** 输出模型数量上限 */
+  /** Maximum number of output models */
   modelOutputLimit?: number;
-  /** 任务完成时输出的模型 */
+  /** Model output at task completion */
   outputs?: Array<SftTaskOutput>;
-  /** 任务的状态 */
+  /** state of the task */
   status?: SftTaskStatus;
-  /** 各种外部平台的链接 */
+  /** Links to various external platforms */
   providerURLInfo?: SftTaskProviderURLInfo;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 是否关联了Fornax的模型，如果已关联，不允许删除此任务 */
+  /** Is Fornax's model associated? If so, it is not allowed to delete this task */
   isRelatedToFrnModels?: boolean;
-  /** 资源配置（目前只适用于merlin） */
+  /** Resource allocation (currently only available for Merlin) */
   resource?: SftTaskResource;
-  /** 训练产物配置（目前只适用于merlin） */
+  /** Training product configuration (currently only available for merlin) */
   outputConfig?: SftTaskOutputConfig;
   hyperParamsCategories?: Array<SftTaskHyperParamCategory>;
-  /** 是否只读态 */
+  /** Whether read-only */
   onlyReadable?: OnlyReadable;
 }
 
 export interface SftTaskBaseModel {
-  /** 定制模型 */
+  /** custom model */
   customModel?: SftTaskCustomModel;
-  /** 基础模型 */
+  /** basic model */
   foundationModel?: SftTaskFoundationModel;
-  /** 模型类型 */
+  /** model type */
   type?: SftTaskBaseModelType;
 }
 
@@ -802,49 +802,49 @@ export interface SftTaskCustomModel {
   id?: string;
   name?: string;
   updateTimeInMS?: string;
-  /** 训练此定制模型的任务的超参 */
+  /** Hyperparameters for the task of training this custom model */
   hyperParams?: Array<SftTaskHyperParam>;
-  /** 此定制模型是通过哪个基础模型训练得到 */
+  /** Which base model is this custom model trained on? */
   foundationModel?: SftTaskFoundationModel;
-  /** merlin模型仓库版本 */
+  /** Merlin model repository version */
   version?: string;
-  /** merlin模型文件保存的地址 */
+  /** Address where the Merlin model file is saved */
   hdfsPath?: string;
 }
 
 export interface SftTaskDataset {
-  /** 训练集 */
+  /** training dataset */
   trainingSet?: SftTaskTrainingSet;
-  /** 验证集 */
+  /** validation set */
   validationSet?: SftTaskValidationSet;
 }
 
 export interface SftTaskFoundationModel {
   name?: string;
-  /** 模型来源（厂商） */
+  /** Model Source (Manufacturer) */
   vendor?: string;
   desc?: string;
-  /** 展示名称 */
+  /** display name */
   displayName?: string;
   version?: string;
   versionUpdateTimeInMS?: string;
   versionDesc?: string;
   versionConfigID?: string;
-  /** 系列 */
+  /** series */
   family?: Family;
-  /** 系列描述 */
+  /** series description */
   familyName?: string;
-  /** 参数量 */
+  /** parameter quantity */
   modelSize?: string;
-  /** 上下文长度 */
+  /** context length */
   contextSize?: string;
-  /** 参数量描述 */
+  /** parameter description */
   modelFTType?: string;
-  /** 模型卡片URL */
+  /** Model card URL */
   modelCardURL?: string;
   modelTags?: Array<string>;
   ability?: Ability;
-  /** 该模型在前端是否不可见（如doubao-embedding模型，因为训练集不支持embedding数据，所以也先不展示这个模型） */
+  /** Whether the model is not visible in the front end (e.g. the doubao-embedding model, because the training dataset does not support embedding data, so the model is not displayed first) */
   invisible?: boolean;
 }
 
@@ -857,9 +857,9 @@ export interface SftTaskHyperParam {
   defaultValue?: string;
   desc?: string;
   options?: Array<string>;
-  /** 选择定制模型进行增量训练时，此参数是否允许锁死不允许用户在创建任务时修改 */
+  /** When selecting a custom model for incremental training, whether this parameter allows locking and does not allow users to modify it when creating a task */
   incrementalLearningLocked?: boolean;
-  /** 展示用，如果为空字符串，就用name做兜底 */
+  /** For display, if it is an empty string, use name as the bottom */
   displayName?: string;
   isRequired?: boolean;
 }
@@ -872,7 +872,7 @@ export interface SftTaskHyperParamCategory {
   defaultValue?: boolean;
   value?: boolean;
   hyperParams?: Array<SftTaskHyperParam>;
-  /** 帮助文档链接 */
+  /** Help documentation link */
   helpDocLink?: string;
 }
 
@@ -882,28 +882,28 @@ export interface SftTaskOutput {
   customModelCreateTimeInMS?: string;
   createTimeInMS?: string;
   name?: string;
-  /** 是否已导出 */
+  /** Is it exported? */
   status?: SftTaskOutputStatus;
-  /** 在Fornax注册的私有模型信息 */
+  /** Private model information registered in Fornax */
   registeredModel?: Array<SftTaskRegisteredModel>;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 过期时间 */
+  /** expiration time */
   expireTimeInMS?: string;
-  /** 版本号，暂时只支持merlin模型 */
+  /** Version number, only the merlin model is supported for the time being. */
   modelVersion?: string;
-  /** 模型路径(暂时只支持merlin模型，为hdfs地址) */
+  /** Model path (temporarily only merlin models are supported, which is the hdfs address) */
   modelPath?: string;
-  /** 此模型(版本)在模型提供方的URL，暂时只支持merlin模型 */
+  /** This model (version) is at the URL of the model provider, and only the merlin model is supported for the time being */
   modelProviderURL?: string;
-  /** 状态详情，暂时只有status是导出失败时才会有值 */
+  /** Status details, temporarily only if status fails to export will it have a value. */
   statusDetail?: string;
 }
 
 export interface SftTaskOutputConfig {
-  /** 导出的模型名称 */
+  /** Exported model name */
   exportModelName?: string;
-  /** 导出方式 */
+  /** export method */
   exportType?: SftTaskOutputExportType;
 }
 
@@ -912,34 +912,34 @@ export interface SftTaskPresetDataset {
 }
 
 export interface SftTaskProgress {
-  /** 计划的epoch */
+  /** The planned epoch */
   plannedEpoch?: Int64;
-  /** 当前的epoch */
+  /** The current epoch */
   currentEpoch?: Int64;
-  /** 计划的step */
+  /** The planned steps */
   plannedStep?: Int64;
-  /** 当前的step */
+  /** Current step */
   currentStep?: Int64;
-  /** 预计剩余时间，秒 */
+  /** Estimated time remaining, seconds */
   eta?: Int64;
-  /** 是否训练完成 */
+  /** Is the training completed? */
   isTraningFinished?: boolean;
 }
 
 export interface SftTaskProviderURLInfo {
-  /** 任务详情 */
+  /** Task details */
   TaskDetailURL?: string;
-  /** 效果指标 */
+  /** performance metric */
   MetricsURL?: string;
-  /** 日志 */
+  /** log */
   LogURL?: string;
-  /** 时间线 */
+  /** Timeline */
   TimelineURL?: string;
-  /** 模型输出 */
+  /** model output */
   OutputURL?: string;
-  /** 训练时测评 */
+  /** Training-time assessment */
   EvaluationURL?: string;
-  /** 系统指标 */
+  /** System metrics */
   SystemMetricsURL?: string;
 }
 
@@ -955,72 +955,72 @@ export interface SftTaskResource {
 
 export interface SftTaskResourceMerlin {
   type?: MerlinQuotaPoolType;
-  /** 用户组id，暂时只支持1个 */
+  /** User group id, only 1 is supported for the time being. */
   groupIDs?: Array<string>;
-  /** 集群id */
+  /** cluster id */
   clusterID?: string;
-  /** 是否使用可占用资源 */
+  /** Whether to use available resources */
   preemptible?: boolean;
-  /** 角色配置，暂时只支持1个 */
+  /** Role configuration, only 1 is supported for the time being. */
   roles?: Array<SftTaskResourceMerlinRole>;
-  /** key是用户组id，val是用户组名称 */
+  /** Key is the user group id and val is the user group name */
   groupNames?: Record<Int64, string>;
-  /** 集群名称 */
+  /** cluster name */
   clusterName?: string;
-  /** merlin资源格式的版本，目前唯一作用：由于资源格式不向前兼容，只有指定版本号的资源才能在复制精调任务时被写入到新任务中 */
+  /** The version of the Merlin resource format, currently the only function: because the resource format is not forward compatible, only the resource with the specified version number can be written to the new task when copying the fine-tuning task */
   version?: SftTaskResourceMerlinVersion;
 }
 
 export interface SftTaskResourceMerlinRole {
-  /** 实例数，必填1 */
+  /** Number of instances, required 1 */
   num?: number;
-  /** 虚拟gpu型号 */
+  /** Virtual GPU model */
   gpuv?: string;
-  /** gpu数量 */
+  /** Number of GPUs */
   gpu?: number;
-  /** cpu数量 */
+  /** CPU number */
   cpu?: number;
-  /** 内存大小，单位是MB */
+  /** Memory size, in MB */
   memory?: number;
 }
 
 export interface SftTaskStatus {
-  /** 状态 */
+  /** state */
   phase?: SftTaskStatusPhase;
-  /** 到达状态的时间 */
+  /** Time of arrival */
   phaseTimeInMS?: string;
-  /** 状态是排队中时的排队位次 */
+  /** The status is the queuing rank when queuing */
   queuePosition?: number;
-  /** 对该状态的详细说明，如报错信息 */
+  /** A detailed description of the status, such as an error message */
   detail?: string;
-  /** 状态码 */
+  /** status code */
   code?: number;
 }
 
 export interface SftTaskTrainingSet {
   trainingSetID?: string;
-  /** 预置数据集 */
+  /** preset dataset */
   presetDataset?: SftTaskPresetDataset;
-  /** 预置数据集占训练集的百分比 */
+  /** Preset datasets as a percentage of training datasets */
   presetDatasetPercentage?: number;
-  /** 支持精调任务使用多个训练数据集 */
+  /** Support fine-tuning tasks using multiple training datasets */
   trainingSetIDs?: Array<string>;
-  /** 自定义数据集路径 */
+  /** custom dataset path */
   trainingSetPath?: string;
 }
 
 export interface SftTaskValidationSet {
   type?: SftTaskValidationSetType;
-  /** 从训练集中分割的百分比 */
+  /** Percentage split from training set */
   splitPercentage?: number;
 }
 
 export interface ThinkingAbility {
-  /** 是否默认开启思考能力 */
+  /** Is thinking enabled by default? */
   switchDefaultEnabled?: boolean;
-  /** 思考最大token */
+  /** Think maximum token */
   maxBudgetTokens?: Int64;
-  /** 思考最小token，必须大于0 */
+  /** Think minimum token, must be greater than 0 */
   minBudgetTokens?: Int64;
 }
 
@@ -1036,31 +1036,31 @@ export interface TrainingDataImportTask {
   fileType?: TrainingDataFileType;
   dataSource?: DataSource;
   mode?: DataImportMode;
-  /** 文件大小，单位：byte */
+  /** File size, in bytes */
   totalSize?: number;
-  /** 已处理数据大小，单位：byte */
+  /** Processed data size, in bytes */
   processedSize?: number;
-  /** 已处理的行数 */
+  /** Number of rows processed */
   processedLineCount?: number;
-  /** 已导入的行数 */
+  /** Number of rows imported */
   outputLineCount?: number;
   errLog?: string;
   msg?: string;
-  /** Fornax空间ID */
+  /** Fornax space ID */
   spaceID?: string;
-  /** 创建人ID */
+  /** creator ID */
   createdBy?: string;
-  /** 创建时间，秒 */
+  /** Creation time, seconds */
   createdAt?: string;
-  /** 更新人ID */
+  /** Updater ID */
   updatedBy?: string;
-  /** 更新时间，秒 */
+  /** Update time in seconds */
   updatedAt?: string;
 }
 
 export interface Visibility {
   mode?: VisibleMode;
-  /** Mode为Specified有效，配置为除模型所属空间外的其他空间 */
+  /** Mode is valid for Specified and is configured as a space other than the space to which the model belongs */
   spaceIDs?: Array<Int64>;
 }
 /* eslint-enable */

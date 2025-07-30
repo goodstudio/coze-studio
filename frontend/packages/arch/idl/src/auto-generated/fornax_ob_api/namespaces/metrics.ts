@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** 聚合方式 */
+/** aggregation method */
 export enum AggregateType {
   Unknown = 1,
   Avg = 2,
@@ -33,7 +33,7 @@ export enum AggregateType {
   Sum = 8,
 }
 
-/** 降采样间隔 */
+/** downsampling interval */
 export enum DownsampleInterval {
   Unknown = 1,
   /** 30 second */

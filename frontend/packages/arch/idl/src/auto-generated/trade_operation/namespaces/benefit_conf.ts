@@ -24,9 +24,9 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export interface PublicCommSetConfBenefitRequest {
-  /** 不传仅返回用户信息 */
+  /** Do not pass, only return user information */
   benefit_type?: common.BenefitType;
-  /** 必填。这里指的是Coze的AccountID */
+  /** Required. This refers to Coze's AccountID. */
   coze_account_id?: string;
   coze_account_type?: common.CozeAccountType;
   enterprise_id?: string;

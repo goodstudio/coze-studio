@@ -81,7 +81,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/delete_template
    *
-   * 删除卡片模版
+   * Delete Card Template
    */
   DeleteCardTemplate(
     req: card.DeleteCardTemplateRequest,
@@ -102,7 +102,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/upload_file
    *
-   * 上传卡片相关资源
+   * Upload card related resources
    */
   CardUploadFile(
     req?: card.CardUploadFileRequest,
@@ -124,7 +124,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/query_history
    *
-   * 卡片发布历史
+   * Card Release History
    */
   QueryCardHistory(
     req: card.QueryCardHistoryRequest,
@@ -147,7 +147,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/publish
    *
-   * 发布卡片
+   * Post card
    */
   CardMetaPublish(
     req: card.CardMetaPublishRequest,
@@ -172,7 +172,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/update
    *
-   * 新的卡片更新接口，agw上线原卡片更新作废
+   * The new card update interface, the original card update on agw is invalid.
    */
   UpdateCardInfo(
     req: card.UpdateCardInfoRequest,
@@ -195,7 +195,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/save_template
    *
-   * 保存卡片模版
+   * Save Card Template
    */
   SaveCardTemplate(
     req: card.SaveCardTemplateRequest,
@@ -219,7 +219,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/mget_template
    *
-   * 批量获取卡片模版
+   * Get card templates in bulk
    */
   MGetCardTemplate(
     req: card.MGetCardTemplateRequest,
@@ -243,7 +243,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_card_info
    *
-   * 查询卡片信息
+   * Check card information
    */
   GetCardInfo(
     req: card.GetCardInfoRequest,
@@ -266,7 +266,7 @@ export default class CardService<T> {
   /**
    * POST /api/op_card/query_cards
    *
-   * -------------- 运营平台接口 --------------
+   * -------------- Operating Platform Interface --------------
    */
   QueryCards(
     req?: card.QueryCardsRequest,
@@ -282,7 +282,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/save_generate_history
    *
-   * 保存生成卡片结果
+   * Save generated card results
    */
   SaveGenerateHistory(
     req: card.SaveGenerateHistoryRequest,
@@ -307,7 +307,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/list_card_generate_history
    *
-   * 查询AI生成卡片历史列表
+   * Query the list of AI-generated card histories
    */
   ListCardGenerateHistory(
     req: card.ListCardGenerateHistoryRequest,
@@ -330,7 +330,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_default_prompt
    *
-   * 获取生成卡片默认提示词
+   * Get generate card default prompt word
    */
   GetDefaultPrompt(
     req: card.GetDefaultPromptRequest,
@@ -355,7 +355,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/generate_card
    *
-   * AI 生成卡片
+   * AI-generated cards
    */
   GenerateCard(
     req: card.GenerateCardRequest,
@@ -378,7 +378,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_card_tcc_info
    *
-   * 查询tcc配置接口
+   * Query the tcc configuration interface
    */
   GetCardTccInfo(
     req?: card.GetCardTccInfoRequest,
@@ -394,7 +394,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/preview
    *
-   * 卡片预览接口
+   * Card preview interface
    */
   PreviewCard(
     req?: card.PreviewCardRequest,
@@ -415,7 +415,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/query_card_list
    *
-   * 查询卡片列表 (一级导航栏页面)
+   * Query the card list (first-level navigation bar page)
    */
   QueryCardList(
     req?: card.QueryCardListRequest,
@@ -437,7 +437,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/mget_card_info
    *
-   * 批量查询卡片信息
+   * Batch query card information
    */
   MGetCardInfo(
     req: card.MGetCardInfoRequest,
@@ -454,7 +454,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/generate_cards_thumbnail
    *
-   * 批量生成卡片缩略图
+   * Batch generation of card thumbnails
    */
   GenerateCardsThumbnail(
     req: card.GenerateCardsThumbnailRequest,
@@ -474,7 +474,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/generate_card_stream
    *
-   * 生成卡片流式输出接口
+   * Generate card stream output interface
    */
   GenerateCardStream(
     req: card.GenerateCardStreamRequest,
@@ -500,7 +500,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/gen_card_channel_thumbnail
    *
-   * 生成卡片缩略图
+   * Generate card thumbnail
    */
   GenCardChannelsThumbnail(
     req?: card.GenCardChannelsThumbnailRequest,
@@ -522,7 +522,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/get_task_progress
    *
-   * 查询论文解析情况（轮询）
+   * Query the analysis of the paper (polling)
    */
   GetTaskProgress(
     req: card.GetTaskProgressRequest,
@@ -543,7 +543,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/save_instance
    *
-   * 更新实例信息
+   * Update instance information
    */
   UpdateAgentInstanceInfo(
     req: card.UpdateAgentInstanceInfoRequest,
@@ -564,7 +564,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/analyzing_paper
    *
-   * 解析论文
+   * parsing paper
    */
   AnalyzingPaper(
     req: card.AnalyzingPaperRequest,
@@ -581,7 +581,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/delete_instance
    *
-   * 删除实例
+   * Delete instance
    */
   DeleteAgentInstance(
     req: card.DeleteAgentInstanceRequest,
@@ -601,7 +601,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/create_instance
    *
-   * 新建实例
+   * New instance
    */
   CreateAgentInstance(
     req: card.CreateAgentInstanceRequest,
@@ -624,7 +624,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/get_instance_detail
    *
-   * 查询实例详情
+   * Query instance details
    */
   GetAgentInstanceDetail(
     req: card.GetAgentInstanceDetailRequest,
@@ -644,7 +644,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/instance_list
    *
-   * 查询实例列表
+   * Query instance list
    */
   ListAgentInstance(
     req: card.ListAgentInstanceRequest,
@@ -666,7 +666,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/list_slice
    *
-   * 查询分片信息
+   * Query sharding information
    */
   ListSlice(
     req: card.ListSliceRequest,
@@ -690,7 +690,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/get
    *
-   * 查询agent详情
+   * Enquire about agent details
    */
   GetAgentDetail(
     req: card.GetAgentDetailRequest,
@@ -706,7 +706,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/biz_universal
    *
-   * Agent 业务逻辑通用接口
+   * Agent Business Logic Common Interface
    */
   AgentBizUniversal(
     req: card.AgentBizUniversalRequest,
@@ -729,7 +729,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/upload_file
    *
-   * 上传文件资源接口
+   * Upload file resource interface
    */
   AgentUploadFile(
     req?: card.AgentUploadFileRequest,
@@ -746,7 +746,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/generate_card_variables
    *
-   * 生成用户数据接口
+   * Generate user data interface
    */
   GenerateCardVariables(
     req: card.GenerateCardVariablesRequest,
@@ -769,7 +769,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/translate_result_get
    *
-   * 查询翻译论文结果
+   * Query Translation Paper Results
    */
   GetPaperTranslateResult(
     req: card.GetPaperTranslateResultRequest,
@@ -789,7 +789,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/translate_paper
    *
-   * 翻译论文
+   * Translated paper
    */
   TranslatePaper(
     req: card.TranslatePaperRequest,
@@ -809,7 +809,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_image_info
    *
-   * 获取图片
+   * Get picture
    */
   GetImageInfo(
     req: card.GetImageInfoRequest,
@@ -830,7 +830,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_jwt_token
    *
-   * 获取图片jwt
+   * Get image jwt
    */
   GetJwtToken(
     req?: card.GetJwtTokenRequest,
@@ -846,7 +846,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/translate_text
    *
-   * 翻译文本
+   * Translate text
    */
   TranslateText(
     req?: card.TranslateTextRequest,
@@ -867,7 +867,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/save_reference
    *
-   * 解析并保存参考资料
+   * Parse and save references
    */
   AnalyseAgentReference(
     req?: card.AnalyseAgentReferenceRequest,
@@ -887,7 +887,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/get_reference
    *
-   * 获取参考资料
+   * Access to reference materials
    */
   GetAgentReference(
     req?: card.GetAgentReferenceRequest,
@@ -903,7 +903,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/get_accompanied_image
    *
-   * 利用workflow获取文本配图
+   * Use workflow to get text images
    */
   GetAgentAccompaniedImage(
     req?: card.GetAgentAccompaniedImageRequest,
@@ -925,7 +925,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/save_setting
    *
-   * 保存agent用户配置
+   * Save agent user configuration
    */
   SaveAgentUserSettings(
     req: card.SaveAgentUserSettingsRequest,
@@ -945,7 +945,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/get_settings
    *
-   * 获取agent用户配置
+   * Get agent user configuration
    */
   GetAgentUserSettings(
     req: card.GetAgentUserSettingsRequest,
@@ -965,7 +965,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/api_trigger
    *
-   * 转发流式api调用
+   * forward streaming API call
    */
   AgentTriggerOpenAPIStream(
     req: card.AgentTriggerOpenAPIStreamRequest,
@@ -987,7 +987,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_file_info
    *
-   * 获取文件
+   * Get file
    */
   GetFileInfo(
     req?: card.GetFileInfoRequest,
@@ -1009,7 +1009,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/plugin_get_jwt
    *
-   * 创建plugin用 生成JWT
+   * Create plugins, generate JWT
    */
   GetJwtTokenForPlugin(
     req: card.GetJwtTokenForPluginRequest,
@@ -1026,7 +1026,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_card_user_setting
    *
-   * 获取卡片用户配置
+   * Get Card User Configuration
    */
   GetCardUserSettings(
     req?: card.GetCardUserSettingsRequest,
@@ -1046,7 +1046,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/save_card_user_setting
    *
-   * 保存卡片用户配置
+   * Save card user profile
    */
   SaveCardUserSettings(
     req?: card.SaveCardUserSettingsRequest,
@@ -1066,7 +1066,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/plugin_get_accompanied_image
    *
-   * 创建plugin用 转存文本配图
+   * For creating plugins, dump text images
    */
   GetAgentAccompaniedImageForPlugin(
     req: card.GetAgentAccompaniedImageForPluginRequest,
@@ -1085,7 +1085,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/agent/coze_api_trigger
    *
-   * 转发非流式api调用
+   * forwarding non-streaming API calls
    */
   AgentTriggerCozeAPI(
     req: card.AgentTriggerCozeAPIRequest,
@@ -1107,7 +1107,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/get_tcc_config
    *
-   * 获取tcc配置
+   * Get tcc configuration
    */
   GeneralGetTccConfig(
     req: card.GeneralGetTccConfigRequest,
@@ -1129,7 +1129,7 @@ export default class CardService<T> {
   /**
    * POST /api/op_card/update_template
    *
-   * 更新官方模版
+   * Update the official template
    */
   UpdateTemplate(
     req?: card.UpdateTemplateRequest,
@@ -1150,7 +1150,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/generate_card_suggestion
    *
-   * 根据用户输入返回建议的卡片RAG信息
+   * Returns suggested card RAG information based on user input
    */
   GenerateCardSuggestion(
     req: card.GenerateCardSuggestionRequest,
@@ -1170,7 +1170,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/async_gen_thumbnail
    *
-   * 异步生成缩略图
+   * Asynchronous generation of thumbnails
    */
   AsyncGenThumbnail(
     req?: card.AsyncGenThumbnailRequest,
@@ -1187,7 +1187,7 @@ export default class CardService<T> {
   /**
    * POST /api/card_builder/check_card_length
    *
-   * 用户创建过程中检查卡片是否超长
+   * Check if the card is too long during user creation
    */
   CheckCardLength(
     req: card.CheckCardLengthRequest,

@@ -36,7 +36,7 @@ export interface GetBotListByDatasetData {
 export interface GetBotListByDatasetReq {
   dataset_id: string;
   page_size?: number;
-  /** 从1开始 */
+  /** Start from 1 */
   page_no?: number;
 }
 

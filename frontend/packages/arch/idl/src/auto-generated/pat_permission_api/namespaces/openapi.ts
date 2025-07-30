@@ -250,7 +250,7 @@ export interface AppAndPATAuthInfoForPersonalAccountAuthorization {
   id: string;
   name?: string;
   created_at?: Int64;
-  /** -1 表示无限期 */
+  /** -1 means indefinite */
   expire_at?: Int64;
   is_authorized?: boolean;
   type: AppAndPATAuthInfoItemType;
@@ -432,11 +432,11 @@ export interface BatchAddCollaboratorResponseData {
   upgrade_info?: BatchAddCollaboratorResponseDataUpgradeInfo;
 }
 
-/** 添加失败超出限额时提示升级信息 */
+/** If the addition fails, the upgrade information will be prompted when the limit is exceeded. */
 export interface BatchAddCollaboratorResponseDataUpgradeInfo {
-  /** 是否能升级 */
+  /** Can it be upgraded? */
   can_upgrade: boolean;
-  /** 当前计划的协作者上限 */
+  /** The maximum number of collaborators for the current plan */
   current_collaborator_limit: Int64;
 }
 
@@ -699,11 +699,11 @@ export interface CreateJoinApplicationResponse {
 }
 
 export interface CreatePersonalAccessTokenAndPermissionRequest {
-  /** PAT名称 */
+  /** PAT name */
   name: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** PAT用户枚举过期时间 1、30、60、90、180、365、permanent */
+  /** PAT user enumeration expiration time 1, 30, 60, 90, 180, 365, permanent */
   duration_day?: string;
   /** organization id */
   organization_id?: string;
@@ -714,11 +714,11 @@ export interface CreatePersonalAccessTokenAndPermissionRequest {
 }
 
 export interface CreatePersonalAccessTokenAndPermissionRequest2 {
-  /** PAT名称 */
+  /** PAT name */
   name: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** PAT用户枚举过期时间 1、30、60、90、180、365、permanent */
+  /** PAT user enumeration expiration time 1, 30, 60, 90, 180, 365, permanent */
   duration_day?: string;
   /** organization id */
   organization_id?: string;
@@ -742,30 +742,30 @@ export interface CreatePersonalAccessTokenAndPermissionResponse2 {
 
 export interface CreatePersonalAccessTokenAndPermissionResponseData {
   personal_access_token: PersonalAccessToken;
-  /** PAT token 明文 */
+  /** PAT token plaintext */
   token: string;
 }
 
 export interface CreateServiceIdentityRequest {
-  /** 服务身份名称 */
+  /** service identity name */
   name: string;
-  /** 所属组织id */
+  /** Organization ID */
   organization_id?: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** 可枚举过期时间 */
+  /** Enumerable expiration time */
   duration_day?: DurationDay;
   permission: ServicePermission;
 }
 
 export interface CreateServiceIdentityRequest2 {
-  /** 服务身份名称 */
+  /** service identity name */
   name: string;
-  /** 所属组织id */
+  /** Organization ID */
   organization_id?: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** 可枚举过期时间 */
+  /** Enumerable expiration time */
   duration_day?: DurationDay;
   permission: ServicePermission;
   /** x-tt-env bytedance env tag */
@@ -784,7 +784,7 @@ export interface CreateServiceIdentityResponse2 {
 
 export interface CreateServiceIdentityResponseData {
   service_identity: ServiceIdentity;
-  /** 服务访问令牌 */
+  /** service access token */
   token?: string;
 }
 
@@ -1292,18 +1292,18 @@ export interface GetVolcanoConnectInfoWithInsNameResponse2 {
 export interface GetVolcanoMaskedMobileRequest {}
 
 export interface GetVolcanoMaskedMobileResponse {
-  /** 是否有火山账号信息 */
+  /** Is there Huoshan Account Information? */
   have_volcano: boolean;
-  /** 掩码手机号 */
+  /** Mask mobile phone number */
   mobile?: string;
 }
 
 export interface GetVolcanoMaskedMobileResponse2 {
   code: number;
   msg: string;
-  /** 是否有火山账号信息 */
+  /** Is there Huoshan Account Information? */
   have_volcano: boolean;
-  /** 掩码手机号 */
+  /** Mask mobile phone number */
   mobile?: string;
 }
 
@@ -1395,9 +1395,9 @@ export interface InlineResponse20017 {
 export interface InlineResponse20018 {
   code: number;
   msg: string;
-  /** 是否有火山账号信息 */
+  /** Is there Huoshan Account Information? */
   have_volcano: boolean;
-  /** 掩码手机号 */
+  /** Mask mobile phone number */
   mobile?: string;
 }
 
@@ -1834,7 +1834,7 @@ export interface ListPersonalAccessTokensByCreatorResponse2 {
 }
 
 export interface ListPersonalAccessTokensByCreatorResponseData {
-  /** PAT 列表 */
+  /** PAT list */
   personal_access_tokens: Array<PersonalAccessToken>;
 }
 
@@ -1860,9 +1860,9 @@ export interface ListPersonalAccessTokensResponse2 {
 }
 
 export interface ListPersonalAccessTokensResponseData {
-  /** PAT 列表 */
+  /** PAT list */
   personal_access_tokens: Array<PersonalAccessTokenWithCreatorInfo>;
-  /** 是否还有更多数据 */
+  /** Is there any more data? */
   has_more?: boolean;
 }
 
@@ -1961,9 +1961,9 @@ export interface PersonalAccessToken {
   name: string;
   created_at: Int64;
   updated_at: Int64;
-  /** -1 表示未使用 */
+  /** -1 means unused */
   last_used_at: Int64;
-  /** -1 表示无限期 */
+  /** -1 means indefinite */
   expire_at: Int64;
 }
 
@@ -1972,9 +1972,9 @@ export interface PersonalAccessTokenWithCreatorInfo {
   name: string;
   created_at: Int64;
   updated_at: Int64;
-  /** -1 表示未使用 */
+  /** -1 means unused */
   last_used_at: Int64;
-  /** -1 表示无限期 */
+  /** -1 means indefinite */
   expire_at: Int64;
   creator_name?: string;
   creator_unique_name?: string;
@@ -2233,15 +2233,15 @@ export interface SearchPeopleInOtherEnterpriseResponseData {
 }
 
 export interface ServiceIdentity {
-  /** 服务身份id */
+  /** service id */
   id: string;
-  /** 服务身份名称 */
+  /** service identity name */
   name: string;
   created_at: Int64;
   updated_at: Int64;
-  /** -1 表示未使用 */
+  /** -1 means unused */
   last_used_at: Int64;
-  /** -1 表示无限期 */
+  /** -1 means indefinite */
   expire_at: Int64;
 }
 
@@ -2400,7 +2400,7 @@ export interface UpdatePersonalAccessTokenAndPermissionRequest {
   enterprise_permission?: EnterprisePermission;
   /** PAT Id */
   id: string;
-  /** PAT 名称 */
+  /** PAT name */
   name?: string;
 }
 
@@ -2411,7 +2411,7 @@ export interface UpdatePersonalAccessTokenAndPermissionRequest2 {
   enterprise_permission?: EnterprisePermission;
   /** PAT Id */
   id: string;
-  /** PAT 名称 */
+  /** PAT name */
   name?: string;
   /** x-tt-env bytedance env tag */
   x_tt_env?: string;
@@ -2424,25 +2424,25 @@ export interface UpdatePersonalAccessTokenAndPermissionResponse {
 
 export interface UpdateServiceIdentityRequest {
   permission?: ServicePermission;
-  /** 服务身份id */
+  /** service id */
   id: string;
-  /** 服务身份名称 */
+  /** service identity name */
   name?: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** 可枚举过期时间 */
+  /** Enumerable expiration time */
   duration_day?: DurationDay2;
 }
 
 export interface UpdateServiceIdentityRequest2 {
   permission?: ServicePermission;
-  /** 服务身份id */
+  /** service id */
   id: string;
-  /** 服务身份名称 */
+  /** service identity name */
   name?: string;
-  /** PAT自定义过期时间 */
+  /** PAT custom expiration time */
   expire_at?: Int64;
-  /** 可枚举过期时间 */
+  /** Enumerable expiration time */
   duration_day?: DurationDay2;
   /** x-tt-env bytedance env tag */
   x_tt_env?: string;
@@ -2508,7 +2508,7 @@ export interface UserProfile {
   avatar_url: string;
 }
 
-/** 火山账号信息，并且包含实例名称 */
+/** Huoshan Account Information, and contains the instance name */
 export interface VolcanoAccountInfoWithInsName {
   /** volcano user_id */
   user_id: string;
@@ -2522,7 +2522,7 @@ export interface VolcanoAccountInfoWithInsName {
   instance_name: string;
 }
 
-/** 火山第三方信息，并且包含火山账号的实例名称 */
+/** Volcano third-party information and contains the instance name of the Huoshan Account */
 export interface VolcanoConnectInfoWithInsName {
   /** volcano open id */
   open_id: string;

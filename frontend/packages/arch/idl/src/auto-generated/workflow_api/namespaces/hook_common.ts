@@ -24,55 +24,55 @@ import * as bot_schema from './bot_schema';
 
 export type Int64 = string | number;
 
-/** 返回基础类型的操作。基础类型包括：string、int、double、bool... */
+/** Returns the operation of the underlying type. Basic types include: string, int, double, bool... */
 export enum BasicTypeOP {
-  /** 无操作，保持当前BotEngine的状态 */
+  /** No operation, maintain the current BotEngine state */
   None = 0,
-  /** 替换 */
+  /** replace */
   Replace = 1,
-  /** 删除 */
+  /** delete */
   Delete = 2,
 }
 
-/** /////////////////////// 返回协议基础类型 ///////////////////////////////////
- 对于返回需要修改字段的协议的设计范式:
- 1. 返回要修改的基础类型字段，使用相应的基础类型OP定义字段
+/** /////////////////////// returns the protocol base type ///////////////////////////////////////////////////////
+ For the design paradigm of a protocol that returns fields that need to be modified:
+ 1. Return the base type field to be modified, and define the field with the corresponding base type OP
  struct Result {
-     1: optional Int64OP  bot_id // 修改的bot_id
-     2: optional Int32OP  bot_version // 修改的bot_version
+     1: optional Int64OP bot_id//Modified bot_idbot_id
+     2: optional Int32OP bot_version//Modified bot_versionersion
  }
 
- 2. 返回要修改复合类型字段，使用CompositeTypeOP构造一个OP结构体
+ 2. To modify the composite type field, use CompositeTypeOP to construct an OP structure
  struct PluginListOP {
-     1: CompositeTypeOP  op // 操作类型
-     2: optional list<PluginAPI> plugin_list // 插件
+     1: CompositeTypeOP op//operation typeation type
+     2: optional list < PluginAPI > plugin_list//pluginsugin
  }
 
  struct PluginAPI {
-    1: required i64 plugin_id // 插件id
-    2: required string api_name // api名称
+    1: required i64 plugin_id//plugin idin ID
+    2: required string api_name//api nameame
 }
  
  struct Result {
-     1: optional Int64OP  bot_id // 修改的bot_id
-     2: optional Int32OP  bot_version // 修改的bot_version
-     3: optional PluginListOP plugin_list // 修改的插件列表
+     1: optional Int64OP bot_id//Modified bot_idbot_id
+     2: optional Int32OP bot_version//Modified bot_versionersion
+     3: optional PluginListOP plugin_list//Modified plugin list modified plugins
  }
  
- 3. 如果后续协议版本演进过程中，要修改的复合类型嵌套的类型，例如往嵌套的struct类型增加字段，
-   为了向前兼容性，增加的字段需要使用OP定义的类型。以上面PluginAPI举例
+ 3. If the nested type of the composite type to be modified during the evolution of subsequent protocol versions, such as adding fields to the nested struct type,
+   For forward compatibility, the added field needs to use the type defined by the OP. Take the PluginAPI example above
  struct PluginAPI {
-    1: required i64 plugin_id // 插件id
-    2: required string api_name // api名称
-    3: optional StrOP  api_desc // api描述
+    1: required i64 plugin_id//plugin idin ID
+    2: required string api_name//api nameame
+    3: optional StrOP api_desc//api descriptionescription
 }
- 返回复合类型的操作。复合类型包括：list、map、set、struct... */
+ Returns an operation on a composite type. Composite types include: list, map, set, struct... */
 export enum CompositeTypeOP {
-  /** 无操作，保持当前BotEngine的状态 */
+  /** No operation, maintain the current BotEngine state */
   None = 0,
-  /** 替换。如果是复合类型，例如list、map，则会使用返回的把BotEngine集合整体替换掉 */
+  /** Replace. If it is a composite type, such as list or map, the BotEngine collection will be replaced as a whole with the returned */
   ReplaceAll = 1,
-  /** 往集合增加或者替换元素, 只对复合类型有效，例如list、map，会把返回的集合和原来BotEngine的集合合并 */
+  /** Adding or replacing elements to a collection is only valid for composite types, such as list and map, which merge the returned collection with the original BotEngine collection */
   Merge = 2,
 }
 
@@ -91,29 +91,29 @@ export interface BizInfo {
 
 export interface BotContext {
   bot_id: Int64;
-  /** single 下为 bot_id */
+  /** Single for bot_id */
   agent_id?: Int64;
   bot_version?: Int64;
   connector_id?: Int64;
   connector_uid?: string;
-  /** chat 场景的扩展字段 */
+  /** Extended fields for chat scenes */
   scene_context?: Record<string, string>;
-  /** 用户 query */
+  /** User query */
   message?: Message;
-  /** 历史消息 */
+  /** chat history */
   chat_context?: Array<Message>;
-  /** ab 参数 */
+  /** ab parameter */
   ab_bot_engine?: string;
-  /** 10: optional string ab_gpt_engine // gpt engine ab 参数，暂时不要
-完整 ab 参数，非常大，按需开启 */
+  /** 10: optional string ab_gpt_engine//gpt engine ab parameterers, not for the time being
+Full ab parameters, very large, on demand */
   ab_param?: string;
   /** bot scheam */
   agent_schema?: bot_schema.Agent;
-  /** 前序 hook 写入，透传给各个下游 */
+  /** Preorder hook write, pass through to each downstream */
   context_ext?: Record<string, string>;
-  /** 工具鉴权信息 */
+  /** tool authentication information */
   auth_info?: copilot_common.ToolsAuthInfo;
-  /** 打断-恢复信号 */
+  /** interrupt-restore signal */
   resume_info?: copilot_common.ResumeInfo;
 }
 
@@ -123,26 +123,26 @@ export interface FunctionCall {
 }
 
 export interface Message {
-  /** 取值：system/user/assistant/tool/placeholder */
+  /** Value: system/user/assistant/tool/placeholder */
   role: string;
   content?: string;
-  /** 部分模型支持 name, function消息 name 即为 tool 名称 */
+  /** Some models support names, function message names are tool names */
   name?: string;
-  /** 调用过程，仅存在于 assistant 消息 */
+  /** Invoke procedure, existing only in the assistant message */
   tool_calls?: Array<ToolCall>;
-  /** 调用 id，与 tool_calls 中的 id 对应 */
+  /** Call id, corresponding to id in tool_calls */
   tool_call_id?: string;
   function_call?: FunctionCall;
-  /** 地理位置信息，端上授权才会传递 */
+  /** Geographic location information will only be transmitted if authorized on the end. */
   location?: copilot_common.LocationInfo;
-  /** 上传的文件 */
+  /** Uploaded file */
   files?: Array<copilot_common.FileInfo>;
-  /** 上传的图片 */
+  /** Uploaded picture */
   images?: Array<copilot_common.ImageInfo>;
-  /** 业务信息 */
+  /** business information */
   biz_info?: BizInfo;
   ext?: Record<string, string>;
-  /** 唯一 id */
+  /** unique id */
   unique_id?: string;
 }
 

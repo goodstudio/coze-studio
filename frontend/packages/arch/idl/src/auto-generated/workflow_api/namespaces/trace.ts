@@ -24,25 +24,25 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export enum FrontedTagType {
-  /** 文本 */
+  /** Text */
   TEXT = 0,
-  /** 时间，用时间戳，单位是毫秒 */
+  /** Time, with timestamp, in milliseconds */
   TIME = 1,
-  /** 时间间隔，单位是毫秒 */
+  /** Time interval, in milliseconds */
   TIME_DURATION = 2,
 }
 
 export enum InputOutputType {
-  /** 文本类型 */
+  /** Text type */
   TEXT = 0,
 }
 
 export enum QueryScene {
-  /** doubao cici 全链路调试台 */
+  /** Doubao cici full link debugging station */
   ALICE_OP = 0,
-  /** doubao cici debug 功能 */
+  /** Doubao cici debugging function */
   DOUBAO_CICI_DEBUG = 1,
-  /** workflow debug 功能 */
+  /** Workflow debugging */
   WORKFLOW_DEBUG = 2,
 }
 
@@ -76,21 +76,21 @@ export enum TenantLevel {
 
 export interface FrontendTag {
   key: string;
-  /** 多语，如无配置时值沿用 key */
+  /** Multilingual, if there is no configuration value, use the key */
   key_alias?: string;
   tag_type: TagType;
   value?: Value;
-  /** 前端类型，用于前端处理 */
+  /** Front-end type for front-end processing */
   frontend_tag_type?: FrontedTagType;
-  /** 是否可复制 */
+  /** Can it be copied? */
   can_copy?: boolean;
 }
 
 export interface GetTraceSDKRequest {
   log_id?: string;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   start_at?: Int64;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   end_at?: Int64;
   workflow_id?: Int64;
   execute_id?: Int64;
@@ -103,9 +103,9 @@ export interface GetTraceSDKResponse {
 }
 
 export interface ListRootSpansRequest {
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   start_at: Int64;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   end_at: Int64;
   limit?: number;
   desc_by_start_time?: boolean;
@@ -113,7 +113,7 @@ export interface ListRootSpansRequest {
   workflow_id: string;
   input?: string;
   status?: SpanStatus;
-  /** 正式运行/试运行/节点Debug */
+  /** Formal run/practice run/Node Debug */
   execute_mode?: number;
   Base?: base.Base;
 }
@@ -133,9 +133,9 @@ export interface Span {
   type?: string;
   name?: string;
   parent_id?: string;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   duration?: Int64;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   start_time?: Int64;
   status_code?: number;
   tags?: Array<TraceTag>;
@@ -164,38 +164,38 @@ export interface TraceFrontendSpan {
   name?: string;
   alias_name?: string;
   parent_id?: string;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   duration?: Int64;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   start_time?: Int64;
   status_code?: number;
   tags?: Array<TraceTag>;
-  /** 节点详情 */
+  /** node details */
   summary?: SpanSummary;
   input?: SpanInputOutput;
   output?: SpanInputOutput;
-  /** 是否是入口节点 */
+  /** Is it an entry node? */
   is_entry?: boolean;
-  /** 产品线 */
+  /** product line */
   product_line?: string;
-  /** 是否是关键节点 */
+  /** Is it a key node? */
   is_key_span?: boolean;
-  /** 节点负责人列表, 邮箱前缀 */
+  /** Node owner list, mailbox prefix */
   owner_list?: Array<string>;
-  /** 节点详情文档 */
+  /** Node Details Document */
   rundown_doc_url?: string;
 }
 
 export interface TraceHeader {
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   duration?: Int64;
-  /** 输入消耗token数 */
+  /** Enter the number of tokens consumed */
   tokens?: number;
   status_code?: number;
   tags?: Array<FrontendTag>;
-  /** 消息ID */
+  /** Message ID */
   message_id?: string;
-  /** 单位是毫秒 */
+  /** It's in milliseconds. */
   start_time?: Int64;
 }
 

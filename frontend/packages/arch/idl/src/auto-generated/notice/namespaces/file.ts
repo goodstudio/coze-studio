@@ -27,7 +27,7 @@ export interface UploadFileData {
 }
 
 export interface UploadFileRequest {
-  /** 文件类型，后缀 */
+  /** File type, suffix */
   file_type?: string;
   data?: string;
 }

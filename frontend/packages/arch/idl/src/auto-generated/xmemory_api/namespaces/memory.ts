@@ -24,7 +24,7 @@ import * as storage from './storage';
 export type Int64 = string | number;
 
 export enum IndexType {
-  /** userId维度，appId+botId+typeId+userId拼接 */
+  /** userId dimension, appId+botId+typeId+userId stitching */
   UserIdDimension = 1,
 }
 
@@ -74,7 +74,7 @@ export enum StorageItemCommands {
   UpsertItem = 8,
   /** Reflect the unrefected items specified by item_meta */
   FlushReflection = 9,
-  /** 业务层的应用命令
+  /** Business layer application commands
 forget the target items specified by item */
   ForgetMemory = 50,
 }
@@ -83,26 +83,26 @@ forget the target items specified by item */
 export enum StorageItemCommandSource {
   /** user operation */
   UserOperation = 1,
-  /** Personally Identifiable Information, 合规检查 */
+  /** Personally Identifiable Information, compliance checks */
   PiiProcess = 2,
   /** offline data clean up process, in this case, reflection process might be ignored */
   OfflineDataCleanUp = 3,
 }
 
-/** 过滤器 */
+/** filter */
 export interface Condition {
-  /** 字段名称， */
+  /** Field name, */
   field: string;
-  /** 操作类型：eq,lt,lte,ge,gte,in，支持哪些范围需先和search模板的同学确认 */
+  /** Operation type: eq, lt, lte, ge, gte, in. Which ranges are supported need to be confirmed with the students of the search template first. */
   op: string;
-  /** lt,lte,ge,gte 则只有一个值，取第一个 */
+  /** Lt, lte, ge, gte have only one value, take the first one */
   values?: Array<string>;
 }
 
 export interface Filter {
-  /** 过滤条件 */
+  /** filter condition */
   conditions?: Array<Condition>;
-  /** And(默认),Or */
+  /** And (default), Or */
   op?: string;
 }
 

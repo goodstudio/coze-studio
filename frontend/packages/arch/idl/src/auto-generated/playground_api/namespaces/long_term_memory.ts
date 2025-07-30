@@ -24,7 +24,7 @@ export type Int64 = string | number;
 export interface LongTermMemoryClearAllRequest {
   bot_id: string;
   connector_id: string;
-  /** 仅旧链路xmemory使用  1: 原始对话 2: 总结后的话题 3: 精华记忆 */
+  /** Only old link xmemory use 1: original conversation 2: topic after summary 3: essence memory */
   time_capsule_item_type?: number;
 }
 
@@ -34,45 +34,45 @@ export interface LongTermMemoryDeleteRequest {
   bot_id: string;
   connector_id: string;
   biz_ids: Array<string>;
-  /** xmemory使用  1: 原始对话 2: 总结后的话题 3: 精华记忆 */
+  /** XMemory Use 1: Original Conversation 2: Summarized Topic 3: Essence Memory */
   time_capsule_item_type?: number;
-  /** xmemory使用 */
+  /** xMemory usage */
   iids?: Array<string>;
 }
 
 export interface LongTermMemoryDeleteResponse {}
 
 export interface LongTermMemoryItem {
-  /** 业务id 火山侧的mempryID、xmemory侧的BizId */
+  /** mempryID on the volcano side of the business id, BizId on the xmemory side */
   biz_id: string;
-  /** 事件文本 */
+  /** event text */
   text: string;
-  /** 事件时间（时间戳） */
+  /** Event time (timestamp) */
   event_time: string;
-  /** xmemory侧的记忆扩展 */
+  /** Memory extension on the xmemory side */
   ext?: Record<string, string>;
-  /** xmemory记忆标签 */
+  /** XMemory tag */
   tags?: Array<string>;
-  /** xmemory记忆类型  1: 原始对话 2: 总结后的话题 3: 精华记忆 */
+  /** XMemory Type 1: Original Conversation 2: Summary Topic 3: Essence Memory */
   time_capsule_item_type?: number;
-  /** xmemory记忆的Iid */
+  /** XMemory Iid */
   iid?: string;
 }
 
 export interface LongTermMemoryListRequest {
   bot_id: string;
   connector_id: string;
-  /** offset、limit仅旧链路xmemory使用，火山侧没有分页 */
+  /** Offset, limit are only used by the old link xmemory, there is no paging on the volcano side */
   offset?: number;
   limit?: number;
-  /** 仅旧链路xmemory使用  1: 原始对话 2: 总结后的话题 3: 精华记忆 */
+  /** Only old link xmemory use 1: original conversation 2: topic after summary 3: essence memory */
   time_capsule_item_type?: number;
 }
 
 export interface LongTermMemoryListResponse {
   time_capsule_items: Array<LongTermMemoryItem>;
   total: number;
-  /** 最近一次清空的时间戳 */
+  /** Last cleared timestamp */
   last_clear_all_time?: string;
 }
 
@@ -81,15 +81,15 @@ export interface LongTermMemoryUpdateRequest {
   connector_id: string;
   biz_id: string;
   new_content: string;
-  /** 事件时间（时间戳） */
+  /** Event time (timestamp) */
   event_ms?: string;
-  /** xmemory侧的记忆扩展 */
+  /** Memory extension on the xmemory side */
   ext?: Record<string, string>;
-  /** xmemory记忆标签 */
+  /** XMemory tag */
   tags?: Array<string>;
-  /** xmemory记忆类型  1: 原始对话 2: 总结后的话题 3: 精华记忆 */
+  /** XMemory Type 1: Original Conversation 2: Summary Topic 3: Essence Memory */
   time_capsule_item_type?: number;
-  /** xmemory记忆的Iid */
+  /** XMemory Iid */
   iid?: string;
 }
 
@@ -100,7 +100,7 @@ export interface LongTermMemoryVersionRequest {
 }
 
 export interface LongTermMemoryVersionResponse {
-  /** 是否走Mars长期记忆 */
+  /** Going to Mars Long-Term Memory */
   MarsLongTermMemory: boolean;
 }
 /* eslint-enable */

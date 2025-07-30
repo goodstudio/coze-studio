@@ -24,7 +24,7 @@ import * as benefit_common from './benefit_common';
 
 export type Int64 = string | number;
 
-/** 聚合维度 */
+/** aggregate dimension */
 export enum AggregateDimension {
   Daily = 1,
   Weekly = 2,
@@ -64,7 +64,7 @@ export enum DetailsType {
   bot = 2,
 }
 
-/** 需要返回的图表数据 */
+/** Chart data to be returned */
 export enum MeticsType {
   All = 1,
   TotalConsumption = 2,
@@ -83,9 +83,9 @@ export enum PermissionScope {
 }
 
 export enum PermissionType {
-  /** 普通权限 */
+  /** normal permission */
   Normal = 0,
-  /** 渠道使用 */
+  /** channel usage */
   Connector = 1,
 }
 
@@ -95,69 +95,69 @@ export enum PlaygroundItemType {
   RTCSDK = 3,
 }
 
-/** 新需求  上线后
- 所有限流对象都在 path 维度下 */
+/** New requirements, after going online
+ All throttling objects are in the path dimension */
 export enum PrincipleType {
-  /** 默认限流
-deprecated, 没有什么作用. 没有什么场景一个 pat 共享所有 path 的限流的 */
+  /** The viewership of default limit
+Deprecated, has no effect. There is no scene where a pat shares the limited viewership of all paths */
   PAT = 1,
-  /** global rate limit. 整个 path 的限流，保证服务稳定性，是一个服务能力的上限 */
+  /** Global rate limit. The limited viewership of the entire path to ensure service stability is the upper limit of a service capability */
   API = 2,
-  /** per user rate limit. 每个 user 的限流，用来资源分配的 */
+  /** Per user rate limit. The limited viewership of each user, used for quotas */
   PATAndAPI = 3,
-  /** deprecated, 没有什么用 */
+  /** Deprecated, useless */
   BotIDAndAPI = 4,
-  /** 对空间(space_id)的限流，将来从 record 迁移过来 */
+  /** The limited viewership of space (space_id), migrated from record in the future */
   PerWorkspace = 5,
-  /** 特殊限流, 优先级高于默认限流(会覆盖除 global rate limit(API=2) 之外的限流)
-针对特定 user_id 的特殊限流配置 */
+  /** Special limit viewership of higher than the default limit viewership of (will override the limit viewership of the global rate limit (API = 2))
+Special limited viewership of specific user_id */
   SpecialUser = 100,
-  /** 针对特定 space_id 的特殊限流配置 */
+  /** Special limited viewership of specific space_id */
   SpecialWorkspace = 101,
-  /** 针对特定企业 enterprise_id 的特殊限流配置 */
+  /** Special limited viewership of specific enterprise enterprise_id */
   SpecialEnterprise = 102,
 }
 
-/** --- API 数据页展示 ---
- 查询时间范围枚举 */
+/** --- API data page display ---
+ query time range enumeration */
 export enum QueryRange {
-  /** 最近7天 */
+  /** Last 7 days */
   Latest_7_Days = 1,
-  /** 最近30天 */
+  /** Last 30 days */
   Latest_30_Days = 2,
-  /** 历史至今 */
+  /** History so far */
   History = 3,
-  /** 今日 */
+  /** today */
   Today = 4,
 }
 
 export enum RateLimitEntityType {
-  /** 给 RateLimitType=1(Global) 预留的， 实际上 entity id 为空，没有啥用 */
+  /** Reserved for RateLimitType = 1 (Global), in fact the entity id is empty, which is useless */
   Global = 1,
-  /** 给 RateLimitType=2(Base) 用的，entity type 有三种 free/professional/enterprise */
+  /** For RateLimitType = 2 (Base), there are three free/professional/enterprise entity types. */
   BenefitLevel = 2,
   CozeUID = 3,
   EnterpriseID = 4,
-  /** 目前仅 chat 接口可以 */
+  /** Currently only the chat interface can be used. */
   SpaceID = 5,
 }
 
-/** 限流 */
+/** limit viewership of */
 export enum RateLimitType {
-  /** 全局限流，用户无关 */
+  /** Global current limit, independent of user */
   Global = 1,
-  /** 全局限流，用户无关，权益等级相关（分 free/professional/enterprise 3 挡） */
+  /** Global current limit, user irrelevant, rights and interests related (free/professional/enterprise 3 gears) */
   Base = 2,
-  /** 扩容限流，用户相关 */
+  /** Expand capacity and limit current, user-related */
   Expand = 3,
 }
 
 export enum TrafficType {
-  /** 默认流量: 普通版(个人免费) */
+  /** Default traffic: Normal version (personal free) */
   Default = 0,
-  /** 专业版(个人付费) */
+  /** Professional Edition (Personal Payment) */
   Professional = 1,
-  /** 企业版 */
+  /** Enterprise Edition */
   Enterprise = 2,
 }
 
@@ -167,7 +167,7 @@ export enum VisibleStatus {
 }
 
 export interface AnalyticsData {
-  /** 图表明--图标 */
+  /** Illustration -- Icon */
   pictures?: Record<string, Picture>;
   start_ms: Int64;
   end_ms: Int64;
@@ -258,7 +258,7 @@ export interface ConnectorApiApp {
   connector_name: string;
   connector_icon_url?: string;
   status: ConnectorApiAppStatus;
-  /** 如果没有配置过，这个就没有 */
+  /** If it has not been configured, this one is not available. */
   verify_token?: string;
   callback_url?: string;
   events?: Array<ApiAppEvent>;
@@ -273,13 +273,13 @@ export interface ConsumeBenefitChangeResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 创建回调应用 */
+/** Create a callback app */
 export interface CreateApiAppOpenReq {
-  /** 必填 */
+  /** Required */
   app_type?: string;
-  /** 回调应用的名称， app_type=normal 时必传 */
+  /** The name of the callback application, app_type = normal */
   name?: string;
-  /** app_type=connector 时必传 */
+  /** app_type = connector */
   connector_id?: string;
   Base?: base.Base;
 }
@@ -295,11 +295,11 @@ export interface CreateApiAppReq {
   org_id?: string;
   app_type: AppType;
   name: string;
-  /** app_type=connector 时必传 */
+  /** app_type = connector */
   connector_id?: string;
-  /** app_type=normal 时必传 */
+  /** app_type = normal */
   callback_url?: string;
-  /** app_type=normal 时必传 64 位字符 [a-zA-Z0-9] */
+  /** 64-Bit characters must be passed when app_type = normal [a-zA-Z0-9] */
   verify_token?: string;
   Base?: base.Base;
 }
@@ -310,22 +310,22 @@ export interface CreateApiAppResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 创建限流规则 */
+/** Create rules of limited viewership */
 export interface CreateRateLimitReq {
-  /** id 不用传 */
+  /** ID does not need to be transmitted. */
   rate_limit: RateLimitConf;
-  /** 幂等 key, 如果有重复的，不会报错，会返回已经创建成功的 id，但不会创建多个 */
+  /** Idempotent key, if there are duplicates, will not report an error, will return the id that has been successfully created, but will not create multiple */
   uniq_key?: string;
   Base?: base.Base;
 }
 
 export interface CreateRateLimitResp {
-  /** 创建的限流规则的 id */
+  /** The id of the created limited viewership rule */
   id?: Int64;
   BaseResp?: base.BaseResp;
 }
 
-/** 删除回调配置 */
+/** Remove callback configuration */
 export interface DeleteApiAppOpenReq {
   api_app_id?: string;
   Base?: base.Base;
@@ -366,16 +366,16 @@ export interface GetApiAppByConnectorIDResp {
   BaseResp?: base.BaseResp;
 }
 
-/** --- API 回调能力 ---
- 技术方案: 
+/** --- API callback capability ---
+ Technical solution: 
  openapi
-  获取列表 */
+  Get list */
 export interface GetApiAppListOpenReq {
-  /** 页码 */
+  /** page number */
   page_token?: string;
-  /** 每页大小 */
+  /** page size */
   page_size?: number;
-  /** 不传的话就都返回 */
+  /** If you don't pass it on, you will return. */
   app_type?: string;
   Base?: base.Base;
 }
@@ -389,9 +389,9 @@ export interface GetApiAppListOpenResp {
 
 export interface GetApiAppListOpenRespData {
   items?: Array<ApiAppOpenV2>;
-  /** 分页 token, 第一页传空，下一页通过上一个返回的 next_page_token */
+  /** Paging token, the first page is empty, the next page is returned by the previous next_page_token */
   next_page_token?: string;
-  /** 是否还有更多数据 */
+  /** Is there any more data? */
   has_more?: boolean;
 }
 
@@ -412,7 +412,7 @@ export interface GetAPIVisibilityResponse {
 export interface GetConnectorApiAppListReq {
   org_id?: string;
   page_token?: string;
-  /** 每页大小 */
+  /** page size */
   page_size?: number;
   Base?: base.Base;
 }
@@ -420,19 +420,19 @@ export interface GetConnectorApiAppListReq {
 export interface GetConnectorApiAppListResp {
   api_apps?: Array<ConnectorApiApp>;
   next_page_token?: string;
-  /** 是否还有更多数据 */
+  /** Is there any more data? */
   has_more?: boolean;
   BaseResp?: base.BaseResp;
 }
 
-/** --- API 回调能力 ---
- 技术方案: 
- 网页上用的 api */
+/** --- API callback capability ---
+ Technical solution: 
+ API used on web pages */
 export interface GetNormalApiAppListReq {
   org_id?: string;
-  /** 分页 token, 第一页传空，下一页通过上一个返回的 next_page_token */
+  /** Paging token, the first page is empty, the next page is returned by the previous next_page_token */
   page_token?: string;
-  /** 每页大小 */
+  /** page size */
   page_size?: number;
   Base?: base.Base;
 }
@@ -440,19 +440,19 @@ export interface GetNormalApiAppListReq {
 export interface GetNormalApiAppListResp {
   api_apps?: Array<NormalApiApp>;
   next_page_token?: string;
-  /** 是否还有更多数据 */
+  /** Is there any more data? */
   has_more?: boolean;
   BaseResp?: base.BaseResp;
 }
 
-/** 获取 path 不同鉴权身份的鉴权点 */
+/** Get authentication points for different authentication paths */
 export interface GetPermissionByPathReq {
   path?: string;
   permission_type?: PermissionType;
 }
 
 export interface GetPermissionByPathResp {
-  /** 格式是 Bot.chat 拼接好的字符串 */
+  /** The format is Bot.chat stitched string. */
   permission_key?: string;
   BaseResp?: base.BaseResp;
 }
@@ -461,27 +461,27 @@ export interface GetPermissionListData {
   data?: Array<PermissionInfo>;
 }
 
-/** 默认全量返回 */
+/** Default full return */
 export interface GetPermissionListReq {
-  /** 可以用key来进行精准匹配 格式 Bot::chat */
+  /** You can use key to match accurately, format Bot :: chat */
   key_list?: Array<string>;
-  /** 可以用id来精准匹配 */
+  /** You can use id to match accurately. */
   permission_id_list?: Array<string>;
-  /** 可以选择传入 "release" "inhouse" 来选择版本 */
+  /** You can choose to pass in "release" "inhouse" to select the version */
   version?: CozeVersion;
   permission_type?: PermissionType;
-  /** 完整 permission key 匹配. 格式 Bog::chat，并同时会把分组节点查询出来。 key_list 用于 v1 版本查询 */
+  /** Full permission key match. Format Bog :: chat, and will query the packet node at the same time. key_list used for v1 version query */
   full_key_list?: Array<string>;
   Base?: base.Base;
 }
 
-/** 获取权限列表v2，返回按照displayname聚合 */
+/** Get permission list v2, return aggregated by displayname */
 export interface GetPermissionListReqV2 {
-  /** 可以用key来进行精准匹配 格式 Bot::chat */
+  /** You can use key to match accurately, format Bot :: chat */
   key_list?: Array<string>;
-  /** 可以用id来精准匹配 */
+  /** You can use id to match accurately. */
   permission_id_list?: Array<string>;
-  /** 可以选择传入 "release" "inhouse" 来选择版本 */
+  /** You can choose to pass in "release" "inhouse" to select the version */
   version?: CozeVersion;
   permission_type?: PermissionType;
   Base?: base.Base;
@@ -506,14 +506,14 @@ export interface GetPlaygroundAllApiInfoReq {
 }
 
 export interface GetPlaygroundAllApiInfoResp {
-  /** swagger openapi specification. 目前是 3.0.3 */
+  /** Swagger openapi specification. Currently 3.0.3 */
   swagger_openapi_spec: string;
   BaseResp?: base.BaseResp;
 }
 
 export interface GetPlaygroundApiInfoReq {
   url_key: string;
-  /** 工作流/对话流执行：返回上一次试运行的参数；对话流模式的智能体：返回对话流开始节点的参数 */
+  /** Workflow/dialog execution: return the parameters of the last practice run; dialog flow mode agent: return the parameters of the dialog flow start node */
   workflow_id?: string;
   Base?: base.Base;
 }
@@ -527,15 +527,15 @@ export interface GetPlaygroundApiInfoResp {
   method: string;
   /** eg. editConversation */
   permission?: string;
-  /** swagger openapi specification. 目前是 3.0.3 */
+  /** Swagger openapi specification. Currently 3.0.3 */
   swagger_openapi_spec: string;
-  /** 代码示例 */
+  /** code example */
   code_example?: Array<PlaygroundCodeExample>;
-  /** stream/blob 前端需要在执行请求之前知道 response type，所以这里要返回 */
+  /** The stream/blob front end needs to know the response type before executing the request, so it will be returned here */
   response_type?: string;
-  /** 工作流/对话流执行接口，如果传参包括 worfklow 则会返回：包括参数以及对应的值，json 格式 */
+  /** Workflow/dialog flow execution interface, if the argument includes worfklow, it will return: including parameters and corresponding values, json format */
   param_content?: string;
-  /** true：需要保存运行结果 */
+  /** True: Need to save the running result */
   need_save_run_history?: boolean;
   BaseResp?: base.BaseResp;
 }
@@ -550,11 +550,11 @@ export interface GetPlaygroundItemListResp {
 }
 
 export interface GetPlaygroundRunHistoryReq {
-  /** 接口路径 */
+  /** interface path */
   path?: string;
-  /** 接口方法：POST/GET/... */
+  /** Interface method: POST/GET/... */
   method?: string;
-  /** 组织账号ID */
+  /** Organization account ID */
   org_id?: string;
   Base?: base.Base;
 }
@@ -572,9 +572,9 @@ export interface GetPlaygroundWebSdkInfoReq {
 export interface GetPlaygroundWebSdkInfoResp {
   version: string;
   sample: Array<PlaygroundWebSdkCodeSample>;
-  /** 所有的版本 */
+  /** All versions */
   version_list?: Array<string>;
-  /** swagger specification, 主要返回可配置的参数信息 */
+  /** Swagger specification, mainly returns configurable parameter information */
   swagger_spec?: string;
   BaseResp?: base.BaseResp;
 }
@@ -582,7 +582,7 @@ export interface GetPlaygroundWebSdkInfoResp {
 export interface GetRateLimitReq {
   path: string;
   http_method: string;
-  /** filters 之间是或的关系 */
+  /** The relationship between filters is or */
   filters?: Array<RateLimitEntityFilter>;
   Base?: base.Base;
 }
@@ -594,12 +594,12 @@ export interface GetRateLimitResp {
 
 export interface GetSubscribedApiAppListReq {
   event_type: string;
-  /** 以下三选一
-coze 账户 ID */
+  /** Choose one of the following three
+Coze Account ID */
   coze_account_id?: Int64;
-  /** 渠道 ID */
+  /** Channel ID */
   connector_id?: Int64;
-  /** 火山账户 id */
+  /** Volcano Account ID */
   volcano_account_id?: Int64;
   Base?: base.Base;
 }
@@ -609,11 +609,11 @@ export interface GetSubscribedApiAppListResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 订阅列表 */
+/** subscribe list */
 export interface ListSubscribedApiAppEventOpenReq {
   api_app_id?: string;
   page_token?: string;
-  /** 每页大小 */
+  /** page size */
   page_size?: number;
   Base?: base.Base;
 }
@@ -650,19 +650,19 @@ export interface OauthQuickstartConfigResp {
 }
 
 export interface OauthQuickstartLangConfig {
-  /** 本次返回的 lang 的配置 */
+  /** The configuration of lang returned this time */
   lang?: string;
-  /** 使用指引 */
+  /** user guide */
   instruction?: string;
-  /** 下载链接(tos) */
+  /** Download link (tos) */
   download_url?: string;
 }
 
-/** 覆盖写入限流规则（临时接口，给运营平台兼容用） */
+/** Override the limited viewership of writing rules (temporary interface, compatible with the operating platform) */
 export interface OverwriteRateLimitReq {
   method: string;
   path: string;
-  /** 限流规则列表，会覆盖写入 */
+  /** List of rules with limited viewership that overwrites */
   rate_limit_list: Array<RateLimitConf>;
   Base?: base.Base;
 }
@@ -676,28 +676,28 @@ export interface PermissionInfo {
   key?: string;
   description?: string;
   display_name?: string;
-  /** 子权限点 */
+  /** Sub permission spot */
   childrens?: Array<PermissionInfo>;
-  /** release是否可见 */
+  /** Is the release visible? */
   release_status?: VisibleStatus;
-  /** inhouse是否可见 */
+  /** Is inhouse visible? */
   inhouse_status?: VisibleStatus;
   create_time?: string;
   update_time?: string;
   parent_id?: string;
-  /** ppe是否可见 */
+  /** Is ppe visible? */
   ppe_status?: VisibleStatus;
   permission_type?: PermissionType;
-  /** 是否是空间相关资源权限 */
+  /** Is it a space-related resource permission? */
   permission_scope?: PermissionScope;
   permission_key?: string;
 }
 
 export interface PictrueData {
-  /** 绘图数据
-x轴数据 */
+  /** plot data
+X-axis data */
   x_value: Int64;
-  /** y轴数据 */
+  /** y-axis data */
   y_value: number;
 }
 
@@ -708,11 +708,11 @@ export interface Picture {
 }
 
 export interface PlaygroundCategory {
-  /** 例如 Agent, Chat, Conversation 等 */
+  /** Agents, Chat, Conversation */
   title: string;
   icon_url: string;
   items: Array<PlaygroundItem>;
-  /** 模块描述 */
+  /** Module Description */
   description?: string;
 }
 
@@ -721,15 +721,15 @@ export interface PlaygroundCodeExample {
   language: string;
   /** eg. Curl Request */
   title: string;
-  /** nunjucks 模版, 如果长度为 0，则置灰该语言 */
+  /** Nunjucks template, if length is 0, greys out the language */
   examples: Array<string>;
   example_name: Array<string>;
 }
 
 export interface PlaygroundItem {
-  /** 展示的文案 */
+  /** copy displayed */
   title: string;
-  /** 用于请求 GetPlaygroundApiInfo 的 key(仅 Type==API 时有效) */
+  /** The key used to request GetPlaygroundApiInfo (only valid for Type == API) */
   url_key: string;
   type: PlaygroundItemType;
 }
@@ -749,19 +749,19 @@ export interface PlaygroundOpenApiDocResp {
 /** playground */
 export interface PlaygroundRunHistory {
   log_id?: string;
-  /** 运行结果状态码 */
+  /** Run result status code */
   status_code?: number;
-  /** 运行参数，JSON */
+  /** Running parameters, JSON */
   request?: string;
-  /** 运行结果，JSON */
+  /** Running result, JSON */
   reponse?: string;
-  /** 运行时间 */
+  /** running time */
   create_at?: Int64;
 }
 
 export interface PlaygroundWebSdkCodeSample {
   file_name: string;
-  /** 纯文本 */
+  /** plain text */
   content: string;
 }
 
@@ -772,37 +772,37 @@ export interface RateLimitConf {
   limit_type: RateLimitType;
   entity_type: RateLimitEntityType;
   entity_id?: string;
-  /** 间隔时间 单位s */
+  /** Interval time, unit s */
   duration?: number;
-  /** 限制次数, 对于entity_type=附加限流, limit count 可以是负数 */
+  /** Limit count, for entity_type = additional limit viewership of, limit count can be negative */
   limit_count?: number;
-  /** 生效的时间戳（秒） */
+  /** Effective timestamp (seconds) */
   valid_time_start_unix?: Int64;
-  /** 失效的时间戳（秒） */
+  /** Invalid timestamp (seconds) */
   valid_time_end_unix?: Int64;
-  /** 创建时必传 */
+  /** Required when created */
   source: string;
-  /** 备注信息, 可以写一写关键信息，例如飞书联系人，群号等 */
+  /** Note information, you can write key information, such as contact via Feishu, group number, etc */
   remark?: string;
 }
 
 export interface RateLimitEntityFilter {
   limit_type: RateLimitType;
-  /** 不传就不过滤 */
+  /** If you don't pass it on, you won't filter it. */
   entity_type?: RateLimitEntityType;
-  /** 不传就不过滤 */
+  /** If you don't pass it on, you won't filter it. */
   entity_id?: string;
-  /** 不传就不过滤 */
+  /** If you don't pass it on, you won't filter it. */
   source?: string;
-  /** 仅对 entity type=2(BenefitLevel) 有效 */
+  /** Valid only for entity type = 2 (BenefitLevel) */
   user_level?: benefit_common.UserLevel;
 }
 
-/** 删除限流规则 */
+/** Removing rules of limited viewership */
 export interface RemoveRateLimitReq {
-  /** create 拿到的 id */
+  /** Create the ID obtained. */
   id: Int64;
-  /** 校验 source 是否一致，不一致就报错 */
+  /** Check whether the source is consistent, and report an error if it is inconsistent */
   source: string;
   Base?: base.Base;
 }
@@ -812,32 +812,32 @@ export interface RemoveRateLimitResp {
 }
 
 export interface RequestLimitRule {
-  /** 主体类型 */
+  /** subject type */
   type?: PrincipleType;
-  /** 间隔时间 单位s */
+  /** Interval time, unit s */
   duration?: number;
-  /** 限制次数 */
+  /** limit the number of times */
   limit_count?: number;
-  /** 普通版/专业版/企业版标识 */
+  /** Regular/Professional/Enterprise logo */
   traffic_type?: TrafficType;
-  /** 当 PrincipleType 为特殊限流时，需要传入的特殊限流 id(对应 user_id, space_id, org_id) */
+  /** When PrincipleType is a special limit viewership of, the special limit viewership of id that needs to be passed in (corresponding to user_id, space_id, org_id) */
   special_id?: string;
-  /** 开始时间（仅对特殊限流有效，单位: 秒） */
+  /** Start time (only valid for limited viewership of special, in seconds) */
   start_time_unix?: Int64;
-  /** 结束时间（仅对特殊限流有效，单位: 秒） */
+  /** End time (only valid for limited viewership of special, in seconds) */
   end_time_unix?: Int64;
-  /** 备注信息, 可以写一写关键信息，例如飞书联系人，群号等 */
+  /** Note information, you can write key information, such as contact via Feishu, group number, etc */
   remark?: string;
 }
 
 export interface SavePlaygroundRunHistoryReq {
-  /** 接口路径 */
+  /** interface path */
   path?: string;
-  /** 接口方法 */
+  /** interface method */
   method?: string;
-  /** 调试记录 */
+  /** debug log */
   record?: PlaygroundRunHistory;
-  /** 组织账号ID */
+  /** Organization account ID */
   org_id?: string;
   Base?: base.Base;
 }
@@ -846,7 +846,7 @@ export interface SavePlaygroundRunHistoryResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 订阅 */
+/** subscribe */
 export interface SubscribeApiAppEventOpenReq {
   api_app_id?: string;
   event_types?: Array<string>;
@@ -869,8 +869,8 @@ export interface SubscribeApiAppEventResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 从 apihub 同步最新的 openapi 定义与接口描述
- apihub 地址:  */
+/** Sync the latest OpenAPI definitions and interface descriptions from apihub
+ ApiHub Address:  */
 export interface SyncFromApiHubReq {
   raw_body?: Blob;
   Base?: base.Base;
@@ -880,7 +880,7 @@ export interface SyncFromApiHubResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 取消订阅 */
+/** unsubscribe */
 export interface UnsubscribeApiAppEventOpenReq {
   api_app_id?: string;
   event_types?: Array<string>;
@@ -903,7 +903,7 @@ export interface UnsubscribeApiAppEventResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 更新回调应用 */
+/** Update callback app */
 export interface UpdateApiAppOpenReq {
   api_app_id?: string;
   name?: string;
@@ -928,18 +928,18 @@ export interface UpdateApiAppResp {
   BaseResp?: base.BaseResp;
 }
 
-/** 更新限流规则 */
+/** Update rules of limited viewership */
 export interface UpdateRateLimitReq {
   id: Int64;
-  /** 间隔时间 单位s */
+  /** Interval time, unit s */
   duration?: number;
-  /** 限制次数 */
+  /** limit the number of times */
   limit_count?: number;
-  /** 生效的时间戳（秒） */
+  /** Effective timestamp (seconds) */
   valid_time_start_unix?: Int64;
-  /** 失效的时间戳（秒） */
+  /** Invalid timestamp (seconds) */
   valid_time_end_unix?: Int64;
-  /** 校验 source 是否一致，不一致就报错 */
+  /** Check whether the source is consistent, and report an error if it is inconsistent */
   source: string;
   Base?: base.Base;
 }
@@ -950,14 +950,14 @@ export interface UpdateRateLimitResp {
 
 export interface UserBenefitDetail {
   VolcAccountID?: Int64;
-  /** 对应 " 包中 UserLevel */
+  /** Corresponding to "UserLevel in Package" */
   UserLevel?: Int64;
-  /** 对应 " 包中 InstanceStatus */
+  /** Corresponding to "InstanceStatus in Package" */
   InstanceStatus?: Int64;
 }
 
 export interface VolcResPushEvent {
-  /** 1: header.EventHeader EventHeader   , // 必选字段，且序号固定为 1 todo */
+  /** 1: header. EventHeader EventHeader,//required field, and the serial number is fixed to 1 todo */he serial number is fixed to 1 todo */
   OldUserBenefit?: UserBenefitDetail;
   NewUserBenefit?: UserBenefitDetail;
 }

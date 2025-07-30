@@ -59,7 +59,7 @@ export enum VariableChannel {
   System = 2,
   Location = 3,
   Feishu = 4,
-  /** 项目变量 */
+  /** project variable */
   APP = 5,
 }
 
@@ -117,9 +117,9 @@ export interface GroupVariableInfo {
 }
 
 export interface ResourceIdentifier {
-  /** 资源类型 */
+  /** resource type */
   Type: ResourceType;
-  /** 资源Id */
+  /** Resource Id */
   Id: string;
 }
 
@@ -143,9 +143,9 @@ export interface Variable {
   Channel?: VariableChannel;
   Description?: string;
   Enable?: boolean;
-  /** 生效渠道 */
+  /** effective channel */
   EffectiveChannelList?: Array<string>;
-  /** 新老数据都会有schema，除项目变量外其他默认为string */
+  /** New and old data will have schemas, except for project variables, the default is string. */
   Schema?: string;
   IsReadOnly?: boolean;
 }

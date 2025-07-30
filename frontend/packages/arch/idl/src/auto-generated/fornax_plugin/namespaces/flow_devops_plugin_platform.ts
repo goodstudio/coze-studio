@@ -41,7 +41,7 @@ export interface ListPluginRequest {
 }
 
 export interface ListPluginResponse {
-  /** map key为plugin id, value为该plugin的具体的tool的元信息列表 */
+  /** The map key is the plugin id, and the value is the meta information list of the specific tool of the plugin. */
   tools?: Record<Int64, Array<tool.Tool>>;
   plugins?: Array<tool.Plugin>;
   base_resp?: base.BaseResp;

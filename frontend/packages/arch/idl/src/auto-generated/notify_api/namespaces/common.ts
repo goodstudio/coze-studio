@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** 通知渠道 */
+/** notification channel */
 export enum ChannelType {
   SMS = 1,
   Email = 2,
@@ -29,79 +29,79 @@ export enum ChannelType {
   HomeBot = 4,
 }
 
-/** 通知场景 */
+/** notification scenario */
 export enum NotifyScene {
-  /** 审核通过 (插件或者Bot等通过 params 参数注入)  params 需要 check 下 是否有模板必须字段 */
+  /** The review is passed (plugin or Bot, etc. are injected through the params parameter) params need to check whether there are template required fields */
   ProductAuditSuccess = 1,
-  /** 审核未通过 (插件或者Bot等通过 params 参数注入) */
+  /** Review disapproved (plugins or Bot, etc. are injected through the params parameter) */
   ProductAuditFailed = 2,
-  /** 商品下架，给Owner发送通知 (插件或者Bot等通过 params 参数注入) */
+  /** The product is removed from the shelves and a notification is sent to the Owner (plugins or Bots, etc. are injected through the params parameter) */
   ProductOfflineOwner = 3,
-  /** 商品下架，给使用者发送通知 */
+  /** The product is removed from the shelves and a notification is sent to the user. */
   ProductOfflineUser = 4,
-  /** 开发者认证 */
+  /** developer certification */
   DeveloperCertification = 5,
-  /** 自动充值成功 */
+  /** Automatic recharge successful */
   TokenAutoChargeSuccess = 6,
-  /** 自动充值失败 */
+  /** Automatic recharge failed. */
   TokenAutoChargeFailed = 7,
-  /** 互动通知 */
+  /** interactive notification */
   InteractionDailyNotify = 8,
-  /** 用户信息审核通过 */
+  /** User information is approved */
   UserInfoAuditSuccess = 9,
-  /** 用户信息审核不通过 */
+  /** The user information review failed. */
   UserInfoAuditFailed = 10,
-  /** 单个用户关注了"我" */
+  /** A single user is following "me." */
   InteractionFollowSingle = 11,
-  /** 多个用户关注了"我" */
+  /** Multiple users have followed "me." */
   InteractionFollowMulti = 12,
-  /** 关注的单个用户有bot更新 */
+  /** Individual users of concern have bot updates */
   InteractionBotUpdateSingle = 13,
-  /** 关注的多个用户有bot更新 */
+  /** Multiple users you follow have bot updates */
   InteractionBotUpdateMulti = 14,
-  /** 发票待申请 */
+  /** Invoice pending application */
   TradeInvoiceWaitApply = 15,
-  /** 发票可下载 */
+  /** Invoices can be downloaded. */
   TradeInvoiceApplyReady = 16,
-  /** Premium购买失败 */
+  /** Premium purchase failed */
   PremiumPurchasePayFailed = 17,
-  /** Premium续费支付失败 */
+  /** Premium renewal payment failure */
   PremiumRenewalPayFailed = 18,
-  /** 拒付通知 */
+  /** Charge Notice */
   TradeChargeback = 19,
-  /** 举报处理完成，通知举报人 */
+  /** The report is processed and the whistleblower is notified. */
   ReportProcessedToWhistleblower = 20,
-  /** 举报处理完成，通知帖子的作者 */
+  /** The report processing is completed, and the author of the post is notified. */
   ReportProcessedToPostOwner = 21,
-  /** 举报处理完成，通知评论的作者 */
+  /** The report processing is completed, and the author of the comment is notified. */
   ReportProcessedToCommentOwner = 22,
-  /** 举报处理完成，通知商品的作者 */
+  /** The report processing is completed, and the author of the product is notified. */
   ReportProcessedToProductOwner = 23,
 }
 
-/** 异步通知任务状态 */
+/** Asynchronous notification of task status */
 export enum NotifyTaskStatus {
   Waiting = 0,
   InProcess = 1,
   Finish = 2,
 }
 
-/** 票据验证状态 */
+/** ticket verification status */
 export enum TicketCheckStatus {
   TicketCorrect = 0,
   TicketError = 1,
   TicketExpiry = 2,
 }
 
-/** 验证码状态 */
+/** CAPTCHA Status */
 export enum VerifyStatus {
   Correct = 0,
   Error = 1,
   Expiry = 2,
 }
 
-/** channelType 是邮件的时候，可以传UserID或者EmailAddress
- channelType 是SMS的时候，可以传UserID或者MobileNumber */
+/** When channelType is an email, you can send UserID or EmailAddress.
+ When channelType is SMS, you can send UserID or MobileNumber. */
 export interface NotifyTarget {
   UserID?: Int64;
   EmailAddress?: string;
@@ -111,15 +111,15 @@ export interface NotifyTarget {
 
 export interface NotifyTask {
   NotifyTaskID?: string;
-  /** 通知渠道 */
+  /** notification channel */
   ChannelType?: ChannelType;
-  /** 当前任务状态 */
+  /** current task status */
   Status?: NotifyTaskStatus;
-  /** 通知成功的目标 */
+  /** Notify successful targets */
   Success?: Array<NotifyTarget>;
-  /** 通知失败的目标 */
+  /** Notify failed targets */
   Failed?: Array<NotifyTarget>;
-  /** 等待通知的目标 */
+  /** Target waiting for notification */
   InProcess?: Array<NotifyTarget>;
 }
 /* eslint-enable */

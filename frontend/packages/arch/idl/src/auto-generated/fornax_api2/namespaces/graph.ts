@@ -55,19 +55,19 @@ export interface Graph {
   id?: string;
   uid?: string;
   name?: string;
-  /** 空间 ID */
+  /** Space ID */
   spaceID?: string;
-  /** 应用 ID */
+  /** App ID */
   appID?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 创建人 */
+  /** founder */
   createdBy?: string;
-  /** 创建时间 */
+  /** creation time */
   createdAt?: Int64;
-  /** 更新人 */
+  /** Update Person */
   updatedBy?: string;
-  /** 更新时间 */
+  /** update time */
   updatedAt?: Int64;
 }
 
@@ -80,11 +80,11 @@ export interface NodeTemplate {
 export interface SlotSet {
   id: string;
   graphID: string;
-  /** slotSet 版本号 */
+  /** slotSet version number */
   version: string;
-  /** 版本描述 */
+  /** version description */
   versionMessage?: string;
-  /** TODO: 暂不包含 slot 相关字段 */
+  /** TODO: does not include slot related fields */
   createdBy?: string;
   createdAt?: string;
 }
@@ -98,15 +98,15 @@ export interface TypeDescriptor {
 }
 
 export interface ValueConstraint {
-  /** [1,10]: 多类型适用
+  /** [1, 10]: Applicable to multiple types
 works for string, array, map types */
   maxLength?: Int64;
-  /** [11,20] integer 适用 */
+  /** [11, 20] integer applies */
   intGT?: Int64;
   intGTE?: Int64;
   intLT?: Int64;
   intLTE?: Int64;
-  /** [21,30] double 适用 */
+  /** [21, 30] double applies */
   doubleGT?: number;
   doubleGTE?: number;
   doubleLT?: number;

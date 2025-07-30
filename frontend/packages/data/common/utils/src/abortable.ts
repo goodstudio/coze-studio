@@ -35,7 +35,7 @@ export function useUnmountSignal() {
   return controllerRef.current.signal;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any -- 得是 any
+// eslint-disable-next-line @typescript-eslint/no-exploration-any -- must be any
 export function abortable<T extends (...args: any[]) => any | Promise<any>>(
   func: T,
   abortSignal: AbortSignal,

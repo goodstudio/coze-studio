@@ -22,16 +22,16 @@
 export type Int64 = string | number;
 
 export enum AnnotateType {
-  /** GSB评估规则场景, 仅包含badcase */
+  /** GSB evaluation rule scenarios, including only badcases */
   BadCase = 1,
 }
 
-/** 主体类型 */
+/** subject type */
 export enum AuthPrincipalType {
   Undefined = 0,
-  /** 用户 */
+  /** user */
   User = 1,
-  /** 部门 */
+  /** department */
   Department = 2,
 }
 
@@ -43,11 +43,11 @@ export enum ComboType {
 
 export enum CompareType {
   Undefined = 0,
-  /** SP 比较 */
+  /** SP comparison */
   SystemPromptCmp = 1,
-  /** 模型比较 */
+  /** model comparison */
   ModelCmp = 2,
-  /** 自由比较 */
+  /** free comparison */
   SelfCmp = 3,
 }
 
@@ -74,9 +74,9 @@ export enum Env {
 
 export enum EvalStrategyStrategyEnum {
   Undefined = 0,
-  /** 一期仅支持AIPaas GSB */
+  /** The first phase only supports AIPaas GSB. */
   AIPassGSB = 1,
-  /** 二期迁移Fornax */
+  /** Phase 2 migration to Fornax */
   FornaxEval = 2,
 }
 
@@ -88,9 +88,9 @@ export enum GrayReleaseFieldType {
 }
 
 export enum GrayReleaseStrategy {
-  /** 不开启灰度 */
+  /** Do not turn on grey release */
   None = 0,
-  /** 实例灰度 */
+  /** Instance grey release */
   InstanceGrayRelease = 1,
 }
 
@@ -109,26 +109,26 @@ export enum MessageType {
   Placeholder = 20,
 }
 
-/** 模型系列，特别指不同模型接入商 */
+/** Model family, especially for different model access providers */
 export enum ModelClass {
   Undefined = 0,
   /** gpt */
   GPT = 1,
-  /** 字节 */
+  /** Byte */
   SEED = 2,
   /** google */
   Gemini = 3,
-  /** 亚马逊 */
+  /** Amazon */
   Claude = 4,
-  /** 文心一言 */
+  /** ERNIE Bot */
   Ernie = 5,
-  /** 百川 */
+  /** baichuan */
   Baichuan = 6,
-  /** 阿里 */
+  /** Ali */
   Qwen = 7,
-  /** 智谱 */
+  /** Zhipu */
   GML = 8,
-  /** 深度求索 */
+  /** deep search */
   DeepSeek = 9,
 }
 
@@ -169,131 +169,131 @@ export enum OrderField {
   LastedPublishTime = 2,
 }
 
-/** Prompt 加密类型 */
+/** Prompt encryption type */
 export enum PromptEncryptOption {
   Undefined = 0,
-  /** 加密且返回明文 */
+  /** Encrypt and return plaintext */
   EncryptWithPlainText = 1,
-  /** 加密且不返回明文 */
+  /** Encrypt and do not return plaintext */
   EncryptWithoutPlainText = 2,
 }
 
-/** 提示词类型 */
+/** Cue word type */
 export enum PromptType {
   Undefined = 0,
-  /** 补全模式 */
+  /** Completion Mode */
   Completion = 1,
-  /** 聊天模式 */
+  /** chat mode */
   Chat = 2,
-  /** 补全模式V2 */
+  /** Completion Mode V2 */
   Completion_V2 = 3,
-  /** Prompt片段 */
+  /** Prompt fragment */
   Segment = 4,
 }
 
-/** 发布状态 */
+/** release status */
 export enum PublishStatus {
   Undefined = 0,
-  /** 未发布 */
+  /** unpublished */
   UnPublish = 1,
-  /** 已发布 */
+  /** Published */
   Published = 2,
 }
 
 export enum ReleaseStatus {
   Undefined = 0,
-  /** 在线 */
+  /** online */
   Online = 1,
-  /** 下线 */
+  /** go offline */
   Offline = 2,
-  /** 灰度中(废弃) */
+  /** Grey release (abandoned) */
   InGray = 3,
-  /** 小流量 */
+  /** small traffic */
   Canary = 4,
-  /** 单机房 */
+  /** single computer room */
   SingleDC = 5,
 }
 
 export enum ReleaseSubtaskStatus {
-  /** 未开始 */
+  /** Not started */
   PendingStart = 1,
-  /** 进行中 */
+  /** in progress */
   InProgress = 2,
-  /** 执行成功待确认 */
+  /** Successful execution to be confirmed */
   ExecuteSuccess = 3,
-  /** 待审批 */
+  /** pending approval */
   PendingApproval = 4,
-  /** 审批通过 */
+  /** approved */
   ApprovalPassed = 5,
-  /** 审批驳回 */
+  /** approval rejected */
   ApprovalRejected = 6,
-  /** 已完成 */
+  /** Completed. */
   Finished = 7,
-  /** 失败 */
+  /** fail */
   Failed = 8,
-  /** 已跳过 */
+  /** Skipped */
   Skipped = 9,
-  /** 已回滚 */
+  /** Rolled back */
   Rollbacked = 10,
-  /** 已取消 */
+  /** Cancelled */
   Canceled = 11,
 }
 
 export enum ReleaseTaskStatus {
-  /** 未开始 */
+  /** Not started */
   PendingStart = 1,
-  /** 进行中 */
+  /** in progress */
   Inprogress = 2,
-  /** 待审批 */
+  /** pending approval */
   PendingApproval = 3,
-  /** 审批通过 */
+  /** approved */
   ApprovalPass = 4,
-  /** 审批驳回 */
+  /** approval rejected */
   ApprovalRejected = 5,
-  /** 灰度发布中 */
+  /** Grey release */
   GrayReleasing = 6,
-  /** 发布完成 */
+  /** release complete */
   Finished = 7,
-  /** 已取消 */
+  /** Cancelled */
   Canceled = 8,
-  /** 已回滚 */
+  /** Rolled back */
   Rollbacked = 9,
 }
 
 export enum ReleaseType {
   Undefined = 0,
-  /** 发布 */
+  /** publish */
   Release = 1,
-  /** 回滚 */
+  /** Rollback */
   RollBack = 2,
-  /** 下线 */
+  /** go offline */
   Offline = 3,
-  /** 灰度发布(废弃) */
+  /** Grey release (scrap) */
   GrayRelease = 4,
-  /** 灰度取消（废弃） */
+  /** Grey release cancelled (abandoned) */
   GrayCancel = 5,
-  /** 小流量发布 */
+  /** canary */
   CanaryRelease = 6,
-  /** 单机房发布 */
+  /** Single room release */
   SingleDCRelease = 7,
 }
 
 export enum ReplyType {
-  /** 最终结果 */
+  /** Final result */
   ReplyTypeFinalAnswer = 0,
-  /** 工具调用 */
+  /** tool call */
   ReplyTypeToolCall = 1,
 }
 
 export enum ReportEventType {
   Undefined = 0,
-  /** 调试官方 Prompt */
+  /** Debugging the Official Prompt */
   DebugOfficialPrompt = 1,
-  /** 采用官方 Prompt */
+  /** Adopt the Official Prompt */
   AdoptOfficialPrompt = 2,
 }
 
-/** 资源类型 */
+/** resource type */
 export enum ResourceType {
   Undefined = 0,
   Space = 1,
@@ -304,7 +304,7 @@ export enum ResourceType {
   Agent = 6,
 }
 
-/** 密级标签 */
+/** secret label */
 export enum SecurityLevel {
   Undefined = 0,
   L1 = 1,
@@ -313,41 +313,41 @@ export enum SecurityLevel {
   L4 = 4,
 }
 
-/** 空间角色类型 */
+/** Spatial character type */
 export enum SpaceRoleType {
   Undefined = 0,
-  /** 负责人 */
+  /** person in charge */
   Owner = 1,
-  /** 开发者 */
+  /** developer */
   Developer = 2,
-  /** 测试人员 */
+  /** tester */
   Tester = 3,
 }
 
-/** 空间类型 */
+/** space type */
 export enum SpaceType {
   Undefined = 0,
   Personal = 1,
   Team = 2,
-  /** 官方空间 */
+  /** official space */
   Official = 3,
 }
 
 export enum StreamState {
-  /** 非流式 */
+  /** non-streaming */
   StreamStateNone = 1,
-  /** 流式传输开始（首包） */
+  /** Streaming starts (first packet) */
   StreamStateBegin = 2,
-  /** 流式传输中 */
+  /** streaming */
   StreamStateStreaming = 3,
-  /** 流失传输结束（尾包） */
+  /** End of churn transfer (tail packet) */
   StreamStateEnd = 4,
 }
 
 export enum TenantType {
-  /** 字节 */
+  /** Byte */
   ByteDance = 0,
-  /** 懂车帝 */
+  /** Dcar */
   Dcar = 1,
 }
 
@@ -364,27 +364,27 @@ export enum ToolType {
 }
 
 export enum TriggerOperation {
-  /** 开始 */
+  /** start */
   Start = 1,
-  /** 审批通过 */
+  /** approved */
   ApprovalPass = 2,
-  /** 审批驳回 */
+  /** approval rejected */
   ApprovalReject = 3,
-  /** 完成 */
+  /** complete */
   Finish = 4,
-  /** 重试 */
+  /** Retry */
   Retry = 5,
-  /** 跳过 */
+  /** skip */
   Skip = 6,
-  /** 下一步(目前自动触发，不需要前端触发) */
+  /** Next step (currently automatically triggered, no front-end trigger is required) */
   Next = 7,
 }
 
-/** 变量类型 */
+/** Variable type */
 export enum VariableType {
   Undefined = 0,
   String = 1,
-  /** 废弃，使用Number 不分区整数和浮点数 */
+  /** Deprecated, using Number does not partition integers and floating-point numbers */
   Integer = 2,
   Boolean = 3,
   Number = 4,

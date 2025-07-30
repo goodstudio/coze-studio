@@ -38,7 +38,7 @@ export enum APIMethod {
   PATCH = 5,
 }
 
-/** 针对File类型参数的细分类型 */
+/** Subdivision types for File type parameters */
 export enum AssistParameterType {
   DEFAULT = 1,
   IMAGE = 2,
@@ -50,18 +50,18 @@ export enum AssistParameterType {
   AUDIO = 8,
   ZIP = 9,
   VIDEO = 10,
-  /** 语音 */
+  /** voice */
   VOICE = 12,
 }
 
 export enum AsyncTaskExecuteStatus {
-  /** 未知状态 */
+  /** unknown state */
   Unknown = 0,
-  /** 执行中 */
+  /** in progress */
   Executing = 1,
-  /** 执行成功 */
+  /** successful execution */
   ExecuteSucceed = 2,
-  /** 执行失败 */
+  /** execution failed */
   ExecuteFailed = 3,
 }
 
@@ -86,11 +86,11 @@ export enum AuthorizationType {
 }
 
 export enum CardAuditStatus {
-  /** 审核不通过(原因见详情) */
+  /** The review failed (see details for the reasons). */
   Rejected = -1,
-  /** 审核通过 */
+  /** approved */
   Approved = 1,
-  /** 待审核 */
+  /** pending review */
   Pending = 100,
 }
 
@@ -110,13 +110,13 @@ export enum CardCategory {
 }
 
 export enum CardDisplayType {
-  /** 基础 */
+  /** foundation */
   Basic = 1,
-  /** 竖向列表 */
+  /** vertical list */
   List = 2,
-  /** 自定义卡片 */
+  /** custom card */
   Custom = 3,
-  /** 横向列表 */
+  /** horizontal list */
   Slide = 4,
 }
 
@@ -138,25 +138,25 @@ export enum DebugExampleStatus {
 }
 
 export enum DebugOperation {
-  /** 调试，会保存调试状态，会校验返回值 */
+  /** Debugging, the debugging state will be saved, and the return value will be checked. */
   Debug = 1,
-  /** 仅解析返回值结构 */
+  /** Parse only the return value structure */
   Parse = 2,
 }
 
-/** 默认入参的设置来源 */
+/** Default imported parameter settings source */
 export enum DefaultParamSource {
-  /** 默认用户输入 */
+  /** default user input */
   Input = 0,
-  /** 引用变量 */
+  /** reference variable */
   Variable = 1,
 }
 
 export enum FeedbackType {
   Unknown = 0,
-  /** 未找到需要的插件 */
+  /** The required plugin was not found */
   NotFoundPlugin = 1,
-  /** 官方插件反馈 */
+  /** Official plugin feedback */
   OfficialPlugin = 2,
 }
 
@@ -178,11 +178,11 @@ export enum InstallStatus {
   USING = 1,
   REMOVE = 2,
   OFFLINE = 3,
-  /** 查询不传，展示用 */
+  /** Inquiry is not passed on, for display */
   NOTINSTALL = 4,
 }
 
-/** 授权状态 */
+/** authorization status */
 export enum OAuthStatus {
   Authorized = 1,
   Unauthorized = 2,
@@ -218,9 +218,9 @@ export enum ParameterType {
 
 export enum PluginCardStatus {
   Latest = 1,
-  /** 主卡片版本有升级 */
+  /** The main card version has been upgraded. */
   NeedUpdate = 2,
-  /** 插件工具出参不匹配 */
+  /** Plugin tool exported parameters do not match */
   ParamMisMatch = 3,
 }
 
@@ -238,15 +238,15 @@ export enum PluginDataFormat {
 }
 
 export enum PluginListPluginType {
-  /** 不存在workflow */
+  /** No workflow */
   ExceptWorkflow = 0,
   Workflow = 1,
   API = 2,
-  /** 仅team内plugin */
+  /** In-team plugins only */
   SpaceAPI = 3,
 }
 
-/** plugin枚举值 */
+/** plugin enumeration value */
 export enum PluginParamTypeFormat {
   FileUrl = 0,
   ImageUrl = 1,
@@ -261,20 +261,20 @@ export enum PluginParamTypeFormat {
 }
 
 export enum PluginPricingCalculationType {
-  /** 按次数 */
+  /** by number of times */
   ByTimes = 1,
-  /** 按基本单位 (例如token) */
+  /** By base unit (e.g. token) */
   ByUnit = 2,
-  /** 无限制 */
+  /** Unlimited */
   Unlimited = 3,
 }
 
 export enum PluginPricingStrategy {
-  /** 免费 */
+  /** free */
   Free = 0,
-  /** 用量制 */
+  /** dosage system */
   Quantity = 1,
-  /** 订阅制 */
+  /** subscription system */
   Subscribe = 2,
 }
 
@@ -291,23 +291,23 @@ export enum PluginReferrerScene {
 }
 
 export enum PluginStatus {
-  /** 默认值 */
+  /** default value */
   Draft = 0,
   SUBMITTED = 1,
   REVIEWING = 2,
   PREPARED = 3,
   PUBLISHED = 4,
   OFFLINE = 5,
-  /** 禁用 */
+  /** disable */
   BANNED = 6,
 }
 
 export enum PluginToolAuthType {
-  /** 强授权 */
+  /** strong authorization */
   Required = 0,
-  /** 半匿名授权 */
+  /** semi-anonymous authorization */
   Supported = 1,
-  /** 不授权 */
+  /** not authorized */
   Disable = 2,
 }
 
@@ -321,23 +321,23 @@ export enum PluginType {
 }
 
 export enum PluginTypeForFilter {
-  /** 包含PLUGIN和APP */
+  /** Includes PLUGIN and APP. */
   CloudPlugin = 1,
-  /** 包含LOCAL */
+  /** Include LOCAL */
   LocalPlugin = 2,
-  /** 包含WORKFLOW和IMAGEFLOW */
+  /** Includes WORKFLOW and IMAGEFLOW */
   WorkflowPlugin = 3,
 }
 
 export enum PricingCurrencyType {
-  /** 计价的货币类型 */
+  /** Type of currency quoted */
   USD = 0,
   CNY = 1,
 }
 
-/** Begin 插件计费信息 */
+/** Begin plugin billing information */
 export enum PricingInterval {
-  /** 计价的时间周期 */
+  /** Time period of pricing */
   Second = 1,
   Minute = 2,
   Hour = 3,
@@ -348,13 +348,13 @@ export enum PricingInterval {
 
 export enum ProductDraftStatus {
   Default = 0,
-  /** 审核中 */
+  /** Under review. */
   Pending = 1,
-  /** 审核通过 */
+  /** approved */
   Approved = 2,
-  /** 审核不通过 */
+  /** The review failed. */
   Rejected = 3,
-  /** 审核已废弃 */
+  /** moderation is deprecated */
   Abandoned = 4,
 }
 
@@ -391,9 +391,9 @@ export enum RunMode {
 }
 
 export enum ScopeType {
-  /** 所有 */
+  /** all */
   All = 0,
-  /** 自己 */
+  /** himself */
   Self = 1,
 }
 
@@ -404,68 +404,68 @@ export enum ServiceAuthSubType {
 }
 
 export enum SpaceRoleType {
-  /** 默认 */
+  /** default */
   Default = 0,
   /** owner */
   Owner = 1,
-  /** 管理员 */
+  /** administrator */
   Admin = 2,
-  /** 普通成员 */
+  /** ordinary member */
   Member = 3,
 }
 
 export enum TriggerEventType {
-  /** 定时触发 */
+  /** Timed trigger */
   Time = 1,
-  /** 事件触发 */
+  /** event trigger */
   Webhook = 2,
 }
 
 export enum TriggerExecStatus {
-  /** 未执行过 */
+  /** Not implemented */
   Default = 0,
-  /** 执行成功 */
+  /** successful execution */
   Succeed = 1,
-  /** 执行失败 */
+  /** execution failed */
   Failed = 2,
 }
 
 export enum TriggerTaskType {
-  /** 预设任务 */
+  /** preset task */
   PresetTask = 1,
-  /** 用户任务 */
+  /** user task */
   UserTask = 2,
 }
 
 export enum WorkflowResponseMode {
-  /** 模型总结 */
+  /** model summary */
   UseLLM = 0,
-  /** 不使用模型总结 */
+  /** Do not use model summaries */
   SkipLLM = 1,
 }
 
 export interface AgentTaskExecInfo {
   /** task id */
   task_id?: string;
-  /** 触发id */
+  /** Trigger ID */
   serial_id?: string;
-  /** 任务类型 */
+  /** task type */
   task_type?: TriggerTaskType;
-  /** 事件类型 */
+  /** event type */
   event_type?: TriggerEventType;
-  /** agent版本 */
+  /** Agent version */
   bot_version?: string;
-  /** 用户id，仅用户触发器有 */
+  /** User ID, only user triggers have */
   trigger_user_id?: string;
-  /** 渠道 */
+  /** channel */
   connector_id?: string;
-  /** 执行结果 true为成功 */
+  /** The execution result is true as success */
   exec_status?: TriggerExecStatus;
-  /** 下次运行时间，秒级时间戳 */
+  /** Next run time, second timestamp */
   next_exec_duration?: number;
-  /** 生效状态，true为生效 */
+  /** Effective status, true is effective */
   valid_status?: boolean;
-  /** 配置 */
+  /** configuration */
   config?: string;
 }
 
@@ -474,30 +474,30 @@ export interface AgentTaskInfo {
   id?: string;
   /** task name */
   task_name?: string;
-  /** 任务类型 */
+  /** task type */
   task_type?: TriggerTaskType;
-  /** 任务触发类型 */
+  /** Task trigger type */
   event_type?: TriggerEventType;
-  /** 任务配置 */
+  /** task configuration */
   config?: string;
-  /** 已发布渠道，agent仅支持飞书 */
+  /** Published channel, agent only supports Feishu. */
   connector_ids?: Array<string>;
-  /** 渠道 */
+  /** channel */
   connector_id?: string;
-  /** 执行结果 true为成功 */
+  /** The execution result is true as success */
   exec_status?: TriggerExecStatus;
-  /** 下次运行时间，秒级时间戳 */
+  /** Next run time, second timestamp */
   next_exec_duration?: number;
-  /** 生效状态，true为生效 */
+  /** Effective status, true is effective */
   valid_status?: boolean;
-  /** agent版本 */
+  /** Agent version */
   bot_version?: string;
-  /** 用户id，仅用户触发器有 */
+  /** User ID, only user triggers have */
   trigger_user_id?: string;
 }
 
 export interface APIExtend {
-  /** tool维度授权类型 */
+  /** Tool dimension authorization type */
   auth_mode?: PluginToolAuthType;
 }
 
@@ -514,7 +514,7 @@ export interface APIListOrder {
 }
 
 export interface APIParameter {
-  /** for前端，无实际意义 */
+  /** For the front end, no practical significance */
   id?: string;
   name?: string;
   desc?: string;
@@ -527,9 +527,9 @@ export interface APIParameter {
   global_disable?: boolean;
   local_default?: string;
   local_disable?: boolean;
-  /** 默认入参的设置来源 */
+  /** Default imported parameter settings source */
   default_param_source?: DefaultParamSource;
-  /** 引用variable的key */
+  /** Reference variable key */
   variable_ref?: string;
   assist_type?: AssistParameterType;
 }
@@ -541,30 +541,30 @@ export interface APIStruct {
 }
 
 export interface AsyncConfig {
-  /** 插件id或workflow id */
+  /** Plugin id or workflow id */
   plugin_id?: string;
-  /** 插件tool名称 */
+  /** Plugin tool name */
   api_name?: string;
-  /** 开关状态 */
+  /** switch state */
   switch_status?: boolean;
-  /** 异步插件运行时的提示信息，最大1000个字符 */
+  /** Prompt message when the asynchronous plug-in is running, maximum 1000 characters */
   message?: string;
 }
 
 export interface AsyncPluginTask {
   /** task id */
   task_id?: string;
-  /** 任务名称 */
+  /** task name */
   task_name?: string;
-  /** 任务类型 插件｜工作流｜图像流 */
+  /** Task Type, Plugins | Workflow | Image Flow */
   task_type?: PluginType;
-  /** 用户提问 */
+  /** user questions */
   query_msg?: string;
-  /** 任务状态 */
+  /** task status */
   task_status?: AsyncTaskExecuteStatus;
-  /** 创建时间 */
+  /** creation time */
   create_time?: Int64;
-  /** 插件头像url */
+  /** Plugin avatar url */
   plugin_icon?: string;
 }
 
@@ -589,11 +589,11 @@ export interface CardBusinessInfo {
 }
 
 export interface CheckAndLockPluginEditData {
-  /** 是否已被占用 */
+  /** Is it occupied? */
   Occupied?: boolean;
-  /** 如果已经被占用了，返回用户ID */
+  /** If it is already occupied, return the user ID. */
   user?: Creator;
-  /** 是否强占成功 */
+  /** Was it successful? */
   Seized?: boolean;
 }
 
@@ -644,16 +644,16 @@ export interface Creator {
   id?: string;
   name?: string;
   avatar_url?: string;
-  /** 是否是自己创建的 */
+  /** Did you create it yourself? */
   self?: boolean;
   space_roly_type?: SpaceRoleType;
-  /** 用户名 */
+  /** user name */
   user_unique_name?: string;
-  /** 用户标签 */
+  /** user tag */
   user_label?: UserLabel;
 }
 
-/** --依赖卡片实体-- */
+/** -- Depends on the card entity -- */
 export interface DebugExample {
   req_example?: string;
   resp_example?: string;
@@ -716,15 +716,15 @@ export interface PluginApi {
   parameters?: Array<PluginParameter>;
   plugin_id?: string;
   plugin_name?: string;
-  /** 序号和playground保持一致 */
+  /** The serial number is the same as the playground */
   api_id?: string;
   record_id?: string;
-  /** 卡片绑定信息，未绑定则为nil */
+  /** Card binding information, nil if not bound. */
   card_binding_info?: PresetCardBindingInfo;
-  /** 调试api示例 */
+  /** Debug API example */
   debug_example?: DebugExample;
   function_name?: string;
-  /** 运行模式 */
+  /** operating mode */
   run_mode?: RunMode;
 }
 
@@ -741,14 +741,14 @@ export interface PluginAPIInfo {
   debug_status?: APIDebugStatus;
   disabled?: boolean;
   statistic_data?: PluginStatisticData;
-  /** ide创建插件展示tool的在线状态 */
+  /** IDE Creation plugin shows the online status of the tool */
   online_status?: OnlineStatus;
   api_extend?: APIExtend;
-  /** 卡片绑定信息，未绑定则为nil */
+  /** Card binding information, nil if not bound. */
   card_binding_info?: PresetCardBindingInfo;
-  /** 调试示例 */
+  /** Debugging example */
   debug_example?: DebugExample;
-  /** 调试示例状态 */
+  /** Debug sample state */
   debug_example_status?: DebugExampleStatus;
   function_name?: string;
 }
@@ -769,12 +769,12 @@ export interface PluginCardResp {
   response_type?: string;
   setting_response?: string;
   dsl_content?: string;
-  /** 卡片数据-模型的总结模式
-0-未设置，线上原逻辑
-1-默认大模型结合剪裁内容做总结
-2-线上原逻辑 */
+  /** Card Data - Model Summary Schema
+0-Not set, online original logic
+1-The default large model is summarized in combination with the tailoring content
+2- Online original logic */
   card_summary_mode?: string;
-  /** 展示在卡片中的结构化数据 */
+  /** Structured data displayed in cards */
   info_in_card?: string;
 }
 
@@ -794,7 +794,7 @@ export interface PluginChangelogRecord {
 
 export interface PluginCurrentInfoItemInfo {
   item_id?: string;
-  /** 1. source_code 类型 2. input 类型 3. api yaml 类型 */
+  /** 1. source_code type 2. input type 3. api yaml type */
   item_type?: PluginCurrentInfoItemType;
   content?: string;
 }
@@ -815,7 +815,7 @@ export interface PluginInfo {
   status?: PluginStatus;
   /** json */
   plugin_desc?: string;
-  /** yaml,openapi插件不返回 */
+  /** Yaml, openapi plugin does not return */
   openapi_desc?: string;
   auth?: number;
   client_id?: string;
@@ -826,32 +826,32 @@ export interface PluginInfo {
   ClientUrl?: string;
   Scope?: string;
   RedirectUri?: string;
-  /** 查询用户和插件关系时返回
-用户安装状态 */
+  /** Returns when querying user and plug-in relationships
+user installation status */
   InstallStatus?: InstallStatus;
-  /** 用户id，用户查询安装/未安装列表时选择 */
+  /** User ID, selected when the user queries the installed/uninstalled list */
   UserID?: Int64;
   WorkFlowId?: string;
-  /** 插件包含的api名称，所有类型的插件都支持 */
+  /** The name of the API included in the plugin is supported by all types of plugins */
   api_names?: Array<string>;
-  /** 创建人信息 */
+  /** creator information */
   creator?: Creator;
-  /** 发布状态 */
+  /** release status */
   publish_status?: boolean;
   space_id?: string;
-  /** 插件统计数据 */
+  /** plugin statistics */
   statistic_data?: PluginStatisticData;
-  /** 公共参数列表 */
+  /** public parameter list */
   common_params?: Partial<Record<ParameterLocation, Array<commonParamSchema>>>;
-  /** plugin的商品上下架状态 */
+  /** The plugin's product listing status */
   plugin_product_list_status?: ProductStatus;
-  /** plugin的商品状态(组合状态)(已废弃) */
+  /** Product status of the plugin (combined status) (deprecated) */
   plugin_product_status?: PluginProductStatus;
-  /** 插件创建方式 */
+  /** Plugin creation method */
   creation_method?: CreationMethod;
-  /** plugin的商品审核状态 */
+  /** Product review status of the plugin */
   plugin_product_draft_status?: ProductDraftStatus;
-  /** 当前用户是否可以删除插件 */
+  /** Can the current user delete the plugin? */
   cur_user_can_del?: boolean;
 }
 
@@ -868,34 +868,34 @@ export interface PluginInfoForPlayground {
   client_id?: string;
   client_secret?: string;
   plugin_apis?: Array<PluginApi>;
-  /** 插件标签 */
+  /** plugin tag */
   tag?: Int64;
   create_time?: string;
   update_time?: string;
-  /** 创建人信息 */
+  /** creator information */
   creator?: Creator;
-  /** 空间id */
+  /** Space ID */
   space_id?: string;
-  /** 插件统计数据 */
+  /** plugin statistics */
   statistic_data?: PluginStatisticData;
   common_params?: Partial<Record<ParameterLocation, Array<commonParamSchema>>>;
-  /** plugin的商品状态 */
+  /** Product status of the plugin */
   plugin_product_status?: ProductStatus;
-  /** plugin商品下架类型 */
+  /** Plugin product removal type */
   plugin_product_unlist_type?: ProductUnlistType;
-  /** 素材id */
+  /** Material ID */
   material_id?: string;
-  /** 渠道id */
+  /** Channel ID */
   channel_id?: number;
-  /** 插件创建方式 */
+  /** Plugin creation method */
   creation_method?: CreationMethod;
-  /** 是否为官方插件 */
+  /** Is it an official plugin? */
   is_official?: boolean;
-  /** 项目id */
+  /** Project ID */
   project_id?: string;
-  /** 版本号，毫秒时间戳 */
+  /** Version number, millisecond timestamp */
   version_ts?: string;
-  /** 版本名称 */
+  /** version name */
   version_name?: string;
 }
 
@@ -911,14 +911,14 @@ export interface PluginMetaInfo {
   key?: string;
   /** service */
   service_token?: string;
-  /** json序列化 */
+  /** JSON serialization */
   oauth_info?: string;
   common_params?: Partial<Record<ParameterLocation, Array<commonParamSchema>>>;
   sub_auth_type?: number;
   auth_payload?: string;
-  /** 是否固定出口ip */
+  /** Is the export IP fixed? */
   fixed_export_ip?: boolean;
-  /** 私网连接id */
+  /** Private network connection id */
   private_link_id?: string;
 }
 
@@ -928,100 +928,100 @@ export interface PluginParameter {
   required?: boolean;
   type?: string;
   sub_parameters?: Array<PluginParameter>;
-  /** 如果Type是数组，则有subtype */
+  /** If Type is an array, there is a subtype */
   sub_type?: string;
-  /** 如果入参的值是引用的则有fromNodeId */
+  /** fromNodeId if the value of the imported parameter is a reference */
   from_node_id?: string;
-  /** 具体引用哪个节点的key */
+  /** Which node's key is specifically referenced? */
   from_output?: Array<string>;
-  /** 如果入参是用户手输 就放这里 */
+  /** If the imported parameter is the user's hand input, put it here */
   value?: string;
-  /** 格式化参数 */
+  /** Format parameter */
   format?: PluginParamTypeFormat;
 }
 
 export interface PluginPriceInfo {
-  /** 手动填的价格
-价格 */
+  /** Manually filled price
+price */
   Price?: string;
-  /** 价格对应的货币类型 */
+  /** The currency type corresponding to the price */
   CurrencyType?: PricingCurrencyType;
-  /** 价格对应的时间周期 */
+  /** The time period corresponding to the price */
   Interval?: PricingInterval;
-  /** 每次调用消耗的基本单位的数量 */
+  /** The number of base units consumed per call */
   UnitsForOnce?: string;
-  /** 基本单位的名称 (例如token) */
+  /** The name of the base unit (e.g. token) */
   UnitName?: string;
 }
 
 export interface PluginPriceLimit {
-  /** 价格限制
-次数限制 */
+  /** price limit
+number of times limit */
   TimesLimit?: string;
-  /** 次数限制对应的时间周期 */
+  /** The time period corresponding to the number of times limit */
   TimesInterval?: PricingInterval;
-  /** 基本单位的限制 */
+  /** Limitations on basic units */
   UnitsLimit?: string;
-  /** 基本单位的限制对应的时间周期 */
+  /** The time period corresponding to the limit of the basic unit */
   UnitsInterval?: PricingInterval;
 }
 
 export interface PluginPriceResult {
-  /** 自动算的每次调用价格
-价格 */
+  /** Automatically calculated price per call
+price */
   Price?: string;
-  /** 价格对应的货币类型 */
+  /** The currency type corresponding to the price */
   CurrencyType?: PricingCurrencyType;
-  /** 每次调用消耗的基本单位 */
+  /** The base unit consumed per call */
   TokensForOnce?: string;
 }
 
 export interface PluginPricingRule {
-  /** 为空:对整个plugin生效; 非空:对单个API生效 */
+  /** Null: takes effect for the entire plugin; non-empty: takes effect for a single API */
   APIName?: string;
-  /** 备注信息, 比如采购方案 */
+  /** Notes on information, such as procurement plans */
   Comment?: string;
-  /** 调用限制 */
+  /** call restriction */
   PriceLimit?: PluginPriceLimit;
-  /** 手动填的成本 */
+  /** Cost of manual filling */
   PriceInfo?: PluginPriceInfo;
-  /** 计算出来的每次调用成本 */
+  /** Calculated cost per call */
   PriceResult?: PluginPriceResult;
-  /** 一级规则，默认免费 */
+  /** Level 1 rule, free by default */
   PricingStrategy?: PluginPricingStrategy;
-  /** 二级规则 */
+  /** secondary rule */
   PricingCalculationType?: PluginPricingCalculationType;
-  /** 规则ID */
+  /** rule ID */
   RuleID?: string;
-  /** 0: 对整个plugin生效; 非0: 对单个API生效 */
+  /** 0: effective for the entire plugin; non-0: effective for individual APIs */
   APIID?: string;
-  /** 插件信息 */
+  /** plugin information */
   PluginInfo?: PluginInfo;
 }
 
-/** End 插件计费信息 */
+/** End plug-in billing information */
 export interface PluginPublishInfo {
-  /** 发布人 */
+  /** publisher */
   publisher_id?: Int64;
-  /** 版本，毫秒时间戳 */
+  /** Version, millisecond timestamp */
   version_ts?: Int64;
-  /** 版本名称 */
+  /** version name */
   version_name?: string;
-  /** 版本描述 */
+  /** version description */
   version_desc?: string;
 }
 
 export interface PluginStatisticData {
-  /** 为空就不展示 */
+  /** If it is empty, it will not be displayed. */
   bot_quote?: number;
 }
 
-/** 插件预置卡片绑定信息 */
+/** Plugin preset card binding information */
 export interface PresetCardBindingInfo {
   card_id?: string;
   card_version_num?: string;
   status?: PluginCardStatus;
-  /** 缩略图 */
+  /** thumbnail */
   thumbnail?: string;
 }
 

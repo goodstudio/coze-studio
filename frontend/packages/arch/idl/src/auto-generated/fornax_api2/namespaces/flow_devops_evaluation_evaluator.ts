@@ -38,26 +38,26 @@ export enum ContentType {
   OutputSearchResult = 200,
 }
 
-/** Evaluator 执行时的处理流程的类型，表达 Evaluator 实现方式的属性信息
- EvaluatorID 是不可枚举的，但 EvaluatorProcessType 是可枚举的
- EvaluatorProcessType 是创建 Evaluator 时必须确定下来的信息。 */
+/** The type of processing flow when the Evaluator executes, expressing the attribute information of the Evaluator implementation
+ EvaluatorID is not enumerable, but EvaluatorProcessType is enumerable
+ EvaluatorProcessType is the information that must be determined when creating the Evaluator. */
 export enum EvaluatorProcessType {
   Prompt = 1,
   PythonCode = 2,
   JSCode = 3,
   BuildinFunc = 4,
   BuildinPrompt = 5,
-  /** 目前包含了RPCCallback 和 HTTPCallback */
+  /** Currently includes RPCCallback and HTTPCallback. */
   CustomCallback = 6,
-  /** 人工评测 */
+  /** manual evaluation */
   Manual = 7,
-  /** 自定义指标上报 */
+  /** custom metric reporting */
   CustomMetric = 8,
-  /** 专项测试规则 */
+  /** Dedicated test rules */
   BuiltinSpecTest = 9,
-  /** fornax平台Prompt开发中的prompt */
+  /** Fornax platform Prompt development prompts */
   FornaxPrompt = 10,
-  /** coze2.0 裁判模型评估器 */
+  /** Coze2.0 referee model evaluator */
   CozePrompt = 11,
 }
 
@@ -78,7 +78,7 @@ export enum ReplyType {
 }
 
 export enum RuleRunState {
-  /** 运行状态, 异步下状态流转, 同步下只有 Success / Fail */
+  /** Running state, state flow under asynchronous, only Success/Fail under synchronization */
   NotInit = 0,
   Init = 1,
   Processing = 2,
@@ -98,7 +98,7 @@ export interface BuildinFuncRule {
 export interface BuildinPromptRule {
   contents?: Array<string>;
   model_name?: string;
-  /** 20240815 服务端内部使用 */
+  /** 20240815 server level internal use */
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
@@ -109,22 +109,22 @@ export interface CozePromptRule {
 
 export interface CustomCallback {
   content?: string;
-  /** 回调业务方的env */
+  /** Callback the env of the business party */
   env?: string;
 }
 
-/** 自定义指标规则 */
+/** custom indicator rules */
 export interface CustomMetricsRule {
   data_type: flow_devops_evaluation_entity.EvaluateResultDataType;
   value_type?: flow_devops_evaluation_entity.EvaluateResultValueType;
 }
 
 export interface FornaxPromptRule {
-  /** prompt开发中prompt的唯一标识 */
+  /** The unique identifier of prompt in prompt development */
   prompt_id: Int64;
-  /** prompt版本 */
+  /** Prompt version */
   version?: string;
-  /** 服务端内部使用 */
+  /** Server level internal use */
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
@@ -138,11 +138,11 @@ export interface LLMSetting {
   respose_max_length: Int64;
 }
 
-/** 多维度人工评测评分规则 */
+/** Multi-dimensional manual evaluation scoring rules */
 export interface ManualRule {
-  /** 数据类型：数值评分、选项、纯文本 */
+  /** Data types: numeric ratings, options, plain text */
   data_type: flow_devops_evaluation_entity.EvaluateResultDataType;
-  /** 评分范围 */
+  /** rating range */
   scope?: flow_devops_evaluation_entity.ScoringScope;
   options?: Array<flow_devops_evaluation_entity.EvaluateResultOption>;
 }
@@ -162,7 +162,7 @@ export interface ModelInfo {
 export interface PromptRule {
   setting: LLMSetting;
   content: string;
-  /** 20240815 服务端内部使用 */
+  /** 20240815 server level internal use */
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
@@ -171,24 +171,24 @@ export interface PythonRule {
 }
 
 export interface Rule {
-  /** 规则 id */
+  /** rule id */
   rule_id?: Int64;
-  /** 评估器标识 */
+  /** evaluator identifier */
   evaluator_type: Int64;
   process_type: EvaluatorProcessType;
-  /** 自定义评估器的名称 */
+  /** Custom evaluator name */
   evaluator_type_name?: string;
-  /** 权重 */
+  /** weight */
   weight?: Int64;
   creator_id?: Int64;
-  /** 展示用名称 */
+  /** display name */
   name?: string;
-  /** 评测粒度 */
+  /** evaluation granularity */
   granularity?: flow_devops_evaluation_entity.EvaluatorGranularity;
   receive_chat_history?: boolean;
-  /** 数据类型 */
+  /** data type */
   data_type?: flow_devops_evaluation_entity.EvaluateResultDataType;
-  /** 不同的 EvaluatorProcessType 对应着不同的结构体定义 */
+  /** Different EvaluatorProcessType correspond to different structure definitions */
   prompt_rule?: PromptRule;
   python_rule?: PythonRule;
   js_rule?: JSRule;
@@ -213,13 +213,13 @@ export interface RuleGroupMeta {
   name?: string;
   desc?: string;
   space_id: Int64;
-  /** true 时该 rule group 在规则界面可见 */
+  /** When true, the rule group is visible in the rules interface */
   is_published?: boolean;
   creator_id?: Int64;
   created_at?: Int64;
   updated_at?: Int64;
   deleted_at?: Int64;
-  /** 默认为空 */
+  /** Default is empty */
   rules_count?: Int64;
 }
 

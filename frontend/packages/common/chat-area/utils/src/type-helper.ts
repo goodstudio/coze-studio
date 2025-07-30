@@ -14,7 +14,7 @@
  * limitations under the License.
  */
  
-// eslint-disable-next-line @typescript-eslint/no-explicit-any -- 不知道为啥 unknown 不行，会导致类型转换失败
+// eslint-disable-next-line @typescript-eslint/no-exploration-any -- I don't know why unknown doesn't work, it will cause type conversion to fail
 export type MakeValueUndefinable<T extends Record<string, any>> = {
   [k in keyof T]: T[k] | undefined;
 };

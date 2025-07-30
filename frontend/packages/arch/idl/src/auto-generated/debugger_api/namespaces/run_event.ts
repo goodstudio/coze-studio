@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** 消息的发送方 */
+/** sender of the message */
 export enum MessageRole {
   System = 1,
   User = 2,
@@ -29,60 +29,60 @@ export enum MessageRole {
   Function = 4,
 }
 
-/** LLM Message 场景 */
+/** LLM Message Scenario */
 export enum MessageScene {
   Default = 1,
-  /** 历史对话 */
+  /** Historical Dialogue */
   History = 2,
   /** System Prompt */
   SystemPrompt = 3,
-  /** 大模型输出 */
+  /** Large model output */
   Output = 4,
-  /** 用户输入 */
+  /** user input */
   Input = 5,
 }
 
-/** LLM消息 */
+/** LLM News */
 export interface LLMMessageItem {
-  /** 消息场景 */
+  /** message scenario */
   messageScene?: MessageScene;
-  /** 消息角色 */
+  /** message role */
   messageRole?: MessageRole;
-  /** 消息内容 */
+  /** message content */
   content?: string;
 }
 
-/** Coze Run Event 实体信息 */
+/** Coze Run Event Entity Information */
 export interface RunEvent {
-  /** 唯一标识 */
+  /** unique identifier */
   id?: string;
   /** botID */
   botID?: string;
-  /** 用户ID */
+  /** user ID */
   userID?: string;
-  /** 父节点ID */
+  /** Parent ID */
   parentRunID?: string;
-  /** 根节点ID */
+  /** Root Node ID */
   rootID?: string;
-  /** 事件名 */
+  /** event name */
   name?: string;
-  /** 事件开始时间, 毫秒时间戳 */
+  /** Event start time, millisecond timestamp */
   startTimeMS?: Int64;
-  /** 事件结束时间, 毫秒时间戳 */
+  /** Event end time, millisecond timestamp */
   endTimeMS?: Int64;
-  /** 耗时 */
+  /** time consuming */
   duration?: number;
-  /** 事件类型 */
+  /** event type */
   runType?: string;
-  /** 输入 */
+  /** input */
   inputs?: string;
-  /** 输出 */
+  /** output */
   outputs?: string;
-  /** 日志ID */
+  /** log ID */
   logID?: string;
-  /** 错误信息 */
+  /** error message */
   errorMessage?: string;
-  /** 大模型内容 */
+  /** Large model content */
   llmMessages?: Array<LLMMessageItem>;
   /** connectorID */
   connectorID?: string;

@@ -87,7 +87,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/query_trace
    *
-   * 豆包&cici特化: 通过 logID/traceID/messageID 查询 tracing 数据
+   * Beanbag & cici specialization: Query tracing data via logID/traceID/messageID
    */
   QueryTrace(
     req?: ob_query.QueryTraceRequest,
@@ -113,7 +113,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/list_spans
    *
-   * 豆包&cici特化: 通过 tag 关键字 查询 tracing 数据
+   * Bean bag & cici specialization: Query tracing data through tag keywords
    */
   ListSpans(
     req: ob_query.ListSpansRequest,
@@ -140,7 +140,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/v1/traces
    *
-   * 查询通用链路列表
+   * Query Common Link List
    */
   ListTraces(
     req: flow_devops_ob_query_telemetry.ListTracesRequest,
@@ -166,7 +166,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/v1/traces/stat
    *
-   * 查询链路统计指标
+   * query link statistics
    */
   GetTracesStat(
     req: flow_devops_ob_query_telemetry.GetTracesStatRequest,
@@ -187,7 +187,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/v1/traces/meta_info
    *
-   * 查询元信息，包括字段类型，filter opertor
+   * Query meta information, including field types, filter opertors
    */
   GetTracesMetaInfo(
     req?: flow_devops_ob_query_telemetry.GetTracesMetaInfoRequest,
@@ -201,7 +201,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/v1/trace/by_log_id
    *
-   * 通过log ID查询链路详情
+   * Query link details by log ID
    */
   GetTraceByLogID(
     req: flow_devops_ob_query_telemetry.GetTraceByLogIDRequest,
@@ -223,7 +223,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/v1/traces/batch_get_advance_info
    *
-   * 批量查询链路进阶信息
+   * Batch query link advanced information
    */
   BatchGetTracesAdvanceInfo(
     req: flow_devops_ob_query_telemetry.BatchGetTracesAdvanceInfoRequest,
@@ -245,7 +245,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/v1/trace/:trace_id
    *
-   * 通过trace ID查询链路详情
+   * Query link details by trace ID
    */
   GetTrace(
     req: flow_devops_ob_query_telemetry.GetTraceRequest,
@@ -268,7 +268,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/v1/metrics
    *
-   * 获取 metrics 详情
+   * Get metrics details
    */
   GetMetrics(
     req: flow_devops_ob_query_metrics.GetMetricsRequest,
@@ -293,7 +293,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/v1/metrics/tag_v/latest_options
    *
-   * 获取运维指标维度的值的最新选项
+   * Get the latest option for the value of the Ops metric dimension
    */
   GetTagVLatestOptions(
     req: flow_devops_ob_query_metrics.GetTagVLatestOptionsRequest,
@@ -316,7 +316,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/v1/metrics/tag_v/historical_options
    *
-   * 获取运维指标维度的值的历史选项
+   * History option to get the value of the operational metric dimension
    */
   GetTagVHistoricalOptions(
     req: flow_devops_ob_query_metrics.GetTagVHistoricalOptionsRequest,
@@ -343,7 +343,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/search_trace
    *
-   * 通过 logID/traceID/messageID 查询 tracing 数据
+   * Query tracing data by logID/traceID/messageID
    */
   SearchTrace(
     req?: ob_query_trace.SearchTraceRequest,
@@ -369,7 +369,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/get_trace_frontend
    *
-   * 查询 tracing 数据，前端 SDK 专用
+   * Query tracing data, dedicated to the front-end SDK
    */
   GetTraceFrontend(
     req?: ob_query_trace.GetTraceFrontendRequest,
@@ -395,7 +395,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/list_debug_queries
    *
-   * 调试Query List
+   * Debug Query List
    */
   ListDebugQueries(
     req: ob_query_trace.ListDebugQueriesRequest,
@@ -421,7 +421,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/query/list
    *
-   * 查询 query 列表
+   * Query query list
    */
   ListQuery(
     req: flow_devops_ob_query_query.ListQueryRequest,
@@ -443,7 +443,7 @@ export default class ObQueryApiService<T> {
   /**
    * GET /api/devops/ob_query/query/enums
    *
-   * 获取 query 枚举选项
+   * Get query enumeration options
    */
   GetQueryEnums(
     req: flow_devops_ob_query_query.GetQueryEnumsRequest,
@@ -459,7 +459,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/query/export_to_csv
    *
-   * 将 query 导出为csv
+   * Export query to csv
    */
   ExportQueryToCsv(
     req: flow_devops_ob_query_query.ExportQueryToCsvRequest,
@@ -479,7 +479,7 @@ export default class ObQueryApiService<T> {
   /**
    * POST /api/devops/ob_query/query/stat
    *
-   * query 的统计指标
+   * Query statistics
    */
   GetQueryStat(
     req: flow_devops_ob_query_query.GetQueryStatRequest,

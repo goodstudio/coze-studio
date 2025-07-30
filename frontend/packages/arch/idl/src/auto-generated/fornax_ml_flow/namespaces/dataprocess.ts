@@ -23,18 +23,18 @@ export type Int64 = string | number;
 
 export enum UserScriptTemplateType {
   UNSPECIFIED = 0,
-  /** 标签任务 */
+  /** Label task */
   ItemLabel = 1,
-  /** 常规数据处理任务 */
+  /** General data processing tasks */
   DataProcess = 2,
-  /** 转为训练数据集 */
+  /** Convert to training dataset */
   FineTuning = 3,
 }
 
 export interface UserScriptTemplate {
-  /** 模版类型 */
+  /** template type */
   user_script_template_type?: UserScriptTemplateType;
-  /** 模版内容 */
+  /** template content */
   template?: string;
 }
 /* eslint-enable */

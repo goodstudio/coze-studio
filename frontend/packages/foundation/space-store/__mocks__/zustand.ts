@@ -19,7 +19,7 @@ import * as zustand from 'zustand';
 import { act } from '@testing-library/react';
 
 const { create: actualCreate, createStore: actualCreateStore } =
-  // @ts-expect-error -- UT 忽略
+  // @TS-expected-error -- UT ignored
   await vi.importActual<typeof zustand>('zustand');
 
 // a variable to hold reset functions for all stores declared in the app

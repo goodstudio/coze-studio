@@ -29,7 +29,7 @@ export enum DataSetScopeType {
   ScopeSelf = 2,
 }
 
-/** 数据集搜索类型定义 */
+/** Dataset search type definition */
 export enum DataSetSearchType {
   SearchByCreateTime = 1,
   SearchByUpdateTime = 2,
@@ -41,13 +41,13 @@ export enum DataSetSource {
 }
 
 export enum FrequencyType {
-  /** 不更新 */
+  /** Do not update */
   None = 0,
-  /** 每天追加最新 */
+  /** Update every day */
   EveryDay = 1,
-  /** 每三天追加最新 */
+  /** Update every three days */
   EveryThreeDay = 2,
-  /** 每七天追加最新 */
+  /** Updated every seven days */
   EverySevenDay = 3,
 }
 
@@ -99,7 +99,7 @@ export interface DeleteDataSetResponse {
 export interface GetBotListByDatasetReq {
   dataset_id: string;
   page_size?: string;
-  /** 从1开始 */
+  /** Start from 1 */
   page_no?: string;
   Base?: base.Base;
 }
@@ -114,17 +114,17 @@ export interface GetBotListByDatasetResp {
 
 export interface ListDataSetV2Request {
   creator_id?: string;
-  /** 关键字搜索 */
+  /** keyword search */
   query?: string;
-  /** 搜索类型 */
+  /** search type */
   search_type?: DataSetSearchType;
   page?: number;
   size?: number;
   dataset_ids?: Array<string>;
   space_id?: string;
-  /** 搜索类型 */
+  /** search type */
   scope_type?: DataSetScopeType;
-  /** 来源 */
+  /** source */
   source_type?: DataSetSource;
   Base?: base.Base;
 }

@@ -22,18 +22,18 @@
 export type Int64 = string | number;
 
 export enum AuditStatus {
-  /** 审核中 */
+  /** Under review. */
   Auditing = 0,
-  /** 审核通过 */
+  /** approved */
   Success = 1,
-  /** 审核失败 */
+  /** moderation failed */
   Failed = 2,
 }
 
 export enum DomainAuditStatus {
-  /** 审核通过 */
+  /** approved */
   Success = 1,
-  /** 审核失败 */
+  /** moderation failed */
   Failed = 2,
 }
 /* eslint-enable */

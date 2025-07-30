@@ -31,7 +31,7 @@ export interface Annotation {
   value: string;
   status: string;
   auto_evaluate?: AutoEvaluate;
-  /** 基础信息 */
+  /** basic information */
   base_info?: fornaxob_domain_common.BaseInfo;
 }
 
@@ -45,20 +45,20 @@ export interface AutoEvaluate {
 }
 
 export interface Correction {
-  /** 人工校准得分 */
+  /** Manual calibration score */
   score?: number;
-  /** 人工校准理由 */
+  /** Manual calibration reason */
   explain?: string;
-  /** 基础信息 */
+  /** basic information */
   base_info?: fornaxob_domain_common.BaseInfo;
 }
 
 export interface EvaluatorResult {
-  /** 打分 */
+  /** score */
   score?: number;
-  /** 校准打分 */
+  /** calibration score */
   correction?: Correction;
-  /** 推理过程 */
+  /** reasoning process */
   reasoning?: string;
 }
 /* eslint-enable */

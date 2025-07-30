@@ -36,9 +36,9 @@ export interface AddressInfo {
   longitude?: string;
   can_shipping?: number;
   address_range_tip?: string;
-  /** 0 非默认 1 默认地址 */
+  /** 0 non-default 1 default address */
   address_type?: number;
-  /** 备选地址 ；默认地址 */
+  /** Alternative address; default address */
   address_type_desc?: string;
 }
 
@@ -65,18 +65,18 @@ export interface Attr {
 }
 
 export interface AuthorizeRequest {
-  /** 默认值code */
+  /** Default code */
   response_type: string;
-  /** oauth客户端id */
+  /** Oauth client side id */
   client_id: string;
-  /** 重定向地址，eg.https://chat.openai.com/aip/{plugin_id}/oauth/callback */
+  /** Redirect address, eg. https://chat.openai.com/aip/{plugin_id}/oauth/callback */
   redirect_uri: string;
 }
 
 export interface AuthorizeResponse {
-  /** 错误码; 0 成功 */
+  /** Error code; 0 success */
   code: number;
-  /** 错误信息 */
+  /** error message */
   msg: string;
 }
 
@@ -174,12 +174,12 @@ export interface OrderDetail {
   logistics_status_desc?: string;
   remark?: string;
   pay_status_desc?: string;
-  /** 店铺图片 */
+  /** Store pictures */
   restaurant_pic_url?: string;
   delivery_time_tip?: string;
-  /** 距离 */
+  /** distance */
   distance?: string;
-  /** 商家评分 */
+  /** Merchant Rating */
   restaurant_score?: string;
   user_caution?: string;
 }
@@ -227,56 +227,56 @@ export interface PreviewOrderInfo {
   recipient_address?: string;
   recipient_name?: string;
   recipient_phone?: string;
-  /** 配送费 */
+  /** Delivery fee */
   shipping_fee?: string;
-  /** 预计送达时间 */
+  /** Estimated delivery time */
   estimate_arrival_time?: number;
-  /** 用户备注 */
+  /** user note */
   caution?: string;
   restaurant_id?: string;
   restaurant_name?: string;
   restaurant_min_fee?: string;
-  /** 总价 */
+  /** total price */
   total_price?: string;
   original_price?: string;
-  /** 餐盒费 */
+  /** Lunch box fee */
   box_total_price?: string;
   user_phone?: string;
   is_pre_order?: number;
   delivery_type?: number;
-  /** 店铺图片 */
+  /** Store pictures */
   restaurant_pic_url?: string;
   delivery_time_tip?: string;
-  /** 距离 */
+  /** distance */
   distance?: string;
-  /** 商家评分 */
+  /** Merchant Rating */
   restaurant_score?: string;
 }
 
 export interface RestaurantInfo {
-  /** 商家ID */
+  /** Merchant ID */
   restaurant_id?: string;
-  /** 营业状态 1:可配送 2:忙碌中 3:休息中 */
+  /** Business Status 1: Deliverable 2: Busy 3: Resting */
   status?: number;
-  /** 营业状态描述 */
+  /** Business status description */
   status_desc?: string;
-  /** 商家名称 */
+  /** Business name */
   name?: string;
-  /** 商家图片url */
+  /** Business image url */
   pic_url?: string;
-  /** 配送费 */
+  /** Delivery fee */
   shipping_fee?: string;
-  /** 起送价 */
+  /** starting price */
   min_price?: string;
-  /** 商家评分 */
+  /** Merchant Rating */
   restaurant_score?: string;
-  /** 平均配送时间 */
+  /** average delivery time */
   avg_delivery_time?: number;
-  /** 我和商家的距离 */
+  /** The distance between me and the merchant */
   distance?: string;
-  /** optional string address = 11; // 商家地址
-  optional int32 delivery_type = 12; // 配送类型，1:美团专送，0:非美团专送
-人均价格展示文案 */
+  /** Optional string address = 11;//merchant addresshant address
+  Optional int32 delivery_type = 12;//Delivery type, 1: Meituan special delivery, 0: non-Meituan special deliveryeituan special delivery, 0: non-Meituan special delivery.
+Per capita price display copy */
   average_price_tip?: string;
   product_list?: Array<Spu>;
 }
@@ -291,13 +291,13 @@ export interface RestaurantListRequest {
 }
 
 export interface RestaurantListResp {
-  /** 符合搜索的商家总数 */
+  /** Total number of merchants matching the search */
   restaurant_total_num?: number;
-  /** 是否有下一页 */
+  /** Is there a next page? */
   have_next_page?: number;
-  /** 当前页号 */
+  /** current page number */
   current_page_index?: number;
-  /** 每页数量 */
+  /** number of pages per page */
   page_size?: number;
   restaurant_info_list?: Array<RestaurantInfo>;
 }

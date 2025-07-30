@@ -106,1581 +106,1581 @@ export enum SpanType {
 }
 
 export interface AttrBWBatch {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrBWCallFlow {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 若被调用流程是pkg内的流程，则会填充此字段 */
+  /** If the called process is a process in pkg, this field will be filled */
   call_flow_pkg_name: string;
-  /** 被调用的流程名称 */
+  /** Process name called */
   call_flow_name: string;
 }
 
 export interface AttrBWCondition {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 最终选择的分支名称 */
+  /** The final selected branch name */
   branch_name: string;
 }
 
 export interface AttrBWConnector {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 具体的连接器节点的类型 */
+  /** The specific type of connector node */
   node_type: string;
 }
 
 export interface AttrBWEnd {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrBWLLM {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 大模型类型，仅当选用OpenAIChatModel才会具备有效值 */
+  /** Large model type, only OpenAIChatModel selected will have valid values */
   model: string;
   /** temperature */
   temperature: number;
 }
 
 export interface AttrBWLoop {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrBWParallel {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrBWScript {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrBWStart {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrBWVariable {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrCard {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 卡片ID */
+  /** Card ID */
   card_id: string;
-  /** 卡片类型，枚举：workflow、plugin、workflow_message */
+  /** Card type, enumeration: workflow, plugin, workflow_message */
   card_sub_type: string;
-  /** 卡片对应节点的名称 */
+  /** The name of the node corresponding to the card */
   card_node_name?: string;
 }
 
 /** Deprecated */
 export interface AttrChain {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrCode {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
 }
 
 export interface AttrCodeBatch {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 当前任务序号 */
+  /** Current task serial number */
   task_index: number;
-  /** 批处理任务总数 */
+  /** Total number of batch tasks */
   task_total: number;
 }
 
 export interface AttrCondition {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
 }
 
 export interface AttrDatabase {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
 }
 
 export interface AttrHook {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** hook服务类型，枚举值有 rpc、http、workflow、plugin、retriever */
+  /** Hook service type, enumeration values are rpc, http, workflow, plugin, retriever */
   hook_type: string;
-  /** 对应 hook 服务 URI */
+  /** Corresponding hook service URI */
   hook_uri: string;
-  /** 调用该 Hook 的 agent id（若是 single agent 模式，则为空） */
+  /** Call the agent id of the Hook (empty if single agent mode) */
   agent_id: string;
-  /** hook 响应码 */
+  /** Hook response code */
   hook_resp_code: string;
-  /** 是否是流式输入输出 */
+  /** Is it streaming I/O? */
   is_stream: boolean;
 }
 
 export interface AttrInvokeAgent {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** LLM模型，例如GPT-4(8K) */
+  /** LLM models such as GPT-4 (8K) */
   model: string;
-  /** Temperature参数 */
+  /** Temperature parameter */
   temperature: number;
-  /** 最大回复字符长度 */
+  /** Maximum reply character length */
   max_length_resp: number;
-  /** 上下文模式 */
+  /** context mode */
   context_mode: string;
-  /** 记忆的会话轮数 */
+  /** Number of session rounds memorized */
   dialog_round: number;
-  /** Agent模式类型 */
+  /** Agent pattern type */
   agent_type: string;
-  /** AgentFlow状态机中，当前Agent的ID */
+  /** AgentFlow finite-state machine, the ID of the current Agent */
   agent_id: string;
-  /** 首字母回复时间戳，单位毫秒 */
+  /** Initial reply timestamp, in milliseconds */
   start_time_first_resp: string;
-  /** 首字母回复时延，单位毫秒 */
+  /** Initial reply time, in milliseconds */
   latency_first_resp: string;
 }
 
 export interface AttrKnowledge {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** Knowledge 唯一标识 */
+  /** Knowledge unique identifier */
   knowledge_id: string;
 }
 
 export interface AttrLLMBatchCall {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 首字母回复时间戳，单位毫秒 */
+  /** Initial reply timestamp, in milliseconds */
   start_time_first_resp: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** LLM模型，例如GPT-4(8K) */
+  /** LLM models such as GPT-4 (8K) */
   model: string;
-  /** Temperature参数 */
+  /** Temperature parameter */
   temperature: number;
-  /** 最大回复字符长度 */
+  /** Maximum reply character length */
   max_length_resp: number;
-  /** 当前任务序号 */
+  /** Current task serial number */
   task_index: number;
-  /** 批处理任务总数 */
+  /** Total number of batch tasks */
   task_total: number;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 首字母回复时延，单位毫秒 */
+  /** Initial reply time, in milliseconds */
   latency_first_resp: string;
 }
 
 export interface AttrLLMCall {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 首字母回复时间戳，单位毫秒 */
+  /** Initial reply timestamp, in milliseconds */
   start_time_first_resp: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** LLM模型，例如GPT-4(8K) */
+  /** LLM models such as GPT-4 (8K) */
   model: string;
-  /** Temperature参数 */
+  /** Temperature parameter */
   temperature: number;
-  /** 最大回复字符长度 */
+  /** Maximum reply character length */
   max_length_resp: number;
-  /** 该节点的提示词 */
+  /** Cue word for this node */
   prompt: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 首字母回复时延，单位毫秒 */
+  /** Initial reply time, in milliseconds */
   latency_first_resp: string;
 }
 
 export interface AttrLongTermMemory {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
 }
 
 export interface AttrPluginTool {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 插件唯一标识 */
+  /** plug-in unique identifier */
   plugin_id: string;
-  /** 插件中Tool的唯一标识 */
+  /** Unique Identification of Tools in Plugins */
   tool_id: string;
-  /** Tool名称 */
+  /** Tool name */
   tool_name: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
 }
 
 export interface AttrPluginToolBatch {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 插件唯一标识 */
+  /** plug-in unique identifier */
   plugin_id: string;
-  /** 插件中Tool的唯一标识 */
+  /** Unique Identification of Tools in Plugins */
   tool_id: string;
-  /** Tool名称 */
+  /** Tool name */
   tool_name: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 当前任务序号 */
+  /** Current task serial number */
   task_index: number;
-  /** 批处理任务总数 */
+  /** Total number of batch tasks */
   task_total: number;
 }
 
 export interface AttrRestartAgent {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrSwitchAgent {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
 }
 
 export interface AttrUserInput {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** query类型: text/file/voice ... */
+  /** Query type: text/file/voice... */
   query_type: string;
-  /** Query输入方式: 手动输入 ... */
+  /** Query input method: manual input... */
   query_input_method: string;
-  /** 是否是重新生成 */
+  /** Is it regenerated? */
   is_regenerate: boolean;
-  /** 首字母回复时间戳，单位毫秒 */
+  /** Initial reply timestamp, in milliseconds */
   start_time_first_resp: string;
-  /** 客户端类型 */
+  /** Client side type */
   client_type: string;
-  /** 用户的操作系统，如 iOS 设备、Android 设备 */
+  /** User's operating system, such as iOS devices, Android devices */
   os: string;
-  /** 用户操作系统版本，如iOS 版本 */
+  /** User operating system version, such as iOS version */
   os_version: string;
-  /** 浏览器类型 */
+  /** browser type */
   browser_type: string;
-  /** 浏览器版本 */
+  /** Browser version */
   browser_version: string;
-  /** 调试信息中的pushUuid */
+  /** pushUuid in debug information */
   push_uuid: string;
-  /** 建议消息 */
+  /** suggestion message */
   suggestions: string;
-  /** 对话场景，仅Coze平台上报，取值homebot, draftbot, bot_detailpage */
+  /** Dialogue scene, only reported by Coze platform, value homebot, draftbot, bot_detailpage */
   dialog_scene: string;
-  /** 消息唯一标识 */
+  /** message unique identifier */
   message_id: string;
-  /** 首字母回复时延，单位毫秒 */
+  /** Initial reply time, in milliseconds */
   latency_first_resp: string;
-  /** 本节点的简洁输入 */
+  /** Concise input for this node */
   simple_input?: string;
 }
 
 export interface AttrVariable {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 调用方法 */
+  /** call method */
   action: string;
 }
 
 export interface AttrWorkflow {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id?: string;
-  /** workflow类型：1——基础工作流，2——BlockWise工作流 */
+  /** Workflow type: 1 - basic workflow, 2 - BlockWise workflow */
   workflow_schema_type?: number;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowCode {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowCodeBatch {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 当前任务序号 */
+  /** Current task serial number */
   task_index: number;
-  /** 批处理任务总数 */
+  /** Total number of batch tasks */
   task_total: number;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowCondition {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowDatabase {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowEnd {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 输出模式 */
+  /** output mode */
   output_mode: string;
-  /** 应答内容 */
+  /** response content */
   answer_content: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowKnowledge {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** Knowledge 唯一标识 */
+  /** Knowledge unique identifier */
   knowledge_id: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowLLMBatchCall {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 首字母回复时间戳，单位毫秒 */
+  /** Initial reply timestamp, in milliseconds */
   start_time_first_resp: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** LLM模型，例如GPT-4(8K) */
+  /** LLM models such as GPT-4 (8K) */
   model: string;
-  /** Temperature参数 */
+  /** Temperature parameter */
   temperature: number;
-  /** 最大回复字符长度 */
+  /** Maximum reply character length */
   max_length_resp: number;
-  /** 当前任务序号 */
+  /** Current task serial number */
   task_index: number;
-  /** 批处理任务总数 */
+  /** Total number of batch tasks */
   task_total: number;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 首字母回复时延，单位毫秒 */
+  /** Initial reply time, in milliseconds */
   latency_first_resp: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowLLMCall {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 首字母回复时间戳，单位毫秒 */
+  /** Initial reply timestamp, in milliseconds */
   start_time_first_resp: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** LLM模型，例如GPT-4(8K) */
+  /** LLM models such as GPT-4 (8K) */
   model: string;
-  /** Temperature参数 */
+  /** Temperature parameter */
   temperature: number;
-  /** 最大回复字符长度 */
+  /** Maximum reply character length */
   max_length_resp: number;
-  /** 该节点的提示词 */
+  /** Cue word for this node */
   prompt: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 首字母回复时延，单位毫秒 */
+  /** Initial reply time, in milliseconds */
   latency_first_resp: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowMessage {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 流式输出，枚举：open、close */
+  /** Streaming output, enumeration: open, close */
   streaming_output: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowPluginTool {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 插件唯一标识 */
+  /** plug-in unique identifier */
   plugin_id: string;
-  /** 插件中Tool的唯一标识 */
+  /** Unique Identification of Tools in Plugins */
   tool_id: string;
-  /** Tool名称 */
+  /** Tool name */
   tool_name: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowPluginToolBatch {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 插件唯一标识 */
+  /** plug-in unique identifier */
   plugin_id: string;
-  /** 插件中Tool的唯一标识 */
+  /** Unique Identification of Tools in Plugins */
   tool_id: string;
-  /** Tool名称 */
+  /** Tool name */
   tool_name: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 当前任务序号 */
+  /** Current task serial number */
   task_index: number;
-  /** 批处理任务总数 */
+  /** Total number of batch tasks */
   task_total: number;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 
 export interface AttrWorkflowVariable {
-  /** argos日志ID */
+  /** Argos log ID */
   log_id: string;
-  /** 触发事件的用户ID */
+  /** The user ID that triggered the event */
   user_id: string;
-  /** 事件发生的Bot ID */
+  /** Bot ID where the event occurred */
   bot_id: string;
-  /** Bot 的名称快照 */
+  /** Bot name snapshot */
   bot_name: string;
-  /** bot开发/正式环境 */
+  /** Bot development/formal environment */
   bot_env: string;
-  /** bot版本 */
+  /** bot version */
   bot_version: string;
-  /** bot所属空间ID */
+  /** Bot owner space ID */
   bot_space_id: string;
-  /** Bot 的下发渠道，如豆包、飞书等 */
+  /** Bot delivery channels, such as bean buns, Feishu, etc */
   channel: string;
-  /** 本节点的输入 */
+  /** Input to this node */
   input: string;
-  /** 本节点的输出 */
+  /** Output of this node */
   output: string;
-  /** 当前span实际输入消耗token数 */
+  /** Current span Actual input token consumption */
   input_tokens: number;
-  /** 当前span实际输出消耗token数 */
+  /** Current span actual output consumed tokens */
   output_tokens: number;
-  /** 当前span的状态码，0表示成功，非0表示失败 */
+  /** The status code of the current span, 0 indicates success, non-0 indicates failure */
   status_code: string;
-  /** 调用类型 */
+  /** call type */
   call_type: string;
-  /** 在workflow中的节点ID */
+  /** Node ID in workflow */
   workflow_node_id: string;
-  /** 流程唯一标识 */
+  /** process unique identifier */
   workflow_id?: string;
-  /** 流程执行ID */
+  /** process execution ID */
   execute_id?: string;
-  /** 流程版本号 */
+  /** process version number */
   workflow_version?: string;
-  /** 流程执行子ID */
+  /** Process Execution Sub-ID */
   sub_execute_id?: string;
 }
 

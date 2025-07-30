@@ -25,11 +25,11 @@ export type Int64 = string | number;
 
 export enum ComponentCreateStatus {
   Undefined = 0,
-  /** 创建中 */
+  /** Creating */
   Creating = 1,
-  /** 创建成功 */
+  /** Created successfully */
   CreateSuccess = 2,
-  /** 创建失败 */
+  /** Failed to create */
   CreateFailed = 3,
 }
 
@@ -40,15 +40,15 @@ export enum ComponentLanguage {
 
 export enum ComponentReleaseStatus {
   Undefined = 0,
-  /** 发布中 */
+  /** In release */
   InRelease = 1,
-  /** 发布成功 */
+  /** Published successfully */
   ReleaseSuccess = 2,
-  /** 发布失败 */
+  /** publish failed */
   ReleaseFailed = 3,
 }
 
-/** 组件类型枚举 */
+/** component type enumeration */
 export enum ComponentType {
   Undefined = 0,
   ChatModel = 1,
@@ -56,20 +56,20 @@ export enum ComponentType {
 }
 
 export interface ComponentTemplateInfo {
-  /** 模板名称 */
+  /** template name */
   name?: string;
-  /** 模板描述 */
+  /** template description */
   description?: string;
-  /** 组件类型 */
+  /** component type */
   type?: ComponentType;
-  /** 模板语言 */
+  /** template language */
   language?: ComponentLanguage;
 }
 
 export interface CreateCustomComponentRequest {
   'FlowDevops-Agw-UserId'?: string;
   space_id: Int64;
-  /** 组件信息 */
+  /** Component information */
   component?: CustomComponent;
   'X-Jwt-Token'?: string;
   base?: base.Base;
@@ -83,31 +83,31 @@ export interface CreateCustomComponentResponse {
 export interface CustomComponent {
   /** Component ID */
   id?: Int64;
-  /** 唯一标识 */
+  /** unique identifier */
   component_key?: string;
-  /** Component名称 */
+  /** Component name */
   display_name?: string;
-  /** Component描述 */
+  /** Component Description */
   description?: string;
-  /** Component类型 */
+  /** Component type */
   component_type?: ComponentType;
-  /** 创建者ID */
+  /** creator ID */
   creator_id?: Int64;
-  /** 创建时间 */
+  /** creation time */
   create_tsms?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_tsms?: Int64;
-  /** 状态 */
+  /** state */
   status?: ComponentCreateStatus;
-  /** 版本 */
+  /** version */
   version?: string;
-  /** 组件实现语言 */
+  /** component implementation language */
   language?: ComponentLanguage;
-  /** 组件图标 */
+  /** component icon */
   icon?: Icon;
-  /** 组件仓库地址 */
+  /** component warehouse address */
   repo?: string;
-  /** 组件Cloud IDE Workspace信息 */
+  /** Component Cloud IDE Workspace Information */
   workspace_info?: WorkspaceInfo;
 }
 
@@ -116,27 +116,27 @@ export interface CustomComponentReleaseRecord {
   release_id?: Int64;
   /** Component ID */
   component_id?: Int64;
-  /** 组件版本 */
+  /** component version */
   component_version?: string;
-  /** 组件版本对应的codebase Tag */
+  /** Component version corresponding codebase Tag */
   tag?: string;
-  /** 版本描述 */
+  /** version description */
   description?: string;
-  /** 发布人 */
+  /** publisher */
   creator_id?: Int64;
-  /** 创建时间 */
+  /** creation time */
   create_tsms?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_tsms?: Int64;
-  /** 版本发布状态 */
+  /** release status */
   status?: ComponentReleaseStatus;
-  /** 错误信息 */
+  /** error message */
   err_info?: ErrInfo;
 }
 
 export interface DeleteCustomComponentRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   /** Component ID */
   component_id: Int64;
@@ -149,16 +149,16 @@ export interface DeleteCustomComponentResponse {
 }
 
 export interface ErrInfo {
-  /** 错误码 */
+  /** error code */
   code?: number;
-  /** 错误信息 */
+  /** error message */
   message?: string;
   log_id?: string;
 }
 
 export interface GetCustomComponentReleaseRecordRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   /** Component ID */
   component_id: Int64;
@@ -167,14 +167,14 @@ export interface GetCustomComponentReleaseRecordRequest {
 }
 
 export interface GetCustomComponentReleaseRecordResponse {
-  /** 组件版本发布信息 */
+  /** Component version release information */
   release_record?: CustomComponentReleaseRecord;
   base_resp?: base.BaseResp;
 }
 
 export interface GetCustomComponentRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   /** Component ID */
   component_id: Int64;
@@ -182,7 +182,7 @@ export interface GetCustomComponentRequest {
 }
 
 export interface GetCustomComponentResponse {
-  /** 组件信息 */
+  /** Component information */
   component?: CustomComponent;
   base_resp?: base.BaseResp;
 }
@@ -196,51 +196,51 @@ export interface Icon {
 
 export interface IDELaunchRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   'X-Jwt-Token': string;
   base?: base.Base;
 }
 
 export interface IDELaunchResponse {
-  /** 组件Cloud IDE Workspace信息 */
+  /** Component Cloud IDE Workspace Information */
   workspace_info?: WorkspaceInfo;
-  /** 是否有cloud ide权限 */
+  /** Do you have cloud ide permission? */
   has_auth?: boolean;
   base_resp?: base.BaseResp;
 }
 
 export interface IsComponentKeyValidRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 组件标识 */
+  /** component identification */
   component_key: string;
   base?: base.Base;
 }
 
 export interface IsComponentKeyValidResponse {
-  /** component_key是否有效 */
+  /** component_key is valid */
   is_valid?: boolean;
   base_resp?: base.BaseResp;
 }
 
 export interface ListComponentTemplateInfoRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   base?: base.Base;
 }
 
 export interface ListComponentTemplateInfoResponse {
-  /** 组件模板信息 */
+  /** Component template information */
   component_templates?: Array<ComponentTemplateInfo>;
   base_resp?: base.BaseResp;
 }
 
 export interface ListCustomComponentReleaseRecordRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   /** Component ID */
   component_id: Int64;
@@ -257,20 +257,20 @@ export interface ListCustomComponentReleaseRecordResponse {
 
 export interface ListCustomComponentRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   page?: Int64;
   page_size?: Int64;
-  /** 模糊搜索
-name/key模糊匹配 */
+  /** fuzzy search
+Name/key fuzzy match */
   key_word?: string;
-  /** 创建者ID */
+  /** creator ID */
   creator_i_d?: Int64;
   base?: base.Base;
 }
 
 export interface ListCustomComponentResponse {
-  /** 组件信息 */
+  /** Component information */
   components?: Array<CustomComponent>;
   total?: Int64;
   base_resp?: base.BaseResp;
@@ -285,7 +285,7 @@ export interface ListSupportComponentTypeRequest {
 }
 
 export interface ListSupportComponentTypeResponse {
-  /** 组件类型 */
+  /** component type */
   component_types?: Array<ComponentType>;
   total?: Int64;
   base_resp?: base.BaseResp;
@@ -295,9 +295,9 @@ export interface ReleaseCustomComponentRequest {
   /** Component ID */
   component_id: Int64;
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
-  /** 组件版本发布信息 */
+  /** Component version release information */
   component_release?: CustomComponentReleaseRecord;
   'X-Jwt-Token'?: string;
   base?: base.Base;
@@ -310,7 +310,7 @@ export interface ReleaseCustomComponentResponse {
 
 export interface UpdateCustomComponentRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 空间ID */
+  /** Space ID */
   space_id: Int64;
   /** Component ID */
   component_id: Int64;
@@ -327,7 +327,7 @@ export interface WorkspaceInfo {
   workspace_id?: string;
   /** cloudide workspace url */
   workspace_url?: string;
-  /** workspace 登陆状态 */
+  /** Workspace login status */
   workspace_launched?: boolean;
 }
 /* eslint-enable */

@@ -45,7 +45,7 @@ export enum OfflineEvalTaskModelSource {
   Unknown = 0,
   MerlinSeed = 1,
   FornaxSftTask = 2,
-  /** 基座模型 */
+  /** pedestal model */
   FoundationModel = 3,
 }
 
@@ -62,11 +62,11 @@ export enum OfflineEvalTaskStatus {
 }
 
 export interface InferResExportStatus {
-  /** 结果文件的 hdfs 地址 */
+  /** The HDFS address of the resulting file */
   hdfsPath?: string;
-  /** 当前文件的导出进度 */
+  /** Export progress of the current file */
   cursor?: string;
-  /** 是否导出完成 */
+  /** Whether the export is complete */
   isExported?: boolean;
 }
 
@@ -74,9 +74,9 @@ export interface OfflineEvalProduction {
   datasetID?: string;
   resultSetID?: string;
   caseTaskID?: string;
-  /** 每次读取时需要rpc获得EvalCaseTask(Get和List都需要)，写时不应该写到数据库里 */
+  /** Every time you read, you need rpc to get the EvalCaseTask (both Get and List are required), and you should not write to the database when writing */
   evalCaseTask?: flow_devops_evaluation_task.Task;
-  /** 最后写入的一条数据的 ID */
+  /** The ID of the last piece of data written */
   lastOutputCursor?: Int64;
 }
 
@@ -86,7 +86,7 @@ export interface OfflineEvalTask {
   desc?: string;
   model?: OfflineEvalTaskModel;
   datasets?: Array<OfflineEvalTaskDataset>;
-  /** 每次读取时需要rpc获得RuleGroup.Rules(只Get需要，List不需要) */
+  /** Every time you read, you need rpc to get RuleGroup. Rules (only Get is required, List is not required) */
   evalRuleGroup?: flow_devops_evaluation_evaluator.RuleGroup;
   resource?: model.SftTaskResource;
   ckptConfig?: OfflineEvalTaskCkptConfig;
@@ -98,22 +98,22 @@ export interface OfflineEvalTask {
   errCode?: string;
   errMessage?: string;
   displayErrMsg?: string;
-  /** 规则组是否已删除 */
+  /** Has the rule group been deleted? */
   isRuleGroupDeleted?: boolean;
-  /** Fornax空间ID */
+  /** Fornax space ID */
   spaceID?: string;
-  /** 创建人ID */
+  /** creator ID */
   createdBy?: string;
-  /** 创建时间，秒 */
+  /** Creation time, seconds */
   createdAt?: string;
-  /** 更新人ID */
+  /** Updater ID */
   updatedBy?: string;
-  /** 更新时间，秒 */
+  /** Update time in seconds */
   updatedAt?: string;
 }
 
 export interface OfflineEvalTaskCkptConfig {
-  /** key是name */
+  /** Key is name */
   items?: Record<string, OfflineEvalTaskCkptConfigItem>;
 }
 
@@ -123,77 +123,77 @@ export interface OfflineEvalTaskCkptConfigItem {
   nextCkptName?: string;
   maxRetryTime?: string;
   retryIntervalMilliSecond?: string;
-  /** 重试时间间隔的变化方式，支持固定间隔和随时间渐进式变化 */
+  /** The way the retry interval changes, supporting fixed intervals and gradual changes over time */
   retryIntervalChangeType?: string;
-  /** 每重试x次，重试时间间隔会发生变化 */
+  /** For every x retries, the retry interval changes */
   retryIntervalChangeTimes?: string;
-  /** 每次重试时间间隔变化的步长，单位为ms，可以为负数 */
+  /** The step size of each retry interval, in ms, can be negative */
   retryIntervalChangeStep?: string;
   customConfigs?: Record<string, string>;
-  /** 触发下一个checkpoint的时间间隔，单位为ms */
+  /** Time interval to trigger the next checkpoint in ms */
   triggerNextCkptIntervalMilliSecond?: string;
 }
 
 export interface OfflineEvalTaskCkptResult {
-  /** 评测集上传到hdfs的地址 */
+  /** Address where the review set is uploaded to hdfs */
   datasetHdfsAddress?: string;
-  /** 推理结果保存的hdfs地址，可能为文件夹(开源模型必须时文件而非文件夹) */
+  /** The hdfs address where the inference result is saved, possibly a folder (files rather than folders are required for open-source models). */
   inferResultHdfsAddress?: string;
-  /** 推理结果导出进度 */
+  /** Inference result export progress */
   resultExportStatuses?: Array<InferResExportStatus>;
-  /** merlin推理任务状态 */
+  /** Merlin inference task status */
   merlinDataProcessingInstanceStatusGroup?: string;
-  /** merlin推理任务状态详情 */
+  /** Merlin inference task status details */
   merlinDataProcessingInstanceStatus?: string;
-  /** 传入离线推理任务的数据列名 */
+  /** Incoming data column names for offline inference tasks */
   inferTaskColumnName?: string;
-  /** 离线评测产物 */
+  /** Offline evaluation products */
   evalProductions?: Array<OfflineEvalProduction>;
-  /** 结果集是否导出完成 */
+  /** Whether the result set export is complete */
   resultSetExported?: boolean;
-  /** merlin seed离线推理任务实际上就是在merlin任务用例外包了一层，在这里记录这个merlin任务用例id */
+  /** The merlin seed offline inference task is actually outsourced in the merlin task use case, record the merlin task use case id here */
   merlinJobID?: string;
-  /** merlin seed离线推理任务链接 */
+  /** Merlin seed offline inference task link */
   merlinSeedTaskUrl?: string;
-  /** merlin 任务实例是否终止 */
+  /** Merlin task instance terminated */
   merlinJobTerminated?: boolean;
-  /** 保存除了 plainText 以外的类型的数据的原始信息 */
+  /** Save raw information for types of data other than plainText */
   originDataColumnName?: string;
-  /** 批量推理结果的列名，老数据可能为空，为空时该值取output（parquet中的列名。如果是jsonl，格式是方舟固定的） */
+  /** The column name of the batch inference result, the old data may be empty, and the value is output when empty (column name in parquet. If it is jsonl, the format is ark fixed) */
   outputColumnName?: string;
-  /** 原始批量推理结果的列名（parquet中的列名） */
+  /** Column names of raw batch inference results (column names in parquet) */
   originOutputColumnName?: string;
-  /** 批量推理任务的id */
+  /** ID for batch inference tasks */
   batchInferTaskID?: Int64;
-  /** 批量推理任务的状态 */
+  /** The state of batch inference tasks */
   batchInferTaskStatus?: string;
-  /** 批量推理输入数据的其中一列列名，这列记录了数据中每一行的唯一id */
+  /** Batch inference One of the column names in the input data that records the unique ID of each row in the data */
   itemIDColumnName?: string;
-  /** 评测集上传到tos的桶名 */
+  /** The bucket name of the review set uploaded to tos */
   datasetTosBucketName?: string;
-  /** 评测集上传到tos后的文件路径 */
+  /** File path after the review set is uploaded to tos */
   datasetTosObjectKey?: string;
-  /** 推理结果保存到tos的桶名 */
+  /** The inference result is saved to the bucket name of tos */
   inferResultTosBucketName?: string;
-  /** 推理结果保存到tos后的文件夹路径 */
+  /** The folder path after the inference result is saved to tos */
   inferResultTosObjectKey?: string;
-  /** 火山项目名，用于记录用户托管的字节云方舟账号的项目名称 */
+  /** Volcano project name, used to record the project name of the user-hosted ByteCloud Ark account */
   volcEngineProjectName?: string;
-  /** 评测集中的图片上传到hdfs的地址（文件夹） */
+  /** Upload the pictures in the evaluation set to the address (folder) of hdfs. */
   datasetImageHdfsAddress?: string;
 }
 
 export interface OfflineEvalTaskDataset {
   evalDataset?: flow_devops_evaluation_dataset.DatasetInfo;
-  /** 数据集预处理 */
+  /** Dataset preprocessing */
   datasetPreHandler?: OfflineEvalTaskDatasetPreHandler;
-  /** 模型输入预处理 */
+  /** model input preprocessing */
   inputPreHandler?: OfflineEvalTaskInputPreHandler;
-  /** 是否已经上传到 hdfs */
+  /** Has it been uploaded to HDFS? */
   uploaded?: boolean;
-  /** 上传进度游标 */
+  /** Upload progress cursor */
   uploadCursor?: Int64;
-  /** 是否已删除 */
+  /** Has it been deleted? */
   isDeleted?: boolean;
 }
 
@@ -203,7 +203,7 @@ export interface OfflineEvalTaskDatasetPreHandler {
   promptVersion?: string;
   inputColumn?: string;
   promptID?: string;
-  /** prompt是否已删除 */
+  /** Whether the prompt has been deleted */
   isPromptDeleted?: boolean;
 }
 
@@ -214,9 +214,9 @@ export interface OfflineEvalTaskInputPreHandler {
 
 export interface OfflineEvalTaskModel {
   source?: OfflineEvalTaskModelSource;
-  /** 被评测的模型（当source是OpenSource/Ark基础模型时，模型信息写在这里） */
+  /** Model being evaluated (if the source is an OpenSource/Ark base model, model information is written here) */
   foundationModel?: model.SftTaskFoundationModel;
-  /** 被评测的模型的标识（此时模型是sft产物，identification是方舟custom_id / model_version，且会记录foundation model） */
+  /** The identity of the model being evaluated (in this case the model is an sft product, the identification is an Ark custom_id/model_version, and the foundation model is recorded) */
   identification?: string;
   sftTaskID?: string;
   sftTaskProvider?: model.Provider;
@@ -226,7 +226,7 @@ export interface OfflineEvalTaskModel {
   trainingMethod?: model.SftTaskTrainingMethod;
   sftTask?: model.SftTask;
   merlinSeedModelType?: MerlinSeedModelType;
-  /** 被评测的模型文件的hdfs地址（当source是seed/sft/OpenSource时，模型hdfs地址写在这里） */
+  /** The hdfs address of the model file being evaluated (if the source is seed/sft/OpenSource, the model hdfs address is written here) */
   modelAddress?: string;
   tokenizerAddress?: string;
   networkConfigContext?: string;

@@ -15,7 +15,7 @@
  */
 /* eslint-disable */
 /* prettier-ignore */
-// 基于src/index.ts自动生成，请勿手动修改
+// Automatically generated based on src/index.ts, do not modify manually
 declare const APP_ID: number;
 declare const APP_KEY: string;
 declare const AWEME_ORIGIN: string;

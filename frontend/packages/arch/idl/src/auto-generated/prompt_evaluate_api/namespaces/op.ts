@@ -23,50 +23,50 @@ import * as base from './base';
 
 export type Int64 = string | number;
 
-/** 运营后台idl */
+/** Operation background idl */
 export interface OpGetUserInfoRequest {
   user_id?: string;
   Base?: base.Base;
 }
 
 export interface OpGetUserInfoResponse {
-  /** 用户信息 */
+  /** user information */
   user_info?: OpUserInfo;
   BaseResp: base.BaseResp;
 }
 
 export interface OpUserInfo {
-  /** 用户基本信息 */
+  /** basic user information */
   basic_info?: UserbasicInfo;
-  /** 付费信息 */
+  /** payment information */
   payment_info?: UserPaymentInfo;
-  /** 专业版信息 */
+  /** Professional version information */
   professional_info?: UserProfessionalInfo;
 }
 
 export interface UserbasicInfo {
   user_id?: string;
-  /** 用户名 */
+  /** user name */
   user_name?: string;
-  /** 邮箱 */
+  /** email */
   email?: string;
-  /** 用户类型  内部用户/外部用户 */
+  /** User type, internal user/external user */
   user_type?: string;
-  /** 注册时间 */
+  /** Registration time */
   registration_time?: string;
 }
 
-/** 用户普通版付费信息 */
+/** User regular version payment information */
 export interface UserPaymentInfo {
-  /** 是否订阅 */
+  /** Subscribe or not? */
   is_in_subscribe?: string;
 }
 
-/** 用户专业版信息 */
+/** User Pro Information */
 export interface UserProfessionalInfo {
-  /** 是否专业版用户 */
+  /** Is it a professional version user? */
   is_professional?: string;
-  /** 火山ID */
+  /** Huoshan ID */
   volcano_openId?: string;
 }
 /* eslint-enable */

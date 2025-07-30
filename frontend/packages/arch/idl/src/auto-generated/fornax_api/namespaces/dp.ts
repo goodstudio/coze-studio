@@ -42,22 +42,22 @@ export enum AnnotatePlatform {
 }
 
 export enum AuditResultEnum {
-  /** 未检查 */
+  /** not checked */
   Init = 1,
-  /** 标记合格 */
+  /** mark qualified */
   Pass = 2,
-  /** 标记不合格 */
+  /** Failure to mark */
   Reject = 3,
 }
 
 export enum AuditStatusEnum {
-  /** 不涉及审核操作 */
+  /** No moderation operations involved */
   None = 0,
-  /** 通过 */
+  /** passed */
   Pass = 1,
-  /** 回收 */
+  /** Recycle */
   Recycle = 2,
-  /** 打回 */
+  /** call back */
   Back = 3,
 }
 
@@ -70,11 +70,11 @@ export enum DatasetFileType {
 
 export enum DatasetType {
   Undefined = 0,
-  /** 数据处理数据集 */
+  /** Data processing dataset */
   Default = 1,
-  /** 评测集 */
+  /** review set */
   Eval = 2,
-  /** 结果集 */
+  /** result set */
   EvalResult = 3,
 }
 
@@ -85,7 +85,7 @@ export enum DataSourceType {
 }
 
 export enum FieldType {
-  /** DefinedText 类型 */
+  /** DefinedText type */
   Undefined = 0,
   String = 1,
   Number = 2,
@@ -93,7 +93,7 @@ export enum FieldType {
   Array = 5,
   Object = 6,
   Null = 7,
-  /** Dataset 原生类型 */
+  /** Dataset native type */
   MarkdownBox = 11,
   Image = 12,
   File = 13,
@@ -109,31 +109,31 @@ export enum InterpreterType {
 }
 
 export enum MsgOpType {
-  /** 未知类型提交，暂时不会出现，只做该字段兜底取值使用 */
+  /** Submit of unknown type, it will not appear for the time being. Only use this field to get the bottom value. */
   Unknown = 0,
-  /** 题目送标，等同于消息里的 IsInit = true */
+  /** The title is sent, which is equivalent to IsInit = true in the message. */
   InitItem = 1,
-  /** 提交后被通过，题目向后置节点流转，等同于 AuditNodeList[$x].AuditStatus = 1 */
+  /** After submission, it is passed, and the title flows to the rear node, which is equivalent to AuditNodeList [$x]. AuditStatus = 1. */
   PassSubmit = 2,
-  /** 提交后被打回，题目向前置节点流转，等同于 AuditNodeList[$x].AuditStatus = 3 */
+  /** After submission, it is typed back, and the title flows to the front node, which is equivalent to AuditNodeList [$x]. AuditStatus = 3. */
   BackSubmit = 3,
-  /** 废弃提交，等同于消息里的 IsDiscard = true */
+  /** Abandoned commit, equivalent to IsDiscard = true in the message */
   DiscardSubmit = 4,
-  /** 点击无效后提交 */
+  /** Submit after clicking invalid */
   AbandonSubmit = 5,
-  /** 直接提交，等同于消息里的 IsDirectSubmit = true */
+  /** Submit directly, which is equivalent to IsDirectSubmit = true in the message. */
   DirectSubmit = 6,
-  /** 更新答案，等同于消息里的 IsUpdate = true */
+  /** Update the answer, which is equivalent to IsUpdate = true in the message. */
   UpdateAnswer = 7,
 }
 
 export enum RunLogSourceType {
   Undefined = 0,
-  /** 文本 */
+  /** Text */
   Text = 1,
-  /** 从TOS读取 */
+  /** Read from TOS */
   TOS = 2,
-  /** 从StreamLog读取 */
+  /** Read from StreamLog */
   StreamLog = 3,
 }
 
@@ -145,17 +145,17 @@ export enum ScriptType {
 
 export enum TaskStatus {
   Undefined = 0,
-  /** 正在初始化 */
+  /** Initializing now. */
   Initializing = 1,
-  /** 正在运行 */
+  /** Running now. */
   Running = 2,
-  /** 成功完成 */
+  /** successfully completed */
   Done = 3,
-  /** 失败 */
+  /** fail */
   Failed = 4,
-  /** 手动终止 */
+  /** manual termination */
   Terminated = 5,
-  /** 成功完成，但有错误 */
+  /** Completed successfully, but with errors */
   DoneWithError = 6,
 }
 
@@ -165,28 +165,28 @@ export enum TaskType {
   FineTuning = 2,
 }
 
-/** 模版类型
- Notice: 此处类型不完整 */
+/** template type
+ Notice: This type is incomplete */
 export enum TemplateType {
-  /** Neeko类型模板 */
+  /** Neeko Type Template */
   Neeko = 1000,
 }
 
 export interface AIDPConfig {
-  /** AIDP 用户 ID */
+  /** AIDP user ID */
   userID?: string;
-  /** AIDP 任务 ID */
+  /** AIDP Task ID */
   taskID?: string;
-  /** AIDP 任务详情链接 */
+  /** AIDP Mission Details Link */
   taskURL?: string;
 }
 
 export interface AnnotateStatusDetail {
-  /** 总数据量 */
+  /** total data volume */
   inputSize?: string;
-  /** 已送标数据量 */
+  /** amount of data sent */
   sent?: string;
-  /** 已取标数据量 */
+  /** scalded data volume */
   received?: string;
 }
 
@@ -194,27 +194,27 @@ export interface AnnotateTask {
   id?: string;
   name?: string;
   spaceID?: string;
-  /** 标注数据的平台 */
+  /** platform for labeling data */
   platform?: AnnotatePlatform;
-  /** AIDP 配置 */
+  /** AIDP configuration */
   aidpConfig?: AIDPConfig;
-  /** 任务状态 */
+  /** task status */
   status?: TaskStatus;
-  /** 待标注字段映射关系 */
+  /** Annotated data field mapping */
   sendMapConfig?: Array<SendFieldMapping>;
-  /** 输入数据集信息 */
+  /** Enter dataset information */
   inputDatasetInfo?: DatasetInfo;
-  /** 输出数据集信息 */
+  /** Output dataset information */
   outputDatasetInfo?: DatasetInfo;
-  /** 取标字段 */
+  /** bid field */
   receiveFields?: Array<string>;
-  /** 任务终止/失败的原因 */
+  /** The reason for the termination/failure of the task */
   terminateReason?: string;
-  /** 任务状态详情 */
+  /** task status details */
   statusDetail?: AnnotateStatusDetail;
-  /** 创建时间 */
+  /** creation time */
   createdAt?: string;
-  /** 更新时间，对于完成/失败/终止的任务，为结束时间 */
+  /** Update time, for completed/failed/terminated tasks, end time */
   updatedAt?: string;
   createdBy?: string;
 }
@@ -224,24 +224,24 @@ export interface DataProcessingTask {
   name?: string;
   taskType?: TaskType;
   inDataset?: DatasetInfo;
-  /** Deprecated，使用outDatasets */
+  /** Deprecated, using outDatasets */
   outDataset?: DatasetInfo;
   userScript?: UserScript;
   taskStatus?: TaskStatus;
   trainingDatasetType?: model.TrainingDatasetType;
-  /** 输出数据集列表 */
+  /** Output dataset list */
   outDatasets?: Array<DatasetInfo>;
-  /** 数据集类型 */
+  /** dataset type */
   datasetType?: DatasetType;
-  /** Fornax空间ID */
+  /** Fornax space ID */
   spaceID?: string;
-  /** 创建人ID */
+  /** creator ID */
   createdBy?: string;
-  /** 创建时间 */
+  /** creation time */
   createdAt?: string;
-  /** 更新人ID */
+  /** Updater ID */
   updatedBy?: string;
-  /** 更新时间 */
+  /** update time */
   updatedAt?: string;
 }
 
@@ -257,27 +257,27 @@ export interface DatasetImportTask {
   fileType?: DatasetFileType;
   dataSource?: DataSource;
   overwrite?: boolean;
-  /** 文件大小，单位：byte */
+  /** File size, in bytes */
   totalSize?: number;
-  /** 已处理数据大小，单位：byte */
+  /** Processed data size, in bytes */
   processedSize?: number;
-  /** 已处理的行数 */
+  /** Number of rows processed */
   processedLineCount?: number;
-  /** 已导入的行数 */
+  /** Number of rows imported */
   outputLineCount?: number;
   errLog?: string;
   msg?: string;
-  /** 批量导入详情 */
+  /** bulk import details */
   batchImportDetail?: Array<DataSource>;
-  /** Fornax空间ID */
+  /** Fornax space ID */
   spaceID?: string;
-  /** 创建人ID */
+  /** creator ID */
   createdBy?: string;
-  /** 创建时间，秒 */
+  /** Creation time, seconds */
   createdAt?: string;
-  /** 更新人ID */
+  /** Updater ID */
   updatedBy?: string;
-  /** 更新时间，秒 */
+  /** Update time in seconds */
   updatedAt?: string;
 }
 
@@ -294,11 +294,11 @@ export interface DataSource {
 }
 
 export interface ExportDatasetStatusDetail {
-  /** 源数据集中的样本总数 */
+  /** Total number of samples in the source dataset */
   totalSamples: Int64;
-  /** 成功写入到目标数据集的样本数 */
+  /** Number of samples successfully written to the target dataset */
   addedSamples?: Int64;
-  /** 错误信息 */
+  /** error message */
   errors?: Array<string>;
 }
 
@@ -308,7 +308,7 @@ export interface ExportDatasetTask {
   fromDatasetID: string;
   columnMappings?: Array<DatasetColumnMapping>;
   toDatasetID?: string;
-  /** 为 true 时覆盖更新 */
+  /** Overwrite update when true */
   overwrite?: boolean;
   status?: TaskStatus;
   statusDetail?: ExportDatasetStatusDetail;
@@ -328,14 +328,14 @@ export interface ScriptRunResultItem {
   output?: string;
   error?: string;
   latencyInMs?: string;
-  /** 期望输出到的数据集名称。如果为空则表明未找到目标数据集 */
+  /** The name of the dataset expected to be output to. If empty, the target dataset was not found */
   datasetName?: string;
 }
 
 export interface SendFieldMapping {
-  /** 输入数据集中的字段名 */
+  /** Enter a field name in the dataset */
   inputField?: string;
-  /** 映射的送标数据字段名 */
+  /** mapped feed data field name */
   sendField?: string;
 }
 

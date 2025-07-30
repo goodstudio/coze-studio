@@ -26,9 +26,9 @@ import * as flow_devops_evaluation_object_callback from './flow_devops_evaluatio
 export type Int64 = string | number;
 
 export enum ObjectTypeCategory {
-  /** 内置评估对象类型 */
+  /** Built-in evaluation object types */
   Builtin = 1,
-  /** 自定义评估对象类型 */
+  /** Custom evaluation object type */
   Custom = 2,
 }
 
@@ -58,13 +58,13 @@ export interface DeleteObjectTypeResponse {
 export interface FaasCallbackObjectParams {
   psm?: string;
   cluster?: string;
-  /** 单位ms */
+  /** Unit ms */
   timeout?: Int64;
   faas_id?: string;
   agent_execute_path?: string;
   search_object_path?: string;
   http_auth_type?: flow_devops_evaluation_entity.HTTPAuthType;
-  /** NeedSearchObjectMetaInfo为true的情况下，需要填写SearchObjectPath */
+  /** NeedSearchObjectMetaInfo true, you need to fill in SearchObjectPath */
   need_search_object_meta_info?: boolean;
   search_object_method?: flow_devops_evaluation_entity.HTTPMethod;
   agent_execute_method?: flow_devops_evaluation_entity.HTTPMethod;
@@ -107,7 +107,7 @@ export interface ListChainTaskVersionsRequest {
   space_id: Int64;
   region?: string;
   app_id?: Int64;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   limit?: Int64;
 }
@@ -124,7 +124,7 @@ export interface ListCozeBotVersionsRequest {
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
   region?: string;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   limit?: Int64;
 }
@@ -141,9 +141,9 @@ export interface ListObjectMetaByTypeRequest {
   'FlowDevops-Agw-AppId'?: number;
   search_key: flow_devops_evaluation_object_callback.SearchKey;
   region?: string;
-  /** SpaceID 部分场景依赖，如 Fornax 平台拉取空间下注册的 CozeBot */
+  /** SpaceID is dependent on some scenarios, such as the CozeBot registered under the pull space of the Fornax platform. */
   space_id?: Int64;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   limit?: Int64;
 }
@@ -161,7 +161,7 @@ export interface ListObjectTypeDetailRequest {
   space_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
   list_object_type_filter?: ListObjectTypeFilter;
-  /** first 为空 */
+  /** Empty first */
   cursor?: string;
   limit?: Int64;
 }
@@ -173,12 +173,12 @@ export interface ListObjectTypeDetailResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** ListObjectFilter 请求过滤规则 */
+/** ListObjectFilter request filtering rules */
 export interface ListObjectTypeFilter {
   object_name?: string;
   callback_type?: flow_devops_evaluation_entity.CallbackType;
   creator_id?: Int64;
-  /** 仅 ListObjectTypeDetail 生效 */
+  /** Effective only ListObjectTypeDetail */
   region?: string;
 }
 
@@ -187,7 +187,7 @@ export interface ListObjectTypeRequest {
   'FlowDevops-Agw-UserId'?: string;
   'FlowDevops-Agw-AppId'?: number;
   limit: Int64;
-  /** 用于filter space可见性 */
+  /** Used to filter space visibility */
   space_id: Int64;
   list_object_type_filter?: ListObjectTypeFilter;
 }
@@ -197,14 +197,14 @@ export interface ListObjectTypeRequestV2 {
   'FlowDevops-Agw-UserId'?: string;
   'FlowDevops-Agw-AppId'?: number;
   limit: Int64;
-  /** 用于filter space可见性 */
+  /** Used to filter space visibility */
   space_id: Int64;
   region: string;
   list_object_type_filter?: ListObjectTypeFilter;
 }
 
 export interface ListObjectTypeResponse {
-  /** list接口里的object只返回基本展示信息和objctType, 用户点击后，除了coze,prompt类型的meta前端内置，其他会根据objctType去搜索返回 */
+  /** The object in the list interface only returns basic display information and objctType. After the user clicks, in addition to coze, the meta front-end of the prompt type is built in, and others will search and return according to objctType */
   object_type_infos?: Array<ObjectTypeInfo>;
   has_more?: boolean;
   next_cursor?: string;
@@ -223,12 +223,12 @@ export interface ObjectTypeDetailInfo {
   faas_callback_object_params?: FaasCallbackObjectParams;
 }
 
-/** 展示注册对象信息 */
+/** Display registered object information */
 export interface ObjectTypeInfo {
   object_type: Int64;
   name: string;
-  /** 为true的情况：coze有bot_name模糊查询，prompt的prompt_key也是模糊查询，该类need_search_object=true
-如果子实体key是唯一确定的，不需要查询二级页面；need_search_object=false */
+  /** If true: coze has bot_name fuzzy query, the prompt_key of prompt is also fuzzy query, the class need_search_object = true
+If the child entity key is uniquely determined, there is no need to query the secondary page; need_search_object = false */
   need_search_object_meta: boolean;
   regions?: Array<string>;
   callback_type?: flow_devops_evaluation_entity.CallbackType;
@@ -237,7 +237,7 @@ export interface ObjectTypeInfo {
 
 export interface RegisterObjectTypeRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** 只存储需要去调用业务client的basic的字段，其余meta信息由业务提供 */
+  /** Only the basic fields that need to be called by the business client are stored, and the rest of the meta information is provided by the business */
   object_type_detail_info: ObjectTypeDetailInfo;
   'FlowDevops-Agw-AppId'?: number;
   cid?: string;
@@ -251,7 +251,7 @@ export interface RegisterObjectTypeResponse {
 export interface RPCCallbackObjectParams {
   psm?: string;
   cluster?: string;
-  /** 单位ms */
+  /** Unit ms */
   timeout?: Int64;
   need_search_object_meta_info?: boolean;
 }

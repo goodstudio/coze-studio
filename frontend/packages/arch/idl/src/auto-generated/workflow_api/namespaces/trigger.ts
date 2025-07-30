@@ -35,15 +35,15 @@ export enum ExecutStatus {
 }
 
 export enum TriggerSetType {
-  /** preset 触发器 test run */
+  /** Preset trigger test run */
   DEBUG_PRESET = 0,
-  /** preset 触发器 线上 */
+  /** Preset trigger, online */
   ONLINE_PRESET = 1,
-  /** 节点订阅 test run */
+  /** Node subscription test run */
   DEBUG_USERSET = 2,
-  /** 节点订阅 线上 */
+  /** Node subscription, online */
   ONLINE_USERSET = 3,
-  /** 线上，包括 user + preset */
+  /** Online, including user + preset */
   ONLINE = 4,
 }
 
@@ -59,12 +59,12 @@ export interface DeleteTriggerData {
 export interface DeleteTriggerRequest {
   space_id: string;
   project_id: string;
-  /** 触发器id */
+  /** Trigger ID */
   trigger_id?: string;
   set_type?: TriggerSetType;
-  /** 订阅者 */
+  /** subscriber */
   creator?: string;
-  /** 渠道id */
+  /** Channel ID */
   connector_id?: string;
   Base?: base.Base;
 }
@@ -81,9 +81,9 @@ export interface GetPublishedTriggerDetailsRequest {
   project_id: string;
   /** node id ，source_trigger_id */
   source_id: string;
-  /** 渠道ID */
+  /** Channel ID */
   connector_id?: string;
-  /** 搜索 */
+  /** Search */
   query?: string;
   page_size?: Int64;
   page_num?: Int64;
@@ -102,7 +102,7 @@ export interface GetTriggerRequest {
   space_id: string;
   project_id: string;
   workflow_id: string;
-  /** 本期传递DEBUG_PRESET */
+  /** Delivery DEBUG_PRESET */
   set_type: TriggerSetType;
   project_version?: string;
   Base?: base.Base;
@@ -115,26 +115,26 @@ export interface GetTriggerResponse {
   BaseResp: base.BaseResp;
 }
 
-/** 触发器推送，trigger平台 spi 接口 */
+/** Trigger push, trigger platform spi interface */
 export interface Header {
-  /** 业务ID，如Apaas，bot_platform */
+  /** Business IDs, such as Apaas, bot_platform */
   BizID?: string;
-  /** 空间名称，如Bytedance,bot platform中的space id\下游ID */
+  /** Space name, such as ByteDance, bot platform space id\ downstream ID */
   Space?: string;
-  /** 空间下的某个模块，如bot platform中的bot id */
+  /** A module in space, such as the bot id in the bot platform. */
   Module?: string;
 }
 
 export interface ListPublishedTriggersRequest {
   space_id: string;
   project_id: string;
-  /** 全部触发器：ONLINE，系统触发器：ONLINE_PRESET，用户触发器：ONLINE_USERSET */
+  /** All Triggers: ONLINE, System Triggers: ONLINE_PRESET, User Triggers: ONLINE_USERSET */
   set_type?: TriggerSetType;
-  /** 定时，事件 */
+  /** Timing, event */
   app_type?: AppType;
-  /** 渠道ID */
+  /** Channel ID */
   connector_id?: string;
-  /** 搜索 */
+  /** Search */
   query?: string;
   page_size?: Int64;
   page_num?: Int64;
@@ -152,7 +152,7 @@ export interface ListPublishedTriggersResponse {
 export interface ListTriggerAppEventsRequest {
   space_id: string;
   project_id: string;
-  /** 应用类型 */
+  /** Application Type */
   app_type?: AppType;
   Base?: base.Base;
 }
@@ -167,13 +167,13 @@ export interface ListTriggerAppEventsResponse {
 export interface ListTriggersRequest {
   space_id: string;
   project_id: string;
-  /** 渠道ID */
+  /** Channel ID */
   connector_id?: string;
   workflow_id?: string;
-  /** 本期传递USERSET */
+  /** This issue is delivered by USERSET. */
   set_type?: TriggerSetType;
   trigger_id?: string;
-  /** 订阅者 */
+  /** subscriber */
   creator?: string;
   page_size?: Int64;
   page_num?: Int64;
@@ -190,7 +190,7 @@ export interface ListTriggersResponse {
 export interface OperatePublishedTriggerRequest {
   space_id: string;
   project_id: string;
-  /** 渠道id */
+  /** Channel ID */
   connector_id: string;
   trigger_id?: string;
   status?: TriggerStatus;
@@ -206,27 +206,27 @@ export interface OperatePublishedTriggerResponse {
 export interface SaveTriggerRequest {
   space_id: string;
   project_id: string;
-  /** 触发器id */
+  /** Trigger ID */
   trigger_id?: string;
-  /** 渠道id */
+  /** Channel ID */
   connector_id?: string;
-  /** 触发器名字 */
+  /** Trigger name */
   name?: string;
-  /** 触发器标识 */
+  /** Trigger ID */
   event_id: string;
-  /** 触发器配置 */
+  /** Trigger configuration */
   config: string;
-  /** 触发wf的参数 */
+  /** Parameters that trigger wf */
   payload: string;
   workflow_id: string;
-  /** 本期节点CRONJOB */
+  /** Current node CRONJOB */
   trigger_type?: string;
   status?: TriggerStatus;
   set_type?: TriggerSetType;
   project_version?: Int64;
-  /** 订阅者 */
+  /** subscriber */
   creator?: string;
-  /** workflow_id + node_id || 草稿态 */
+  /** workflow_id + node_id | | Draft */
   source_sub_key?: string;
   Base?: base.Base;
 }
@@ -299,23 +299,23 @@ export interface TriggerPublishInfo {
   source_id?: string;
   name?: string;
   app_type?: AppType;
-  /** 配置 */
+  /** configuration */
   config?: string;
   connector_id?: Array<string>;
-  /** 全部触发器：ONLINE，系统触发器：ONLINE_PRESET，用户触发器：ONLINE_USERSET */
+  /** All Triggers: ONLINE, System Triggers: ONLINE_PRESET, User Triggers: ONLINE_USERSET */
   set_type?: TriggerSetType;
-  /** detail 接口返回
-下次触发时间，秒级时间戳 */
+  /** Detailed interface Back
+Next trigger time, second timestamp */
   next_trigger_time?: Int64;
-  /** 订阅者 */
+  /** subscriber */
   creator?: string;
   /** project version , bot version */
   version?: string;
-  /** 触发器id */
+  /** Trigger ID */
   trigger_id?: string;
-  /** 触发器状态 */
+  /** trigger state */
   status?: TriggerStatus;
-  /** 执行状态 */
+  /** execution status */
   execut_status?: ExecutStatus;
 }
 

@@ -37,16 +37,16 @@ export enum InputType {
 }
 
 export enum SendType {
-  /** 直接发query */
+  /** Send query directly */
   SendTypeQuery = 0,
-  /** 使用面板 */
+  /** use panel */
   SendTypePanel = 1,
 }
 
 export enum ToolType {
-  /** 使用WorkFlow */
+  /** Using WorkFlow */
   ToolTypeWorkFlow = 1,
-  /** 使用插件 */
+  /** use plug-ins */
   ToolTypePlugin = 2,
 }
 /* eslint-enable */

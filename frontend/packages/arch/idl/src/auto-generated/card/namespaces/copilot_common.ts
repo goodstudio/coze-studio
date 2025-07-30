@@ -41,17 +41,17 @@ export enum AsyncTaskStatus {
 }
 
 export enum BotRecommendType {
-  /** 不推荐 */
+  /** Not recommended. */
   None = 0,
-  /** 精选的 */
+  /** Featured */
   Featured = 1,
-  /** 可被发现的 */
+  /** discoverable */
   Discoverable = 2,
 }
 
-/** 上下文允许传输的类型 */
+/** The type of transmission allowed by the context */
 export enum ContextContentType {
-  /** 无任何处理版 */
+  /** No processing version */
   USER_RES = 0,
   USER_LLM_RES = 1,
   USER_LLM_TOOLLEN_RES = 2,
@@ -81,27 +81,27 @@ export enum CopilotContentType {
   OutputSearchResult = 200,
   OutputMultiStream = 201,
   SearchIntentionResult = 300,
-  /** 深入研究卡片 */
+  /** Delve into the cards */
   DeepResearchCard = 400,
-  /** 文档 */
+  /** Document */
   Artifact = 401,
-  /** 深入研究报告 */
+  /** in-depth research report */
   DeepResearchReport = 402,
-  /** 深入思考 */
+  /** think deeply */
   Thinking = 500,
-  /** 搜索query */
+  /** Search query */
   SearchQuery = 501,
-  /** 搜索结果 */
+  /** Search results */
   SearchResult = 502,
-  /** 搜索结果 query可被替换版本 */
+  /** Search results query can be replaced */
   SearchQueryResult = 503,
-  /** 路径规划 */
+  /** path planning */
   RoutePlan = 504,
-  /** 图片分析 */
+  /** image analysis */
   ImageAnalysis = 505,
   /** LinkReader */
   LinkReader = 506,
-  /** 本地生活 */
+  /** Local Life */
   LocalLife = 507,
 }
 
@@ -115,13 +115,13 @@ export enum CopilotRole {
   System = 0,
   User = 1,
   Assistant = 2,
-  /** 占位符，仅出现在模板中 */
+  /** Placeholders, which appear only in templates */
   Placeholder = 3,
-  /** 触发 function-call 调用的模型消息 */
+  /** Model messages that trigger function-call calls */
   LLMOutput = 4,
-  /** tool 返回，function 角色 */
+  /** Tool return, function role */
   ToolOutput = 5,
-  /** 同 5 */
+  /** same as 5 */
   Function = 6,
 }
 
@@ -159,18 +159,18 @@ export enum ErrCode {
 
 export enum FileType {
   FILE = 1,
-  /** 豆包OCR需求 */
+  /** Bean Bun OCR Requirements */
   IMAGE = 2,
   AUDIO = 3,
   VIDEO = 4,
 }
 
 export enum FinReason {
-  /** 正常结束 */
+  /** end normally */
   Normal = 0,
-  /** Plugin内部中断 */
+  /** Plugin Internal Break */
   PluginInterrupt = 1,
-  /** Seed 超长文中断转轮训 */
+  /** Seed super long text interruption rotation training */
   SeedLongTxt = 2,
 }
 
@@ -181,13 +181,13 @@ export enum HighLightType {
 }
 
 export enum InsertReferenceType {
-  /** 文本（默认） */
+  /** Text (default) */
   Text = 1,
-  /** 视频 */
+  /** video */
   Video = 2,
-  /** 图片 */
+  /** picture */
   Image = 3,
-  /** DocumentRef = 4  // 文档引用 */
+  /** DocumentRef = 4//Document reference */t reference */
   CardRef = 5,
 }
 
@@ -207,12 +207,12 @@ export enum LLMScene {
   Suggest = 2,
   QueryKeyword = 3,
   Workflow = 4,
-  /** 生成 Onboarding */
+  /** Onboarding */
   OnboardingOnline = 5,
   OnboardingOffline = 6,
-  /** 会话命名 */
+  /** session naming */
   Naming = 7,
-  /** SC生成用户画像 */
+  /** SC generated user portrait */
   GenProfile = 8,
   BrowserPlugin = 9,
   BrowserPluginSearch = 10,
@@ -222,41 +222,41 @@ export enum LLMScene {
   BrowserPluginGrammar = 14,
   BrowserPluginRewrite = 15,
   BrowserPluginWebSummary = 16,
-  /** 热搜词 忽略上下文 */
+  /** Hot search terms, ignore context */
   HotSearch = 17,
-  /** 离线用于生成缓存 */
+  /** Offline for generating caches */
   HotSearchPreload = 18,
-  /** 输入框Sug */
+  /** Text box Sug */
   InputSug = 19,
-  /** 新闻热点Push */
+  /** News Hot Push */
   NewsPush = 20,
   NewsPushPreload = 21,
-  /** Onboarding建议问题触发的回答 */
+  /** Onboarding Suggestions Questions Triggered Answers */
   OnboardingSug = 22,
   OnboardingSugPreload = 23,
-  /** web未登录用户输入问题 */
+  /** Web not logged in user input problem */
   WebNotLogin = 24,
   /** Onboarding welcomeback */
   BackOnboardingSug = 25,
-  /** 通过LLM的能力生成卡片 */
+  /** Generate cards through LLM's capabilities */
   GenCard = 26,
-  /** 高亮词 */
+  /** Highlight */
   HighLightMsg = 27,
-  /** 高亮词强制搜索 */
+  /** Highlight word forced search */
   HighLightMsgSearch = 28,
-  /** 划词提问场景（浏览器插件） */
+  /** cross-word question scene (browser plug-in) */
   BrowserPluginSelectionQuestion = 29,
-  /** youtube视频摘要（浏览器插件） */
+  /** YouTube video summary (browser plugin) */
   BrowserPluginYoutubeSummary = 30,
-  /** 只调用Chain场景（浏览器插件） */
+  /** Only call the Chain scene (browser plugin) */
   BrowserPluginRawChain = 31,
-  /** PDF理解（浏览器插件） */
+  /** PDF understanding (browser plug-in) */
   BrowserPluginPDFReader = 32,
-  /** 图片理解（浏览器插件） */
+  /** Image understanding (browser plug-in) */
   BrowserPluginImgReader = 33,
-  /** 复杂搜索总结 */
+  /** Complex Search Summary */
   SearchSummary = 34,
-  /** 在20的基础上保证缓存命中率 */
+  /** Guaranteed cache hit rate on the basis of 20 */
   PushForceCache = 40,
 }
 
@@ -277,21 +277,21 @@ export enum MessageType {
 }
 
 export enum MetaType {
-  /** 端侧直接替换 */
+  /** End-to-side direct replacement */
   Replaceable = 1,
-  /** 插入引用 */
+  /** insert reference */
   Insertable = 2,
-  /** 文档引用 */
+  /** document citation */
   DocumentRef = 3,
-  /** 知识库引用卡片 */
+  /** Knowledge Base Reference Card */
   KnowledgeCard = 4,
-  /** 富媒体placeholder */
+  /** Rich media placeholder */
   MetaPlaceHolder = 5,
-  /** 透传 */
+  /** pass-through */
   PassThrough = 50,
-  /** 嵌入的多媒体信息，只是alice给端上用的，因为全链路复用这一个字段，所以在这儿改了 */
+  /** The embedded multimedia information is only used by Alice for the end. Because full link multiplexing uses this field, it has been changed here. */
   EmbeddedMultimedia = 100,
-  /** 如意卡 */
+  /** Ruyi Card */
   AlaCard = 101,
 }
 
@@ -304,22 +304,22 @@ export enum ModelFamily {
   StableDiffusion = 6,
   ByteArtist = 7,
   Edu = 8,
-  /** 方舟(火山引擎) */
+  /** Ark (Volcano Engine) */
   Maas = 9,
-  /** 废弃：千帆(百度云) */
+  /** Abandoned: Qianfan (Baidu Cloud) */
   QianFan = 10,
   /** gemini(google) */
   Gemini = 11,
   Moonshot = 12,
-  /** 智谱 */
+  /** Zhipu */
   GLM = 13,
-  /** MaaS自动同步模型 */
+  /** MaaS automatic synchronization model */
   MaaSAutoSync = 14,
   QWen = 15,
   /** Command R/R+ */
   Cohere = 16,
   Baichuan = 17,
-  /** 文心一言 */
+  /** ERNIE Bot */
   Ernie = 18,
   /** deep seek */
   DeekSeek = 19,
@@ -329,21 +329,21 @@ export enum ModelFamily {
   StepFun = 23,
 }
 
-/** ** 业务自定义 Model ****** 命名规则 业务 + 功能
- 每次 Scene 新增需要手动添加提交
- 每次场景的新增备注说明使用的地方 */
+/** ** Business Custom Model ****** Naming Rules, Business + Functions
+ Each time a new Scene is added, you need to manually add a submission.
+ A new note for each scene explains where to use it */
 export enum ModelListScene {
-  /** Prompt 评测平台 */
+  /** Prompt evaluation platform */
   PromptEvaluatePlatform = 1000,
-  /** Flow 用户前台 */
+  /** Flow user foreground */
   FlowApp = 2000,
-  /** Flow OP 后台 */
+  /** Flow OP Background */
   FlowOPAdmin = 3000,
-  /** Flow 前台与后台的模型合集 */
+  /** Flow model collection in the foreground and background */
   FlowAll = 3001,
-  /** Bot 平台 Release版本 */
+  /** Bot Platform Release Version */
   BotPlatform = 4000,
-  /** Bot 平台 Inhouse版本 */
+  /** Bot Platform Inhouse Version */
   BotPlatformInhouse = 4001,
   /** Flow Workflow */
   Workflow = 5000,
@@ -355,7 +355,7 @@ export enum ModelListScene {
   Doubao = 7000,
 }
 
-/** raw 模型列表 */
+/** List of raw models */
 export enum ModelName {
   GPT3dot5Turbo = 1,
   GPT4_32k = 2,
@@ -372,7 +372,7 @@ export enum ModelName {
   Seed_SCTest = 10,
   /** seed or test */
   Seed_Test = 11,
-  /** seed main + browsing + (Plugin 未放开) */
+  /** Seed main + browsing + (Plugin not released) */
   Seed_WithPlugins = 12,
   GPT3dot5Turbo0613 = 13,
   GPT35_Turbo16k = 14,
@@ -380,17 +380,17 @@ export enum ModelName {
   SeedSota = 15,
   /** sota + browsing */
   SeedSotaBrowsing = 16,
-  /** 三合一, 主模型 + plugin + browsing, 但plugin是固定的 */
+  /** 3-in-1, main model + plugin + browsing, but the plugin is fixed */
   SeedOmni = 17,
   /** function call */
   SeedFunctionCall = 18,
   /** seed main + you are right */
   SeedMain = 19,
-  /** 联网策略实验 */
+  /** networking strategy experiment */
   SeedBrowsingExperiment = 20,
-  /** browsing单模型 */
+  /** Browsing Single Model */
   SeedBrowsingOnly = 21,
-  /** MiniMax abab5.5-chat模型 */
+  /** MiniMax abab5.5-chat model */
   MiniMaxABAB5dot5Chat = 22,
   Echo = 23,
   GPT4_0613 = 24,
@@ -420,7 +420,7 @@ export enum ModelProxy {
   Executor = 4,
 }
 
-/** 兼容旧逻辑里的模型 status */
+/** Compatible with model status in old logic */
 export enum ModelStatus {
   InUse = 1,
   Pending = 5,
@@ -476,21 +476,21 @@ export enum ModelType {
   SeedForMap = 47,
   SeedForMusic = 48,
   XiaoningWithMem = 49,
-  /** 功能性bot的模型从100开始，旧版bot的模型在100以下  pangzhiqiang@bytedance.com */
+  /** Models for functional bots start at 100, and models for older bots are below 100 pangzhiqiang@bytedance.com */
   GPT_35Turbo = 100,
   GPT_35Turbo0301 = 101,
   GPT_4 = 102,
   GPT_40314 = 103,
   GPT_432k = 104,
   GPT_432k0314 = 105,
-  /** seed 主模型 */
+  /** seed master model */
   Seed_Beta = 106,
   Seed_Music = 107,
   GPT4_32k0613 = 108,
   Seed_Img2Text = 109,
-  /** seed主模型 + browsing */
+  /** Seed main model + browsing */
   Seed_WebGPT = 110,
-  /** seed主模型 + browsing + (plugin暂为开放) */
+  /** Seed main model + browsing + (plugin is temporarily open) */
   Seed_WithPlugins = 111,
   GPT_35Turbo0613 = 112,
   GPT_35Turbo16K = 113,
@@ -500,22 +500,22 @@ export enum ModelType {
   Seed_Sota_Browsing = 115,
   /** strong character */
   Seed_WithSystem = 116,
-  /** 三合一, 主模型 + plugin + browsing, 但plugin是固定的 */
+  /** 3-in-1, main model + plugin + browsing, but the plugin is fixed */
   Seed_Omni = 118,
   /** seed function calling */
   SeedFunctionCall = 119,
-  /** seed 主模型， 带"是的你说的对" */
+  /** Seed master model with "yes you are right" */
   Seed_Main = 120,
-  /** 联网策略实验 */
+  /** networking strategy experiment */
   SeedBrowsingExperiment = 121,
-  /** browsing单模型 */
+  /** Browsing Single Model */
   SeedBrowsingOnly = 122,
-  /** 虚假的 llm，function call 协议，一直调用第一个 function */
+  /** False llm, function call protocol, always calls the first function */
   Echo = 123,
   GPT_40613 = 124,
   /** for seed test */
   Seed_WithSystemForTest = 125,
-  /** 地图 */
+  /** Map */
   Seed_Map = 126,
   SeedSuggest = 127,
   Seed_ComplexInstructionTest = 128,
@@ -529,13 +529,13 @@ export enum ModelType {
   SeedSuggestOffline = 136,
   SkylarkChat = 137,
   SeedStrongCharacterNearlinePortrait = 138,
-  /** 保障头条链路 */
+  /** Guaranteed Toutiao Link */
   SkylarkPro_v1_1_TT = 1704353638,
-  /** 保障头条链路（带联网插件） */
+  /** Guaranteed Toutiao link (with networking plug-in) */
   SkylarkPro_v1_1_TT_BROWSING = 1704696164,
-  /** 豆包 bot 分类模型 */
+  /** Bean bag bot classification model */
   SeedBotTag = 1705216686,
-  /** 豆包语音链路优化模型 */
+  /** Bean Bag Voice Link Optimization Model */
   SeedStrongCharacterAudio = 1705220979,
 }
 
@@ -572,53 +572,53 @@ export enum MultiStreamStatus {
   End = 2,
 }
 
-/** Onboarding组件类型 */
+/** Onboarding component type */
 export enum OnboardingComponentType {
   Prologue = 1,
   SuggestedQuestion = 2,
 }
 
-/** onboarding结果的内容来源 */
+/** Source of content for onboarding results */
 export enum OnboardingResultSource {
-  /** LLM生成 */
+  /** LLM generation */
   LLM_GEN = 1,
-  /** LLM翻译自LLM生成内容 */
+  /** LLM Translation from LLM Generated Content */
   LLM_GEN_THEN_TRANSLATE = 2,
-  /** 人工指定 */
+  /** manual designation */
   MANUAL = 3,
-  /** LLM翻译自人工指定 */
+  /** LLM translation from manual designation */
   MANUAL_THEN_TRANSLATE = 4,
 }
 
-/** Onboarding场景 */
+/** Onboarding Scene */
 export enum OnboardingSceneType {
-  /** 新用户 */
+  /** new user */
   FIRST_MET = 1,
-  /** 欢迎回来 */
+  /** Welcome back. */
   WELCOME_BACK = 2,
 }
 
-/** onboarding内容生成模式 */
+/** onboarding content generation mode */
 export enum OnboardingSourceMode {
-  /** 不需要 */
+  /** No. */
   NO_NEED = 1,
-  /** 人工指定内容（多语言支持由LLM兜底） */
+  /** Manually specify content (multi-language support is covered by LLM) */
   USE_MANUAL = 2,
-  /** 由LLM生成 */
+  /** Generated by LLM */
   USE_LLM = 3,
 }
 
 export enum OnboardingType {
   None = 0,
-  /** 不展示开场白 */
+  /** Do not show opening remarks */
   OnboardingNotDisplay = 1,
-  /** 完全使用预设开场白 */
+  /** Full use of preset prologue */
   OnboardingPreset = 2,
-  /** 使用llm自动生成的开场白 */
+  /** Automatically generated prologue using llm */
   OnboardingLLMGen = 3,
 }
 
-/** 用来触发 overpass common 包更新，无实际意义 */
+/** Used to trigger overpass common package updates, meaningless */
 export enum OverpassPlacholder {
   One = 1,
 }
@@ -639,7 +639,7 @@ export enum PrintBehavior {
 export enum PromptTemplateFormat {
   FString = 1,
   Jinja2 = 2,
-  /** 保持原样不解析 */
+  /** Leave it as it is without parsing */
   None = 4,
 }
 
@@ -669,11 +669,11 @@ export enum ResultType {
 export enum ResumeScene {
   /** Compatible value */
   ResumeDefault = 0,
-  /** 插件授权场景 */
+  /** plugin authorization scenario */
   PluginAuthorized = 1,
-  /** 异步插件 */
+  /** asynchronous plugin */
   PluginAsync = 2,
-  /** 插件打断 */
+  /** plugin interrupt */
   PluginInterrupt = 3,
 }
 
@@ -697,24 +697,24 @@ export enum Stage {
   AgentHook = 1,
 }
 
-/** 回答附带建议问题 */
+/** Answer the question with suggestions */
 export enum SuggestReplyMode {
-  /** 使用默认Suggest Prompt生成建议回复 */
+  /** Generate Suggested Prompt with Default */
   WithDefaultPrompt = 0,
-  /** 使用自定义Suggest Prompt生成建议回复 */
+  /** Generate Suggested Prompt with Custom */
   WithCustomizedPrompt = 1,
-  /** 不需要Suggest */
+  /** No Need to Suggest */
   Disable = 2,
-  /** (Agent)使用源bot的配置 */
+  /** (Agent) Configuration using the source bot */
   UseOriginBotMode = 3,
 }
 
 export enum ToolAuthType {
-  /** 默认，调用插件时若无权限会报错 */
+  /** By default, an error will be reported if there is no permission when calling the plugin. */
   Ask = 0,
-  /** 仅本次允许 */
+  /** Only this time allowed */
   Once = 1,
-  /** 始终允许 */
+  /** Always allow */
   Always = 2,
 }
 
@@ -726,7 +726,7 @@ export interface CustomAgentInfo {
   model_config?: CustomModelConfig;
 }
 
-/** copilot 侧上游可传递的 bot info. 对齐 bot 平台 bot info 的部分字段. */
+/** Copilot side upstream transferable bot info. Align some fields of bot info to the bot platform. */
 export interface CustomBotInfo {
   name?: string;
   description_for_model?: string;
@@ -753,7 +753,7 @@ export interface CustomModelConfig {
   endpoint?: string;
 }
 
-/** 用户上传/bot生成的文件信息 */
+/** User uploaded/bot generated file information */
 export interface FileInfo {
   name?: string;
   url?: string;
@@ -766,7 +766,7 @@ export interface FileInfo {
 
 export interface ImageInfo {
   name?: string;
-  /** 本期使用这里，先不用uri */
+  /** Use here in this issue, no need for uri first. */
   url?: string;
   uri?: string;
   md5?: string;

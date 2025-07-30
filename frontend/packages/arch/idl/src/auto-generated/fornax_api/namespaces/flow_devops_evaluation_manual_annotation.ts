@@ -23,13 +23,13 @@ export type Int64 = string | number;
 
 export enum AnnotationItemDataType {
   Unknown = 0,
-  /** 数值打分 */
+  /** numerical scoring */
   Score = 1,
-  /** 数值 */
+  /** numerical value */
   Value = 2,
-  /** 选项 */
+  /** option */
   Select = 3,
-  /** 纯文本描述 */
+  /** plain text description */
   PlainText = 4,
 }
 
@@ -45,68 +45,68 @@ export enum ManualAnnotationTaskCreateStatus {
   Success = 3,
 }
 
-/** 标注任务回写状态 */
+/** label task write-back status */
 export enum ManualAnnotationTaskWriteBackStatus {
   Unknown = 0,
-  /** 任务进行中 */
+  /** Mission in Progress */
   Running = 1,
-  /** 任务成功 */
+  /** Mission successful */
   Success = 2,
-  /** 任务失败 */
+  /** Mission failed */
   Failed = 3,
 }
 
 export enum ManualStatus {
-  /** 不需要人工标注 */
+  /** No manual labeling is required. */
   NoNeed = 0,
-  /** 需要人工标注 */
+  /** Manual labeling is required. */
   Need = 1,
 }
 
 export enum ObjectType {
-  /** 评测任务row，objectID为task_id+row_id */
+  /** Evaluation task row with objectID task_id + row_id */
   EvaluationTaskRow = 1,
 }
 
 export enum RowGroupRunState {
   Unknown = -1,
-  /** 排队中 */
+  /** in line */
   Queueing = 0,
-  /** 执行中 */
+  /** in progress */
   Processing = 1,
-  /** 成功 */
+  /** success */
   Success = 2,
-  /** 失败 */
+  /** fail */
   Fail = 3,
-  /** 结果待评估 */
+  /** Results to be evaluated */
   Evaluating = 4,
-  /** 终止执行 */
+  /** terminate execution */
   Terminal = 5,
 }
 
 export enum RowRunState {
-  /** 未开始执行 */
+  /** Not started */
   Queueing = 0,
-  /** 执行成功 */
+  /** successful execution */
   Success = 1,
-  /** 执行失败 */
+  /** execution failed */
   Fail = 2,
 }
 
 export enum SourceType {
-  /** 评测对比报告，sourceID为评测对比报告ID */
+  /** Evaluation comparison report, sourceID is the evaluation comparison report ID */
   EvaluationContrastReport = 1,
-  /** 评测任务，sourceID为评测任务ID */
+  /** Evaluation task, sourceID is the evaluation task ID */
   EvaluationTask = 2,
-  /** 无来源 */
+  /** No source */
   NoSource = 100,
 }
 
 export enum VisibleArea {
   Unknown = 0,
-  /** 在评测模块可见 */
+  /** Visible in the evaluation module */
   Evaluation = 1,
-  /** 在标注模块可见 */
+  /** Visible in the annotation module */
   ManuaAnnotation = 2,
 }
 /* eslint-enable */

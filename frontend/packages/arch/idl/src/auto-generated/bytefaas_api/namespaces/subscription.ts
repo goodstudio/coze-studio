@@ -28,7 +28,7 @@ export interface SubscribeServiceRequest {
   'X-Jwt-Token'?: string;
   /** ID of function service */
   service_id: string;
-  /** 订阅人列表
+  /** subscriber list
 array of name of subscribers. */
   subscribers?: Array<string>;
 }

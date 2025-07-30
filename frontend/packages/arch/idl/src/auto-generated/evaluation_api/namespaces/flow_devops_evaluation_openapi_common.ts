@@ -54,7 +54,7 @@ export interface Row {
 export interface RowGroup {
   row_group_id: string;
   group_name: string;
-  /** 新增创建时指定tags */
+  /** Add specify tags when creating */
   tags?: Array<string>;
   rows?: Array<Row>;
 }

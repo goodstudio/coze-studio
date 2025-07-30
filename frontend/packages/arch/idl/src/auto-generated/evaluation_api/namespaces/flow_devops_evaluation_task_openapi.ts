@@ -29,12 +29,12 @@ export interface CancelTaskData {}
 
 export interface CancelTasksRequest {
   case_id: string;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
   task_ids?: Array<string>;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
 }
 
@@ -49,13 +49,13 @@ export interface CreateCustomMetricsDataPointsData {}
 
 export interface CreateCustomMetricsDataPointsRequest {
   case_id: string;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
   task_id: string;
   data_points?: Array<MetricsDataPoint>;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   Base?: base.Base;
 }
@@ -73,11 +73,11 @@ export interface CreateEvalTaskData {
 
 export interface CreateEvalTaskRequest {
   case_id: string;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   Base?: base.Base;
 }
@@ -109,11 +109,11 @@ export interface GetAccountInfoData {
 }
 
 export interface GetAccountInfoRequest {
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   Base?: base.Base;
 }
@@ -134,12 +134,12 @@ export interface ListTaskRowGroupsData {
 
 export interface ListTaskRowGroupsRequest {
   case_id: string;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
   task_id: string;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   page_token?: string;
   page_size?: Int64;
@@ -179,12 +179,12 @@ export interface UpdateAgentOutputData {}
 
 export interface UpdateAgentOutputRequest {
   case_id: string;
-  /** 请求方的应用ID */
+  /** Requester's application ID */
   'FlowDevops-Agw-OpenAPI-AppId': string;
-  /** 请求方的空间ID */
+  /** The space ID of the requester */
   'FlowDevops-Agw-OpenAPI-SpaceId': string;
   task_id: string;
-  /** 请求方的服务账号ID */
+  /** Requester's service account ID */
   'FlowDevops-Agw-OpenAPI-AccountId': string;
   row_group_results?: Array<RowGroupResult>;
   Base?: base.Base;

@@ -23,104 +23,104 @@ import * as infra from './infra';
 
 export type Int64 = string | number;
 
-/** MockHitStatus Mock命中状态 */
+/** MockHitStatus Mock */
 export enum MockHitStatus {
   Undefined = 0,
-  /** Mock成功 */
+  /** Mocked out */
   Success = 1,
-  /** MockSet的Schema不兼容 */
+  /** MockSet's Schema is not compatible */
   Incompatible = 2,
-  /** MockSet已被删除 */
+  /** MockSet has been deleted */
   Deleted = 3,
-  /** MockSet里没有Rule */
+  /** No Rules in MockSet */
   EmptyRule = 4,
-  /** 没有命中Mock的灰度策略 */
+  /** No grey release strategy for Mock */
   NotHitGray = 5,
 }
 
 /** ========== Common Define  ===========  //
- RequestFilterType 请求过滤规则类型 */
+ RequestFilterType Request filter rule type */
 export enum RequestFilterType {
   Undefined = 0,
-  /** 不进行请求匹配 */
+  /** No request matching */
   ByPass = 1,
 }
 
-/** ResponseExpectType 返回值生成规则类型 */
+/** ResponseExpectType return value generation rule type */
 export enum ResponseExpectType {
   Undefined = 0,
-  /** 返回类型是JSON，会进行Schema校验 */
+  /** The return type is JSON and schema validation is performed */
   JSON = 1,
 }
 
-/** MockRule Mock规则设定 */
+/** MockRule Mock */
 export interface MockRule {
   /** MockRule ID */
   id?: Int64;
-  /** 绑定的MockSet ID */
+  /** Bound MockSet ID */
   mockSetID?: Int64;
-  /** 名称 */
+  /** name */
   name?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 优先级 */
+  /** priority */
   priority?: Int64;
-  /** 请求过滤规则 */
+  /** request filtering rules */
   requestFilter?: RequestFilter;
-  /** 响应规则 */
+  /** response rule */
   responseExpect?: ResponseExpect;
-  /** 创建者 */
+  /** creator */
   creator?: infra.Creator;
-  /** 创建时间 */
+  /** creation time */
   createTimeInSec?: Int64;
-  /** 更新时间 */
+  /** update time */
   updateTimeInSec?: Int64;
 }
 
-/** MockSet 实体信息 */
+/** MockSet Entity Information */
 export interface MockSet {
   /** Mockset id */
   id?: Int64;
-  /** Mockset 名称 */
+  /** Mockset name */
   name?: string;
-  /** 描述 */
+  /** describe */
   description?: string;
-  /** 包含的MockRule数量 */
+  /** Number of MockRules included */
   mockRuleQuantity?: number;
-  /** 创建者 */
+  /** creator */
   creator?: infra.Creator;
-  /** 创建时间 */
+  /** creation time */
   createTimeInSec?: Int64;
-  /** 更新时间 */
+  /** update time */
   updateTimeInSec?: Int64;
-  /** Schema不兼容 */
+  /** Schema incompatible */
   schemaIncompatible?: boolean;
   mockSubject?: infra.ComponentSubject;
 }
 
-/** MockSetBinding MockSet绑定信息 */
+/** MockSetBinding MockSet binding information */
 export interface MockSetBinding {
-  /** 绑定的MockSetID，为0时代表不走Mock */
+  /** The bound MockSetID, for the 0 era table does not go Mock */
   mockSetID?: Int64;
-  /** 绑定的组件 */
+  /** bound component */
   mockSubject?: infra.ComponentSubject;
-  /** 业务上下文 */
+  /** business context */
   bizCtx?: infra.BizCtx;
 }
 
-/** RequestFilter 请求过滤规则 */
+/** RequestFilter request filtering rules */
 export interface RequestFilter {
-  /** 请求过滤规则类型 */
+  /** Request filter rule type */
   requestFilterType?: RequestFilterType;
-  /** 请求过滤规则 */
+  /** request filtering rules */
   requestFilterRule?: string;
 }
 
-/** ResponseExpect 响应规则 */
+/** ResponseExpect response rules */
 export interface ResponseExpect {
-  /** 响应规则类型 */
+  /** response rule type */
   responseExpectType?: ResponseExpectType;
-  /** 响应规则 */
+  /** response rule */
   responseExpectRule?: string;
 }
 /* eslint-enable */

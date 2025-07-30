@@ -21,20 +21,20 @@
 
 export type Int64 = string | number;
 
-/** 聚合器类型 */
+/** aggregator type */
 export enum AggregatorType {
   Average = 1,
   Sum = 2,
   Max = 3,
   Min = 4,
-  /** 得分的分布情况 */
+  /** The distribution of scores. */
   Distribution = 5,
 }
 
 export enum DataType {
-  /** 默认，有小数的浮点数值类型 */
+  /** Default, floating-point value types with decimals */
   Double = 0,
-  /** 得分分布 */
+  /** score distribution */
   ScoreDistribution = 1,
 }
 
@@ -53,23 +53,23 @@ export enum ExptRetryMode {
 
 export enum ExptStatus {
   Unknown = 0,
-  /** 待执行 */
+  /** to be implemented */
   Pending = 2,
-  /** 执行中 */
+  /** in progress */
   Processing = 3,
-  /** 执行成功 */
+  /** successful execution */
   Success = 11,
-  /** 执行失败 */
+  /** execution failed */
   Failed = 12,
-  /** 用户终止 */
+  /** user termination */
   Terminated = 13,
-  /** 系统内部异常终止 */
+  /** Abnormal termination within the system */
   SystemTerminated = 14,
 }
 
 export enum FieldType {
   Unknown = 0,
-  /** 评估器得分, FieldKey为evaluatorVersionID,value为score */
+  /** Evaluator score, FieldKey is evaluatorVersionID, value is score */
   EvaluatorScore = 1,
   CreatorBy = 2,
   ExptStatus = 3,
@@ -92,44 +92,44 @@ export enum FilterLogicOp {
 
 export enum FilterOperatorType {
   Unknown = 0,
-  /** 等于 */
+  /** equal to */
   Equal = 1,
-  /** 不等于 */
+  /** Not equal to */
   NotEqual = 2,
-  /** 大于 */
+  /** greater than */
   Greater = 3,
-  /** 大于等于 */
+  /** greater than or equal to */
   GreaterOrEqual = 4,
-  /** 小于 */
+  /** less than */
   Less = 5,
-  /** 小于等于 */
+  /** less than or equal to */
   LessOrEqual = 6,
-  /** 包含 */
+  /** contain */
   In = 7,
-  /** 不包含 */
+  /** Do not include */
   NotIn = 8,
 }
 
 export enum ItemRunState {
   Unknown = -1,
-  /** 排队中 */
+  /** in line */
   Queueing = 0,
-  /** 执行中 */
+  /** in progress */
   Processing = 1,
-  /** 成功 */
+  /** success */
   Success = 2,
-  /** 失败 */
+  /** fail */
   Fail = 3,
-  /** 终止执行 */
+  /** terminate execution */
   Terminal = 5,
 }
 
 export enum TurnRunState {
-  /** 未开始执行 */
+  /** Not started */
   Queueing = 0,
-  /** 执行成功 */
+  /** successful execution */
   Success = 1,
-  /** 执行失败 */
+  /** execution failed */
   Fail = 2,
   Processing = 3,
   Terminal = 4,

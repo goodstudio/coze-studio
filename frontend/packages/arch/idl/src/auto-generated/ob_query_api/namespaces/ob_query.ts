@@ -68,7 +68,7 @@ export interface ListSpansRequest {
   end_at: Int64;
   limit?: number;
   desc_by_start_time?: boolean;
-  /** 检索游标 */
+  /** search cursor */
   context?: string;
   bot_id?: string;
   workspace_id?: string;

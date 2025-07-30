@@ -22,20 +22,20 @@
 export type Int64 = string | number;
 
 export enum ScreenMode {
-  /** 根据坐标和宽高截图 */
+  /** Screenshot according to coordinates and width and height */
   ScreenshotModePosition = 0,
-  /** 根据选择器对元素进行截图 */
+  /** Take a screenshot of the element based on the selector */
   ScreenshotModeElement = 1,
 }
 
 export interface Device {
-  /** 模拟设备的宽 */
+  /** The width of the analog device */
   width: Int64;
-  /** 模拟设备的高 */
+  /** The high level of analog equipment */
   height: Int64;
-  /** 模拟设备的 device scale factor 参数 */
+  /** Analog device scaling factor */
   scale_factor: number;
-  /** 是否模拟手机 */
+  /** Whether to simulate a mobile phone */
   mobile: boolean;
   /** Scale to apply to resulting view image. */
   scale?: number;
@@ -54,17 +54,17 @@ export interface Device {
 
 export interface ScreenshotOption {
   mode: ScreenMode;
-  /** Mode为ScreenshotModePosition时填, 默认值{0,0,720,2400,1} */
+  /** When Mode is ScreenshotModePosition, the default value is {0,0,720,2400,1} */
   viewport?: Viewport;
-  /** Mode为ScreenshotModeElement时必填 */
+  /** Mode is required when ScreenshotModeElement */
   selector?: string;
   /** jpeg, webp, png */
   format?: string;
   /** [0..100] (jpeg only) */
   quality?: number;
-  /** 最大宽度，Mode为ScreenshotModePosition生效 */
+  /** Maximum width, Mode ScreenshotModePosition */
   max_width?: number;
-  /** 最大高度，Mode为ScreenshotModePosition生效 */
+  /** Maximum height. Mode ScreenshotModePosition */
   max_height?: number;
 }
 

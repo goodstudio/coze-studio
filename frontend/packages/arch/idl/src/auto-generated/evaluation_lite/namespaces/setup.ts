@@ -23,55 +23,55 @@ import * as task from './task';
 
 export type Int64 = string | number;
 
-/** SetupMode 初始化模式
+/** SetupMode initialization mode
  NEXT ID: 4 */
 export enum SetupMode {
   Undefined = 0,
-  /** 插入或者更新 */
+  /** Insert or update */
   Upsert = 1,
-  /** 删除用例 */
+  /** Delete use case */
   Remove = 2,
-  /** 读取用例信息 */
+  /** Read use case information */
   Read = 3,
 }
 
-/** CaseConfig 用例配置
+/** CaseConfig use case configuration
  NEXT ID: 6 */
 export interface CaseConfig {
-  /** 用例名称 */
+  /** use case name */
   name?: string;
-  /** 数据集列名字 */
+  /** Dataset column name */
   columns?: Array<string>;
-  /** 数据行 */
+  /** data row */
   rows?: Array<Row>;
-  /** 评估器类型 */
+  /** Evaluator Type */
   evaluator_type?: Int64;
-  /** 读取到的用例id */
+  /** Read use case id */
   read_case_id?: string;
 }
 
-/** ReadConfig 读取模式下的配置内容
+/** Configuration content in ReadConfig read mode
  NEXT ID: 2 */
 export interface ReadConfig {
-  /** 读取的case名称，如果不传则返回全部的 */
+  /** The name of the case read, if not passed, returns all */
   name?: string;
 }
 
-/** RemoveConfig 删除模式下的配置内容
+/** RemoveConfig Delete the configuration content in the mode
  NEXT ID: 2 */
 export interface RemoveConfig {
-  /** 删除的case名称 */
+  /** Deleted case name */
   name?: string;
 }
 
-/** Row 行中的数据
+/** Row of data
  NEXT ID: 2 */
 export interface Row {
-  /** 一行的内容 */
+  /** One line of content */
   contents?: Array<task.Content>;
 }
 
-/** SetupConfig 初始化配置
+/** SetupConfig initialization configuration
  NEXT ID: 5 */
 export interface SetupConfig {
   setup_mode: SetupMode;
@@ -80,10 +80,10 @@ export interface SetupConfig {
   read_config?: ReadConfig;
 }
 
-/** UpsertConfig 插入或者更新模式的配置内容
+/** UpsertConfig insert or update mode configuration content
  NEXT ID: 2 */
 export interface UpsertConfig {
-  /** 用例配置信息 */
+  /** use case configuration information */
   case_config?: CaseConfig;
 }
 /* eslint-enable */

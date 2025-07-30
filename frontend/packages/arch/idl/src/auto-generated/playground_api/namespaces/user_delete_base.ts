@@ -22,37 +22,37 @@
 export type Int64 = string | number;
 
 export enum DataType {
-  /** 未知 */
+  /** unknown */
   UNKNOWN = 0,
-  /** 普通个人信息, */
+  /** General personal information, */
   ORDINARY_PERSONAL_INFORMATION = 1,
-  /** 基本个人信息, */
+  /** Basic personal information. */
   BASIC_PERSONAL_INFORMATION = 2,
-  /** 个人身份信息, */
+  /** Personally identifiable information, */
   PERSONAL_IDENTITY_INFORMATION = 3,
-  /** 个人位置信息, */
+  /** Personal location information, */
   PERSONAL_LOCATION_INFORMATION = 4,
-  /** 系统或网络标识符信息, */
+  /** System or network identifier information. */
   SYSTEM_OR_NETWORK_IDENTIFIER_INFORMATION = 5,
-  /** 个人设备信息, */
+  /** Personal device information, */
   PERSONAL_DEVICE_INFORMATION = 6,
-  /** 职位和教育信息, */
+  /** Job and educational information. */
   JOB_AND_EDUCATION_INFORMATION = 7,
-  /** 个人财务信息, */
+  /** Personal financial information. */
   PERSONAL_FINANCIAL_INFORMATION = 8,
-  /** 个人社会联系信息, */
+  /** Personal social contact information. */
   PERSONAL_SOCIAL_CONTACT_INFORMATION = 9,
-  /** 应用信息, */
+  /** Application information, */
   APPLICATION_INFORMATION = 10,
-  /** 服务内容信息, */
+  /** Service content information, */
   SERVICE_CONTENT_INFORMATION = 11,
-  /** 服务日志信息, */
+  /** Service log information, */
   SERVICE_LOG_INFORMATION = 12,
-  /** 产品内容数据, */
+  /** Product content data, */
   PRODUCT_CONTENT_DATA = 13,
-  /** 个人生物特征信息, */
+  /** Personal biometric information. */
   PERSONAL_BIOMETRIC_INFORMATION = 14,
-  /** 其他 */
+  /** other */
   OTHERS = 15,
 }
 
@@ -62,22 +62,22 @@ export enum RestoreType {
 }
 
 export enum UserDeleteRespCode {
-  /** 任务受理成功，即开始执行 */
+  /** If the task is successfully accepted, the execution will begin */
   TaskAcceptedSuccess = 100,
-  /** 任务受理失败 */
+  /** task acceptance failed */
   TaskAcceptedFailed = 101,
-  /** 任务执行成功 */
+  /** Task execution was successful */
   TaskExecutedSuccess = 102,
-  /** 任务执行失败 */
+  /** Task execution failed */
   TaskExecutedFailed = 103,
-  /** 用户数据存在 */
+  /** User data exists */
   VerifyUserDataExist = 200,
 }
 
 export enum UserDeleteScene {
-  /** 帐号注销 */
+  /** account cancellation */
   ACCOUNT_CANCEL = 0,
-  /** 应用数据删除 */
+  /** app data deletion */
   APP_DATA_DELETION = 1,
 }
 

@@ -23,39 +23,39 @@ export type Int64 = string | number;
 
 export enum FulfillmentStatus {
   Unknown = 0,
-  /** 初始化 */
+  /** initialization */
   Init = 1,
-  /** 运行中 */
+  /** Running */
   Running = 2,
-  /** 待重试 */
+  /** to try again */
   ToRetry = 3,
-  /** 已成功 */
+  /** Successful */
   Succeed = 4,
-  /** 已失败 */
+  /** Failed */
   Failed = 5,
 }
 
 export enum FulfillmentType {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** 增加实体的可调用量 */
+  /** Increase the adjustable amount of entities */
   AddEntityAmount = 1,
-  /** 用于发送协议支付请求，接收协议支付回调 */
+  /** It is used to send protocol payment requests and receive protocol payment callbacks */
   AutoChargePayment = 2,
-  /** 协议支付回调 */
+  /** agreement payment callback */
   AutoChargeCallback = 3,
-  /** 增加 message credits */
+  /** Increase message credits */
   AddMessageCredits = 4,
 }
 
 export enum SourceType {
-  /** 未知 */
+  /** unknown */
   Unknown = 0,
-  /** bot 运营平台,  */
+  /** Bot operation platform,  */
   BotOperationPlatform = 1,
-  /** 支付系统 */
+  /** payment system */
   Trade = 2,
-  /** 内部调用 */
+  /** internal call */
   Inner = 3,
 }
 /* eslint-enable */

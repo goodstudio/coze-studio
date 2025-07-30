@@ -26,46 +26,46 @@ import * as copilot from './copilot';
 export type Int64 = string | number;
 
 export enum BussinessType {
-  /** 模型配置 */
+  /** model configuration */
   model_config = 1,
-  /** chain任务配置 */
+  /** Chain task configuration */
   chain_info = 2,
 }
 
 export enum DeployStatusEnum {
-  /** 成功 */
+  /** success */
   Success = 1,
-  /** 发布中 */
+  /** In release */
   Onlining = 2,
-  /** 审批中 */
+  /** Approving */
   Approving = 3,
-  /** 失败 */
+  /** fail */
   Failed = 4,
 }
 
 export enum EnumType {
-  /** 模型版本 */
+  /** model version */
   model_version = 1,
-  /** 模型家族 */
+  /** Model family */
   model_family = 2,
-  /** 模型的场景 */
+  /** Model scene */
   model_scene = 3,
-  /** 模型执行代理 */
+  /** Model Execution Agent */
   model_proxy = 4,
-  /** 模型图标路径 */
+  /** Model icon path */
   model_icon_path = 5,
 }
 
 export interface ApplyRoleData {
-  /** role 名称 */
+  /** Role name */
   role_name?: string;
-  /** role 能力的描述 */
+  /** Description of role capabilities */
   role_desc?: string;
-  /** role 的申请链接 */
+  /** Application link for role */
   role_apply_url?: string;
   /** role kani key */
   role_key?: string;
-  /** 是否已拥有该角色, 当用户已有的话可以将它相关的信息置灰让用户不可选 */
+  /** Whether you already have the role, when the user already has it, you can grey out its related information to make the user unselectable */
   has_role?: boolean;
 }
 
@@ -90,7 +90,7 @@ export interface CasLoginReq {
 export interface CasLoginResp {}
 
 export interface CommonEnumData {
-  /** key 是对应的 id,  值是 id 的中文描述 */
+  /** Key is the corresponding id, value is the Chinese description of id */
   enum_data?: Array<EnumData>;
   redirect_uri?: string;
 }
@@ -127,16 +127,16 @@ export interface CreateModelDeploymentResponse {
 }
 
 export interface CreateModelEntityData {
-  /** 模型的 ID */
+  /** ID of the model */
   model_id: Int64;
   redirect_uri?: string;
 }
 
 export interface CreateModelEntityReq {
-  /** 大模型名称 model_arch */
+  /** Large model name model_arch */
   model_name: string;
   Referer?: string;
-  /** 模型分流 */
+  /** model shunting */
   targets: Array<model_manage.ModelRuleTarget>;
   biz?: number;
   'Ocean-Jwt-Token'?: string;
@@ -149,34 +149,34 @@ export interface CreateModelEntityResp {
 }
 
 export interface CreateModelMetaData {
-  /** 模型的 ID */
+  /** ID of the model */
   model_id: Int64;
   redirect_uri?: string;
 }
 
 export interface CreateModelMetaReq {
-  /** 大模型名称 model_arch */
+  /** Large model name model_arch */
   model_name: string;
-  /** 大模型所在的分类 */
+  /** Classification where the big model is located */
   family: copilot_common.ModelFamily;
   Referer?: string;
-  /** 大模型对应的版本(目前只适用 GPT) */
+  /** Version corresponding to the large model (currently only applicable to GPT) */
   version?: copilot_common.ModelVersion;
-  /** 模型的描述, 最小5字节，最大2048 */
+  /** Model description, minimum 5 bytes, maximum 2048 */
   desc: string;
   show_name?: string;
   icon?: string;
-  /** 模型能力描述 */
+  /** Model capability description */
   capability?: copilot.Capability;
-  /** 模型容量限制 */
+  /** Model capacity constraints */
   quota?: copilot.ModelQuota;
-  /** 模型的超时和重试次数等配置 */
+  /** Model timeouts and retries, etc */
   model_config?: copilot.ModelConf;
-  /** 模型模板配置 */
+  /** Model template configuration */
   prompt_conf?: copilot.PromptConf;
-  /** 历史兼容字段 */
+  /** historical compatibility field */
   legacy_fields?: copilot.LegacyFields;
-  /** 模型参数 */
+  /** model parameters */
   parameters?: Array<copilot.ModelParameter>;
   display_properties?: string;
   'Ocean-Jwt-Token'?: string;
@@ -194,16 +194,16 @@ export interface CreateModelWithSceneData {
 }
 
 export interface CreateModelWithSceneReq {
-  /** 场景 ID */
+  /** Scene ID */
   scene: Array<copilot_common.ModelListScene>;
-  /** 模型 ID */
+  /** Model ID */
   model_id: string;
   Referer?: string;
-  /** 展示名称(后续如果需要支持 i18n 的话扩展一个 Starling 字段) */
+  /** Display name (expand a Starling field if you need to support i18n later) */
   show_name: string;
-  /** 排序 */
+  /** sort */
   ranking: number;
-  /** 图标，优先级会覆盖 model_meta 下的 icon_url */
+  /** Icon, priority overrides icon_url under model_meta */
   icon?: string;
   'Ocean-Jwt-Token'?: string;
 }
@@ -240,7 +240,7 @@ export interface DeleteModelMetaData {
 }
 
 export interface DeleteModelMetaReq {
-  /** 模型ID */
+  /** Model ID */
   model_id?: string;
   Referer?: string;
   'Ocean-Jwt-Token'?: string;
@@ -295,7 +295,7 @@ export interface DeploymentDetail {
   Status: DeployStatusEnum;
   Url: string;
   Title: string;
-  /** 业务唯一标识，如model id */
+  /** Business unique identifiers, such as model IDs */
   BizId: string;
   Remark?: string;
   extra?: Record<string, string>;
@@ -318,7 +318,7 @@ export interface GetBindSceneModelResp {
 }
 
 export interface GetCommonEnumDataReq {
-  /** 枚举值类型 */
+  /** enumeration value type */
   enum_type?: EnumType;
   Referer?: string;
   'Ocean-Jwt-Token'?: string;
@@ -337,17 +337,17 @@ export interface GeteModelMetaTemplateResp {
 }
 
 export interface GetModelListWithSceneData {
-  /** 场景下的模型列表，顺序是按照后台配置的Ranking正序排列 */
+  /** List of models under the scene, in order according to the Ranking display in ascending order configured in the background */
   ModelList?: Array<ModelSceneData>;
   redirect_uri?: string;
 }
 
 export interface GetModelListWithSceneReq {
   scene: copilot_common.ModelListScene;
-  /** 是否需要被删除的 model */
+  /** Does the model need to be deleted? */
   has_delete_model?: boolean;
   Referer?: string;
-  /** 根据 model_name 模糊查找 */
+  /** Fuzzy search based on model_name */
   model_name?: string;
   'Ocean-Jwt-Token'?: string;
 }
@@ -366,12 +366,12 @@ export interface GetModelMetaListData {
 }
 
 export interface GetModelMetaListReq {
-  /** 模型ID, 不传就拉全量 */
+  /** Model ID, pull the full amount without passing it on. */
   model_id?: string;
   Referer?: string;
-  /** 指定的状态，不传默认是所有的状态都获取(包括删除) */
+  /** The specified state is not passed. The default is that all states are obtained (including deletion). */
   status?: Array<copilot_common.ModelStatus>;
-  /** 根据 model_name 模糊查找 */
+  /** Fuzzy search based on model_name */
   model_name?: string;
   'Ocean-Jwt-Token'?: string;
 }
@@ -567,7 +567,7 @@ export interface HotModelShowFamily {
   ranking?: number;
 }
 
-/** 使用api.http_code来注解http_code，使用http_message来注解返回的message
+/** Use api.http_code to annotate http_code, use http_message to annotate the returned message
   */
 export interface HttpRequestParams {
   Referer?: string;
@@ -575,47 +575,47 @@ export interface HttpRequestParams {
 }
 
 export interface ModelData {
-  /** 模型 ID */
+  /** Model ID */
   model_id?: string;
-  /** 大模型名称 model_arch */
+  /** Large model name model_arch */
   model_name?: string;
-  /** 大模型所在的分类 */
+  /** Classification where the big model is located */
   family?: copilot_common.ModelFamily;
-  /** 大模型对应的版本(目前只适用 GPT) */
+  /** Version corresponding to the large model (currently only applicable to GPT) */
   version?: copilot_common.ModelVersion;
-  /** 描述 */
+  /** describe */
   desc?: string;
-  /** 模型能力描述 */
+  /** Model capability description */
   capability?: copilot.Capability;
-  /** 模型容量限制 */
+  /** Model capacity constraints */
   quota?: copilot.ModelQuota;
-  /** 模型的超时和重试次数等配置 */
+  /** Model timeouts and retries, etc */
   model_config?: copilot.ModelConf;
   prompt_conf?: copilot.PromptConf;
-  /** 历史兼容字段 */
+  /** historical compatibility field */
   legacy_fields?: copilot.LegacyFields;
-  /** 状态 1 使用中 10 删除 */
+  /** Status 1 In Use 10 Delete */
   status?: copilot_common.ModelStatus;
-  /** family 对应的名称,前端拿到后直接展示 */
+  /** The name corresponding to the family will be displayed directly after the front end is obtained. */
   family_name?: string;
   show_name?: string;
   icon_url?: string;
   icon?: string;
-  /** 通过场景获取时，会返回排序 */
+  /** When fetched through the scene, the sorting is returned */
   ranking?: number;
-  /** 模型参数 */
+  /** model parameters */
   parameters?: Array<copilot.ModelParameter>;
   display_properties?: string;
-  /** 创建者信息 */
+  /** creator information */
   create_user?: UserInfo;
-  /** 更新信息 */
+  /** update information */
   update_user?: UserInfo;
   create_at_unix?: Int64;
   update_at_unix?: Int64;
 }
 
 export interface ModelMetaTemplateData {
-  /** 大模型名称  model_arch */
+  /** Large model name model_arch */
   model_name?: string;
   family?: copilot_common.ModelFamily;
   version?: copilot_common.ModelVersion;
@@ -627,20 +627,20 @@ export interface ModelMetaTemplateData {
   model_config?: copilot.ModelConf;
   prompt_conf?: copilot.PromptConf;
   legacy_fields?: copilot.LegacyFields;
-  /** 模型参数 */
+  /** model parameters */
   parameters?: Array<copilot.ModelParameter>;
   display_properties?: string;
   redirect_uri?: string;
 }
 
 export interface ModelQueryRequest {
-  /** 模型ID, 不传就拉全量 */
+  /** Model ID, pull the full amount without passing it on. */
   ModelIds?: Array<string>;
   Referer?: string;
   Scene?: copilot_common.ModelListScene;
-  /** 指定的状态，不传默认是所有的状态都获取(包括删除) */
+  /** The specified state is not passed. The default is that all states are obtained (including deletion). */
   Status?: Array<copilot_common.ModelStatus>;
-  /** 模糊匹配 ModelName */
+  /** Fuzzy matching ModelName */
   ModelName?: string;
   'Ocean-Jwt-Token'?: string;
   Cursor?: Int64;
@@ -652,42 +652,42 @@ export interface ModelRuntimeTag {
   image?: boolean;
   video?: boolean;
   audio?: boolean;
-  /** 多模态支持的文件类型，遵循 MIME 标准 */
+  /** Multimodal supported file types, following the MIME standard */
   imageTypes?: Array<string>;
-  /** 多模态支持的文件类型，遵循 MIME 标准 */
+  /** Multimodal supported file types, following the MIME standard */
   videoTypes?: Array<string>;
-  /** 多模态支持的文件类型，遵循 MIME 标准 */
+  /** Multimodal supported file types, following the MIME standard */
   audioTypes?: Array<string>;
-  /** 续写能力 */
+  /** continuation ability */
   prefillResp?: boolean;
-  /** 前缀缓存能力 */
+  /** prefix caching capability */
   prefixCache?: boolean;
-  /** 深度思考 */
+  /** Deep Thinking */
   cotDisplay?: boolean;
 }
 
 export interface ModelSceneData {
-  /** 场景 id */
+  /** Scene ID */
   scene?: copilot_common.ModelListScene;
-  /** 模型基础信息 */
+  /** Model basic information */
   model_data: ModelData;
-  /** 展示名称 */
+  /** display name */
   show_name: string;
-  /** 图标 */
+  /** icon */
   icon?: string;
-  /** 状态 1 使用中 */
+  /** Status 1 in use */
   status?: copilot_common.ModelStatus;
-  /** 排序用字段，ranking 越大越前 */
+  /** Sorting fields, the bigger the ranking, the earlier */
   ranking?: number;
-  /** icon 图标的完整路径 */
+  /** Full path to icon icon */
   icon_url?: string;
-  /** 创建人信息 */
+  /** creator information */
   create_user?: UserInfo;
-  /** 最后更新人信息 */
+  /** Last Updated Person Information */
   update_user?: UserInfo;
-  /** 创建时间 */
+  /** creation time */
   create_at_unix?: Int64;
-  /** 更新时间 */
+  /** update time */
   update_at_unix?: Int64;
 }
 
@@ -713,7 +713,7 @@ export interface OfflineOpBotsModelResp {
 export interface OnlineOpBotsModelReq {
   modelId?: string;
   scene?: copilot_common.ModelListScene;
-  /** 排序 */
+  /** sort */
   ranking?: number;
   schedule_time?: string;
 }
@@ -726,7 +726,7 @@ export interface OnlineOpBotsModelResp {
 export interface OpBotsModelModelScene {
   scheduleTaskId?: string;
   scheduleTime?: string;
-  /** 0-未上架 1-待上线 2-上线 3-待下线 4-下线 5-取消 */
+  /** 0-Not on the shelves 1-To be online 2-On the line 3-To be offline 4-Off the line 5-Cancel */
   status?: number;
   scene?: copilot_common.ModelListScene;
   operator?: string;
@@ -756,7 +756,7 @@ export interface QueryModelEntityData {
 }
 
 export interface QueryModelEntityReq {
-  /** 模糊匹配 ModelName */
+  /** Fuzzy matching ModelName */
   model_name?: string;
   Referer?: string;
   index?: Int64;
@@ -787,7 +787,7 @@ export interface QueryModelMetaData {
 }
 
 export interface QueryModelMetaReq {
-  /** 模糊匹配 ModelName */
+  /** Fuzzy matching ModelName */
   model_name?: string;
   Referer?: string;
   index?: Int64;
@@ -836,12 +836,12 @@ export interface UpdateModelEntityData {
 }
 
 export interface UpdateModelEntityReq {
-  /** 模型ID */
+  /** Model ID */
   model_id?: string;
-  /** 模型名称 */
+  /** Model name */
   model_name?: string;
   Referer?: string;
-  /** 模型分流 */
+  /** model shunting */
   targets?: Array<model_manage.ModelRuleTarget>;
   biz?: number;
   'Ocean-Jwt-Token'?: string;
@@ -855,36 +855,36 @@ export interface UpdateModelEntityResp {
 }
 
 export interface UpdateModelMetaData {
-  /** 模型的 ID */
+  /** ID of the model */
   model_meta_id: Int64;
   redirect_uri?: string;
 }
 
 export interface UpdateModelMetaReq {
-  /** 模型ID */
+  /** Model ID */
   model_id?: string;
-  /** 模型名称 */
+  /** Model name */
   model_name?: string;
   Referer?: string;
-  /** 大模型所在的分类 */
+  /** Classification where the big model is located */
   family?: copilot_common.ModelFamily;
-  /** 大模型对应的版本(目前只适用 GPT) */
+  /** Version corresponding to the large model (currently only applicable to GPT) */
   version?: copilot_common.ModelVersion;
-  /** 模型的描述, 最小5字节，最大2048 */
+  /** Model description, minimum 5 bytes, maximum 2048 */
   desc?: string;
   show_name?: string;
   icon?: string;
-  /** 模型能力描述 */
+  /** Model capability description */
   capability?: copilot.Capability;
-  /** 模型容量限制 */
+  /** Model capacity constraints */
   quota?: copilot.ModelQuota;
-  /** 模型的超时和重试次数等配置 */
+  /** Model timeouts and retries, etc */
   model_config?: copilot.ModelConf;
-  /** 模型模板配置 */
+  /** Model template configuration */
   prompt_conf?: copilot.PromptConf;
-  /** 历史兼容字段 */
+  /** historical compatibility field */
   legacy_fields?: copilot.LegacyFields;
-  /** 模型参数 */
+  /** model parameters */
   parameters?: Array<copilot.ModelParameter>;
   display_properties?: string;
   'Ocean-Jwt-Token'?: string;
@@ -901,16 +901,16 @@ export interface UpdateModelWithSceneData {
 }
 
 export interface UpdateModelWithSceneReq {
-  /** 场景 ID */
+  /** Scene ID */
   scene: copilot_common.ModelListScene;
-  /** 模型 ID, 场景ID+ 模型ID是唯一键 */
+  /** Model ID, Scene ID + Model ID are unique keys */
   model_id: string;
   Referer?: string;
-  /** 展示名称, 最大 128 字符(后续如果需要支持 i18n 的话扩展一个 Starling 字段) */
+  /** Display name, maximum 128 characters (if you need to support i18n later, expand a Starling field) */
   show_name?: string;
-  /** 图标， 最大 256 字符 */
+  /** Icon, maximum 256 characters */
   icon?: string;
-  /** 排序 */
+  /** sort */
   ranking?: number;
   'Ocean-Jwt-Token'?: string;
 }
@@ -1001,7 +1001,7 @@ export interface UploadOpsBotsModelAvatarResp {
 }
 
 export interface UserInfo {
-  /** 用户的邮箱前缀 */
+  /** user's mailbox prefix */
   user_name?: string;
 }
 /* eslint-enable */
