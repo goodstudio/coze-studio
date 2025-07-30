@@ -56,33 +56,33 @@ func newShortcutCommand(db *gorm.DB, opts ...gen.DOOption) shortcutCommand {
 	return _shortcutCommand
 }
 
-// shortcutCommand bot快捷指令表
+// shortcutCommand bot
 type shortcutCommand struct {
 	shortcutCommandDo
 
 	ALL             field.Asterisk
-	ID              field.Int64  // 主键ID
-	ObjectID        field.Int64  // 实体ID,该实体可用这个指令
-	CommandID       field.Int64  // 命令ID
-	CommandName     field.String // 命令名称
-	ShortcutCommand field.String // 快捷指令
-	Description     field.String // 命令描述
-	SendType        field.Int32  // 发送类型 0:query 1:panel
-	ToolType        field.Int32  // 使用工具的type 1:workFlow 2:插件
-	WorkFlowID      field.Int64  // 使用workFlow的id
-	PluginID        field.Int64  // 使用插件的id
-	PluginToolName  field.String // 使用插件的api_name
-	TemplateQuery   field.String // query模板
-	Components      field.Field  // panel参数
-	CardSchema      field.String // 卡片schema
-	ToolInfo        field.Field  // 工具信息 包含name+变量列表
-	Status          field.Int32  // 状态,0无效,1有效
-	CreatorID       field.Int64  // 创建者ID
-	IsOnline        field.Int32  // 是否为线上信息 0草稿 1线上
-	CreatedAt       field.Int64  // 创建时间
-	UpdatedAt       field.Int64  // 更新时间
-	AgentID         field.Int64  // multi的指令时，该指令由哪个节点执行
-	ShortcutIcon    field.Field  // 快捷指令图标
+	ID              field.Int64  // primary key ID
+	ObjectID        field.Int64  // Entity ID, the entity can use this command
+	CommandID       field.Int64  // Command ID
+	CommandName     field.String // command name
+	ShortcutCommand field.String // Quick Instruction
+	Description     field.String // command description
+	SendType        field.Int32  // Send type 0: query 1: panel
+	ToolType        field.Int32  // Use tool type 1: workFlow 2: Plugins
+	WorkFlowID      field.Int64  // ID for using workFlow
+	PluginID        field.Int64  // ID of the plugin used.
+	PluginToolName  field.String // api_name using plugins
+	TemplateQuery   field.String // Query Template
+	Components      field.Field  // Panel parameters
+	CardSchema      field.String // Card schema
+	ToolInfo        field.Field  // Tool information, including name + variable list
+	Status          field.Int32  // Status, 0 invalid, 1 valid
+	CreatorID       field.Int64  // creator ID
+	IsOnline        field.Int32  // Whether it is online information 0 draft 1 online
+	CreatedAt       field.Int64  // creation time
+	UpdatedAt       field.Int64  // update time
+	AgentID         field.Int64  // Multi instruction, which node executes the instruction
+	ShortcutIcon    field.Field  // shortcut icon
 	PluginToolID    field.Int64  // tool_id
 
 	fieldMap map[string]field.Expr

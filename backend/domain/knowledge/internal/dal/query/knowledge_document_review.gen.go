@@ -46,24 +46,24 @@ func newKnowledgeDocumentReview(db *gorm.DB, opts ...gen.DOOption) knowledgeDocu
 	return _knowledgeDocumentReview
 }
 
-// knowledgeDocumentReview 文档审阅表
+// knowledgeDocumentReview Document Review Form
 type knowledgeDocumentReview struct {
 	knowledgeDocumentReviewDo
 
 	ALL          field.Asterisk
-	ID           field.Int64  // 主键ID
+	ID           field.Int64  // primary key ID
 	KnowledgeID  field.Int64  // knowledge id
-	SpaceID      field.Int64  // 空间id
-	Name         field.String // 文档名称
-	Type         field.String // 文档类型
-	URI          field.String // 资源标识
-	FormatType   field.Int32  // 0 文本, 1 表格, 2 图片
-	Status       field.Int32  // 0 处理中，1 已完成，2 失败，3 失效
-	ChunkRespURI field.String // 预切片tos资源标识
+	SpaceID      field.Int64  // Space ID
+	Name         field.String // Document name
+	Type         field.String // document type
+	URI          field.String // resource identifier
+	FormatType   field.Int32  // 0 text, 1 table, 2 images
+	Status       field.Int32  // 0 processing, 1 completed, 2 failed, 3 failed
+	ChunkRespURI field.String // Pre-sliced tos resource identification
 	DeletedAt    field.Field  // Delete Time in Milliseconds
 	CreatedAt    field.Int64  // Create Time in Milliseconds
 	UpdatedAt    field.Int64  // Update Time in Milliseconds
-	CreatorID    field.Int64  // 创建者ID
+	CreatorID    field.Int64  // creator ID
 
 	fieldMap map[string]field.Expr
 }

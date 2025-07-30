@@ -43,21 +43,21 @@ func newConversation(db *gorm.DB, opts ...gen.DOOption) conversation {
 	return _conversation
 }
 
-// conversation 会话信息表
+// Conversation session information table
 type conversation struct {
 	conversationDo
 
 	ALL         field.Asterisk
-	ID          field.Int64  // 主键ID
-	ConnectorID field.Int64  // 业务线 ID
+	ID          field.Int64  // primary key ID
+	ConnectorID field.Int64  // line of business ID
 	AgentID     field.Int64  // agent_id
-	Scene       field.Int32  // 会话场景
-	SectionID   field.Int64  // 最新section_id
-	CreatorID   field.Int64  // 创建者id
-	Ext         field.String // 扩展字段
+	Scene       field.Int32  // conversation scenario
+	SectionID   field.Int64  // Latest section_id
+	CreatorID   field.Int64  // creator id
+	Ext         field.String // extended field
 	Status      field.Int32  // status: 1-normal 2-deleted
-	CreatedAt   field.Int64  // 创建时间
-	UpdatedAt   field.Int64  // 更新时间
+	CreatedAt   field.Int64  // creation time
+	UpdatedAt   field.Int64  // update time
 
 	fieldMap map[string]field.Expr
 }

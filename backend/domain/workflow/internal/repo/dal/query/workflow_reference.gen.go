@@ -41,7 +41,7 @@ func newWorkflowReference(db *gorm.DB, opts ...gen.DOOption) workflowReference {
 	return _workflowReference
 }
 
-// workflowReference workflow 关联关系表，用于记录workflow 直接互相引用关系
+// workflowReference workflow association table, used to record workflows directly reference each other
 type workflowReference struct {
 	workflowReferenceDo
 

@@ -49,26 +49,26 @@ func newDataCopyTask(db *gorm.DB, opts ...gen.DOOption) dataCopyTask {
 	return _dataCopyTask
 }
 
-// dataCopyTask data方向复制任务记录表
+// dataCopyTask data Directional copy task record table
 type dataCopyTask struct {
 	dataCopyTaskDo
 
 	ALL           field.Asterisk
-	MasterTaskID  field.String // 复制任务ID
-	OriginDataID  field.Int64  // 源id
-	TargetDataID  field.Int64  // 目标id
-	OriginSpaceID field.Int64  // 源团队空间
-	TargetSpaceID field.Int64  // 目标团队空间
-	OriginUserID  field.Int64  // 源用户ID
-	TargetUserID  field.Int64  // 目标用户ID
-	OriginAppID   field.Int64  // 源AppID
-	TargetAppID   field.Int64  // 目标AppID
-	DataType      field.Int32  // 数据类型 1:knowledge, 2:database
-	ExtInfo       field.String // 存储额外信息
-	StartTime     field.Int64  // 任务开始时间
-	FinishTime    field.Int64  // 任务结束时间
-	Status        field.Int32  // 1:创建 2:执行中 3:成功 4:失败
-	ErrorMsg      field.String // 错误信息
+	MasterTaskID  field.String // Copy Task ID
+	OriginDataID  field.Int64  // source id
+	TargetDataID  field.Int64  // Target ID
+	OriginSpaceID field.Int64  // Source team space
+	TargetSpaceID field.Int64  // Target team space
+	OriginUserID  field.Int64  // source user ID
+	TargetUserID  field.Int64  // Target user ID
+	OriginAppID   field.Int64  // Source AppID
+	TargetAppID   field.Int64  // Target AppID
+	DataType      field.Int32  // Data type 1: knowledge, 2: database
+	ExtInfo       field.String // Store additional information
+	StartTime     field.Int64  // Task start time
+	FinishTime    field.Int64  // task end time
+	Status        field.Int32  // 1: Created 2: In progress 3: Success 4: Failed
+	ErrorMsg      field.String // error message
 	ID            field.Int64  // ID
 
 	fieldMap map[string]field.Expr

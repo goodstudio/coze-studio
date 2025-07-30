@@ -8,15 +8,15 @@ const TableNamePromptResource = "prompt_resource"
 
 // PromptResource prompt_resource
 type PromptResource struct {
-	ID          int64  `gorm:"column:id;primaryKey;autoIncrement:true;comment:主键ID" json:"id"`                 // 主键ID
-	SpaceID     int64  `gorm:"column:space_id;not null;comment:空间ID" json:"space_id"`                          // 空间ID
-	Name        string `gorm:"column:name;not null;comment:名称" json:"name"`                                    // 名称
-	Description string `gorm:"column:description;not null;comment:描述" json:"description"`                      // 描述
-	PromptText  string `gorm:"column:prompt_text;comment:prompt正文" json:"prompt_text"`                         // prompt正文
-	Status      int32  `gorm:"column:status;not null;comment:状态,0无效,1有效" json:"status"`                        // 状态,0无效,1有效
-	CreatorID   int64  `gorm:"column:creator_id;not null;comment:创建者ID" json:"creator_id"`                     // 创建者ID
-	CreatedAt   int64  `gorm:"column:created_at;not null;autoCreateTime:milli;comment:创建时间" json:"created_at"` // 创建时间
-	UpdatedAt   int64  `gorm:"column:updated_at;not null;autoUpdateTime:milli;comment:更新时间" json:"updated_at"` // 更新时间
+	ID          int64  `gorm:"column:id;primaryKey;autoIncrement:true;comment:主键ID" json:"id"`                 // primary key ID
+	SpaceID     int64  `gorm:"column:space_id;not null;comment:空间ID" json:"space_id"`                          // Space ID
+	Name        string `gorm:"column:name;not null;comment:名称" json:"name"`                                    // name
+	Description string `gorm:"column:description;not null;comment:描述" json:"description"`                      // describe
+	PromptText  string `gorm:"column:prompt_text;comment:prompt正文" json:"prompt_text"`                         // Prompt text
+	Status      int32  `gorm:"column:status;not null;comment:状态,0无效,1有效" json:"status"`                        // Status, 0 invalid, 1 valid
+	CreatorID   int64  `gorm:"column:creator_id;not null;comment:创建者ID" json:"creator_id"`                     // creator ID
+	CreatedAt   int64  `gorm:"column:created_at;not null;autoCreateTime:milli;comment:创建时间" json:"created_at"` // creation time
+	UpdatedAt   int64  `gorm:"column:updated_at;not null;autoUpdateTime:milli;comment:更新时间" json:"updated_at"` // update time
 }
 
 // TableName PromptResource's table name

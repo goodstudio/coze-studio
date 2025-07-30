@@ -52,30 +52,30 @@ func newKnowledgeDocument(db *gorm.DB, opts ...gen.DOOption) knowledgeDocument {
 	return _knowledgeDocument
 }
 
-// knowledgeDocument 知识库文档表
+// knowledgeDocument Knowledge Base Document Table
 type knowledgeDocument struct {
 	knowledgeDocumentDo
 
 	ALL           field.Asterisk
-	ID            field.Int64  // 主键ID
-	KnowledgeID   field.Int64  // 所属knowledge的ID
-	Name          field.String // 文档名称
-	FileExtension field.String // 文档类型, txt/pdf/csv/...
-	DocumentType  field.Int32  // 文档类型: 0:文本 1:表格 2:图片
-	URI           field.String // 资源uri
-	Size          field.Int64  // 文档大小
-	SliceCount    field.Int64  // 分片数量
-	CharCount     field.Int64  // 字符数
-	CreatorID     field.Int64  // 创建者ID
-	SpaceID       field.Int64  // 空间id
+	ID            field.Int64  // primary key ID
+	KnowledgeID   field.Int64  // The ID of the owned knowledge
+	Name          field.String // Document name
+	FileExtension field.String // Document type, txt/pdf/csv/...
+	DocumentType  field.Int32  // Document Type: 0: Text 1: Table 2: Image
+	URI           field.String // Resource URI
+	Size          field.Int64  // Document size
+	SliceCount    field.Int64  // Number of shardings
+	CharCount     field.Int64  // character count
+	CreatorID     field.Int64  // creator ID
+	SpaceID       field.Int64  // Space ID
 	CreatedAt     field.Int64  // Create Time in Milliseconds
 	UpdatedAt     field.Int64  // Update Time in Milliseconds
 	DeletedAt     field.Field  // Delete Time in Milliseconds
-	SourceType    field.Int32  // 0:本地文件上传, 2:自定义文本
-	Status        field.Int32  // 状态
-	FailReason    field.String // 失败原因
-	ParseRule     field.Field  // 解析+切片规则
-	TableInfo     field.Field  // 表格信息
+	SourceType    field.Int32  // 0: local file upload, 2: custom text
+	Status        field.Int32  // state
+	FailReason    field.String // reason for failure
+	ParseRule     field.Field  // parsing + slicing rules
+	TableInfo     field.Field  // table information
 
 	fieldMap map[string]field.Expr
 }

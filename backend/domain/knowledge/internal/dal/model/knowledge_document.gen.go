@@ -11,27 +11,27 @@ import (
 
 const TableNameKnowledgeDocument = "knowledge_document"
 
-// KnowledgeDocument 知识库文档表
+// KnowledgeDocument Knowledge Base Document Table
 type KnowledgeDocument struct {
-	ID            int64              `gorm:"column:id;primaryKey;comment:主键ID" json:"id"`                                                  // 主键ID
-	KnowledgeID   int64              `gorm:"column:knowledge_id;not null;comment:所属knowledge的ID" json:"knowledge_id"`                      // 所属knowledge的ID
-	Name          string             `gorm:"column:name;not null;comment:文档名称" json:"name"`                                                // 文档名称
-	FileExtension string             `gorm:"column:file_extension;not null;default:0;comment:文档类型, txt/pdf/csv/..." json:"file_extension"` // 文档类型, txt/pdf/csv/...
-	DocumentType  int32              `gorm:"column:document_type;not null;comment:文档类型: 0:文本 1:表格 2:图片" json:"document_type"`              // 文档类型: 0:文本 1:表格 2:图片
-	URI           string             `gorm:"column:uri;comment:资源uri" json:"uri"`                                                          // 资源uri
-	Size          int64              `gorm:"column:size;not null;comment:文档大小" json:"size"`                                                // 文档大小
-	SliceCount    int64              `gorm:"column:slice_count;not null;comment:分片数量" json:"slice_count"`                                  // 分片数量
-	CharCount     int64              `gorm:"column:char_count;not null;comment:字符数" json:"char_count"`                                     // 字符数
-	CreatorID     int64              `gorm:"column:creator_id;not null;comment:创建者ID" json:"creator_id"`                                   // 创建者ID
-	SpaceID       int64              `gorm:"column:space_id;not null;comment:空间id" json:"space_id"`                                        // 空间id
+	ID            int64              `gorm:"column:id;primaryKey;comment:主键ID" json:"id"`                                                  // primary key ID
+	KnowledgeID   int64              `gorm:"column:knowledge_id;not null;comment:所属knowledge的ID" json:"knowledge_id"`                      // The ID of the owned knowledge
+	Name          string             `gorm:"column:name;not null;comment:文档名称" json:"name"`                                                // Document name
+	FileExtension string             `gorm:"column:file_extension;not null;default:0;comment:文档类型, txt/pdf/csv/..." json:"file_extension"` // Document type, txt/pdf/csv/...
+	DocumentType  int32              `gorm:"column:document_type;not null;comment:文档类型: 0:文本 1:表格 2:图片" json:"document_type"`              // Document Type: 0: Text 1: Table 2: Image
+	URI           string             `gorm:"column:uri;comment:资源uri" json:"uri"`                                                          // Resource URI
+	Size          int64              `gorm:"column:size;not null;comment:文档大小" json:"size"`                                                // Document size
+	SliceCount    int64              `gorm:"column:slice_count;not null;comment:分片数量" json:"slice_count"`                                  // Number of shardings
+	CharCount     int64              `gorm:"column:char_count;not null;comment:字符数" json:"char_count"`                                     // character count
+	CreatorID     int64              `gorm:"column:creator_id;not null;comment:创建者ID" json:"creator_id"`                                   // creator ID
+	SpaceID       int64              `gorm:"column:space_id;not null;comment:空间id" json:"space_id"`                                        // Space ID
 	CreatedAt     int64              `gorm:"column:created_at;not null;comment:Create Time in Milliseconds" json:"created_at"`             // Create Time in Milliseconds
 	UpdatedAt     int64              `gorm:"column:updated_at;not null;comment:Update Time in Milliseconds" json:"updated_at"`             // Update Time in Milliseconds
 	DeletedAt     gorm.DeletedAt     `gorm:"column:deleted_at;comment:Delete Time in Milliseconds" json:"deleted_at"`                      // Delete Time in Milliseconds
-	SourceType    int32              `gorm:"column:source_type;not null;comment:0:本地文件上传, 2:自定义文本" json:"source_type"`                     // 0:本地文件上传, 2:自定义文本
-	Status        int32              `gorm:"column:status;not null;comment:状态" json:"status"`                                              // 状态
-	FailReason    string             `gorm:"column:fail_reason;comment:失败原因" json:"fail_reason"`                                           // 失败原因
-	ParseRule     *DocumentParseRule `gorm:"column:parse_rule;comment:解析+切片规则;serializer:json" json:"parse_rule"`                          // 解析+切片规则
-	TableInfo     *entity.TableInfo  `gorm:"column:table_info;comment:表格信息;serializer:json" json:"table_info"`                             // 表格信息
+	SourceType    int32              `gorm:"column:source_type;not null;comment:0:本地文件上传, 2:自定义文本" json:"source_type"`                     // 0: local file upload, 2: custom text
+	Status        int32              `gorm:"column:status;not null;comment:状态" json:"status"`                                              // state
+	FailReason    string             `gorm:"column:fail_reason;comment:失败原因" json:"fail_reason"`                                           // reason for failure
+	ParseRule     *DocumentParseRule `gorm:"column:parse_rule;comment:解析+切片规则;serializer:json" json:"parse_rule"`                          // parsing + slicing rules
+	TableInfo     *entity.TableInfo  `gorm:"column:table_info;comment:表格信息;serializer:json" json:"table_info"`                             // table information
 }
 
 // TableName KnowledgeDocument's table name
