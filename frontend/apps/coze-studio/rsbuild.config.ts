@@ -42,7 +42,7 @@ const mergedConfig = defineConfig({
   tools: {
     postcss: (opts, { addPlugins }) => {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
-      addPlugins([require('tailwindcss')('./tailwind.config.ts')]);
+      // addPlugins([require('tailwindcss')('./tailwind.config.ts')]);
     },
     rspack(config, { appendPlugins, addRules, mergeConfig }) {
       addRules([
