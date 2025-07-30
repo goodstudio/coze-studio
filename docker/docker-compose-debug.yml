@@ -1,5 +1,5 @@
 x-env-file: &env_file
-  - .env
+  - .env.debug
 
 services:
   mysql:
@@ -10,9 +10,10 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE:-opencoze}
       MYSQL_USER: ${MYSQL_USER:-coze}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-coze123}
+    profiles: ['middleware', 'mysql-setup', 'mysql']
     env_file: *env_file
     ports:
-      - '3306'
+      - '3306:3306'
     volumes:
       - ./data/mysql:/var/lib/mysql
     command:
@@ -41,6 +42,7 @@ services:
     container_name: coze-redis
     user: root
     privileged: true
+    profiles: ['middleware']
     env_file: *env_file
     environment:
       - REDIS_AOF_ENABLED=${REDIS_AOF_ENABLED:-no}
@@ -48,7 +50,7 @@ services:
       - REDIS_IO_THREADS=${REDIS_IO_THREADS:-4}
       - ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD:-yes}
     ports:
-      - '6379'
+      - '6379:6379'
     volumes:
       - ./data/bitnami/redis:/bitnami/redis/data:rw,Z
     command: >
@@ -76,18 +78,122 @@ services:
     networks:
       - coze-network
 
+  # rocketmq-namesrv:
+  #   image: apache/rocketmq:5.3.2
+  #   container_name: coze-rocketmq-namesrv
+  #   privileged: true
+  #   user: root
+  #   profiles: ['middleware']
+  #   env_file: *env_file
+  #   ports:
+  #     - '9876:9876'
+  #   volumes:
+  #     - ./data/rocketmq/namesrv/logs:/home/rocketmq/logs:rw,Z
+  #     - ./data/rocketmq/namesrv/store:/home/rocketmq/store:rw,Z
+  #   environment:
+  #     - ALLOW_ANONYMOUS_LOGIN=yes
+  #   command: >
+  #     bash -c "
+  #       # Set proper permissions for data directories
+  #       mkdir -p /home/rocketmq/logs /home/rocketmq/store
+  #       mkdir -p /home/rocketmq/logs/rocketmqlogs
+  #       touch /home/rocketmq/logs/rocketmqlogs/tools.log
+  #       touch /home/rocketmq/logs/rocketmqlogs/tools_default.log
+
+  #       chown -R rocketmq:rocketmq /home/rocketmq/logs /home/rocketmq/store
+  #       chmod g+s /home/rocketmq/logs /home/rocketmq/store
+
+  #       echo 'Starting RocketMQ NameServer...'
+  #       sh mqnamesrv
+  #     "
+  #   healthcheck:
+  #     test: ['CMD', 'sh', 'mqadmin', 'clusterList', '-n', 'localhost:9876']
+  #     interval: 5s
+  #     timeout: 10s
+  #     retries: 10
+  #     start_period: 10s
+  #   networks:
+  #     - coze-network
+  # rocketmq-broker:
+  #   image: apache/rocketmq:5.3.2
+  #   container_name: coze-rocketmq-broker
+  #   privileged: true
+  #   user: root
+  #   profiles: ['middleware']
+  #   env_file: *env_file
+  #   ports:
+  #     - '10909:10909'
+  #     - '10911:10911'
+  #     - '10912:10912'
+  #   volumes:
+  #     - ./data/rocketmq/broker/logs:/home/rocketmq/logs:rw,Z
+  #     - ./data/rocketmq/broker/store:/home/rocketmq/store:rw,Z
+  #     - ./volumes/rocketmq/broker.conf:/home/rocketmq/conf/broker.conf:rw,Z
+  #   networks:
+  #     - coze-network
+  #   command: >
+  #     bash -c '
+  #       # Set proper permissions
+  #       mkdir -p /home/rocketmq/logs/rocketmqlogs /home/rocketmq/store
+  #       touch /home/rocketmq/logs/rocketmqlogs/tools.log \
+  #             /home/rocketmq/logs/rocketmqlogs/tools_default.log
+  #       chown -R rocketmq:rocketmq /home/rocketmq/logs /home/rocketmq/store
+  #       chmod g+s /home/rocketmq/logs /home/rocketmq/store
+
+  #       echo "Starting RocketMQ Broker..."
+  #       sh mqbroker -n rocketmq-namesrv:9876 -c /home/rocketmq/conf/broker.conf &
+
+  #       echo "Waiting for Broker registration..."
+  #       broker_ready=false
+  #       for i in {1..60}; do
+  #         if sh mqadmin clusterList -n rocketmq-namesrv:9876 \
+  #            | grep -q "DefaultCluster.*broker-a"; then
+  #           echo "Registered."
+  #           broker_ready=true
+  #           break
+  #         fi
+  #         echo "Not ready, retry $$i/60..."
+  #         sleep 1
+  #       done
+
+  #       if [ "$$broker_ready" = false ]; then
+  #         echo "ERROR: registration timed out."
+  #         exit 1
+  #       fi
+
+  #       echo "Creating topics..."
+  #       for t in opencoze_knowledge opencoze_search_app opencoze_search_resource \
+  #                 %RETRY%cg_knowledge %RETRY%cg_search_app %RETRY%cg_search_resource; do
+  #         sh mqadmin updateTopic -n rocketmq-namesrv:9876 \
+  #           -c DefaultCluster -t "$$t"
+  #       done
+
+  #       touch /tmp/rocketmq_ready
+  #       echo "Broker started successfully."
+  #       wait
+  #     '
+  #   depends_on:
+  #     - rocketmq-namesrv
+  #   healthcheck:
+  #     test: ['CMD-SHELL', '[ -f /tmp/rocketmq_ready ]']
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 10
+  #     start_period: 10s
+
   elasticsearch:
     image: bitnami/elasticsearch:8.18.0
     container_name: coze-elasticsearch
     user: root
     privileged: true
+    profiles: ['middleware']
     env_file: *env_file
     environment:
       - TEST=1
       # Add Java certificate trust configuration
       # - ES_JAVA_OPTS=-Djdk.tls.client.protocols=TLSv1.2 -Dhttps.protocols=TLSv1.2 -Djavax.net.ssl.trustAll=true -Xms4096m -Xmx4096m
     ports:
-      - '9200'
+      - '9200:9200'
     volumes:
       - ./data/bitnami/elasticsearch:/bitnami/elasticsearch/data
       - ./volumes/elasticsearch/elasticsearch.yml:/opt/bitnami/elasticsearch/config/my_elasticsearch.yml
@@ -147,10 +253,11 @@ services:
     container_name: coze-minio
     user: root
     privileged: true
+    profiles: ['middleware']
     env_file: *env_file
     ports:
-      - '9000'
-      - '9001'
+      - '9000:9000'
+      - '9001:9001'
     volumes:
       - ./data/minio:/data
     environment:
@@ -176,6 +283,7 @@ services:
     container_name: coze-etcd
     user: root
     privileged: true
+    profiles: ['middleware']
     env_file: *env_file
     environment:
       - ETCD_AUTO_COMPACTION_MODE=revision
@@ -211,6 +319,7 @@ services:
     image: milvusdb/milvus:v2.5.10
     user: root
     privileged: true
+    profiles: ['middleware']
     env_file: *env_file
     command: >
       bash -c "
@@ -239,8 +348,8 @@ services:
       retries: 10
       start_period: 10s
     ports:
-      - '19530'
-      - '9091'
+      - '19530:19530'
+      - '9091:9091'
     depends_on:
       etcd:
         condition: service_healthy
@@ -252,9 +361,10 @@ services:
     image: nsqio/nsq:v1.2.1
     container_name: coze-nsqlookupd
     command: /nsqlookupd
+    profiles: ['middleware']
     ports:
-      - '4160'
-      - '4161'
+      - '4160:4160'
+      - '4161:4161'
     networks:
       - coze-network
     healthcheck:
@@ -268,9 +378,10 @@ services:
     image: nsqio/nsq:v1.2.1
     container_name: coze-nsqd
     command: /nsqd --lookupd-tcp-address=coze-nsqlookupd:4160 --broadcast-address=coze-nsqd
+    profiles: ['middleware']
     ports:
-      - '4150'
-      - '4151'
+      - '4150:4150'
+      - '4151:4151'
     depends_on:
       nsqlookupd:
         condition: service_healthy
@@ -287,8 +398,9 @@ services:
     image: nsqio/nsq:v1.2.1
     container_name: coze-nsqadmin
     command: /nsqadmin --lookupd-http-address=coze-nsqlookupd:4161
+    profiles: ['middleware']
     ports:
-      - '4171'
+      - '4171:4171'
     depends_on:
       nsqlookupd:
         condition: service_healthy
@@ -298,6 +410,7 @@ services:
   minio-setup:
     image: minio/mc:RELEASE.2025-05-21T01-59-54Z-cpuv1
     container_name: coze-minio-setup
+    profiles: ['middleware']
     env_file: *env_file
     depends_on:
       minio:
@@ -320,6 +433,7 @@ services:
   mysql-setup-schema:
     image: arigaio/atlas:0.35.0-community-alpine
     container_name: coze-mysql-setup-schema
+    profiles: ['middleware', 'mysql-setup', 'run-server']
     env_file: *env_file
     depends_on:
       mysql:
@@ -357,6 +471,7 @@ services:
   mysql-setup-init-sql:
     image: mysql:8.4.5
     container_name: coze-mysql-setup-init-sql
+    profiles: ['middleware', 'mysql-setup', 'run-server', 'volcano-setup']
     env_file: *env_file
     depends_on:
       mysql:
@@ -394,6 +509,7 @@ services:
     #   dockerfile: backend/Dockerfile
     image: opencoze/opencoze:latest
     container_name: coze-server
+    profiles: ['run-server']
     env_file: *env_file
     environment:
       LISTEN_ADDR: 0.0.0.0:8888
