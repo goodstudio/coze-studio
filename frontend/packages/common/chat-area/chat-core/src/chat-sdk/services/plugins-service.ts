@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { exhaustiveCheckSimple } from '@coze-common/chat-area-utils';
 
 import type { UploadPluginConstructor } from '@/plugins/upload-plugin/types/plugin-upload';
@@ -21,7 +21,7 @@ import type { UploadPluginConstructor } from '@/plugins/upload-plugin/types/plug
 import type { PluginKey, PluginValue } from '../types/interface';
 
 export class PluginsService {
-  //eslint-disable-next-line @typescript-eslint/no-exploration-any -- I didn't think of a suitable type of gymnastics for the time being, use any first,
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any -- I didn't think of a suitable type of gymnastics for the time being, use any first,
   UploadPlugin: UploadPluginConstructor<any> | null = null;
   uploadPluginConstructorOptions: Record<string, unknown> = {};
 

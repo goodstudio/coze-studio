@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { parseMarkdownHelper } from '@coze-common/chat-area-utils';
 import { parseMarkdown } from '@coze-arch/bot-md-box-adapter/lazy';
 
@@ -40,7 +40,7 @@ export const parseMarkdownToGrabNode = (markdown: string) => {
 export const getGrabNodeFromAst = (ast: unknown): GrabNode[] => {
   const normalizedNodeList: GrabNode[] = [];
 
-  // eslint-disable-next-line @typescript-eslint/no-exploration-any -- as expected
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- as expected
   const traverseAst = (_ast: any) => {
     if (isText(_ast)) {
       normalizedNodeList.push({

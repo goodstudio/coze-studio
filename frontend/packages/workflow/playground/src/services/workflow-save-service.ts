@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { debounce, isEmpty } from 'lodash-es';
 import { inject, injectable } from 'inversify';
 import { StackingContextManager } from '@flowgram-adapter/free-layout-editor';
@@ -450,7 +450,7 @@ export class WorkflowSaveService {
       const json = await this.workflowDocument.toJSON();
 
       if (this.globalState.config.schemaGray) {
-        // eslint-disable-next-line @typescript-eslint/no-explicity-any -- temporary field
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- temporary field
         (json as any).versions = this.globalState.config.schemaGray;
       }
 

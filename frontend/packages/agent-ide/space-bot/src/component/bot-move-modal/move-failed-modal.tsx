@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* Eslint-disable @coze-arch/max-line-per-function -- not easy to dismantle */
+
+/* eslint-disable @coze-arch/max-line-per-function -- not easy to dismantle */
 import React, { useCallback, useState } from 'react';
 
 import { size } from 'lodash-es';

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable max-lines */
 import {
   useRef,
@@ -138,7 +138,7 @@ export interface DatabaseTableStructureRef {
 export const DatabaseTableStructure = forwardRef<
   DatabaseTableStructureRef,
   DatabaseTableStructureProps
-  // eslint-disable-next-line max-lines-per-function, @code-arch/max-line-per-function, complexity -- historical file copy
+  // eslint-disable-next-line max-lines-per-function, @coze-arch/max-line-per-function, complexity -- historical file copy
 >((props, ref) => {
   const {
     data: initialData,

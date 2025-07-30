@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* eslint-disable @typescript-eslint/no-exploration-any -- TODO: Temporary processing, the component will be changed later */
+
+/* eslint-disable @typescript-eslint/no-explicit-any -- TODO: Temporary processing, the component will be changed later */
 import {
   TestsetManageEventName,
   TestsetManageProvider,

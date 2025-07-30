@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { useCurrentEntity } from '@flowgram-adapter/free-layout-editor';
 
 /**
@@ -31,7 +31,7 @@ export function useCurrentNodeId() {
   try {
     // eslint-disable-next-line react-hooks/rules-of-hooks -- no conditional call to hook
     nodeId = useCurrentEntity().id;
-    // eslint-disable-next-line @code-arch/use-error-in-catch -- SDK meets expected errors, no additional processing required
+    // eslint-disable-next-line @coze-arch/use-error-in-catch -- SDK meets expected errors, no additional processing required
   } catch {
     nodeId = undefined;
   }

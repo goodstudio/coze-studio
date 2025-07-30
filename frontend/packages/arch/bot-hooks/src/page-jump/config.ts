@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import {
   type WorkflowMode,
   type WorkFlowListStatus,
@@ -66,7 +66,7 @@ export const enum PageType {
   DOUYIN_BOT = 'douyin_bot',
 }
 
-/* Eslint-disable @typescript-eslint/naming-convention -- it is necessary to disable, this scenario requires a different enum naming convention */
+/* eslint-disable @typescript-eslint/naming-convention -- it is necessary to disable, this scenario requires a different enum naming convention */
 /**
  * Unique enumeration for each jump scenario
  *

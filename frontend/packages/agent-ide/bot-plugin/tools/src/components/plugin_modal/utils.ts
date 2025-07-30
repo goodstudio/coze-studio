@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable complexity */
 /* eslint-disable max-lines */
-/* eslint-disable @typescript-eslint/no-exploration-any -- some history can't be changed */
+/* eslint-disable @typescript-eslint/no-explicit-any -- some history can't be changed */
 import { nanoid } from 'nanoid';
 import { cloneDeep, has, isEmpty, isNumber, isObject } from 'lodash-es';
 import {

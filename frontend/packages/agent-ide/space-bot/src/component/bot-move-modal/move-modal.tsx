@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* Eslint-disable @coze-arch/max-line-per-function -- difficult to remove*/
+
+/* eslint-disable @coze-arch/max-line-per-function -- difficult to remove*/
 import React, { useCallback, useState } from 'react';
 
 import classNames from 'classnames';

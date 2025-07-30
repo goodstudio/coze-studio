@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
  * Calculate test form fields with formData
  */
@@ -40,7 +40,7 @@ import { ignoreRehajeExpressionString } from './ignore-rehaje-expression';
 import { generateInputJsonSchema } from './generate-input-json-schema';
 
 export type GenerateFn = (
-  // eslint-disable-next-line @typescript-eslint/no-explicity-any -- formData can be any type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- formData can be any type
   d: any,
   context: {
     node: WorkflowNodeEntity;
@@ -48,7 +48,7 @@ export type GenerateFn = (
 ) => TestFormField[];
 
 export type GenerateVariableFn = (
-  // eslint-disable-next-line @typescript-eslint/no-explicity-any -- formData can be any type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- formData can be any type
   d: any,
   context: {
     node: WorkflowNodeEntity;
@@ -59,7 +59,7 @@ export type GenerateVariableFn = (
 ) => TestFormField[];
 
 export type GenerateAsyncFn = (
-  // eslint-disable-next-line @typescript-eslint/no-explicity-any -- formData can be any type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- formData can be any type
   d: any,
   context: {
     node: WorkflowNodeEntity;
@@ -67,7 +67,7 @@ export type GenerateAsyncFn = (
 ) => Promise<TestFormField[]>;
 
 export type GenerateRequiredFn = (
-  // eslint-disable-next-line @typescript-eslint/no-explicity-any -- formData can be any type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- formData can be any type
   d: any,
   context: {
     node: WorkflowNodeEntity;

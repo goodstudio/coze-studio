@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* Eslint-disable max-lines -- to be split */
+
+/* eslint-disable max-lines -- to be split */
 
 import { extractEnvValue } from './utils/config-helper';
 import { volcanoConfigs } from './configs/volcano';

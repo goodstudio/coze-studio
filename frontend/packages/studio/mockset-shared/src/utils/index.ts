@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import type { JSONSchema7, JSONSchema7TypeName } from 'json-schema';
 import {
   TrafficScene,
@@ -223,7 +223,7 @@ export function transSchema2DataWithStatus(
   return item;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicity-any -- The content structure depends on the user-defined plugin resp structure, including any possible
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- The content structure depends on the user-defined plugin resp structure, including any possible
 export function stringifyEditorContent(value: any) {
   return JSON.stringify(value, null, FORMAT_SPACE_SETTING);
 }

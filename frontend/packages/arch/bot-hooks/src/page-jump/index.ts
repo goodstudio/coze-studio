@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { isNil } from 'lodash-es';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -100,7 +100,7 @@ export function usePageJumpResponse<P extends PageType>(
   }
 
   return {
-    // eslint-disable-next-line @typescript-eslint/no-exploration-any -- internal types are difficult to derive, does not affect call-side type derivation
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- internal types are difficult to derive, does not affect call-side type derivation
     ...SCENE_RESPONSE_MAP[param.scene](param as any, jump),
     scene: param.scene,
     clearScene: (forceRerender = false) => {
@@ -112,7 +112,7 @@ export function usePageJumpResponse<P extends PageType>(
       }
       history.replaceState({}, '');
     },
-    // eslint-disable-next-line @typescript-eslint/no-exploration-any -- internal types are difficult to derive, does not affect call-side type derivation
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- internal types are difficult to derive, does not affect call-side type derivation
   } as any;
 }
 

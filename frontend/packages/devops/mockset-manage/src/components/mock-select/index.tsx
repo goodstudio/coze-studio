@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* Eslint-disable @coze-arch/max-line-per-function -- migrating code */
-/* eslint-disable @typescript-eslint/no-exploration-any -- migrate code */
-/* Eslint-disable max-lines -- migrate code */
-/* Eslint-disable max-lines-per-function -- migrating code */
+
+/* eslint-disable @coze-arch/max-line-per-function -- migrating code */
+/* eslint-disable @typescript-eslint/no-explicit-any -- migrate code */
+/* eslint-disable max-lines -- migrate code */
+/* eslint-disable max-lines-per-function -- migrating code */
 
 import {
   useState,

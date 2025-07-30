@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import React, {
   type Dispatch,
   type FC,
@@ -146,7 +146,7 @@ export const ShortcutEditModal: FC<ShortcutEditModalProps> = props => {
       await formRef.current?.formApi.validate();
 
       return actionSwitchAreaRef.current?.validate();
-      // eslint-disable-next-line @code-arch/use-error-in-catch -- normal form validation does not require processing e
+      // eslint-disable-next-line @coze-arch/use-error-in-catch -- normal form validation does not require processing e
     } catch (e) {
       return false;
     }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 // The maximum and minimum values of int64
 export const INT64_MAX = BigInt('9223372036854775807');
 export const INT64_MIN = BigInt('-9223372036854775808');
@@ -41,7 +41,7 @@ export const isInInt64Range = (value: string): boolean => {
       return false;
     }
     return true;
-    // eslint-disable-next-line @code-arch/use-error-in-catch -- normal business logic
+    // eslint-disable-next-line @coze-arch/use-error-in-catch -- normal business logic
   } catch {
     return false;
   }

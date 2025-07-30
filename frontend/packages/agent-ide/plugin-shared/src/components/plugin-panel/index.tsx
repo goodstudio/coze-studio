@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable max-lines */
 /* eslint-disable @coze-arch/max-line-per-function */
 
-/* Eslint-disable max-lines-per-function, complexity -- onApiToggle of PluginItem can be extracted and optimized later */
+/* eslint-disable max-lines-per-function, complexity -- onApiToggle of PluginItem can be extracted and optimized later */
 /* eslint-disable import/order */
 import {
   type MutableRefObject,

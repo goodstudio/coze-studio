@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import {
   type Message as OriginMessage,
   type ContentType,
@@ -26,7 +26,7 @@ import {
 } from '@coze-arch/bot-api/developer_api';
 import { type MentionList } from '@coze-common/chat-uikit-shared';
 
-/*  Eslint-disable @typescript-eslint/naming-convention -- internal properties don't need to start with _ what to start with? */
+/*  eslint-disable @typescript-eslint/naming-convention -- internal properties don't need to start with _ what to start with? */
 interface ExtraMessageFields {
   // Internal properties, only used to send failed scenarios
   _sendFailed?: boolean;

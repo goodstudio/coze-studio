@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { type DatabaseInfo } from '@coze-studio/bot-detail-store';
 import {
   type AlterBotTableResponse,
@@ -43,7 +43,7 @@ export interface MapperItem {
     type: VerifyType;
     message: string;
   }[];
-  // eslint-disable-next-line @typescript-eslint/no-exploration-any -- historical file copy
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- historical file copy
   defaultValue: any;
   require: boolean;
 }

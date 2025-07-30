@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* Eslint-disable max-lines-per-function -- code migration */
-/* Eslint-disable @code-arch/max-line-per-function -- code migration */
+
+/* eslint-disable max-lines-per-function -- code migration */
+/* eslint-disable @coze-arch/max-line-per-function -- code migration */
 import { useEffect, useRef } from 'react';
 
 import { nanoid } from 'nanoid';

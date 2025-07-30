@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* Eslint-disable @coze-arch/max-line-per-function -- historical logic, dismantling one after another */
+
+/* eslint-disable @coze-arch/max-line-per-function -- historical logic, dismantling one after another */
 /* eslint-disable max-lines -- historical logic, dismantling one after another */
 
 import { cloneDeep, flow, get as ObjectGet, set as ObjectSet } from 'lodash-es';

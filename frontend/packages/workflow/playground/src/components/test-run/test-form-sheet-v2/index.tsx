@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* eslint-disable @typescript-eslint/no-exploration-any -- history code */
+
+/* eslint-disable @typescript-eslint/no-explicit-any -- history code */
 /**
  * Adapt coze graph 2.0 test form
  */

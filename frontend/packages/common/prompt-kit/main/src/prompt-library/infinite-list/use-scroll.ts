@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import {
   useState,
   useRef,
@@ -60,7 +60,7 @@ function useForwardFunc<T>(
   return { insertData, removeData, getDataList };
 }
 
-// eslint-disable-next-line max-lines-per-function, @code-arch/max-line-per-function -- the number of lines of code is not very good optimization
+// eslint-disable-next-line max-lines-per-function, @coze-arch/max-line-per-function -- the number of lines of code is not very good optimization
 function useScroll<T>(props: ScrollProps<T>) {
   const {
     targetRef,

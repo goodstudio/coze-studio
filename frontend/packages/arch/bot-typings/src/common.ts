@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /** Bot details page source: currently only bot and explore list */
 export enum BotPageFromEnum {
   Bot = 'bot', //bot list
@@ -22,7 +22,7 @@ export enum BotPageFromEnum {
   Template = 'template',
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicity-any -- had to any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- had to any
 export type Obj = Record<string, any>;
 
 /**

@@ -37,7 +37,7 @@ module.exports = plop => {
     const nodeContentNew = nodeContent.replace(
       '// cli 脚本插入标识（registry），请勿修改/删除此行注释',
       `export { ${registryName} } from './${name}';
-// The cli script inserts the identifier (registry), please do not modify/delete this line comment ',
+// The cli script inserts the identifier (registry), please do not modify/delete this line comment `,
     );
     fs.writeFileSync(nodeExportFilePath, nodeContentNew, 'utf8');
 
@@ -48,7 +48,7 @@ module.exports = plop => {
       .replace(
         '// cli 脚本插入标识（import），请勿修改/删除此行注释',
         `${registryName},
-  // The cli script inserts the identity (import), please do not modify/delete this line comment ',
+  // The cli script inserts the identity (import), please do not modify/delete this line comment `,
       )
       .replace(
         '// cli 脚本插入标识（registry），请勿修改/删除此行注释',
@@ -69,12 +69,12 @@ module.exports = plop => {
       .replace(
         '// cli 脚本插入标识（import），请勿修改/删除此行注释',
         `import { ${pascalName}Content } from '@/node-registries/${name}';
-// The cli script inserts the identity (import), please do not modify/delete this line comment ',
+// The cli script inserts the identity (import), please do not modify/delete this line comment `,
       )
       .replace(
         '// cli 脚本插入标识（registry），请勿修改/删除此行注释',
         `[StandardNodeType.${pascalName}]: ${pascalName}Content,
-  // The cli script inserts the identifier (registry), please do not modify/delete this line comment ',
+  // The cli script inserts the identifier (registry), please do not modify/delete this line comment `,
       );
     fs.writeFileSync(
       nodeContentRegistryFilePath,

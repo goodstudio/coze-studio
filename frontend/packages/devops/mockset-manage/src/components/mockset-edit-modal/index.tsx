@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-/* Eslint-disable @coze-arch/max-line-per-function -- migrating code */
+
+/* eslint-disable @coze-arch/max-line-per-function -- migrating code */
 import { useRef } from 'react';
 
 import { I18n } from '@coze-arch/i18n';

@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable max-lines-per-function */
-/* Eslint-disable max-lines -- to be split */
+/* eslint-disable max-lines -- to be split */
 /* eslint-disable @coze-arch/max-line-per-function */
 import {
   type FC,
