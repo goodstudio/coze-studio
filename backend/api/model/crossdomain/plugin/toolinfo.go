@@ -33,18 +33,18 @@ import (
 )
 
 type ToolInfo struct {
-	ID        int64
-	PluginID  int64
-	CreatedAt int64
-	UpdatedAt int64
-	Version   *string
+	ID        int64   `json:"id"`
+	PluginID  int64   `json:"plugin_id"`
+	CreatedAt int64   `json:"created_at"`
+	UpdatedAt int64   `json:"updated_at"`
+	Version   *string `json:"version"`
 
-	ActivatedStatus *ActivatedStatus
-	DebugStatus     *plugin_develop_common.APIDebugStatus
+	ActivatedStatus *ActivatedStatus                      `json:"activated_status"`
+	DebugStatus     *plugin_develop_common.APIDebugStatus `json:"debug_status"`
 
-	Method    *string
-	SubURL    *string
-	Operation *Openapi3Operation
+	Method    *string            `json:"method"`
+	SubURL    *string            `json:"sub_url"`
+	Operation *Openapi3Operation `json:"operation"`
 }
 
 func (t ToolInfo) GetName() string {

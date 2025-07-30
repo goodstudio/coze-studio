@@ -206,7 +206,10 @@ func (t *toolRepoImpl) DeleteDraftTool(ctx context.Context, toolID int64) (err e
 }
 
 func (t *toolRepoImpl) GetOnlineTool(ctx context.Context, toolID int64) (tool *entity.ToolInfo, exist bool, err error) {
-	ti, exist := pluginConf.GetToolProduct(toolID)
+	ti, exist, err := pluginConf.GetToolProduct(toolID)
+	if err != nil {
+		return nil, false, fmt.Errorf("GetToolProduct failed, err=%v", err)
+	}
 	if exist {
 		return ti.Info, true, nil
 	}
@@ -215,7 +218,11 @@ func (t *toolRepoImpl) GetOnlineTool(ctx context.Context, toolID int64) (tool *e
 }
 
 func (t *toolRepoImpl) MGetOnlineTools(ctx context.Context, toolIDs []int64, opts ...ToolSelectedOptions) (tools []*entity.ToolInfo, err error) {
-	toolProducts := pluginConf.MGetToolProducts(toolIDs)
+	toolProducts, err := pluginConf.MGetToolProducts(toolIDs)
+	if err != nil {
+		return nil, fmt.Errorf("MGetToolProducts failed, err=%v", err)
+	}
+
 	tools = slices.Transform(toolProducts, func(tool *pluginConf.ToolInfo) *entity.ToolInfo {
 		return tool.Info
 	})
@@ -251,7 +258,10 @@ func (t *toolRepoImpl) MGetOnlineTools(ctx context.Context, toolIDs []int64, opt
 }
 
 func (t *toolRepoImpl) GetVersionTool(ctx context.Context, vTool entity.VersionTool) (tool *entity.ToolInfo, exist bool, err error) {
-	ti, exist := pluginConf.GetToolProduct(vTool.ToolID)
+	ti, exist, err := pluginConf.GetToolProduct(vTool.ToolID)
+	if err != nil {
+		return nil, false, fmt.Errorf("GetToolProduct failed, err=%v", err)
+	}
 	if exist {
 		return ti.Info, true, nil
 	}
@@ -268,47 +278,47 @@ func (t *toolRepoImpl) MGetVersionTools(ctx context.Context, versionTools []enti
 	return tools, nil
 }
 
-func (t *toolRepoImpl) BindDraftAgentTools(ctx context.Context, agentID int64, toolIDs []int64) (err error) {
-	onlineTools, err := t.MGetOnlineTools(ctx, toolIDs)
+func (t *toolRepoImpl) ClearNotExistAgentTools(ctx context.Context, agentID int64) (err error) {
+	agentTools, err := t.agentToolDraftDAO.GetAll(ctx, agentID)
+	if err != nil {
+		return err
+	}
+
+	agentToolIDs := slices.Transform(agentTools, func(tool *entity.ToolInfo) int64 {
+		return tool.ID
+	})
+
+	onlineTools, err := t.MGetOnlineTools(ctx, agentToolIDs)
 	if err != nil {
 		return err
 	}
 
 	if len(onlineTools) == 0 {
-		return t.agentToolDraftDAO.DeleteAll(ctx, agentID)
+		return t.agentToolDraftDAO.Delete(ctx, agentID, agentToolIDs)
 	}
 
-	tx := t.query.Begin()
-	if tx.Error != nil {
-		return tx.Error
+	onlineToolIDMap := slices.ToMap(onlineTools, func(tool *entity.ToolInfo) (int64, bool) {
+		return tool.ID, true
+	})
+
+	notExistToolIDs := make([]int64, 0, len(agentToolIDs))
+	for _, toolID := range agentToolIDs {
+		_, ok := onlineToolIDMap[toolID]
+		if ok {
+			continue
+		}
+		notExistToolIDs = append(notExistToolIDs, toolID)
 	}
 
-	defer func() {
-		if r := recover(); r != nil {
-			if e := tx.Rollback(); e != nil {
-				logs.CtxErrorf(ctx, "rollback failed, err=%v", e)
-			}
-			err = fmt.Errorf("catch panic: %v\nstack=%s", r, string(debug.Stack()))
-			return
-		}
-		if err != nil {
-			if e := tx.Rollback(); e != nil {
-				logs.CtxErrorf(ctx, "rollback failed, err=%v", e)
-			}
-		}
-	}()
+	return t.agentToolDraftDAO.Delete(ctx, agentID, notExistToolIDs)
+}
 
-	err = t.agentToolDraftDAO.DeleteAllWithTX(ctx, tx, agentID)
+func (t *toolRepoImpl) BindDraftAgentTools(ctx context.Context, agentID int64, toolIDs []int64) (err error) {
+	onlineTools, err := t.MGetOnlineTools(ctx, toolIDs)
 	if err != nil {
 		return err
 	}
-
-	err = t.agentToolDraftDAO.BatchCreateWithTX(ctx, tx, agentID, onlineTools)
-	if err != nil {
-		return err
-	}
-
-	return tx.Commit()
+	return t.agentToolDraftDAO.BatchCreateIgnoreConflict(ctx, agentID, onlineTools)
 }
 
 func (t *toolRepoImpl) GetAgentPluginIDs(ctx context.Context, agentID int64) (pluginIDs []int64, err error) {

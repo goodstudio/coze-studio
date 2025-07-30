@@ -18,6 +18,7 @@ package conf
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"os"
 	"path"
@@ -57,21 +58,35 @@ var (
 	toolProducts   map[int64]*ToolInfo
 )
 
-func GetToolProduct(toolID int64) (*ToolInfo, bool) {
+func GetToolProduct(toolID int64) (*ToolInfo, bool, error) {
 	ti, ok := toolProducts[toolID]
-	return ti, ok
+	if !ok {
+		return nil, false, nil
+	}
+
+	ti_, err := ti.Copy()
+	if err != nil {
+		return nil, false, err
+	}
+
+	return ti_, true, nil
 }
 
-func MGetToolProducts(toolIDs []int64) []*ToolInfo {
+func MGetToolProducts(toolIDs []int64) ([]*ToolInfo, error) {
 	tools := make([]*ToolInfo, 0, len(toolIDs))
 	for _, toolID := range toolIDs {
-		ti, ok := toolProducts[toolID]
+		ti, ok, err := GetToolProduct(toolID)
+		if err != nil {
+			return nil, err
+		}
 		if !ok {
 			continue
 		}
+
 		tools = append(tools, ti)
 	}
-	return tools
+
+	return tools, nil
 }
 
 func GetPluginProduct(pluginID int64) (*PluginInfo, bool) {
@@ -117,7 +132,22 @@ func (pi PluginInfo) GetPluginAllTools() (tools []*ToolInfo) {
 }
 
 type ToolInfo struct {
-	Info *entity.ToolInfo
+	Info *entity.ToolInfo `json:"info"`
+}
+
+func (t *ToolInfo) Copy() (*ToolInfo, error) {
+	if t == nil {
+		return nil, nil
+	}
+	b, err := json.Marshal(t)
+	if err != nil {
+		return nil, err
+	}
+
+	t_ := &ToolInfo{}
+	err = json.Unmarshal(b, t_)
+
+	return t_, err
 }
 
 func loadPluginProductMeta(ctx context.Context, basePath string) (err error) {

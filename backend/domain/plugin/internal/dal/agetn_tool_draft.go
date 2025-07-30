@@ -20,13 +20,13 @@ import (
 	"context"
 	"errors"
 
-	"gorm.io/gorm"
-
 	"github.com/coze-dev/coze-studio/backend/domain/plugin/entity"
 	"github.com/coze-dev/coze-studio/backend/domain/plugin/internal/dal/model"
 	"github.com/coze-dev/coze-studio/backend/domain/plugin/internal/dal/query"
 	"github.com/coze-dev/coze-studio/backend/infra/contract/idgen"
 	"github.com/coze-dev/coze-studio/backend/pkg/lang/slices"
+	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 )
 
 func NewAgentToolDraftDAO(db *gorm.DB, idGen idgen.IDGenerator) *AgentToolDraftDAO {
@@ -170,6 +170,25 @@ func (at *AgentToolDraftDAO) UpdateWithToolName(ctx context.Context, agentID int
 	return nil
 }
 
+func (at *AgentToolDraftDAO) Delete(ctx context.Context, agentID int64, toolIDs []int64) (err error) {
+	chunks := slices.Chunks(toolIDs, 20)
+
+	for _, chunk := range chunks {
+		table := at.query.AgentToolDraft
+		_, err = table.WithContext(ctx).
+			Where(
+				table.AgentID.Eq(agentID),
+				table.ToolID.In(chunk...),
+			).
+			Delete()
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (at *AgentToolDraftDAO) BatchCreateWithTX(ctx context.Context, tx *query.QueryTx, agentID int64, tools []*entity.ToolInfo) (err error) {
 	tls := make([]*model.AgentToolDraft, 0, len(tools))
 	for _, tl := range tools {
@@ -192,6 +211,7 @@ func (at *AgentToolDraftDAO) BatchCreateWithTX(ctx context.Context, tx *query.Qu
 	}
 
 	table := tx.AgentToolDraft
+
 	err = table.WithContext(ctx).CreateInBatches(tls, 20)
 	if err != nil {
 		return err
@@ -200,22 +220,33 @@ func (at *AgentToolDraftDAO) BatchCreateWithTX(ctx context.Context, tx *query.Qu
 	return nil
 }
 
-func (at *AgentToolDraftDAO) DeleteAll(ctx context.Context, agentID int64) (err error) {
-	const limit = 20
-	table := at.query.AgentToolDraft
-
-	for {
-		info, err := table.WithContext(ctx).
-			Where(table.AgentID.Eq(agentID)).
-			Limit(limit).
-			Delete()
+func (at *AgentToolDraftDAO) BatchCreateIgnoreConflict(ctx context.Context, agentID int64, tools []*entity.ToolInfo) (err error) {
+	tls := make([]*model.AgentToolDraft, 0, len(tools))
+	for _, tl := range tools {
+		id, err := at.idGen.GenID(ctx)
 		if err != nil {
 			return err
 		}
-
-		if info.RowsAffected == 0 || info.RowsAffected < limit {
-			break
+		m := &model.AgentToolDraft{
+			ID:          id,
+			ToolID:      tl.ID,
+			PluginID:    tl.PluginID,
+			AgentID:     agentID,
+			SubURL:      tl.GetSubURL(),
+			Method:      tl.GetMethod(),
+			ToolVersion: tl.GetVersion(),
+			ToolName:    tl.GetName(),
+			Operation:   tl.Operation,
 		}
+		tls = append(tls, m)
+	}
+
+	table := at.query.AgentToolDraft
+
+	err = table.WithContext(ctx).Clauses(clause.OnConflict{DoNothing: true}).
+		CreateInBatches(tls, 20)
+	if err != nil {
+		return err
 	}
 
 	return nil
@@ -254,21 +285,21 @@ func (at *AgentToolDraftDAO) GetAllPluginIDs(ctx context.Context, agentID int64)
 	return slices.Unique(pluginIDs), nil
 }
 
-func (at *AgentToolDraftDAO) DeleteAllWithTX(ctx context.Context, tx *query.QueryTx, agentID int64) (err error) {
+func (at *AgentToolDraftDAO) DeleteWithTX(ctx context.Context, tx *query.QueryTx, agentID int64, toolIDs []int64) (err error) {
 	const limit = 20
 	table := tx.AgentToolDraft
 
-	for {
-		info, err := table.WithContext(ctx).
-			Where(table.AgentID.Eq(agentID)).
+	chunks := slices.Chunks(toolIDs, limit)
+	for _, chunk := range chunks {
+		_, err = table.WithContext(ctx).
+			Where(
+				table.AgentID.Eq(agentID),
+				table.ToolID.In(chunk...),
+			).
 			Limit(limit).
 			Delete()
 		if err != nil {
 			return err
-		}
-
-		if info.RowsAffected == 0 || info.RowsAffected < limit {
-			break
 		}
 	}
 

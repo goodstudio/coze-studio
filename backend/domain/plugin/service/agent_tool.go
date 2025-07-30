@@ -22,6 +22,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/coze-dev/coze-studio/backend/pkg/logs"
+	"github.com/coze-dev/coze-studio/backend/pkg/safego"
 	"github.com/getkin/kin-openapi/openapi3"
 
 	model "github.com/coze-dev/coze-studio/backend/api/model/crossdomain/plugin"
@@ -32,6 +34,12 @@ import (
 )
 
 func (p *pluginServiceImpl) BindAgentTools(ctx context.Context, agentID int64, toolIDs []int64) (err error) {
+	safego.Go(ctx, func() {
+		err = p.toolRepo.ClearNotExistAgentTools(ctx, agentID)
+		if err != nil {
+			logs.CtxErrorf(ctx, "ClearNotExistAgentTools failed, agentID=%d, err=%v", agentID, err)
+		}
+	})
 	return p.toolRepo.BindDraftAgentTools(ctx, agentID, toolIDs)
 }
 
