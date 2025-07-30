@@ -31,75 +31,75 @@ export enum AsyncStatus {
 }
 
 export enum CozeBotInfoType {
-  /** Draft bot */
+  /** 草稿 bot */
   DraftBot = 1,
-  /** Shop bot */
+  /** 商店 bot */
   ProductBot = 2,
 }
 
-/** Take a one-row dataset as an example:
-Column name: input output context person
-Column value: "What kind of job is suitable for me" "You are suitable for rest" "I don't like challenges and don't like to contribute" "{Gender: Male, Age: 18, Diploma: Graduated from a famous university}"
-Input parameter construction:
-  Input: "What kind of job is suitable for me"
-  Variables: map {context: "I don't like challenges, I don't like to contribute", person: "{Gender: Male, Age: 18, Diploma: Graduated from a famous university}"}
+/** 以一行数据集为例：
+列名：      input             output         context              person
+列值：  "我适合什么样的工作"   "你适合休息"   "不喜欢挑战、不喜欢出力"   "{性别：男， 年龄：18， 文凭：名牌大学毕业}"
+Input 参数构建：
+  Input: "我适合什么样的工作"
+  Variables: map{ context: "不喜欢挑战、不喜欢出力", person: "{性别：男， 年龄：18， 文凭：名牌大学毕业}" }
   Histories: null */
 export interface Input {
-  /** The input column in the dataset, typically representing the user input in the evaluation Case */
+  /** 数据集中的 input 列，一般代表评测Case中的用户输入 */
   input?: string;
-  /** In the dataset, all columns except the input and output columns are regarded as Variables, with the column name as the key and the column value as the value. */
+  /** 数据集中，除 input、output 列之外，其他所有的列均视为是 Variable，列名作为 key、列值作为 value */
   variables?: Record<string, flow_devops_evaluation_callback_common.Content>;
-  /** In the multi-round evaluation scenario, one row of data in the dataset can be divided into n rounds of evaluation input.
-In the nth round of evaluation, Histories passes in the information of [1~ n-1], using Json serialization. The information of the nth round is passed in by the Input field
-The information in the first n-1 rounds here is serialized by Json. The serialized schema is formulated by the evaluation task and parsed and used by the evaluator
-For example:
-Input: "What do I wear when I go out today?"
-Histories: [{"human": "I'm in XX District, XX City, what's the weather like today", "assistant": "After checking the weather API, there are thundershowers today, a level 5 gale, and the temperature is about 5 degrees"}] */
+  /** 多轮评测场景中，数据集中的一行数据中又可拆分成 n 轮评测输入。
+在第 n 轮的评测中，Histories 传入 [1 ~ n-1] 的信息，采用 Json 序列化。 第 n 轮的信息由 Input 字段传入
+此处前 n-1 轮的信息，采用 Json 序列化。序列化的 Schema 由评测任务制定，由评估器进行解析使用
+例如：
+Input: "我今天出门适合什么穿搭？"
+Histories：[{ "human": "我在XX市XX区，今天天气怎么样", "assistant": "经过查询天气API，今天有雷阵雨，5级大风，温度5度左右" }] */
   histories?: Array<flow_devops_evaluation_callback_common.Message>;
   input_v2?: flow_devops_evaluation_callback_common.Content;
 }
 
-/** Callback shell:
- Both as server level return parameters
- When the object is associated, it is also used as the shell for front-end parameter transmission */
+/** 回调的壳子：
+ 既作为服务端返回参数
+ 关联对象时候，又作为前端传参的壳子 */
 export interface Object {
   object_type: Int64;
-  /** The name of the pull list page displayed on the UI for the evaluation object, objectMetaName */
+  /** UI上针对评估对象的拉列表页展示的名称,objectMetaName */
   name?: string;
-  /** The unique identity and configuration of the neutron evaluation object of one agent. It is recommended to use Json serialized passthrough
-The production, delivery and consumption path of ObjectMeta: SearchObject (producer) - > evaluation platform UI- > evaluation platform user circle - > evaluation platform server level - > evaluation object Playground (consumer)
-ObjectMeta is generated and parsed by the evaluation object server, and the evaluation platform is transparent only
-Like the built-in interface does not have this field */
+  /** 一方 Agent 中子评估对象的唯一标识和配置等相关信息。建议采用 Json 序列化透传
+ObjectMeta 的生产、传递、消费路径：SearchObject(生产方)->评测平台UI->评测平台用户圈选->评测平台服务端->评测对象Playground(消费方)
+ObjectMeta 由 评估对象服务方 生成和解析，评测平台仅透传
+像内置的接口没有这个字段 */
   object_meta?: string;
-  /** Used to filter which objects are visible */
+  /** 用于筛选哪些object可见 */
   space_id: Int64;
-  /** Display-only object information, such as bot avatars */
+  /** 只用于展示的object信息，例如bot头像 */
   avatar_url?: string;
-  /** Callback the env of the business party, pass the value through the front end, and perform the callback of the corresponding lane after evaluation analysis */
+  /** 回调业务方的env, 前端透传该值，由evaluation解析后执行对应泳道的回调 */
   env?: string;
-  /** The UI displays the id of the unique child object in the use case list, which needs to be filled in by the callback business party */
+  /** UI在用例列表展示唯一子对象的id，需回调业务方填 */
   object_meta_id?: string;
-  /** The UI is displayed in the use case list. After the user selects the evaluation object on the front end, the snapshot store is used to display it in the use case list. */
+  /** UI在用例列表展示，用户在前端选中评测对象后，快照存储用于在用例列表中展示 */
   object_type_name?: string;
   callback_type?: flow_devops_evaluation_entity.CallbackType;
 }
 
 export interface Output {
-  /** The output information of the evaluation object. The evaluator will use the output in the dataset as a benchmark to evaluate the Prediction of the output of the evaluation object
-Prediction can be a string or a JSON structure, which needs to be aligned with the evaluator */
+  /** 评估对象的输出信息。评估器会以数据集中 output 列为基准，对评估对象输出的 Prediction 进行评测
+Prediction 可以是 string、也可以是 JSON 结构体，需要与评估器对齐解析方式 */
   prediction?: string;
   prediction_v2?: flow_devops_evaluation_callback_common.Content;
   ext?: Record<string, string>;
 }
 
-/** To call back the key that needs to be passed on the business search interface, a batch of ObjectMeta will be found through this key fuzzy search. */
+/** 去回调业务search接口需要传的key，通过这个key模糊搜索出一批ObjectMeta */
 export interface SearchKey {
-  /** You can change it again. */
+  /** 可以再改 */
   key: string;
 }
 
 export interface Usage {
-  /** Billing information. The consumption of internal total input and output tokens when an evaluation object Playground is executed */
+  /** 计费信息。一次评估对象Playground执行时，内部总的输入、输出的Tokens的消耗 */
   input_tokens?: Int64;
   output_tokens?: Int64;
   first_token_latency?: Int64;

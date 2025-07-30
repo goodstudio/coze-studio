@@ -30,11 +30,11 @@ export enum ApplyStatus {
 
 export enum BuiltinSpanFilterType {
   Undefined = 0,
-  /** Root Node on Business Meaning (as distinct from Trace Root) */
+  /** 业务含义(区别于 Trace Root)上的根节点 */
   BizRootSpan = 1,
-  /** Model span */
+  /** 模型 span */
   LLMSpan = 2,
-  /** non-built-in filtering */
+  /** 非内置过滤 */
   CustomSpan = 3,
 }
 
@@ -53,7 +53,7 @@ export enum ExecutePeriodic {
   Sunday = 10,
 }
 
-/** Comparison operator */
+/** 比较算子 */
 export enum FilterCmpOp {
   Undefined = 0,
   /** greater than */
@@ -72,13 +72,13 @@ export enum FilterCmpOp {
   NEq = 8,
   Like = 9,
   NotLike = 10,
-  /** Have the tag */
+  /** 有该 tag */
   Exists = 11,
-  /** No tag */
+  /** 没有该 tag */
   NotExists = 12,
 }
 
-/** logical operator */
+/** 逻辑算子 */
 export enum FilterLogicOp {
   Undefined = 0,
   Nop = 1,
@@ -119,14 +119,14 @@ export enum TaskStatusType {
 /** Task */
 export enum TaskType {
   Undefined = 0,
-  /** Span import dataset */
+  /** Span 导入数据集 */
   SpanToDataset = 1,
-  /** Online Review Span */
+  /** 在线评测 Span */
   SpanEval = 2,
-  /** Batch execution automation use cases */
+  /** 批量执行自动化用例 */
   BatchExecAutoUseCase = 3,
-  /** Deprecated: Use SpanToDataset uniformly
-Data reflow for model fine-tuning */
+  /** Deprecated: 统一使用 SpanToDataset
+数据回流用于模型精调 */
   SpanToDatasetForModelSFT = 4,
 }
 
@@ -161,14 +161,14 @@ export interface DoubaoObject {
 }
 
 export interface FlowSpan {
-  /** Original BytedTrace Span Information */
+  /** 原始的 BytedTrace 的 Span 信息 */
   raw?: RawSpan;
   spanType?: string;
-  /** Runtime meta information provided by fornax_sdk */
+  /** 由 fornax_sdk 提供的运行时元信息 */
   runtime?: RuntimeTags;
-  /** traffic information */
+  /** 流量信息 */
   traffic?: TrafficTags;
-  /** Other non-standard tags */
+  /** 其他非标 tag */
   metadata?: Record<string, string>;
   input?: string;
   output?: string;
@@ -179,7 +179,7 @@ export interface FornaxPSMObject {
   spaceID?: string;
 }
 
-/** Notice: Partial information only */
+/** notice: 仅包含部分信息 */
 export interface RawSpan {
   spanID?: string;
   spanName?: string;

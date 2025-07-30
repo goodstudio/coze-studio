@@ -25,15 +25,15 @@ import * as marketplace_common from './marketplace_common';
 
 export type Int64 = string | number;
 
-/** Order status */
+/** 订单状态 */
 export enum OrderOp {
   Unknown = 0,
-  /** Overtime closed the ticket */
+  /** 超时关单 */
   Close = 1,
 }
 
 export interface CreateChargeOrder {
-  /** Coze transaction number */
+  /** coze交易单号 */
   order_id?: string;
   /** checkout_url */
   pay_params?: string;
@@ -41,15 +41,15 @@ export interface CreateChargeOrder {
 
 export interface CreateChargeOrderRequest {
   UserID?: string;
-  /** Currency of payment */
+  /** 支付的币种 */
   currency_code?: string;
-  /** Usually sku_id. Filled when fixed denomination */
+  /** 通常为 sku_id。固定面额时填充 */
   goods_id?: string;
-  /** purchase quantity */
+  /** 购买数量 */
   quantity?: number;
-  /** Extra information */
+  /** extra 信息 */
   extra?: string;
-  /** Coze user, pass the ConnectorIDBotStudio in the common file */
+  /** Coze用户 传common文件里的 ConnectorIDBotStudio */
   UserType?: Int64;
   Cookie?: string;
   'Tt-Agw-Client-Ip'?: string;
@@ -71,7 +71,7 @@ export interface GetTradeOrder {
 
 export interface GetTradeOrderRequest {
   order_id: string;
-  /** Whether to check the payment status of the payment side in real time (applicable to when the payment callback has not been received) */
+  /** 是否实时查询支付侧的支付状态（适用于未收到支付回调时） */
   real_time_pay_status?: boolean;
 }
 
@@ -98,15 +98,15 @@ export interface Order {
 }
 
 export interface PublicCreateChargeOrderRequest {
-  /** Currency of payment */
+  /** 支付的币种 */
   currency_code?: string;
-  /** Usually sku_id. Filled when fixed denomination */
+  /** 通常为 sku_id。固定面额时填充 */
   goods_id?: string;
-  /** purchase quantity */
+  /** 购买数量 */
   quantity?: number;
-  /** Extra information */
+  /** extra 信息 */
   extra?: string;
-  /** Recharge scene */
+  /** 充值场景 */
   charge_scene?: common.ChargeScene;
   Cookie?: string;
   'Tt-Agw-Client-Ip'?: string;
@@ -119,9 +119,9 @@ export interface PublicCreateChargeOrderResponse {
 }
 
 export interface PublicGetTemplatePurchaseOrderListRequest {
-  /** No need to pass it on for the first time. */
+  /** 第一次不用传 */
   index?: string;
-  /** number of pages per page */
+  /** 每页数量 */
   count?: Int64;
 }
 
@@ -132,15 +132,15 @@ export interface PublicGetTemplatePurchaseOrderListResponse {
 }
 
 export interface PublicPlaceOrderRequest {
-  /** Usually sku_id. */
+  /** 通常为 sku_id。 */
   goods_id?: string;
-  /** purchase quantity */
+  /** 购买数量 */
   quantity?: number;
-  /** Template PurchaseTemplate */
+  /** 模版购买填 PurchaseTemplate */
   scene?: common.Scene;
-  /** Jump link after template purchase */
+  /** 模版购买后的跳转链接 */
   return_url?: string;
-  /** Transfer product id */
+  /** 传 product id */
   product_id?: string;
   Cookie?: string;
   'Tt-Agw-Client-Ip'?: string;
@@ -164,7 +164,7 @@ export interface RefundOrder {
 }
 
 export interface RefundOrderBizContent {
-  /** Reason for refund */
+  /** 退款原因 */
   Reason?: string;
 }
 
@@ -179,17 +179,17 @@ export interface TemplatePurchaseOrder {
   currency?: string;
   product_type?: product_common.ProductEntityType;
   place_order_user_role?: marketplace_common.UserRole;
-  /** Unit: seconds */
+  /** 单位：秒 */
   purchase_timestamp?: string;
-  /** Product ID */
+  /** 商品 id */
   product_id?: string;
 }
 
 export interface TemplatePurchaseOrderData {
   order_list?: Array<TemplatePurchaseOrder>;
-  /** Is there a next page? */
+  /** 是否还有下一页 */
   has_more?: boolean;
-  /** Paging ID for the next request */
+  /** 下次请求的分页 id */
   next_index?: string;
 }
 /* eslint-enable */

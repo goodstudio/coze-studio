@@ -59,7 +59,7 @@ export interface Review {
   document_name?: string;
   document_type?: string;
   tos_url?: string;
-  /** state */
+  /** 状态 */
   status?: common.ReviewStatus;
   doc_tree_tos_url?: string;
   preview_tos_url?: string;

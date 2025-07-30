@@ -44,7 +44,7 @@ export enum ToolType {
 export enum VariableType {
   Undefined = 0,
   String = 1,
-  /** Deprecated, using Number does not partition integers and floating-point numbers */
+  /** 废弃，使用Number 不分区整数和浮点数 */
   Integer = 2,
   Boolean = 3,
   Number = 4,
@@ -60,13 +60,13 @@ export interface BinaryContent {
 
 export interface ContentPart {
   type?: ContentType;
-  /** text content */
+  /** 文本内容 */
   text?: string;
-  /** image URL */
+  /** 图片URL */
   image?: Image;
-  /** binary content */
+  /** 二进制内容 */
   binary_content?: BinaryContent;
-  /** configuration */
+  /** 配置 */
   config?: ContentPartConfig;
 }
 
@@ -90,7 +90,7 @@ export interface Message {
   content?: string;
   tool_calls?: Array<ToolCall>;
   tool_call_id?: string;
-  /** Multimodal message content sharding */
+  /** 多模态消息内容分片 */
   parts?: Array<ContentPart>;
   metadata?: Record<string, string>;
 }
@@ -98,14 +98,14 @@ export interface Message {
 export interface PromptTemplate {
   template_type?: string;
   message_list?: Array<Message>;
-  /** variable definition */
+  /** 变量定义 */
   variable_defs?: Array<VariableDef>;
   metadata?: Record<string, string>;
 }
 
 export interface RenderPromptTemplateRequest {
   prompt_template?: PromptTemplate;
-  /** Variable value */
+  /** 变量值 */
   variable_vals?: Array<VariableVal>;
   base?: base.Base;
 }
@@ -122,20 +122,20 @@ export interface ToolCall {
 }
 
 export interface VariableDef {
-  /** variable name */
+  /** 变量名字 */
   key?: string;
-  /** variable description */
+  /** 变量描述 */
   desc?: string;
-  /** Variable type */
+  /** 变量类型 */
   variable_type?: VariableType;
 }
 
 export interface VariableVal {
-  /** variable name */
+  /** 变量名字 */
   key?: string;
-  /** ordinary variable value */
+  /** 普通变量值 */
   value?: string;
-  /** Placeholder message */
+  /** placeholder消息 */
   placeholder_messages?: Array<Message>;
 }
 /* eslint-enable */

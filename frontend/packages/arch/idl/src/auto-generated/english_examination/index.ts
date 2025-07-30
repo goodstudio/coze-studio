@@ -68,7 +68,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/login
    *
-   * user login
+   * 用户登录
    */
   Login(req?: entity.LoginReq, options?: T): Promise<entity.LoginResp> {
     const _req = req || {};
@@ -86,7 +86,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/paper
    *
-   * Create a test paper
+   * 创建试卷
    */
   CreatePaper(
     req: entity.CreatePaperReq,
@@ -106,7 +106,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/paper
    *
-   * Update the test paper
+   * 更新试卷
    */
   UpdatePaper(
     req?: entity.UpdatePaperReq,
@@ -128,7 +128,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/user_info
    *
-   * Acquire user information
+   * 获取用户信息
    */
   GetSessionUserInfo(
     req?: entity.GetSessionUserInfoReq,
@@ -145,7 +145,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/paper
    *
-   * Get a list of test papers
+   * 获取试卷列表
    */
   ListPaper(
     req?: entity.ListPaperReq,
@@ -167,7 +167,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/paper/:id
    *
-   * Delete test paper
+   * 删除试卷
    */
   DeletePaper(
     req: entity.DeletePaperReq,
@@ -183,7 +183,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/loginByJwt
    *
-   * JWT login
+   * JWT登录
    */
   LoginByJwt(
     req: entity.LoginByJwtReq,
@@ -200,7 +200,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/question_group
    *
-   * Create a topic group
+   * 创建题目组
    */
   CreateQuestionGroup(
     req: entity.CreateQuestionGroupReq,
@@ -223,7 +223,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/question_option
    *
-   * Create option
+   * 创建选项
    */
   CreateQuestionOption(
     req: entity.CreateQuestionOptionReq,
@@ -244,7 +244,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/question
    *
-   * Create a topic
+   * 创建题目
    */
   CreateQuestion(
     req: entity.CreateQuestionReq,
@@ -265,7 +265,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/question_group
    *
-   * Update topic group
+   * 更新题目组
    */
   UpdateQuestionGroup(
     req: entity.UpdateQuestionGroupReq,
@@ -288,7 +288,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/question_group
    *
-   * Get a list of question groups for the test paper
+   * 获取试卷的题目组列表
    */
   ListQuestionGroup(
     req: entity.ListQuestionGroupReq,
@@ -304,7 +304,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/question_group/:id
    *
-   * Delete topic group
+   * 删除题目组
    */
   DeleteQuestionGroup(
     req: entity.DeleteQuestionGroupReq,
@@ -322,7 +322,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/paper_exam
    *
-   * Get the test list
+   * 获取测试名单
    */
   ListUserPaperExamination(
     req?: entity.ListUserPaperExaminationReq,
@@ -342,7 +342,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/paper_exam
    *
-   * Enter the test list
+   * 录入测试名单
    */
   BatchCreateUserPaperExamination(
     req: entity.BatchCreateUserPaperExaminationReq,
@@ -358,7 +358,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/paper_exam
    *
-   * Update the test list
+   * 更新测试名单
    */
   UpdateUserPaperExamination(
     req: entity.UpdateUserPaperExaminationReq,
@@ -379,7 +379,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/paper_exam/export
    *
-   * Export test records to Excel file
+   * 导出测试记录到 Excel 文件
    */
   ExportUserPaperExamination(
     req?: entity.ExportUserPaperExaminationReq,
@@ -395,7 +395,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/paper_exam/:id
    *
-   * Delete test list
+   * 删除测试名单
    */
   DeleteUserPaperExamination(
     req: entity.DeleteUserPaperExaminationReq,
@@ -411,7 +411,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/paper_for_exam
    *
-   * Get a list of optional test papers
+   * 获取可选的试卷列表
    */
   ListPaperForExam(
     req: entity.ListPaperForExamReq,
@@ -427,7 +427,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/paper_exam/parse
    *
-   * Parsing Test List Excel Sheet
+   * 解析测试名单 Excel 表格
    */
   ParseUserPaperExamination(
     req: entity.ParseUserPaperExaminationReq,
@@ -443,7 +443,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/video/token
    *
-   * Issue the token for uploading the video.
+   * 下发上传视频的 token
    */
   GetUploadVideoToken(
     req?: entity.GetUploadVideoTokenReq,
@@ -459,7 +459,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/video/play
    *
-   * Play video
+   * 播放视频
    */
   GetPlayVideoInfo(
     req: entity.GetPlayVideoInfoReq,
@@ -475,7 +475,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/myexam/list
    *
-   * Get my exam qualification
+   * 获取我的考试资格
    */
   GetMyPaperExam(
     req?: entity.GetMyPaperExamReq,
@@ -491,7 +491,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/myexam/answer
    *
-   * Submit a response
+   * 提交作答
    */
   AnswerMyPaperExamQuestion(
     req?: entity.AnswerMyPaperExamQuestionReq,
@@ -511,7 +511,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/myexam/start
    *
-   * Start the exam, get the exam questions
+   * 开始考试，获取考题
    */
   StartMyPaperExam(
     req?: entity.StartMyPaperExamReq,
@@ -527,7 +527,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/myexam/submit
    *
-   * Submit the test paper
+   * 提交试卷
    */
   SubmitMyPaperExam(
     req?: entity.SubmitMyPaperExamReq,
@@ -548,7 +548,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/myexam/leave
    *
-   * screen-cutting report
+   * 切屏上报
    */
   ReportLeaveScreen(
     req?: entity.ReportLeaveScreenReq,
@@ -564,7 +564,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/check/admin
    *
-   * Check administrator permissions
+   * 检查管理员权限
    */
   CheckAdminPermission(
     req?: entity.CheckAdminPermissionReq,
@@ -580,7 +580,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/check/alpha
    *
-   * Check closed beta permissions
+   * 检查内测权限
    */
   CheckAlphaTestPermission(
     req?: entity.CheckAlphaTestPermissionReq,
@@ -596,7 +596,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/origin_exam/report/leave
    *
-   * screen-cutting report
+   * 切屏上报
    */
   ReportOriginExamLeave(
     req?: entity.ReportOriginExamLeaveReq,
@@ -612,7 +612,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/origin_exam/cert
    *
-   * Inquire about the qualifications of the original flavor exam
+   * 查询原味考试资格
    */
   GetOriginExamCert(
     req?: entity.GetOriginExamCertReq,
@@ -628,7 +628,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/origin_exam/start
    *
-   * Start the exam and return to the first round of questions
+   * 开始考试，返回第一轮出题
    */
   StartOriginExam(
     req?: entity.StartOriginExamReq,
@@ -644,7 +644,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/origin_exam/finish
    *
-   * Submit the test paper
+   * 提交试卷
    */
   SubmitOriginExam(
     req?: entity.SubmitOriginExamReq,
@@ -665,7 +665,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/origin_exam/next_round
    *
-   * Get the next round of questions
+   * 获取下轮出题
    */
   GetOriginExamNextRound(
     req?: entity.GetOriginExamNextRoundReq,
@@ -686,7 +686,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/origin_exam/answer
    *
-   * Submit a response
+   * 提交作答
    */
   SubmitOriginExamAnswer(
     req?: entity.SubmitOriginExamAnswerReq,
@@ -707,7 +707,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/origin_exam/result
    *
-   * Get a list of test reports
+   * 获取测试报告列表
    */
   ListOriginExamResult(
     req?: entity.ListOriginExamResultReq,
@@ -723,7 +723,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/origin_exam/libq
    *
-   * question bank list
+   * 题库列表
    */
   ListOriginLibraryQuestion(
     req?: entity.ListOriginLibraryQuestionReq,
@@ -748,7 +748,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/origin_exam/libq
    *
-   * question bank creation
+   * 题库创建
    */
   MCreateOriginLibraryQuestion(
     req?: entity.MCreateOriginLibraryQuestionReq,
@@ -764,7 +764,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/origin_exam/libq
    *
-   * Question Bank Update
+   * 题库更新
    */
   UpdateOriginLibraryQuestion(
     req?: entity.UpdateOriginLibraryQuestionReq,
@@ -780,7 +780,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/origin_exam/libq/:id
    *
-   * question bank delete
+   * 题库删除
    */
   DeleteOriginLibraryQuestion(
     req: entity.DeleteOriginLibraryQuestionReq,
@@ -798,7 +798,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/common/tts
    *
-   * Text to Speech
+   * 文本转语音
    */
   TextToSpeech(
     req?: entity.TextToSpeechReq,
@@ -814,7 +814,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/uni_exam/question_group
    *
-   * Update topic group
+   * 更新题目组
    */
   UpdateUniExamQuestionGroup(
     req?: entity.UpdateUniExamQuestionGroupReq,
@@ -837,7 +837,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/question
    *
-   * Create a topic
+   * 创建题目
    */
   CreateUniExamQuestion(
     req?: entity.CreateUniExamQuestionReq,
@@ -860,7 +860,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/uni_exam/question
    *
-   * Update speaking questions
+   * 更新口语题
    */
   UpdateUniExamQuestion(
     req?: entity.UpdateUniExamQuestionReq,
@@ -884,7 +884,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/record/:id
    *
-   * Test record details
+   * 考试记录详情
    */
   GetUniExamRecord(
     req?: entity.GetUniExamRecordReq,
@@ -902,7 +902,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/push
    *
-   * Push Exam (Obsolete)
+   * 推送考试(已废弃)
    */
   PushUniExamRecord(
     req?: entity.PushUniExamRecordReq,
@@ -922,7 +922,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/result
    *
-   * List of exam results
+   * 考试结果列表
    */
   ListUniExamResult(
     req?: entity.ListUniExamResultReq,
@@ -938,7 +938,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/paper
    *
-   * Create a listening test paper
+   * 创建听力试卷
    */
   CreateUniExamPaper(
     req: entity.CreateUniExamPaperReq,
@@ -958,7 +958,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/question_group
    *
-   * Get the list of question groups for the listening test paper
+   * 获取听力试卷的题目组列表
    */
   ListUniExamQuestionGroup(
     req?: entity.ListUniExamQuestionGroupReq,
@@ -974,7 +974,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/question
    *
-   * list of topics
+   * 题目列表
    */
   ListUniExamQuestion(
     req?: entity.ListUniExamQuestionReq,
@@ -995,7 +995,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/team_exam/remind
    *
-   * Team Exam Reminder Record
+   * 团队考试提醒记录
    */
   ListTeamExamRemind(
     req?: entity.ListTeamExamRemindReq,
@@ -1011,7 +1011,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/answer
    *
-   * Submit a response
+   * 提交作答
    */
   SubmitUniExamAnswer(
     req?: entity.SubmitUniExamAnswerReq,
@@ -1031,7 +1031,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/report/leave
    *
-   * screen-cutting report
+   * 切屏上报
    */
   ReportUniExamLeave(
     req?: entity.ReportUniExamLeaveReq,
@@ -1047,7 +1047,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/uni_exam/question_group/:id
    *
-   * Delete topic group
+   * 删除题目组
    */
   DeleteUniExamQuestionGroup(
     req?: entity.DeleteUniExamQuestionGroupReq,
@@ -1065,7 +1065,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/common/user/search
    *
-   * Search user
+   * 搜索用户
    */
   SearchUser(
     req?: entity.SearchUserReq,
@@ -1081,7 +1081,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/record/confirm
    *
-   * Examination manual correction confirmation
+   * 考试人工批改确认
    */
   ConfirmUniExamRecord(
     req?: entity.ConfirmUniExamRecordReq,
@@ -1107,7 +1107,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/paper
    *
-   * Get a list of listening test papers
+   * 获取听力试卷列表
    */
   ListUniExamPaper(
     req?: entity.ListUniExamPaperReq,
@@ -1129,7 +1129,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/team
    *
-   * team list
+   * 团队列表
    */
   ListTeam(
     req?: entity.ListTeamReq,
@@ -1150,7 +1150,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/question_group
    *
-   * Create a topic group
+   * 创建题目组
    */
   CreateUniExamQuestionGroup(
     req?: entity.CreateUniExamQuestionGroupReq,
@@ -1173,7 +1173,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/uni_exam/team_exam/:id
    *
-   * Delete team exam records
+   * 团队考试记录删除
    */
   DeleteTeamExamRecord(
     req?: entity.DeleteTeamExamRecordReq,
@@ -1191,7 +1191,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/finish
    *
-   * Submit the test paper
+   * 提交试卷
    */
   SubmitUniExam(
     req?: entity.SubmitUniExamReq,
@@ -1212,7 +1212,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/uni_exam/paper
    *
-   * Update the listening test paper
+   * 更新听力试卷
    */
   UpdateUniExamPaper(
     req?: entity.UpdateUniExamPaperReq,
@@ -1234,7 +1234,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/uni_exam/question/:id
    *
-   * delete title
+   * 删除题目
    */
   DeleteUniExamQuestion(
     req?: entity.DeleteUniExamQuestionReq,
@@ -1252,7 +1252,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/uni_exam/paper/:id
    *
-   * Delete the listening test paper
+   * 删除听力试卷
    */
   DeleteUniExamPaper(
     req: entity.DeleteUniExamPaperReq,
@@ -1270,7 +1270,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/remind
    *
-   * Team Exam Reminder
+   * 团队考试提醒
    */
   RemindTeamExam(
     req?: entity.RemindTeamExamReq,
@@ -1291,7 +1291,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/start
    *
-   * Start the exam
+   * 开始考试
    */
   StartUniExam(
     req?: entity.StartUniExamReq,
@@ -1311,7 +1311,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/uni_exam/answer
    *
-   * Modify answer
+   * 修改作答
    */
   UpdateUniExamAnswer(
     req?: entity.UpdateUniExamAnswerReq,
@@ -1332,7 +1332,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/uni_exam/record/:id
    *
-   * Exam record deletion
+   * 考试记录删除
    */
   DeleteUniExamRecord(
     req?: entity.DeleteUniExamRecordReq,
@@ -1350,7 +1350,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/team_exam/:id
    *
-   * Team Exam Record Details
+   * 团队考试记录详情
    */
   GetTeamExamRecord(
     req?: entity.GetTeamExamRecordReq,
@@ -1368,7 +1368,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/cert
    *
-   * Inquire about exam qualifications
+   * 查询考试资格
    */
   GetUniExamCert(
     req?: entity.GetUniExamCertReq,
@@ -1384,7 +1384,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/finish
    *
-   * Finish the exam
+   * 结束考试
    */
   FinishUniExamRecord(
     req?: entity.FinishUniExamRecordReq,
@@ -1400,7 +1400,7 @@ export default class EnglishExaminationService<T> {
   /**
    * DELETE /api/examination/uni_exam/team_exam/remind/:id
    *
-   * Delete team exam reminders
+   * 删除团队考试提醒
    */
   DeleteTeamExamRemind(
     req?: entity.DeleteTeamExamRemindReq,
@@ -1418,7 +1418,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/team_exam/export/:id
    *
-   * Team exam record export
+   * 团队考试记录导出
    */
   ExportTeamExamRecord(
     req?: entity.ExportTeamExamRecordReq,
@@ -1436,7 +1436,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/record
    *
-   * Test record list
+   * 考试记录列表
    */
   ListUniExamRecord(
     req?: entity.ListUniExamRecordReq,
@@ -1457,7 +1457,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/answer/check
    *
-   * voice correction
+   * 语音批改
    */
   GetOralAnswerCheck(
     req: entity.GetOralAnswerCheckReq,
@@ -1473,7 +1473,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/answer/check/task
    *
-   * List of voice correction results
+   * 语音批改结果列表
    */
   GetOralAnswerCheckTaskResult(
     req: entity.GetOralAnswerCheckTaskResultReq,
@@ -1489,7 +1489,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/external/uni_exam/record/confirm
    *
-   * Examination manual correction confirmation (external)
+   * 考试人工批改确认(外部)
    */
   ConfirmUniExamRecordForExternal(
     req?: external.ConfirmUniExamRecordForExternalReq,
@@ -1517,7 +1517,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/external/uni_exam/record/:id
    *
-   * Examination record details (external)
+   * 考试记录详情(外部)
    */
   GetUniExamRecordForExternal(
     req?: external.GetUniExamRecordForExternalReq,
@@ -1535,7 +1535,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/external/auth/loginByBasic
    *
-   * User login (external)
+   * 用户登录(外部)
    */
   LoginByBasic(
     req?: external.LoginByBasicReq,
@@ -1555,7 +1555,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/external/auth/logoutByBasic
    *
-   * User logout (external)
+   * 用户注销(外部)
    */
   LogoutByBasic(
     req?: external.LogoutByBasicReq,
@@ -1571,7 +1571,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/external/uni_exam/record
    *
-   * List of exam records (external)
+   * 考试记录列表(外部)
    */
   ListUniExamRecordForExternal(
     req?: external.ListUniExamRecordForExternalReq,
@@ -1592,7 +1592,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/uni_exam/team_exam/test
    *
-   * update test
+   * 更新测试
    */
   UpdateTeamExamTest(
     req?: entity.UpdateTeamExamTestReq,
@@ -1613,7 +1613,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/test
    *
-   * Create test
+   * 创建测试
    */
   CreateTeamExamTest(
     req?: entity.CreateTeamExamTestReq,
@@ -1637,7 +1637,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/test/check
    *
-   * Check for update testing
+   * 检查更新测试
    */
   UpdateTeamExamTestCheck(
     req?: entity.UpdateTeamExamTestReq,
@@ -1660,7 +1660,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/record/export
    *
-   * Export exam results
+   * 导出考试结果
    */
   ExportUniExamRecord(
     req?: entity.ExportUniExamRecordReq,
@@ -1676,7 +1676,7 @@ export default class EnglishExaminationService<T> {
   /**
    * GET /api/examination/uni_exam/record/filter/option
    *
-   * Get Test Record List Filters
+   * 获取考试记录列表筛选项
    */
   ListUniExamRecordFilterOptions(
     req?: entity.ListUniExamRecordFilterOptionsReq,
@@ -1694,7 +1694,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/save_video_chunk
    *
-   * Save video slice
+   * 保存视频切片
    */
   SaveVideoChunk(
     req?: entity.SaveVideoChunkReq,
@@ -1714,7 +1714,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/test/option
    *
-   * Get Create Test Options
+   * 获取创建测试选项
    */
   ListCreateTeamExamTestOptions(
     req?: entity.ListCreateTeamExamTestOptionsReq,
@@ -1732,7 +1732,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/test/conflict_users/export
    *
-   * Export conflicting user records
+   * 导出冲突用户记录
    */
   ExportConflictUsers(
     req?: entity.ExportConflictUsersReq,
@@ -1755,7 +1755,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/uni_exam/team_exam/test/user
    *
-   * Update user exam association records
+   * 更新用户考试关联记录
    */
   UpdateTeamExamUser(
     req?: entity.UpdateTeamExamUserReq,
@@ -1777,7 +1777,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/record
    *
-   * List of team exam records
+   * 团队考试记录列表
    */
   ListTeamExamRecord(
     req?: entity.ListTeamExamRecordReq,
@@ -1799,7 +1799,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/magic/check
    *
-   * Get a speaking score (debug)
+   * 获取口语打分(调试)
    */
   MagicCheck(
     req?: entity.MagicCheckReq,
@@ -1815,7 +1815,7 @@ export default class EnglishExaminationService<T> {
   /**
    * PUT /api/examination/uni_exam/question_group/nfn
    *
-   * Update n choose n topic group
+   * 更新n选n题目组
    */
   UpdateUniExamQuestionGroupNFN(
     req?: entity.CreateUniExamQuestionGroupNFNReq,
@@ -1840,7 +1840,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/score/history
    *
-   * Get a list of test score history
+   * 获取考试分数历史记录列表
    */
   ListUniexamScoreHistory(
     req?: entity.ListUniexamScoreHistoryReq,
@@ -1856,7 +1856,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/question_group/nfn
    *
-   * Create a set of questions
+   * 创建n选n题目组
    */
   CreateUniExamQuestionGroupNFN(
     req?: entity.CreateUniExamQuestionGroupNFNReq,
@@ -1881,7 +1881,7 @@ export default class EnglishExaminationService<T> {
   /**
    * POST /api/examination/uni_exam/team_exam/remind/test
    *
-   * Test Exam Reminder
+   * 测试考试提醒
    */
   RemindTest(
     req?: entity.RemindTestReq,

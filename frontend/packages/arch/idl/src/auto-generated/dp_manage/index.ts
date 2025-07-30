@@ -177,7 +177,7 @@ export default class DpManageService<T> {
   /**
    * GET /api/devops/dp/coze/spaces/:space_id/bots/:bot_id/multi_version/rules
    *
-   * Get the current rule list: the pre-release version only releases the list in effect, the dark launch version only releases the latest one the dark launch version (grey release/offline)
+   * 获取当前规则列表:预发布版本只下发生效中列表，灰度版本只下发最新一条灰度版本(灰度中/已下线)
    */
   GetMultiVersionActiveList(
     req: flow_devops_dp_manage.GetMultiVersionActiveListRequest,
@@ -204,7 +204,7 @@ export default class DpManageService<T> {
   /**
    * GET /api/devops/dp/coze/spaces/:space_id/bots/:bot_id/multi_version/latest_param
    *
-   * Get the bot's last multi-release configuration
+   * 获取bot上次多版本发布配置
    */
   GetMultiVersionLatestParams(
     req: flow_devops_dp_manage.GetMultiVersionLatestParamsRequest,
@@ -222,7 +222,7 @@ export default class DpManageService<T> {
   /**
    * POST /api/devops/dp/coze/spaces/:space_id/bots/:bot_id/multi_version/publish
    *
-   * Multi version multi version release
+   * multi version 多版本发布
    */
   PublishMultiVersion(
     req: flow_devops_dp_manage.PublishMultiVersionRequest,
@@ -251,7 +251,7 @@ export default class DpManageService<T> {
   /**
    * GET /api/devops/dp/coze/spaces/:space_id/bots/:bot_id/multi_version/connectors
    *
-   * Get the channel ID that allows multi-version publishing
+   * 获取允许多版本发布的渠道ID
    */
   GetMultiVersionAllowedConnectors(
     req: flow_devops_dp_manage.GetMultiVersionAllowedConnectorsRequest,
@@ -269,7 +269,7 @@ export default class DpManageService<T> {
   /**
    * POST /api/devops/dp/coze/spaces/:space_id/bots/:bot_id/multi_version/rules/:rule_id/inactivate
    *
-   * offline channel strategy
+   * 下线渠道策略
    */
   InactivateMultiVersion(
     req: flow_devops_dp_manage.InactivateMultiVersionRequest,
@@ -287,7 +287,7 @@ export default class DpManageService<T> {
   /**
    * GET /api/devops/dp/coze/ide/fg
    *
-   * Plug-in fg switch
+   * 插件fg开关
    */
   CozeIDEPluginFg(
     req?: flow_devops_dp_manage.CozeIDEPluginFgRequest,
@@ -303,7 +303,7 @@ export default class DpManageService<T> {
   /**
    * POST /api/devops/dp/coze/spaces/:space_id/bots/:bot_id/multi_version/rules/:rule_id/update_gray
    *
-   * Update grey release configuration
+   * 更新灰度配置
    */
   UpdateGrayIDList(
     req: flow_devops_dp_manage.UpdateGrayIDListRequest,
@@ -371,7 +371,7 @@ export default class DpManageService<T> {
   /**
    * POST /models/arena/list_arena_bot
    *
-   * Model Arena
+   * 模型竞技场
    */
   ListArenaBot(
     req?: flow_devops_dp_manage.ListArenaBotReq,
@@ -436,7 +436,7 @@ export default class DpManageService<T> {
   /**
    * POST /models/arena/detail/chat
    *
-   * chat streaming interface
+   * chat流式接口
    */
   ArenaChatStream(
     req: flow_devops_dp_manage.ArenaChatStreamReq,
@@ -487,7 +487,7 @@ export default class DpManageService<T> {
   /**
    * POST /models/arena/question/list_bank
    *
-   * Model Arena: Question Bank Interface
+   * 模型竞技场：题库接口
    */
   ArenaListQuestionBank(
     req?: flow_devops_dp_manage.ArenaListQuestionBankReq,
@@ -593,7 +593,7 @@ export default class DpManageService<T> {
   /**
    * POST /models/leaderboard/get_v2
    *
-   * Model Arena: Leaderboard Interface
+   * 模型竞技场：排行榜接口
    */
   ArenaLeaderboardGetV2(
     req?: flow_devops_dp_manage.ArenaLeaderboardGetV2Req,
@@ -635,7 +635,7 @@ export default class DpManageService<T> {
   /**
    * POST /models/arena/feedback_tag
    *
-   * Model Arena: pk feedback interface
+   * 模型竞技场：pk反馈接口
    */
   ArenaSubmitPkFeedbackTag(
     req: flow_devops_dp_manage.ArenaSubmitPkFeedbackTagReq,

@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** Configure error code to http code conversion according to documentation. */
+/** 根据文档配置 error code 到 http code 转化。 */
 export enum ErrCode {
   CommonNoPermission = 788690101,
   CommonInvalidParam = 788690202,

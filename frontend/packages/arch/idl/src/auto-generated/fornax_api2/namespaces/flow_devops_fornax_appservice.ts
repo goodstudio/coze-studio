@@ -42,12 +42,12 @@ export interface CreateAppClientResp {
 }
 
 export interface CreateAppReq {
-  /** PSM, the only one in the space */
+  /** PSM, 空间内唯一 */
   uid: string;
   spaceID: string;
-  /** Application Type */
+  /** 应用类型 */
   appType: app.AppType;
-  /** App name, default to PSM, can be modified */
+  /** 应用名称，默认为 PSM, 可修改 */
   name?: string;
   description?: string;
 }
@@ -60,7 +60,7 @@ export interface CreateAppV2Req {
   spaceID: Int64;
   type: app.AppV2Type;
   entityID?: string;
-  /** App name, default to PSM, can be modified */
+  /** 应用名称，默认为 PSM, 可修改 */
   name?: string;
   description?: string;
   version?: string;
@@ -77,7 +77,7 @@ export interface CreateCozeBotAppReq {
   spaceID: string;
   /** cozeBot ID */
   botID: string;
-  /** cozeBot description */
+  /** cozeBot 描述 */
   desc?: string;
 }
 
@@ -120,7 +120,7 @@ export interface GetClientEvaluationSettingResp {
 
 export interface ListAppClientsByAppReq {
   appID: string;
-  /** Filter app_client by environment type */
+  /** 根据环境类型筛选 app_client */
   envType?: app.AppClientEnvType;
 }
 
@@ -133,7 +133,7 @@ export interface ListAppsBySpaceReq {
   appID?: string;
   uid?: string;
   name?: string;
-  /** Filter according to the application type, and return the APP of TCE type by default without passing. */
+  /** 根据应用类型筛选，不传默认返回 TCE 类型的 APP */
   appType?: app.AppType;
 }
 
@@ -145,7 +145,7 @@ export interface ListAppsBySpaceResp {
 
 export interface ListAppsBySpaceV2Req {
   spaceID: string;
-  /** Name prefix or suffix match */
+  /** name前缀或后缀匹配 */
   keyWord?: string;
   page: Int64;
   pageSize: Int64;

@@ -21,14 +21,14 @@
 
 export type Int64 = string | number;
 
-/** ActionType Execution type
+/** ActionType 执行类型
  NEXT ID: 2 */
 export enum ActionType {
   Undefined = 0,
   ConstReturn = 1,
 }
 
-/** BizType - Business Line
+/** BizType - 业务线
  NEXT ID: 3 */
 export enum BizType {
   Default = 0,
@@ -37,16 +37,16 @@ export enum BizType {
   FornaxPrompt = 3,
 }
 
-/** ComboTyppe combination type */
+/** ComboTyppe 组合类型 */
 export enum ComboType {
   Undefined = 0,
-  /** All conditions are true, return true, otherwise false */
+  /** conditions中都为true, 返回true, 否则false */
   And = 1,
-  /** Any of the conditions is true, return true, otherwise false */
+  /** conditions中任一true, 返回true, 否则false */
   Or = 2,
 }
 
-/** ConditionType Condition type
+/** ConditionType 条件类型
  NEXT ID: 7 */
 export enum ConditionType {
   Undefined = 0,
@@ -58,7 +58,7 @@ export enum ConditionType {
   Combo = 6,
 }
 
-/** ConstValueType constant return value type
+/** ConstValueType 常量返回值类型
  NEXT ID: 6 */
 export enum ConstValueType {
   Undefined = 0,
@@ -69,7 +69,7 @@ export enum ConstValueType {
   StringList = 5,
 }
 
-/** ExprType Lists the currently supported expression types
+/** ExprType 列出当前支持的表达式类型
  NEXT ID: 3 */
 export enum ExprType {
   Undefined = 0,
@@ -77,43 +77,43 @@ export enum ExprType {
   VarExpr = 2,
 }
 
-/** GrayField - grey release field
+/** GrayField - 灰度字段
  NEXT ID: 3 */
 export enum GrayFieldType {
   Undefined = 0,
-  /** Corresponding to uid in commonArgs */
+  /** 对应commonArgs中的uid */
   Uid = 1,
-  /** Corresponding to deviceID in commonArgs */
+  /** 对应commonArgs中的deviceID */
   Did = 2,
-  /** user defined field */
+  /** 用户自定义字段 */
   CustomKey = 3,
 }
 
-/** ChoiceType - Determine the condition type
+/** ChoiceType - 判断条件类型
  NEXT ID: 6 */
 export enum OperatorType {
   Undefined = 0,
-  /** Equals, lhs == rhs */
+  /** 等于, lhs == rhs */
   Eq = 1,
-  /** In list, lhs in rhs, rhs needs to be a List */
+  /** in list, lhs in rhs, rhs需要是一个List */
   In = 2,
-  /** Not in list, lhs not in rhs, rhs needs to be a List */
+  /** not in list, lhs not in rhs, rhs需要是一个List */
   NotIn = 3,
-  /** Not equal to, lhs! = rhs */
+  /** 不等于, lhs != rhs */
   NotEq = 4,
-  /** Greater than, lhs > rhs */
+  /** 大于, lhs > rhs */
   Gt = 5,
-  /** Less than, lhs < rhs */
+  /** 小于, lhs < rhs */
   Lt = 6,
-  /** Greater than or equal to, lhs > = rhs */
+  /** 大于等于, lhs >= rhs */
   Gte = 7,
-  /** Less than or equal to, lhs < = rhs */
+  /** 小于等于, lhs <= rhs */
   Lte = 8,
-  /** Is empty, lhs == nil */
+  /** 为空, lhs == nil */
   IsNull = 9,
-  /** Not empty, lhs! = nil */
+  /** 不为空, lhs != nil */
   IsNotNull = 10,
-  /** Always true */
+  /** 总是为true */
   AlwaysTrue = 11,
 }
 
@@ -123,7 +123,7 @@ export enum RuleStatus {
   Offline = 2,
 }
 
-/** SchemaType - Data structure field types
+/** SchemaType - 数据结构字段类型
  NEXT ID: 6 */
 export enum SchemaType {
   Undefined = 0,
@@ -134,10 +134,10 @@ export enum SchemaType {
   Object = 5,
 }
 
-/** TargetIDSource The target value data source to be determined */
+/** TargetIDSource 需要判定的目标值数据来源 */
 export enum TargetIDSource {
   Undefined = 0,
-  /** The convention is commonArgs.uid in the traffic parameter. */
+  /** 约定为traffic参数中的commonArgs.uid */
   Uid = 1,
 }
 
@@ -147,14 +147,14 @@ export enum TargetOpType {
   NotIn = 2,
 }
 
-/** TrafficResultType The result type returned
+/** TrafficResultType 返回的结果类型
  NEXT ID: 2 */
 export enum TrafficResultType {
   Undefined = 0,
   ConstValue = 1,
 }
 
-/** Action - Execute action definition
+/** Action - 执行动作定义
  NEXT ID: 3 */
 export interface Action {
   actionType?: ActionType;
@@ -164,13 +164,13 @@ export interface Action {
 /** AllowList
  NEXT ID: 3 */
 export interface AllowList {
-  /** compare fields */
+  /** 比较字段 */
   field?: GrayField;
-  /** Compare field values */
+  /** 比较字段值 */
   values?: Array<string>;
 }
 
-/** BizSchemaMeta - Data information describing a line of business
+/** BizSchemaMeta - 描述某个业务线的数据信息
  NEXT ID: 3 */
 export interface BizSchemaMeta {
   bizType?: BizType;
@@ -180,61 +180,61 @@ export interface BizSchemaMeta {
 /** BlockList
  NEXT ID: 3 */
 export interface BlockList {
-  /** compare fields */
+  /** 比较字段 */
   field?: GrayField;
-  /** Compare field values */
+  /** 比较字段值 */
   values?: Array<string>;
 }
 
-/** ComboCondition judgment */
+/** ComboCondition 组合条件判断 */
 export interface ComboCondition {
-  /** combination type */
+  /** 组合类型 */
   comboType: ComboType;
-  /** combination condition */
+  /** 组合条件 */
   conditions?: Array<Condition>;
 }
 
-/** CommonArgs common parameters, common parameters that general requests may have, if necessary, pass in
+/** CommonArgs 通用参数, 一般请求可能会有的通用参数, 如果有需要传入
  NEXT ID: 5, 12 */
 export interface CommonArgs {
   uid?: Int64;
   appID?: number;
   deviceID?: Int64;
   platform?: string;
-  /** Specify the parameters of the key */
+  /** 指定key的参数 */
   params?: Record<string, string>;
-  /** Additional JSON parameters */
+  /** 额外的json参数 */
   extra?: string;
 }
 
-/** Conditions Judgment conditions
+/** Condition 判断条件
  NEXT ID: 7 */
 export interface Condition {
-  /** judgment type */
+  /** 判断类型 */
   type?: ConditionType;
-  /** conditionType Write the corresponding field
-X-tt-env in metainfo equals xxx */
+  /** conditionType 写入对应字段
+metainfo中的x-tt-env 等于 xxx */
   xTtEnv?: string;
-  /** Show parameter version equal to xxx */
+  /** 显示传参version      等于 xxx */
   versionIdentifier?: string;
-  /** Specify the id list for in or not in judgment */
+  /** 指定id列表进行in or not in的判断 */
   targetList?: TargetList;
-  /** Percentage grey release judgment */
+  /** 百分比灰度判断 */
   grayConfig?: GrayConfig;
-  /** computational expression writing */
+  /** 计算表达式书写 */
   operatorExpr?: OperatorExpr;
-  /** combination condition */
+  /** 组合条件 */
   comboCondition?: ComboCondition;
 }
 
-/** ConstExpr constant expression, which will return the corresponding value according to the type of the constant
+/** ConstExpr 常量表达式，会根据常量的类型返回对应的值
  NEXT ID: 3 */
 export interface ConstExpr {
   valueType: ConstValueType;
   value?: ConstValue;
 }
 
-/** ConstReturnAction constant return type
+/** ConstReturnAction 常量返回类型
  NEXT ID: 4 */
 export interface ConstReturnAction {
   key?: string;
@@ -242,7 +242,7 @@ export interface ConstReturnAction {
   value?: ConstValue;
 }
 
-/** The actual value of the ConstValue constant
+/** ConstValue 常量的实际值
  NEXT ID: 6 */
 export interface ConstValue {
   boolValue?: boolean;
@@ -252,115 +252,115 @@ export interface ConstValue {
   stringListValue?: Array<string>;
 }
 
-/** DimensionMeta - Data dimension information that describes a line of business
+/** DimensionMeta - 描述某个业务线的数据维度信息
  NEXT ID: 3 */
 export interface DimensionMeta {
   bizType?: BizType;
   schema?: Schema;
 }
 
-/** Expr describes the expression that is executed during conditional judgment
- Corresponding to different expression contents according to exprType
+/** Expr 描述了在条件判断过程中执行的表达式
+ 根据exprType对应不同的表达式内容
  NEXT ID: 4 */
 export interface Expr {
-  /** expression type */
+  /** 表达式类型 */
   exprType: ExprType;
-  /** Use when exprType is ConstExpr */
+  /** exprType为ConstExpr时使用 */
   constExpr?: ConstExpr;
-  /** Use when exprType is VarExpr */
+  /** exprType为VarExpr时使用 */
   varExpr?: string;
 }
 
-/** GrayBucket percentage grey release configuration
+/** GrayBucket 百分比灰度配置
  NEXT ID: 4 */
 export interface GrayBucket {
-  /** Grey release calculation field */
+  /** 灰度计算字段 */
   field?: GrayField;
-  /** Grey release ratio, take the size of [0, size] */
+  /** 灰度比例, 取[0, size]的大小 */
   inGray?: number;
-  /** Bucket size, default 10000 */
+  /** bucket 大小, 默认10000 */
   size?: number;
 }
 
-/** GrayConfig grey release configuration
- The current order is BlockList - > AllowList - > Bucket's check order
+/** GrayConfig 灰度配置
+ 目前顺序为 BlockList -> AllowList -> Bucket的校验顺序
  NEXT ID: 4 */
 export interface GrayConfig {
-  /** Representation misses in blockList */
+  /** 在blockList中的表示不命中 */
   blockList?: BlockList;
-  /** Hit and miss buckets in allowList */
+  /** 在allowList中的表示命中，未命中的走bucket */
   allowList?: AllowList;
-  /** Percent grey release configuration */
+  /** 百分比灰度配置 */
   bucket?: GrayBucket;
 }
 
 export interface GrayField {
-  /** Grey release field type */
+  /** 灰度字段类型 */
   type: GrayFieldType;
-  /** Custom field json path */
+  /** 自定义字段json path */
   customFieldPath?: string;
 }
 
-/** OperatorExpr expression
- For example, for the operation x > y, x is the left parameter lhs, and y is the right parameter rhs.
+/** OperatorExpr 运算表达式
+ 例如: 对于运算操作 x > y, x是左参数lhs, y是右参数rhs
  NEXT ID: 4 */
 export interface OperatorExpr {
-  /** condition type */
+  /** 条件类型 */
   operator: OperatorType;
-  /** Left-hand expression of an operation */
+  /** 运算操作的左侧表达式 */
   lhs?: Expr;
-  /** Right-hand expression of an operation */
+  /** 运算操作的右侧表达式 */
   rhs?: Expr;
 }
 
-/** Rules - Business configuration rules
+/** Rule - 业务配置规则
  NEXT ID: 6 */
 export interface Rule {
   ruleID?: Int64;
-  /** line of business */
+  /** 业务线 */
   bizType?: BizType;
-  /** The dimensions of the rule configuration will be a JSON object according to the schema. */
+  /** 规则配置的维度，会是根据schema的一个json object */
   dimension?: string;
-  /** judgment condition */
+  /** 判断条件 */
   condition?: Condition;
-  /** Action after condition passed */
+  /** condition pass后的执行动作 */
   action?: Action;
-  /** Business custom tags, used to distinguish rules for different scenarios under the same bizType and dimension */
+  /** 业务自定义标签，用于区分同一个bizType和dimension下不同场景的规则 */
   tag?: string;
-  /** rule state */
+  /** 规则状态 */
   status?: RuleStatus;
-  /** Operator ID */
+  /** 操作人ID */
   operator?: string;
-  /** update time */
+  /** 更新时间 */
   updateTime?: Int64;
-  /** creation time */
+  /** 创建时间 */
   createTime?: Int64;
-  /** Priority, default 0, under the same dimension, the larger the number, the higher the priority */
+  /** 优先级, 默认0, 同一dimension下, 数字越大优先级越高 */
   priority?: number;
 }
 
-/** Schema - Data structures that describe dimensions
+/** Schema - 描述维度的数据结构
  NEXT ID: 7 */
 export interface Schema {
   type?: SchemaType;
-  /** Business parties can customize their names when registering */
+  /** 业务方注册时可自定义名称 */
   name?: string;
   children?: Array<Schema>;
-  /** For the filePath of dimension type to be accurate to the leaf node, other types can be paths at the Object level */
+  /** 对于dimension类型的 filePath要精确到叶子结点，其他类型的可以是Object级别的路径 */
   fieldPath?: string;
   isDimension?: boolean;
-  /** Whether the field is required, isRequired = true when participating in the verification isDimension = true, isDimension = false, isRequired on demand */
+  /** 是否必须字段，参与校验 isDimension=true时 isRequired=true, isDimension=false时，isRequired按需 */
   isRequired?: boolean;
 }
 
-/** SystemArgs traffic parameter
+/** SystemArgs 流量参数
  NEXT ID: 2 */
 export interface SystemArgs {
-  /** Version ID */
+  /** 版本标识 */
   versionIdentifier?: string;
 }
 
-/** TargetList Determines whether the target IDSource is contained in the target IDs based on the op
+/** TargetList 根据op判断targetIDSource是否包含在targetIDs中
  NEXT ID: 4 */
 export interface TargetList {
   op?: TargetOpType;
@@ -368,19 +368,19 @@ export interface TargetList {
   targetIDSource?: TargetIDSource;
 }
 
-/** Traffic flow information
+/** Traffic 流量信息
  NEXT ID: 5 */
 export interface Traffic {
   bizType: BizType;
-  /** Business common parameters, is a json object */
+  /** 业务通用参数，是一个json object */
   dimension?: string;
-  /** general flow parameters */
+  /** 通用流量参数 */
   commonArgs?: CommonArgs;
-  /** System flow parameters */
+  /** 系统流量参数 */
   systemArgs?: SystemArgs;
 }
 
-/** TrafficResult Traffic judgment result
+/** TrafficResult 流量判断结果
  NEXT ID: 4 */
 export interface TrafficResult {
   hit?: boolean;
@@ -388,22 +388,22 @@ export interface TrafficResult {
   constValue?: TrafficResultConstValue;
 }
 
-/** TrafficResultConstValue returns a constant value
+/** TrafficResultConstValue 返回常量值
  NEXT ID: 3 */
 export interface TrafficResultConstValue {
   valueType?: ConstValueType;
   value?: ConstValue;
 }
 
-/** TrafficV2 traffic information
+/** TrafficV2 流量信息
  NEXT ID: 5 */
 export interface TrafficV2 {
   bizType: BizType;
-  /** general flow parameters */
+  /** 通用流量参数 */
   commonArgs?: CommonArgs;
-  /** System flow parameters */
+  /** 系统流量参数 */
   systemArgs?: SystemArgs;
-  /** Business flow parameter json object */
+  /** 业务流量参数 json object */
   bizArgs?: string;
 }
 /* eslint-enable */

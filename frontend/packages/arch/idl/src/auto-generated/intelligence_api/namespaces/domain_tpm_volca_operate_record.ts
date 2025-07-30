@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** TPM Volcano Operation Record Polymerization Domain Structure * */
+/** tpm火山操作记录聚合领域结构体 * */
 export enum TpmExpansionStatus {
   OrderSuccess = 0,
   UpdateTpmThresholdSuccess = 1,

@@ -21,16 +21,16 @@
 
 export type Int64 = string | number;
 
-/** ======================= enumerate ======================= */
+/** ======================= 枚举 ======================= */
 export enum DeleteStatus {
-  /** Normal */
+  /** 正常 */
   Normal = 0,
-  /** delete */
+  /** 删除 */
   Deleted = 1,
 }
 
 export enum GradeLevel {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
   /** A1.1 */
   A11 = 1,
@@ -57,20 +57,20 @@ export enum GradeLevel {
 }
 
 export enum PaperExamStatus {
-  /** to start */
+  /** 待开始 */
   NotStart = 0,
-  /** In the exam */
+  /** 考试中 */
   InProgress = 1,
-  /** The exam is over. */
+  /** 考试结束 */
   Finished = 2,
-  /** forced exit */
+  /** 强制退出 */
   Exited = 3,
-  /** If the time is not submitted, the system will automatically end it. */
+  /** 到时间未提交，系统自动结束 */
   Suspend = 4,
 }
 
 export enum PaperLevel {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
   /** A1 */
   A1 = 1,
@@ -85,300 +85,300 @@ export enum PaperLevel {
 }
 
 export enum PaperStatus {
-  /** Normal */
+  /** 正常 */
   Normal = 0,
-  /** disable */
+  /** 禁用 */
   Disbled = 1,
 }
 
-/** Title option correct status */
+/** 题目选项正确状态 */
 export enum QuestionOptionCorrectStatus {
-  /** error */
+  /** 错误 */
   Incorrect = 0,
-  /** correct */
+  /** 正确 */
   Correct = 1,
 }
 
 export enum RemindType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** test notification */
+  /** 测试通知 */
   Test = 1,
-  /** Formal notice */
+  /** 正式通知 */
   Formal = 2,
 }
 
 export enum TeamExamCategory {
-  /** test */
+  /** 测试 */
   Test = 0,
-  /** Team exam */
+  /** 团队考试 */
   TeamExam = 1,
 }
 
-/** Team exam correction type */
+/** 团队考试批改类型 */
 export enum TeamExamCheckType {
-  /** machine correction */
+  /** 机器批改 */
   DeprecatedMachine = 0,
-  /** manual correction */
+  /** 人工批改 */
   DeprecatedManual = 1,
-  /** Artificial AI */
+  /** 人工AI */
   Manual = 2,
-  /** Machine AI */
+  /** 机器AI */
   Machine = 3,
-  /** Unified examination (manual correction) */
+  /** 统一考试（人工批改） */
   UnifiedManual = 4,
-  /** Unified Examination (Machine Correction) */
+  /** 统一考试（机器批改） */
   UnifiedMachine = 5,
 }
 
-/** Team exam status */
+/** 团队考试状态 */
 export enum TeamExamStatus {
-  /** in progress */
+  /** 进行中 */
   InProgress = 0,
-  /** Not started */
+  /** 未开始 */
   Pending = 1,
-  /** Completed. */
+  /** 已完成 */
   Finished = 2,
 }
 
 export interface CreatePaperExamParams {
-  /** Enter username */
+  /** 录入用户名 */
   username?: string;
-  /** Candidate mailbox */
+  /** 考生邮箱 */
   lark_email: string;
-  /** Paper grade */
+  /** 试卷等级 */
   paper_level: PaperLevel;
 }
 
 export interface CreatePaperQuestionOptionParams {
-  /** Topic ID */
+  /** 题目ID */
   paper_question_id?: Int64;
-  /** option content */
+  /** 选项内容 */
   content?: string;
-  /** option correctness */
+  /** 选项正确性 */
   is_correct?: QuestionOptionCorrectStatus;
 }
 
-/** ======================= request model ======================= */
+/** ======================= 请求模型 ======================= */
 export interface CreatePaperQuestionParams {
-  /** Topic group ID */
+  /** 题目组ID */
   paper_question_group_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** list of options */
+  /** 选项列表 */
   options?: Array<CreatePaperQuestionOptionParams>;
 }
 
-/** ======================= response model ======================= */
+/** ======================= 响应模型 ======================= */
 export interface Paper {
-  /** Paper ID */
+  /** 试卷ID */
   id?: Int64;
-  /** Test paper name */
+  /** 试卷名称 */
   name?: string;
-  /** Paper grade */
+  /** 试卷等级 */
   level?: PaperLevel;
-  /** Test paper status */
+  /** 试卷状态 */
   status?: PaperStatus;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
-  /** number of questions */
+  /** 题目数 */
   question_count?: number;
 }
 
 export interface PaperExam {
-  /** Exam ID */
+  /** 考试ID */
   id?: Int64;
-  /** user ID */
+  /** 用户ID */
   user_id?: Int64;
-  /** user name */
+  /** 用户名 */
   username?: string;
-  /** user email */
+  /** 用户邮箱 */
   lark_email?: string;
-  /** Paper grade */
+  /** 试卷等级 */
   paper_level?: PaperLevel;
-  /** Paper ID */
+  /** 试卷ID */
   paper_id?: Int64;
-  /** answer situation */
+  /** 答题情况 */
   answer_situation?: string;
-  /** answer level */
+  /** 答题等级 */
   answer_level?: GradeLevel;
-  /** video list */
+  /** 视频列表 */
   video_urls?: Array<string>;
-  /** Examination status */
+  /** 考试状态 */
   status?: PaperExamStatus;
-  /** answer list */
+  /** 作答列表 */
   answers?: Array<PaperExamAnswer>;
-  /** Test paper information */
+  /** 试卷信息 */
   paper?: Paper;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface PaperExamAnswer {
   /** ID */
   id?: Int64;
-  /** Exam ID */
+  /** 考试ID */
   paper_exam_id?: Int64;
-  /** Topic ID */
+  /** 题目ID */
   paper_question_id?: Int64;
-  /** Option ID, comma-separated option id list when multi-selecting */
+  /** 选项ID，多选时逗号分隔选项id列表 */
   answer?: string;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface PaperExamParseResult {
-  /** user name */
+  /** 用户名 */
   username?: string;
-  /** user email */
+  /** 用户邮箱 */
   lark_email?: string;
-  /** Paper grade */
+  /** 试卷等级 */
   paper_level?: PaperLevel;
-  /** Can it be imported? */
+  /** 是否可导入 */
   is_valid?: boolean;
-  /** Remarks */
+  /** 备注 */
   remark?: string;
 }
 
 export interface PaperQuestion {
-  /** Topic ID */
+  /** 题目ID */
   id?: Int64;
-  /** Topic group ID */
+  /** 题目组ID */
   paper_question_group_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** list of options */
+  /** 选项列表 */
   options?: Array<PaperQuestionOption>;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface PaperQuestionGroup {
-  /** Topic group ID */
+  /** 题目组ID */
   id?: Int64;
-  /** Paper ID */
+  /** 试卷ID */
   paper_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** associated audio */
+  /** 关联音频 */
   audio_id?: string;
-  /** associated image */
+  /** 关联图片 */
   picture?: string;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<PaperQuestion>;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface PaperQuestionOption {
-  /** Option ID */
+  /** 选项ID */
   id?: Int64;
-  /** Topic ID */
+  /** 题目ID */
   paper_question_id?: Int64;
-  /** option content */
+  /** 选项内容 */
   content?: string;
-  /** option correctness */
+  /** 选项正确性 */
   is_correct?: QuestionOptionCorrectStatus;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface PlayInfo {
-  /** Status video status */
+  /** status 视频状态 */
   status?: Int64;
-  /** ditto */
+  /** 同上 */
   message?: string;
   /** provider name */
   account_name?: string;
-  /** Media type audio video */
+  /** 媒体类型 audio video */
   media_type?: string;
-  /** original video length */
+  /** 原视频长度 */
   duration?: number;
-  /** cover screenshot */
+  /** 封面截图 */
   poster_url?: string;
-  /** Transcoding video information, including video broadcast address, video meta information */
+  /** 转码视频信息,包括视频播放地址，视频元信息 */
   video_infos?: Array<VideoInfo>;
-  /** Cover screenshot uri */
+  /** 封面截图uri */
   poster_uri?: string;
-  /** popularity */
+  /** 热度值 */
   popularity_level?: Int64;
-  /** Help information address */
+  /** 帮助信息地址 */
   help_info_u_r_l?: string;
-  /** The state of maintenance under the video architecture */
+  /** 视频架构下维护的状态 */
   user_action?: string;
 }
 
 export interface UpdatePaperQuestionOptionParams {
-  /** Option ID, create if 0 */
+  /** 选项ID，如果为0则为创建 */
   id?: Int64;
-  /** Topic ID */
+  /** 题目ID */
   paper_question_id?: Int64;
-  /** option content */
+  /** 选项内容 */
   content?: string;
-  /** option correctness */
+  /** 选项正确性 */
   is_correct?: QuestionOptionCorrectStatus;
-  /** Option marked for deletion */
+  /** 标记为删除的选项 */
   mark_as_delete?: boolean;
 }
 
 export interface UpdatePaperQuestionParams {
-  /** Topic ID, created if 0 */
+  /** 题目ID，如果为0则为创建 */
   id?: Int64;
-  /** Topic group ID */
+  /** 题目组ID */
   paper_question_group_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** list of options */
+  /** 选项列表 */
   options?: Array<UpdatePaperQuestionOptionParams>;
-  /** Topics marked for deletion */
+  /** 标记为删除的题目 */
   mark_as_delete?: boolean;
 }
 
 export interface VideoInfo {
-  /** Primary broadcast address */
+  /** 主播放地址 */
   main_url?: string;
-  /** Standby broadcast address */
+  /** 备播放地址 */
   backup_url?: string;
-  /** video meta information */
+  /** 视频元信息 */
   video_meta?: VideoMeta;
-  /** Used to tell the client side when the currently returned URL expires (future time) */
+  /** 用于告诉客户端，当前返回的url过期时间（未来时间） */
   url_expire?: Int64;
-  /** Video File ID, a unique identifier for p2p playback */
+  /** 视频File id，用于在p2p播放时的唯一标识 */
   file_id?: string;
 }
 
 export interface VideoMeta {
-  /** video length */
+  /** 视频长度 */
   height?: Int64;
-  /** video width */
+  /** 视频宽度 */
   width?: Int64;
-  /** Format (mp4) */
+  /** 格式(mp4) */
   format?: string;
-  /** video length */
+  /** 视频长度 */
   duration?: number;
-  /** video size */
+  /** 视频大小 */
   size?: Int64;
-  /** video bitrate */
+  /** 视频比特率 */
   bitrate?: Int64;
-  /** resolution */
+  /** 分辨率 */
   definition?: string;
-  /** Logo name */
+  /** logo名称 */
   logo_type?: string;
-  /** encoding format */
+  /** 编码格式 */
   codec_type?: string;
-  /** video type */
+  /** 视频类型 */
   encoded_type?: string;
 }
 /* eslint-enable */

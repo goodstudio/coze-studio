@@ -27,7 +27,7 @@ export type Int64 = string | number;
 export interface OpenGetBatchInferTaskReq {
   task_id?: string;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   base?: base.Base;
 }
@@ -40,7 +40,7 @@ export interface OpenGetBatchInferTaskResp {
 export interface OpenReportBatchInferProgressReq {
   task_id?: string;
   errorMsg?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   base?: base.Base;
 }

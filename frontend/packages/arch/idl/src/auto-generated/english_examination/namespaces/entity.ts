@@ -40,15 +40,15 @@ export interface AnswerMyPaperExamQuestionResp {
 }
 
 export interface BatchCreateUserPaperExaminationReq {
-  /** List of exam lists */
+  /** 考试名单列表 */
   paper_exams: Array<common.CreatePaperExamParams>;
   base?: base.Base;
 }
 
 export interface BatchCreateUserPaperExaminationResp {
-  /** success list */
+  /** 成功列表 */
   success_list?: Array<common.PaperExam>;
-  /** failure list */
+  /** 失败列表 */
   fail_list?: Array<string>;
   code?: number;
   message?: string;
@@ -78,21 +78,21 @@ export interface CheckAlphaTestPermissionResp {
 }
 
 export interface ConfirmUniExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
-  /** Listening test paper grade */
+  /** 听力试卷等级 */
   listening_paper_level?: uniexam.GeneralLevel;
-  /** Listening score */
+  /** 听力得分 */
   listening_score?: number;
-  /** Hearing level */
+  /** 听力等级 */
   listening_level?: uniexam.DetailLevel;
-  /** spoken score */
+  /** 口语得分 */
   oral_score?: number;
-  /** speaking level */
+  /** 口语等级 */
   oral_level?: uniexam.DetailLevel;
-  /** Final grading (if the final grading is not passed, only the score is saved, and the status remains unchanged. If the final grading is passed, it will be confirmed that it will be submitted for correction, and the status will be changed to completed) */
+  /** 最终定级(不传最终定级仅保存分数，状态不变，传最终定级会确定提交批改，状态变为已完成) */
   final_level?: uniexam.DetailLevel;
-  /** Confirmation Type (0: Unknown 1: Confirmation 2: Save) */
+  /** 确认类型(0:未知 1:确认 2:保存) */
   confirm_type?: uniexam.ConfirmUniExamType;
   base?: base.Base;
 }
@@ -105,9 +105,9 @@ export interface ConfirmUniExamRecordResp {
 }
 
 export interface CreatePaperReq {
-  /** Test paper name */
+  /** 试卷名称 */
   name: string;
-  /** Test paper difficulty */
+  /** 试卷难度 */
   level: common.PaperLevel;
   base?: base.Base;
 }
@@ -120,15 +120,15 @@ export interface CreatePaperResp {
 }
 
 export interface CreateQuestionGroupReq {
-  /** Paper ID */
+  /** 试卷ID */
   paper_id: Int64;
-  /** question stem */
+  /** 题干 */
   content: string;
-  /** associated audio */
+  /** 关联音频 */
   audio_id?: string;
-  /** associated image */
+  /** 关联图片 */
   picture?: string;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<common.CreatePaperQuestionParams>;
   base?: base.Base;
 }
@@ -141,11 +141,11 @@ export interface CreateQuestionGroupResp {
 }
 
 export interface CreateQuestionOptionReq {
-  /** Topic ID */
+  /** 题目ID */
   paper_question_id: Int64;
-  /** option content */
+  /** 选项内容 */
   content: string;
-  /** Is it correct? */
+  /** 是否正确 */
   is_correct: common.QuestionOptionCorrectStatus;
   base?: base.Base;
 }
@@ -158,11 +158,11 @@ export interface CreateQuestionOptionResp {
 }
 
 export interface CreateQuestionReq {
-  /** Topic group ID */
+  /** 题目组ID */
   paper_question_group_id: Int64;
-  /** question stem */
+  /** 题干 */
   content: string;
-  /** list of options */
+  /** 选项列表 */
   question_options?: Array<common.CreatePaperQuestionOptionParams>;
   base?: base.Base;
 }
@@ -175,25 +175,25 @@ export interface CreateQuestionResp {
 }
 
 export interface CreateTeamExamTestReq {
-  /** test name */
+  /** 测试名称 */
   name?: string;
-  /** Correction Type 4 Manual Correction 5 Machine Correction */
+  /** 批改类型 4人工批改 5机器批改 */
   check_type?: common.TeamExamCheckType;
-  /** Start time (second timestamp) */
+  /** 开始时间(秒级时间戳) */
   start_at?: Int64;
-  /** End time (second timestamp) */
+  /** 结束时间(秒级时间戳) */
   end_at?: Int64;
-  /** user filter */
+  /** 用户筛选条件 */
   filter?: uniexam.TeamExamTestFilter;
-  /** Email filter */
+  /** 邮箱筛选条件 */
   email?: uniexam.TeamExamTestEmail;
   base?: base.Base;
 }
 
 export interface CreateTeamExamTestResp {
-  /** Test ID */
+  /** 测试ID */
   id?: Int64;
-  /** List of unsuccessful users (under other testing) */
+  /** 配置不成功用户列表(正在其他测试中) */
   test_conflict_users?: Array<uniexam.User>;
   code?: number;
   message?: string;
@@ -201,9 +201,9 @@ export interface CreateTeamExamTestResp {
 }
 
 export interface CreateUniExamPaperReq {
-  /** Test paper name */
+  /** 试卷名称 */
   name: string;
-  /** Test paper difficulty */
+  /** 试卷难度 */
   level: uniexam.GeneralLevel;
   base?: base.Base;
 }
@@ -216,19 +216,19 @@ export interface CreateUniExamPaperResp {
 }
 
 export interface CreateUniExamQuestionGroupNFNReq {
-  /** Paper ID */
+  /** 试卷ID */
   paper_id?: Int64;
-  /** Topic group ID, pass empty to create, otherwise update */
+  /** 题目组ID，传空为创建，否则为更新 */
   question_group_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** Audio URI */
+  /** 音频URI */
   audio_uri?: string;
-  /** image URI */
+  /** 图片URI */
   image_uri?: string;
-  /** list of options */
+  /** 选项内容列表 */
   option_contents?: Array<string>;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<uniexam.UniExamQuestionCreateNFNParams>;
   base?: base.Base;
 }
@@ -241,15 +241,15 @@ export interface CreateUniExamQuestionGroupNFNResp {
 }
 
 export interface CreateUniExamQuestionGroupReq {
-  /** Paper ID */
+  /** 试卷ID */
   paper_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** Audio URI */
+  /** 音频URI */
   audio_uri?: string;
-  /** image URI */
+  /** 图片URI */
   image_uri?: string;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<uniexam.UniExamQuestionCreateParams>;
   base?: base.Base;
 }
@@ -262,15 +262,15 @@ export interface CreateUniExamQuestionGroupResp {
 }
 
 export interface CreateUniExamQuestionReq {
-  /** Topic group ID */
+  /** 题目组ID */
   question_group_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** Audio URI */
+  /** 音频URI */
   audio_uri?: string;
-  /** image URI */
+  /** 图片URI */
   image_uri?: string;
-  /** Oral questions */
+  /** 口语题部分 */
   oral_part?: uniexam.QuestionOralPart;
   base?: base.Base;
 }
@@ -283,7 +283,7 @@ export interface CreateUniExamQuestionResp {
 }
 
 export interface DeleteOriginLibraryQuestionReq {
-  /** Topic ID */
+  /** 题目ID */
   id: Int64;
   base?: base.Base;
 }
@@ -296,7 +296,7 @@ export interface DeleteOriginLibraryQuestionResp {
 }
 
 export interface DeletePaperReq {
-  /** Paper ID */
+  /** 试卷ID */
   id: number;
   base?: base.Base;
 }
@@ -309,7 +309,7 @@ export interface DeletePaperResp {
 }
 
 export interface DeleteQuestionGroupReq {
-  /** Topic group ID */
+  /** 题目组ID */
   id: Int64;
   base?: base.Base;
 }
@@ -322,7 +322,7 @@ export interface DeleteQuestionGroupResp {
 }
 
 export interface DeleteTeamExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -347,7 +347,7 @@ export interface DeleteTeamExamRemindResp {
 }
 
 export interface DeleteUniExamPaperReq {
-  /** Paper ID */
+  /** 试卷ID */
   id: number;
   base?: base.Base;
 }
@@ -360,7 +360,7 @@ export interface DeleteUniExamPaperResp {
 }
 
 export interface DeleteUniExamQuestionGroupReq {
-  /** Topic group ID */
+  /** 题目组ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -373,7 +373,7 @@ export interface DeleteUniExamQuestionGroupResp {
 }
 
 export interface DeleteUniExamQuestionReq {
-  /** Topic ID */
+  /** 题目ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -386,7 +386,7 @@ export interface DeleteUniExamQuestionResp {
 }
 
 export interface DeleteUniExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -413,15 +413,15 @@ export interface DeleteUserPaperExaminationResp {
 
 export interface ExportConflictUsersReq {
   team_exam_id?: Int64;
-  /** user filter */
+  /** 用户筛选条件 */
   filter?: uniexam.TeamExamTestFilter;
-  /** Email filter */
+  /** 邮箱筛选条件 */
   email?: uniexam.TeamExamTestEmail;
   base?: base.Base;
 }
 
 export interface ExportConflictUsersResp {
-  /** File URL */
+  /** 文件URL */
   file_url?: string;
   code?: number;
   message?: string;
@@ -429,13 +429,13 @@ export interface ExportConflictUsersResp {
 }
 
 export interface ExportTeamExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
   base?: base.Base;
 }
 
 export interface ExportTeamExamRecordResp {
-  /** File URL */
+  /** 文件URL */
   file_url?: string;
   code?: number;
   message?: string;
@@ -443,13 +443,13 @@ export interface ExportTeamExamRecordResp {
 }
 
 export interface ExportUniExamRecordReq {
-  /** filter condition */
+  /** 过滤条件 */
   filter?: UniExamRecordFilter;
   base?: base.Base;
 }
 
 export interface ExportUniExamRecordResp {
-  /** File URL */
+  /** 文件URL */
   file_url?: string;
   code?: number;
   message?: string;
@@ -461,7 +461,7 @@ export interface ExportUserPaperExaminationReq {
 }
 
 export interface ExportUserPaperExaminationResp {
-  /** Export result tos file */
+  /** 导出结果 tos 文件 */
   excel_id?: string;
   code?: number;
   message?: string;
@@ -469,7 +469,7 @@ export interface ExportUserPaperExaminationResp {
 }
 
 export interface FinishUniExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -493,17 +493,17 @@ export interface GetMyPaperExamResp {
 }
 
 export interface GetOralAnswerCheckReq {
-  /** Spoken Answer Audio URI */
+  /** 口语回答音频URI */
   audio_uri: string;
   base?: base.Base;
 }
 
 export interface GetOralAnswerCheckResp {
-  /** user audio to text */
+  /** 用户录音转文本 */
   asr_text?: string;
-  /** Gpt correction result of text */
+  /** gpt对文本的批改结果 */
   gpt_check_result?: string;
-  /** Voice Correction Task ID */
+  /** 语音批改任务ID */
   task_id?: string;
   code?: number;
   message?: string;
@@ -511,17 +511,17 @@ export interface GetOralAnswerCheckResp {
 }
 
 export interface GetOralAnswerCheckTaskResultReq {
-  /** Task ID */
+  /** 任务ID */
   task_id: string;
   base?: base.Base;
 }
 
 export interface GetOralAnswerCheckTaskResultResp {
-  /** user audio to text */
+  /** 用户录音转文本 */
   asr_text?: string;
-  /** Gpt correction result of text */
+  /** gpt对文本的批改结果 */
   gpt_check_result?: string;
-  /** Task details */
+  /** 任务详情 */
   task?: uniexam.OralCheckTaskResult;
   code?: number;
   message?: string;
@@ -540,17 +540,17 @@ export interface GetOriginExamCertResp {
 }
 
 export interface GetOriginExamNextRoundReq {
-  /** Exam ID */
+  /** 考试ID */
   grade_exam_id?: Int64;
-  /** Team Exam ID */
+  /** 团队考试ID */
   team_exam_id?: Int64;
-  /** Current round ID */
+  /** 当前轮次ID */
   current_round_id?: number;
   base?: base.Base;
 }
 
 export interface GetOriginExamNextRoundResp {
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<origin.GradeExamLibraryQuestion>;
   code?: number;
   message?: string;
@@ -588,7 +588,7 @@ export interface GetSessionUserInfoResp {
 }
 
 export interface GetTeamExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -606,7 +606,7 @@ export interface GetUniExamCertReq {
 
 export interface GetUniExamCertResp {
   team_exam?: uniexam.TeamExam;
-  /** Exam eligibility status */
+  /** 考试资格状态 */
   cert_status?: uniexam.CertStatus;
   code?: number;
   message?: string;
@@ -614,7 +614,7 @@ export interface GetUniExamCertResp {
 }
 
 export interface GetUniExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -646,11 +646,11 @@ export interface ListCreateTeamExamTestOptionsReq {
 }
 
 export interface ListCreateTeamExamTestOptionsResp {
-  /** English group */
+  /** 英语分组 */
   english_group?: Array<string>;
-  /** Employee role */
+  /** 员工角色 */
   role?: Array<string>;
-  /** The highest score in history */
+  /** 历史最高成绩 */
   highest_score?: Array<string>;
   code?: number;
   message?: string;
@@ -669,19 +669,19 @@ export interface ListOriginExamResultResp {
 }
 
 export interface ListOriginLibraryQuestionReq {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
-  /** keyword */
+  /** 关键词 */
   keyword?: string;
-  /** grade */
+  /** 等级 */
   level?: string;
-  /** type */
+  /** 类型 */
   type?: origin.LibraryQuestionType;
-  /** state */
+  /** 状态 */
   status?: origin.LibraryQuestionStatus;
-  /** New Oral Questions - Part */
+  /** 新口语题 - 部分 */
   part?: origin.LibraryQuestionPart;
   base?: base.Base;
 }
@@ -697,7 +697,7 @@ export interface ListOriginLibraryQuestionResp {
 }
 
 export interface ListPaperForExamReq {
-  /** Exam ID */
+  /** 考试ID */
   paper_exam_id: Int64;
   base?: base.Base;
 }
@@ -710,13 +710,13 @@ export interface ListPaperForExamResp {
 }
 
 export interface ListPaperReq {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
-  /** Test paper status */
+  /** 试卷状态 */
   status?: common.PaperStatus;
-  /** Test paper difficulty */
+  /** 试卷难度 */
   level?: common.PaperLevel;
   base?: base.Base;
 }
@@ -730,7 +730,7 @@ export interface ListPaperResp {
 }
 
 export interface ListQuestionGroupReq {
-  /** Paper ID */
+  /** 试卷ID */
   paper_id: Int64;
   base?: base.Base;
 }
@@ -743,13 +743,13 @@ export interface ListQuestionGroupResp {
 }
 
 export interface ListTeamExamRecordReq {
-  /** Page number (default is 1) */
+  /** 页码(默认为1) */
   page?: number;
-  /** Number of pages (default is 100) */
+  /** 每页数量(默认为100) */
   page_size?: number;
-  /** test name */
+  /** 测试名称 */
   name?: string;
-  /** email */
+  /** 邮箱 */
   user_email?: string;
   base?: base.Base;
 }
@@ -763,7 +763,7 @@ export interface ListTeamExamRecordResp {
 }
 
 export interface ListTeamExamRemindReq {
-  /** Team Exam ID */
+  /** 团队考试ID */
   team_exam_id?: Int64;
   base?: base.Base;
 }
@@ -776,11 +776,11 @@ export interface ListTeamExamRemindResp {
 }
 
 export interface ListTeamReq {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
-  /** Team name */
+  /** 团队名称 */
   name?: string;
   base?: base.Base;
 }
@@ -796,13 +796,13 @@ export interface ListTeamResp {
 }
 
 export interface ListUniExamPaperReq {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
-  /** Test paper status */
+  /** 试卷状态 */
   status?: uniexam.OnlineStatus;
-  /** Test paper difficulty */
+  /** 试卷难度 */
   level?: uniexam.GeneralLevel;
   base?: base.Base;
 }
@@ -818,7 +818,7 @@ export interface ListUniExamPaperResp {
 }
 
 export interface ListUniExamQuestionGroupReq {
-  /** Paper ID */
+  /** 试卷ID */
   paper_id?: Int64;
   base?: base.Base;
 }
@@ -831,11 +831,11 @@ export interface ListUniExamQuestionGroupResp {
 }
 
 export interface ListUniExamQuestionReq {
-  /** Topic type */
+  /** 题目类型 */
   part?: uniexam.QuestionOralPart;
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
   base?: base.Base;
 }
@@ -864,11 +864,11 @@ export interface ListUniExamRecordFilterOptionsResp {
 }
 
 export interface ListUniExamRecordReq {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
-  /** filter condition */
+  /** 过滤条件 */
   filter?: UniExamRecordFilter;
   base?: base.Base;
 }
@@ -895,7 +895,7 @@ export interface ListUniExamResultResp {
 }
 
 export interface ListUniexamScoreHistoryReq {
-  /** Test record ID */
+  /** 考试记录ID */
   exam_id?: Int64;
   base?: base.Base;
 }
@@ -908,9 +908,9 @@ export interface ListUniexamScoreHistoryResp {
 }
 
 export interface ListUserPaperExaminationReq {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
   base?: base.Base;
 }
@@ -944,13 +944,13 @@ export interface LoginResp {
 }
 
 export interface MagicCheckReq {
-  /** content */
+  /** 内容 */
   content?: string;
   base?: base.Base;
 }
 
 export interface MagicCheckResp {
-  /** fraction */
+  /** 分数 */
   score?: Int64;
   code?: number;
   message?: string;
@@ -970,7 +970,7 @@ export interface MCreateOriginLibraryQuestionResp {
 }
 
 export interface ParseUserPaperExaminationReq {
-  /** List form file tos file */
+  /** 名单表格文件 tos 文件 */
   excel_id: string;
   base?: base.Base;
 }
@@ -983,9 +983,9 @@ export interface ParseUserPaperExaminationResp {
 }
 
 export interface PushUniExamRecordReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
-  /** push type */
+  /** 推送类型 */
   check_type?: common.TeamExamCheckType;
   base?: base.Base;
 }
@@ -998,11 +998,11 @@ export interface PushUniExamRecordResp {
 }
 
 export interface RemindTeamExamReq {
-  /** Test record ID */
+  /** 考试记录ID */
   id?: Int64;
-  /** push content */
+  /** 推送内容 */
   content?: string;
-  /** push time */
+  /** 推送时间 */
   timestamp?: Int64;
   base?: base.Base;
 }
@@ -1014,7 +1014,7 @@ export interface RemindTeamExamResp {
 }
 
 export interface RemindTestReq {
-  /** Message ID */
+  /** 消息ID */
   id?: Int64;
   base?: base.Base;
 }
@@ -1038,7 +1038,7 @@ export interface ReportLeaveScreenResp {
 }
 
 export interface ReportOriginExamLeaveReq {
-  /** Test record ID */
+  /** 考试记录id */
   grade_exam_id?: Int64;
   base?: base.Base;
 }
@@ -1051,7 +1051,7 @@ export interface ReportOriginExamLeaveResp {
 }
 
 export interface ReportUniExamLeaveReq {
-  /** Unified Exam ID */
+  /** 统一考试ID */
   uni_exam_id?: Int64;
   base?: base.Base;
 }
@@ -1064,9 +1064,9 @@ export interface ReportUniExamLeaveResp {
 }
 
 export interface SaveVideoChunkReq {
-  /** Unified Exam ID */
+  /** 统一考试ID */
   uni_exam_id?: Int64;
-  /** Video URI */
+  /** 视频URI */
   video_uri?: string;
   base?: base.Base;
 }
@@ -1078,7 +1078,7 @@ export interface SaveVideoChunkResp {
 }
 
 export interface SearchUserReq {
-  /** keyword */
+  /** 关键词 */
   keyword?: string;
   base?: base.Base;
 }
@@ -1103,13 +1103,13 @@ export interface StartMyPaperExamResp {
 }
 
 export interface StartOriginExamReq {
-  /** Team Exam ID */
+  /** 团队考试ID */
   team_exam_id?: Int64;
   base?: base.Base;
 }
 
 export interface StartOriginExamResp {
-  /** Test record */
+  /** 考试记录 */
   grade_exam?: origin.GradeExam;
   code?: number;
   message?: string;
@@ -1117,19 +1117,19 @@ export interface StartOriginExamResp {
 }
 
 export interface StartUniExamReq {
-  /** Team Exam ID */
+  /** 团队考试ID */
   team_exam_id?: Int64;
-  /** Exam Type (1 Formal Exam 2 Mock Exam 3 Oral Brush Questions) */
+  /** 考试类型(1正式考试 2模拟考试 3口语刷题) */
   category?: uniexam.ExamCategory;
   base?: base.Base;
 }
 
 export interface StartUniExamResp {
-  /** Starting Exam Record */
+  /** 开始的考试记录 */
   uni_exam?: uniexam.UniExam;
-  /** Next spoken question */
+  /** 下一道口语题 */
   oral_question?: uniexam.UniExamQuestion;
-  /** Next listening question */
+  /** 下一道听力题 */
   listening_question?: uniexam.UniExamQuestionGroup;
   code?: number;
   message?: string;
@@ -1151,11 +1151,11 @@ export interface SubmitMyPaperExamResp {
 }
 
 export interface SubmitOriginExamAnswerReq {
-  /** Exam ID */
+  /** 考试ID */
   grade_exam_id?: Int64;
-  /** Question Bank Question ID */
+  /** 题库题目ID */
   library_question_id?: Int64;
-  /** User answer */
+  /** 用户答案 */
   user_answer?: string;
   base?: base.Base;
 }
@@ -1167,11 +1167,11 @@ export interface SubmitOriginExamAnswerResp {
 }
 
 export interface SubmitOriginExamReq {
-  /** Exam ID */
+  /** 考试id */
   grade_exam_id?: Int64;
-  /** Video ID */
+  /** 视频id */
   video_id?: string;
-  /** Is it mandatory to submit? */
+  /** 是否强制提交 */
   force_submit?: boolean;
   base?: base.Base;
 }
@@ -1184,19 +1184,19 @@ export interface SubmitOriginExamResp {
 }
 
 export interface SubmitUniExamAnswerReq {
-  /** Unified Exam ID */
+  /** 统一考试ID */
   uni_exam_id?: Int64;
-  /** user answer list */
+  /** 用户答案列表 */
   uni_exam_answers?: Array<uniexam.UniExamAnswerUpdateParams>;
   base?: base.Base;
 }
 
 export interface SubmitUniExamAnswerResp {
-  /** Is it necessary to submit an exam? */
+  /** 是否需要提交考试 */
   need_submit_exam?: boolean;
-  /** Next spoken question */
+  /** 下一道口语题 */
   oral_question?: uniexam.UniExamQuestion;
-  /** Next listening question */
+  /** 下一道听力题 */
   listening_question?: uniexam.UniExamQuestionGroup;
   code?: number;
   message?: string;
@@ -1204,11 +1204,11 @@ export interface SubmitUniExamAnswerResp {
 }
 
 export interface SubmitUniExamReq {
-  /** Unified Exam ID */
+  /** 统一考试ID */
   uni_exam_id?: Int64;
-  /** Video URI */
+  /** 视频URI */
   video_uri?: string;
-  /** Is it mandatory to submit? */
+  /** 是否强制提交 */
   force_submit?: boolean;
   base?: base.Base;
 }
@@ -1233,21 +1233,21 @@ export interface TextToSpeechResp {
 }
 
 export interface UniExamRecordFilter {
-  /** Test Status List */
+  /** 考试状态列表 */
   status?: Array<uniexam.UniExamStatus>;
-  /** user ID */
+  /** 用户ID */
   user_id?: Int64;
-  /** Feishu Name */
+  /** 飞书姓名 */
   user_name?: string;
-  /** Feishu mailbox */
+  /** 飞书邮箱 */
   user_email?: string;
-  /** 1 Formal exam 2 Mock exam 3 Oral brush questions */
+  /** 1正式考试 2 模拟考试 3口语刷题 */
   categories?: Array<uniexam.ExamCategory>;
-  /** Exam ID or external ID */
+  /** 考试ID或外部id */
   exam_id?: string;
-  /** 4 Manual correction 5 Machine correction */
+  /** 4人工批改 5机器批改 */
   check_types?: Array<common.TeamExamCheckType>;
-  /** Test ID List */
+  /** 测试ID列表 */
   test_ids?: Array<Int64>;
 }
 
@@ -1264,13 +1264,13 @@ export interface UpdateOriginLibraryQuestionResp {
 }
 
 export interface UpdatePaperReq {
-  /** Paper ID */
+  /** 试卷ID */
   id?: Int64;
-  /** Test paper name */
+  /** 试卷名称 */
   name?: string;
-  /** Test paper difficulty */
+  /** 试卷难度 */
   level?: common.PaperLevel;
-  /** Test paper status */
+  /** 试卷状态 */
   status?: common.PaperStatus;
   base?: base.Base;
 }
@@ -1283,15 +1283,15 @@ export interface UpdatePaperResp {
 }
 
 export interface UpdateQuestionGroupReq {
-  /** Test group ID */
+  /** 试题组ID */
   id: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** associated audio */
+  /** 关联音频 */
   audio_id?: string;
-  /** associated image */
+  /** 关联图片 */
   picture?: string;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<common.UpdatePaperQuestionParams>;
   base?: base.Base;
 }
@@ -1304,19 +1304,19 @@ export interface UpdateQuestionGroupResp {
 }
 
 export interface UpdateTeamExamTestReq {
-  /** Test ID */
+  /** 测试ID */
   id?: Int64;
-  /** Add personnel mailbox */
+  /** 新增人员邮箱 */
   email?: uniexam.TeamExamTestEmail;
-  /** Operation Type 1: Add 2: Overwrite 3: Delete */
+  /** 操作类型 1:新增 2:覆盖 3:删除 */
   operation?: uniexam.EmailOperation;
   base?: base.Base;
 }
 
 export interface UpdateTeamExamTestResp {
-  /** Delete failed user list */
+  /** 删除失败的用户列表 */
   delete_failed_users?: Array<uniexam.User>;
-  /** List of unsuccessful users (under other testing) */
+  /** 配置不成功用户列表(正在其他测试中) */
   test_conflict_users?: Array<uniexam.User>;
   code?: number;
   message?: string;
@@ -1324,9 +1324,9 @@ export interface UpdateTeamExamTestResp {
 }
 
 export interface UpdateTeamExamUserReq {
-  /** Test ID */
+  /** 测试ID */
   team_exam_id?: Int64;
-  /** List of unsuccessful users (under other testing) */
+  /** 配置不成功用户列表(正在其他测试中) */
   test_conflict_users?: Array<uniexam.User>;
   base?: base.Base;
 }
@@ -1338,11 +1338,11 @@ export interface UpdateTeamExamUserResp {
 }
 
 export interface UpdateUniExamAnswerReq {
-  /** Unified Exam ID */
+  /** 统一考试ID */
   uni_exam_id?: Int64;
-  /** Unified Exam Question ID */
+  /** 统一考试题目ID */
   uni_exam_question_id?: Int64;
-  /** User answer */
+  /** 用户答案 */
   user_answer?: string;
   base?: base.Base;
 }
@@ -1354,13 +1354,13 @@ export interface UpdateUniExamAnswerResp {
 }
 
 export interface UpdateUniExamPaperReq {
-  /** Paper ID */
+  /** 试卷ID */
   id?: Int64;
-  /** Test paper name */
+  /** 试卷名称 */
   name?: string;
-  /** 0 offline 1 online */
+  /** 0 下线 1 上线 */
   status?: uniexam.OnlineStatus;
-  /** 0 formal questions 1 mock questions */
+  /** 0 正式题 1 模拟题 */
   is_simulated?: uniexam.SimulationStatus;
   base?: base.Base;
 }
@@ -1373,15 +1373,15 @@ export interface UpdateUniExamPaperResp {
 }
 
 export interface UpdateUniExamQuestionGroupReq {
-  /** Topic group ID */
+  /** 题目组ID */
   id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** Audio URI */
+  /** 音频URI */
   audio_uri?: string;
-  /** image URI */
+  /** 图片URI */
   image_uri?: string;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<uniexam.UniExamQuestionUpdateParams>;
   base?: base.Base;
 }
@@ -1394,17 +1394,17 @@ export interface UpdateUniExamQuestionGroupResp {
 }
 
 export interface UpdateUniExamQuestionReq {
-  /** Topic ID */
+  /** 题目ID */
   id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** Audio URI */
+  /** 音频URI */
   audio_uri?: string;
-  /** image URI */
+  /** 图片URI */
   image_uri?: string;
-  /** 0 offline 1 online */
+  /** 0 下线 1 上线 */
   status?: uniexam.OnlineStatus;
-  /** 0 formal questions 1 mock questions */
+  /** 0 正式题 1 模拟题 */
   is_simulated?: uniexam.SimulationStatus;
   base?: base.Base;
 }
@@ -1419,9 +1419,9 @@ export interface UpdateUniExamQuestionResp {
 export interface UpdateUserPaperExaminationReq {
   /** ID */
   id: Int64;
-  /** Test paper difficulty */
+  /** 试卷难度 */
   level?: common.PaperLevel;
-  /** test paper */
+  /** 试卷 */
   paper_id?: Int64;
   base?: base.Base;
 }

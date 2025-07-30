@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable max-lines */
 /* eslint-disable complexity */
 /* eslint-disable max-lines-per-function */
@@ -320,7 +320,7 @@ export function OutputTree(props: PropsWithChildren<OutputTreeProps>) {
           // You can't use parentData as a standard for adding, you need to add it under the current data.
           const { data } = findResult;
           const currentChildren = data.children || [];
-          // @TS-expected-error Some values do not need to be specified at this time because format is executed during rerender
+          // @ts-expect-error Some values do not need to be specified at this time because format is executed during rerender
           data.children = currentChildren.concat({
             ...getDefaultAppendValue(false, defaultVariableType),
             // Add field

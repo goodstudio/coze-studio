@@ -55,7 +55,7 @@ export interface MGetKnowledgeDocumentEntryReq {
   Authorization?: string;
   knowledge_shelf_document_id?: Int64;
   knowledge_document_id?: Int64;
-  /** data source */
+  /** 数据来源 */
   resource_type?: flow_devops_knowledge_common.ResourceType;
   offset?: number;
   limit?: number;
@@ -101,8 +101,8 @@ export interface StartEmbeddingResp {
   base_resp?: base.BaseResp;
 }
 
-/** --------------------------------------- Knowledge Base OpenAPI -------------------------------------------
- The design of OpenAPI does not allow CRUD at SpaceID granularity, with the coarser granularity limited to KnowledgeID granularity. */
+/** --------------------------------------- 知识库OpenAPI -------------------------------------------
+ OpenAPI的设计不允许以SpaceID为粒度进行CRUD，最粗粒度限制为KnowledgeID粒度。 */
 export interface UniqueEntry {
   unique_id?: Int64;
   entry?: Record<string, string>;

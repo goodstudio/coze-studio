@@ -30,31 +30,31 @@ export interface UserInfo {
   tenant?: auth.TenantType;
 }
 
-/** UserInfoDetail user details, including name, avatar, etc */
+/** UserInfoDetail 用户详细信息，包含姓名、头像等 */
 export interface UserInfoDetail {
-  /** name */
+  /** 姓名 */
   name?: string;
-  /** English name */
+  /** 英文名称 */
   en_name?: string;
-  /** user profile URL */
+  /** 用户头像url */
   avatar_url?: string;
-  /** 72 * 72 avatar */
+  /** 72 * 72 头像 */
   avatar_thumb?: string;
-  /** unique user ID within the app */
+  /** 用户应用内唯一标识 */
   open_id?: string;
-  /** unique identifier within the user application developer */
+  /** 用户应用开发商内唯一标识 */
   union_id?: string;
-  /** Corporate identity */
+  /** 企业标识 */
   tenant_key?: string;
-  /** The unique identity of the user in the tenant (currently it is converted to fornax UserID when actually returned to the front end) */
+  /** 用户在租户内的唯一标识（目前实际返给前端时都转成了fornax UserID） */
   user_id?: string;
-  /** user email */
+  /** 用户邮箱 */
   email?: string;
-  /** tenant */
+  /** 租户 */
   tenant?: auth.TenantType;
-  /** Feishu UserID */
+  /** 飞书UserID */
   ext_user_id?: string;
-  /** sso_user_name, from DB, with __dcar suffix if Dcar tenant */
+  /** sso_user_name，来自DB，如果是懂车帝租户，会带有__dcar后缀 */
   sso_user_name?: string;
 }
 /* eslint-enable */

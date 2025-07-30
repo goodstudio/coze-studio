@@ -22,13 +22,13 @@
 export type Int64 = string | number;
 
 export interface AddBillRequest {
-  /** consumption date */
+  /** 消费日期 */
   date: string;
-  /** Consumer category */
+  /** 消费类别 */
   category: string;
-  /** consumption amount */
+  /** 消费金额 */
   amount: number;
-  /** consumption description */
+  /** 消费描述 */
   description: string;
 }
 
@@ -51,13 +51,13 @@ export interface AnalyseBillResponse {
 }
 
 export interface AnalysisInfo {
-  /** consumption month */
+  /** 消费月份 */
   expense_month: number;
   analysis_info?: Array<CategoryAnalysis>;
 }
 
 export interface AnalysisMonthBillRequest {
-  /** consumption month */
+  /** 消费月份 */
   expense_month: string;
 }
 
@@ -69,22 +69,22 @@ export interface AnalysisMonthBillResponse {
 
 export interface BillInfo {
   id: string;
-  /** consumption date */
+  /** 消费日期 */
   expense_date: string;
-  /** Consumer category */
+  /** 消费类别 */
   category: string;
-  /** consumption amount */
+  /** 消费金额 */
   amount: number;
-  /** consumption description */
+  /** 消费描述 */
   description: string;
 }
 
 export interface CategoryAnalysis {
-  /** Consumer category */
+  /** 消费类别 */
   category: string;
-  /** consumption amount */
+  /** 消费金额 */
   amount: number;
-  /** percentage distribution */
+  /** 百分比分布 */
   percent: number;
 }
 
@@ -110,15 +110,15 @@ export interface GetBillDetailResponse {
 }
 
 export interface GetMonthBillData {
-  /** consumption month */
+  /** 消费月份 */
   expense_month: number;
-  /** total expenditure */
+  /** 总支出 */
   totalAmount: number;
   bills?: Array<BillInfo>;
 }
 
 export interface GetMonthBillRequest {
-  /** consumption month */
+  /** 消费月份 */
   expense_month: number;
 }
 

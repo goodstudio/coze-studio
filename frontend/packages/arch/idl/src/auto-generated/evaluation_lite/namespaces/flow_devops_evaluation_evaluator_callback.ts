@@ -24,30 +24,30 @@ import * as flow_devops_evaluation_callback_common from './flow_devops_evaluatio
 export type Int64 = string | number;
 
 /** https://lilianweng.github.io/posts/2023-06-23-agent/agent-overview.png
- Agents include: Planning, Memory, Tools, etc.
- Here Action refers to the execution of various subcomponents under the Agent */
+ Agent 包含：Planning、Memory、Tools 等。
+ 这里 Action 泛指 Agent 下的各种子组件的类型的执行 */
 export enum ActionType {
   Unknown = 0,
   LLMPlanning = 1,
   ToolCall = 2,
-  /** Cozing agent thought process */
+  /** coze agent 思考过程 */
   CozeVerbose = 100,
 }
 
 export enum BuiltinEvaluatorType {
-  /** Using the PromptTemplate input by the user as the configuration information of the evaluator, the input and output of the evaluation object are evaluated */
+  /** 以用户定制输入的 PromptTemplate 作为评估器的配置信息，对评估对象的输入输出进行测评 */
   Prompt = 1,
-  /** The user-customized input Python Code is used as the configuration information of the evaluator to evaluate the input and output of the evaluation object */
+  /** 以用户定制输入的 Python Code 作为评估器的配置信息，对评估对象的输入输出进行测评 */
   PythonCode = 2,
-  /** Using the JS Code input by the user as the configuration information of the evaluator, the input and output of the evaluation object are evaluated */
+  /** 以用户定制输入的 JS Code 作为评估器的配置信息，对评估对象的输入输出进行测评 */
   JSCode = 3,
-  /** manual evaluation */
+  /** 人工评测 */
   Manual = 7,
-  /** Prompt in development */
+  /** prompt开发中的prompt */
   FornaxPrompt = 10,
-  /** Coze2.0 referee model evaluator */
+  /** coze2.0 裁判模型评估器 */
   CozePrompt = 11,
-  /** The input and output of the evaluation object are evaluated by using the Func static parameters input by the user as the configuration information of the evaluator */
+  /** 以用户定制输入的 Func 静态参数 作为评估器的配置信息，对评估对象的输入输出进行测评 */
   BuiltinEquals = 10000,
   BuiltinNotEquals = 10001,
   BuiltinContains = 10002,
@@ -89,58 +89,58 @@ export enum BuiltinEvaluatorType {
   BuiltinDetailCriteriaEval = 20012,
   /** must labeled, CotQA */
   BuiltinCorrectnessEval = 20013,
-  /** language consistency */
+  /** 语言一致性 */
   BuiltinSpecTestLanguageConsistency = 20014,
-  /** Reply to Refuse Check */
+  /** 回复拒答检查 */
   BuiltinSpecTestResponseDenialCheck = 20015,
-  /** content authenticity */
+  /** 内容真实性 */
   BuiltinSpecTestContentAuthenticity = 20016,
-  /** content accuracy */
+  /** 内容准确性 */
   BuiltinSpecTestContentAccuracy = 20017,
-  /** Meet demand */
+  /** 满足需求性 */
   BuiltinSpecTestNeedFulfillment = 20018,
-  /** timeliness of reply */
+  /** 回复时效性 */
   BuiltinSpecTestResponseTimeliness = 20019,
-  /** redundancy of recovery */
+  /** 回复冗余性 */
   BuiltinSpecTestResponseRedundancy = 20020,
-  /** fit the character */
+  /** 符合人设 */
   BuiltinSpecTestCharacterConsistency = 20021,
-  /** degree of anthropomorphism */
+  /** 拟人程度 */
   BuiltinSpecTestAnthropomorphismLevel = 20022,
-  /** input-output semantic similarity */
+  /** 输入-输出语义相似度 */
   BuiltinSpecTestIOSematicSimilarity = 20023,
-  /** Answer - output semantic similarity */
+  /** 答案-输出语义相似度 */
   BuiltinSpecTestAOSematicSimilarity = 20024,
-  /** graph consistency */
+  /** 生图一致性 */
   BuiltinSpecTestImageGenerationConsistency = 20025,
-  /** Image aesthetics */
+  /** 图片美观性 */
   BuiltinSpecTestImageAesthetics = 20026,
-  /** reply integrity */
+  /** 回复完整性 */
   BuiltinSpecTestResponseCompleteness = 20027,
-  /** Text-to-Image Integrity */
+  /** 文生图完整性 */
   BuiltinSpecTestTextToImageGenerationCompleteness = 20028,
-  /** code generation quality */
+  /** 代码生成质量 */
   BuiltinSpecTestCodeGenerationScoring = 20029,
-  /** Calling correctness for coze bots */
+  /** 插件调用正确性 for coze bot */
   BuiltinSpecTestPluginCallingCorrectness = 20030,
-  /** Correctness of imported parameters for cozed bots */
+  /** 插件入参正确性 for coze bot */
   BuiltinSpecTestPluginParametersCorrectness = 20031,
-  /** Workflow call correctness for coze bots */
+  /** Workflow调用正确性 for coze bot */
   BuiltinSpecTestWorkflowCallingCorrectness = 20032,
-  /** Workflow imported parameter correctness for cozing bots */
+  /** Workflow入参正确性 for coze bot */
   BuiltinSpecTestWorkflowParametersCorrectness = 20033,
-  /** Trigger call correctness for coze bots */
+  /** 触发器调用正确性 for coze bot */
   BuiltinSpecTestTriggerCallingCorrectness = 20034,
-  /** Correctness of imported parameters for cozed bots */
+  /** 触发器入参正确性 for coze bot */
   BuiltinSpecTestTriggerParametersCorrectness = 20035,
-  /** Coze bots for process orchestration accuracy */
+  /** 流程编排准确性 for coze bot */
   BuiltinSpecTestChoreographyAccuracy = 20036,
-  /** Fornax prompt leak detection */
+  /** Fornax prompt 泄露检测 */
   BuiltinFornaxPromptLeakDetection = 20200,
-  /** custom metrics
-System built-in indicators */
+  /** 自定义指标
+系统内置指标 */
   BuiltinDefaultMetric = 30001,
-  /** User reporting custom metrics */
+  /** 用户上报自定义指标 */
   BuiltinCustomMetric = 30002,
 }
 
@@ -152,7 +152,7 @@ export enum EvaluatorState {
 /** A full description of an action for an Agent to execute. */
 export interface AgentAction {
   agent_type?: ActionType;
-  /** The identification, name and other information of the execution tool this time. The format is independently defined by the access party of the evaluation object */
+  /** 本次执行工具的标识、名称等信息。由评测对象接入方自主定义其格式 */
   action_meta?: string;
   /** Additional information to log about the action.
 This log can be used in a few ways. First, it can be used to audit
@@ -172,9 +172,9 @@ this field is mainly used to show more information for human */
 }
 
 export interface Trajectory {
-  /** In end-to-end testing, action information for each step performed within the object is evaluated
-The index in the list represents the observed Steps when the evaluation object is executed
-Note: As the number of observation nodes increases, the step of an AgentAction will change */
+  /** 端到端测试时，评测对象内部执行的每一步的 Action 信息
+list 中的 index 代表评测对象执行时，观测到的 Step
+注：随着观测节点的增加，一个 AgentAction 所处的 step 会发生变化 */
   actions?: Array<AgentAction>;
 }
 /* eslint-enable */

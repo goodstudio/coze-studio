@@ -21,30 +21,30 @@
 
 export type Int64 = string | number;
 
-/** Bot edit page message sub-category */
+/** Bot 编辑页消息二级分类 */
 export enum EditorMessageType {
-  /** Upstream message starts with 1 */
+  /** 上行消息 1 开头 */
   EditHeartbeat = 10001,
   EditLockPreempt = 10002,
   EditLockRelease = 10003,
   EditWindowBind = 10004,
-  /** Downlink message 2 begins */
+  /** 下行消息 2 开头 */
   EditLockHolder = 20001,
   EditLockLoss = 20002,
   NewCommit = 20003,
 }
 
-/** Business enumeration (first-level classification of messages) */
+/** 业务枚举（消息的一级分类） */
 export enum FrontierMessageBiz {
-  /** Bot edit page */
+  /** Bot 编辑页 */
   Editor = 1,
-  /** plugin */
+  /** 插件 */
   Plugin = 2,
-  /** Debug area task */
+  /** 调试区task */
   DebugTask = 3,
-  /** message notification */
+  /** 消息通知 */
   MessageNotify = 4,
-  /** Bot editing image generation */
+  /** Bot 编辑图片生成 */
   EditorPic = 5,
 }
 
@@ -57,9 +57,9 @@ export interface CozeChatMessage {
   reply_id?: string;
   section_id?: string;
   extra_info?: CozeChatMessageExtraInfo;
-  /** Normal, interrupted state, used when pulling the message list, this field is not available when chat is running. */
+  /** 正常、打断状态 拉消息列表时使用，chat运行时没有这个字段 */
   status?: string;
-  /** interrupt position */
+  /** 打断位置 */
   broken_pos?: number;
   sender_id?: string;
 }
@@ -81,11 +81,11 @@ export interface CozeChatMessageExtraInfo {
   log_id?: string;
 }
 
-/** DebugTask message */
+/** DebugTask 消息 */
 export interface DebugTaskMessage {
-  /** secondary message type */
+  /** 二级消息类型 */
   message_type: string;
-  /** Message content (JSON format string) */
+  /** 消息内容（JSON 格式的字符串) */
   payload: string;
 }
 
@@ -96,26 +96,26 @@ export interface DebugTaskPayload {
   message_list?: Array<CozeChatMessage>;
 }
 
-/** Bot edit page message */
+/** Bot 编辑页消息 */
 export interface EditorMessage {
-  /** secondary message type */
+  /** 二级消息类型 */
   message_type: EditorMessageType;
-  /** Message content (string in JSON format) */
+  /** 消息内容（JSON 格式的字符串） */
   payload: string;
-  /** Traceability issues related fields (optional)
+  /** 追溯问题相关字段（可选）
 generated id */
   message_id?: Int64;
   /** unix timestamp in second */
   send_at?: Int64;
 }
 
-/** DebugTask message */
+/** DebugTask 消息 */
 export interface MessageNotifyMessage {
-  /** secondary message type */
+  /** 二级消息类型 */
   message_type: string;
-  /** Coze scene, home/store/debug */
+  /** coze场景，home/store/debug */
   scene: string;
-  /** Message content (JSON format string) */
+  /** 消息内容（JSON 格式的字符串) */
   payload: string;
 }
 
@@ -124,7 +124,7 @@ export interface MessageNotifyPayload {
   conversation_id?: string;
   read_message_index?: Int64;
   end_message_index?: Int64;
-  /** The value is inhouse or release. The home scene session distinguishes between inhouse and release, and additional parameters are required to facilitate the determination of which environment message is home in the non-home page. */
+  /** 取值为inhouse或者release。home场景会话区分inhouse和release，需要额外参数方便在非home页面中判断是home哪个环境的message */
   custom_version?: string;
 }
 /* eslint-enable */

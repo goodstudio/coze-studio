@@ -27,36 +27,36 @@ export enum AuthorType {
 }
 
 export enum CommentAuditStatus {
-  /** Submitted for review */
+  /** 已提交审核 */
   SubmitAudit = 1,
-  /** See for yourself */
+  /** 审核自见 */
   SelfView = 2,
-  /** Approved and accessible to all */
+  /** 审核通过，全员可见 */
   All = 3,
-  /** moderation deletion */
+  /** 审核删除 */
   Deleted = 4,
 }
 
 export enum CommentBotReplyStatus {
-  /** Replying now. */
+  /** 正在回复 */
   Replying = 1,
-  /** Reply complete */
+  /** 回复完成 */
   Done = 2,
 }
 
 export enum CommentStatus {
-  /** see yourself */
+  /** 自见 */
   SelfView = 1,
-  /** accessible to all */
+  /** 全员可见 */
   All = 2,
-  /** deleted */
+  /** 已删除 */
   Deleted = 3,
 }
 
 export enum CommentType {
-  /** Post reply */
+  /** 主贴回复 */
   MainReply = 1,
-  /** building within building */
+  /** 楼中楼 */
   SubReply = 2,
 }
 
@@ -71,9 +71,9 @@ export enum ConfigType {
 }
 
 export enum DiscussionGlobalStatus {
-  /** Discussion board global state */
+  /** 讨论区全局状态 */
   Normal = 0,
-  /** gag */
+  /** 禁言 */
   Ban = 1,
 }
 
@@ -84,9 +84,9 @@ export enum DiscussionStatus {
 }
 
 export enum DiscussionUpdateSource {
-  /** operation trigger */
+  /** 运营触发 */
   ByAdmin = 1,
-  /** Product change trigger */
+  /** 商品变更触发 */
   ByProduct = 2,
 }
 
@@ -104,24 +104,24 @@ export enum FileType {
 
 export enum InteractionEntityType {
   Bot = 1,
-  /** Arena */
+  /** 竞技场 */
   Arena = 2,
-  /** personal homepage */
+  /** 个人主页 */
   Homepage = 3,
 }
 
 export enum InteractionItemType {
-  /** robot */
+  /** 机器人 */
   Bot = 1,
-  /** user */
+  /** 用户 */
   User = 2,
-  /** post */
+  /** 帖子 */
   Post = 3,
-  /** comment */
+  /** 评论 */
   Comment = 4,
-  /** product */
+  /** 商品 */
   Product = 5,
-  /** discussion forum */
+  /** 讨论区 */
   Discussion = 6,
 }
 
@@ -131,31 +131,31 @@ export enum InvitationMethod {
 }
 
 export enum PinType {
-  /** non-top */
+  /** 非置顶 */
   NoPin = 0,
-  /** Owner top */
+  /** owner 置顶 */
   Owner = 1,
-  /** global top */
+  /** 全局置顶 */
   Golbal = 2,
 }
 
 export enum PostAuditStatus {
-  /** Submitted for review */
+  /** 已提交审核 */
   SubmitAudit = 1,
-  /** See for yourself */
+  /** 审核自见 */
   SelfView = 2,
-  /** Approved and accessible to all */
+  /** 审核通过，全员可见 */
   All = 3,
-  /** moderation deletion */
+  /** 审核删除 */
   Deleted = 4,
 }
 
 export enum PostStatus {
-  /** see yourself */
+  /** 自见 */
   SelfView = 1,
-  /** accessible to all */
+  /** 全员可见 */
   All = 2,
-  /** deleted */
+  /** 已删除 */
   Deleted = 3,
 }
 
@@ -177,9 +177,9 @@ export enum ShareChannel {
 }
 
 export enum SortType {
-  /** Release time from new to old */
+  /** 发布时间从新到旧 */
   PublishDesc = 1,
-  /** Number of replies from most to least */
+  /** 回复数从多到少 */
   CommentCountDesc = 2,
 }
 
@@ -190,16 +190,16 @@ export enum UserBehaviorType {
 
 export enum UserStatus {
   Normal = 0,
-  /** discussion forum ban */
+  /** 讨论区禁言 */
   DisussionBan = 1,
-  /** cancellation */
+  /** 注销 */
   Deactivated = 2,
 }
 
 export interface Conversation {
-  /** conversation example */
+  /** 对话示例 */
   snippets?: Array<string>;
-  /** opening statement */
+  /** 开场白 */
   opening_dialog?: OpeningDialog;
   message_id_list?: Array<Int64>;
 }
@@ -218,7 +218,7 @@ export interface Mention {
 }
 
 export interface OpeningDialog {
-  /** Bot opening line */
+  /** Bot开场白 */
   content?: string;
 }
 

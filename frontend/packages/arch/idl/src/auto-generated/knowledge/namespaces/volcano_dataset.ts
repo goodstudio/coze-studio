@@ -24,16 +24,16 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export interface BatchCreateVolcanoDatasetRequest {
-  /** Space ID */
+  /** 空间id */
   space_id: string;
-  /** Project ID Created within project */
+  /** project ID project内创建 */
   project_id?: string;
-  /** Volcano side knowledge base id */
+  /** 火山侧知识库id */
   volcano_dataset_id_list?: Array<string>;
 }
 
 export interface BatchCreateVolcanoDatasetResponse {
-  /** Returns a list of created knowledge base IDs */
+  /** 返回创建的知识库id列表 */
   dataset_id_list?: Array<string>;
   code?: Int64;
   msg?: string;
@@ -41,14 +41,14 @@ export interface BatchCreateVolcanoDatasetResponse {
 
 export interface GetVolcanoDatasetListData {
   volcano_dataset_list?: Array<common.VolcanoDataset>;
-  /** Jump to the new knowledge base page of the volcano corresponding project */
+  /** 跳转火山对应项目的新建知识库页面 */
   create_volcano_dataset_link?: string;
 }
 
 export interface GetVolcanoDatasetListRequest {
-  /** Space ID */
+  /** 空间id */
   space_id: string;
-  /** Volcano Knowledge Base Project Space Name */
+  /** 火山知识库项目空间名称 */
   project_name: string;
 }
 
@@ -60,12 +60,12 @@ export interface GetVolcanoDatasetListResponse {
 
 export interface GetVolcanoDatasetProjectListData {
   volcano_dataset_project_list?: Array<common.VolcanoDatasetProject>;
-  /** Jump to Volcano Create Project Page Link */
+  /** 跳转火山创建项目页面链接 */
   create_volcano_dataset_project_link?: string;
 }
 
 export interface GetVolcanoDatasetProjectListRequest {
-  /** Space ID */
+  /** 空间id */
   space_id: string;
 }
 
@@ -77,17 +77,17 @@ export interface GetVolcanoDatasetProjectListResponse {
 
 export interface GetVolcanoDatasetServiceListData {
   volcano_dataset_service_list?: Array<common.VolcanoDatasetService>;
-  /** Jump to the knowledge service creation page under Volcano Knowledge Base */
+  /** 跳转火山知识库下知识服务创建页面 */
   create_volcano_dataset_service_link?: string;
-  /** Label information (label signature and label information) */
+  /** 标签信息（标签名和标签信息） */
   tab_info?: Record<string, common.VolcanoDatasetTabInfo>;
 }
 
 export interface GetVolcanoDatasetServiceListRequest {
-  /** Knowledge Base ID */
+  /** 知识库id */
   dataset_id?: string;
   volcano_dataset_service_ids?: Array<string>;
-  /** When volcano_dataset_service_ids, you need to provide the corresponding space id. */
+  /** 传volcano_dataset_service_ids时需要提供对应的space id */
   space_id?: string;
 }
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 // Quick command bar
 import { type CSSProperties, type FC, useRef, useState } from 'react';
 
@@ -270,7 +270,7 @@ export const ShortcutBar: FC<ChatShortCutBarProps> = props => {
             }}
             minVisibleItems={1}
             items={shortcuts}
-            // @TS-expect-error visibleItemRenderer has a problem
+            // @ts-expect-error visibleItemRenderer has a problem
             visibleItemRenderer={renderShortcut}
             overflowRenderer={overflowItems => {
               if (!overflowItems.length) {

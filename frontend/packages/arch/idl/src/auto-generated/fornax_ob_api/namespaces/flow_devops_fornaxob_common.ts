@@ -24,7 +24,7 @@ export type Int64 = string | number;
 export enum EnvType {
   Online = 0,
   BOE = 1,
-  /** abandoned */
+  /** 废弃 */
   All = 2,
 }
 
@@ -35,7 +35,7 @@ export enum OrderType {
 }
 
 export enum PlatformType {
-  /** abandoned */
+  /** 废弃 */
   Fornax = 0,
   Coze = 1,
   PSM = 2,
@@ -99,9 +99,9 @@ export interface QueryOfflineRequest {
 export interface QueryOfflineResponse {
   type: QueryOfflineType;
   body: string;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 /* eslint-enable */

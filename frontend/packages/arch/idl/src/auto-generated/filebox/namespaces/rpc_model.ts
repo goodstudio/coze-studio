@@ -24,35 +24,35 @@ import * as file from './file';
 
 export type Int64 = string | number;
 
-/** --------------------------- * Streaming Summary - Plugin Link */
+/** --------------------------- * 流式总结 - 插件链路 */
 export enum FileSource {
   LinkReader = 1,
   RawText = 2,
 }
 
 export enum PluginContentType {
-  /** Text */
+  /** 文本 */
   RawText = 0,
 }
 
 export enum PluginContextMode {
-  /** Do not ignore context */
+  /** 不忽略上下文 */
   IncludeContext = 0,
-  /** Ignore context */
+  /** 忽略上下文 */
   IgnoreContext = 1,
 }
 
 export enum PluginOutputMode {
-  /** non-streaming */
+  /** 非流式 */
   NoneStreamMode = 0,
-  /** streaming */
+  /** 流式 */
   StreamMode = 1,
 }
 
 export enum PluginReturnType {
-  /** Output to model */
+  /** 输出到模型 */
   ToModel = 0,
-  /** Output to end point */
+  /** 输出到终端 */
   ToUser = 1,
 }
 
@@ -61,17 +61,17 @@ export interface FileChunk {
   content?: string;
 }
 
-/** --------------------------- * file list - internal rpc interface */
+/** --------------------------- * 文件list - 内部rpc接口 */
 export interface FileListRPCMeta {
   Uri?: string;
   Name?: string;
   CreateTime?: Int64;
   Format?: string;
-  /** file size */
+  /** 文件大小 */
   Size?: Int64;
-  /** Large file categories, exact matching */
+  /** 文件大类, 精确匹配 */
   MdType?: number;
-  /** Accessible URL, no guarantee of persistence */
+  /** 可访问url, 不保证持久化 */
   Url?: string;
 }
 
@@ -82,25 +82,25 @@ export interface PluginSSEParams {
   message_title?: string;
   output_mode?: PluginOutputMode;
   return_type?: PluginReturnType;
-  /** Text content, default to 0 */
+  /** 文本内容，默认为0 */
   content_type?: PluginContentType;
   context_mode?: PluginContextMode;
-  /** Business Interface Return Content */
+  /** 业务接口返回内容 */
   content?: string;
   is_finish: boolean;
   is_last_msg: boolean;
   is_last_packet_in_msg: boolean;
   ext?: Record<string, string>;
-  /** error message */
+  /** 错误信息 */
   BaseResp?: base.BaseResp;
 }
 
 export interface StreamSummaryRequestForPlugin {
-  /** plugin link parameter */
+  /** 插件链路通参 */
   req_common_params: file.ReqCommonBaseInfo;
   biz_id: string;
   scene_id: string;
-  /** File URL */
+  /** 文件url */
   url?: string;
   Base?: base.Base;
 }

@@ -30,7 +30,7 @@ export interface GetOAuthPluginListData {
 
 export interface OpenAPIGetOAuthPluginListRequest {
   entity_id?: string;
-  /** 'Authorization context, 0-agent, 1-app, 2-workflow' */
+  /** '授权上下文, 0-agent, 1-app, 2-workflow' */
   entity_type?: string;
   connector_id?: string;
   /** connector_uid */
@@ -40,28 +40,28 @@ export interface OpenAPIGetOAuthPluginListRequest {
 
 export interface OpenAPIGetOAuthPluginListResponse {
   data?: GetOAuthPluginListData;
-  /** call result */
+  /** 调用结果 */
   code: Int64;
-  /** Success is success, failure is simple error message */
+  /** 成功为success, 失败为简单的错误信息 */
   msg?: string;
   BaseResp: base.BaseResp;
 }
 
 export interface OpenAPIOAuthPluginInfo {
   plugin_id?: string;
-  /** user authorization status */
+  /** 用户授权状态 */
   status?: plugin_develop_common.OAuthStatus;
-  /** Plugin name */
+  /** 插件name */
   plugin_name?: string;
-  /** plugin avatar */
+  /** 插件头像 */
   plugin_icon?: string;
 }
 
 export interface OpenAPIRevokeAuthTokenRequest {
-  /** If empty, all plugins under that entity are unauthorized */
+  /** 如果为空，该实体下的plugin全部取消授权 */
   plugin_id?: string;
   entity_id?: string;
-  /** 'Authorization context, 0-agent, 1-app, 2-workflow' */
+  /** '授权上下文, 0-agent, 1-app, 2-workflow' */
   entity_type?: string;
   connector_id?: string;
   /** connector_uid */
@@ -70,9 +70,9 @@ export interface OpenAPIRevokeAuthTokenRequest {
 }
 
 export interface OpenAPIRevokeAuthTokenResponse {
-  /** call result */
+  /** 调用结果 */
   code: Int64;
-  /** Success is success, failure is simple error message */
+  /** 成功为success, 失败为简单的错误信息 */
   msg?: string;
   BaseResp: base.BaseResp;
 }

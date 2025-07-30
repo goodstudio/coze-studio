@@ -22,49 +22,49 @@
 export type Int64 = string | number;
 
 export enum CallbackType {
-  /** RPC interface implementation */
+  /** rpc接口实现 */
   RPC = 1,
-  /** Access services via psm, http protocol */
+  /** 通过psm，http协议访问服务 */
   PSMHTTP = 2,
-  /** It is an open evaluation object type; the evaluation cannot be triggered through the platform, and the evaluated object reports the data by itself  */
+  /** 为开放评测对象类型；无法通过平台触发评测，被评测对象自行上报数据  */
   Open = 3,
 }
 
-/** Evaluation result data type */
+/** 评估结果数据类型 */
 export enum EvaluateResultDataType {
   Unknown = 0,
-  /** numerical scoring */
+  /** 数值打分 */
   Score = 1,
-  /** numerical value */
+  /** 数值 */
   Value = 2,
-  /** option */
+  /** 选项 */
   Select = 3,
-  /** plain text description */
+  /** 纯文本描述 */
   PlainText = 4,
 }
 
-/** Value type evaluation result The specific type of the value (EvaluateResultDataType = Value) */
+/** 数值类型评估结果数值的具体类型 (EvaluateResultDataType = Value) */
 export enum EvaluateResultValueType {
-  /** Floating point value, default */
+  /** 浮点数数值, 默认 */
   Double = 0,
-  /** integer value */
+  /** 整数数值 */
   Int = 1,
 }
 
-/** evaluation granularity */
+/** 评估粒度 */
 export enum EvaluatorGranularity {
   Unknown = 0,
-  /** single round of dialogue */
+  /** 单轮对话 */
   Row = 1,
-  /** dialogue group */
+  /** 对话组 */
   RowGroup = 2,
 }
 
-/** The faas http function has its own authentication method if auth is enabled, which is different from http. */
+/** faas http函数如果开启auth有自己的鉴权方式，和http不一样。 */
 export enum HTTPAuthType {
-  /** default */
+  /** 默认 */
   default = 0,
-  /** If the faas function turns on auth, you need to whitelist the evaluation service account secret */
+  /** 如果faas函数开启auth，需要给evaluation的服务账号secret开白名单 */
   JWT = 1,
 }
 

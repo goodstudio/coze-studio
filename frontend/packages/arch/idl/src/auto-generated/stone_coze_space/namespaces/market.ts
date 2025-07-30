@@ -43,11 +43,11 @@ export interface ExpertProduct {
   desc?: string;
   avatar_url?: string;
   disable_team_mode?: boolean;
-  /** is_closed is false */
+  /** is_closed为false时生效 */
   user_count?: Int64;
-  /** Second, is_closed is false */
+  /** second，is_closed为false时生效 */
   avg_time_cost?: Int64;
-  /** Hide in list */
+  /** 列表里隐藏 */
   is_closed?: boolean;
 }
 
@@ -70,7 +70,7 @@ export interface ExpertProductDetailsResponseData {
   avg_time_cost?: Int64;
   digg_count?: Int64;
   bury_count?: Int64;
-  /** empty display */
+  /** 空不展示 */
   evaluation?: string;
   agent_intro?: string;
   examples?: Array<ExpertProductExample>;

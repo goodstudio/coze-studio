@@ -24,9 +24,9 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export enum ChangeType {
-  /** Upload complete */
+  /** 上传完成 */
   Created = 1,
-  /** deleted */
+  /** 已删除 */
   Deleted = 2,
 }
 
@@ -41,7 +41,7 @@ export enum MDType {
   Other = 255,
 }
 
-/** Differentiate the MDType enumeration value because Album is not a multimodal file */
+/** 区分 MDType 这个枚举值，因为 Album 不是多模态文件 */
 export enum ObjType {
   Image = 1,
   Audio = 2,
@@ -58,44 +58,44 @@ export enum PermObjType {
 }
 
 export enum PermScope {
-  /** Allow once */
+  /** 允许一次 */
   Once = 0,
-  /** Permanently allowed */
+  /** 永久允许 */
   Always = 1,
 }
 
 export interface AddPhotosToAlbumRequest {
   req_common_params: ReqCommonBaseInfo;
-  /** The item type to be verified is picture and video. */
+  /** 需校验 item 类型为图片、视频 */
   md_items: Array<FileMetaCreateAlbumInfo>;
   album_name: string;
   Base?: base.Base;
 }
 
 export interface AddPhotosToAlbumResponse {
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface AlbumInfo {
   album_id?: string;
-  /** Album name */
+  /** 相册名称 */
   name?: string;
-  /** Album description */
+  /** 相册描述 */
   desc?: string;
   user_id: Int64;
   bot_id: Int64;
   conversation_id: Int64;
-  /** Album creation business party type, manually assigned to the identity of the upload business party such as coze, bean bag, cici, Plugin, etc */
+  /** 相册创建业务方类型，人工分配给 coze、豆包、cici、Plugin 等上传业务方的标识 */
   biz_type: string;
-  /** Album creation business party ID, for example PluginID for Plugins */
+  /** 相册创建业务方 ID，例如对 Plugin 来说是 PluginID */
   biz_id: string;
-  /** Creation time, ms */
+  /** 创建时间，ms */
   created_at: Int64;
-  /** Update time ms */
+  /** 更新时间 ms */
   updated_at: Int64;
 }
 
@@ -107,19 +107,19 @@ export interface APIItem {
 }
 
 export interface BatchCreateFilesRequest {
-  /** common parameter */
+  /** 公共参数 */
   req_common_base_info: ReqCommonBaseInfo;
-  /** List of source file URLs */
+  /** 源文件 URL 列表 */
   source_urls: Array<string>;
   Base?: base.Base;
 }
 
 export interface BatchCreateFilesResponse {
-  /** Create result */
+  /** 创建结果 */
   create_results?: Array<FileCreateResult>;
-  /** Data returned to the model */
+  /** 返回给模型的数据 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
@@ -132,30 +132,30 @@ export interface BatchDeleteFileRequest {
 }
 
 export interface BatchDeleteFileResponse {
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface BatchUpdateFileMetaRequest {
-  /** This can also be given through context */
+  /** 这个也可以通过context给过来 */
   req_common_params: ReqCommonBaseInfo;
   update_items: Array<FileMetaUpdateInfo>;
   Base?: base.Base;
 }
 
 export interface BatchUpdateFileMetaResponse {
-  /** number of successes */
+  /** 成功数 */
   SuccessNum?: number;
-  /** number of failures */
+  /** 失败数 */
   FailNum?: number;
-  /** Processing result details, k: id, v: true means success */
+  /** 处理结果详情，k:id,v:true表示成功 */
   ResultDetail?: Record<string, boolean>;
-  /** LLM only senses the content of the changed field */
+  /** LLM 仅感知改字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
@@ -183,53 +183,53 @@ export interface CreateAlbumRequest {
 export interface CreateAlbumResponse {
   album_info?: AlbumInfo;
   photos?: Array<FileMetaInfo>;
-  /** Details page link */
+  /** 详情页链接 */
   detail_page_url?: string;
-  /** Total number of images in the album */
+  /** 相册包含的图片总数 */
   album_length?: number;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface DelAlbumRequest {
   req_common_params: ReqCommonBaseInfo;
-  /** Deprecated, deleted by AlbumName */
+  /** deprecated，通过 AlbumName 删除 */
   album_id: string;
-  /** When there is AlbumNmae, delete according to AlbumName */
+  /** 有AlbumNmae时，根据AlbumName删除 */
   album_name?: string;
   Base?: base.Base;
 }
 
 export interface DelAlbumResponse {
-  /** List of albums created by users themselves */
+  /** 用户自身创建的相册列表 */
   album_name_list?: Array<string>;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface DestFileInfo {
-  /** target file URI */
+  /** 目标文件 URI */
   file_uri?: string;
-  /** Target file URL */
+  /** 目标文件 URL */
   file_url?: string;
-  /** file name */
+  /** 文件名称 */
   file_name?: string;
-  /** file upload status */
+  /** 文件上传状态 */
   status?: number;
 }
 
 export interface FileCreateResult {
-  /** URL of source file */
+  /** 源文件 URL */
   source_url: string;
-  /** File ID */
+  /** 文件 ID */
   file_id: string;
-  /** File URI */
+  /** 文件 URI */
   uri: string;
 }
 
@@ -247,7 +247,7 @@ export interface FileMeta {
   Tags: string;
 }
 
-/** FileBaseMetaInfo contains basic file information needed to create an album */
+/** FileBaseMetaInfo 包含创建 album 时需要的 file 基本信息 */
 export interface FileMetaCreateAlbumInfo {
   file_id?: string;
   uri?: string;
@@ -270,35 +270,35 @@ export interface FileMetaInfo {
   conversation_id: Int64;
   biz_type: string;
   biz_id: string;
-  /** Note: The field returned to the frontend may be inconsistent due to loss of precision */
+  /** 注意：该字段返回给前端可能因精度丢失而不一致 */
   bot_id: Int64;
   message_id: Int64;
-  /** original image address */
+  /** 原图地址 */
   normal_file_url?: FileURL;
-  /** Thumbnail address */
+  /** 缩略图地址 */
   thumbnail_file_url?: FileURL;
-  /** Image meta information, valid when the file type is image */
+  /** 图片 meta 信息，当文件类型为图片时有效 */
   image_meta?: ImageMeta;
-  /** 255: file not indexed; 254: byterag not enabled; 0: rag index built successfully; 1: rag index building in progress; 2: rag index build failed; 3: rag index deleted */
+  /** 255:文件未构建索引; 254:没有启用byterag; 0:rag索引构建成功; 1:rag索引构建中; 2:rag索引构建失败; 3:rag索引已删除 */
   rag_document_status?: Int64;
-  /** Number of slices of rag content */
+  /** rag内容的切片数 */
   rag_content_chunk_num?: number;
 }
 
 export interface FileMetaUpdateInfo {
-  /** File ID */
+  /** 文件ID */
   file_id?: string;
-  /** file name */
+  /** 文件名称 */
   file_name?: string;
-  /** Upload address */
+  /** 上传地址 */
   position?: string;
-  /** Upload device */
+  /** 上传设备 */
   device?: string;
-  /** image URI */
+  /** 图片URI */
   uri?: string;
-  /** Feature tags, multiple separated by English commas */
+  /** 特征标签，多个用英文逗号隔开 */
   tags?: string;
-  /** picture description */
+  /** 图片描述 */
   caption?: string;
 }
 
@@ -320,7 +320,7 @@ export interface GetDisplayAPIsRequest {
 export interface GetDisplayAPIsResponse {
   apis: Array<APIItem>;
   groups?: Array<GroupItem>;
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: Int64;
   msg: string;
   BaseResp: base.BaseResp;
@@ -334,23 +334,23 @@ export interface GetFileMetaInfoRequest {
 
 export interface GetFileMetaInfoResponse {
   data?: FileMetaInfo;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface GetMDCardDetailPageInfoRequest {
-  /** Card resource types: such as albums, pictures, videos, files, need to perceive multi-modal file types */
+  /** 卡片资源类型：如相册、图片、视频、文件，需要感知到多模态文件类型 */
   obj_type: ObjType;
-  /** Card details page ID */
+  /** 卡片详情页 ID */
   dpid: string;
-  /** resource belongs to botId */
+  /** 资源所属botId */
   bid: Int64;
-  /** resource connectorId */
+  /** 资源所属connectorId */
   cid: Int64;
-  /** expiration time */
+  /** 过期时间 */
   expires: Int64;
-  /** parameter signature */
+  /** 参数签名 */
   signature: string;
   page_num?: number;
   page_size?: number;
@@ -359,12 +359,12 @@ export interface GetMDCardDetailPageInfoRequest {
 
 export interface GetMDCardDetailPageInfoResponse {
   file_list: Array<FileMetaInfo>;
-  /** When the front-end display scene is an album, you need to display the album name on the details page. */
+  /** 前端展示场景为相册时，需要在详情页展示相册名称 */
   show_title?: string;
-  /** Total number of files */
+  /** 文件总数 */
   total?: Int64;
   next_page_num?: number;
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code?: Int64;
   msg?: string;
   base_resp: base.BaseResp;
@@ -376,18 +376,18 @@ export interface GroupItem {
 }
 
 export interface ImageMeta {
-  /** Image width, unit: px */
+  /** 图片宽度，单位：px */
   width: number;
-  /** Image height, unit: px */
+  /** 图片高度，单位：px */
   height: number;
 }
 
 export interface PageIsWritableRequest {
-  /** Details page id */
+  /** 详情页 id */
   dpid: string;
-  /** Does not rely on front-end delivery, reads the abase cache according to detail_page_id and gets it */
+  /** 不依赖前端传递，根据 detail_page_id 读取 abase 缓存后获取 */
   UserID?: string;
-  /** Channel id: coze, bean buns, cici */
+  /** 渠道 id：coze，豆包，cici */
   cid?: string;
   bid?: string;
   Base?: base.Base;
@@ -395,19 +395,19 @@ export interface PageIsWritableRequest {
 
 export interface PageIsWritableResponse {
   is_writable: boolean;
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: Int64;
   msg: string;
   base_resp: base.BaseResp;
 }
 
 export interface PublicBatchDeleteFilesRequest {
-  /** Does not rely on front-end delivery, reads the abase cache according to detail_page_id and gets it */
+  /** 不依赖前端传递，根据 detail_page_id 读取 abase 缓存后获取 */
   UserID?: string;
   bot_id?: string;
-  /** Channel id: coze, bean buns, cici */
+  /** 渠道 id：coze，豆包，cici */
   connector_id?: string;
-  /** Details page id */
+  /** 详情页 id */
   detail_page_id: string;
   uris?: Array<string>;
   Base?: base.Base;
@@ -415,65 +415,65 @@ export interface PublicBatchDeleteFilesRequest {
 
 export interface PublicBatchDeleteFilesResponse {
   success_ids?: Array<string>;
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: Int64;
   msg: string;
   BaseResp: base.BaseResp;
 }
 
 export interface PublicBatchRemovePhotosRequest {
-  /** Does not rely on front-end delivery, reads the abase cache according to detail_page_id and gets it */
+  /** 不依赖前端传递，根据 detail_page_id 读取 abase 缓存后获取 */
   UserID?: string;
   bot_id?: string;
-  /** Channel id: coze, bean buns, cici */
+  /** 渠道 id：coze，豆包，cici */
   connector_id?: string;
-  /** Details page id */
+  /** 详情页 id */
   detail_page_id: string;
-  /** File id list */
+  /** 文件 id 列表 */
   ids?: Array<string>;
   Base?: base.Base;
 }
 
 export interface PublicBatchRemovePhotosResponse {
   success_ids?: Array<string>;
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: Int64;
   msg: string;
   BaseResp: base.BaseResp;
 }
 
 export interface PublicDeleteAlbumRequest {
-  /** Does not rely on front-end delivery, reads the abase cache according to detail_page_id and gets it */
+  /** 不依赖前端传递，根据 detail_page_id 读取 abase 缓存后获取 */
   UserID?: string;
   bot_id?: string;
-  /** Channel id: coze, bean buns, cici */
+  /** 渠道 id：coze，豆包，cici */
   connector_id?: string;
-  /** Details page id */
+  /** 详情页 id */
   detail_page_id: string;
   Base?: base.Base;
 }
 
 export interface PublicDeleteAlbumResponse {
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: Int64;
   msg: string;
   BaseResp: base.BaseResp;
 }
 
 export interface PublicUpdateFileRequest {
-  /** Does not rely on front-end delivery, reads the abase cache according to detail_page_id and gets it */
+  /** 不依赖前端传递，根据 detail_page_id 读取 abase 缓存后获取 */
   UserID?: string;
   bot_id?: string;
-  /** Channel id: coze, bean buns, cici */
+  /** 渠道 id：coze，豆包，cici */
   connector_id?: string;
-  /** Details page id */
+  /** 详情页 id */
   detail_page_id: string;
   update_items?: FileMetaUpdateInfo;
   Base?: base.Base;
 }
 
 export interface PublicUpdateFileResponse {
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: Int64;
   msg: string;
   BaseResp: base.BaseResp;
@@ -482,72 +482,72 @@ export interface PublicUpdateFileResponse {
 export interface RecallFileMetaInfosRequest {
   req_common_params: ReqCommonBaseInfo;
   need_rag?: boolean;
-  /** file type */
+  /** 文件类型 */
   md_type?: MDType;
-  /** ISO year - month - day */
+  /** ISO 年-月-日 */
   begin_time?: string;
   end_time?: string;
   file_uris?: Array<string>;
-  /** File segmentation types, such as pdf, png, etc */
+  /** 文件细分类型, 如pdf、png等 */
   format?: string;
   Base?: base.Base;
 }
 
 export interface RecallFileMetaInfosResponse {
   file_list?: Array<FileMetaInfo>;
-  /** Details page link */
+  /** 详情页链接 */
   detail_page_url?: string;
-  /** The number of pictures returned by this query */
+  /** 本次查询返回的图片个数 */
   file_num?: Int64;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
-/** Information about the current request session
- All plugin calls need to include this structure */
+/** 当前请求会话的相关信息
+ 所有 plugin 的调用都需要包含该结构体 */
 export interface ReqCommonBaseInfo {
-  /** user ID */
+  /** 用户ID */
   user_id: Int64;
-  /** Session ID */
+  /** 会话ID */
   'X-AIPlugin-Conversation-ID': Int64;
-  /** Business party type, manually assigned to coze, bean bag, cici, Plugin, etc. to upload the identity of the business party */
+  /** 业务方类型，人工分配给 coze、豆包、cici、Plugin 等上传业务方的标识 */
   biz_type: string;
-  /** Business party ID, for example PluginID for Plugins */
+  /** 业务方 ID，例如对 Plugin 来说是 PluginID */
   biz_id: string;
-  /** bot ID */
+  /** 机器人ID */
   'X-AIPlugin-Bot-ID': Int64;
-  /** When the plugin calls the FileBox API, it cannot pass the UserID due to the requirements of the coze platform, but passes the SessionID and provides an interface to resolve the UserID through the SessionID */
+  /** 插件调用 FileBox API 时，由于 coze 平台要求，无法传递 UserID，但传递 SessionID，并提供通过 SessionID 解析 UserID 的接口 */
   'X-Temp-OpenID'?: string;
-  /** user original conversation content */
+  /** 用户原始对话内容 */
   query: string;
   'X-AIPlugin-Connector-ID'?: Int64;
-  /** Plugin authorization token */
+  /** 插件授权token */
   'Filebox-Auth-Token'?: string;
 }
 
 export interface SearchFileRequest {
   req_common_params: ReqCommonBaseInfo;
-  /** File URI, if passed, summarize the specified file, if not passed, summarize the first file that meets the following conditions */
+  /** 文件URI，如果传了，则对指定文件进行总结，如果没传，则按对符合下方条件的第一个文件进行总结 */
   file_uri_list?: Array<string>;
-  /** file name */
+  /** 文件名 */
   file_name_list?: Array<string>;
   Base?: base.Base;
 }
 
 export interface SearchFileResponse {
-  /** document content search result */
+  /** 文档内容检索结果 */
   file_search_item_list?: Array<FileSearchItem>;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
-/** Video Cloud Temporary Upload Key */
+/** 视频云临时上传秘钥 */
 export interface SecurityToken {
   AccessKeyID: string;
   SecretAccessKey: string;
@@ -557,30 +557,30 @@ export interface SecurityToken {
 }
 
 export interface ShowAlbumListRequest {
-  /** Permission verification, such as only querying your own album */
+  /** 进行权限校验，如仅查询自己的相册 */
   req_common_params: ReqCommonBaseInfo;
   Base?: base.Base;
 }
 
 export interface ShowAlbumListResponse {
   album_name_list?: Array<string>;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface ShowAlbumRequest {
-  /** Permission verification, such as only querying your own album */
+  /** 进行权限校验，如仅查询自己的相册 */
   req_common_params: ReqCommonBaseInfo;
-  /** First find it accurately according to AlbumID */
+  /** 先根据 AlbumID 精确查找 */
   album_id?: string;
-  /** If AlbumID is empty, the name and desc fuzzy match */
+  /** 若 AlbumID 为空，则根据 name 和 desc 模糊匹配 */
   album_name?: string;
-  /** paging query parameters */
+  /** 分页查询参数 */
   start?: number;
-  /** paging query parameters */
+  /** 分页查询参数 */
   limit?: number;
   Base?: base.Base;
 }
@@ -588,95 +588,95 @@ export interface ShowAlbumRequest {
 export interface ShowAlbumResponse {
   album_info?: AlbumInfo;
   photos?: Array<FileMetaInfo>;
-  /** Total number of images in the album */
+  /** 相册包含的图片总数 */
   album_length?: number;
-  /** Details page link */
+  /** 详情页链接 */
   detail_page_url?: string;
-  /** List of albums created by users themselves */
+  /** 用户自身创建的相册列表 */
   album_name_list?: Array<string>;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface SourceFileInfo {
-  /** source file URI */
+  /** 源文件 URI */
   file_uri?: string;
-  /** URL of source file */
+  /** 源文件 URL */
   file_url?: string;
-  /** Source file, name */
+  /** 源文件 名称 */
   file_name?: string;
 }
 
 export interface SummaryFileRequest {
   req_common_params: ReqCommonBaseInfo;
-  /** File URI, if passed, summarize the specified file, if not passed, summarize the first file that meets the following conditions */
+  /** 文件URI，如果传了，则对指定文件进行总结，如果没传，则按对符合下方条件的第一个文件进行总结 */
   file_uri?: string;
-  /** file name */
+  /** 文件名 */
   file_name?: string;
-  /** File formats: jpeg, pdf, txt, etc */
+  /** 文件格式：jpeg、pdf、txt等等 */
   format?: string;
-  /** Upload time, ISO year-month-day */
+  /** 上传时间，ISO 年-月-日 */
   upload_date?: string;
   Base?: base.Base;
 }
 
 export interface SummaryFileResponse {
-  /** summary content */
+  /** 总结内容 */
   summary_info?: SummaryInfo;
-  /** If the specified file URI is not summarized, the return will include a list of suggested files */
+  /** 如果不是总结指定的文件URI，返回则会带上建议的文件列表 */
   suggested_file_list?: Array<FileMetaInfo>;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface SummaryInfo {
   file_name: string;
-  /** summary content */
+  /** 总结内容 */
   content: string;
 }
 
 export interface SyncResultItem {
-  /** processing result status */
+  /** 处理结果状态 */
   Status: string;
-  /** Processing Result Additional Message */
+  /** 处理结果附加消息 */
   Message: string;
   FileID: string;
   Uri: string;
 }
 
 export interface UpdateAlbumRequest {
-  /** Permission verification, such as only querying your own album */
+  /** 进行权限校验，如仅查询自己的相册 */
   req_common_params: ReqCommonBaseInfo;
-  /** Deprecated, updated by AlbumName */
+  /** deprecated，通过 AlbumName 更新 */
   album_id: string;
-  /** When there is AlbumNmae, delete according to AlbumName */
+  /** 有AlbumNmae时，根据AlbumName删除 */
   album_name?: string;
-  /** updated content */
+  /** 更新的内容 */
   new_album_name?: string;
-  /** updated content */
+  /** 更新的内容 */
   new_album_desc?: string;
   Base?: base.Base;
 }
 
 export interface UpdateAlbumResponse {
-  /** List of albums created by users themselves */
+  /** 用户自身创建的相册列表 */
   album_name_list?: Array<string>;
-  /** LLM only perceives the field content */
+  /** LLM 仅感知该字段内容 */
   response_for_model?: string;
-  /** When using it for the first time, you need to return the compliance copy. */
+  /** 首次使用时，需要返回合规文案 */
   compliance_statement?: string;
   base_resp: base.BaseResp;
 }
 
 export interface UpdateFileBoxUsageStatusRequest {
   req_common_params: ReqCommonBaseInfo;
-  /** True means open, false means closed */
+  /** true 表示打开，false表示关闭 */
   switch_on: boolean;
   Base?: base.Base;
 }

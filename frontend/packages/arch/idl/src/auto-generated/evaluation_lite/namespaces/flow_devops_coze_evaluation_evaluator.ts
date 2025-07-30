@@ -48,7 +48,7 @@ export interface OptimizeJudgePromptResponse {
   id?: string;
   event?: flow_devops_coze_evaluation_entity.SSEEvent;
   content?: string;
-  /** Usage Tail Settings */
+  /** Usage 尾包设置 */
   usage?: flow_devops_coze_evaluation_entity.Usage;
   code: number;
   msg: string;

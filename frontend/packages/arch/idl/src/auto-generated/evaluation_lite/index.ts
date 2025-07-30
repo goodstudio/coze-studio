@@ -108,7 +108,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/kill
    *
-   * Terminate the evaluation task
+   * 终止评测任务
    */
   KillTask(
     req: flow_devops_coze_evaluation.KillTaskReq,
@@ -129,7 +129,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/retry
    *
-   * Retry the evaluation task
+   * 重试评测任务
    */
   RetryTask(
     req: flow_devops_coze_evaluation.RetryTaskReq,
@@ -150,7 +150,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/submit
    *
-   * Submit a review task
+   * 提交评测任务
    */
   SubmitTask(
     req: flow_devops_coze_evaluation.SubmitTaskReq,
@@ -171,7 +171,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/scene/list
    *
-   * View the list of review use cases
+   * 查看评测用例列表
    */
   ListScene(
     req: flow_devops_coze_evaluation.ListSceneReq,
@@ -191,7 +191,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/list
    *
-   * Filter evaluation tasks
+   * 筛选评测任务
    */
   ListBatchTask(
     req: flow_devops_coze_evaluation.ListBatchTaskReq,
@@ -214,7 +214,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/report/overall
    *
-   * View review task report summary information
+   * 查看评测任务报告汇总信息
    */
   GetBatchTaskReportOverall(
     req: flow_devops_coze_evaluation.GetBatchTaskReportOverallReq,
@@ -238,7 +238,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/report/detail
    *
-   * View review details
+   * 查看评测明细
    */
   GetBatchTaskReportDetail(
     req: flow_devops_coze_evaluation.GetBatchTaskReportDetailReq,
@@ -264,7 +264,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/report/score
    *
-   * View Reviews Rating
+   * 查看评测打分
    */
   GetBatchTaskScore(
     req: flow_devops_coze_evaluation.GetBatchTaskScoreReq,
@@ -287,7 +287,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/status/check
    *
-   * Poll for batch task status
+   * 轮询查看批量任务状态
    */
   CheckBatchTask(
     req: flow_devops_coze_evaluation.CheckBatchTaskReq,
@@ -310,7 +310,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/delete
    *
-   * Delete a review task
+   * 删除评测任务
    */
   DeleteTask(
     req: flow_devops_coze_evaluation.DeleteTaskReq,
@@ -331,9 +331,9 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/version/list
    *
-   * View the list of review tasks (in combination, view snapshot versions, filter review tasks)
+   * 查看评测任务列表（组合使用 查看快照版本、筛选评测任务）
    *
-   * View the snapshot version
+   * 查看快照版本
    */
   ListEvalVersion(
     req: flow_devops_coze_evaluation.ListEvalVersionReq,
@@ -353,7 +353,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/task/report/filter_meta
    *
-   * Review task report filter field meta
+   * 查看评测任务报告筛选字段meta
    */
   GetTaskReportFilterMeta(
     req: flow_devops_coze_evaluation.GetTaskReportFilterMetaReq,
@@ -375,7 +375,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/setup
    *
-   * Initialize use case configuration
+   * 初始化用例配置
    */
   Setup(
     req?: flow_devops_coze_evaluation.SetupReq,
@@ -391,7 +391,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/gray/get
    *
-   * Get new review grey release status
+   * 获取新版评测灰度状态
    */
   GetCozeEvalGray(
     req: flow_devops_coze_evaluation.GetCozeEvalGrayReq,
@@ -411,7 +411,7 @@ export default class EvaluationLiteService<T> {
   /**
    * DELETE /api/devops/coze_evaluation/v2/dataset/:dataset_id
    *
-   * Delete evaluation set
+   * 删除评估集
    */
   DeleteDataset(
     req: flow_devops_coze_evaluation_v2.DeleteDatasetReq,
@@ -452,7 +452,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/retry
    *
-   * retry task
+   * 重试任务
    */
   RetryBatchTask(
     req: flow_devops_coze_evaluation_v2.RetryBatchTaskReq,
@@ -474,7 +474,7 @@ export default class EvaluationLiteService<T> {
   /**
    * GET /api/devops/coze_evaluation/v2/batch_task/:task_id/dashboard
    *
-   * Download the review results
+   * 下载评测结果
    */
   DashboardTask(
     req: flow_devops_coze_evaluation_v2.DashboardTaskRequest,
@@ -499,9 +499,9 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/submit
    *
-   * //task running run
+   * // 任务运行
    *
-   * Submit batch tasks
+   * 提交批量任务
    */
   SubmitBatchTask(
     req: flow_devops_coze_evaluation_v2.SubmitBatchTaskReq,
@@ -524,9 +524,9 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/object/get_operable_bot
    *
-   * //Evaluation object managementtion Object Management
+   * // 评估对象管理
    *
-   * Query actionable bot
+   * 查询可操作bot
    */
   GetOperableBot(
     req: flow_devops_coze_evaluation_v2.GetOperableBotReq,
@@ -548,7 +548,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/object/bind_bot
    *
-   * Bind Cozebot
+   * 绑定Cozebot
    */
   BindCozeBot(
     req: flow_devops_coze_evaluation_v2.BindCozeBotReq,
@@ -589,7 +589,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/dataset/create
    *
-   * Create and import an evaluation set and bind BatchTask
+   * 创建并导入评估集，并绑定BatchTask
    */
   CreateDataset(
     req: flow_devops_coze_evaluation_v2.CreateDatasetReq,
@@ -617,9 +617,9 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/list
    *
-   * //task management Management
+   * // 任务管理
    *
-   * Query batch evaluation task list according to space_id
+   * 根据space_id查询批量评测任务列表
    */
   ListCozeBatchTask(
     req: flow_devops_coze_evaluation_v2.ListCozeBatchTaskReq,
@@ -646,7 +646,7 @@ export default class EvaluationLiteService<T> {
   /**
    * DELETE /api/devops/coze_evaluation/v2/batch_task/:batch_task_id
    *
-   * Delete task
+   * 删除任务
    */
   DeleteCozeBatchTask(
     req: flow_devops_coze_evaluation_v2.DeleteCozeBatchTaskReq,
@@ -665,9 +665,9 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/dataset/list
    *
-   * //Evaluation set managementation set management
+   * // 评估集管理
    *
-   * Download the evaluation set template, or query the list of evaluation sets (including built-in/non-built evaluation sets).
+   * 下载评估集模板，或查询评估集列表（包括内置/非内置评估集）
    */
   ListDataset(
     req: flow_devops_coze_evaluation_v2.ListDatasetReq,
@@ -690,7 +690,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/clone
    *
-   * Clone batch task
+   * clone批量任务
    */
   CloneCozeBatchTask(
     req: flow_devops_coze_evaluation_v2.CloneCozeBatchTaskReq,
@@ -712,7 +712,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/kill
    *
-   * terminate task
+   * 终止任务
    */
   KillBatchTask(
     req: flow_devops_coze_evaluation_v2.KillBatchTaskReq,
@@ -735,7 +735,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/create
    *
-   * New batch task
+   * 新建批量任务
    */
   CreateCozeBatchTask(
     req: flow_devops_coze_evaluation_v2.CreateCozeBatchTaskReq,
@@ -757,7 +757,7 @@ export default class EvaluationLiteService<T> {
   /**
    * GET /api/devops/coze_evaluation/v2/dataset/:dataset_id/row_group/list
    *
-   * Download the evaluation set, front-end processing in csv format
+   * 下载评估集，csv格式前端处理
    */
   ListRowGroups(
     req: flow_devops_coze_evaluation_v2.ListRowGroupsReq,
@@ -780,7 +780,7 @@ export default class EvaluationLiteService<T> {
   /**
    * GET /api/devops/coze_evaluation/v2/batch_task/:batch_task_id
    *
-   * Query batch evaluation task details based on space_id and id
+   * 根据space_id和id查询批量评测任务详情
    */
   GetCozeBatchTask(
     req: flow_devops_coze_evaluation_v2.GetCozeBatchTaskReq,
@@ -798,7 +798,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/batch_get_progress
    *
-   * Query batch evaluation task status based on space_id and id
+   * 根据space_id和id查询批量评测任务状态
    */
   BatchGetCozeBatchTaskProgress(
     req: flow_devops_coze_evaluation_v2.BatchGetCozeBatchTaskProgressReq,
@@ -821,7 +821,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/batch_task/update
    *
-   * update batch task
+   * 更新批量任务
    */
   UpdateCozeBatchTask(
     req: flow_devops_coze_evaluation_v2.UpdateCozeBatchTaskReq,
@@ -885,7 +885,7 @@ export default class EvaluationLiteService<T> {
   /**
    * POST /api/devops/coze_evaluation/v2/dataset/generate_test_run
    *
-   * Create a practice run evaluation set and bind BatchTask
+   * 创建试运行评估集，并绑定BatchTask
    */
   GenerateTestRunDataset(
     req: flow_devops_coze_evaluation_v2.GenerateTestRunDatasetReq,
@@ -927,9 +927,9 @@ export default class EvaluationLiteService<T> {
   /**
    * GET /api/devops/coze_evaluation/v2/batch_task/credits_check
    *
-   * //cost calculationing
+   * // 成本计算
    *
-   * Balance Verification & Cost Estimation
+   * 余额校验&成本预估
    */
   CreditsCheck(
     req: flow_devops_coze_evaluation_v2.CreditsCheckRequest,

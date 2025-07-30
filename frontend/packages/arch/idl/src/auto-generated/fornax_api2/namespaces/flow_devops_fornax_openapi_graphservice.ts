@@ -31,13 +31,13 @@ export interface GetGraphSlotsReq {
   isBOE?: boolean;
   env?: string;
   cluster?: string;
-  /** FornaxSDK Authentication  */
+  /** FornaxSDK 鉴权  */
   Authorization?: string;
 }
 
 export interface GetGraphSlotsResp {
   nodeSlots: Array<openapi_graph.NodeWithSlots>;
-  /** Dot, follow up on questions to use */
+  /** 打点, 跟进问题使用 */
   slotSetVersion?: string;
 }
 
@@ -49,14 +49,14 @@ export interface GetNodeSlotsReq {
   isBOE?: boolean;
   env?: string;
   cluster?: string;
-  /** FornaxSDK Authentication  */
+  /** FornaxSDK 鉴权  */
   Authorization?: string;
 }
 
 export interface GetNodeSlotsResp {
   slots: Array<openapi_graph.Slot>;
   nodeType: graph.NodeType;
-  /** Dot, follow up on questions to use */
+  /** 打点, 跟进问题使用 */
   slotSetVersion?: string;
 }
 /* eslint-enable */

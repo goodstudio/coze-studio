@@ -22,28 +22,28 @@
 export type Int64 = string | number;
 
 export enum PublishResult {
-  /** unpublished */
+  /** 未发布 */
   Default = 0,
-  /** Under review. */
+  /** 审核中 */
   Auditing = 1,
-  /** Published successfully */
+  /** 发布成功 */
   Successful = 2,
-  /** publish failed */
+  /** 发布失败 */
   Failed = 3,
 }
 
 export enum PublishStatus {
-  /** Packing */
+  /** 打包中 */
   Packing = 0,
-  /** Packaging failed */
+  /** 打包失败 */
   PackFailed = 1,
-  /** Under review. */
+  /** 审核中 */
   Auditing = 2,
-  /** review disapproved */
+  /** 审核未通过 */
   AuditNotPass = 3,
-  /** Channel is being released. */
+  /** 渠道发布中 */
   ConnectorPublishing = 4,
-  /** release complete */
+  /** 发布完成 */
   PublishDone = 5,
 }
 /* eslint-enable */

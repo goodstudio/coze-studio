@@ -22,7 +22,7 @@
 export type Int64 = string | number;
 
 export interface CreateDelayTaskRequest {
-  /** How many minutes is the delay? */
+  /** 延迟多少分钟 */
   delay_min: Int64;
   task_content: string;
   user_question: string;
@@ -61,7 +61,7 @@ export interface CreateTimedTaskRequest {
   task_content: string;
   user_question: string;
   time_zone?: string;
-  /** Absolute time 1, relative time 2 */
+  /** 绝对时间1，相对时间2 */
   absolute?: Int64;
 }
 
@@ -130,19 +130,19 @@ export interface TaskInfo {
   next_time?: string;
   action_for_playground?: string;
   status?: number;
-  /** 0 Non-Presets 1 Presets (Test) 2 Presets (Release) */
+  /** 0非预设 1预设(测试) 2预设(发布) */
   preset_type?: number;
-  /** termination condition */
+  /** 终止条件 */
   terminate_condition?: string;
-  /** task content */
+  /** 任务内容 */
   task_content?: string;
-  /** Periodic task crontab expression */
+  /** 周期任务crontab表达式 */
   cron_expression?: string;
   time_zone?: string;
 }
 
 export interface UpdatePresetTaskSwitchRequest {
-  /** 0 Default 1 On 2 Off */
+  /** 0默认 1打开 2关闭 */
   switch_status: number;
 }
 

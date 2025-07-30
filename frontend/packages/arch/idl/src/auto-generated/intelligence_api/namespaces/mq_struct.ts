@@ -27,11 +27,11 @@ export enum EntityType {
 }
 
 export enum EventConnectorPublishResult {
-  /** Under review. */
+  /** 审核中 */
   Auditing = 1,
-  /** success */
+  /** 成功 */
   Success = 2,
-  /** fail */
+  /** 失败 */
   Failed = 3,
 }
 

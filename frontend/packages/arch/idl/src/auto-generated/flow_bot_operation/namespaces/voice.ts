@@ -23,14 +23,14 @@ export type Int64 = string | number;
 
 export enum VoiceSource {
   Sami = 1,
-  /** volcano */
+  /** 火山 */
   Volcano = 2,
 }
 
 export enum VoiceType {
-  /** Filter system tone */
+  /** 过滤系统音色 */
   SystemVoice = 1,
-  /** Filter user sounds */
+  /** 过滤用户音色 */
   UserVoice = 2,
 }
 
@@ -46,11 +46,11 @@ export interface FetchVoiceListRequest {
   language_code?: string;
   page_index?: number;
   page_size?: number;
-  /** Sound source, get sami by default */
+  /** 音色来源, 默认获取 sami 的 */
   source?: VoiceSource;
-  /** Get Tone Type 1 System 2 User, Default All */
+  /** 获取音色类型 1 系统 2 用户 默认所有 */
   voice_type?: VoiceType;
-  /** Huoshan Account */
+  /** 火山账号 */
   volcano_account_id?: string;
 }
 
@@ -90,17 +90,17 @@ export interface LanguageConfig {
 
 export interface UpdateVoiceConfigRequest {
   voice_id: string;
-  /** Tone Status, 0-Draft, 1-On, 2-Off */
+  /** 音色状态，0-草稿，1-上架，2-下架 */
   status?: number;
-  /** Preview audio text */
+  /** 预览音频文本 */
   preview_text?: string;
-  /** Preview audio URI */
+  /** 预览音频的uri */
   preview_audio?: string;
-  /** Is it the default tone, 0-non-default, 1-default */
+  /** 是否为默认音色，0-非默认，1-默认 */
   is_default?: number;
-  /** timbre name */
+  /** 音色名称 */
   name?: string;
-  /** language */
+  /** 语言 */
   language_code?: string;
   source?: VoiceSource;
 }
@@ -118,15 +118,15 @@ export interface VoiceConfig {
   style_id: string;
   update_time: Int64;
   preview_text: string;
-  /** Return to URL here. */
+  /** 此处返回url */
   preview_audio_url: string;
-  /** Is it the default tone, 0-non-default, 1-default */
+  /** 是否为默认音色，0-非默认，1-默认 */
   is_default: number;
-  /** Tone Status, 0-Draft, 1-On, 2-Off */
+  /** 音色状态，0-草稿，1-上架，2-下架 */
   status: number;
-  /** timbre source */
+  /** 音色来源 */
   source?: VoiceSource;
-  /** Huoshan Account */
+  /** 火山账号 */
   volcano_account_id?: string;
 }
 

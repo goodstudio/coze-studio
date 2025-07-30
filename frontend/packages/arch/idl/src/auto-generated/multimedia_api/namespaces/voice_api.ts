@@ -24,30 +24,30 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export interface AudioSpeechData {
-  /** Base64 encoded voice binary data */
+  /** base64 编码后的语音二进制数据 */
   bas464_content?: Blob;
-  /** link to play */
+  /** 播放的链接 */
   audio_url?: string;
-  /** synthetic audio resources */
+  /** 合成的音频资源 */
   audio_uri?: string;
 }
 
 export interface AudioSpeechRequest {
-  /** Required, timbre id */
+  /** 必选，音色id */
   voice_id: string;
-  /** Required, text for synthesized speech, length limit 1024 bytes (UTF-8 encoding). */
+  /** 必选，合成语音的文本，长度限制 1024 字节（UTF-8编码）。 */
   input: string;
-  /** Audio encoding format, wav/pcm/ogg_opus/mp3, default is mp3 */
+  /** 音频编码格式，wav / pcm / ogg_opus / mp3，默认为 mp3 */
   response_format?: string;
-  /** 1 The data type returned, the default is to return the audio data after generating base64, or you can specify to return the audio URL that can be played directly. */
+  /** 1 返回的数据类型，默认是返回生成 base64 后的音频数据，也可以指定返回直接可以播放的音频 URL */
   response_data_type?: common.AudioSpeechRespType;
-  /** Speech rate, [0.2, 3], defaults to 1, usually with one decimal place */
+  /** 语速，[0.2,3]，默认为1，通常保留一位小数即可 */
   speed?: number;
-  /** Emotion, default to empty */
+  /** 情感，默认为空 */
   emotion?: string;
-  /** Sentiment value, [1,5], defaults to 4, usually leaving one decimal place */
+  /** 情绪值，[1,5]，默认为4，通常保留一位小数即可 */
   emotion_scale?: number;
-  /** Extended parameters for passing through some business parameters, bot_id, workflow_id */
+  /** 扩展参数，用于透传一些业务参数，bot_id，workflow_id */
   extented?: Record<string, string>;
 }
 
@@ -73,11 +73,11 @@ export interface AudioTranscriptionsResponse {
 }
 
 export interface CheckCreateVoiceData {
-  /** Do you have permission? */
+  /** 是否有权限 */
   has_perm?: boolean;
-  /** Number of sounds that can be created */
+  /** 可创建的音色数量 */
   total_quota?: number;
-  /** The number of sounds that have been used */
+  /** 已经使用的音色数量 */
   used_quota?: number;
 }
 
@@ -95,9 +95,9 @@ export interface CloneVoiceData {
 
 export interface CloneVoiceRequest {
   voice_id: string;
-  /** Audio format, pcm, m4a mp3 wav */
+  /** 音频格式，pcm、m4a mp3 wav */
   audio_format: string;
-  /** Binary audio bytes after 10M base64 max */
+  /** max 10M  base64 后的二进制音频字节 */
   audio_bytes: string;
   compare_text?: string;
   preview_text?: string;
@@ -119,7 +119,7 @@ export interface CreateVoiceRequest {
   space_id: string;
   voice_desc?: string;
   icon_uri?: string;
-  /** Language, the default is zh. */
+  /** 语种，默认是 zh */
   language_code?: string;
 }
 
@@ -139,15 +139,15 @@ export interface DeleteVoiceResponse {
 }
 
 export interface GetVoiceMenuData {
-  /** scene */
+  /** 场景 */
   scenes?: Array<string>;
-  /** Supported languages */
+  /** 支持的语言 */
   languages?: Array<common.LanguageInfo>;
-  /** Gender */
+  /** 性别 */
   genders?: Array<string>;
-  /** age group */
+  /** 年龄段 */
   ages?: Array<string>;
-  /** model type */
+  /** 模型类型 */
   model_types?: Array<common.ModelType>;
 }
 
@@ -166,25 +166,25 @@ export interface MGetVoiceData {
 
 export interface MGetVoiceRequest {
   voice_ids?: Array<string>;
-  /** timbre name prefix */
+  /** 音色名称前缀 */
   prefix_voice_name?: string;
-  /** statement distinction */
+  /** 语句区分 */
   language_code?: string;
-  /** scene */
+  /** 场景 */
   scene?: string;
-  /** Create your own */
+  /** 自己创建 */
   self_created?: boolean;
-  /** The timbre of the specified query 1 System timbre 2 User timbre, all timbre is not passed on. */
+  /** 指定查询的音色 1 系统音色 2 用户音色  不传就是所有音色 */
   voice_type?: common.VoiceType;
-  /** When the space id does not pass spaceID/voiceID, voiceType must specify the system tone */
+  /** 空间id  不传 spaceID/voiceID 的时候，voiceType 必须指定系统音色 */
   space_id?: string;
-  /** timbre state */
+  /** 音色状态 */
   voice_state?: common.VoiceState;
-  /** Gender */
+  /** 性别 */
   gender?: string;
-  /** age group */
+  /** 年龄段 */
   age?: string;
-  /** model type */
+  /** 模型类型 */
   model_type?: common.ModelType;
   page_index?: number;
   page_size?: number;
@@ -213,7 +213,7 @@ export interface UpdateVoiceRequest {
   voice_name?: string;
   voice_desc?: string;
   icon_uri?: string;
-  /** Language, the default is zh. */
+  /** 语种，默认是 zh */
   language_code?: string;
 }
 
@@ -224,11 +224,11 @@ export interface UpdateVoiceResponse {
 }
 
 export interface VoiceFeatureGatewayData {
-  /** Tone function switch */
+  /** 音色功能开关 */
   enable?: boolean;
-  /** Sound clone function switch */
+  /** 音色克隆功能开关 */
   voice_clone_enable?: boolean;
-  /** Voiceprint recognition function switch */
+  /** 声纹识别功能开关 */
   voice_print_enable?: boolean;
 }
 

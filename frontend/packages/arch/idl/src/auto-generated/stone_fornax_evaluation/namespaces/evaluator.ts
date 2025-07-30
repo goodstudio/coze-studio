@@ -29,7 +29,7 @@ export enum BuiltinTemplateType {
 }
 
 export enum EvaluatorRunStatus {
-  /** Running state, state flow under asynchronous, only Success/Fail under synchronization */
+  /** 运行状态, 异步下状态流转, 同步下只有 Success / Fail */
   Unknown = 0,
   Success = 1,
   Fail = 2,
@@ -63,92 +63,92 @@ export interface CodeEvaluator {
 }
 
 export interface Correction {
-  /** Manual calibration score */
+  /** 人工校准得分 */
   score?: number;
-  /** Manual calibration reason */
+  /** 人工校准理由 */
   explain?: string;
-  /** Corrector */
+  /** 修正人 */
   updated_by?: string;
 }
 
 export interface Evaluator {
-  /** Evaluator ID */
+  /** 评估器 id */
   evaluator_id?: Int64;
-  /** Space ID */
+  /** 空间 id */
   space_id?: Int64;
-  /** Evaluator Type */
+  /** 评估器类型 */
   evaluator_type?: EvaluatorType;
-  /** display name */
+  /** 展示用名称 */
   name?: string;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** Has the draft been submitted? */
+  /** 草稿是否提交过 */
   draft_submitted?: boolean;
   base_info?: common.BaseInfo;
-  /** The current version content can be a draft version */
+  /** 当前版本内容，可以是草稿版本 */
   current_version?: EvaluatorVersion;
   latest_version?: string;
 }
 
 export interface EvaluatorContent {
-  /** Whether to accept chat history */
+  /** 是否接收历史消息 */
   receive_chat_history?: boolean;
-  /** Input schema */
+  /** 输入schema */
   input_schemas?: Array<common.ArgsSchema>;
-  /** 101-200 Evaluator Types */
+  /** 101-200 Evaluator类型 */
   prompt_evaluator?: PromptEvaluator;
   code_evaluator?: CodeEvaluator;
 }
 
 export interface EvaluatorInputData {
-  /** session history */
+  /** 历史会话记录 */
   history_messages?: Array<common.Message>;
-  /** variable */
+  /** 变量 */
   input_fields?: Record<string, common.Content>;
 }
 
 export interface EvaluatorOutputData {
-  /** running result */
+  /** 运行结果 */
   evaluator_result?: EvaluatorResult;
-  /** running consumption */
+  /** 运行消耗 */
   evaluator_usage?: EvaluatorUsage;
-  /** running error */
+  /** 运行报错 */
   evaluator_run_error?: EvaluatorRunError;
-  /** running time */
+  /** 运行耗时 */
   time_consuming_ms?: Int64;
 }
 
 export interface EvaluatorRecord {
-  /** evaluation record ID */
+  /** 评估记录ID */
   id?: Int64;
-  /** Add experimental ID field */
+  /** 新增实验ID字段 */
   experiment_id?: Int64;
-  /** Experiment ID */
+  /** 实验ID */
   experiment_run_id?: Int64;
-  /** Conversation ID */
+  /** 对话ID */
   item_id?: Int64;
-  /** Conversation ID */
+  /** 对话ID */
   turn_id?: Int64;
-  /** Evaluator Version ID */
+  /** 评估器版本ID */
   evaluator_version_id?: Int64;
-  /** Link ID */
+  /** 链路ID */
   trace_id?: string;
-  /** Link ID */
+  /** 链路ID */
   log_id?: string;
-  /** input data */
+  /** 输入数据 */
   evaluator_input_data?: EvaluatorInputData;
-  /** output data */
+  /** 输出数据 */
   evaluator_output_data?: EvaluatorOutputData;
   status?: EvaluatorRunStatus;
   base_info?: common.BaseInfo;
 }
 
 export interface EvaluatorResult {
-  /** score */
+  /** 打分 */
   score?: number;
-  /** calibration score */
+  /** 校准打分 */
   correction?: Correction;
-  /** reasoning process */
+  /** 推理过程 */
   reasoning?: string;
 }
 
@@ -163,11 +163,11 @@ export interface EvaluatorUsage {
 }
 
 export interface EvaluatorVersion {
-  /** Version ID */
+  /** 版本id */
   id?: Int64;
-  /** version number */
+  /** 版本号 */
   version?: string;
-  /** version description */
+  /** 版本描述 */
   description?: string;
   base_info?: common.BaseInfo;
   evaluator_content?: EvaluatorContent;
@@ -195,11 +195,11 @@ export interface Tool {
 }
 
 export interface ToolCombine {
-  /** Tool Definition */
+  /** 工具定义 */
   tool_def?: Tool;
-  /** Mock data */
+  /** mock 数据 */
   mock_response?: Array<string>;
-  /** Whether to disable */
+  /** 是否禁用 */
   disable?: boolean;
 }
 /* eslint-enable */

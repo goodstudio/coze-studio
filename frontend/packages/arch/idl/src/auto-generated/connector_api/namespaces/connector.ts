@@ -30,120 +30,120 @@ export enum ConnectorPublicType {
 }
 
 export enum ManageAccountConnectorAction {
-  /** Add channel */
+  /** 添加渠道 */
   Add = 0,
-  /** Remove channel */
+  /** 移除渠道 */
   Remove = 1,
 }
 
 export enum MiniProgramDomainAction {
-  /** Add domain name */
+  /** 添加域名 */
   Add = 0,
-  /** Remove domain name */
+  /** 移除域名 */
   Remove = 1,
 }
 
 export enum SpaceConnectorType {
-  /** Custom channels within the team */
+  /** 团队内自定义渠道 */
   Team = 1,
-  /** All public channels */
+  /** 所有的公开渠道 */
   Public = 2,
-  /** official channel */
+  /** 官方渠道 */
   Official = 3,
-  /** Installed public channels */
+  /** 已安装的公开渠道 */
   InstalledPublic = 4,
 }
 
 export interface AccountConnector {
-  /** Publishing Platform connector_id */
+  /** 发布平台 connector_id */
   id?: string;
-  /** publishing platform name */
+  /** 发布平台名称 */
   name?: string;
-  /** publishing platform icon */
+  /** 发布平台图标 */
   icon_url?: string;
-  /** Publish platform icon URI (updates may be posted back) */
+  /** 发布平台图标 uri（更新可能会回传） */
   icon_uri?: string;
-  /** Publish Platform Description */
+  /** 发布平台描述 */
   desc?: string;
-  /** 0-Agent, 1-Application */
+  /** 0-智能体，1-应用 */
   agent_type?: Array<Int64>;
-  /** Channel Type, 1 Custom Channel, 2. Open Channel, 3. Official Channel */
+  /** 渠道类型, 1 自定义渠道, 2.公开渠道, 3.官方渠道 */
   connector_type?: SpaceConnectorType;
-  /** The number of spaces that have been added to the channel under the account */
+  /** 账号下已添加该渠道的空间数量 */
   added_space_count?: Int64;
-  /** Number of spaces under the account */
+  /** 账号下空间数量 */
   total_space_count?: Int64;
-  /** When viewing by space, show whether channels are added to that space */
+  /** 按空间查看时，展示渠道是否添加到该空间 */
   is_added_to_space?: boolean;
-  /** Has it been added to the account? */
+  /** 是否已添加到账号 */
   is_added_to_account?: boolean;
-  /** Installation is not allowed */
+  /** 不允许安装 */
   cannot_install?: boolean;
-  /** Details page link */
+  /** 详情页链接 */
   detail_url?: string;
 }
 
 export interface BindSpaceConnectorRequest {
   connector_id_list?: Array<string>;
   space_id?: string;
-  /** uninstall */
+  /** 卸载 */
   uninstall?: boolean;
-  /** space list */
+  /** 空间列表 */
   space_id_list?: Array<string>;
-  /** Organization account ID */
+  /** 组织账号ID */
   account_id?: string;
-  /** Support channels Open all and close all buttons in the space under the organization account */
+  /** 支持渠道在组织账号下的空间全部开启、全部关闭按钮 */
   operate_all_space?: boolean;
 }
 
 export interface BindSpaceConnectorResponse {
-  /** Key: connector_id, value: whether successful */
+  /** key: connector_id, value: 是否成功 */
   manage_result?: Record<string, boolean>;
   code?: number;
   msg?: string;
 }
 
 export interface ConnectorMetaInfo {
-  /** Publishing Platform connector_id */
+  /** 发布平台 connector_id */
   id?: string;
-  /** publishing platform name */
+  /** 发布平台名称 */
   name?: string;
-  /** publishing platform icon */
+  /** 发布平台图标 */
   icon_url?: string;
-  /** Publish platform icon URI (updates may be posted back) */
+  /** 发布平台图标 uri（更新可能会回传） */
   icon_uri?: string;
-  /** Publish Platform Description */
+  /** 发布平台描述 */
   desc?: string;
-  /** public type */
+  /** 公开类型 */
   public_type?: ConnectorPublicType;
-  /** Token is returned when fetching the list */
+  /** token 在获取列表时返回 */
   callback_url?: string;
-  /** publishing space */
+  /** 发布空间 */
   space_id_list?: Array<string>;
-  /** Callback The token used to verify the signature */
+  /** callback 用来校验签名的 token */
   callback_token?: string;
-  /** OAuth configuration */
+  /** oauth 配置 */
   oauth_config?: string;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** OAuth application id */
+  /** oauth 应用 id */
   oauth_app_id?: string;
-  /** Whether to add to the account */
+  /** 是否添加到账号 */
   is_added_to_account?: boolean;
 }
 
 export interface CopyLinkAreaInfo {
   link_list?: Array<CopyLinkItem>;
-  /** Link area title text */
+  /** 链接区域标题文本 */
   title_text?: string;
-  /** Description under the title of the link area */
+  /** 链接区域标题下描述 */
   description?: string;
-  /** The step number only displays the specified step number and does not affect the display order of the SchemaArea. */
+  /** 步骤号,只是展示指定的步骤号，不影响SchemaArea的展示顺序。 */
   step_order?: Int64;
 }
 
 export interface CopyLinkItem {
-  /** Copy link name */
+  /** copy link名称 */
   title?: string;
   link?: string;
 }
@@ -190,45 +190,45 @@ export interface DeleteConnectorResponse {
 }
 
 export interface FormSchemaItem {
-  /** Submit field key */
+  /** 提交字段key */
   name?: string;
-  /** Display field name */
+  /** 展示字段名称 */
   title?: string;
-  /** 'Input '|' InputNumber '|' Select '|' Radio '|' Checkbox '; Rendering Component */
+  /** 'Input' | 'InputNumber' ｜'Select' | 'Radio' | 'Checkbox'; 渲染组件 */
   component?: string;
-  /** Options [], when used for'Select '|' Radio '|' Checkbox ' */
+  /** Options[]当为'Select' | 'Radio' | 'Checkbox' 时提供 枚举值 */
   enums?: Array<Options>;
-  /** 'String '|' number '|' boolean '; field type (there are currently no array/object scenarios, so array/object is not considered for now) */
+  /** 'string' | 'number' | 'boolean'; 字段类型 (目前没有 array / object场景，暂不考虑 array / object) */
   type?: string;
-  /** validation rule */
+  /** 校验规则 */
   rules?: Array<FormSchemaRule>;
-  /** hint */
+  /** 提示 */
   placeholder?: string;
 }
 
 export interface FormSchemaRule {
-  /** String maximum length */
+  /** string最大长度 */
   max?: number;
-  /** String minimum length */
+  /** string最小长度 */
   min?: number;
-  /** String exact length */
+  /** string精准长度 */
   len?: number;
-  /** regular */
+  /** 正则 */
   pattern?: string;
-  /** Prompt information when checking errors, go to starling configuration */
+  /** 校验错误时的提示信息，走 starling 配置 */
   message?: string;
-  /** Is it required? */
+  /** 是否必填 */
   required?: boolean;
 }
 
 export interface GetAccountConnectorListRequest {
   page_token?: string;
   page_size?: number;
-  /** channel search term */
+  /** 渠道搜索词 */
   search_word?: string;
   space_id?: string;
   connector_type?: SpaceConnectorType;
-  /** Organization account ID */
+  /** 组织账号ID */
   account_id?: string;
 }
 
@@ -260,12 +260,12 @@ export interface GetPreviewConnectorResponse {
 export interface GetSpaceConnectorStatusRequest {
   connector_id?: string;
   space_id_list?: Array<string>;
-  /** Organization account ID */
+  /** 组织账号ID */
   account_id?: string;
 }
 
 export interface GetSpaceConnectorStatusResponse {
-  /** Key: space_id, value: bound status, 1-bound */
+  /** key: space_id, value: 绑定状态，1-已绑定 */
   bind_status_map?: Record<string, number>;
   code?: number;
   msg?: string;
@@ -286,11 +286,11 @@ export interface ListConnectorResponse {
 }
 
 export interface ListMiniProgramDomainRequest {
-  /** Enterprise ID */
+  /** 企业ID */
   enterprise_id?: string;
-  /** Channel ID */
+  /** 渠道ID */
   connector_id?: string;
-  /** Search term */
+  /** 搜索词 */
   search_word?: string;
 }
 
@@ -319,12 +319,12 @@ export interface ListSpaceConnectorResponse {
 export interface ManageAccountConnectorRequest {
   account_id?: string;
   connector_id_list?: Array<string>;
-  /** Add or remove channels */
+  /** 添加或移除渠道 */
   action?: ManageAccountConnectorAction;
 }
 
 export interface ManageAccountConnectorResponse {
-  /** Key: connector_id, value: whether successful */
+  /** key: connector_id, value: 是否成功 */
   manage_result?: Record<string, boolean>;
   code?: number;
   msg?: string;
@@ -350,20 +350,20 @@ export interface Options {
 
 export interface SchemaAreaInfo {
   schema_list?: Array<FormSchemaItem>;
-  /** Enter Information Area Title Text */
+  /** 输入信息区域标题文本 */
   title_text?: string;
-  /** Enter information under the heading of the field */
+  /** 输入信息区域标题下描述 */
   description?: string;
-  /** The step number only displays the specified step number and does not affect the display order of the SchemaArea. */
+  /** 步骤号,只是展示指定的步骤号，不影响SchemaArea的展示顺序。 */
   step_order?: Int64;
 }
 
 export interface SetMiniProgramDomainRequest {
-  /** Enterprise ID */
+  /** 企业ID */
   enterprise_id?: string;
   domain_list?: Array<string>;
   action?: MiniProgramDomainAction;
-  /** Channel ID */
+  /** 渠道ID */
   connector_id?: string;
 }
 
@@ -373,25 +373,25 @@ export interface SetMiniProgramDomainResponse {
 }
 
 export interface SpaceConnector {
-  /** Publishing Platform connector_id */
+  /** 发布平台 connector_id */
   id?: string;
-  /** publishing platform name */
+  /** 发布平台名称 */
   name?: string;
-  /** publishing platform icon */
+  /** 发布平台图标 */
   icon_url?: string;
-  /** Publish platform icon URI (updates may be posted back) */
+  /** 发布平台图标 uri（更新可能会回传） */
   icon_uri?: string;
-  /** Publish Platform Description */
+  /** 发布平台描述 */
   desc?: string;
-  /** Details page link */
+  /** 详情页链接 */
   detail_url?: string;
-  /** Has it been added? */
+  /** 是否已添加 */
   is_added?: boolean;
-  /** 0-Agent, 1-Application */
+  /** 0-智能体，1-应用 */
   agent_type?: Array<Int64>;
-  /** Channel type, 1 custom channel within the team, 2. Open channel, 3. Official channel 4, installed open channel */
+  /** 渠道类型, 1 团队内自定义渠道,2.公开渠道, 3.官方渠道 4，已安装的公开渠道 */
   connector_type?: SpaceConnectorType;
-  /** Downloading is not allowed. */
+  /** 不允许下载 */
   cannot_install?: boolean;
 }
 
@@ -423,9 +423,9 @@ export interface UpdateMiniProgramDomainResponse {
 }
 
 export interface UpdateOauthConfigRequest {
-  /** Channel ID */
+  /** 渠道 ID */
   connector_id?: string;
-  /** OAuth configuration */
+  /** oauth 配置 */
   oauth_config?: string;
 }
 

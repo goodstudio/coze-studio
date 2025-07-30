@@ -545,7 +545,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/plugin_api/get_bot_default_params
    *
-   * Bot reference plugin
+   * bot引用plugin
    */
   GetBotDefaultParams(
     req?: plugin_develop.GetBotDefaultParamsRequest,
@@ -798,7 +798,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/plugin_api/get_plugin_preset_card_bind
    *
-   * preset card
+   * 预置卡片
    */
   GetPluginPresetCardBind(
     req?: plugin_develop.GetPluginPresetCardBindRequest,
@@ -1062,7 +1062,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/plugin_api/optimize_param_prompt
    *
-   * Optimize prompts with copilot chain tasks
+   * 利用 copilot chain task 优化 prompt
    */
   OptimizeParamPrompt(
     req: plugin_develop.OptimizeParamPromptRequest,
@@ -1124,7 +1124,7 @@ export default class PluginDevelopService<T> {
   /**
    * GET /api/plugin_api/get_async_task_list
    *
-   * asynchronous task
+   * 异步任务
    */
   GetPluginAsyncTaskList(
     req: plugin_develop.GetPluginAsyncTaskListRequest,
@@ -1178,7 +1178,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/plugin_api/get_plugin_pricing_rules_by_workflow_id
    *
-   * plug-in billing
+   * 插件计费
    */
   GetPluginPricingRulesByWorkflowID(
     req: plugin_develop.GetPluginPricingRulesByWorkflowIDRequest,
@@ -1214,7 +1214,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/plugin_api/library_resource_list
    *
-   * The list of Coze repositories is not accessible due to the new service va. Please put it here first.
+   * Coze资源库列表，因新服务va访问不通，先在这里放
    */
   LibraryResourceList(
     req: resource.LibraryResourceListRequest,
@@ -1258,7 +1258,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/plugin_api/resource_copy_dispatch
    *
-   * Http function entry, including: copy Library resources to the project, copy project resources to the Library, move project resources to the Library, and single copy resources within the project
+   * Http功能入口，包括：复制Library资源到项目、复制项目资源到Library、移动项目资源到Library、项目内单复制资源
    */
   ResourceCopyDispatch(
     req?: resource.ResourceCopyDispatchRequest,
@@ -1344,7 +1344,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/plugin_api/wakeup_ide_plugin
    *
-   * IDE plugin
+   * IDE插件
    */
   WakeupIdePlugin(
     req?: plugin_develop.WakeupIdePluginRequest,
@@ -1415,7 +1415,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/task_api/set_agent_task_status
    *
-   * Set task channel status
+   * 设置task渠道状态
    */
   SetAgentTaskStatus(
     req: plugin_develop.SetAgentTaskStatusRequest,
@@ -1438,7 +1438,7 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/task_api/get_agent_task_exec_list
    *
-   * Get the task execution record under the agent
+   * 获取agent下任务执行记录
    */
   GetAgentTaskExecList(
     req: plugin_develop.GetAgentTaskExecListRequest,
@@ -1463,9 +1463,9 @@ export default class PluginDevelopService<T> {
   /**
    * POST /api/task_api/get_agent_task_list
    *
-   * trigger management
+   * 触发器管理
    *
-   * Get the list of triggers under the agent
+   * 获取agent下的触发器列表
    */
   GetAgentTaskList(
     req: plugin_develop.GetAgentTaskListRequest,
@@ -1493,7 +1493,7 @@ export default class PluginDevelopService<T> {
   /**
    * GET /api/plugin_api/get_export_ip_config
    *
-   * Plugin supports fixed export IP
+   * 插件支持固定出口ip
    */
   GetPluginExportIPConfig(
     req: plugin_develop.GetPluginExportIPConfigRequest,

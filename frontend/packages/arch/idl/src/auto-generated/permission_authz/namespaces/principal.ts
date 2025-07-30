@@ -27,7 +27,7 @@ export enum AuthSemantics {
 }
 
 export enum AuthType {
-  /** direct user access */
+  /** 用户直接访问 */
   Session = 1,
   /** Personal access token */
   PAT = 2,
@@ -53,9 +53,9 @@ export enum PrincipalType {
 }
 
 export interface PrincipalIdentifier {
-  /** subject type */
+  /** 主体类型 */
   type: PrincipalType;
-  /** principal Id */
+  /** 主体Id */
   id: string;
 }
 /* eslint-enable */

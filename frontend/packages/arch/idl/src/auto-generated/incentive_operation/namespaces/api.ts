@@ -62,66 +62,66 @@ export interface Task {
   task_id?: string;
   task_name?: string;
   desc?: string;
-  /** show
-bill copy */
+  /** 展示
+账单文案 */
   bill_desc_starling_key?: string;
-  /** User task center display copy */
+  /** 用户任务中心展示文案 */
   user_task_desc_starling_key?: string;
-  /** Button related configuration */
+  /** 按钮相关配置 */
   button?: common.UserTaskButton;
-  /** Reward, it is tentatively planned that only one reward will be issued for each task in the first phase, and the reward can only be Token. */
+  /** 奖励，一期暂定每个任务只发一个奖励，奖励只能是 Token */
   reward?: common.Reward;
-  /** limit the number of times
-limit the number of times */
+  /** 限制次数
+限制次数 */
   times_limit?: number;
-  /** Whether to limit */
+  /** 是否限制 */
   limit_restriction?: boolean;
-  /** refresh
-Refresh Type */
+  /** 刷新
+刷新类型 */
   peroid_type?: common.PeriodType;
-  /** cycle duration */
+  /** 周期时长 */
   peroid_value?: Int64;
-  /** state */
+  /** 状态 */
   task_status?: common.TaskStatus;
 }
 
 export interface UpdateTaskRequest {
   task_id: string;
-  /** display settings
-bill copy */
+  /** 展示设置
+账单文案 */
   bill_desc_starling_key?: string;
-  /** User task center display copy */
+  /** 用户任务中心展示文案 */
   user_task_desc_starling_key?: string;
-  /** Button related configuration */
+  /** 按钮相关配置 */
   button?: common.UserTaskButton;
-  /** Reward settings, it is tentatively planned that only one reward will be issued for each task in the first phase, and the reward can only be Token.
-If there are other rewards or multiple rewards, report an error directly */
+  /** 奖励设置，一期暂定每个任务只发一个奖励，奖励只能是 Token
+若出现其他奖励或多个奖励，直接报错 */
   reward?: common.Reward;
-  /** limit setting
-limit the number of times */
+  /** 限制次数设置
+限制次数 */
   times_limit?: number;
-  /** Whether to limit */
+  /** 是否限制 */
   limit_restriction?: boolean;
-  /** Refresh the settings, there is only one task under each task group tentatively
-If there are multiple tasks under the task group, an error will be reported directly
-Refresh Type */
+  /** 刷新设置，一期暂定每个任务组下只有一个任务
+若任务组下出现多个任务，则直接报错
+刷新类型 */
   peroid_type?: common.PeriodType;
-  /** cycle duration */
+  /** 周期时长 */
   peroid_value?: Int64;
-  /** Other configurations
-Has it been hidden */
+  /** 其他配置
+是否一直隐藏 */
   hide?: boolean;
-  /** Hide when done */
+  /** 完成后隐藏 */
   drop_when_finish?: boolean;
-  /** task description */
+  /** 任务描述 */
   task_desc?: string;
-  /** The event trigger key, the original TCC configuration, is stored in the DB instead, and is used to map the task name to the task ID in the rules engine */
+  /** 事件触发key, 原tcc配置，改为存储在DB中，用于在规则引擎中将任务名映射为任务ID */
   event_trigger_key?: string;
-  /** user control */
+  /** 用户控制 */
   user_control?: common.UserControl;
-  /** blacklist */
+  /** 黑名单 */
   black_list?: Array<Int64>;
-  /** whitelist */
+  /** 白名单 */
   white_list?: Array<Int64>;
 }
 

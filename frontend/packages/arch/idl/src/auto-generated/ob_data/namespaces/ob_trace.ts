@@ -37,18 +37,18 @@ export interface BatchGetTracesAdvanceInfoRequest {
 
 export interface BatchGetTracesAdvanceInfoResponse {
   data: BatchGetTracesAdvanceInfoData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 
 export interface FieldMeta {
-  /** field type */
+  /** 字段类型 */
   value_type: field_filter.ValueType;
-  /** Supported operation types */
+  /** 支持的操作类型 */
   filter_types: Array<field_filter.FieldFilterType>;
-  /** Supported options */
+  /** 支持的可选项 */
   field_options?: field_filter.FieldOptions;
 }
 
@@ -58,17 +58,17 @@ export interface GetTraceByLogIDRequest {
   /** bot id */
   bot_id: string;
   log_id: string;
-  /** Ms, if not passed, search forward ten minutes by default */
+  /** ms, 如果未传默认向前搜索十分钟 */
   start_time?: string;
-  /** Ms, end_at > = start_at, if not passed, search backwards for ten minutes by default */
+  /** ms, end_at >= start_at, 如果未传默认向后搜索十分钟 */
   end_time?: string;
 }
 
 export interface GetTraceByLogIDResponse {
   data: GetTraceData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 
@@ -90,16 +90,16 @@ export interface GetTraceRequest {
 
 export interface GetTraceResponse {
   data: GetTraceData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 
 export interface GetTracesMetaInfoData {
-  /** field meta information */
+  /** 字段元信息 */
   field_metas: Record<string, FieldMeta>;
-  /** Span classification, key is classification, value is span type */
+  /** span分类, key是分类，value是span type */
   span_category: Partial<Record<ob_span.SpanCategory, Array<ob_span.SpanType>>>;
 }
 
@@ -107,9 +107,9 @@ export interface GetTracesMetaInfoRequest {}
 
 export interface GetTracesMetaInfoResponse {
   data?: GetTracesMetaInfoData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -127,24 +127,24 @@ export interface ListDebugQueriesRequest {
 
 export interface ListDebugQueriesResponse {
   data: ListTracesData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 
 export interface ListTracesData {
   spans: Array<ob_span.Span>;
-  /** The paging token on the next page, which is returned when the front end pulls the data on the next page. */
+  /** 下一页的分页token，前端拉取下一页数据时回传。 */
   next_page_token: string;
-  /** Is there any more data? */
+  /** 是否有更多数据 */
   has_more: boolean;
 }
 
 export interface TokenCost {
-  /** Enter the number of tokens consumed */
+  /** 输入消耗token数 */
   input: number;
-  /** Output consumption token */
+  /** 输出消耗token数 */
   output: number;
 }
 
@@ -154,7 +154,7 @@ export interface TraceAdvanceInfo {
   status: ob_span.SpanStatus;
 }
 
-/** Trace query parameters */
+/** Trace查询参数 */
 export interface TraceQueryParams {
   trace_id: string;
   start_time: string;

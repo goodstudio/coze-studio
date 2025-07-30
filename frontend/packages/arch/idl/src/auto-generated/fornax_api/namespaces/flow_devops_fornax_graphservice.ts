@@ -25,11 +25,11 @@ export type Int64 = string | number;
 
 export enum GraphStatus {
   Undefined = 0,
-  /** No runtime use */
+  /** 无运行时使用 */
   Unused = 1,
-  /** There is runtime use */
+  /** 有运行时使用 */
   InUse = 2,
-  /** Unconfigured slot */
+  /** 未配置 slot */
   Unconfigured = 3,
 }
 
@@ -41,14 +41,14 @@ export enum IncompatibilityType {
 }
 
 export interface CheckSlotSetCompatibilityReq {
-  /** slotSet to verify */
+  /** 需要校验的 slotSet */
   slotSetID: string;
   clientID: string;
 }
 
 export interface CheckSlotSetCompatibilityResp {
   slots?: Array<SlotSetCompatibility>;
-  /** Is it compatible? */
+  /** 是否兼容 */
   compatibility?: boolean;
 }
 
@@ -65,9 +65,9 @@ export interface ClientGraph {
   graphName: string;
   graphDesc?: string;
   slotSetID?: string;
-  /** slotSet version number */
+  /** slotSet 版本号 */
   slotSetVersion?: string;
-  /** Graph state */
+  /** graph状态 */
   graphStatus?: GraphStatus;
   createdBy?: string;
   updatedBy?: string;
@@ -89,7 +89,7 @@ export interface CreateGraphResp {
 export interface CreateSlotSetReq {
   graphID: string;
   nodes: Array<Node>;
-  /** Version number conforming to semver2 */
+  /** 符合 semver2 的版本号 */
   version: string;
   commitMessage?: string;
 }
@@ -117,7 +117,7 @@ export interface GetLatestSlotSetVersionReq {
 }
 
 export interface GetLatestSlotSetVersionResp {
-  /** Maximum version number */
+  /** 版本号最大值 */
   version?: string;
 }
 
@@ -130,21 +130,21 @@ export interface GetLatestSlotsOfClientResp {
   nodes: Array<Node>;
   slotSetID?: string;
   slotSetVersion?: string;
-  /** Slot version description */
+  /** slot 版本描述 */
   slotSetMessage?: string;
-  /** Slot publishing record ID */
+  /** slot 发布记录ID */
   slotReleaseID?: string;
 }
 
 export interface GetSlotSetReq {
   slotSetID: string;
-  /** Not returning slot list when false */
+  /** 为 false 时不返回 slot 列表 */
   withSlotDetail: boolean;
 }
 
 export interface GetSlotSetResp {
   slotSet?: graph.SlotSet;
-  /** Slot Node List */
+  /** slot 节点列表 */
   nodes?: Array<Node>;
 }
 
@@ -170,7 +170,7 @@ export interface ListNodeTemplatesReq {}
 
 export interface ListNodeTemplatesResp {
   nodeTemplates?: Array<graph.NodeTemplate>;
-  /** Custom types supported at the server level */
+  /** 服务端支持的自定义类型 */
   supportedTypes: Array<graph.TypeDescriptor>;
 }
 
@@ -180,7 +180,7 @@ export interface ListSlotSetReleasesOfClientReq {
 }
 
 export interface ListSlotSetReleasesOfClientResp {
-  /** Version list, sorted in descending order by update time */
+  /** 版本列表，按更新时间降序排列 */
   releases?: Array<SlotSetRelease>;
 }
 
@@ -194,21 +194,21 @@ export interface Node {
 export interface ReleaseSlotSetReq {
   slotSetID: string;
   clients: Array<string>;
-  /** Ignore incompatible slots, force release */
+  /** 忽略不兼容 slot，强制发布 */
   forceRelease: boolean;
 }
 
 export interface ReleaseSlotSetResp {}
 
-/** Slot structure for front-end presentation */
+/** 用于前端展示的 Slot 结构 */
 export interface Slot {
   uid: string;
   nodeUID?: string;
   nodeName?: string;
-  /** For official SlotType, there are customized front-end interactions */
+  /** 对于官方 SlotType, 有定制的前端交互 */
   officialSlotType?: graph.OfficialSlotType;
   schema?: graph.FieldDescriptor;
-  /** JSON-encoded value, corresponding to the valueType in SlotSchema */
+  /** JSON 编码的值, 与 SlotSchema 中的 valueType 相对应 */
   value?: string;
   createdBy?: string;
   createdAt?: string;
@@ -228,18 +228,18 @@ export interface SlotSetCompatibility {
 export interface SlotSetRelease {
   id: string;
   slotSetID: string;
-  /** The semver2 version number displayed */
+  /** 展示的 semver2 版本号 */
   slotSetVersion?: string;
   graphID?: string;
   graphUID?: string;
   clientID?: string;
-  /** Structured version information; Rollback: is_revert: 1; Clear: is_clear: 1 */
+  /** 结构化版本信息; 回滚: is_revert:1; 清空: is_clear:1 */
   releaseLabels?: Record<string, string>;
-  /** version description */
+  /** 版本描述 */
   versionMessage?: string;
-  /** publisher */
+  /** 发布人 */
   createdBy?: string;
-  /** release time */
+  /** 发布时间 */
   createdAt?: string;
 }
 

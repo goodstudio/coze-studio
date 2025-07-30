@@ -29,11 +29,11 @@ export interface BotInfo {
 }
 
 export interface ListingConfig {
-  /** Open and closed sources selected in the last submission */
+  /** 上一次提交选择的开闭源 */
   LastPublishMode?: product_common.ProductPublishMode;
-  /** Last submitted category */
+  /** 上一次提交的分类 */
   CategoryID?: Int64;
-  /** Is the data corresponding to the version open-source? */
+  /** version对应的数据是否可开源 */
   PublishMode?: product_common.ProductPublishMode;
 }
 
@@ -70,8 +70,8 @@ export interface ProductCategory {
 }
 
 export interface ProductDataIndicator {
-  /** Data analytics metrics, source data warehouse, such as replication volume, run count, etc
-Copy volume: Only the template has it. */
+  /** 数据分析指标，来源数仓，比如复制量、运行数等
+复制量：只有模板有 */
   DuplicatedCount?: number;
 }
 
@@ -94,37 +94,37 @@ export interface ProductInfo {
   BotInfo?: BotInfo;
   CategoryID?: Int64;
   ProductEntity?: product_common.ProductEntity;
-  /** Product name */
+  /** 商品名称 */
   Name?: string;
   Description?: string;
-  /** Product avatar */
+  /** 商品头像 */
   IconURL?: string;
-  /** Product OwnerUserID */
+  /** 商品OwnerUserID */
   OwnerID?: Int64;
-  /** draft review status */
+  /** 草稿审核状态 */
   DraftStatus?: product_common.ProductDraftStatus;
-  /** SKU list */
+  /** sku 列表 */
   SKUs?: Array<SKUEntity>;
-  /** Is it open source? */
+  /** 是否开源 */
   PublishMode?: product_common.ProductPublishMode;
-  /** Workflow information */
+  /** workflow信息 */
   WorkflowInfo?: WorkflowInfo;
-  /** Is the professional version specially available? */
+  /** 是否专业版特供 */
   IsProfessional?: boolean;
-  /** Is it a template? */
+  /** 是否为模板 */
   IsTemplate?: boolean;
   IconURI?: string;
-  /** Is it free? */
+  /** 是否免费 */
   IsFree?: boolean;
-  /** Data analytics metrics */
+  /** 数据分析指标 */
   DataIndicator?: ProductDataIndicator;
-  /** Template cover, there will only be one cover at most at present. */
+  /** 模板封面，目前最多只会有一张封面 */
   Covers?: Array<product_common.ImageInfo>;
 }
 
 export interface ProductInfoOption {
   NeedIcon?: boolean;
-  /** When true, if the entity is not on the shelves, the latest draft status of the entity is returned */
+  /** 为true时，若entity未上架，则返回该entity最新的草稿状态 */
   NeedNeverListed?: boolean;
 }
 
@@ -145,34 +145,34 @@ export interface SKUEntity {
   Prices?: Array<Price>;
   Attrs?: Array<SKUAttrInfo>;
   PricesV2?: Array<marketplace_common.Price>;
-  /** Subscription products will only be available. */
+  /** 订阅类商品才会有 */
   SubscriptionInfo?: SubscriptionExtra;
-  /** SKU name, for display */
+  /** sku名称，用于展示 */
   SKUTitle?: string;
-  /** The product id to which SKUS belongs. */
+  /** skus 所属的商品 id */
   ProductID?: Int64;
-  /** commodity entity information */
+  /** 商品实体信息 */
   EntityInfo?: product_common.ProductEntity;
-  /** Recharge SKU-specific information */
+  /** 充值类 sku 特有信息 */
   ChargeInfo?: product_common.ChargeSKUExtra;
 }
 
-/** The sku information of subscription products needs to be separated from the sku of ordinary products. */
+/** 订阅类商品 sku 信息，需要与普通商品 sku 隔开 */
 export interface SubscriptionExtra {
   SubsSKUType?: product_common.SubscribeSKUType;
   AutoRenewSKU?: product_common.SubscriptionAutoRenewSKU;
   OneOffSKU?: product_common.SubscriptionOneOffSKU;
   BenefitIDs?: Array<Int64>;
-  /** subscription level */
+  /** 订阅等级 */
   SubscirptionLevel?: number;
 }
 
 export interface UIPreviewTypeConfig {
-  /** Preview method/display method */
+  /** 预览方式/展示方式 */
   UIPreviewType?: product_common.UIPreviewType;
-  /** Whether it is valid, if false, the preview method is not supported */
+  /** 是否有效，若为 false，则不支持该预览方式 */
   IsValid?: boolean;
-  /** If IsValid is false, return the reason */
+  /** 若 IsValid 为 false，则返回原因 */
   Reason?: string;
 }
 

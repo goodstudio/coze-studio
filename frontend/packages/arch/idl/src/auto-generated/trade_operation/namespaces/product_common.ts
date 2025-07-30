@@ -40,19 +40,19 @@ export enum ContentType {
 }
 
 export enum FavoriteListSource {
-  /** Created by users themselves */
+  /** 用户自己创建的 */
   CreatedByMe = 1,
 }
 
 /** feedCard */
 export enum FeedType {
-  /** Recommended user feed */
+  /** 推荐用户feed */
   Recommend = 0,
-  /** Product release feed */
+  /** 商品发布feed */
   ProductPublish = 1,
-  /** Product update feed */
+  /** 商品更新feed */
   ProductUpdate = 2,
-  /** Official news feed */
+  /** 官方消息feed */
   OfficialMessage = 3,
 }
 
@@ -69,9 +69,9 @@ export enum Origin {
   PluginAdmin = 1,
   BotUser = 2,
   MarketplaceAdmin = 3,
-  /** Report recall and remove from shelves */
+  /** 举报召回下架 */
   ReportAdmin = 4,
-  /** Store channel removal */
+  /** 商店渠道下架 */
   StoreChannel = 5,
 }
 
@@ -91,15 +91,15 @@ export enum PriceType {
 }
 
 export enum ProductDraftStatus {
-  /** default */
+  /** 默认 */
   Default = 0,
-  /** Under review. */
+  /** 审核中 */
   Pending = 1,
-  /** approved */
+  /** 审核通过 */
   Approved = 2,
-  /** The review failed. */
+  /** 审核不通过 */
   Rejected = 3,
-  /** Abandoned */
+  /** 已废弃 */
   Abandoned = 4,
 }
 
@@ -109,44 +109,44 @@ export enum ProductEntityType {
   /** Workflow = 3 , */
   SocialScene = 4,
   Project = 6,
-  /** History workflow, no more in the future (abandoned) */
+  /** 历史工作流，后续不会再有（废弃） */
   WorkflowTemplate = 13,
-  /** Historical image stream template, no more in the future (obsolete) */
+  /** 历史图像流模板，后续不会再有（废弃） */
   ImageflowTemplate = 15,
-  /** Template universal identification, only used to bind template-related configurations, not bind products */
+  /** 模板通用标识，仅用于绑定模板相关的配置，不绑定商品 */
   TemplateCommon = 20,
-  /** Bot template */
+  /** Bot 模板 */
   BotTemplate = 21,
-  /** workflow template */
+  /** 工作流模板 */
   WorkflowTemplateV2 = 23,
-  /** Image stream template (this type has been offline and merged into workflow, but historical data will be preserved, and the front end will be treated as workflow display) */
+  /** 图像流模板（该类型已下线，合并入 workflow，但历史数据会保留，前端视作 workflow 展示） */
   ImageflowTemplateV2 = 25,
-  /** project template */
+  /** 项目模板 */
   ProjectTemplate = 26,
-  /** Coze token products, theoretically there will only be one */
+  /** coze token 类商品，理论上只会有一个 */
   CozeToken = 50,
-  /** Subscribe to the traffic package of credit, theoretically there will only be one */
+  /** 订阅 credit 的流量包，理论上只会有一个 */
   MsgCredit = 55,
-  /** There is only one subscription product in theory */
+  /** 消息订阅类商品，理论上只有一个 */
   SubsMsgCredit = 60,
   Common = 99,
-  /** Special Topics (Compatible with previous designs) */
+  /** 专题（兼容之前的设计） */
   Topic = 101,
 }
 
 export enum ProductListingPeriodType {
-  /** The last time it hit the shelves was 7 days ago */
+  /** 最近一次上架在 7 天前 */
   CreatedBefore7D = 1,
-  /** The last time it was on the shelves was within 7 days. */
+  /** 最近一次上架在 7 天内 */
   UpdatedIn7D = 2,
-  /** First hit shelves within 7 days */
+  /** 第一次上架在 7 天内 */
   CreatedIn7D = 3,
 }
 
 export enum ProductListSource {
-  /** recommended list page */
+  /** 推荐列表页 */
   Recommend = 1,
-  /** personalized recommendation */
+  /** 个性化推荐 */
   CustomizedRecommend = 2,
 }
 
@@ -175,7 +175,7 @@ export enum ProductShareType {
 }
 
 export enum ProductStatus {
-  /** It never hit the shelves. */
+  /** 从未上架 */
   NeverListed = 0,
   Listed = 1,
   Unlisted = 2,
@@ -188,7 +188,7 @@ export enum ProductUnlistType {
 }
 
 export enum ResourceType {
-  /** Resources used for project products/templates */
+  /** 项目商品/模板用到的资源 */
   Plugin = 1,
 }
 
@@ -201,16 +201,16 @@ export enum SocialSceneRoleType {
 export enum SortType {
   Heat = 1,
   Newest = 2,
-  /** collection time */
+  /** 收藏时间 */
   FavoriteTime = 3,
-  /** Correlation, only for search scenarios */
+  /** 相关性，只用于搜索场景 */
   Relative = 4,
 }
 
 export enum SubscribeSKUType {
-  /** Automatic renewal */
+  /** 自动续费 */
   AutoRenew = 0,
-  /** one-time subscription */
+  /** 一次性订阅 */
   OneOff = 1,
 }
 
@@ -221,17 +221,17 @@ export enum TaskStatus {
 }
 
 export enum TopicStatus {
-  /** After creating a topic, set 0 first. */
+  /** 创建专题后先置0 */
   Init = 0,
   Listed = 1,
   Unlisted = 2,
 }
 
 export enum UIPreviewType {
-  /** UI preview type, defining alignment UI Builder, currently used in Project
-web page */
+  /** UI 预览类型，定义对齐 UI Builder，目前用于 Project
+网页端 */
   Web = 1,
-  /** mobile end */
+  /** 移动端 */
   Client = 2,
 }
 
@@ -246,56 +246,56 @@ export enum UnitType {
 
 export enum UserActionType {
   UsedProduct = 1,
-  /** Go to the product details page */
+  /** 进入过 product 的详情页 */
   ViewedProduct = 2,
 }
 
 export enum UserProductSource {
-  /** Listed products posted by the user */
+  /** 用户发布过的已上架商品 */
   Listed = 1,
-  /** Products that users have used (such as chatbots) */
+  /** 用户使用过的商品（比如对话过的Bot） */
   Used = 2,
-  /** Products visited by users */
+  /** 用户访问过的商品 */
   Viewed = 3,
-  /** User Favorite Items */
+  /** 用户收藏的商品 */
   Favorite = 4,
-  /** Products liked by users */
+  /** 用户点赞的商品 */
   Like = 5,
 }
 
 export enum VerifyStatus {
-  /** Not certified */
+  /** 未认证 */
   Pending = 1,
-  /** Certification successful */
+  /** 认证成功 */
   Succeed = 2,
-  /** Authentication failed */
+  /** 认证失败 */
   Failed = 3,
-  /** Authenticating */
+  /** 认证中 */
   InProgress = 4,
 }
 
 export enum WorkflowNodeType {
-  /** start */
+  /** 开始 */
   Start = 1,
-  /** end */
+  /** 结束 */
   End = 2,
-  /** Large model */
+  /** 大模型 */
   LLM = 3,
-  /** plugin */
+  /** 插件 */
   Api = 4,
-  /** code */
+  /** 代码 */
   Code = 5,
-  /** Knowledge Base */
+  /** 知识库 */
   Dataset = 6,
-  /** selector */
+  /** 选择器 */
   If = 8,
-  /** Workflow */
+  /** 工作流 */
   SubWorkflow = 9,
-  /** variable */
+  /** 变量 */
   Variable = 11,
-  /** database */
+  /** 数据库 */
   Database = 12,
-  /** message */
+  /** 消息 */
   Message = 13,
 }
 /* eslint-enable */

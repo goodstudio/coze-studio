@@ -24,31 +24,31 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export interface AudioConfig {
-  /** Room audio encoding format, AACLC/G711A/OPI/G722 */
+  /** 房间音频编码格式，AACLC / G711A / OPUS / G722 */
   codec?: string;
 }
 
 export interface AudioSpeechData {
-  /** Binary of speech */
+  /** 语音的二进制 */
   content?: Blob;
   content_disposition?: string;
   content_type?: string;
 }
 
 export interface AudioSpeechRequest {
-  /** Required, text for synthesized speech, length limit 1024 bytes (UTF-8 encoding). */
+  /** 必选，合成语音的文本，长度限制 1024 字节（UTF-8编码）。 */
   input?: string;
-  /** Required, timbre id */
+  /** 必选，音色id */
   voice_id?: string;
-  /** Audio encoding format, wav/pcm/ogg_opus/mp3, default is mp3 */
+  /** 音频编码格式，wav / pcm / ogg_opus / mp3，默认为 mp3 */
   response_format?: string;
-  /** Speech rate, [0.2, 3], defaults to 1, usually with one decimal place */
+  /** 语速，[0.2,3]，默认为1，通常保留一位小数即可 */
   speed?: number;
-  /** Sample rate, optional value [8000, 16000, 22050, 24000, 32000, 44100, 48000], default 24000 */
+  /** 采样率，可选值 [8000,16000,22050,24000,32000,44100,48000]，默认 24000 */
   sample_rate?: number;
-  /** Emotional, optional value [none, happy, angry, sad, neutral], default none */
+  /** 情感，可选值 [none,happy,angry,sad,neutral]，默认 none */
   emotion?: string;
-  /** Sentiment value, [1,5], default 4 */
+  /** 情绪值，[1,5]，默认 4 */
   emotion_scale?: number;
 }
 
@@ -59,14 +59,14 @@ export interface AudioSpeechResponse {
 }
 
 export interface AudioTranscriptionsData {
-  /** Text for speech */
+  /** 语音对应的文本 */
   text?: string;
 }
 
 export interface AudioTranscriptionsRequest {
-  /** file type */
+  /** 文件类型 */
   'Content-Type': string;
-  /** binary data */
+  /** 二进制数据 */
   body: Blob;
 }
 
@@ -77,25 +77,25 @@ export interface AudioTranscriptionsResponse {
 }
 
 export interface CloneVoiceData {
-  /** unique tone code */
+  /** 唯一音色代号 */
   voice_id?: string;
 }
 
 export interface CloneVoiceRequest {
-  /** Audio format support: wav, mp3, ogg, m4a, aac, pcm, of which pcm only supports 24k single channel. Currently, the maximum upload of a single file is 10MB, and a maximum of 1 audio file is uploaded each time. */
+  /** 音频格式支持：wav、mp3、ogg、m4a、aac、pcm，其中pcm仅支持24k 单通道目前限制单文件上传最大10MB，每次最多上传1个音频文件 */
   audio?: common.AudioInfo;
-  /** The user can recite according to the text, and the service will compare the difference between the audio and the text. If there is any difference, 1109 WERError will be returned. */
+  /** 可以让用户按照该文本念诵，服务会对比音频与该文本的差异。若差异过大会返回1109 WERError */
   text?: string;
   language?: string;
-  /** If so, use this voice_id for training coverage, otherwise use the new voice_id for training */
+  /** 如果有，则使用此 voice_id 进行训练覆盖，否则使用新的 voice_id 进行训练 */
   voice_id?: string;
-  /** timbre name */
+  /** 音色名 */
   voice_name?: string;
-  /** If passed in, preview audio will be generated based on this text, otherwise use the default text "Hello, I am your exclusive AI clone voice, I hope you can get along well together in the future" */
+  /** 如果传入会基于该文本生成预览音频，否则使用默认的文本"你好，我是你的专属AI克隆声音，希望未来可以一起好好相处哦" */
   preview_text?: string;
-  /** The space where the clone tone is saved, defaults to personal space */
+  /** 克隆音色保存的空间，默认在个人空间 */
   space_id?: string;
-  /** timbre description */
+  /** 音色描述 */
   description?: string;
 }
 
@@ -109,22 +109,22 @@ export interface CreateRoomData {
   token?: string;
   uid?: string;
   room_id?: string;
-  /** Volcano rtc appid */
+  /** 火山 rtc appid */
   app_id?: string;
 }
 
 export interface CreateRoomRequest {
-  /** Required parameters, Bot id */
+  /** 必选参数，Bot id */
   bot_id?: string;
-  /** Optional parameter, conversation_id, one will be created by default if not passed, see [Create Session] interface */
+  /** 可选参数， conversation_id，不传会默认创建一个，见【创建会话】接口 */
   conversation_id?: string;
-  /** Optional parameter, timbre id, default to xxxy timbre without passing */
+  /** 可选参数，音色 id，不传默认为 xxxy音色 */
   voice_id?: string;
-  /** Optional parameters, room configuration */
+  /** 可选参数，room 的配置 */
   config?: RoomConfig;
-  /** Optional parameter to identify the current user with the agent, which is defined, generated and maintained by the user. The uid is used to identify different users in the conversation, different uids, and the conversation memory data such as the database of the conversation are isolated from each other. If user data isolation is not required, this parameter can not be passed. */
+  /** 可选参数，标识当前与智能体的用户，由使用方自行定义、生成与维护。uid 用于标识对话中的不同用户，不同的 uid，其对话的数据库等对话记忆数据互相隔离。如果不需要用户数据隔离，可以不传此参数。 */
   uid?: string;
-  /** Optional parameter, workflow id */
+  /** 可选参数，工作流 id */
   workflow_id?: string;
 }
 
@@ -135,9 +135,9 @@ export interface CreateRoomResponse {
 }
 
 export interface GetLiveInfoData {
-  /** Volcano WTN AppID */
+  /** 火山 WTN AppID */
   app_id?: string;
-  /** Multiple stream messages in the live stream */
+  /** 直播中多个流信息 */
   stream_infos?: Array<StreamInfo>;
 }
 
@@ -157,15 +157,15 @@ export interface ListVoiceData {
 }
 
 export interface ListVoiceRequest {
-  /** Whether to filter the system sound, not by default */
+  /** 是否过滤系统音色，默认不过滤 */
   filter_system_voice?: boolean;
-  /** Size model type, big is a large model, small is a small model, both are returned by default */
+  /** 大小模型类型，big 是大模型，small 是小模型 默认都返回 */
   model_type?: string;
-  /** Timbre status, init is to be cloned, cloned is cloned, all, others report errors */
+  /** 音色状态，init 是待克隆，cloned 是已克隆，all全部，其他报错 */
   voice_state?: string;
-  /** Default is 1. */
+  /** 默认是 1 */
   page_num?: number;
-  /** Max 100, default 100 */
+  /** 最大 100, 默认 100 */
   page_size?: number;
 }
 
@@ -176,43 +176,43 @@ export interface ListVoiceResponse {
 }
 
 export interface RoomConfig {
-  /** Room video configuration */
+  /** 房间视频配置 */
   video_config?: VideoConfig;
-  /** room audio configuration */
+  /** 房间音频配置 */
   audio_config?: AudioConfig;
-  /** custom opener */
+  /** 自定义开场白 */
   prologue_content?: string;
-  /** Room Mode */
+  /** 房间模式 */
   room_mode?: string;
-  /** Simultaneous interpretation configuration, only takes effect when the room mode is simultaneous interpretation */
+  /** 同传配置，仅在房间模式为同传时生效 */
   translate_config?: TranslateConfig;
-  /** How long to wait to play the opening remarks after entering the room, the default is 500ms, [0,5000] */
+  /** 在进房后等待多长时间播放开场白，默认是500ms，[0, 5000] */
   prologue_delay_duration_ms?: number;
 }
 
 export interface StreamInfo {
-  /** Audio & video streaming IDs */
+  /** 音视频流ID */
   stream_id?: string;
-  /** Audio & video streaming names */
+  /** 音视频流名字 */
   name?: string;
   live_type?: string;
 }
 
 export interface TranslateConfig {
-  /** Translation source language */
+  /** 翻译源语言 */
   from?: string;
-  /** Translation target language */
+  /** 翻译目标语言 */
   to?: string;
 }
 
 export interface VideoConfig {
-  /** Room video encoding format, H264/BYTEVC1 */
+  /** 房间视频编码格式，H264 / BYTEVC1 */
   codec?: string;
-  /** Room video stream type, supports main/screen, main: mainstream. Including: "Stream captured by camera/microphone through internal capture mechanism." and "Stream captured by custom capture.", screen: screen stream */
+  /** 房间视频流类型, 支持 main/screen, main: 主流。包括：「由摄像头/麦克风通过内部采集机制，采集到的流。」和「通过自定义采集，采集到的流。」，screen：屏幕流 */
   stream_video_type?: string;
-  /** Video frame rate, the default value is 1, [1, 24] */
+  /** 视频抽帧速率，默认值是1，[1, 24] */
   video_frame_rate?: number;
-  /** Video frame expiration time, in s, the default value is 1, [1, 10] */
+  /** 视频帧过期时间，单位为s，默认值是1，[1, 10] */
   video_frame_expire_duration?: number;
 }
 /* eslint-enable */

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
 import { DndProvider } from '@coze-studio/components/dnd-provider';
@@ -208,7 +208,7 @@ export const ComponentsTable = forwardRef<
                 if (formRef.current) {
                   checkDuplicateName(newValues.values, formRef.current);
                 }
-                // The type definition of @ts-expected-error semi cannot support multi-segment paths
+                // @ts-expect-error -- The type definition of  semi cannot support multi-segment paths
                 formRef.current?.validate([changedKeys[0]]);
               });
             }

@@ -21,48 +21,48 @@
 
 export type Int64 = string | number;
 
-/** Operation background idl */
+/** 运营后台idl */
 export interface OpGetUserInfoRequest {
   user_id?: string;
 }
 
 export interface OpGetUserInfoResponse {
-  /** user information */
+  /** 用户信息 */
   user_info?: OpUserInfo;
 }
 
 export interface OpUserInfo {
-  /** basic user information */
+  /** 用户基本信息 */
   basic_info?: UserbasicInfo;
-  /** payment information */
+  /** 付费信息 */
   payment_info?: UserPaymentInfo;
-  /** Professional version information */
+  /** 专业版信息 */
   professional_info?: UserProfessionalInfo;
 }
 
 export interface UserbasicInfo {
   user_id?: string;
-  /** user name */
+  /** 用户名 */
   user_name?: string;
-  /** email */
+  /** 邮箱 */
   email?: string;
-  /** User type, internal user/external user */
+  /** 用户类型  内部用户/外部用户 */
   user_type?: string;
-  /** Registration time */
+  /** 注册时间 */
   registration_time?: string;
 }
 
-/** User regular version payment information */
+/** 用户普通版付费信息 */
 export interface UserPaymentInfo {
-  /** Subscribe or not? */
+  /** 是否订阅 */
   is_in_subscribe?: string;
 }
 
-/** User Pro Information */
+/** 用户专业版信息 */
 export interface UserProfessionalInfo {
-  /** Is it a professional version user? */
+  /** 是否专业版用户 */
   is_professional?: string;
-  /** Huoshan ID */
+  /** 火山ID */
   volcano_openId?: string;
 }
 /* eslint-enable */

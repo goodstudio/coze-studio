@@ -26,18 +26,18 @@ import * as batch_infer from './batch_infer';
 export type Int64 = string | number;
 
 export enum AIAnnotatorCategory {
-  /** online */
+  /** 在线 */
   Online = 1,
-  /** offline */
+  /** 离线 */
   Offline = 2,
 }
 
 export enum AnnotationType {
-  /** Large model marking */
+  /** 大模型打标 */
   AI = 1,
-  /** regular marking */
+  /** 规则打标 */
   Rule = 2,
-  /** manual marking */
+  /** 手动打标 */
   Manual = 3,
 }
 
@@ -75,20 +75,20 @@ export enum ThinkingOutputBehavior {
 }
 
 export interface AIAnnotator {
-  /** This field has a different meaning from the PromptCategory in the inner layer, representing whether an existing evaluator is associated. This field is not currently used */
+  /** 该字段和内层的PromptCategory含义不同，代表是否关联已有评估器，当前没有用到该字段 */
   category?: AIAnnotatorCategory;
   onlineAIAnnotator?: OnlineAIAnnotator;
   offlineAIAnnotator?: OfflineAIAnnotator;
 }
 
 export interface AIDPConfig {
-  /** AIDP user ID */
+  /** AIDP 用户 ID */
   userID: string;
-  /** AIDP Task ID */
+  /** AIDP 任务 ID */
   taskID: string;
-  /** task name */
+  /** 任务名称 */
   taskName: string;
-  /** Task details link, return field */
+  /** 任务详情链接，返回字段 */
   taskURL?: string;
   answerSchema?: string;
 }
@@ -109,40 +109,40 @@ export interface AIDPTaskFlowConfig {
 }
 
 export interface AIDPTaskSummary {
-  /** Task ID */
+  /** 任务ID */
   taskID?: string;
-  /** task name */
+  /** 任务名称 */
   title?: string;
-  /** Project name */
+  /** 项目名称 */
   projectName?: string;
-  /** Callback Configuration */
+  /** 回调配置 */
   callbackOpts?: CallbackOpts;
-  /** Answer Template ID */
+  /** 答案模板ID */
   templateID?: string;
-  /** task link */
+  /** 任务链接 */
   taskURL?: string;
 }
 
 export interface AnnotateStatusDetail {
-  /** total data volume */
+  /** 总数据量 */
   inputSize?: string;
-  /** amount of data sent */
+  /** 已送标数据量 */
   sent?: string;
-  /** scalded data volume */
+  /** 已取标数据量 */
   received?: string;
 }
 
 export interface AnnotationConfig {
-  /** label task type */
+  /** 标注任务类型 */
   annotationType?: AnnotationType;
-  /** Large model marker configuration */
+  /** 大模型打标器配置 */
   aiAnnotator?: AIAnnotator;
-  /** Rule marker configuration */
+  /** 规则打标器配置 */
   ruleAnnotator?: RuleAnnotator;
 }
 
 export interface AnnotationJob {
-  /** primary key ID */
+  /** 主键ID */
   id?: string;
   appId?: string;
   spaceId?: string;
@@ -150,15 +150,15 @@ export interface AnnotationJob {
   annotationJobId?: string;
   jobDomain?: string;
   targetID?: string;
-  /** Version of the task, non-dataset version */
+  /** 任务的版本，非数据集版本 */
   version?: string;
-  /** Status: active/inactive */
+  /** 状态：active/inactive */
   status?: string;
   name?: string;
   annotationConfig?: AnnotationConfig;
   targetResourceName?: string;
   extra?: string;
-  /** general information */
+  /** 通用信息 */
   createdAt?: string;
   createdBy?: string;
   updatedAt?: string;
@@ -166,19 +166,19 @@ export interface AnnotationJob {
 }
 
 export interface AnnotationJobRunInstance {
-  /** Job instance ID generated after running */
+  /** 运行后产生的Job实例ID */
   annotationJobRunID?: string;
-  /** total number of articles */
+  /** 总条数 */
   total?: number;
-  /** number of successes */
+  /** 成功条数 */
   successCnt?: number;
-  /** number of failures */
+  /** 失败条数 */
   failedCnt?: number;
-  /** Task status, running/success/failed/canceled/partial_success */
+  /** 任务状态,running/success/failed/canceled/partial_success */
   status?: string;
-  /** Returns only on the GetAnnotationJobProcess interface to poll the marking task associated with the query output column */
+  /** 仅在 GetAnnotationJobProcess 接口返回，用于轮询查询输出列关联的打标任务 */
   outputFieldKeys?: Array<string>;
-  /** JobID non-ID */
+  /** JobID非ID */
   jobID?: string;
   job?: AnnotationJob;
   createdBy?: string;
@@ -188,16 +188,16 @@ export interface AnnotationJobRunInstance {
 }
 
 export interface AnnotationJobRunLog {
-  /** error log */
+  /** 错误日志 */
   errorMsg?: string;
-  /** Jump links for offline tasks */
+  /** 离线任务的跳转链接 */
   offlineJobProviderUrl?: string;
 }
 
 export interface Annotator {
-  /** Type: manual, associated */
+  /** 类型: 手工manual、关联associated */
   category?: string;
-  /** manual configuration */
+  /** 手工配置 */
   manualAnnotator?: ManualAnnotator;
 }
 
@@ -206,207 +206,207 @@ export interface CallbackOpts {
 }
 
 export interface CrowdsourcingAnnotateInputConfig {
-  /** Enter the dataset ID */
+  /** 输入数据集ID */
   inputDatasetID: string;
-  /** Enter a dataset name */
+  /** 输入数据集名 */
   inputDatasetName: string;
-  /** Input dataset version */
+  /** 输入数据集版本 */
   inputDatasetVersionNum: string;
-  /** Input dataset Veriosn primary key */
+  /** 输入数据集Veriosn主键 */
   inputDatasetVersionID: string;
-  /** Three-paragraph version number return field */
+  /** 三段式版本号返回字段 */
   inputDatasetVersion?: string;
-  /** itemID that needs to be annotated with data */
+  /** 需要标注数据的itemID */
   itemIDs?: Array<Int64>;
-  /** Data filtering conditions, to be determined, see the specific implementation of the label */
+  /** 数据筛选条件,待定看标签的具体实现 */
   filter?: filter.Filter;
-  /** Return field */
+  /** 返回字段 */
   fieldMeta?: filter.FieldMetaInfoData;
-  /** Return field */
+  /** 返回字段 */
   total?: number;
-  /** Send data field mapping configuration */
+  /** 发送字段映射配置 */
   inputMappings: Array<InputMapping>;
-  /** data range */
+  /** 数据范围 */
   dataSelectScope?: DataSelectScope;
 }
 
 export interface CrowdsourcingAnnotateJob {
-  /** primary key */
+  /** 主键 */
   id?: string;
   name?: string;
   description?: string;
   platform?: CrowdsourcingAnnotationPlatform;
-  /** AIDP configuration */
+  /** AIDP 配置 */
   aidpConfig?: AIDPConfig;
-  /** feed configuration */
+  /** 送标配置 */
   inputConfig?: CrowdsourcingAnnotateInputConfig;
-  /** bid configuration */
+  /** 取标配置 */
   outputConfig?: CrowdsourcingAnnotateOutputConfig;
-  /** Data details The dataset ID stored */
+  /** 数据详情存储的数据集ID */
   InternalDatasetID?: string;
-  /** task status */
+  /** 任务状态 */
   status?: CrowdsourcingAnnotateJobStatus;
-  /** Reason for failure */
+  /** 失败的原因 */
   terminateReason?: string;
-  /** mission progress */
+  /** 任务进展 */
   statusDetail?: AnnotateStatusDetail;
-  /** creation time */
+  /** 创建时间 */
   createdAt?: string;
-  /** Update time/end time */
+  /** 更新时间/结束时间 */
   updatedAt?: string;
-  /** founder */
+  /** 创建人 */
   createdBy?: string;
 }
 
 export interface CrowdsourcingAnnotateOutputConfig {
-  /** Whether to automatically bid */
+  /** 是否自动取标 */
   isAutoFetchRes: boolean;
-  /** Whether to automatically output to a new dataset */
+  /** 是否自动输出到新数据集 */
   isAutoExportToNewDataset: boolean;
-  /** Output dataset name */
+  /** 输出数据集名称 */
   outputDatasetName?: string;
-  /** Output dataset ID return field */
+  /** 输出数据集ID 返回字段 */
   outputDatasetID?: string;
-  /** Whether to disassemble and label the results */
+  /** 是否拆解标注结果 */
   isParseAnnotateRes: boolean;
-  /** output mapping */
+  /** 输出映射 */
   outputMappings?: Array<OutputMapping>;
 }
 
 export interface InputMapping {
-  /** Input type: fixed value fixed, associated field use_column, previous input former_model_input, previous output former_model_output */
+  /** 输入类型: 固定值fixed、关联字段use_column、之前输入former_model_input、之前输出former_model_output */
   sourceType?: string;
-  /** input value */
+  /** 输入值 */
   sourceValue?: string;
-  /** Output type: prompt variable name prompt_var_name */
+  /** 输出类型: prompt变量名prompt_var_name */
   targetType?: string;
-  /** output value */
+  /** 输出值 */
   targetValue?: string;
-  /** If it is a column, this field can store the name. */
+  /** 如果是列这个字段可以存储name */
   sourceName?: string;
 }
 
 export interface ManualAnnotator {
-  /** model configuration */
+  /** 模型配置 */
   model?: flow_devops_prompt_common.ModelConfig;
-  /** Prompt type: manual, associated */
+  /** prompt类型：手工manual、关联associated */
   promptCategory?: string;
-  /** Manually populated data content */
+  /** 手工填入的数据内容 */
   promptContent?: string;
-  /** time of association */
+  /** 关联时 */
   promptID?: string;
-  /** time of association */
+  /** 关联时 */
   promptVersion?: string;
   userPromptColumnName?: string;
-  /** input mapping */
+  /** 输入映射 */
   inputMappings?: Array<InputMapping>;
-  /** output mapping */
+  /** 输出映射 */
   outputMappings?: Array<OutputMapping>;
-  /** Thinking output mapping to use when ThinkingOutputBehavior=ThinkingToSpecifiedColumn */
+  /** thinking输出映射，当ThinkingOutputBehavior=ThinkingToSpecifiedColumn时使用 */
   thinkingOutputMapping?: OutputMapping;
 }
 
 export interface OfflineAIAnnotator {
-  /** batch inference configuration
-model source */
+  /** 批量推理配置
+模型来源 */
   batchInferprovider?: batch_infer.Provider;
-  /** Model Configuration & Resource Configuration */
+  /** 模型配置 & 资源配置 */
   batchInferProviderInfo?: batch_infer.ProviderInfo;
-  /** model parameters */
+  /** 模型参数 */
   batchInferParam?: batch_infer.BatchInferParam;
-  /** task configuration
-Prompt type manual/associated/none */
+  /** 任务配置
+prompt类型 manual/associated/none */
   promptCategory?: string;
-  /** Manually populated data content */
+  /** 手工填入的数据内容 */
   promptContent?: string;
-  /** time of association */
+  /** 关联时 */
   promptID?: string;
-  /** time of association */
+  /** 关联时 */
   promptVersion?: string;
   userPromptColumnName?: string;
-  /** input mapping */
+  /** 输入映射 */
   inputMappings?: Array<InputMapping>;
-  /** output mapping */
+  /** 输出映射 */
   outputMappings?: Array<OutputMapping>;
-  /** Marking null values only */
+  /** 仅为空值打标 */
   onlyForEmpty?: boolean;
-  /** Marking failures only */
+  /** 仅为失败打标 */
   onlyForFailed?: boolean;
-  /** Allow unconfigured label options */
+  /** 允许未配置的标签选项 */
   allowUndefinedTagValues?: boolean;
 }
 
 export interface OnlineAIAnnotator {
-  /** tagger configuration */
+  /** 标注器配置 */
   annotator?: Annotator;
-  /** number of inferences */
+  /** 推理次数 */
   inferRound?: number;
-  /** batch data volume */
+  /** 批处理数据量 */
   batchSize?: number;
-  /** Marking null values only */
+  /** 仅为空值打标 */
   onlyForEmpty?: boolean;
-  /** Marking failures only */
+  /** 仅为失败打标 */
   onlyForFailed?: boolean;
-  /** Allow unconfigured label options */
+  /** 允许未配置的标签选项 */
   allowUndefinedTagValues?: boolean;
-  /** automatic update */
+  /** 自动更新 */
   autoUpdate?: boolean;
-  /** Marking concurrency */
+  /** 打标并发度 */
   executeConcurrency?: number;
-  /** Strategies for outputting model thinking processes */
+  /** 输出模型thinking过程的策略 */
   thinkingOutputBehavior?: ThinkingOutputBehavior;
 }
 
 export interface OutputMapping {
-  /** Input Type: plain, json_path */
+  /** 输入类型: plain、json_path */
   sourceType?: string;
-  /** input value */
+  /** 输入值 */
   sourceValue?: string;
-  /** Output type: use_column, plain */
+  /** 输出类型: use_column、plain */
   targetType?: string;
-  /** output value */
+  /** 输出值 */
   targetValue?: string;
-  /** TargetType is use_column identifies whether a new column is created */
+  /** targetType是use_column时标识是否是新建列 */
   isNewColumn?: boolean;
-  /** Label/name of the input value */
+  /** 输入值的标签/name */
   sourceName?: string;
 }
 
 export interface PassKTask {
-  /** inference model configuration */
+  /** 推理模型配置 */
   reasoner?: Annotator;
-  /** number of inferences */
+  /** 推理次数 */
   inferenceRound?: number;
-  /** Evaluator configuration */
+  /** 评估器配置 */
   judge?: Annotator;
-  /** correct threshold */
+  /** 正确阈值 */
   positiveThreshold?: number;
 }
 
 export interface QualityScoreJob {
-  /** Unique ID, not passed on when created */
+  /** 唯一ID，创建时不传 */
   id?: string;
-  /** appID, not passed when created */
+  /** appID，创建时不传 */
   appID?: number;
-  /** Space ID, not passed when created */
+  /** 空间ID，创建时不传 */
   spaceID?: string;
-  /** Dataset ID, not passed on when created */
+  /** 数据集ID，创建时不传 */
   datasetID?: string;
-  /** Version number, not passed when created */
+  /** 版本号，创建时不传 */
   version?: string;
-  /** Job ID, not passed on when created */
+  /** job ID，创建时不传 */
   jobID?: string;
-  /** Mission name, don't pass it on */
+  /** 任务名字, 可不传 */
   name?: string;
-  /** Task status: active, inactive */
+  /** 任务状态: active、inactive */
   status?: string;
-  /** Tagged task type: passk */
+  /** 标注任务类型: passk */
   category?: string;
-  /** passKTask task content */
+  /** passKTask 任务内容 */
   passKTask?: PassKTask;
-  /** Whether to automatically calculate new data */
+  /** 是否自动计算新增数据 */
   autoCalculateNewData?: boolean;
-  /** general information */
+  /** 通用信息 */
   createdAt?: string;
   createdBy?: string;
   updatedAt?: string;
@@ -414,45 +414,45 @@ export interface QualityScoreJob {
 }
 
 export interface QualityScoreJobInstance {
-  /** Instance unique id */
+  /** instance唯一id */
   id?: string;
-  /** Task ID */
+  /** 任务ID */
   jobID?: string;
-  /** total number of articles */
+  /** 总条数 */
   total?: number;
-  /** number of successes */
+  /** 成功条数 */
   successCnt?: number;
-  /** number of failures */
+  /** 失败条数 */
   failedCnt?: number;
-  /** task status */
+  /** 任务状态 */
   status?: string;
 }
 
 export interface RuleAnnotator {
-  /** rule type */
+  /** 规则类型 */
   category?: RuleAnnotatorCategory;
-  /** rule content */
+  /** 规则内容 */
   content?: string;
-  /** input mapping */
+  /** 输入映射 */
   inputMappings?: Array<InputMapping>;
-  /** output mapping */
+  /** 输出映射 */
   outputMappings?: Array<OutputMapping>;
-  /** Allow unconfigured label options */
+  /** 允许未配置的标签选项 */
   allowUndefinedTagValues?: boolean;
-  /** Marking null values only */
+  /** 仅为空值打标 */
   onlyForEmpty?: boolean;
-  /** Marking failures only */
+  /** 仅为失败项打标 */
   onlyForFailed?: boolean;
 }
 
 export interface SearchConfig {
-  /** Dataset ID */
+  /** 数据集ID */
   datasetID?: string;
-  /** Search task name */
+  /** 搜索的任务名称 */
   jobName?: string;
-  /** Search task ID */
+  /** 搜索的任务ID */
   jobID?: string;
-  /** Search creator */
+  /** 搜索的创建人 */
   createdBy?: Array<string>;
 }
 /* eslint-enable */

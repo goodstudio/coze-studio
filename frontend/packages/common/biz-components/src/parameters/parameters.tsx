@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable @coze-arch/max-line-per-function */
 import React, { type PropsWithChildren, useState } from 'react';
 
@@ -111,7 +111,7 @@ export function Parameters(props: PropsWithChildren<ParametersProps>) {
           // You can't use parentData as a standard for adding, you need to add it under the current data.
           const { data } = findResult;
           const currentChildren = data.children || [];
-          // @TS-expected-error Some values do not need to be specified at this time because format is executed during rerender
+          // @ts-expect-error Some values do not need to be specified at this time because format is executed during rerender
           data.children = currentChildren.concat({
             ...getDefaultAppendValue(),
             // Add field

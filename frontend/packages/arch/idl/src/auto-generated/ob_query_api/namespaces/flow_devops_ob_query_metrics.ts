@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** aggregation method */
+/** 聚合方式 */
 export enum AggregateType {
   Unknown = 1,
   Avg = 2,
@@ -32,7 +32,7 @@ export enum AggregateType {
   Sum = 7,
 }
 
-/** downsampling interval */
+/** 降采样间隔 */
 export enum DownsampleInterval {
   Unknown = 1,
   /** 30 second */
@@ -51,56 +51,56 @@ export enum DownsampleInterval {
   DI30M = 8,
 }
 
-/** Types of operations views */
+/** 运维视图的类型 */
 export enum MetricsType {
   Unknown = 1,
-  /** The number of queries received per second reflects the query load of the bot */
+  /** 每秒收到的查询次数，反映了该Bot的查询负载情况 */
   BotQueryQPS = 2,
-  /** The query success rate reflects the stability of the bot under current load */
+  /** 查询成功率，反映了Bot在当前负载下的稳定性 */
   BotQuerySuccessRate = 3,
-  /** The delay from the query received by the Bot to the return of the first Tokens reflects the Bot response speed perceived by the query party */
+  /** 从被Bot收到查询到返回第一条Tokens的时延，反映了查询方可感知到的Bot响应速度 */
   BotQueryLatencyFirstResp = 4,
-  /** The delay from receiving the query from the bot to returning all tokens reflects the overall performance of the bot */
+  /** 从Bot收到查询到返回全部Tokens的时延，反映了Bot的整体性能 */
   BotQueryLatency = 5,
-  /** Number of workflow calls per second, reflecting the workload of the workflow */
+  /** 每秒的工作流调用次数，反映了工作流的负载情况 */
   WorkflowRunQPS = 6,
-  /** The invocation success rate of the workflow reflects the stability of the workflow under the current load */
+  /** 工作流的调用成功率，反映了该工作流在当前负载下稳定性 */
   WorkflowRunSuccessRate = 7,
-  /** Reflects the execution time of the workflow */
+  /** 反映了工作流的执行耗时 */
   WorkflowRunLatency = 8,
-  /** Number of plug-in calls per second. Reflects plug-in load */
+  /** 每秒的插件调用次数。反映了插件负载情况 */
   PluginRunQPS = 9,
-  /** The call success rate of the plug-in reflects the stability of the plug-in under the current load */
+  /** 插件的调用成功率，反映了插件在当前负载下的稳定性 */
   PluginRunSuccessRate = 10,
-  /** The response duration of the plug-in reflects the overall performance of the plug-in */
+  /** 插件的响应时长，反映了插件的整体性能 */
   PluginRunLatency = 11,
-  /** The code corresponds to the number of times the function fragment is called per second. Reflects the execution load */
+  /** 每秒的代码对应函数片段的被调用次数。反映了执行负载 */
   CodeRunQPS = 12,
-  /** The call success rate of the corresponding function of the code reflects the stability under the corresponding load */
+  /** 代码对应函数的调用成功率，反映了对应负载下的稳定性 */
   CodeRunSuccessRate = 13,
-  /** The execution time of the corresponding function of the code reflects the overall performance */
+  /** 代码对应函数的执行耗时，反映了整体性能 */
   CodeRunLatency = 14,
-  /** The number of recalls per second of the knowledge base, reflecting the recall load of the knowledge base */
+  /** 每秒知识库的召回次数，反映了知识库的召回负载 */
   KnowledgeRecallQPS = 15,
-  /** Number of segments per recall in the knowledge base */
+  /** 知识库的每次召回的片段数量 */
   KnowledgeRecallSegments = 16,
-  /** The recall success rate of the knowledge base reflects the stability of the knowledge base under the current load */
+  /** 知识库的召回成功率，反映了知识库在当前负载下的稳定性情况 */
   KnowledgeRecallSuccessRate = 17,
-  /** The recall time of the knowledge base reflects the recall performance of the knowledge base */
+  /** 知识库的召回耗时，反映了知识库的召回性能 */
   KnowledgeRecallLatency = 18,
-  /** The number of calls to the large model per second, reflecting the call load of the large model */
+  /** 每秒大模型的调用次数，反映了大模型的调用负载 */
   LLMQueryQPS = 19,
-  /** The call success rate of the large model reflects the stability of the large model under the current load */
+  /** 大模型的调用成功率，反映了大模型在当前负载下的稳定性 */
   LLMQuerySuccessRate = 20,
-  /** The response duration of the large model reflects the overall performance of the large model */
+  /** 大模型的响应时长，反映了大模型的整体性能 */
   LLMQueryLatency = 21,
-  /** The number of tokens returned per second by the large model */
+  /** 大模型每秒返回的Token数量 */
   LLMOutputTokensQPS = 22,
-  /** Hook calls per second. Reflects hook load */
+  /** 每秒的hook调用次数。反映了hook负载情况 */
   HookRunQPS = 23,
-  /** The success rate of the hook reflects the stability of the hook under the current load */
+  /** hook的调用成功率，反映了hook在当前负载下的稳定性 */
   HookRunSuccessRate = 24,
-  /** The average time of the hook reflects the overall performance of the hook */
+  /** hook的平均耗时，反映了hook的整体性能 */
   HookRunLatency = 25,
 }
 
@@ -111,7 +111,7 @@ export interface Curve {
 
 export interface GetMetricsData {
   curves: Array<Curve>;
-  /** downsampling interval */
+  /** 降采样间隔 */
   interval: DownsampleInterval;
 }
 
@@ -132,9 +132,9 @@ export interface GetMetricsRequest {
 
 export interface GetMetricsResponse {
   data: GetMetricsData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 
@@ -159,9 +159,9 @@ export interface GetTagVHistoricalOptionsRequest {
 
 export interface GetTagVHistoricalOptionsResponse {
   data: GetTagVHistoricalOptionsData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 
@@ -180,9 +180,9 @@ export interface GetTagVLatestOptionsRequest {
 
 export interface GetTagVLatestOptionsResponse {
   data: GetTagVLatestOptionsData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 

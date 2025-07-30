@@ -22,11 +22,11 @@
 export type Int64 = string | number;
 
 export enum UserAuthStatus {
-  /** Authorized */
+  /** 已授权 */
   Authorized = 1,
-  /** unauthorized */
+  /** 未授权 */
   UnAuthorized = 2,
-  /** Authorizing */
+  /** 授权中 */
   Authorizing = 3,
 }
 /* eslint-enable */

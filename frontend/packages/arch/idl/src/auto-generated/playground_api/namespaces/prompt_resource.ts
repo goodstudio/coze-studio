@@ -22,22 +22,22 @@
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** copy */
+  /** 复制 */
   Copy = 1,
-  /** delete */
+  /** 删除 */
   Delete = 2,
-  /** enable/disable */
+  /** 启用/禁用 */
   EnableSwitch = 3,
-  /** edit */
+  /** 编辑 */
   Edit = 4,
-  /** Cross-spatial replication */
+  /** 跨空间复制 */
   CrossSpaceCopy = 10,
 }
 
 export enum ResourcePublishStatus {
-  /** unpublished */
+  /** 未发布 */
   UnPublished = 1,
-  /** Published */
+  /** 已发布 */
   Published = 2,
 }
 
@@ -50,29 +50,29 @@ export interface DeletePromptResourceResponse {
   msg: string;
 }
 
-/** For display, the implementer provides display information */
+/** 展示用，实现方提供展示信息 */
 export interface DisplayResourceInfo {
-  /** Resource ID */
+  /** 资源id */
   ResID?: Int64;
-  /** resource description */
+  /** 资源描述 */
   Desc?: string;
-  /** Resource Icon, full url */
+  /** 资源Icon，完整url */
   Icon?: string;
-  /** Resource status, each type of resource defines itself */
+  /** 资源状态，各类型资源自身定义 */
   BizResStatus?: number;
-  /** Whether to enable multi-person editing */
+  /** 是否开启多人编辑 */
   CollaborationEnable?: boolean;
-  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
+  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
   BizExtend?: Record<string, string>;
-  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
+  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
   Actions?: Array<ResourceAction>;
-  /** Whether to ban entering the details page */
+  /** 是否禁止进详情页 */
   DetailDisable?: boolean;
-  /** resource name */
+  /** 资源名称 */
   Name?: string;
-  /** Resource release status, 1 - unpublished, 2 - published */
+  /** 资源发布状态，1-未发布，2-已发布 */
   PublishStatus?: ResourcePublishStatus;
-  /** Last edited, unix timestamp */
+  /** 最近编辑时间, unix秒级时间戳 */
   EditTime?: Int64;
 }
 
@@ -97,9 +97,9 @@ export interface GetPromptResourceInfoResponse {
 }
 
 export interface MGetDisplayResourceInfoRequest {
-  /** The maximum number of one page can be transferred, and the implementer can limit the maximum to 100. */
+  /** 最大传一页的数量，实现方可以限制最大100个 */
   ResIDs?: Array<Int64>;
-  /** The current user, the implementation is used to determine the authority */
+  /** 当前的用户，实现方用于判断权限 */
   CurrentUserID?: Int64;
 }
 
@@ -116,9 +116,9 @@ export interface PromptResource {
 }
 
 export interface ResourceAction {
-  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
+  /** 一个操作对应一个唯一的key，key由资源侧约束 */
   key: ActionKey;
-  /** ture = can operate this Action, false = grey out */
+  /** ture=可以操作该Action，false=置灰 */
   enable: boolean;
 }
 
@@ -126,7 +126,7 @@ export interface ShowPromptResource {
   id?: string;
 }
 
-/** Parameter priority from top to bottom */
+/** 参数优先级从上往下 */
 export interface SyncPromptResourceToEsRequest {
   SyncAll?: boolean;
   PromptResourceIDList?: Array<Int64>;

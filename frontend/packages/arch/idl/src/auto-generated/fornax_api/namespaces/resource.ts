@@ -31,7 +31,7 @@ export enum ResourceType {
   Agent = 6,
 }
 
-/** secret label */
+/** 密级标签 */
 export enum SecurityLevel {
   Undefined = 0,
   L1 = 1,

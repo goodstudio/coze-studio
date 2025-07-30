@@ -61,11 +61,11 @@ export enum OfflineEvalTaskStatus {
 }
 
 export interface InferResExportStatus {
-  /** The HDFS address of the resulting file */
+  /** 结果文件的 hdfs 地址 */
   hdfsPath?: string;
-  /** Export progress of the current file */
+  /** 当前文件的导出进度 */
   cursor?: string;
-  /** Whether the export is complete */
+  /** 是否导出完成 */
   isExported?: boolean;
 }
 
@@ -73,9 +73,9 @@ export interface OfflineEvalProduction {
   datasetID?: string;
   resultSetID?: string;
   caseTaskID?: string;
-  /** Every time you read, you need rpc to get the EvalCaseTask (both Get and List are required), and you should not write to the database when writing */
+  /** 每次读取时需要rpc获得EvalCaseTask(Get和List都需要)，写时不应该写到数据库里 */
   evalCaseTask?: flow_devops_evaluation_task.Task;
-  /** The ID of the last piece of data written */
+  /** 最后写入的一条数据的 ID */
   lastOutputCursor?: Int64;
 }
 
@@ -85,7 +85,7 @@ export interface OfflineEvalTask {
   desc?: string;
   model?: OfflineEvalTaskModel;
   datasets?: Array<OfflineEvalTaskDataset>;
-  /** Every time you read, you need rpc to get RuleGroup. Rules (only Get is required, List is not required) */
+  /** 每次读取时需要rpc获得RuleGroup.Rules(只Get需要，List不需要) */
   evalRuleGroup?: flow_devops_evaluation_evaluator.RuleGroup;
   resource?: model.SftTaskResource;
   ckptConfig?: OfflineEvalTaskCkptConfig;
@@ -97,22 +97,22 @@ export interface OfflineEvalTask {
   errCode?: string;
   errMessage?: string;
   displayErrMsg?: string;
-  /** Has the rule group been deleted? */
+  /** 规则组是否已删除 */
   isRuleGroupDeleted?: boolean;
-  /** Fornax space ID */
+  /** Fornax空间ID */
   spaceID?: string;
-  /** creator ID */
+  /** 创建人ID */
   createdBy?: string;
-  /** Creation time, seconds */
+  /** 创建时间，秒 */
   createdAt?: string;
-  /** Updater ID */
+  /** 更新人ID */
   updatedBy?: string;
-  /** Update time in seconds */
+  /** 更新时间，秒 */
   updatedAt?: string;
 }
 
 export interface OfflineEvalTaskCkptConfig {
-  /** Key is name */
+  /** key是name */
   items?: Record<string, OfflineEvalTaskCkptConfigItem>;
 }
 
@@ -122,55 +122,55 @@ export interface OfflineEvalTaskCkptConfigItem {
   nextCkptName?: string;
   maxRetryTime?: string;
   retryIntervalMilliSecond?: string;
-  /** The way the retry interval changes, supporting fixed intervals and gradual changes over time */
+  /** 重试时间间隔的变化方式，支持固定间隔和随时间渐进式变化 */
   retryIntervalChangeType?: string;
-  /** For every x retries, the retry interval changes */
+  /** 每重试x次，重试时间间隔会发生变化 */
   retryIntervalChangeTimes?: string;
-  /** The step size of each retry interval, in ms, can be negative */
+  /** 每次重试时间间隔变化的步长，单位为ms，可以为负数 */
   retryIntervalChangeStep?: string;
   customConfigs?: Record<string, string>;
-  /** Time interval to trigger the next checkpoint in ms */
+  /** 触发下一个checkpoint的时间间隔，单位为ms */
   triggerNextCkptIntervalMilliSecond?: string;
 }
 
 export interface OfflineEvalTaskCkptResult {
-  /** Address where the review set is uploaded to hdfs */
+  /** 评测集上传到hdfs的地址 */
   datasetHdfsAddress?: string;
-  /** The hdfs address where the inference result is saved, possibly a folder */
+  /** 推理结果保存的hdfs地址，可能为文件夹 */
   inferResultHdfsAddress?: string;
-  /** Inference result export progress */
+  /** 推理结果导出进度 */
   resultExportStatuses?: Array<InferResExportStatus>;
-  /** Merlin inference task status */
+  /** merlin推理任务状态 */
   merlinDataProcessingInstanceStatusGroup?: string;
-  /** Merlin inference task status details */
+  /** merlin推理任务状态详情 */
   merlinDataProcessingInstanceStatus?: string;
-  /** Incoming data column names for offline inference tasks */
+  /** 传入离线推理任务的数据列名 */
   inferTaskColumnName?: string;
-  /** Offline evaluation products */
+  /** 离线评测产物 */
   evalProductions?: Array<OfflineEvalProduction>;
-  /** Whether the result set export is complete */
+  /** 结果集是否导出完成 */
   resultSetExported?: boolean;
-  /** The merlin seed offline inference task is actually outsourced in the merlin task use case, record the merlin task use case id here */
+  /** merlin seed离线推理任务实际上就是在merlin任务用例外包了一层，在这里记录这个merlin任务用例id */
   merlinJobID?: string;
-  /** Merlin seed offline inference task link */
+  /** merlin seed离线推理任务链接 */
   merlinSeedTaskUrl?: string;
-  /** Merlin task instance terminated */
+  /** merlin 任务实例是否终止 */
   merlinJobTerminated?: boolean;
-  /** Save raw information for types of data other than plainText */
+  /** 保存除了 plainText 以外的类型的数据的原始信息 */
   originDataColumnName?: string;
 }
 
 export interface OfflineEvalTaskDataset {
   evalDataset?: flow_devops_evaluation_dataset.DatasetInfo;
-  /** Dataset preprocessing */
+  /** 数据集预处理 */
   datasetPreHandler?: OfflineEvalTaskDatasetPreHandler;
-  /** model input preprocessing */
+  /** 模型输入预处理 */
   inputPreHandler?: OfflineEvalTaskInputPreHandler;
-  /** Has it been uploaded to HDFS? */
+  /** 是否已经上传到 hdfs */
   uploaded?: boolean;
-  /** Upload progress cursor */
+  /** 上传进度游标 */
   uploadCursor?: Int64;
-  /** Has it been deleted? */
+  /** 是否已删除 */
   isDeleted?: boolean;
 }
 
@@ -180,7 +180,7 @@ export interface OfflineEvalTaskDatasetPreHandler {
   promptVersion?: string;
   inputColumn?: string;
   promptID?: string;
-  /** Whether the prompt has been deleted */
+  /** prompt是否已删除 */
   isPromptDeleted?: boolean;
 }
 

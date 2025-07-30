@@ -24,23 +24,23 @@ import * as common_struct from './common_struct';
 export type Int64 = string | number;
 
 export enum FolderObjectType {
-  /** Agent */
+  /** 智能体 */
   Intelligence = 1,
-  /** project */
+  /** 项目 */
   App = 2,
-  /** plugin */
+  /** 插件 */
   Plugin = 3,
-  /** Workflow */
+  /** 工作流 */
   Workflow = 4,
-  /** Knowledge Base */
+  /** 知识库 */
   Knowledge = 5,
-  /** Card */
+  /** 卡片 */
   Card = 6,
-  /** cue word */
+  /** 提示词 */
   Prompt = 7,
-  /** database */
+  /** 数据库 */
   Database = 8,
-  /** timbre */
+  /** 音色 */
   Voice = 9,
 }
 
@@ -49,15 +49,15 @@ export interface FolderCreateData {
 }
 
 export interface FolderCreateRequest {
-  /** Space ID */
+  /** 空间id */
   space_id: string;
-  /** Folder type */
+  /** 文件夹类型 */
   type: common_struct.FolderType;
-  /** Folder name */
+  /** 文件夹名称 */
   name: string;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** Parent folder id */
+  /** 父文件夹id */
   parent_folder_id?: string;
 }
 
@@ -78,7 +78,7 @@ export interface FolderDeleteResponse {
 
 export interface FolderMoveRequest {
   folder_id: string;
-  /** Folder to move to */
+  /** 要移动到的文件夹下 */
   parent_folder_id: string;
 }
 
@@ -89,9 +89,9 @@ export interface FolderMoveResponse {
 
 export interface FolderUpdateRequest {
   folder_id: string;
-  /** Name, if not passed on, it will not be updated. */
+  /** 名称，不传则不更新 */
   name?: string;
-  /** Description, if not passed on, it will not be updated. */
+  /** 描述，不传则不更新 */
   description?: string;
 }
 
@@ -101,11 +101,11 @@ export interface FolderUpdateResponse {
 }
 
 export interface GetFolderInfoByIdsRequest {
-  /** Space ID */
+  /** 空间id */
   space_id?: string;
-  /** Up to 50 at a time */
+  /** 每次最多50个 */
   folder_ids?: Array<string>;
-  /** Whether to get the path */
+  /** 是否获取路径 */
   get_path_info?: boolean;
 }
 
@@ -116,14 +116,14 @@ export interface GetFolderInfoByIdsResponse {
 }
 
 export interface GetFolderTreeRequest {
-  /** Space ID */
+  /** 空间id */
   space_id: string;
-  /** Folder type */
+  /** 文件夹类型 */
   type: common_struct.FolderType;
 }
 
 export interface GetFolderTreeResponse {
-  /** Folder tree structure */
+  /** 文件夹树形结构 */
   data?: Array<common_struct.FolderInfo>;
   code: Int64;
   msg: string;
@@ -141,7 +141,7 @@ export interface MoveObjectInfo {
 export interface MoveObjectToFolderRequest {
   dest_folder_id: string;
   folder_space_id: string;
-  /** List of moved resources, maximum length 50 */
+  /** 移动的资源列表，最大长度50 */
   move_objects?: Array<MoveObjectInfo>;
 }
 

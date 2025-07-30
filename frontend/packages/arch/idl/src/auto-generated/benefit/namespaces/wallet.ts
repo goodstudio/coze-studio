@@ -80,11 +80,11 @@ export interface PublicGetUserWalletDetailResponse {
 }
 
 export interface PublicGetUserWalletHistoryRequest {
-  /** No need to pass it on for the first time. */
+  /** 第一次不用传 */
   index?: string;
-  /** number of pages per page */
+  /** 每页数量 */
   count?: Int64;
-  /** type list */
+  /** 类型列表 */
   type_list?: Array<WalletHistoryType>;
 }
 
@@ -104,17 +104,17 @@ export interface UserProfitData {
 }
 
 export interface UserWalletDetailData {
-  /** Current withdrawal balance, in cents */
+  /** 当前提现余额，单位：分 */
   current_balance?: string;
-  /** Cumulative settlement total, unit: points */
+  /** 累计结算总额，单位：分 */
   total_settled_amount?: string;
 }
 
 export interface UserWalletHistoryData {
   history_list?: Array<UserWalletHistoryItem>;
-  /** Is there a next page? */
+  /** 是否还有下一页 */
   has_more?: boolean;
-  /** Paging index for the next request */
+  /** 下次请求的分页 index */
   next_index?: string;
 }
 
@@ -126,9 +126,9 @@ export interface UserWalletHistoryItem {
   type?: WalletHistoryType;
   direction?: WalletHistoryDirection;
   amount?: string;
-  /** Unit: seconds */
+  /** 单位：秒 */
   timestamp?: string;
-  /** Only income has this field, the type of income source */
+  /** 只有收入有该字段，该笔收入来源的类型 */
   income_from_user_role?: marketplace_common.UserRole;
 }
 /* eslint-enable */

@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** AgentType agent type, 0-bot, 1-project */
+/** AgentType 智能体类型， 0-bot， 1-project */
 export enum AgentType {
   AgentTypeBot = 0,
   AgentTypeProject = 1,
@@ -42,10 +42,10 @@ export enum BindStatus {
   InvalidStatus = 0,
   ValidStatus = 1,
   SaveNotPublishStatus = 2,
-  /** Token is reset.
-Discord release process streamlined  */
+  /** token 被 reset.
+Discord 发布流程简化  */
   Disconnected = 3,
-  /** The current configuration is invalid and needs to be reconfigured. Currently only Bitable */
+  /** 目前的配置不合法，需要重新配置。目前仅飞书多维表格使用 */
   NeedReconfigure = 4,
 }
 
@@ -57,73 +57,73 @@ export enum ConnectorAttributeType {
 }
 
 export enum ConnectorAuditStatus {
-  /** Unknown, Unaudited */
+  /** 未知、无审核 */
   Unknown = 0,
-  /** Under review. */
+  /** 审核中 */
   Progress = 1,
-  /** approved */
+  /** 审核通过 */
   Audited = 2,
-  /** moderation rejection */
+  /** 审核拒绝 */
   Reject = 3,
 }
 
 export enum ConnectorBindType {
-  /** No binding required */
+  /** 无需绑定 */
   NoBindRequired = 1,
-  /** Auth binding */
+  /** Auth绑定 */
   AuthBind = 2,
-  /** Kv binding */
+  /** Kv绑定 */
   KvBind = 3,
-  /** Kv and Auth authorization */
+  /** Kv并Auth授权 */
   KvAuthBind = 4,
-  /** API channel binding */
+  /** api渠道绑定 */
   ApiBind = 5,
-  /** WebSDK binding */
+  /** WebSDK 绑定 */
   WebSDKBind = 6,
-  /** Store channel binding */
+  /** 商店渠道绑定 */
   StoreBind = 7,
-  /** One button each for authorization and configuration */
+  /** 授权和配置各一个按钮 */
   AuthAndConfig = 8,
-  /** template channel binding */
+  /** 模板渠道绑定 */
   BindWithConnectorID = 9,
 }
 
-/** Discord release process streamlined
+/** Discord 发布流程简化
   */
 export enum ConnectorStatus {
-  /** Normal */
+  /** 正常 */
   Normal = 0,
-  /** Under review. */
+  /** 审核中 */
   InReview = 1,
-  /** go offline */
+  /** 下线 */
   Offline = 2,
 }
 
 export enum ListConnectorScene {
-  /** bot release page */
+  /** bot发布页 */
   Bot = 0,
-  /** Project release page */
+  /** project发布页 */
   Project = 1,
-  /** all */
+  /** 全部 */
   All = 2,
 }
 
 export enum ManageAccountConnectorAction {
-  /** Add channel */
+  /** 添加渠道 */
   Add = 0,
-  /** Remove channel */
+  /** 移除渠道 */
   Remove = 1,
 }
 
 export enum MiniProgramDomainAction {
-  /** Add domain name */
+  /** 添加域名 */
   Add = 0,
-  /** Remove domain name */
+  /** 移除域名 */
   Remove = 1,
 }
 
 export enum OperateType {
-  /** 1 Attribute modification 2-4 Status modification */
+  /** 1 属性修改  2-4 状态修改 */
   Update = 1,
   Delete = 2,
   StopUse = 3,
@@ -135,15 +135,15 @@ export enum ResourceType {
 }
 
 export enum SchemaAreaPageApi {
-  /** Do not execute */
+  /** 不执行 */
   NotQuery = 0,
-  /** Query config */
+  /** 查询config */
   GetBindConnectorConfig = 1,
-  /** Save config */
+  /** 保存config */
   SaveBindConnectorConfig = 2,
-  /** bind */
+  /** 绑定 */
   BindConnector = 3,
-  /** unbind */
+  /** 解绑 */
   UnBindConnector = 4,
 }
 
@@ -151,7 +151,7 @@ export enum SpaceConnectorType {
   Team = 1,
   Public = 2,
   Official = 3,
-  /** Installed public channels */
+  /** 已安装的公开渠道 */
   InstalledPublic = 4,
 }
 /* eslint-enable */

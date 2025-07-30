@@ -54,8 +54,8 @@ export interface DeleteTaskResp {}
 
 export interface GetFilterOptionsReq {
   objectType: automation.ObjectType;
-  /** When the parameter is not provided or false and builtInFilter is empty, the option corresponding to any builtinFilter of the object is returned
-When the parameter is true and builtInFilter is empty, a list of supported builtinFilters is returned */
+  /** 该参数未提供或 false 且 builtInFilter 为空时, 返回该对象任意一个 builtinFilter 对应的选项
+该参数为 true 且 builtInFilter 为空时, 返回支持的 builtinFilter 列表 */
   apiV2?: boolean;
   builtInFilter?: automation.BuiltinSpanFilterType;
 }
@@ -87,7 +87,7 @@ export interface GetTaskStatusDetailResp {
 }
 
 export interface ListBPMApproversReq {
-  /** Permission group key */
+  /** 权限组 key */
   group_key: string;
 }
 
@@ -104,11 +104,11 @@ export interface ListTasksBySpaceReq {
   taskType?: Array<automation.TaskType>;
   taskStatuses?: Array<automation.TaskStatusType>;
   createdBy?: string;
-  /** Start with null, scroll to nextCursor in resp */
+  /** 起始为空，滚动传入 resp 里的 nextCursor */
   cursor?: string;
-  /** Default is 20. */
+  /** 默认为 20 */
   pageSize?: string;
-  /** The default is -1. If it is not 0, it means to return in reverse order of update time, otherwise it will be returned in reverse order of creation time. Scroll into nextUpdatedAt in resp. */
+  /** 默认为 -1，不为0时表示按更新时间倒序返回，否则按创建时间倒序。滚动传入 resp 里的 nextUpdatedAt */
   updatedAtLTE?: string;
 }
 
@@ -121,7 +121,7 @@ export interface ListTasksBySpaceResp {
 
 export interface Rule2TraceQueryReq {
   space_id: string;
-  /** Filter criteria for automated tasks, the fields in them may not be used */
+  /** 自动化任务的筛选条件，里面的字段不一定都会用到 */
   rule?: automation.Rule;
 }
 

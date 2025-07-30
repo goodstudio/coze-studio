@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import {
   type ReadonlyChatAreaPlugin,
   type WriteableChatAreaPlugin,
@@ -30,7 +30,7 @@ export interface RegisterPlugin<T = unknown> {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   Plugin: new (
     context: T,
-    // @TS-expect-error -- unknown should be required here.
+    // @ts-expect-error -- unknown should be required here.
     chatAreaPluginContext: ChatAreaPluginContext<unknown>,
   ) => ReadonlyChatAreaPlugin<T> | WriteableChatAreaPlugin<T>;
 }

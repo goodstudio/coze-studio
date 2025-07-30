@@ -27,7 +27,7 @@ export type Int64 = string | number;
 export interface GetBatchInferTaskReq {
   task_id?: string;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   base?: base.Base;
 }
@@ -40,37 +40,37 @@ export interface GetBatchInferTaskResp {
 export interface GetRecommendResourceReq {
   modelCardID?: string;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   base?: base.Base;
 }
 
 export interface GetRecommendResourceResp {
-  /** Is there a recommended resource allocation? */
+  /** 是否存在推荐的资源配置 */
   exist?: boolean;
-  /** cluster id */
+  /** 集群id */
   merlinClusterID?: string;
-  /** GPU type */
+  /** gpu类型 */
   gpuv?: string;
-  /** user group id */
+  /** 用户组id */
   groupID?: string;
-  /** Resource pool type */
+  /** 资源池类型 */
   quotaPoolType?: batch_infer.MerlinQuotaPoolType;
   baseResp?: base.BaseResp;
 }
 
 export interface ListModelCardsReq {
-  /** Required. Source of model card */
+  /** 必填。model card来源 */
   provider?: batch_infer.Provider;
-  /** Optional. model card name keyword. */
+  /** 选填。model card名称关键字。 */
   nameKeyword?: string;
-  /** Required. User jwt token. Authentication when calling APIs such as merlin */
+  /** 必填。用户jwt token。用于调用merlin等api时的鉴权 */
   userJwtToken?: string;
-  /** Required. PageSize. Maximum value is 100. */
+  /** 必填。pageSize。最大值为100 */
   limit?: string;
-  /** Required. Page turn offset. Fill in the initial value with 0, and this value += limit for each page turned. */
+  /** 必填。翻页偏移量。初始值填0，每翻一页这个值+=limit */
   offset?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   base?: base.Base;
 }
@@ -87,13 +87,13 @@ export interface ParseModelConfigReq {
   seedHdfsAddress?: string;
   seedModelCardID?: string;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   base?: base.Base;
 }
 
 export interface ParseModelConfigResp {
-  /** Merlin seed model configuration */
+  /** merlin seed 模型配置 */
   modelParamConfigType?: string;
   tokenizerAddress?: string;
   networkConfig?: string;

@@ -34,29 +34,29 @@ export enum TaskStatus {
 export interface BannerConfig {
   image_uri?: string;
   image_url?: string;
-  /** main title */
+  /** 主标题 */
   main_title?: string;
-  /** Subtitle */
+  /** 副标题 */
   sub_title?: string;
   button_text?: string;
   button_url?: string;
   start_time?: string;
   end_time?: string;
-  /** Style 1 - Dark 2 - Bright */
+  /** 风格 1-暗黑 2-明亮 */
   style?: StyleStatus;
 }
 
 export interface CreateBannerConfig {
   image_uri?: string;
-  /** main title */
+  /** 主标题 */
   main_title?: string;
-  /** Subtitle */
+  /** 副标题 */
   sub_title?: string;
   button_text?: string;
   button_url?: string;
   start_time?: string;
   end_time?: string;
-  /** Style 1 - Dark 2 - Bright */
+  /** 风格 1-暗黑 2-明亮 */
   style?: StyleStatus;
 }
 
@@ -129,7 +129,7 @@ export interface TaskBaseInfo {
 export interface UpdateHomeBannerTaskRequest {
   task_id: string;
   task_name?: string;
-  /** Banner task status, 1-take effect, 2-delete */
+  /** banner task状态，1-生效，2-删除 */
   task_status?: TaskStatus;
   banner_list?: Array<CreateBannerConfig>;
 }

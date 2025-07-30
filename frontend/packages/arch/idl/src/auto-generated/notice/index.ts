@@ -80,7 +80,7 @@ export default class NoticeService<T> {
   /**
    * POST /api/notice/upload
    *
-   * file upload
+   * 文件上传
    */
   UploadFile(
     req?: file.UploadFileRequest,
@@ -133,7 +133,7 @@ export default class NoticeService<T> {
   /**
    * POST /api/notice/task/create
    *
-   * task
+   * 任务
    */
   CreateDraftTask(
     req?: task.CreateDraftTaskRequest,
@@ -189,7 +189,7 @@ export default class NoticeService<T> {
   /**
    * POST /api/notice/template/create
    *
-   * template
+   * 模板
    */
   CreateTemplate(
     req: template.CreateTemplateRequest,

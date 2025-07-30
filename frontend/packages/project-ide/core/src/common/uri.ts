@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { URI as Uri } from 'vscode-uri';
 
 import { prioritizeAllSync, prioritizeAll } from './prioritizeable';
@@ -244,7 +244,7 @@ export class URI {
     const pattern = `/${this.authority}${this.path.toString()}`; // Start with/
     let regexpSource = pattern
       .replace(/\/*\*?$/, '') // remove the/and/* at the endnd/* at the end
-      .Replace (/[\\. *+ ^ ${} | () [\]]/g, '\\ $&')//Translate some special characterse some special characters
+      .replace(/[\\. *+ ^ ${} | () [\]]/g, '\\ $&') //Translate some special characterse some special characters
       .replace(/\/:([\w-]+)(\?)?/g, (_, paramName, optional) => {
         //Collect the parameters on the url/: param/,/: param?/RL/: param/,/: param?/
         params.push({
@@ -252,7 +252,7 @@ export class URI {
           // eslint-disable-next-line eqeqeq
           optional: optional != null,
         });
-        Is it an optional parameter?n optional parameter?
+        // Is it an optional parameter?n optional parameter?
         return optional ? '/?([^\\/]+)?' : '/([^\\/]+)';
       });
     if (pattern.endsWith('*')) {

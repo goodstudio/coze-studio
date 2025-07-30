@@ -30,7 +30,7 @@ export interface FilterField {
   query_type?: string;
   query_and_or?: string;
   sub_filter?: FilterFields;
-  /** Temporary addition, expectations should not exist */
+  /** 临时新增，预期不应该存在 */
   hidden?: boolean;
 }
 
@@ -40,11 +40,11 @@ export interface FilterFields {
 }
 
 export interface SpanFilters {
-  /** Span filter condition */
+  /** Span 过滤条件 */
   filters?: FilterFields;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** The span tab type of the query, if not filled in, the default is root span. */
+  /** 查询的 span 标签页类型，不填默认是 root span */
   span_list_type?: flow_devops_fornaxob_common.SpanListType;
 }
 

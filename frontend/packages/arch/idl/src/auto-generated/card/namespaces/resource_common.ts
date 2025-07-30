@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** copy */
+  /** 复制 */
   Copy = 1,
-  /** delete */
+  /** 删除 */
   Delete = 2,
-  /** enable/disable */
+  /** 启用/禁用 */
   EnableSwitch = 3,
-  /** edit */
+  /** 编辑 */
   Edit = 4,
-  /** Switch to funcflow */
+  /** 切换成funcflow */
   SwitchToFuncflow = 8,
-  /** Switch to chatflow */
+  /** 切换成chatflow */
   SwitchToChatflow = 9,
-  /** Cross-spatial replication */
+  /** 跨空间复制 */
   CrossSpaceCopy = 10,
 }
 
@@ -42,32 +42,32 @@ export enum CopyStatus {
   Successful = 1,
   Processing = 2,
   Failed = 3,
-  /** If it is KeepOrigin, it means that the resource does not need to be changed, and the resource party does not need to set Target related information; the referencing party can directly ignore it. */
+  /** 如果是KeepOrigin，表示该资源不需要做变更，资源方不需要设置Target相关信息；引用方直接忽略即可 */
   KeepOrigin = 4,
-  /** Represents when rolling back to draft, the resource changes from Yes - > No */
+  /** 表示回滚到草稿时，资源从有->无的变更 */
   Deleted = 5,
 }
 
 export enum ProjectResourceActionKey {
-  /** rename */
+  /** 重命名 */
   Rename = 1,
-  /** Create a copy/copy to the current project */
+  /** 创建副本/复制到当前项目 */
   Copy = 2,
-  /** Copy to repository */
+  /** 复制到资源库 */
   CopyToLibrary = 3,
-  /** Move to Library */
+  /** 移动到资源库 */
   MoveToLibrary = 4,
-  /** delete */
+  /** 删除 */
   Delete = 5,
-  /** enable */
+  /** 启用 */
   Enable = 6,
-  /** disable */
+  /** 禁用 */
   Disable = 7,
-  /** Switch to funcflow */
+  /** 切换成funcflow */
   SwitchToFuncflow = 8,
-  /** Switch to chatflow */
+  /** 切换成chatflow */
   SwitchToChatflow = 9,
-  /** Modify description */
+  /** 修改描述 */
   UpdateDesc = 10,
 }
 
@@ -78,38 +78,38 @@ export enum ProjectResourceGroupType {
 }
 
 export enum PublishStatus {
-  /** unpublished */
+  /** 未发布 */
   UnPublished = 1,
-  /** Published */
+  /** 已发布 */
   Published = 2,
 }
 
 export enum ResourceCopyScene {
-  /** Copy resources within the project, shallow copy */
+  /** 复制项目内的资源，浅拷贝 */
   CopyProjectResource = 1,
-  /** Copy the project resources to the Library, and publish after copying */
+  /** 复制项目资源到Library，复制后要发布 */
   CopyResourceToLibrary = 2,
-  /** Move project resources to Library, copy to publish, and delete project resources later */
+  /** 移动项目资源到Library，复制后要发布，后置要删除项目资源 */
   MoveResourceToLibrary = 3,
-  /** Copy Library Resources to Project */
+  /** 复制Library资源到项目 */
   CopyResourceFromLibrary = 4,
-  /** Copy the project, along with the resources. Copy the current draft. */
+  /** 复制项目，连带资源要复制。复制当前草稿。 */
   CopyProject = 5,
-  /** The project is published to the channel, and the associated resources need to be published (including the store). Publish with the current draft. */
+  /** 项目发布到渠道，连带资源需要发布（含商店）。以当前草稿发布。 */
   PublishProject = 6,
-  /** Copy the project template. */
+  /** 复制项目模板。 */
   CopyProjectTemplate = 7,
-  /** The project is published to a template, and the specified version of the project is published as a temporary template. */
+  /** 项目发布到模板，以项目的指定版本发布成临时模板。 */
   PublishProjectTemplate = 8,
-  /** The template is approved, put on the shelves, and the official template is copied according to the temporary template. */
+  /** 模板审核通过，上架，根据临时模板复制正式模板。 */
   LaunchTemplate = 9,
-  /** Draft version archive */
+  /** 草稿版本存档 */
   ArchiveProject = 10,
-  /** Online version loaded into draft, draft version loaded into draft */
+  /** 线上版本加载到草稿，草稿版本加载到草稿 */
   RollbackProject = 11,
-  /** Cross-spatial replication of a single resource */
+  /** 单个资源跨空间复制 */
   CrossSpaceCopy = 12,
-  /** item cross-spatial replication */
+  /** 项目跨空间复制 */
   CrossSpaceCopyProject = 13,
 }
 
@@ -131,13 +131,13 @@ export enum SyncOperation {
 }
 
 /** struct ResourceCopyExtraInfo{
-    //Indicates that after operating the resource, the resource should be changed to this namefter manipulating the resource, the resource should be changed to this name
+    // 表示操作资源后，资源要改成该名称
     1 : optional string ResourceName (go.tag = "json:\"resource_name\"", agw.key = "resource_name")
-    //Indicates the version number after the resource is publishedthe version number of the resource after it was published
+    // 表示资源发布后的版本号
     2 : optional string VersionNum  (go.tag = "json:\"version_num\"", agw.key = "version_num")
-    //Version description of this versionion description of this version
+    // 该版本的版本描述
     3 : optional string VersionDesc  (go.tag = "json:\"version_desc\"", agw.key = "version_desc")
-    //Different information for each resource, for plugins, is a personal information collection declaration. schema and conventions for each resource partyn, and the plugin is a personal information collection declaration. schema and conventions for each resource party
+    // 每个资源不同的信息，对插件，是个人信息收集声明。schema和各个资源方约定
     4 : optional string ResourceExtendInfo  (go.tag = "json:\"resource_extend_info\"", agw.key = "resource_extend_info")
 } */
 export enum TaskStatus {
@@ -155,46 +155,46 @@ export interface ResourceCopyCheckFailedReason {
 
 export interface ResourceCopyEnv {
   Scene?: ResourceCopyScene;
-  /** Original project ID. Values if the copied resource is in the project. Scenario: CopyProjectResource, CopyResourceToLibrary, MoveResourceToLibrary, CopyProject */
+  /** 原项目ID。如果被复制的资源在项目中，则有值。场景：CopyProjectResource、CopyResourceToLibrary、MoveResourceToLibrary、CopyProject */
   OriginProjectID?: Int64;
-  /** Target project ID. If the copied resource is to be assigned project_id, there is a value. Scenario: CopyProjectResource, CopyResourceFromLibrary, CopyProject */
+  /** 目标项目ID。如果复制后的资源要赋值project_id，则有值。场景：CopyProjectResource、CopyResourceFromLibrary、CopyProject */
   TargetProjectID?: Int64;
-  /** The ID of the resource to be copied/moved by the user. Valued if the target of the operation is a resource. Scenario: CopyProjectResource, CopyResourceToLibrary, MoveResourceToLibrary, CopyResourceFromLibrary */
+  /** 被用户选择复制/移动的资源ID。如果操作的目标是资源，则有值。场景：CopyProjectResource、CopyResourceToLibrary、MoveResourceToLibrary、CopyResourceFromLibrary */
   ResourceLocator?: ResourceLocator;
-  /** The only constraint of the secondary task, the control idempotent. If there is one, it will be passed, and there is no need to pass it when initiating the task. */
+  /** 当次任务的唯一约束，控制幂等。有则传，发起任务时不用传 */
   TaskUniqKey?: string;
-  /** When the project is published, the project version. Scenario: PublishProject, PublishProjectTemplate */
+  /** 项目发布时，项目版本。场景：PublishProject、PublishProjectTemplate */
   TargetProjectVersion?: Int64;
   OriginProjectSpaceID?: Int64;
   TargetProjectSpaceID?: Int64;
-  /** operator user id */
+  /** 操作者用户id */
   CurrentUserID?: Int64;
-  /** When publishing a template, the original project version. or when copying a template, the project version of the template. */
+  /** 发布模板时，原项目版本。or 复制模板时，模板的项目版本。 */
   OriginProjectVersion?: Int64;
-  /** 0/default-app, the default is app, which is the previous project; 1-bot or agent */
+  /** 0/default-app，默认是app也就是之前的project; 1-bot或者叫agent */
   ProjectType?: number;
 }
 
-/** Copy result for each resource, including before and after mapping information */
+/** 每个资源的复制结果，包含前后映射信息 */
 export interface ResourceCopyResult {
   OriginResourceLocator?: ResourceLocator;
   TargetResourceLocator?: ResourceLocator;
   CopyStatus?: CopyStatus;
-  /** Release version number or version name, 0.0.1 */
+  /** 发布版本号或版本名，0.0.1 */
   TargetPublishVersionNum?: string;
-  /** Other information, such as plugin tool mapping information. Schema and resource party conventions */
+  /** 其他的信息，比如plugin的tool映射信息。schema和各资源方约定 */
   TargetResInfo?: string;
-  /** Reasons for unsuccessful replication */
+  /** 复制不成功的原因 */
   FailedReason?: string;
 }
 
-/** A structure used to locate a resource's data: a version of a resource */
+/** 用于定位一个资源数据的结构：某资源的某版本 */
 export interface ResourceLocator {
   ResID?: Int64;
   ResType?: ResType;
-  /** Discard, do not use */
+  /** 废弃，不要使用 */
   PublishVersion?: Int64;
-  /** The current version of the resource, either nil or empty string, is considered the latest version. Project release or Library release. */
+  /** 资源的当前版本，为nil或空字符串都看作是最新版本。项目发布版本或Library发布版本。 */
   PublishVersionStr?: string;
 }
 /* eslint-enable */

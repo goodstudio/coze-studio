@@ -38,18 +38,18 @@ export enum OperationType {
 
 export interface GetCommonOperationAggregationRequest {
   space_id: string;
-  /** aggregate key */
+  /** 聚合键 */
   aggregation_keys: Array<string>;
-  /** Query environment type, default to All */
+  /** 查询环境类型，默认为全部 */
   fornax_env?: flow_devops_fornaxob_common.EnvType;
 }
 
 export interface GetCommonOperationAggregationResponse {
-  /** general metrics */
+  /** 通用指标 */
   operation_aggregations: Array<OperationAggregation>;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -60,35 +60,35 @@ export interface OperationAggregation {
 
 export interface QueryOperationRequest {
   space_id: string;
-  /** indicator type */
+  /** 指标类型 */
   operation_type: string;
-  /** Start time. timestamp, accurate to milliseconds */
+  /** 开始时间。时间戳，精确到毫秒 */
   start_time: Int64;
-  /** End time. timestamp, accurate to milliseconds */
+  /** 结束时间。时间戳，精确到毫秒 */
   end_time: Int64;
-  /** psm list */
+  /** psm列表 */
   psm?: Array<string>;
-  /** Aggregation type, defaults to days */
+  /** 聚合类型，默认为天 */
   aggregation_type?: AggregationType;
-  /** Model ID */
+  /** 模型id */
   model_id?: Array<string>;
-  /** Query environment type, default to All */
+  /** 查询环境类型，默认为全部 */
   fornax_env?: flow_devops_fornaxob_common.EnvType;
 }
 
 export interface QueryOperationResponse {
   operations: Array<operation.Operation>;
-  /** indicator type */
+  /** 指标类型 */
   operation_type: string;
-  /** index cumulative value */
+  /** 指标累加值 */
   total?: string;
-  /** 1 day comparison */
+  /** 1天对比 */
   one_day_comparison?: number;
-  /** Comparison to the previous cycle */
+  /** 往前一周期对比 */
   one_period_comparison?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 /* eslint-enable */

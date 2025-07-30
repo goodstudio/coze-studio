@@ -99,7 +99,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/create_charge_order
    *
-   * Initiate a recharge order (coze token, message credit)
+   * 发起充值单（coze token、message credit）
    */
   CreateChargeOrder(
     req?: order.CreateChargeOrderRequest,
@@ -126,7 +126,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/checkout_callback
    *
-   * PIPO Checkout Payment Callback
+   * PIPO Checkout支付回调
    */
   PipoCheckoutCallback(
     req?: pipo.PipoCheckoutCallbackRequest,
@@ -146,7 +146,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_account_balance
    *
-   * Get account balance (token)
+   * 获取账户余额（token）
    */
   GetAccountBalance(
     req?: account.GetAccountBalanceRequest,
@@ -165,7 +165,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_account_bills
    *
-   * Get account statement (token)
+   * 获取账户账单（token）
    */
   GetAccountBills(
     req?: account.GetAccountBillsRequest,
@@ -186,7 +186,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_model_cost_rules
    *
-   * Obtain model billing rules (tokens)
+   * 获取模型计费规则（token）
    */
   GetModelCostRules(
     req?: account.GetModelCostRulesRequest,
@@ -200,7 +200,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/agreement_deduction_callback
    *
-   * PIPO agreement payment callback
+   * PIPO 协议支付回调
    */
   PipoAgreementDeductionCallback(
     req?: pipo.PipoAgreementDeductionCallbackRequest,
@@ -222,7 +222,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_user_payment_methods
    *
-   * PIPO checks whether the user binds the payment method
+   * PIPO 查询用户是否绑定支付方式
    */
   PipoGetUserPaymentMethods(
     req?: pipo.PipoGetUserPaymentMethodsRequest,
@@ -247,7 +247,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_payment_method_management_url
    *
-   * PIPO Get Payment Method Management Page
+   * PIPO 获取支付方式管理页面
    */
   PipoGetPaymentMethodManagementURL(
     req?: pipo.PipoGetPaymentMethodManagementURLRequest,
@@ -270,7 +270,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_trade_conf
    *
-   * Query transaction field configuration
+   * 查询交易领域配置
    */
   GetTradeConf(
     req?: security.GetTradeConfRequest,
@@ -287,7 +287,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_trade_order
    *
-   * Query transaction order information
+   * 查询交易订单信息
    */
   GetTradeOrder(
     req: order.GetTradeOrderRequest,
@@ -306,7 +306,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/subscription
    *
-   * Get the user's current subscription details
+   * 获取用户当前订阅详情
    */
   PublicGetSubscriptionDetail(
     req?: subscription.PublicGetSubscriptionDetailRequest,
@@ -322,7 +322,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/create_subscription
    *
-   * Initiate subscription (including subscription upgrade and downgrade)
+   * 发起订阅（含订阅升降级）
    */
   PublicCreateSubscription(
     req?: subscription.PublicCreateSubscriptionRequest,
@@ -348,7 +348,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/resume_subscription
    *
-   * Subscribe again
+   * 重新订阅
    */
   PublicReSubscription(
     req?: subscription.PublicReSubscriptionRequest,
@@ -368,7 +368,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/subscription_product
    *
-   * Get a list of subscription packages
+   * 获取订阅套餐列表
    */
   PublicGetSubscriptionProductDetail(
     req?: subscription.PublicGetSubscriptionProductDetailRequest,
@@ -384,7 +384,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/cancel_subscription
    *
-   * unsubscribe
+   * 取消订阅
    */
   PublicCancelSubscription(
     req?: subscription.PublicCancelSubscriptionRequest,
@@ -404,7 +404,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/subscription_notify
    *
-   * subscription callback
+   * 订阅回调
    */
   SubscriptionNotify(
     req?: pipo.SubscriptionNotifyRequest,
@@ -420,7 +420,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/create_charge_order_v2
    *
-   * Initiate a recharge order (coze token, message credit) to standardize the imported parameters of the front desk interface
+   * 发起充值单（coze token、message credit）规范化前台接口入参
    */
   PublicCreateChargeOrder(
     req?: order.PublicCreateChargeOrderRequest,
@@ -448,7 +448,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/credit_bill
    *
-   * Get user bill
+   * 获取用户账单
    */
   PublicGetCreditBill(
     req: bill.GetCreditBillRequest,
@@ -474,7 +474,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_pricing_rules
    *
-   * Get Ladder Pricing Rules
+   * 获取阶梯定价规则
    */
   PublicGetPricingRules(
     req: price_rule.GetPricingRulesRequest,
@@ -494,7 +494,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/refund_order_callback
    *
-   * refund callback
+   * 退款回调
    */
   RefundOrderCallback(
     req?: pipo.RefundOrderCallbackRequest,
@@ -510,7 +510,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/invoice_callback
    *
-   * PIPO invoicing callback
+   * PIPO 开票回调
    */
   PipoInvoiceCallback(
     req?: pipo.PipoInvoiceCallbackRequest,
@@ -526,7 +526,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/instant_pay_callback
    *
-   * PIPO Gateway Payment Callback
+   * PIPO Gateway 支付回调
    */
   PipoInstantPayCallback(
     req?: pipo.PipoInstantPayCallbackRequest,
@@ -542,7 +542,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/admin/subscription_product
    *
-   * Get subscription product information
+   * 获取订阅商品信息
    */
   AdminGetSubscriptionProductDetail(
     req: subscription.AdminGetSubscriptionProductDetailRequest,
@@ -563,7 +563,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/chargeback_callback
    *
-   * chargeback
+   * 拒付回调
    */
   ChargebackCallback(
     req?: pipo.ChargebackCallbackRequest,
@@ -579,7 +579,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/get_subs_rec
    *
-   * Query subscription record information
+   * 查询订阅记录信息
    */
   GetSubscriptionRecord(
     req?: subscription.GetSubscriptionRecordRequest,
@@ -598,7 +598,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/gw_agreement_deduction_callback
    *
-   * PIPO gateway protocol payment callback
+   * PIPO gateway 协议支付回调
    */
   PipoGWAgreementDeductionCallbackResponse(
     req?: pipo.PipoGWAgreementDeductionCallbackRequest,
@@ -616,7 +616,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/place_order
    *
-   * Order interface (buy template)
+   * 下单接口（购买模版）
    */
   PublicPlaceOrder(
     req?: order.PublicPlaceOrderRequest,
@@ -642,7 +642,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/template_order/list
    *
-   * Query transaction order information
+   * 查询交易订单信息
    */
   PublicGetTemplatePurchaseOrderList(
     req?: order.PublicGetTemplatePurchaseOrderListRequest,
@@ -658,7 +658,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/subscription_v2
    *
-   * Get the user's current subscription details V2
+   * 获取用户当前订阅详情V2
    */
   PublicGetSubscriptionDetailV2(
     req?: subscription.PublicGetSubscriptionDetailV2Request,
@@ -679,7 +679,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/subscription_product_v2
    *
-   * Get a list of subscription packages
+   * 获取订阅套餐列表
    */
   PublicGetSubscriptionProductDetailV2(
     req?: subscription.PublicGetSubscriptionProductDetailV2Request,
@@ -750,7 +750,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/space_benefit
    *
-   * Acquire space rights
+   * 获取空间权益
    */
   PublicGetSpaceBenefit(
     req: subscription.PublicGetSpaceBenefitRequest,
@@ -769,7 +769,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/benefit/user/extra/create
    *
-   * Expansion Pack - Add
+   * 扩展包-添加
    */
   PublicCreateUserExtraBenefit(
     req?: benefit.PublicCreateUserExtraBenefitRequest,
@@ -790,7 +790,7 @@ export default class TradeOperationService<T> {
   /**
    * GET /api/marketplace/trade/benefit/user/list
    *
-   * Expansion management
+   * 扩容管理
    */
   PublicGetUserBenefit(
     req?: benefit.PublicGetUserBenefitRequest,
@@ -812,7 +812,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/benefit/user/extra/disable
    *
-   * Expansion Pack - Cancel
+   * 扩展包-取消
    */
   PublicDisableUserExtraBenefit(
     req?: benefit.PublicDisableUserExtraBenefitRequest,
@@ -833,7 +833,7 @@ export default class TradeOperationService<T> {
   /**
    * POST /api/marketplace/trade/benefit_conf/common_set
    *
-   * Universal configuration settings (currently supported for safe use)
+   * 通用配置设定（当前支持安心用）
    */
   PublicCommSetConfBenefit(
     req?: benefit_conf.PublicCommSetConfBenefitRequest,

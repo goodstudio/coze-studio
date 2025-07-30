@@ -81,9 +81,9 @@ export default class MarketInteractionApiService<T> {
   /**
    * GET /api/marketplace/interaction/share_link/get
    *
-   * ------------------------------------ HTTP interface ------------------------------------
+   * ------------------------------------ HTTP 接口 ------------------------------------
    *
-   * Share: Generate a share link
+   * 分享：生成分享链接
    */
   GetShareLink(
     req: share.GetShareLinkRequest,
@@ -102,7 +102,7 @@ export default class MarketInteractionApiService<T> {
   /**
    * GET /api/marketplace/interaction/share_link/get.v2
    *
-   * Share: Generate a share link V2
+   * 分享：生成分享链接V2
    */
   GetShareLinkV2(
     req: share.GetShareLinkV2Request,
@@ -124,7 +124,7 @@ export default class MarketInteractionApiService<T> {
   /**
    * POST /api/marketplace/interaction/short_url/get
    *
-   * Share: Generate short URLs
+   * 分享：生成短链接
    */
   GetShortURL(
     req: share.GetShortURLRequest,
@@ -183,7 +183,7 @@ export default class MarketInteractionApiService<T> {
   /**
    * GET /api/marketplace/interaction/comment/list
    *
-   * comment
+   * 评论
    */
   PublicGetCommentList(
     req?: public_api.GetCommentListRequest,
@@ -360,7 +360,7 @@ export default class MarketInteractionApiService<T> {
   /**
    * GET /api/marketplace/interaction/upload/token
    *
-   * post
+   * 帖子
    */
   PublicGetUploadToken(
     req?: public_api.GetUploadTokenRequest,
@@ -447,9 +447,9 @@ export default class MarketInteractionApiService<T> {
   /**
    * GET /api/marketplace/interaction/stream_reply
    *
-   * ------------------------------------ HTTP SSE interface ------------------------------------
+   * ------------------------------------ HTTP SSE 接口 ------------------------------------
    *
-   * @Bot conversation streaming return. Access AGW streaming protocol, thrift grpc - > http sse
+   * @Bot 对话流式返回。接入 AGW 流式协议，thrift grpc -> http sse
    */
   StreamReply(
     req?: public_api.StreamReplyRequest,
@@ -469,7 +469,7 @@ export default class MarketInteractionApiService<T> {
   /**
    * POST /api/marketplace/interaction/admin/top_post/publish
    *
-   * ------------------------------------ Admin interface ------------------------------------
+   * ------------------------------------ Admin接口 ------------------------------------
    */
   AdminPublishTopPost(
     req: admin_api.PublishTopPostRequest,
@@ -785,7 +785,7 @@ export default class MarketInteractionApiService<T> {
   /**
    * GET /api/marketplace/interaction/user/data
    *
-   * user homepage interface
+   * 用户主页接口
    */
   PublicGetUserInteractionData(
     req?: public_api.GetUserInteractionDataRequest,

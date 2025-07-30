@@ -46,11 +46,11 @@ export interface AdminGetSubscriptionProductDetailResponse {
 export interface BenefitItem {
   name?: string;
   use_mode?: common.BenefitUseMode;
-  /** available quota */
+  /** 可用额度 */
   quota?: number;
-  /** used quota */
+  /** 已使用额度 */
   used?: number;
-  /** Single consumption quota */
+  /** 单次消耗额度 */
   quota_once_cost?: number;
   icon_url?: string;
 }
@@ -66,11 +66,11 @@ export interface CancelSubscription {
 }
 
 export interface CollaborateQuota {
-  /** Number of collaborators. -1 logo Unlimited */
+  /** 协作者数量。-1标识无限制 */
   collaborators_quota?: number;
-  /** Number of collaborative robots. -1 logo Unlimited */
+  /** 协作机器人数量。-1标识无限制 */
   collaborative_bots_quota?: number;
-  /** Number of collaborative workflows. -1 ID Unlimited */
+  /** 协作工作流数量。-1标识无限制 */
   collaborative_workflows_quota?: number;
 }
 
@@ -95,28 +95,28 @@ export interface CostRulePrice {
 }
 
 export interface CreateSubscription {
-  /** subscription number */
+  /** 订阅单号 */
   subscribe_id?: string;
-  /** redirect link */
+  /** 跳转链接 */
   subscribe_params?: string;
 }
 
 export interface CreditDetail {
   credit_type?: common.CreditType;
   expired_at?: string;
-  /** total quota */
+  /** 总额度 */
   total_quota?: number;
-  /** balance */
+  /** 余额 */
   remain_quota?: number;
-  /** Is it in use? */
+  /** 是否是正在使用的 */
   is_in_use?: boolean;
-  /** Unique to bouns */
+  /** bouns 特有 */
   bouns_details?: Array<BounsCredit>;
 }
 
 export interface GetSubscriptionRecordRequest {
   subscribe_id?: string;
-  /** Whether to check the payment status of the payment side in real time (applicable to when the payment callback has not been received) */
+  /** 是否实时查询支付侧的支付状态（适用于未收到支付回调时） */
   real_time_subs_status?: boolean;
 }
 
@@ -127,19 +127,19 @@ export interface GetSubscriptionRecordResponse {
 }
 
 export interface MemberVersionRights {
-  /** Configure the corresponding package version */
+  /** 配置对应套餐版本 */
   member_version?: common.UserLevel;
-  /** configuration name */
+  /** 配置名称 */
   configuration_name?: string;
-  /** configuration remarks */
+  /** 配置备注 */
   configuration_remark?: string;
-  /** purchase link */
+  /** 购买链接 */
   purchase_link?: PurchaseLink;
-  /** Price information */
+  /** 价格信息 */
   price_info?: PriceInfo;
-  /** Equity Overview */
+  /** 权益概览 */
   right_overview?: Array<string>;
-  /** list of interests */
+  /** 权益列表 */
   right_list?: Array<RightDetail>;
 }
 
@@ -152,27 +152,27 @@ export interface PackageItemDetail {
   items?: Array<PackageContent>;
 }
 
-/** Price information */
+/** 价格信息 */
 export interface PriceInfo {
-  /** monthly price */
+  /** 月付价格 */
   monthly_price?: number;
-  /** Monthly original price */
+  /** 月付原价 */
   monthly_orgin_price?: number;
-  /** annual price */
+  /** 年付价格 */
   annual_price?: number;
-  /** Annual original price */
+  /** 年付原价 */
   annual_orgin_price?: number;
-  /** Annual payment discount */
+  /** 年付折扣 */
   annual_discount?: number;
-  /** Annual monthly price */
+  /** 年付每月价格 */
   annual_per_month_price?: number;
-  /** annual discount price difference */
+  /** 年付折扣差价 */
   annual_discount_price?: number;
 }
 
 export interface PublicCancelSubscriptionRequest {
   subscribe_id?: string;
-  /** For risk control */
+  /** 用于风控 */
   Cookie?: string;
   'Tt-Agw-Client-Ip'?: string;
 }
@@ -184,17 +184,17 @@ export interface PublicCancelSubscriptionResponse {
 }
 
 export interface PublicCreateSubscriptionRequest {
-  /** Usually sku_id. */
+  /** 通常为 sku_id。 */
   goods_id?: string;
-  /** When upgrading and downgrading, pass in the original subscription number */
+  /** 升降级时，传入原订阅单号 */
   pre_subscription_id?: string;
-  /** Source channel, used to jump to the corresponding channel binding page */
+  /** 来源渠道，用于跳转对应渠道绑定页面 */
   channel?: string;
-  /** subscription diversion entity type */
+  /** 订阅导流实体类型 */
   source_type?: common.TradeSourceType;
-  /** subscription diversion entity ID */
+  /** 订阅导流实体ID */
   source_id?: string;
-  /** For risk control */
+  /** 用于风控 */
   Cookie?: string;
   'Tt-Agw-Client-Ip'?: string;
 }
@@ -207,7 +207,7 @@ export interface PublicCreateSubscriptionResponse {
 
 export interface PublicGetSpaceBenefitRequest {
   SpaceID: Int64;
-  /** Return Space Owner Information Only */
+  /** 不传仅返回 Space Owner 信息 */
   benefit_types?: Array<common.BenefitType>;
 }
 
@@ -228,13 +228,13 @@ export interface PublicGetSubscriptionDetailResponse {
 }
 
 export interface PublicGetSubscriptionDetailV2Request {
-  /** Do not pass, only return user information */
+  /** 不传仅返回用户信息 */
   benefit_types?: Array<common.BenefitType>;
-  /** Required. This refers to Coze's AccountID. */
+  /** 必填。这里指的是Coze的AccountID */
   coze_account_id?: string;
-  /** This refers to Coze's AccountType. */
+  /** 这里指的是Coze的AccountType */
   coze_account_type?: common.CozeAccountType;
-  /** Do you need to return the effect package information? */
+  /** 是否需要返回资源包信息 */
   with_resource_package?: boolean;
 }
 
@@ -255,9 +255,9 @@ export interface PublicGetSubscriptionProductDetailResponse {
 }
 
 export interface PublicGetSubscriptionProductDetailV2Request {
-  /** This refers to Coze's AccountID. If you don't pass it on, you will return to the default package price. */
+  /** 这里指的是Coze的AccountID, 不传则返回默认套餐价格 */
   coze_account_id?: string;
-  /** This refers to Coze's AccountType. */
+  /** 这里指的是Coze的AccountType */
   coze_account_type?: common.CozeAccountType;
 }
 
@@ -269,7 +269,7 @@ export interface PublicGetSubscriptionProductDetailV2Response {
 
 export interface PublicReSubscriptionRequest {
   subscribe_id?: string;
-  /** For risk control */
+  /** 用于风控 */
   Cookie?: string;
   'Tt-Agw-Client-Ip'?: string;
 }
@@ -280,104 +280,104 @@ export interface PublicReSubscriptionResponse {
   message: string;
 }
 
-/** purchase link */
+/** 购买链接 */
 export interface PurchaseLink {
-  /** PC-side new purchase link */
+  /** pc端新购链接 */
   pc_new_link?: string;
-  /** App-side new purchase link */
+  /** app端新购链接 */
   app_new_link?: string;
-  /** The PC side is more equipped with the link. */
+  /** pc端更配链接 */
   pc_modify_link?: string;
-  /** More matching links on the app side */
+  /** app端更配链接 */
   app_modify_link?: string;
-  /** PC-side annual payment new purchase link */
+  /** pc端年付新购链接 */
   pc_annual_new_link?: string;
-  /** App-side annual payment new purchase link */
+  /** app端年付新购链接 */
   app_annual_new_link?: string;
 }
 
 export interface ResourcePackage {
-  /** Effect package details */
+  /** 资源包详情 */
   detail?: ResourcePackageDetail;
-  /** Type of effect package */
+  /** 资源包类型 */
   package_type?: common.ResourcePackageType;
-  /** detail */
+  /** 明细 */
   item?: Array<ResourcePackageDetail>;
 }
 
 export interface ResourcePackageDetail {
   package_name: string;
   package_type: common.ResourcePackageType;
-  /** Start time in seconds */
+  /** 开始时间，单位秒 */
   start_at?: Int64;
-  /** End time in seconds */
+  /** 结束时间，单位秒 */
   end_at?: Int64;
-  /** total quota */
+  /** 总额度 */
   total_quota?: number;
-  /** balance */
+  /** 余额 */
   remain_quota?: number;
   input_quota?: Int64;
   output_quota?: Int64;
 }
 
 export interface ResourcePointRatio {
-  /** Number of resource points */
+  /** 资源点数量 */
   point?: Int64;
-  /** The price corresponding to the number of resource points, such as 1 yuan = 1000 Points, then Point = 1000, Price = 1 */
+  /** 资源点数量对应的价格，如 1元 = 1000 Point，则 Point = 1000，Price = 1 */
   price?: Int64;
-  /** Currencies such as USD and CNY */
+  /** 币种，如USD、CNY */
   currency?: string;
-  /** decimal places */
+  /** 小数位数 */
   decimal_num?: number;
 }
 
-/** Equity details */
+/** 权益详情 */
 export interface RightDetail {
-  /** Equity class code */
+  /** 权益类别编码 */
   right_type_code?: string;
-  /** Equity class name */
+  /** 权益类别名称 */
   right_type_name?: string;
-  /** Equity class Remarks */
+  /** 权益类别备注 */
   right_type_remark?: string;
-  /** list of interests */
+  /** 权益列表 */
   right?: Array<RightDetailItem>;
 }
 
-/** equity */
+/** 权益 */
 export interface RightDetailItem {
-  /** Equity coding */
+  /** 权益编码 */
   right_code?: string;
-  /** Equity name */
+  /** 权益名称 */
   right_name?: string;
-  /** Equity Remarks */
+  /** 权益备注 */
   right_remark?: string;
-  /** Exhibit Value */
+  /** 权益展示值 */
   right_show_value?: Array<RightShowValue>;
-  /** list of equity values */
+  /** 权益值列表 */
   right_value_list?: Array<RightValue>;
 }
 
 export interface RightShowValue {
-  /** Stake value type: string: character, bool: boolean */
+  /** 权益值类型:  string:字符, bool: 布尔类型 */
   type?: string;
-  /** name */
+  /** 名称 */
   value?: string;
 }
 
-/** equity value */
+/** 权益值 */
 export interface RightValue {
-  /** Encoding */
+  /** 编码 */
   code?: string;
-  /** name */
+  /** 名称 */
   name?: string;
-  /** value */
+  /** 值 */
   value?: string;
-  /** unit */
+  /** 单位 */
   unit?: string;
 }
 
 export interface SpaceBenefit {
-  /** basic user information */
+  /** 用户基本信息 */
   user_basic_info?: UserBasicInfo;
   benefit_type_infos?: Partial<
     Record<common.BenefitType, common.CommonCounter>
@@ -387,9 +387,9 @@ export interface SpaceBenefit {
 export interface SubscriptionBenefitDetail {
   name?: string;
   benefit_type?: common.BenefitType;
-  /** Total Message Credit */
+  /** 总Message Credit额度 */
   total_quota?: number;
-  /** Total amount used */
+  /** 总已使用额度 */
   used_quota?: number;
   /** model */
   benefit_items?: Array<BenefitItem>;
@@ -405,19 +405,19 @@ export interface SubscriptionDetail {
   benefit_detail?: Array<SubscriptionBenefitDetail>;
   plan?: SubscriptionPlan;
   credit_details?: Array<CreditDetail>;
-  /** The following fields are only available in CN */
+  /** 下列字段只有 CN 有 */
   cost_rules?: Array<CostRule>;
   resource_point_ratio?: ResourcePointRatio;
 }
 
 export interface SubscriptionDetailV2 {
-  /** basic user information */
+  /** 用户基本信息 */
   user_basic_info?: UserBasicInfo;
   benefit_type_infos?: Partial<
     Record<common.BenefitType, common.CommonCounter>
   >;
   resource_packages?: Array<ResourcePackage>;
-  /** Renewal Information */
+  /** 续费信息 */
   renewal_info?: SubscriptionRenewalInfo;
 }
 
@@ -427,87 +427,87 @@ export interface SubscriptionPlan {
 }
 
 export interface SubscriptionProductDetail {
-  /** Subscription Product and Package (SKU) Information */
+  /** 订阅商品及套餐（SKU）信息 */
   product_info: product.ProductInfo;
-  /** user subscription information */
+  /** 用户订阅信息 */
   subs_user?: Record<Int64, SubscriptionUserInfo>;
-  /** Subscription Message Credit Benefits */
+  /** 订阅Message Credit权益 */
   benefit_info?: Record<Int64, SubscriptionBenefitDetail>;
-  /** Is there a trial? */
+  /** 是否有试用 */
   has_trial?: boolean;
-  /** subscription member related benefits */
+  /** 订阅会员相关联权益 */
   relate_benefit?: Record<Int64, SubscriptionRelateBenefit>;
-  /** Package Details */
+  /** 套餐详情 */
   package_item_details?: Record<Int64, Array<PackageItemDetail>>;
 }
 
 export interface SubscriptionProductDetailV2 {
-  /** Membership benefits collection */
+  /** 会员权益集合 */
   member_version_rights?: Array<MemberVersionRights>;
 }
 
 export interface SubscriptionRecordInfo {
   subscribe_id?: string;
   subscribe_type?: common.SubscriptionType;
-  /** Closed identity subscription payment failure */
+  /** Closed标识订阅支付失败 */
   status?: common.SubscriptionStatus;
 }
 
 export interface SubscriptionRelateBenefit {
-  /** cooperation quota */
+  /** 协作额度 */
   collaborate_quota?: CollaborateQuota;
 }
 
 export interface SubscriptionRenewalInfo {
-  /** Renewal Type */
+  /** 续费类型 */
   renewal_type?: common.SubscriptionRenewalType;
-  /** The number of cycles for a single automatic renewal, such as a monthly subscription, is a few months for each automatic renewal */
+  /** 单次自动续费的周期数量，比如包月，就是每次自动续费几个月 */
   renewal_period_times?: Int64;
 }
 
 export interface SubscriptionUserInfo {
   subs_status?: common.SubscriptionStatus;
-  /** No field for Free plan */
+  /** 对于Free套餐，无该字段 */
   subscribe_id?: string;
 }
 
 export interface UserBasicInfo {
   user_level?: common.UserLevel;
-  /** Volcano account info. CN Back */
+  /** 火山账户信息。CN返回 */
   volc_account_info?: VolcAccountInfo;
-  /** Volcano user information. CN Back */
+  /** 火山用户信息。CN返回 */
   volc_user_info?: VolcUserInfo;
 }
 
 export interface VolcAccountInfo {
-  /** Volcano Account ID */
+  /** 火山账户ID */
   account_id?: Int64;
-  /** Whether it is a Volcano Pro account, that is, whether it has been opened, true when UserLevel in (100, 110, 120, 130) (true even if the account shutdown is recycled) */
+  /** 是否为火山专业版账户，即是否开通过，当UserLevel in (100,110,120,130)时为true（即使账户关停回收仍为true） */
   is_volcano_pro_account?: boolean;
-  /** Instance ID */
+  /** 实例ID */
   instance_id?: string;
-  /** Is the button professional version available (including package and stock professional version). Stock professional version only returns this field */
+  /** 扣子专业版是否可用（含套餐及存量专业版）。存量专业版仅返回此字段 */
   coze_instance_status?: common.AccountStatus;
-  /** Package (instance) status. Subscription-only packages return this field */
+  /** 套餐（实例）状态。仅订阅套餐返回此字段 */
   instance_status?: common.InstanceStatus;
-  /** Whether the package (instance) is limited (in arrears). Subscription-only packages return this field */
+  /** 套餐（实例）是否受限（欠费）。仅订阅套餐返回此字段 */
   limit_status?: common.InstanceLimitStatus;
-  /** Volcano user type */
+  /** 火山用户类型 */
   volcano_user_type?: common.VolcanoUserType;
-  /** Benefits effective time (seconds) */
+  /** 权益生效时间（秒级） */
   start_at?: Int64;
-  /** Stake expiration time (seconds) */
+  /** 权益失效时间（秒级） */
   end_at?: Int64;
-  /** The package corresponds to the cycle effect package instance Id, if the user purchased a version only, this field is empty */
+  /** 套餐对应周期资源包实例Id,如果用户购买的是仅版本，则该字段为空 */
   period_pack_instance_id?: string;
 }
 
 export interface VolcUserInfo {
-  /** Volcano Identity Center Instance ID */
+  /** 火山身份中心实例ID */
   volc_auth_instance_id?: string;
-  /** Volcano User Level */
+  /** 火山用户等级 */
   volc_user_level?: common.UserLevel;
-  /** Volcano User Instance Version */
+  /** 火山用户实例版本 */
   volc_instance_type?: common.VolcInstanceType;
 }
 /* eslint-enable */

@@ -22,27 +22,27 @@
 export type Int64 = string;
 
 export enum AuditStatus {
-  /** default */
+  /** 默认 */
   Default = 0,
-  /** Under review. */
+  /** 审核中 */
   Pending = 1,
-  /** approved */
+  /** 审核通过 */
   Approved = 2,
-  /** The review failed. */
+  /** 审核不通过 */
   Rejected = 3,
-  /** Abandoned */
+  /** 已废弃 */
   Abandoned = 4,
-  /** abnormal */
+  /** 异常 */
   Failed = 99,
 }
 
 export enum AuditType {
   ProductDraft = 10,
-  /** user */
+  /** 用户 */
   UserProfile = 18,
-  /** Share the conversation */
+  /** 分享对话 */
   ConversationShared = 19,
-  /** referral dialogue */
+  /** 推荐对话 */
   Conversation = 20,
   InterationPost = 21,
   InterationComment = 22,
@@ -77,39 +77,39 @@ export enum AuditType {
   VariableModify = 53,
   CardInfo = 60,
   AgentAppWriter = 80,
-  /** Model Square Battle Query */
+  /** 模型广场对战Query */
   ModelArenaQuery = 81,
-  /** message link tracing */
+  /** 消息链路追踪 */
   MessageTrace = 82,
-  /** Library Prompt */
+  /** 资源库Prompt */
   ResourcePrompt = 83,
-  /** ProjectIDE modification */
+  /** ProjectIDE修改 */
   ProjectIDEModify = 84,
-  /** Bot template */
+  /** Bot 模板 */
   TemplateBot = 85,
-  /** workflow template */
+  /** 工作流模板 */
   TemplateWorkflow = 86,
-  /** Project Template */
+  /** Project 模板 */
   TemplateProject = 87,
-  /** Project goods */
+  /** Project 商品 */
   ProductProject = 88,
-  /** Project launch */
+  /** Project 发布 */
   ProjectPublish = 89,
   /** Project UI Builder */
   ProjectUIBuilder = 90,
-  /** Workflow runtime input */
+  /** 工作流运行时输入 */
   WorkflowRuntimeInput = 100,
-  /** voice runtime input */
+  /** 语音运行时输入 */
   AudioRuntimeInput = 101,
-  /** voice resource */
+  /** 语音资源 */
   AudioVoiceResource = 102,
-  /** Model fine-tuning input */
+  /** 模型微调输入 */
   ModelFinetuneInput = 103,
-  /** OpenAPI image upload */
+  /** OpenAPI图片上传 */
   OpenAPIImageUpload = 104,
-  /** App (Project) Audio */
+  /** App (Project) 音频 */
   AppAudio = 105,
-  /** Business creation/modification */
+  /** 企业创建/修改 */
   EnterpriseModify = 106,
   CozeLoopPEModify = 107,
   CozeLoopExptModify = 108,
@@ -117,65 +117,65 @@ export enum AuditType {
   CozeLoopEvaluatorModify = 110,
   /** CozeSpace */
   CozeSpaceQuery = 111,
-  /** CozeSpace answers */
+  /** CozeSpace 回答 */
   CozeSpaceAnswer = 112,
   /** CozeSpace TraeBuilder Query */
   CozeSpaceTraeBuilderQuery = 113,
-  /** CozeSpace TraeBuilder Answers */
+  /** CozeSpace TraeBuilder 回答 */
   CozeSpaceTraeBuilderAnswer = 114,
-  /** CozeSpace web searchQuery */
+  /** CozeSpace web搜索 Query */
   CozeSpaceSearchWebQuery = 115,
-  /** Answers to CozeSpace web search */
+  /** CozeSpace web搜索 Answer */
   CozeSpaceSearchWebAnswer = 116,
-  /** CozeSpace Img Search Query */
+  /** CozeSpace Img搜索 Query */
   CozeSpaceSearchImgQuery = 117,
-  /** CozeSpace Img Search Answers */
+  /** CozeSpace Img搜索 Answer */
   CozeSpaceSearchImgAnswer = 118,
-  /** CozeSpace Timed TaskQuery */
+  /** CozeSpace 定时任务 Query */
   CozeSpaceScheduleTaskQuery = 119,
-  /** Voiceprint creation/modification */
+  /** 声纹创建/修改 */
   VoicePrintGroup = 120,
-  /** Voiceprint feature creation/modification */
+  /** 声纹特征创建/修改 */
   VoicePrintGroupFeature = 121,
-  /** video generation input */
+  /** 视频生成输入 */
   VideoGenerateInput = 122,
-  /** CozeSpace PPT Agent Modification */
+  /** CozeSpace PPT Agent 修改 */
   CozeSpacePPTAgentModify = 123,
 }
 
 export enum QueueType {
-  /** default queue */
+  /** 默认队列 */
   Default = 0,
-  /** recall queue */
+  /** 召回队列 */
   Recall = 1,
-  /** report queue */
+  /** 举报队列 */
   Report = 2,
-  /** offline recall */
+  /** 离线召回 */
   Review = 3,
 }
 
 export enum RefuseReason {
-  /** other */
+  /** 其他 */
   Other = 0,
-  /** drainage advertisement */
+  /** 引流广告 */
   Ad = 1,
-  /** uncomfortable */
+  /** 引人不适 */
   Uncomfortable = 2,
-  /** violation of laws and regulations */
+  /** 违法违规 */
   Illegal = 3,
-  /** religious cult */
+  /** 宗教邪教 */
   Cult = 4,
-  /** Public order and good customs */
+  /** 公序良俗 */
   Morals = 5,
-  /** erotic vulgarity */
+  /** 色情低俗 */
   Porn = 6,
-  /** involved leaders */
+  /** 涉领导人 */
   Leaders = 7,
-  /** Party and government sensitivity */
+  /** 党政敏感 */
   SensitiveParty = 8,
-  /** The Privacy Policy contains invalid content (e.g. the link is invalid, cannot be opened, and the contact information is invalid) */
+  /** 隐私政策包含无效内容（如链接失效、打不开，联系方式无效） */
   InvalidContent = 9,
-  /** illegal link */
+  /** 违规链接 */
   LinksIllegal = 10,
 }
 

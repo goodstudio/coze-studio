@@ -22,81 +22,81 @@
 export type Int64 = string | number;
 
 export enum AuditResultEnum {
-  /** not checked */
+  /** 未检查 */
   Init = 1,
-  /** mark qualified */
+  /** 标记合格 */
   Pass = 2,
-  /** Failure to mark */
+  /** 标记不合格 */
   Reject = 3,
 }
 
 export enum AuditStatus {
-  /** Convicted of cheating */
+  /** 被判定作弊 */
   Fraud = 1,
-  /** AIDP approved */
+  /** AIDP审核通过 */
   Pass = 2,
-  /** AIDP review disapproved */
+  /** AIDP审核未通过 */
   Fail = 3,
 }
 
 export enum AuditStatusEnum {
-  /** No moderation operations involved */
+  /** 不涉及审核操作 */
   None = 0,
-  /** passed */
+  /** 通过 */
   Pass = 1,
-  /** Recycle */
+  /** 回收 */
   Recycle = 2,
-  /** call back */
+  /** 打回 */
   Back = 3,
 }
 
-/** Subject Status: Uncollected, Received, Recycled */
+/** 题目状态: 未领取、被领取、被回收 */
 export enum ItemStatus {
-  /** Not received */
+  /** 未领取 */
   Init = 1,
-  /** Received */
+  /** 被领取 */
   Received = 2,
-  /** Recycled */
+  /** 被回收 */
   Recycled = 3,
 }
 
 export enum MsgOpType {
-  /** Submit of unknown type, it will not appear for the time being. Only use this field to get the bottom value. */
+  /** 未知类型提交，暂时不会出现，只做该字段兜底取值使用 */
   Unknown = 0,
-  /** The title is sent, which is equivalent to IsInit = true in the message. */
+  /** 题目送标，等同于消息里的 IsInit = true */
   InitItem = 1,
-  /** After submission, it is passed, and the title flows to the rear node, which is equivalent to AuditNodeList [$x]. AuditStatus = 1. */
+  /** 提交后被通过，题目向后置节点流转，等同于 AuditNodeList[$x].AuditStatus = 1 */
   PassSubmit = 2,
-  /** After submission, it is typed back, and the title flows to the front node, which is equivalent to AuditNodeList [$x]. AuditStatus = 3. */
+  /** 提交后被打回，题目向前置节点流转，等同于 AuditNodeList[$x].AuditStatus = 3 */
   BackSubmit = 3,
-  /** Abandoned commit, equivalent to IsDiscard = true in the message */
+  /** 废弃提交，等同于消息里的 IsDiscard = true */
   DiscardSubmit = 4,
-  /** Submit after clicking invalid */
+  /** 点击无效后提交 */
   AbandonSubmit = 5,
-  /** Submit directly, which is equivalent to IsDirectSubmit = true in the message. */
+  /** 直接提交，等同于消息里的 IsDirectSubmit = true */
   DirectSubmit = 6,
-  /** Update the answer, which is equivalent to IsUpdate = true in the message. */
+  /** 更新答案，等同于消息里的 IsUpdate = true */
   UpdateAnswer = 7,
 }
 
-/** Node ID */
+/** 节点ID */
 export enum NodeID {
   Invalid = 0,
-  /** Labeling/preliminary review */
+  /** 标注/初审 */
   Start = 1,
-  /** end */
+  /** 结束 */
   End = 2,
-  /** Standard mode - check */
+  /** 标检模式-检查 */
   Check = 4,
-  /** Standard Inspection Mode - Quality Inspection */
+  /** 标检模式-质检 */
   QA = 5,
-  /** Standard Inspection Mode - Acceptance */
+  /** 标检模式-验收 */
   Accept = 6,
-  /** QA/blind moderation - blind moderation */
+  /** QA/盲审模式保留-盲审 */
   BlindCheck = 102,
-  /** QA/blind moderation - QA */
+  /** QA/盲审模式保留-质检 */
   BlindQA = 104,
-  /** QA/blind moderation pattern retention - merged annotation nodes (including annotation and blind moderation) */
+  /** QA/盲审模式保留-合并后的标注节点（包含标注和盲审） */
   BlindCombinedLabel = 1001,
 }
 
@@ -106,156 +106,156 @@ export enum PriceType {
 }
 
 export enum TaskMode {
-  /** custom */
+  /** 自定义 */
   Custom = 0,
-  /** classic */
+  /** 经典 */
   Classical = 1,
-  /** Blind moderation (standard) */
+  /** 盲审（标准） */
   BlindAudit = 12,
 }
 
-/** template type */
+/** 模版类型 */
 export enum TemplateType {
-  /** App-side template
-Video multiple options */
+  /** App端模版
+视频多选项 */
   VIDEO_MULTI_OPTIONS = 1,
-  /** Video/image sidebyside */
+  /** 视频/图片sidebyside */
   VIDEO_IMG_SBS = 2,
-  /** video judgment */
+  /** 视频判断 */
   VIDEO_SINGLE_OPTIONS = 3,
-  /** Image judgment */
+  /** 图片判断 */
   IMG_SINGLE_OPTIONS = 4,
-  /** image multiple options */
+  /** 图片多选项 */
   IMG_MULTI_OPTIONS = 5,
-  /** picture pull frame */
+  /** 图片拉框 */
   IMG_FRAME = 6,
-  /** Text multi-option */
+  /** 文本多选项 */
   TEXT_MULTI_OPTIONS = 7,
-  /** video input */
+  /** 视频输入 */
   VIDEO_INPUT = 11,
-  /** image input */
+  /** 图片输入 */
   IMG_INPUT = 12,
-  /** SBS input */
+  /** SBS输入 */
   SBS_INPUT = 13,
-  /** No answer for video input */
+  /** 视频输入无答案 */
   VIDEO_INPUTANY = 14,
-  /** No answer for image input */
+  /** 图片输入无答案 */
   IMG_INPUTANY = 15,
-  /** SBS input No answer */
+  /** SBS输入无答案 */
   SBS_INPUTANY = 16,
   /** POI */
   POI = 21,
   DOUYIN_INPUT = 51,
   DOUYIN_INPUTANY = 52,
-  /** More Results, More Judgments */
+  /** 多结果多判断 */
   DOUYIN_MULTI_OPTIONS = 53,
-  /** PC side template
-PC-side picture judgment */
+  /** PC端模版
+pc端图片判断 */
   PC_IMG_SINGLE_OPTIONS = 101,
-  /** Custom template type
-Image Type */
+  /** 自建模板类型
+图片类型 */
   CUSTOM_IMAGE_TEMPLATE = 201,
-  /** voice type */
+  /** 语音类型 */
   CUSTOM_VOICE_TEMPLATE = 202,
-  /** Text Type */
+  /** 文字类型 */
   CUSTOM_TEXT_TEMPLATE = 203,
-  /** video type */
+  /** 视频类型 */
   CUSTOM_VIDEO_TEMPLATE = 204,
-  /** page type */
+  /** 网页类型 */
   CUSTOM_WEB_TEMPLATE = 205,
-  /** TTS type template */
+  /** TTS类型模板 */
   CUSTOM_TTS_TEMPLATE = 206,
-  /** Portfolio data categorization label template */
+  /** 组合数据分类标签模板 */
   CUSTOM_CLASS_TEMPLATE = 207,
-  /** Geometric shape tag template */
+  /** 几何图形标注签模板 */
   CUSTOM_GEOMETRY_TEMPLATE = 208,
-  /** Text segmentation template */
+  /** 文本切分模板 */
   CUSTOM_TEXT_SPLIT_TEMPLATE = 209,
-  /** point cloud template */
+  /** 点云模版 */
   CUSTOM_POINT_CLOUD_TEMPLATE = 210,
-  /** EA Enterprise Library Template */
+  /** EA企业库模板 */
   CUSTOM_EA_ENTERPRISE_TEMPLATE = 211,
-  /** POI template */
+  /** POI模版 */
   CUSTOM_POI_TEMPLATE = 212,
-  /** Feishu Cloud Document Template Types */
+  /** 飞书云文档模板类型 */
   CUSTOM_LARK_DOC_TEMPLATE = 213,
-  /** PF template */
+  /** PF模版 */
   CUSTOM_PF_TEMPLATE = 214,
-  /** DCC template */
+  /** DCC模版 */
   DCC = 301,
-  /** DCC New Template */
+  /** DCC新模板 */
   DccNew = 302,
-  /** Neeko Type Template */
+  /** Neeko类型模板 */
   Neeko = 1000,
 }
 
 export interface AuditNodeInfo {
-  /** Node name */
+  /** 节点名称 */
   Name?: string;
-  /** operator */
+  /** 操作人 */
   Operator?: string;
-  /** submission time */
+  /** 提交时间 */
   SubmitTime?: Int64;
-  /** Remarks (modification suggestions, etc.) */
+  /** 备注（修改建议等信息） */
   Comment?: string;
-  /** Node ID */
+  /** 节点ID */
   NodeID?: number;
-  /** Audit results, qualified or unqualified or not selected */
+  /** 审核结果，合格 or 不合格 or 未抽中 */
   AuditResult?: AuditResultEnum;
-  /** Review status, pass or call back */
+  /** 审核状态，通过 or 打回 */
   AuditStatus?: AuditStatusEnum;
 }
 
 export interface DispatcherNode {
-  /** Node name */
+  /** 节点名称 */
   Name?: string;
-  /** Node ID, visible NodeID */
+  /** 节点ID，可见NodeID */
   ID?: number;
 }
 
 export interface ExportMsg {
-  /** AIDP Task Queue ID */
+  /** AIDP 任务队列 ID */
   TaskID?: Int64;
-  /** Project ID */
+  /** 所属项目ID */
   ProjectID?: Int64;
-  /** title unique identifier */
+  /** 题目唯一标识 */
   ObjectID?: string;
-  /** pass-through information */
+  /** 透传信息 */
   Penetrate?: string;
-  /** original data source */
+  /** 原始数据 */
   RawData?: string;
-  /** Label the results and the original data source to avoid the log being truncated due to excessive size
-Label results */
+  /** 标注结果和原始数据沉底，避免过大导致日志被截断
+标注结果 */
   Answer?: string;
-  /** Audit & Inspection and other personnel information */
+  /** 审核&检查等人员信息 */
   AuditNodeList?: Array<AuditNodeInfo>;
-  /** timestamp */
+  /** 时间戳 */
   Timestamp?: Int64;
-  /** Next Node */
+  /** 下个节点 */
   ToNode?: DispatcherNode;
-  /** previous node */
+  /** 上个节点 */
   FromNode?: DispatcherNode;
-  /** Topic Bid Delivery Time */
+  /** 题目送标时间 */
   CreateTime?: Int64;
-  /** title callback unique identifier */
+  /** 题目回调唯一标识 */
   UUID?: string;
-  /** Is it abandoned? */
+  /** 是否废弃 */
   IsDiscard?: boolean;
-  /** AIDP Topic ID */
+  /** AIDP 题目 ID */
   ItemID?: Int64;
-  /** template type */
+  /** 模版类型 */
   TemplateType?: TemplateType;
-  /** Template subtype ID, the backend only stores unaware specific values (currently only POI template types have it) */
+  /** 模版子类型 ID，后端只存储不感知具体值（目前只有 POI 模版类型有） */
   TemplateSubType?: Int64;
-  /** task version */
+  /** 任务版本 */
   TaskVersion?: number;
-  /** Is it an updated answer? */
+  /** 是否为更新答案 */
   IsUpdate?: boolean;
-  /** Is it a direct submission? */
+  /** 是否为直接提交 */
   IsDirectSubmit?: boolean;
-  /** Whether to create a title event for bid submission */
+  /** 是否为送标时创建题目事件 */
   IsInit?: boolean;
-  /** message type */
+  /** 消息类型 */
   OpType?: MsgOpType;
 }
 /* eslint-enable */

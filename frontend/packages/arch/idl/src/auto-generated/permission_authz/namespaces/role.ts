@@ -32,33 +32,33 @@ export enum RoleCode {
 }
 
 export enum RoleType {
-  /** predefined roles */
+  /** 预定义角色 */
   Predefined = 1,
-  /** custom role */
+  /** 自定义角色 */
   Custom = 2,
 }
 
 export interface CollaboratorExistInfo {
-  /** Is the current principla a collaborator? */
+  /** 当前principla是否为协作者 */
   principal_is_collaborator: boolean;
-  /** Is there a collaborator on the current resource? */
+  /** 当前资源上是否有协作者 */
   resource_has_collaborator: boolean;
 }
 
 export interface RoleAttachment {
-  /** Role Code */
+  /** 角色Code */
   code: string;
-  /** subject */
+  /** 主体 */
   principal: principal.PrincipalIdentifier;
-  /** creation time */
+  /** 创建时间 */
   create_time: Int64;
   enum_code: RoleCode;
 }
 
 export interface UpgradeInfo {
-  /** Can it be upgraded? */
+  /** 是否能升级 */
   can_upgrade: boolean;
-  /** The current plan's limit on the number of collaborators */
+  /** 当前计划的协作者人数限制 */
   current_collaborator_limit: number;
 }
 /* eslint-enable */

@@ -43,7 +43,7 @@ export interface Model {
   model_id?: Int64;
   model_name?: string;
   model_icon?: string;
-  /** Pass-through copilot version field */
+  /** 透传copilot version字段 */
   version?: string;
   token_limit?: Int64;
 }
@@ -58,7 +58,7 @@ export interface ModelFuncConfig {
 }
 
 export interface UpdateModelFuncConfigRequest {
-  /** Existing model_id update, otherwise create */
+  /** 已存在model_id即更新，否则创建 */
   model_id: Int64;
   func_config?: string;
   connector_white_list?: string;

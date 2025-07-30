@@ -31,25 +31,25 @@ export enum DomainModelClass {
   StableDiffusion = 6,
   ByteArtist = 7,
   Maas = 9,
-  /** Abandoned: Qianfan (Baidu Cloud) */
+  /** 废弃：千帆(百度云) */
   QianFan = 10,
   /** name：Google Gemini */
   Gemini = 11,
   /** name: Moonshot */
   Moonshot = 12,
-  /** Name: Zhipu */
+  /** name：智谱 */
   GLM = 13,
-  /** Name: Volcano Ark */
+  /** name: 火山方舟 */
   MaaSAutoSync = 14,
-  /** Name: Tongyi Qianwen */
+  /** name：通义千问 */
   QWen = 15,
   /** name: Cohere */
   Cohere = 16,
-  /** Name: Baichuan Intelligent */
+  /** name: 百川智能 */
   Baichuan = 17,
-  /** Name: ERNIE Bot */
+  /** name：文心一言 */
   Ernie = 18,
-  /** Name: Magic Square */
+  /** name: 幻方 */
   DeekSeek = 19,
   /** name: Llama */
   Llama = 20,
@@ -68,19 +68,19 @@ export enum DomainModelStatus {
   Online = 1,
   Offline = 2,
   Deleted = 3,
-  /** in line */
+  /** 排队中 */
   FineTuneInQueue = 5,
-  /** in progress */
+  /** 执行中 */
   FineTuneRunning = 6,
-  /** terminate */
+  /** 终止 */
   FineTuneTerminated = 7,
-  /** fail */
+  /** 失败 */
   FineTuneFailed = 8,
-  /** success */
+  /** 成功 */
   FineTuneSuccess = 9,
 }
 
-/** model aggregation */
+/** 模型聚合 */
 export enum DomainModelTagClass {
   ModelType = 1,
   ModelUserRight = 2,
@@ -88,9 +88,9 @@ export enum DomainModelTagClass {
   ModelFunction = 4,
   ModelScenario = 5,
   ModelPaid = 15,
-  /** model runtime capability */
+  /** 模型运行时能力 */
   ModelAbility = 16,
-  /** Do not do this issue */
+  /** 本期不做 */
   Custom = 20,
 }
 /* eslint-enable */

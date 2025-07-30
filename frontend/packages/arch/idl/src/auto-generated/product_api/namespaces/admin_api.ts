@@ -34,17 +34,17 @@ export enum GetBotScoreSortType {
 }
 
 export enum LandingConfigType {
-  /** special topic */
+  /** 专题 */
   Topic = 1,
-  /** top template */
+  /** 置顶模板 */
   TopTemplate = 2,
-  /** template list */
+  /** 模板列表 */
   TemplateList = 3,
-  /** Customer logo */
+  /** 客户 logo */
   CustomerLogo = 4,
-  /** Developer Voice */
+  /** 开发者声音 */
   DeveloperVoice = 5,
-  /** Customer case */
+  /** 客户案例 */
   CustomerCase = 6,
 }
 
@@ -59,12 +59,12 @@ export enum SetFeaturedProductConfigOpType {
 }
 
 export enum SetLandingConfigOpType {
-  /** Developer voice and customer case support additions, deletions and changes. For updates to the same record, it is an overlay update. */
+  /** 开发者声音、客户案例支持增删改，对于同一个条记录的更新，是覆盖更新 */
   Add = 1,
   Update = 2,
   Delete = 3,
-  /** Topics, templates, customer logos support coverage updates
-overwrite update */
+  /** 专题、模板、客户logo支持覆盖更新
+覆盖更新 */
   Overwrite = 4,
 }
 
@@ -79,9 +79,9 @@ export enum SetTopicOpType {
 }
 
 export enum SyncProductForSearchMethod {
-  /** Name and value, aligned to the Status field in the search platform */
+  /** 命名和数值 与搜索中台的Status字段对齐 */
   Delete = 3,
-  /** Partial updates, new if the document does not exist (both creation and update are sampled in this way) */
+  /** 部分更新，若文档不存在则新建（创建和更新都采样此方式） */
   Upsert = 5,
 }
 
@@ -130,7 +130,7 @@ export interface AdminUpdateGlobalProductResponse {
   data?: AdminUpdateGlobalProductData;
 }
 
-/** Review related information to jump to moderation queue */
+/** 审核相关信息，用于跳转至审核队列 */
 export interface AuditInfo {
   task_id?: string;
   project_id?: string;
@@ -165,7 +165,7 @@ export interface BatchUnListingProductResponse {
 }
 
 export interface BotExtraInfo {
-  /** public method */
+  /** 公开方式 */
   publish_mode?: product_common.ProductPublishMode;
 }
 
@@ -184,24 +184,24 @@ export interface BotScoreInfo {
   product_info?: ProductInfo;
   has_been_checked?: boolean;
   chat_info?: ChatDetail;
-  /** The reason why the background is automatically not recommended */
+  /** 后台自动不推荐的原因 */
   unrecommend_reason?: string;
-  /** Overall score */
+  /** 总体打分 */
   evaluation_score?: string;
 }
 
 export interface ChatDetail {
-  /** identity recognition */
+  /** 身份认知 */
   identity_awareness?: Array<ChatMessage>;
-  /** functional cognition */
+  /** 功能认知 */
   function_awareness?: Array<ChatMessage>;
-  /** Irrelevant small talk */
+  /** 无关闲聊 */
   irrelevant_chat?: Array<ChatMessage>;
-  /** forward function */
+  /** 正向功能 */
   positive_function?: Array<ChatMessage>;
-  /** Negative function */
+  /** 负向功能 */
   negative_function?: Array<ChatMessage>;
-  /** abnormal function */
+  /** 异常功能 */
   exception?: Array<ChatMessage>;
 }
 
@@ -212,25 +212,25 @@ export interface ChatMessage {
 }
 
 export interface CustomerCase {
-  /** Settings when updating existing cases */
+  /** 更新已有的案例时设置 */
   id?: string;
   cover?: product_common.ImageInfo;
   title?: string;
   description?: string;
-  /** Industry label */
+  /** 行业标签 */
   industry_tag?: string;
-  /** Platform Tag: Attributed to Coze/Compass/... */
+  /** 平台标签：归属于 Coze/罗盘/... */
   platform_tag?: string;
-  /** Document path (for jumping to on-site documents) */
+  /** 文档路径（用于跳转到站内文档） */
   doc_path?: string;
-  /** Customer logo */
+  /** 客户logo */
   logo?: product_common.ImageInfo;
-  /** relative order */
+  /** 相对顺序 */
   sort?: number;
 }
 
 export interface DeleteFeaturedProductRequest {
-  /** Recommended ID today */
+  /** 今日推荐 id */
   id?: string;
   entity_type?: product_common.ProductEntityType;
 }
@@ -241,9 +241,9 @@ export interface DeleteFeaturedProductResponse {
 }
 
 export interface DeleteProductRecommendConfigRequest {
-  /** Length does not exceed 100. */
+  /** 长度不超过100 */
   product_ids?: Array<string>;
-  /** Entity type */
+  /** entity 类型 */
   entity_type?: product_common.ProductEntityType;
 }
 
@@ -262,35 +262,35 @@ export interface DeleteTopicResponse {
 }
 
 export interface DeveloperVoice {
-  /** Settings when updating existing developer voices */
+  /** 更新已有的开发者声音时设置 */
   id?: string;
   content?: string;
-  /** relative order */
+  /** 相对顺序 */
   sort?: number;
   user?: product_common.UserInfo;
 }
 
 export interface FeaturedProductConfig {
-  /** Recommended ID today */
+  /** 今日推荐 id */
   id?: string;
   product_id?: string;
-  /** Recommended start time */
+  /** 推荐起始时间 */
   begin_time_second?: string;
-  /** end time of referral */
+  /** 推荐结束时间 */
   end_time_second?: string;
-  /** Reason for recommendation */
+  /** 推荐理由 */
   reason?: string;
-  /** Recommended Description */
+  /** 推荐描述 */
   description?: string;
   /** banner uri */
   banner_uri?: string;
   /** banner url */
   banner_url?: string;
-  /** button copy */
+  /** 按钮文案 */
   button_text?: string;
-  /** Whether to show the opening statement */
+  /** 是否展示开场白 */
   is_show_prologue?: boolean;
-  /** Is it valid? */
+  /** 是否有效 */
   is_valid?: boolean;
 }
 
@@ -321,9 +321,9 @@ export interface GetBotScoreListRequest {
   sort_type?: GetBotScoreSortType;
   dynamic_score_min?: number;
   dynamic_score_max?: number;
-  /** To screen for recommendations */
+  /** 用以筛选是否被推荐 */
   is_recommended?: boolean;
-  /** To filter whether it has been processed, and return all without passing it. */
+  /** 用以筛选是否被处理过，不传就返回全部 */
   has_been_checked?: boolean;
   evaluation_score_min?: number;
   evaluation_score_max?: number;
@@ -336,9 +336,9 @@ export interface GetBotScoreListResponse {
 }
 
 export interface GetCustomerCaseTagData {
-  /** Industry label */
+  /** 行业标签 */
   industry_tags?: Array<string>;
-  /** Platform Tag: Attributed to Coze/Compass/... */
+  /** 平台标签：归属于 Coze/罗盘/... */
   platform_tags?: Array<string>;
 }
 
@@ -357,9 +357,9 @@ export interface GetFeaturedProductListData {
 export interface GetFeaturedProductListRequst {
   begin_time_second?: string;
   end_time_second?: string;
-  /** Single scene pass this */
+  /** 单个场景传这个 */
   entity_type?: product_common.ProductEntityType;
-  /** The batch scene has passed this, and it has all been passed. The batch will be given priority. */
+  /** 批量场景传这个，都传了，优先取批量的 */
   entity_types?: Array<product_common.ProductEntityType>;
 }
 
@@ -384,30 +384,30 @@ export interface GetFeaturedProductPreviewIDResponse {
 }
 
 export interface GetLandingConfigData {
-  /** Developer voice, customer case is paginated, return total */
+  /** 开发者声音、客户案例是分页获取，返回 total */
   total?: number;
-  /** LandingConfigType - TopTemplate: Top Template
-list of top templates */
+  /** LandingConfigType - TopTemplate：置顶模板
+置顶模板列表 */
   top_templates?: Array<LandingProduct>;
-  /** LandingConfigType - TemplateList: Template List
-template list */
+  /** LandingConfigType - TemplateList：模板列表
+模板列表 */
   templates?: Array<LandingProduct>;
-  /** LandingConfigType - CustomerLogo: customer logo
-Customer Logo List */
+  /** LandingConfigType - CustomerLogo：客户 logo
+客户Logo列表 */
   customer_logos?: Array<LandingLogo>;
-  /** LandingConfigType - Topic: Topics
-template topic */
+  /** LandingConfigType - Topic： 专题
+模板专题 */
   topics?: Array<LandingProductTopic>;
-  /** LandingConfigType - DeveloperVoice */
+  /** LandingConfigType - DeveloperVoice： 开发者声音 */
   developer_voices?: Array<DeveloperVoice>;
-  /** LandingConfigType - CustomerCase */
+  /** LandingConfigType - CustomerCase： 客户案例 */
   customer_cases?: Array<CustomerCase>;
 }
 
 export interface GetLandingConfigRequest {
-  /** Specify the configuration type to obtain */
+  /** 指定要获取的配置类型 */
   config_type?: LandingConfigType;
-  /** Get developer voices, customer cases, need pagination */
+  /** 获取开发者声音、客户案例，需要分页 */
   page_num?: number;
   page_size?: number;
 }
@@ -472,9 +472,9 @@ export interface GetProductListRequest {
   page_num: number;
   page_size: number;
   category_id?: string;
-  /** non-empty search */
+  /** 不为空则搜索 */
   keyword?: string;
-  /** List page tab */
+  /** 列表页 tab */
   source?: product_common.ProductListSource;
   product_status?: product_common.ProductStatus;
   entity_ids?: Array<string>;
@@ -483,11 +483,11 @@ export interface GetProductListRequest {
   author_id?: Int64;
   product_ids?: Array<string>;
   team_id?: string;
-  /** Whether to find products that are on the shelves for the first time */
+  /** 是否查找首次上架的商品 */
   first_listing?: boolean;
-  /** Whether to find candidate templates (i.e. original workflow/image flow/public configuration bot) */
+  /** 是否查找候选模板（即原工作流/图像流/公开配置 Bot） */
   candidate_template?: boolean;
-  /** Product type list */
+  /** 商品类型列表 */
   entity_types?: Array<product_common.ProductEntityType>;
 }
 
@@ -532,7 +532,7 @@ export interface GlobalProductHistoryData {
 
 export interface GlobalProductHistoryRecord {
   meta_info: ProductMetaInfo;
-  /** Whether to enable */
+  /** 是否启用 */
   is_activate: boolean;
   activated_at?: string;
   deprecated_at?: string;
@@ -541,7 +541,7 @@ export interface GlobalProductHistoryRecord {
 
 export interface LandingLogo {
   company_name?: string;
-  /** Customer Logo */
+  /** 客户Logo */
   logo?: product_common.ImageInfo;
 }
 
@@ -550,15 +550,15 @@ export interface LandingProduct {
 }
 
 export interface LandingProductTopic {
-  /** button copy */
+  /** 按钮文案 */
   button_text?: string;
-  /** redirect link */
+  /** 跳转链接 */
   jump_link?: string;
-  /** Topic title */
+  /** 专题标题 */
   title?: string;
-  /** feature description */
+  /** 专题描述 */
   description?: string;
-  /** cover */
+  /** 封面 */
   cover?: product_common.ImageInfo;
 }
 
@@ -570,11 +570,11 @@ export interface ListingProductItem {
   entity_type: product_common.ProductEntityType;
   entity_id?: string;
   entity_version?: string;
-  /** Category ID */
+  /** 分类 ID */
   category_id?: string;
-  /** Shelf description json */
+  /** 上架描述 json */
   readme?: string;
-  /** Other classification descriptions */
+  /** 其他分类描述 */
   other_category_notes?: string;
   publish_mode?: product_common.ProductPublishMode;
   product_name?: string;
@@ -584,24 +584,24 @@ export interface ListingProductRequest {
   entity_type: product_common.ProductEntityType;
   entity_id?: string;
   entity_version?: string;
-  /** Category ID */
+  /** 分类 ID */
   category_id?: string;
-  /** Shelf description json */
+  /** 上架描述 json */
   readme?: string;
-  /** Other classification descriptions */
+  /** 其他分类描述 */
   other_category_notes?: string;
   publish_mode?: product_common.ProductPublishMode;
-  /** Product name */
+  /** 商品名 */
   product_name?: string;
-  /** Cover, you need to first adjust the upload picture interface to upload and get the URI. */
+  /** 封面 ，需要先调上传图片接口上传并获取 URI */
   covers?: Array<product_common.ImageInfo>;
-  /** Is the professional version specially available? */
+  /** 是否专业版特供 */
   is_profession?: boolean;
   price_config?: PriceConfig;
   workflow_gui_config?: WorkflowGUIConfig;
   description?: string;
   preview_types?: Array<product_common.UIPreviewType>;
-  /** end plug-in configuration */
+  /** 端插件配置 */
   local_plugin_config?: LocalPluginConfig;
 }
 
@@ -611,10 +611,10 @@ export interface ListingProductResponse {
   data?: ListingProductData;
 }
 
-/** end plug-in configuration */
+/** 端插件配置 */
 export interface LocalPluginConfig {
   connector_ids?: Array<string>;
-  /** end plug-in tool */
+  /** 端插件工具 */
   tools?: Array<LocalPluginTool>;
 }
 
@@ -659,7 +659,7 @@ export interface PriceConfig {
   prices?: Array<marketplace_common.Price>;
 }
 
-/** Classification used for display in the admin background */
+/** admin后台用于展示的分类 */
 export interface ProductCategory {
   id?: string;
   name?: string;
@@ -668,7 +668,7 @@ export interface ProductCategory {
   index?: number;
   entity_type?: product_common.ProductEntityType;
   name_starling_key?: string;
-  /** The number of products in this category is used for display in the operation background. */
+  /** 使用该分类的商品数，运营后台展示用 */
   product_count?: number;
   icon_uri?: string;
   active_icon_uri?: string;
@@ -703,15 +703,15 @@ export interface ProductMetaInfo {
   category_note?: string;
   audit_status?: product_common.ProductDraftStatus;
   draft_id?: string;
-  /** Is it a template? */
+  /** 是否为模板 */
   is_template?: boolean;
-  /** cover image */
+  /** 封面图 */
   covers?: Array<product_common.ImageInfo>;
-  /** Is the professional version specially available? */
+  /** 是否专业版特供 */
   is_professional?: boolean;
 }
 
-/** operation recommended configuration */
+/** 运营推荐配置 */
 export interface ProductRecommendConfig {
   product_id?: string;
   index?: number;
@@ -749,7 +749,7 @@ export interface SellerInfo {
 
 export interface SetFeaturedProductConfigRequest {
   op_type?: SetFeaturedProductConfigOpType;
-  /** Passed when op_type = update, update the recommended product configuration */
+  /** op_type = update 时传递，更新推荐商品配置 */
   config?: FeaturedProductConfig;
   entity_type?: product_common.ProductEntityType;
 }
@@ -760,25 +760,25 @@ export interface SetFeaturedProductConfigResponse {
 }
 
 export interface SetLandingConfigRequest {
-  /** configuration type */
+  /** 配置类型 */
   config_type?: LandingConfigType;
-  /** operation type */
+  /** 操作类型 */
   op_type?: SetLandingConfigOpType;
-  /** LandingConfigType - TopTemplate: Template Configuration
-list of top templates */
+  /** LandingConfigType - TopTemplate：模板配置
+置顶模板列表 */
   top_templates?: Array<LandingProduct>;
-  /** LandingConfigType - TemplateList: Template List
-template list */
+  /** LandingConfigType - TemplateList：模板列表
+模板列表 */
   templates?: Array<LandingProduct>;
-  /** LandingConfigType - CustomerLogo: customer logo
-Customer Logo List */
+  /** LandingConfigType - CustomerLogo：客户 logo
+客户Logo列表 */
   customer_logos?: Array<LandingLogo>;
-  /** LandingConfigType - Topic: Topics
-template topic */
+  /** LandingConfigType - Topic： 专题
+模板专题 */
   topics?: Array<LandingProductTopic>;
-  /** LandingConfigType - DeveloperVoice */
+  /** LandingConfigType - DeveloperVoice： 开发者声音 */
   developer_voices?: Array<DeveloperVoice>;
-  /** LandingConfigType - CustomerCase */
+  /** LandingConfigType - CustomerCase： 客户案例 */
   customer_cases?: Array<CustomerCase>;
 }
 
@@ -789,11 +789,11 @@ export interface SetLandingConfigResponse {
 
 export interface SetProductRecommendConfigRequest {
   op_type?: SetProductRecommendConfigOpType;
-  /** op_type = add, add recommended products whitelist */
+  /** op_type = add 时传递，添加推荐商品白名单 */
   product_ids?: Array<string>;
-  /** Passed when op_type = update, update the recommended product configuration */
+  /** op_type = update 时传递，更新推荐商品配置 */
   config?: ProductRecommendConfig;
-  /** Deprecated, the backend queries the corresponding EntityType according to ProductIDs */
+  /** 弃用，后端根据 ProductIDs 查询对应的 EntityType */
   entity_type?: product_common.ProductEntityType;
 }
 
@@ -813,9 +813,9 @@ export interface SetTopicResponse {
 }
 
 export interface SocialSceneExtraInfo {
-  /** public method */
+  /** 公开方式 */
   publish_mode?: product_common.ProductPublishMode;
-  /** Number of people used */
+  /** 使用过的人数 */
   used_count?: string;
 }
 
@@ -841,7 +841,7 @@ export interface Topic {
   status?: product_common.TopicStatus;
   begin_time_second?: string;
   end_time_second?: string;
-  /** Identify the type of entity under the topic */
+  /** 标识专题下属的实体类型 */
   entity_type?: product_common.ProductEntityType;
   banner_url?: string;
   product_ids?: Array<string>;
@@ -893,20 +893,20 @@ export interface WorkflowExtraInfo {
 }
 
 export interface WorkflowGUIConfig {
-  /** Used to convert the input/output/intermediate message node of a workflow into a user visual configuration */
+  /** 用于将 workflow 的输入/输出/中间消息节点节点转为用户可视化配置 */
   start_node?: WorkflowNode;
   end_node?: WorkflowNode;
-  /** The message node will output the intermediate process, which also needs to be displayed. */
+  /** 消息节点会输出中间过程，也需要展示 */
   message_nodes?: Array<WorkflowNode>;
 }
 
 export interface WorkflowNode {
   node_type?: product_common.WorkflowNodeType;
-  /** Node id */
+  /** node的id */
   node_id?: string;
   node_name?: string;
   node_param?: WorkflowNodeParam;
-  /** Display name, configuration when on the shelves, Store-specific (this issue is used for the display of message nodes) */
+  /** 展示名，上架时配置，Store 特有（本期用于消息节点的展示） */
   show_name?: string;
 }
 
@@ -922,29 +922,29 @@ export interface WorkflowParameter {
   is_required?: boolean;
   input_type?: product_common.InputType;
   sub_parameters?: Array<WorkflowParameter>;
-  /** If Type is an array, there is a subtype */
+  /** 如果Type是数组，则有subtype */
   sub_type?: product_common.InputType;
-  /** If the imported parameter is the user's hand input, put it here */
+  /** 如果入参是用户手输 就放这里 */
   value?: string;
   format?: product_common.PluginParamTypeFormat;
   from_node_id?: string;
   from_output?: Array<string>;
-  /** Display name, configuration when on the shelf, Store-specific */
+  /** 展示名，上架时配置，Store 特有 */
   show_name?: string;
-  /** InputType (+ AssistType) defines the final type of a variable, which only needs to be passed through */
+  /** InputType (+ AssistType) 定义一个变量的最终类型，仅需透传 */
   assist_type?: Int64;
-  /** If the InputType is an array, there is a subassistant type */
+  /** 如果InputType是数组，则有subassisttype */
   sub_assist_type?: Int64;
-  /** Component configuration, the structure is defined by the front end, and it is converted to json string for server level storage when it is put on the shelves. */
+  /** 组件配置，结构由前端定义，上架时转为json字符串给服务端存储 */
   component_config?: string;
-  /** Component configuration type, required for front-end display */
+  /** 组件配置类型，前端展示需要 */
   component_type?: string;
 }
 
 export interface WorkflowTerminatePlan {
-  /** The answer mode corresponding to the end node of the workflow: 1 - Return the variable, and the Bot generates the answer; 2 - Use the set content to answer directly */
+  /** 对应 workflow 结束节点的回答模式：1-返回变量，由Bot生成回答；2-使用设定的内容直接回答 */
   terminate_plan_type?: number;
-  /** Return content of scene configuration corresponding to terminate_plan_type = 2 */
+  /** 对应 terminate_plan_type = 2 的场景配置的返回内容 */
   content?: string;
 }
 /* eslint-enable */

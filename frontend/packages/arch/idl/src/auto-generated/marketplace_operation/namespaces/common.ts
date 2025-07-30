@@ -22,15 +22,15 @@
 export type Int64 = string | number;
 
 export enum AuditStatus {
-  /** default */
+  /** 默认 */
   Default = 0,
-  /** Under review. */
+  /** 审核中 */
   Pending = 1,
-  /** approved */
+  /** 审核通过 */
   Approved = 2,
-  /** The review failed. */
+  /** 审核不通过 */
   Rejected = 3,
-  /** Abandoned */
+  /** 已废弃 */
   Abandoned = 4,
 }
 

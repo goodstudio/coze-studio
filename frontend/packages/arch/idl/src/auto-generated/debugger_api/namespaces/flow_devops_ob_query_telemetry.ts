@@ -25,9 +25,9 @@ export type Int64 = string | number;
 
 export interface ListTracesData {
   spans: Array<flow_devops_ob_query_telemetry_span.Span>;
-  /** The paging token on the next page, which is returned when the front end pulls the data on the next page. */
+  /** 下一页的分页token，前端拉取下一页数据时回传。 */
   next_page_token: string;
-  /** Is there any more data? */
+  /** 是否有更多数据 */
   has_more: boolean;
 }
 /* eslint-enable */

@@ -56,7 +56,7 @@ export enum NameSpace {
 }
 
 export enum OpenAPISource {
-  /** open API */
+  /** 开放平台 */
   Open = 1,
   /** coze */
   Coze = 2,
@@ -69,9 +69,9 @@ export enum PermissionScope {
 }
 
 export enum PermissionType {
-  /** normal permission */
+  /** 普通权限 */
   Normal = 0,
-  /** channel usage */
+  /** 渠道使用 */
   Connector = 1,
 }
 
@@ -82,24 +82,24 @@ export enum PrincipleType {
   PATAndAPI = 3,
   /** deprecated */
   BotID = 4,
-  /** The limited viewership of space (space_id), migrated from record in the future */
+  /** 对空间(space_id)的限流，将来从 record 迁移过来 */
   PerWorkspace = 5,
-  /** Special limit viewership of higher than the default limit viewership of (will override the limit viewership of the global rate limit (API = 2))
-Special limited viewership of specific user_id */
+  /** 特殊限流, 优先级高于默认限流(会覆盖除 global rate limit(API=2) 之外的限流)
+针对特定 user_id 的特殊限流配置 */
   SpecialUser = 100,
-  /** Special limited viewership of specific space_id */
+  /** 针对特定 space_id 的特殊限流配置 */
   SpecialWorkspace = 101,
-  /** Special limited viewership of specific enterprise enterprise_id */
+  /** 针对特定企业 enterprise_id 的特殊限流配置 */
   SpecialEnterprise = 102,
 }
 
-/** Definition flow_bot_developer_backend open_api thrift */
+/** 定义同 flow_bot_developer_backend open_api.thrift */
 export enum TrafficType {
-  /** default traffic */
+  /** 默认流量 */
   Default = 0,
-  /** Professional Edition */
+  /** 专业版 */
   Professional = 1,
-  /** Enterprise Edition */
+  /** 企业版 */
   Enterprise = 2,
 }
 
@@ -110,51 +110,51 @@ export enum VisibleStatus {
 
 export interface APIItem {
   id?: string;
-  /** interface psm */
+  /** 接口psm */
   psm?: string;
-  /** interface path */
+  /** 接口路径 */
   api_path?: string;
-  /** open source configuration */
+  /** 开放来源配置 */
   source_config?: Array<SourceConfig>;
-  /** namespace */
+  /** 命名空间 */
   name_space?: string;
-  /** API Documentation */
+  /** api文档 */
   api_doc?: string;
-  /** Limited viewership of the program */
+  /** 限流方案 */
   limit_rule?: Array<RequestLimitRule>;
-  /** Field information */
+  /** 字段信息 */
   attribute_schema?: AttributeSchemaInfo;
-  /** effective area */
+  /** 生效区域 */
   valid_district?: Array<District>;
-  /** bound permission information */
+  /** 绑定的权限信息 */
   permission?: PermissionInfo;
-  /** Current API status 1-pending 2-online */
+  /** 当前API的状态 1-待上线 2-已上线 */
   status?: APIStatus;
-  /** API playground related configuration */
+  /** api playground 相关配置 */
   api_playground?: ApiPlayground;
-  /** HTTP method */
+  /** http 方法 */
   http_method?: string;
 }
 
 export interface ApiPlayground {
-  /** First-level directories such as Agents, Conversations, etc */
+  /** 一级目录，如 Agent, Conversation 等 */
   category?: string;
-  /** Interface name, such as Create Agent, etc */
+  /** 接口名，如 Create Agent 等 */
   title?: string;
-  /** URL key, the last item corresponding to the URL of the interface of the playground page */
+  /** url key, 对应 playground 页面该接口的 url 的最后一项 */
   url_key?: string;
-  /** Effective Region & & Effective Version */
+  /** 生效区域 && 生效版本 */
   available_info?: Array<ApiPlaygroundAvailableInfo>;
-  /** All versions of this interface */
+  /** 这个接口所有的版本 */
   version_list?: Array<ApiPlaygroundVersionInfo>;
-  /** All optional first-level directories */
+  /** 所有可选的一级目录 */
   all_categories?: Array<string>;
 }
 
 export interface ApiPlaygroundAvailableInfo {
-  /** Whether it takes effect */
+  /** 是否生效 */
   available?: boolean;
-  /** version */
+  /** 版本 */
   version?: string;
   /** boe/ppe/inhouse/release */
   zone_name: string;
@@ -162,27 +162,27 @@ export interface ApiPlaygroundAvailableInfo {
 
 export interface ApiPlaygroundVersionInfo {
   version?: string;
-  /** The time this version was created (seconds timestamp) */
+  /** 这个版本创建的时间（秒时间戳） */
   create_time_unix?: Int64;
 }
 
 export interface AttributeSchemaInfo {
-  /** Field ID */
+  /** 字段id */
   field_id?: number;
-  /** Is it optional? */
+  /** 是否选填 */
   optional_type?: boolean;
   name?: string;
-  /** field type */
+  /** 字段类型 */
   field_type?: FieldType;
-  /** If it is an array type, it returns an element, no field_id, no name, only type */
+  /** 如果是array类型，这里返回一个元素，没有field_id，没有name 只有type */
   children?: Array<AttributeSchemaInfo>;
-  /** If it is an object type, a set of fields is returned here, with id and name. */
+  /** 如果是object类型，这里返回一组字段，有id和name */
   object_struct?: Array<AttributeSchemaInfo>;
-  /** Is it visible to the user? */
+  /** 是否可以对用户可见 */
   visibility?: boolean;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** Primitive types, such as int fields divided into int32 and int64. */
+  /** 原始类型 例如int类型字段分为int32 int64 */
   raw_type?: string;
 }
 
@@ -213,11 +213,11 @@ export interface CreateAPIDocumentResponse {
 }
 
 export interface CreatePSMRequest {
-  /** Namespace */
+  /** namespace名字 */
   ns_name?: string;
   /** psm */
   psm?: string;
-  /** branch */
+  /** 分支 */
   branch?: string;
   Base?: base.Base;
 }
@@ -229,7 +229,7 @@ export interface CreatePSMResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** Create rules of limited viewership - operation background API */
+/** 创建限流规则-运营后台api */
 export interface CreateRateLimitOperationReq {
   rate_limit: open_api.RateLimitConf;
   Base?: base.Base;
@@ -269,25 +269,25 @@ export interface GetAPIListData {
 }
 
 export interface GetAPIListRequest {
-  /** What page? */
+  /** 第几页 */
   page?: number;
-  /** page capacity */
+  /** 页容量 */
   page_size?: number;
-  /** namespace */
+  /** 命名空间 */
   name_space?: string;
-  /** interface psm */
+  /** 接口psm */
   psm?: string;
-  /** interface path */
+  /** 接口路径 */
   api_path?: string;
-  /** method name */
+  /** 方法名称 */
   function_name?: string;
-  /** Open Source */
+  /** 开放来源 */
   source?: OpenAPISource;
   /** API id */
   api_id?: string;
-  /** effective area */
+  /** 生效区域 */
   valid_district?: Array<District>;
-  /** state of the interface */
+  /** 接口的状态 */
   status?: APIStatus;
   Base?: base.Base;
 }
@@ -305,7 +305,7 @@ export interface GetPermissionListByParentIdData {
 }
 
 export interface GetPermissionListByParentIdReq {
-  /** If it is level 1, fill in 0. */
+  /** 如果是一级填0 */
   parent_id: string;
   page_no?: number;
   page_size?: number;
@@ -340,8 +340,8 @@ export interface GetPermissionListResp {
   BaseResp?: base.BaseResp;
 }
 
-/** Limited viewership of the API
- It will only return the limited viewership of the operation background configuration, and the limited viewership of the equity promotion configuration will not return */
+/** 限流-运营后台 api
+ 只会返回运营后台配置的限流, 由权益提升的限流配置不会返回 */
 export interface GetRateLimitOperationReq {
   path: string;
   http_method: string;
@@ -349,11 +349,11 @@ export interface GetRateLimitOperationReq {
 }
 
 export interface GetRateLimitOperationResp {
-  /** global current limiting */
+  /** 全局限流 */
   global_limit_list?: Array<open_api.RateLimitConf>;
-  /** The limited viewership of base */
+  /** 基础限流 */
   base_limit_list?: Array<open_api.RateLimitConf>;
-  /** The limited viewership of expansion */
+  /** 扩容的限流 */
   expand_limit_list?: Array<open_api.RateLimitConf>;
   BaseResp?: base.BaseResp;
 }
@@ -378,29 +378,29 @@ export interface PermissionInfo {
   permission_id?: string;
   key?: string;
   description?: string;
-  /** display name */
+  /** 展示名称 */
   display_name?: string;
-  /** Sub permission spot */
+  /** 子权限点 */
   childrens?: Array<PermissionInfo>;
-  /** Is the release visible? */
+  /** release是否可见 */
   release_status?: VisibleStatus;
-  /** Is inhouse visible? */
+  /** inhouse是否可见 */
   inhouse_status?: VisibleStatus;
   create_time?: string;
   update_time?: string;
   parent_id?: string;
-  /** Is ppe visible? */
+  /** ppe是否可见 */
   ppe_status?: VisibleStatus;
   permission_type?: PermissionType;
-  /** Is it a space-related resource permission? */
+  /** 是否是空间相关资源权限 */
   permission_scope?: PermissionScope;
-  /** Complete permission_key; new key field, break the original responsible node splicing to get the key relationship */
+  /** 完整的permission_key；新key字段，打破原先的负责节点拼接得到key的关系 */
   full_permission_key?: string;
 }
 
-/** Delete rules of limited viewership - operation background api */
+/** 删除限流规则-运营后台api */
 export interface RemoveRateLimitOperationReq {
-  /** Create the ID obtained. */
+  /** create 拿到的 id */
   id: string;
   Base?: base.Base;
 }
@@ -410,21 +410,21 @@ export interface RemoveRateLimitOperationResp {
 }
 
 export interface RequestLimitRule {
-  /** subject type */
+  /** 主体类型 */
   type?: PrincipleType;
-  /** Interval time, unit s */
+  /** 间隔时间 单位s */
   duration?: number;
-  /** limit the number of times */
+  /** 限制次数 */
   limit_count?: number;
-  /** Regular/Professional/Enterprise logo */
+  /** 普通版/专业版/企业版标识 */
   traffic_type?: TrafficType;
-  /** When PrincipleType is a special limit viewership of, the special limit viewership of id that needs to be passed in (corresponding to user_id, space_id, org_id) */
+  /** 当 PrincipleType 为特殊限流时，需要传入的特殊限流 id(对应 user_id, space_id, org_id) */
   special_id?: string;
-  /** Start time (only valid for limited viewership of special, in seconds) */
+  /** 开始时间（仅对特殊限流有效，单位: 秒） */
   start_time_unix?: Int64;
-  /** End time (only valid for limited viewership of special, in seconds) */
+  /** 结束时间（仅对特殊限流有效，单位: 秒） */
   end_time_unix?: Int64;
-  /** Note information, you can write key information, such as contact via Feishu, group number, etc */
+  /** 备注信息, 可以写一写关键信息，例如飞书联系人，群号等 */
   remark?: string;
 }
 
@@ -462,7 +462,7 @@ export interface SourceConfig {
 export interface UpdateAPIDocRequest {
   /** API id */
   id?: string;
-  /** document content */
+  /** 文档内容 */
   doc_content?: string;
   Base?: base.Base;
 }
@@ -488,11 +488,11 @@ export interface UpdateApiPlaygroundResp {
 export interface UpdateAPIVisibleRequest {
   /** API id */
   id?: string;
-  /** source */
+  /** 来源 */
   source?: OpenAPISource;
-  /** On true Off false */
+  /** 开启 true 关闭 false */
   open?: boolean;
-  /** effective area */
+  /** 生效区域 */
   valid_district?: Array<District>;
   Base?: base.Base;
 }
@@ -504,17 +504,17 @@ export interface UpdateAPIVisibleResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** Update rules of limited viewership - operation background API
- The entity id is not allowed to be changed. If you want to change it, create a new one on the platform and delete this one. */
+/** 更新限流规则-运营后台api
+ entity id 就不让改了，如果想改的话就在平台上新建一条，然后删掉这一条 */
 export interface UpdateRateLimitOperationReq {
   id: string;
-  /** Interval time, unit s */
+  /** 间隔时间 单位s */
   duration?: number;
-  /** limit the number of times */
+  /** 限制次数 */
   limit_count?: number;
-  /** Effective timestamp (seconds) */
+  /** 生效的时间戳（秒） */
   valid_time_start_unix?: Int64;
-  /** Invalid timestamp (seconds) */
+  /** 失效的时间戳（秒） */
   valid_time_end_unix?: Int64;
   remark?: string;
   Base?: base.Base;

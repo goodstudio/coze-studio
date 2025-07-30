@@ -26,37 +26,37 @@ import * as flow_devops_ob_query_telemetry from './flow_devops_ob_query_telemetr
 export type Int64 = string | number;
 
 export enum CozeChannel {
-  /** Default to Coze, expand to other channels in the future */
+  /** 默认为Coze, 未来扩展到其他渠道 */
   Coze = 0,
 }
 
 export enum DebugScene {
-  /** Default play ground Debug scene */
+  /** 默认play ground Debug场景 */
   Debug = 0,
 }
 
 export enum FrontedTagType {
-  /** Text */
+  /** 文本 */
   TEXT = 0,
-  /** Time, with timestamp, in milliseconds */
+  /** 时间，用时间戳，单位是毫秒 */
   TIME = 1,
-  /** Time interval, in milliseconds */
+  /** 时间间隔，单位是毫秒 */
   TIME_DURATION = 2,
 }
 
 export enum InputOutputType {
-  /** Text type */
+  /** 文本类型 */
   TEXT = 0,
 }
 
 export enum QueryScene {
-  /** Doubao cici full link debugging station */
+  /** doubao cici 全链路调试台 */
   ALICE_OP = 0,
-  /** Doubao cici debugging function */
+  /** doubao cici debug 功能 */
   DOUBAO_CICI_DEBUG = 1,
-  /** Workflow debugging */
+  /** workflow debug 功能 */
   WORKFLOW_DEBUG = 2,
-  /** Bots operation background */
+  /** Bots 运营后台 */
   COZE_OP = 3,
   /** fornax platform */
   FORNAX = 4,
@@ -97,60 +97,60 @@ export interface FilterTag {
 
 export interface FrontendTag {
   key: string;
-  /** Multilingual, if there is no configuration value, use the key */
+  /** 多语，如无配置时值沿用 key */
   key_alias?: string;
   tag_type: TagType;
   value?: Value;
-  /** Front-end type for front-end processing */
+  /** 前端类型，用于前端处理 */
   frontend_tag_type?: FrontedTagType;
-  /** Can it be copied? */
+  /** 是否可复制 */
   can_copy?: boolean;
 }
 
 export interface GetTraceFrontendRequest {
   trace_id?: string;
   log_id?: string;
-  /** call scenario */
+  /** 调用场景 */
   scene?: QueryScene;
   start_at?: Int64;
   end_at?: Int64;
   bot_id?: string;
   space_id?: string;
-  /** Tenant: flow, flow_vip */
+  /** 租户: flow, flow_vip */
   tenant?: string;
   Base?: base.Base;
 }
 
 export interface GetTraceFrontendResponse {
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
   data?: TraceFrontend;
   BaseResp?: base.BaseResp;
 }
 
 export interface KeyScene {
-  /** Scenarios such as "Split search terms"\ "Search" */
+  /** 场景，如"拆分搜索词"\"搜索" */
   scene?: string;
-  /** status information */
+  /** 状态信息 */
   status_message?: string;
   system?: string;
-  /** chat history */
+  /** 历史消息 */
   history_messages?: Array<MessageItem>;
-  /** input */
+  /** 输入 */
   input?: KeySceneInput;
-  /** output */
+  /** 输出 */
   output?: KeySceneOutput;
-  /** It's in milliseconds. */
+  /** 单位是毫秒 */
   duration?: Int64;
-  /** Start time, used for sorting, in milliseconds */
+  /** 开始时间，用于排序，单位是毫秒 */
   start_time?: Int64;
-  /** subscene */
+  /** 子场景 */
   sub_key_scenes?: Array<KeyScene>;
-  /** list of key-value pairs */
+  /** 键值对列表 */
   key_values?: Array<KeyValue>;
-  /** scene code */
+  /** 场景代码 */
   scene_code?: string;
 }
 
@@ -183,21 +183,21 @@ export interface ListDebugQueriesRequest {
 
 export interface ListDebugQueriesResponse {
   data: flow_devops_ob_query_telemetry.ListTracesData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg: string;
 }
 
 export interface MessageItem {
-  /** role */
+  /** 角色 */
   role?: string;
-  /** content */
+  /** 内容 */
   content?: string;
 }
 
 export interface SearchTraceRequest {
-  /** Tenant: doubao/cici/fornax/coze */
+  /** 租户: doubao/cici/fornax/coze */
   tenant?: string;
   trace_id?: string;
   log_id?: string;
@@ -226,9 +226,9 @@ export interface Span {
   type?: string;
   name?: string;
   parent_id?: string;
-  /** It's in milliseconds. */
+  /** 单位是毫秒 */
   duration?: Int64;
-  /** It's in milliseconds. */
+  /** 单位是毫秒 */
   start_time?: Int64;
   status_code?: number;
   tags?: Array<Tag>;
@@ -238,7 +238,7 @@ export interface SpanInputOutput {
   /** TEXT */
   type?: InputOutputType;
   content?: string;
-  /** Is it encrypted? */
+  /** 是否是加密状态 */
   is_encrypted?: boolean;
 }
 
@@ -276,67 +276,67 @@ export interface TraceFrontendSpan {
   name?: string;
   alias_name?: string;
   parent_id?: string;
-  /** It's in milliseconds. */
+  /** 单位是毫秒 */
   duration?: Int64;
-  /** It's in milliseconds. */
+  /** 单位是毫秒 */
   start_time?: Int64;
   status_code?: number;
   tags?: Array<Tag>;
-  /** node details */
+  /** 节点详情 */
   summary?: SpanSummary;
   input?: SpanInputOutput;
   output?: SpanInputOutput;
-  /** Is it an entry node? */
+  /** 是否是入口节点 */
   is_entry?: boolean;
-  /** product line */
+  /** 产品线 */
   product_line?: string;
-  /** Is it a key node? */
+  /** 是否是关键节点 */
   is_key_span?: boolean;
-  /** Node owner list, mailbox prefix */
+  /** 节点负责人列表, 邮箱前缀 */
   owner_list?: Array<string>;
-  /** Node Details Document */
+  /** 节点详情文档 */
   rundown_doc_url?: string;
-  /** Is it encrypted? */
+  /** 是否是加密状态 */
   is_encrypted?: boolean;
 }
 
 export interface TraceHeader {
-  /** It's in milliseconds. */
+  /** 单位是毫秒 */
   duration?: Int64;
-  /** Enter the number of tokens consumed */
+  /** 输入消耗token数 */
   tokens?: number;
   status_code?: number;
   tags?: Array<FrontendTag>;
-  /** Message ID */
+  /** 消息ID */
   message_id?: string;
-  /** It's in milliseconds. */
+  /** 单位是毫秒 */
   start_time?: Int64;
 }
 
 export interface TraceSummary {
-  /** System 1 text */
+  /** 一级 System 的文本 */
   system?: string;
-  /** Level 1 chat history */
+  /** 一级历史消息 */
   history_messages?: Array<MessageItem>;
   key_scenes?: Array<KeyScene>;
-  /** input */
+  /** 输入 */
   input?: string;
-  /** output */
+  /** 输出 */
   output?: string;
-  /** The duration of the current conversation, in milliseconds */
+  /** 一级当前对话的耗时, 单位是毫秒 */
   duration?: Int64;
-  /** user ID */
+  /** 用户ID */
   user_id?: string;
-  /** KeyScene List */
+  /** 一级KeyScene列表 */
   top_level_key_scenes?: Array<KeyScene>;
-  /** Is it encrypted? */
+  /** 是否是加密状态 */
   is_encrypted?: boolean;
 }
 
 export interface TraceSummaryContent {
-  /** key */
+  /** 键 */
   key?: string;
-  /** content */
+  /** 内容 */
   content?: string;
 }
 

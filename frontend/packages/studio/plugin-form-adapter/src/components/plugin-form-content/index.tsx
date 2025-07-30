@@ -592,7 +592,7 @@ export const PluginForm: FC<{
               case 1:
                 setAuthType(6);
                 break;
-              //@TS-expected-error Authorization type compatible
+              // @ts-expect-error Authorization type compatible
               case 2:
                 setAuthType(7);
                 break;

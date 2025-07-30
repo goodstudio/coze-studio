@@ -141,7 +141,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v1/apps
    *
-   * Create an app
+   * 创建一个应用
    */
   CreateApp(
     req: flow_devops_fornax_appservice.CreateAppReq,
@@ -163,7 +163,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/graphs/:graphID/clients/:clientID/latest_slots
    *
-   * Read the latest Slot list published by a client side
+   * 读取一个客户端最新发布的 Slot 列表
    */
   GetLatestSlotsOfClient(
     req: flow_devops_fornax_graphservice.GetLatestSlotsOfClientReq,
@@ -180,7 +180,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/graphs/:graphID
    *
-   * Reading a Graph
+   * 读取一个 Graph
    */
   GetGraph(
     req: flow_devops_fornax_graphservice.GetGraphReq,
@@ -195,7 +195,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v1/slot_sets/:slotSetID/release
    *
-   * Post a SlotSet
+   * 发布一个 SlotSet
    */
   ReleaseSlotSet(
     req: flow_devops_fornax_graphservice.ReleaseSlotSetReq,
@@ -216,7 +216,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/graphs/:graphID/clients/:clientID/slot_set_releases
    *
-   * Read the Slot release history of a client
+   * 读取一个客户端的 Slot 发布历史
    */
   ListSlotSetReleasesOfClient(
     req: flow_devops_fornax_graphservice.ListSlotSetReleasesOfClientReq,
@@ -233,7 +233,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v1/apps/:appID/graphs
    *
-   * Create a graph
+   * 创建一个 Graph
    */
   CreateGraph(
     req: flow_devops_fornax_graphservice.CreateGraphReq,
@@ -251,7 +251,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/apps/:appID/clients/:clientID/graphs
    *
-   * Read the graph list under the application
+   * 读取应用下的 graph 列表
    */
   ListGraphsByClient(
     req: flow_devops_fornax_graphservice.ListGraphsByClientReq,
@@ -268,7 +268,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/slot_sets/:slotSetID/compatibility
    *
-   * Verify compatibility of a SlotSet with the latest version on the client side
+   * 校验一个 SlotSet 与客户端最新版本的兼容性
    */
   CheckSlotSetCompatibility(
     req: flow_devops_fornax_graphservice.CheckSlotSetCompatibilityReq,
@@ -286,7 +286,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/slot_sets/:slotSetID
    *
-   * Read a SlotSet
+   * 读取一个 SlotSet
    */
   GetSlotSet(
     req: flow_devops_fornax_graphservice.GetSlotSetReq,
@@ -304,7 +304,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/app_manage/v1/graphs/:graphID
    *
-   * Update a graph
+   * 更新一个 Graph
    */
   UpdateGraph(
     req: flow_devops_fornax_graphservice.UpdateGraphReq,
@@ -320,7 +320,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/node_templates
    *
-   * Reading the Type and Schema of the Official Node
+   * 读取官方 Node 的 Type 和 schema
    */
   ListNodeTemplates(
     req?: flow_devops_fornax_graphservice.ListNodeTemplatesReq,
@@ -334,7 +334,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/graphs/:graphID/slot_sets/latest_version
    *
-   * Read the latest SlotSet version number of a graph
+   * 读取一个 graph 的 SlotSet 最新版本号
    */
   GetLatestSlotSetVersion(
     req: flow_devops_fornax_graphservice.GetLatestSlotSetVersionReq,
@@ -351,7 +351,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/spaces/:spaceID/graphs
    *
-   * Read a list of graphs in a space
+   * 读取一个空间下的 graph 列表
    */
   ListGraphsBySpace(
     req: flow_devops_fornax_graphservice.ListGraphsBySpaceReq,
@@ -368,7 +368,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/apps/:appID/clients
    *
-   * Get all clients under the app
+   * 获取 app 下所有的 client
    */
   ListAppClientsByApp(
     req: flow_devops_fornax_appservice.ListAppClientsByAppReq,
@@ -386,7 +386,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v1/apps/:appID/clients
    *
-   * Create a client
+   * 创建一个 client
    */
   CreateAppClient(
     req: flow_devops_fornax_appservice.CreateAppClientReq,
@@ -446,7 +446,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v1/graphs/:graphID/slot_sets
    *
-   * Create a SlotSet
+   * 创建一个 SlotSet
    */
   CreateSlotSet(
     req: flow_devops_fornax_graphservice.CreateSlotSetReq,
@@ -468,7 +468,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/app_manage/v1/graphs/:graphID
    *
-   * Delete a graph
+   * 删除一个 graph
    */
   DeleteGraph(
     req: flow_devops_fornax_graphservice.DeleteGraphReq,
@@ -483,7 +483,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/app_manage/v1/graphs/:graphID/clients/:clientID/slot_sets
    *
-   * Clear a Client's SlotSet
+   * 清空一个 Client 的 SlotSet
    */
   ClearSlotSetOfClient(
     req: flow_devops_fornax_graphservice.ClearSlotSetOfClientReq,
@@ -500,7 +500,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/app_manage/v1/apps/:appID
    *
-   * Update an app
+   * 更新一个应用
    */
   UpdateApp(
     req: flow_devops_fornax_appservice.UpdateAppReq,
@@ -516,7 +516,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/app_manage/v1/apps/:appID
    *
-   * Delete an app
+   * 删除一个应用
    */
   DeleteApp(
     req: flow_devops_fornax_appservice.DeleteAppReq,
@@ -531,7 +531,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/spaces/:spaceID/apps
    *
-   * Read a list of applications in a space
+   * 读取一个空间下的应用列表
    */
   ListAppsBySpace(
     req: flow_devops_fornax_appservice.ListAppsBySpaceReq,
@@ -554,7 +554,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/auth/v1/spaces/:spaceID/service_accounts
    *
-   * Import service account. Background interface, compatible with AGW AKSK.
+   * 导入服务账号. 后台接口, 兼容 AGW AKSK.
    */
   ImportServiceAccount(
     req: flow_devops_fornax_authservice.ImportServiceAccountReq,
@@ -574,9 +574,9 @@ export default class FornaxApi2Service<T> {
    *
    * ↑↑↑↑↑↑
    *
-   * ??? Data surface authentication interface???
+   * ↓↓↓数据面认证接口↓↓↓
    *
-   * certification
+   * 认证
    */
   AuthenticateServiceAccount(
     req: flow_devops_fornax_authservice.AuthenticateServiceAccountReq,
@@ -604,7 +604,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/auth/v1/spaces/:spaceID/service_accounts
    *
-   * Generate a service account
+   * 生成服务账号
    */
   GenerateServiceAccount(
     req: flow_devops_fornax_authservice.GenerateServiceAccountReq,
@@ -621,7 +621,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/service_accounts/:accountID/secret_key
    *
-   * Get service account key
+   * 获取服务账号密钥
    */
   GetSecretKeyByAccount(
     req: flow_devops_fornax_authservice.GetSecretKeyByAccountReq,
@@ -638,7 +638,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/spaces/:spaceID/service_accounts
    *
-   * Get the service account under the space.
+   * 获取空间下的服务账号
    */
   ListServiceAccountsBySpace(
     req: flow_devops_fornax_authservice.ListServiceAccountsBySpaceReq,
@@ -655,7 +655,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/jwt_public_key
    *
-   * Obtain JWT public key information
+   * 获取 JWT 公钥信息
    */
   GetJWTPublicKey(
     req?: flow_devops_fornax_authservice.GetJWTPublicKeyReq,
@@ -669,7 +669,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/clients/:clientID
    *
-   * Acquire a client
+   * 获取一个 client
    */
   GetAppClient(
     req: flow_devops_fornax_appservice.GetAppClientReq,
@@ -686,7 +686,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v1/apps/:appID/clients/:clientID/evaluation_settings
    *
-   * Updating a client's evaluation configuration
+   * 更新一个 client 的评测配置
    */
   UpsertClientEvaluationSetting(
     req: flow_devops_fornax_appservice.UpsertClientEvaluationSettingReq,
@@ -704,7 +704,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/apps/:appID/clients/:clientID/evaluation_settings
    *
-   * Obtain the evaluation configuration of a client
+   * 获取一个 client 的评测配置
    */
   GetClientEvaluationSetting(
     req: flow_devops_fornax_appservice.GetClientEvaluationSettingReq,
@@ -721,7 +721,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/model_manage/v1/model_account/delete/:modelID
    *
-   * Delete the model and delete the corresponding account at the same time.
+   * 删除模型，同时删除对应账号
    */
   DeleteModelAndAccount(
     req?: flow_devops_fornax_modelservice.DeleteModelAndAccountRequest,
@@ -738,7 +738,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/model_account/upsert
    *
-   * Create or update models and accounts
+   * 创建或更新模型及账号
    */
   UpsertModelAndAccount(
     req?: flow_devops_fornax_modelservice.UpsertModelAndAccountRequest,
@@ -755,7 +755,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:spaceID/model_account/list
    *
-   * Get the model list (including account information)
+   * 获取模型列表(包含账号信息)
    */
   ListModelAndAccount(
     req?: flow_devops_fornax_modelservice.ListModelAndAccountRequest,
@@ -776,7 +776,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:spaceID/model/list
    *
-   * Get the model list (without account information)
+   * 获取模型列表(不包含账号信息)
    */
   ListModel(
     req?: flow_devops_fornax_modelservice.ListModelRequest,
@@ -794,7 +794,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v1/coze_bot_apps
    *
-   * Create a coze bot type app
+   * 创建一个 coze bot 类型的 app
    */
   CreateCozeBotApp(
     req: flow_devops_fornax_appservice.CreateCozeBotAppReq,
@@ -814,7 +814,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/accounts
    *
-   * Get the model account information (there is clear text of authorization and authentication information)
+   * 获取模型账号信息(有授权认证信息明文)
    */
   GetAccounts(
     req?: flow_devops_fornax_modelservice.GetAccountsRequest,
@@ -832,7 +832,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/ide/v1/ide_space/bind
    *
-   * Binding CloudIDE space
+   * 绑定CloudIDE空间
    */
   BindCloudIDESpace(
     req: flow_devops_fornax_ide.BindCloudIDESpaceReq,
@@ -852,7 +852,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/ide/v1/ide_space
    *
-   * Acquire CloudIDE space
+   * 获取CloudIDE空间
    */
   GetCloudIDESpace(
     req?: flow_devops_fornax_ide.GetCloudIDESpaceReq,
@@ -868,7 +868,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/ide/v1/launch
    *
-   * Launch IDE
+   * 启动 IDE
    */
   IDELaunch(
     req: flow_devops_fornax_ide.IDELaunchReq,
@@ -891,7 +891,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/ide/v1/jwt_login
    *
-   * login
+   * 登录
    */
   JWTLogin(
     req: flow_devops_fornax_ide.JWTLoginReq,
@@ -908,7 +908,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/ide/v1/fornax_spaces
    *
-   * Get the Fornax space list and related information under the space
+   * 获取fornax空间列表及空间下相关信息
    */
   FetchSpaces(
     req: flow_devops_fornax_ide.FetchSpacesReq,
@@ -925,7 +925,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/agent_manage/v1/list_agent_release_record
    *
-   * Get release history
+   * 获取发布记录
    */
   ListAgentReleaseRecord(
     req: flow_devops_fornax_agentservice.ListAgentReleaseRecordRequest,
@@ -948,7 +948,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/spaces/:spaceID/agents
    *
-   * Get the list of agents in the fornax space
+   * 获取fornax空间下的agent列表
    */
   ListAgentsBySpace(
     req: flow_devops_fornax_agentservice.ListAgentsBySpaceReq,
@@ -966,7 +966,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/agent_manage/v1/agents
    *
-   * Create agent
+   * 创建agent
    */
   CreateAgent(
     req: flow_devops_fornax_agentservice.CreateAgentReq,
@@ -994,7 +994,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /open-apis/agent_manage/v1/spaces/:spaceID/agents
    *
-   * Use it for sdk and get the list of agents in the fornax space.
+   * 给sdk使用，获取fornax空间下的agent列表
    */
   OApiListAgentsBySpace(
     req: flow_devops_fornax_agentservice.OApiListAgentsBySpaceReq,
@@ -1012,7 +1012,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/agent_manage/v1/agents/:agentID
    *
-   * Update agent
+   * 更新agent
    */
   UpdateAgent(
     req: flow_devops_fornax_agentservice.UpdateAgentReq,
@@ -1037,7 +1037,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/agent_manage/v1/agents/:agentID
    *
-   * Delete agent
+   * 删除agent
    */
   DeleteAgent(
     req: flow_devops_fornax_agentservice.DeleteAgentReq,
@@ -1055,7 +1055,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/agent_manage/v1/agent_release
    *
-   * publish
+   * 发布
    */
   AgentRelease(
     req: flow_devops_fornax_agentservice.AgentReleaseRequest,
@@ -1071,7 +1071,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/agents/:agentID
    *
-   * Acquire agent
+   * 获取agent
    */
   GetAgent(
     req: flow_devops_fornax_agentservice.GetAgentReq,
@@ -1089,7 +1089,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/ide/v1/ide_space/unbind
    *
-   * Unbind the CloudIDE space
+   * 解绑CloudIDE空间
    */
   UnbindCloudIDESpace(
     req: flow_devops_fornax_ide.UnbindCloudIDESpaceReq,
@@ -1109,7 +1109,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/space_manage/v1/spaces/:spaceID/feature_configs
    *
-   * Get the function configuration under the space
+   * 获取空间下功能配置
    */
   GetFeatureConfigBySpaceID(
     req: flow_devops_fornax_spaceservice.GetFeatureConfigBySpaceIDReq,
@@ -1126,7 +1126,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/ide/v1/common_model/:modelName
    *
-   * FornaxIDE gets the common model interface
+   * FornaxIDE获取公共模型接口
    */
   OApiListCommonModelInfo(
     req: flow_devops_fornax_ide.OApiListCommonModelInfoReq,
@@ -1144,7 +1144,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/automation/v1/tasks/:task_id
    *
-   * update task
+   * 更新任务
    */
   UpdateTask(
     req: flow_devops_fornax_automationservice.UpdateTaskReq,
@@ -1160,7 +1160,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/automation/v1/tasks/:task_id
    *
-   * Delete task
+   * 删除任务
    */
   DeleteTask(
     req: flow_devops_fornax_automationservice.DeleteTaskReq,
@@ -1175,7 +1175,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/automation/v1/filter_options
    *
-   * Get filter options
+   * 获取 filter 选项
    */
   GetFilterOptions(
     req: flow_devops_fornax_automationservice.GetFilterOptionsReq,
@@ -1195,7 +1195,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/automation/v1/spaces/:space_id/tasks
    *
-   * task list
+   * 任务列表
    */
   ListTasksBySpace(
     req: flow_devops_fornax_automationservice.ListTasksBySpaceReq,
@@ -1222,7 +1222,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/automation/v1/spaces/:space_id/tasks
    *
-   * Create task
+   * 创建任务
    */
   CreateTask(
     req: flow_devops_fornax_automationservice.CreateTaskReq,
@@ -1240,7 +1240,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/agent_manage/v1/update_lark_release_status
    *
-   * Update Feishu Release Status
+   * 更新飞书发布状态
    */
   UpdateLarkReleaseStatus(
     req: flow_devops_fornax_agentservice.UpdateLarkReleaseStatusRequest,
@@ -1262,7 +1262,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/agents/:agentID/accounts/:accountID/openapi_token
    *
-   * Get token
+   * 获取token
    */
   GetAgentOpenAPIToken(
     req: flow_devops_fornax_agentservice.GetAgentOpenAPITokenReq,
@@ -1280,7 +1280,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/agents/:agentID/openapi_accounts
    *
-   * Get the openapi account of the agent
+   * 获取agent的openapi账号
    */
   ListAgentOpenAPIAccounts(
     req: flow_devops_fornax_agentservice.ListAgentOpenAPIAccountsReq,
@@ -1298,7 +1298,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/automation/v1/tasks/:task_id/status_detail
    *
-   * Get task status details
+   * 获取 task 状态详情
    */
   GetTaskStatusDetail(
     req: flow_devops_fornax_automationservice.GetTaskStatusDetailReq,
@@ -1315,7 +1315,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /open-apis/agent_manage/v1/agents/:agentID/authenticate
    *
-   * Open-api, check whether the token is valid
+   * open-api，校验token是否有效
    */
   CheckAgentToken(
     req: flow_devops_fornax_agentservice.CheckAgentTokenReq,
@@ -1334,7 +1334,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/list_template_meta_info
    *
-   * Agent template meta information list
+   * agent模板元信息列表
    */
   ListTemplateMetaInfos(
     req?: flow_devops_fornax_agentservice.ListTemplateMetaInfosRequest,
@@ -1350,7 +1350,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/codebase/repo/search
    *
-   * Query the codebase warehouse list by keyword
+   * 根据关键词查询codebase仓库列表
    */
   RepoSearch(
     req: flow_devops_fornax_agentservice.RepoSearchRequest,
@@ -1372,7 +1372,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/codebase/permissions/user/:user_name/repo/:repo_id
    *
-   * Get user codebase repository permission
+   * 获取用户codebase仓库权限
    */
   GetUserCodebasePermission(
     req: flow_devops_fornax_agentservice.GetUserCodebasePermissionRequest,
@@ -1391,7 +1391,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/tag/v1/tag/:tag_id/bind
    *
-   * Remove marking
+   * 移除打标
    */
   RemoveTagTargetBind(
     req: flow_devops_fornax_tag.RemoveTagTargetBindRequest,
@@ -1414,9 +1414,9 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag/:tag_id/bind
    *
-   * tag association
+   * tag关联关系
    *
-   * Linked to Marked Objects
+   * 关联至打标对象
    */
   CreateTagTargetBind(
     req: flow_devops_fornax_tag.CreateTagTargetBindRequest,
@@ -1440,7 +1440,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/auth/v1/connector/authorization_revoke
    *
-   * revoke authorization
+   * 撤销授权
    */
   RevokeConnectorAuthorization(
     req: flow_devops_fornax_authservice.RevokeConnectorAuthorizationReq,
@@ -1456,7 +1456,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/auth/v1/connector/authorization_check
    *
-   * Check if it is authorized.
+   * 检查是否授权
    */
   CheckConnectorAuthorization(
     req: flow_devops_fornax_authservice.CheckConnectorAuthorizationReq,
@@ -1476,9 +1476,9 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/auth/v1/connector/oauth_set_state
    *
-   * ??? Authorized management???
+   * ↓↓↓授权管理↓↓↓
    *
-   * Set state to protect against CSRF attacks
+   * 设置state，防CSRF攻击
    */
   OAuthSetState(
     req: flow_devops_fornax_authservice.OAuthSetStateReq,
@@ -1520,7 +1520,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/connector/authorizations
    *
-   * Obtain all user authorization records
+   * 获取用户所有的授权记录
    */
   ListConnectorAuthorizations(
     req?: flow_devops_fornax_authservice.ListConnectorAuthorizationsReq,
@@ -1534,9 +1534,9 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/auth/v1/spaces/:spaceID/access_control_list
    *
-   * ??? Access control list related interfaces???
+   * ↓↓↓访问控制列表相关接口↓↓↓
    *
-   * Access control list under save space
+   * 保存空间下的访问控制列表
    */
   SaveAccessControlList(
     req: flow_devops_fornax_authservice.SaveAccessControlListReq,
@@ -1558,7 +1558,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/spaces/:spaceID/access_control_list
    *
-   * Get the access control list under the space
+   * 获取空间下的访问控制列表
    */
   GetAccessControlListBySpace(
     req: flow_devops_fornax_authservice.GetAccessControlListBySpaceReq,
@@ -1575,7 +1575,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/agent_manage/v1/workspaces/:workspaceID/agents
    *
-   * Get agent details by cloud ide space ID
+   * 根据cloud ide空间ID获取agent详情
    */
   GetAgentByWorkspaceID(
     req: flow_devops_fornax_agentservice.GetAgentByWorkspaceIDReq,
@@ -1593,7 +1593,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/resources/:resourceType/:resourceID
    *
-   * Inquire about resource details
+   * 查询资源详情
    */
   GetResource(
     req: flow_devops_fornax_resourceservice.GetResourceReq,
@@ -1610,7 +1610,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v1/coze_bot_apps/:botID/permission
    *
-   * Verify whether the user has bot privileges
+   * 校验用户是否有 bot 的权限
    */
   CheckCozeBotPermission(
     req: flow_devops_fornax_appservice.CheckCozeBotPermissionReq,
@@ -1627,7 +1627,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/connector/oauth_config
    *
-   * Get the oauth configuration of the channel
+   * 获取渠道的 oauth 配置
    */
   GetConnectorOAuthConfig(
     req: flow_devops_fornax_authservice.GetConnectorOAuthConfigReq,
@@ -1643,7 +1643,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/tag/v1/tag/get_tag_by_name
    *
-   * Tag name precise query
+   * 标签名称精准查询
    */
   GetTagByName(
     req: flow_devops_fornax_tag.GetTagByNameRequest,
@@ -1664,7 +1664,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag/mget
    *
-   * tagID query
+   * tagID查询
    */
   MGetTags(
     req: flow_devops_fornax_tag.MGetTagsRequest,
@@ -1685,7 +1685,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/tag/v1/tag/:tag_id
    *
-   * Modify tag
+   * 修改tag
    */
   UpdateTag(
     req: flow_devops_fornax_tag.UpdateTagRequest,
@@ -1707,7 +1707,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag/:tag_id/bind/mget
    *
-   * Get the tag associated with the tag
+   * 获取tag关联的打标对象
    */
   MGetTagTargetBind(
     req: flow_devops_fornax_tag.MGetTagTargetBindRequest,
@@ -1730,7 +1730,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag
    *
-   * Create tag
+   * 创建tag
    */
   CreateTag(
     req: flow_devops_fornax_tag.CreateTagRequest,
@@ -1752,7 +1752,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag/mget_by_target_ids
    *
-   * Get the mark object tag
+   * 获取打标对象tag
    */
   MGetTagListByTargetIDs(
     req: flow_devops_fornax_tag.MGetTagListByTargetIDsRequest,
@@ -1774,7 +1774,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag/list
    *
-   * Query a batch of tags
+   * 查询一批tag
    */
   ListTag(
     req: flow_devops_fornax_tag.ListTagRequest,
@@ -1803,7 +1803,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/tasks/:task_id/run
    *
-   * run
+   * 运行
    */
   RunDataProcessingTask(
     req?: flow_devops_fornax_dpservice.RunDataProcessingTaskReq,
@@ -1821,7 +1821,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/spaces/:spaceID/annotate_tasks
    *
-   * Create annotation task
+   * 创建标注任务
    */
   CreateAnnotateTask(
     req: flow_devops_fornax_dpservice.CreateAnnotateTaskReq,
@@ -1846,7 +1846,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/data_processing/v1/tasks/:task_id
    *
-   * update
+   * 更新
    */
   UpdateDataProcessingTask(
     req?: flow_devops_fornax_dpservice.UpdateDataProcessingTaskReq,
@@ -1870,7 +1870,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/tasks
    *
-   * create
+   * 创建
    */
   CreateDataProcessingTask(
     req?: flow_devops_fornax_dpservice.CreateDataProcessingTaskReq,
@@ -1898,7 +1898,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/tasks/dryrun
    *
-   * practice run
+   * 试运行
    */
   DryRunDataProcessingTask(
     req?: flow_devops_fornax_dpservice.DryRunDataProcessingTaskReq,
@@ -1920,7 +1920,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/annotate_tasks/:taskID/refresh_status_detail
    *
-   * Refresh and label task status details
+   * 刷新标注任务状态详情
    */
   RefreshAnnotateTaskStatusDetail(
     req: flow_devops_fornax_dpservice.RefreshAnnotateTaskStatusDetailReq,
@@ -1937,7 +1937,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/data_processing/v1/tasks/:task_id/runs
    *
-   * Get run record
+   * 获取运行记录
    */
   GetTaskRuns(
     req?: flow_devops_fornax_dpservice.GetTaskRunsReq,
@@ -1955,7 +1955,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/automation/v1/spaces/:space_id/tasks/:task_id/detail
    *
-   * Get task details
+   * 获取 task 详情
    */
   GetTaskDetail(
     req: flow_devops_fornax_automationservice.GetTaskDetailReq,
@@ -1972,7 +1972,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/tasks/:task_id/reentry
    *
-   * Reentry
+   * 重入
    */
   ReentryTaskRun(
     req?: flow_devops_fornax_dpservice.ReentryTaskRunReq,
@@ -1990,7 +1990,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/data_processing/v1/spaces/:spaceID/annotate_tasks/:taskID
    *
-   * Get annotation task details
+   * 获取标注任务详情
    */
   GetAnnotateTask(
     req: flow_devops_fornax_dpservice.GetAnnotateTaskReq,
@@ -2007,7 +2007,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/app_manage/v2/apps/:appID
    *
-   * update app
+   * 更新应用
    */
   UpdateAppV2(
     req: flow_devops_fornax_appservice.UpdateAppV2Req,
@@ -2030,9 +2030,9 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v2/apps
    *
-   * =========== Fornax Application Management 2.0 ===========
+   * =========== Fornax应用管理2.0 ===========
    *
-   * Create app
+   * 创建应用
    */
   CreateAppV2(
     req: flow_devops_fornax_appservice.CreateAppV2Req,
@@ -2058,7 +2058,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/data_processing/v1/tasks/:task_id
    *
-   * delete
+   * 删除
    */
   DeleteDataProcessingTask(
     req?: flow_devops_fornax_dpservice.DeleteDataProcessingTaskReq,
@@ -2076,7 +2076,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/tasks/mget
    *
-   * detail
+   * 详情
    */
   MGetDataProcessingTask(
     req?: flow_devops_fornax_dpservice.MGetDataProcessingTaskReq,
@@ -2092,7 +2092,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/data_processing/v1/tasks/user_script_template_config
    *
-   * Get template configuration
+   * 获取模板配置
    */
   GetUserScriptTemplateConfig(
     req?: flow_devops_fornax_dpservice.GetUserScriptTemplateConfigReq,
@@ -2110,7 +2110,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/data_processing/v1/tasks/:task_id/stop
    *
-   * Stop
+   * 停止
    */
   StopDataProcessingTask(
     req?: flow_devops_fornax_dpservice.StopDataProcessingTaskReq,
@@ -2128,7 +2128,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/app_manage/v2/spaces/:spaceID/apps
    *
-   * Read a list of applications in a space
+   * 读取一个空间下的应用列表
    */
   ListAppsBySpaceV2(
     req: flow_devops_fornax_appservice.ListAppsBySpaceV2Req,
@@ -2150,7 +2150,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/app_manage/v2/spaces/:spaceID/apps/:appID
    *
-   * Get an app
+   * 获取一个应用
    */
   GetAppV2(
     req: flow_devops_fornax_appservice.GetAppV2Req,
@@ -2167,7 +2167,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/spaces/:spaceID/annotate_tasks/list
    *
-   * label task list
+   * 标注任务列表
    */
   ListAnnotateTaskBySpace(
     req: flow_devops_fornax_dpservice.ListAnnotateTaskBySpaceReq,
@@ -2195,7 +2195,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/ide/v1/ide_space/check
    *
-   * Checking CloudIDE space status
+   * 检查CloudIDE空间状态
    */
   CheckCloudIDESpace(
     req?: flow_devops_fornax_ide.CheckCloudIDESpaceReq,
@@ -2224,7 +2224,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/spaces/:space_id/tasks
    *
-   * list
+   * 列表
    */
   ListDataProcessingTasks(
     req?: flow_devops_fornax_dpservice.ListDataProcessingTasksReq,
@@ -2250,7 +2250,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/data_processing/v1/annotate_tasks/check_aidp_account
    *
-   * Verify whether the user has an AIDP account
+   * 校验用户是否有 AIDP 账号
    */
   CheckUserHasAIDPAccount(
     req?: flow_devops_fornax_dpservice.CheckUserHasAIDPAccountReq,
@@ -2266,7 +2266,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/models/:modelID/sync_status
    *
-   * synchronous model state
+   * 同步模型状态
    */
   SyncModelStatus(
     req: flow_devops_fornax_modelservice.SyncModelStatusRequest,
@@ -2283,7 +2283,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/maas_region_configs
    *
-   * Get the volcano platform area configuration
+   * 获取火山平台区域配置
    */
   GetMaaSRegionConfigs(
     req?: flow_devops_fornax_modelservice.GetMaaSRegionConfigsRequest,
@@ -2297,7 +2297,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/provider_accounts
    *
-   * Add model Provide platform account
+   * 添加模型提供平台账号
    */
   CreateProviderAccount(
     req: flow_devops_fornax_modelservice.CreateProviderAccountRequest,
@@ -2320,7 +2320,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/provider_accounts/validate
    *
-   * The verification model provides the platform account number.
+   * 校验模型提供平台账号
    */
   ValidateProviderAccount(
     req: flow_devops_fornax_modelservice.ValidateProviderAccountRequest,
@@ -2343,7 +2343,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/model_manage/v1/provider_accounts/:accountID
    *
-   * Update the model to provide platform accounts
+   * 更新模型提供平台账号
    */
   UpdateProviderAccount(
     req: flow_devops_fornax_modelservice.UpdateProviderAccountRequest,
@@ -2367,7 +2367,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/provider_accounts/:accountID/releated_resources
    *
-   * Get the resource information associated with the account
+   * 获取账号关联的资源信息
    */
   GetAccountRelatedResources(
     req: flow_devops_fornax_modelservice.GetAccountRelatedResourcesRequest,
@@ -2384,7 +2384,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:spaceID/provider_accounts
    *
-   * The model provides a list of platform accounts
+   * 模型提供平台账号列表
    */
   ListProviderAccountsBySpace(
     req: flow_devops_fornax_modelservice.ListProviderAccountsBySpaceRequest,
@@ -2401,7 +2401,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/model_manage/v1/provider_accounts/:accountID
    *
-   * Delete the model and provide the platform account.
+   * 删除模型提供平台账号
    */
   DeleteProviderAccount(
     req: flow_devops_fornax_modelservice.DeleteProviderAccountRequest,
@@ -2418,7 +2418,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/get_custom_model
    *
-   * Get custom model details
+   * 获得定制模型详情
    */
   GetSftTaskCustomModel(
     req?: flow_devops_fornax_modelservice.GetSftTaskCustomModelRequest,
@@ -2440,7 +2440,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/list_foundation_models
    *
-   * Obtain a list of base models
+   * 获得基础模型列表
    */
   ListSftTaskFoundationModels(
     req?: flow_devops_fornax_modelservice.ListSftTaskFoundationModelsRequest,
@@ -2464,7 +2464,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/get_foundation_model_config
    *
-   * Obtain the base model version configuration
+   * 获得基础模型版本配置
    */
   GetSftTaskFoundationModelConfig(
     req?: flow_devops_fornax_modelservice.GetSftTaskFoundationModelConfigRequest,
@@ -2488,7 +2488,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/list_custom_models
    *
-   * Get a list of custom models
+   * 获得定制模型列表
    */
   ListSftTaskCustomModels(
     req?: flow_devops_fornax_modelservice.ListSftTaskCustomModelsRequest,
@@ -2513,7 +2513,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/list_foundation_model_versions
    *
-   * Get a list of base model versions
+   * 获得基础模型版本列表
    */
   ListSftTaskFoundationModelVersions(
     req?: flow_devops_fornax_modelservice.ListSftTaskFoundationModelVersionsRequest,
@@ -2539,7 +2539,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/sft_tasks/create_task
    *
-   * Create fine-tuning tasks
+   * 创建精调任务
    */
   CreateSftTask(
     req?: flow_devops_fornax_modelservice.CreateSftTaskRequest,
@@ -2561,7 +2561,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/sft_tasks/list_tasks
    *
-   * Get a fine-tuning task list
+   * 获取精调任务列表
    */
   ListSftTasks(
     req?: flow_devops_fornax_modelservice.ListSftTasksRequest,
@@ -2589,7 +2589,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/training_datasets/:dataset_id/sync_to_volcano_tos
    *
-   * Synchronize datasets to Volcano TOS
+   * 同步数据集到火山TOS
    */
   SyncTrainingDatasetToVolcanoTOS(
     req?: flow_devops_fornax_modelservice.SyncTrainingDatasetToVolcanoTOSReq,
@@ -2607,7 +2607,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/training_datasets/:dataset_id/import_tasks
    *
-   * Create a training data import task
+   * 创建训练数据导入任务
    */
   CreateTrainingDataImportTask(
     req?: flow_devops_fornax_modelservice.CreateTrainingDataImportTaskReq,
@@ -2630,7 +2630,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/import_tasks/list
    *
-   * Query training data import task
+   * 查询训练数据导入任务
    */
   ListTrainingDataImportTasks(
     req?: flow_devops_fornax_modelservice.ListTrainingDataImportTasksReq,
@@ -2654,7 +2654,7 @@ export default class FornaxApi2Service<T> {
   /**
    * DELETE /api/model_manage/v1/spaces/:space_id/training_datasets/:dataset_id
    *
-   * Delete the training dataset
+   * 删除训练数据集
    */
   DeleteTrainingDateset(
     req?: flow_devops_fornax_modelservice.DeleteTrainingDatasetReq,
@@ -2671,7 +2671,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/training_datasets/clone
    *
-   * Cloning the training dataset
+   * 克隆训练数据集
    */
   CloneTrainingDateset(
     req?: flow_devops_fornax_modelservice.CloneTrainingDatasetReq,
@@ -2693,7 +2693,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/training_datasets/:dataset_id/rows
    *
-   * Insert data row
+   * 插入数据行
    */
   InsertTrainingDataRows(
     req?: flow_devops_fornax_modelservice.InsertTrainingDataRowsReq,
@@ -2711,7 +2711,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/training_datasets
    *
-   * Create a training dataset
+   * 创建训练数据集
    */
   CreateTrainingDateset(
     req?: flow_devops_fornax_modelservice.CreateTrainingDatasetReq,
@@ -2734,7 +2734,7 @@ export default class FornaxApi2Service<T> {
   /**
    * PUT /api/model_manage/v1/spaces/:space_id/training_datasets/:dataset_id/rows
    *
-   * Update data row
+   * 更新数据行
    */
   UpdateTrainingDataRows(
     req?: flow_devops_fornax_modelservice.UpdateTrainingDataRowsReq,
@@ -2752,7 +2752,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/provider_accounts/:accountID/masked_data
    *
-   * Get account mask information
+   * 获取账号掩码信息
    */
   GetProviderAccountMaskedData(
     req: flow_devops_fornax_modelservice.GetProviderAccountMaskedDataRequest,
@@ -2773,7 +2773,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/sft_tasks/get_task/:taskID
    *
-   * Get fine-tuning task information
+   * 获取精调任务信息
    */
   GetSftTask(
     req?: flow_devops_fornax_modelservice.GetSftTaskRequest,
@@ -2792,7 +2792,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/sft_tasks/delete_task/:taskID
    *
-   * Delete fine-tuning tasks
+   * 删除精调任务
    */
   DeleteSftTask(
     req?: flow_devops_fornax_modelservice.DeleteSftTaskRequest,
@@ -2811,7 +2811,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/sft_tasks/terminate_task/:taskID
    *
-   * Terminate fine tuning task
+   * 终止精调任务
    */
   TerminateSftTask(
     req?: flow_devops_fornax_modelservice.TerminateSftTaskRequest,
@@ -2830,7 +2830,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:space_id/upload_material
    *
-   * Get the url and signature of the uploaded file
+   * 获取上传文件的url和签名
    */
   GetTrainingFileUploadMaterial(
     req?: flow_devops_fornax_modelservice.GetTrainingFileUploadMaterialReq,
@@ -2848,7 +2848,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/training_datasets/:dataset_id/rows/delete
    *
-   * Delete data row
+   * 删除数据行
    */
   DeleteTrainingDataRows(
     req?: flow_devops_fornax_modelservice.DeleteTrainingDataRowsReq,
@@ -2866,7 +2866,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:space_id/import_tasks/:task_id
    *
-   * Get import task
+   * 获取导入任务
    */
   GetTrainingDataImportTask(
     req?: flow_devops_fornax_modelservice.GetTrainingDataImportTaskReq,
@@ -2883,7 +2883,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag/mcreate_bind
    *
-   * Batch creation of tag associations
+   * 批量创建tag关联关系
    */
   MCreateTagTargetBind(
     req: flow_devops_fornax_tag.MCreateTagTargetBindRequest,
@@ -2907,7 +2907,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/tag/v1/tag/update_bind
    *
-   * Batch update label association of marked objects
+   * 批量更新打标对象的标签关联关系
    */
   UpdateTargetBindTags(
     req: flow_devops_fornax_tag.UpdateTargetBindTagsRequest,
@@ -2944,7 +2944,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/list_resource
    *
-   * Get a list of available resources for the current user
+   * 获得当前用户可选的资源列表
    */
   ListSftTaskResource(
     req?: flow_devops_fornax_modelservice.ListSftTaskResourceRequest,
@@ -2963,7 +2963,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /open-apis/model_manage/v1/spaces/:spaceID/sft_tasks/:taskID/report_event
    *
-   * Report an sft incident
+   * 上报sft事件
    */
   OApiReportSftTaskEvent(
     req?: flow_devops_fornax_modelservice.OApiReportSftTaskEventRequest,
@@ -2989,7 +2989,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /open-apis/model_manage/v1/spaces/:spaceID/sft_tasks/:taskID
    *
-   * Report an sft incident
+   * 上报sft事件
    */
   OApiGetSftTask(
     req?: flow_devops_fornax_modelservice.OApiGetSftTaskRequest,
@@ -3007,7 +3007,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/export_task_output
    *
-   * Export the output model of the fine-tuning task to the specified platform
+   * 导出精调任务的产出模型到指定平台
    */
   ExportSftTaskOutputToProvider(
     req?: flow_devops_fornax_modelservice.ExportSftTaskOutputToProviderRequest,
@@ -3030,7 +3030,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/sft_tasks/get_task_progress/:taskID
    *
-   * Obtain training progress for fine-tuned tasks
+   * 获得精调任务的训练进度
    */
   GetSftTaskProgress(
     req?: flow_devops_fornax_modelservice.GetSftTaskProgressRequest,
@@ -3048,7 +3048,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/automation/v1/bpm/apply_status_callback
    *
-   * BPM callback updates approval status
+   * BPM 回调更新审批状态
    */
   ApplyStatusCallBack(
     req: flow_devops_fornax_automationservice.ApplyStatusCallBackReq,
@@ -3069,7 +3069,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/instance_spec_options
    *
-   * Get single instance resource configuration information
+   * 获取单个实例资源配置信息
    */
   GetInstanceSpecOptions(
     req?: flow_devops_fornax_modelservice.GetInstanceSpecOptionsRequest,
@@ -3083,7 +3083,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/deploy_perm
    *
-   * Verify that the user has deployment privileges
+   * 校验用户是否有部署权限
    */
   CheckUserHasDeployPerm(
     req: flow_devops_fornax_modelservice.CheckUserHasDeployPermRequest,
@@ -3103,7 +3103,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/automation/v1/bpm/approvers
    *
-   * Acquire a BPM ticket approver
+   * 获取 BPM 工单审批人
    */
   ListBPMApprovers(
     req: flow_devops_fornax_automationservice.ListBPMApproversReq,
@@ -3119,7 +3119,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/byte_tree_nodes/search
    *
-   * Fuzzy search ByteTree node
+   * 模糊搜索服务树节点
    */
   SearchByteTreeNodes(
     req?: flow_devops_fornax_modelservice.SearchByteTreeNodesRequest,
@@ -3143,7 +3143,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/byte_tree_parent_node/:psm
    *
-   * Get ByteTree node information according to psm
+   * 根据 psm 获取服务树节点信息
    */
   GetByteTreeParentNodeByPSM(
     req: flow_devops_fornax_modelservice.GetByteTreeParentNodeByPSMRequest,
@@ -3161,7 +3161,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/available_quota/:byte_tree_node_id
    *
-   * Obtain available resource information based on ByteTree nodes
+   * 根据服务树节点获取可用资源信息
    */
   GetAvailableQuotaByByteTreeNode(
     req: flow_devops_fornax_modelservice.GetAvailableQuotaByByteTreeNodeRequest,
@@ -3180,7 +3180,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/:space_id/remove_members
    *
-   * space role deauthorization
+   * 空间角色取消授权
    */
   RemoveSpaceMember(
     req: flow_devops_fornax_spaceservice.RemoveSpaceMemberRequest,
@@ -3198,7 +3198,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/user/v1/users/logout
    *
-   * user logout
+   * 用户登出
    */
   Logout(
     req?: flow_devops_fornax_userservice.LogoutRequest,
@@ -3214,7 +3214,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/user/v1/users/component/auth
    *
-   * component authentication
+   * 组件鉴权
    */
   AuthComponentSDK(
     req?: flow_devops_fornax_userservice.AuthComponentSDKRequest,
@@ -3235,7 +3235,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/create
    *
-   * Create space
+   * 创建空间
    */
   CreateSpace(
     req: flow_devops_fornax_spaceservice.CreateSpaceRequest,
@@ -3257,7 +3257,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/:space_id/add_members
    *
-   * Spatial Role Authorization
+   * 空间角色授权
    */
   AddSpaceMember(
     req: flow_devops_fornax_spaceservice.AddSpaceMemberRequest,
@@ -3275,7 +3275,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /open-apis/space_manage/v1/spaces/:space_id/add_members
    *
-   * Add authorization for space roles
+   * 空间角色添加授权
    */
   AddSpaceMemberOApi(
     req?: flow_devops_fornax_spaceservice.AddSpaceMemberOApiReq,
@@ -3294,7 +3294,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/:space_id/update
    *
-   * update space
+   * 更新空间
    */
   UpdateSpace(
     req: flow_devops_fornax_spaceservice.UpdateSpaceRequest,
@@ -3320,7 +3320,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /open-apis/model_manage/v1/model_account/upsert
    *
-   * OpenAPI creates or updates models and accounts
+   * OpenAPI 创建或更新模型及账号
    */
   OApiUpsertModelAndAccount(
     req?: flow_devops_fornax_modelservice.OApiUpsertModelAndAccountRequest,
@@ -3342,7 +3342,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/user/v1/users/login
    *
-   * user login
+   * 用户登录
    */
   Login(
     req?: flow_devops_fornax_userservice.LoginRequest,
@@ -3363,7 +3363,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /open-apis/model_manage/v1/model_account/update_model_status
    *
-   * OpenAPI creates or updates models and accounts
+   * OpenAPI 创建或更新模型及账号
    */
   OApiUpdateModelStatus(
     req?: flow_devops_fornax_modelservice.OApiUpdateModelStatusRequest,
@@ -3387,7 +3387,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/model_account/update_model_status
    *
-   * Update model status
+   * 更新模型状态
    */
   UpdateModelStatus(
     req?: flow_devops_fornax_modelservice.UpdateModelStatusRequest,
@@ -3405,7 +3405,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:spaceID/model/get
    *
-   * Get model details (excluding account information)
+   * 获取模型详情(不包含账号信息)
    */
   GetModel(
     req?: flow_devops_fornax_modelservice.GetModelRequest,
@@ -3423,7 +3423,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/:space_id/get_user_roles
    *
-   * Get userspace permissions
+   * 获取用户空间权限
    */
   GetUserSpaceRoles(
     req: flow_devops_fornax_spaceservice.GetUserSpaceRolesRequest,
@@ -3441,7 +3441,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/user/v1/users/user_info
    *
-   * Acquire user information
+   * 获取用户信息
    */
   GetUserInfo(
     req?: flow_devops_fornax_userservice.GetUserInfoRequest,
@@ -3461,7 +3461,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/list_by_user
    *
-   * space list
+   * 空间列表
    */
   ListUserSpace(
     req?: flow_devops_fornax_spaceservice.ListUserSpaceRequest,
@@ -3477,7 +3477,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/:space_id/query_members
    *
-   * Query space member list
+   * 查询空间成员列表
    */
   QuerySpaceMember(
     req: flow_devops_fornax_spaceservice.QuerySpaceMemberRequest,
@@ -3500,7 +3500,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/user/v1/users/query
    *
-   * Fuzzy search user information
+   * 模糊搜索用户信息
    */
   QueryUserInfo(
     req: flow_devops_fornax_userservice.QueryUserInfoRequest,
@@ -3521,7 +3521,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/spaces/:space_id/get
    *
-   * Query spatial information
+   * 查询空间信息
    */
   GetSpace(
     req: flow_devops_fornax_spaceservice.GetSpaceRequest,
@@ -3539,7 +3539,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/user/v1/users/session
    *
-   * Login status to exchange user information
+   * 登录态换取用户信息
    */
   GetSessionInfo(
     req?: flow_devops_fornax_userservice.GetSessionInfoRequest,
@@ -3555,7 +3555,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/user/v1/users/batch_get
    *
-   * Get user information in bulk
+   * 批量获取用户信息
    */
   MGetUserInfo(
     req?: flow_devops_fornax_userservice.MGetUserInfoRequest,
@@ -3576,7 +3576,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /open-apis/space_manage/v1/spaces/:space_id/remove_members
    *
-   * space role deletion authorization
+   * 空间角色删除授权
    */
   RemoveSpaceMemberOApi(
     req: flow_devops_fornax_spaceservice.RemoveSpaceMemberOApiReq,
@@ -3595,7 +3595,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/auth/v1/spaces/:spaceID/get_upload_token
    *
-   * Get upload token
+   * 获取上传 token
    */
   GetUploadToken(
     req: flow_devops_fornax_authservice.GetUploadTokenReq,
@@ -3613,7 +3613,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/automation/v1/rule_2_trace_query
    *
-   * Parameter mapping interface for query tracing
+   * 查询trace的参数映射接口
    */
   Rule2TraceQuery(
     req: flow_devops_fornax_automationservice.Rule2TraceQueryReq,
@@ -3629,7 +3629,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:spaceID/sft_tasks/:taskID/output_ability
    *
-   * Acquire the ability to fine-tune task products
+   * 获取精调任务产物能力
    */
   GetSFTTaskOutputAbility(
     req: flow_devops_fornax_modelservice.GetSFTTaskOutputAbilityRequest,
@@ -3659,7 +3659,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/data_processing/v1/spaces/:space_id/import_tasks/:task_id
    *
-   * Get import task
+   * 获取导入任务
    */
   GetDatasetImportTask(
     req?: flow_devops_fornax_dpservice.GetDatasetImportTaskReq,
@@ -3676,7 +3676,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/spaces/:space_id/import_tasks
    *
-   * Create import task
+   * 创建导入任务
    */
   CreateDatasetImportTask(
     req: flow_devops_fornax_dpservice.CreateDatasetImportTaskReq,
@@ -3699,7 +3699,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/data_processing/v1/spaces/:spaceID/datasets/:datasetID/export
    *
-   * dataset export
+   * 数据集导出
    */
   ExportDataset(
     req: flow_devops_fornax_dpservice.ExportDatasetReq,
@@ -3726,7 +3726,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/byte_tree/get_byte_tree_node_by_id
    *
-   * Get ByteTree node information
+   * 获取服务树节点信息
    */
   GetByteTreeNodeByID(
     req: flow_devops_fornax_spaceservice.GetByteTreeNodeByIDRequest,
@@ -3745,7 +3745,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/space_manage/v1/byte_tree/has_perm_byte_tree_node
    *
-   * Verify whether the user has ByteTree node privileges
+   * 校验用户是否有服务树节点权限
    */
   HasPermByteTreeNode(
     req: flow_devops_fornax_spaceservice.HasPermByteTreeNodeRequest,
@@ -3767,7 +3767,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/create_offline_eval_task
    *
-   * Create model offline evaluation tasks
+   * 创建模型离线评测任务
    */
   CreateOfflineEvalTask(
     req?: flow_devops_fornax_modelevalservice.CreateOfflineEvalTaskRequest,
@@ -3785,7 +3785,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/parse_merlin_seed_model_config
    *
-   * Parsing the merlin seed model configuration
+   * 解析merlin seed模型配置
    */
   ParseMerlinSeedModelConfig(
     req?: flow_devops_fornax_modelevalservice.ParseMerlinSeedModelConfigRequest,
@@ -3808,7 +3808,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/list_offline_eval_task
    *
-   * Get a list of offline review tasks
+   * 获得离线评测任务列表
    */
   ListOfflineEvalTask(
     req?: flow_devops_fornax_modelevalservice.ListOfflineEvalTaskRequest,
@@ -3833,7 +3833,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/terminate_offline_eval_task
    *
-   * Terminate offline evaluation tasks
+   * 终止离线评测任务
    */
   TerminateOfflineEvalTask(
     req?: flow_devops_fornax_modelevalservice.TerminateOfflineEvalTaskRequest,
@@ -3851,7 +3851,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:space_id/offline_eval_task/:task_id
    *
-   * Get a list of offline review tasks
+   * 获得离线评测任务列表
    */
   GetOfflineEvalTask(
     req?: flow_devops_fornax_modelevalservice.GetOfflineEvalTaskRequest,
@@ -3869,7 +3869,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/model_manage/v1/spaces/:spaceID/provider_auth
    *
-   * Obtain user authorization
+   * 获取用户的授权情况
    */
   GetUserProviderAuthStatus(
     req?: flow_devops_fornax_modelservice.GetUserProviderAuthStatusRequest,
@@ -3887,7 +3887,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/saas_model/list
    *
-   * Get a list of models (commercial)
+   * 获取模型列表(商业化)
    */
   SaaSListModel(
     req?: flow_devops_fornax_modelservice.SaaSListModelRequest,
@@ -3908,7 +3908,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/saas_model/get_model_filter_params
    *
-   * Get model list filter parameters (commercial)
+   * 获取模型列表过滤参数(商业化)
    */
   SaaSGetModelFilterParams(
     req?: flow_devops_fornax_modelservice.SaaSGetModelFilterParamsRequest,
@@ -3955,7 +3955,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/model_manage/v1/spaces/:spaceID/sft_tasks/memory_estimation
    *
-   * Estimation of user-submitted sft_task
+   * 对用户提交的sft_task进行显存预估
    */
   GetMemoryEstimation(
     req: flow_devops_fornax_modelservice.GetMemoryEstimationRequest,
@@ -3973,7 +3973,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/auth/v1/assistant/access_token
    *
-   * Get the front-end assistant's access token
+   * 获取前端助手的access token
    */
   GetFrontendAssistantAccessToken(
     req?: flow_devops_fornax_authservice.GetFrontendAssistantAccessTokenRequest,
@@ -3987,7 +3987,7 @@ export default class FornaxApi2Service<T> {
   /**
    * POST /api/automation/v1/tasks/:task_id/stop
    *
-   * Stop task
+   * 停止任务
    */
   StopTask(
     req: flow_devops_fornax_automationservice.StopTaskReq,
@@ -4004,7 +4004,7 @@ export default class FornaxApi2Service<T> {
   /**
    * GET /api/infra/user/v1/users/is_user_in_gray/:strategy
    *
-   * Determine if the user is in a grey release (
+   * 判断用户是否在灰度中(
    */
   IsUserInGray(
     req?: flow_devops_fornax_userservice.IsUserInGrayRequest,

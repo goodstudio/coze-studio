@@ -22,23 +22,23 @@
 export type Int64 = string | number;
 
 export enum CacheType {
-  /** cache close */
+  /** 缓存关闭 */
   CacheClosed = 0,
-  /** prefix cache */
+  /** 前缀缓存 */
   PrefixCache = 1,
 }
 
 /** *
-View structures that interact with the front end */
+和前端交互的视图结构体 */
 export enum IntelligenceStatus {
   Using = 1,
   Deleted = 2,
   Banned = 3,
-  /** Migration failed */
+  /** 迁移失败 */
   MoveFailed = 4,
-  /** Copying */
+  /** 复制中 */
   Copying = 5,
-  /** Copy failed */
+  /** 复制失败 */
   CopyFailed = 6,
 }
 

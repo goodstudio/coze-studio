@@ -24,29 +24,29 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export interface ComponentMeta {
-  /** A unique identifier for a component across spaces. Custom components may be determined by the component author himself. Readable. */
+  /** component 跨空间的唯一标识。自定义组件可能是组件作者自己确定的。可读。 */
   type: string;
-  /** The grouping to which the component belongs, such as ChatModel, Prompt, Retriever, etc. readable. */
+  /** 组件所属的分组，如 ChatModel, Prompt, Retriever 等。可读。 */
   group: string;
-  /** A Group corresponds to an interface name, which determines whether a specific slot can be entered. Readable. */
+  /** 一个 Group 对应一个 interface name，决定是否可以进入特定的 slot。可读。 */
   interface_name: string;
-  /** Group determines whether this component can enter the orchestration or only be configured as a slot. true can enter the orchestration and can be used as upstream of the passthrough node */
+  /** Group 决定了这个组件能否进入编排，还是只能作为 slot 配置。true 则可以进入编排，可以作为 passthrough 节点的上游 */
   is_composable: boolean;
   definition: Definition;
-  /** In addition to the interface name above, what other interfaces can this component be used as to enter the corresponding Slot */
+  /** 除了上面的 interface name 之外，这个组件还可以用作哪些 interface，从而可以进入对应的 Slot */
   assignable_to?: Array<string>;
 }
 
 export interface Definition {
   info: Info;
-  /** For front-end frameworks, the server level is not aware of content */
+  /** 前端框架用的，服务端不感知内容 */
   meta?: string;
   slots?: Array<Slot>;
-  /** If a component can only enter the slot as a configuration, this field is empty */
+  /** 如果一个组件，只能作为配置进入 slot，此字段为空 */
   input?: TypeMeta;
-  /** If a component can only enter the slot as a configuration, this field is empty */
+  /** 如果一个组件，只能作为配置进入 slot，此字段为空 */
   output?: TypeMeta;
-  /** The fields inside are all expanded to basic types and written directly on the page. If a field in Config is a nested Object, that Object should not be a Component, otherwise it should enter the slot, not the config. */
+  /** 里面的字段都展开为基本类型，直接在页面上写。如果 Config 中某个字段是嵌套的 Object，那个 Object 也不应该是 Component，否则应该进入 slot，而不是 config */
   config?: TypeSchema;
 }
 
@@ -69,16 +69,16 @@ export interface ListComponentsRequest {
 }
 
 export interface ListComponentsResponse {
-  /** Key is group */
+  /** key 是 group */
   official_components?: Record<string, Array<ComponentMeta>>;
-  /** Key is group */
+  /** key 是 group */
   custom_components?: Record<string, Array<ComponentMeta>>;
   base_resp?: base.BaseResp;
 }
 
 export interface Option {
   label: string;
-  /** Result of JSON serialization */
+  /** JSON 序列化的结果 */
   value: string;
 }
 
@@ -88,43 +88,43 @@ export interface OptionEnum {
 }
 
 export interface Slot {
-  /** readable */
+  /** 可读 */
   slot_name: string;
-  /** The type accepted by this slot is usually an interface definition, which can be read */
+  /** 这个 slot 接受的类型，一般是个接口定义，可读 */
   interface_name: string;
   required?: boolean;
-  /** Array type slots */
+  /** 数组类型的 slot */
   multiple?: boolean;
 }
 
 export interface TypeMeta {
-  /** Type enumeration of input or output, number */
+  /** input 或 output 的类型枚举，数字 */
   type_id: string;
-  /** A schema description of a structure, which can be input, output, config, or a field in it */
+  /** 对一个结构体的 schema 描述，可以是 input、output、config，或者里面的某个字段 */
   schema: TypeSchema;
-  /** readable */
+  /** 可读 */
   type_name?: string;
 }
 
 export interface TypeSchema {
-  /** readable */
+  /** 可读 */
   type: string;
-  /** When the type is an array, there is a value that represents the schema of the elements in the array */
+  /** 当类型为数组时，有值，代表数组中元素的 schema */
   items?: TypeSchema;
-  /** When the type is object, there is a value, the key is the field name, and the value is the schema of the field. */
+  /** 当类型为 object 时，有值，key 为字段名称，value 为字段的 schema */
   properties?: Record<string, TypeSchema>;
-  /** When the type is object, there is a value, and the array elements are schemas for fields. */
+  /** 当类型为 object 时，有值，数组元素为字段的 schema */
   property_list?: Array<TypeSchema>;
   name?: string;
   title?: string;
   description?: string;
-  /** Result of JSON serialization */
+  /** JSON 序列化的结果 */
   default_value?: string;
   hidden?: boolean;
   read_only?: boolean;
   required?: boolean;
   option_enum?: OptionEnum;
-  /** Customized information required by the front end, not perceived by the server level */
+  /** 前端需要的定制信息，服务端不感知 */
   style_meta?: string;
 }
 /* eslint-enable */

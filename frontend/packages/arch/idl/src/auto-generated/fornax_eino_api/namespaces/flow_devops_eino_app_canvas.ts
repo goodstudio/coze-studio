@@ -29,48 +29,48 @@ export interface Branch {
 }
 
 export interface CanvasInfo {
-  /** Graph name, used in Debugging */
+  /** Graph 名称, Debug 时使用 */
   name?: string;
-  /** Render the displayed version, use when Debugging */
+  /** 渲染展示的版本, Debug 时使用 */
   version?: string;
-  /** Canvas Graph types, there are currently two (Graph, StateGraph), used when debugging */
+  /** Canvas的Graph类型，目前有两种(Graph,StateGraph), Debug 时使用 */
   component: string;
   nodes?: Array<Node>;
   edges?: Array<Edge>;
   branches?: Array<Branch>;
-  /** Graph trigger mode, Debug need not be concerned for the time being */
+  /** Graph 触发模式, Debug 暂时不需关注 */
   node_trigger_mode?: string;
-  /** When the Graph type is StateGraph, the corresponding method name does not need to be concerned about Debug for the time being */
+  /** 当Graph类型为StateGraph 时, 对应的方法名称, Debug 暂时不需关注 */
   gen_local_state_method?: string;
 }
 
 export interface ComponentSchema {
   component?: string;
-  /** Use in orchestration, component type, enumeration value official, custom */
+  /** 编排时使用 组件类型 枚举值 official、custom */
   component_source?: string;
-  /** Identification of component implementation, visual orchestration needs to ensure uniqueness */
+  /** 组件实现的标识，可视化编排需要保证唯一 */
   identifier?: string;
-  /** The method used to generate components during orchestration is globally unique */
+  /** 编排时使用，生成组件的方法，全局唯一 */
   method?: string;
-  /** When arranging, fill in the content according to this Schema specification when displaying its title.debug */
+  /** 编排时,展示其title. debug时依据此Schema规范填入内容 */
   input_type?: JsonSchema;
-  /** When arranging only show, show its title. */
+  /** 编排时只做展示,展示其title. */
   output_type?: JsonSchema;
-  /** Orchestration uses, additional configuration of components, filled in according to the Schema specification, interaction_type in Lambda are enumerations: invoke, stream, transform, collect */
+  /** 编排时使用, 组件额外的配置，按照Schema规范填入内容, Lambda 中的 interaction_type 是枚举: invoke,stream,transform,collect */
   component_extra_schema?: JsonSchema;
-  /** When orchestrating, the extra configuration json string of the component is submitted to the execution side */
+  /** 编排时使用, 组件额外的配置 json string 提交给执行侧 */
   component_extra?: string;
-  /** When orchestrating, the slot configuration of the component must be a component */
+  /** 编排时使用, 组件的插槽配置，必定是一个 component */
   slots?: Array<Slot>;
-  /** When arranging, use the config configuration of the component and fill in the content according to the Schema specification */
+  /** 编排时使用, 组件的 config 配置，按照Schema规范填入内容 */
   config?: ConfigSchema;
-  /** Orchestration uses, additional configuration of components, filled in according to the Schema specification, interaction_type in Lambda are enumerations: invoke, stream, transform, collect */
+  /** 编排时使用, 组件额外的配置，按照Schema规范填入内容, Lambda 中的 interaction_type 是枚举: invoke,stream,transform,collect */
   extra_property?: ExtraPropertySchema;
-  /** When choreographing, the name of the component specific implementation displayed on the UI */
+  /** 编排时使用, 组件具体实现在 UI 上展示的名称 */
   name?: string;
-  /** When arranging, use the additional configuration of the component to express whether the type of input and output can be modified */
+  /** 编排时使用, 组件额外的配置，表述输入输出的type是否可修改 */
   is_io_type_mutable?: boolean;
-  /** Orchestration uses additional configuration of components to express the version of the schema */
+  /** 编排时使用, 组件额外的配置，表述schema的版本 */
   version?: string;
 }
 
@@ -116,13 +116,13 @@ export interface GraphSchema {
   nodes?: Array<Node>;
   edges?: Array<Edge>;
   branches?: Array<Branch>;
-  /** Graph trigger mode, required for orchestration, enumeration value; AnyPredecessor, AllPredecessor */
+  /** Graph 触发模式, 编排必填 枚举值; AnyPredecessor、AllPredecessor */
   node_trigger_mode?: string;
-  /** When the Graph type is StateGraph, this parameter is required when the Graph type is GraphState during orchestration */
+  /** 当Graph类型为StateGraph 时, 编排时当Graph为GraphState类型，此参数必填 */
   gen_local_state?: GenLocalState;
   input_type?: JsonSchema;
   output_type?: JsonSchema;
-  /** GraphID, used when debugging */
+  /** GraphID，Debug 时使用 */
   id?: string;
 }
 
@@ -149,32 +149,32 @@ export interface Library {
 }
 
 export interface Node {
-  /** Required by the user during orchestration, the same Graph is unique, and it is used for display when debugging. */
+  /** 编排时需要用户必填，同一个Graph 唯一， Debug 时做展示使用 */
   key: string;
-  /** Required by the user during orchestration, Debug is not used yet */
+  /** 编排时需要用户必填, Debug 暂没有使用 */
   name: string;
-  /** Debug use, indicating Node type eg: virtual branch node or Component */
+  /** Debug 使用，表示Node类型 eg: 虚拟branch 节点或者 Component组件 */
   type: string;
-  /** specific component implementation */
+  /** 具体组件实现 */
   component_schema?: ComponentSchema;
-  /** concrete subgraph implementation */
+  /** 具体子Graph实现 */
   graph_schema?: GraphSchema;
-  /** Use Node Options Parameters, Orchestration */
+  /** 编排时使用, Node Option参数 */
   node_option?: NodeOption;
-  /** Debugging the imported parameters of the start node */
+  /** Debug 使用 对start 节点的入参的推断 */
   infer_input?: JsonSchema;
-  /** Debug use, whether the node is operable */
+  /** Debug 使用 该节点是否可操作 */
   allow_operate?: boolean;
 }
 
 export interface NodeOption {
-  /** optional */
+  /** 非必填 */
   input_key?: string;
-  /** optional */
+  /** 非必填 */
   output_key?: string;
-  /** Not required, Node requires this hander as an Option parameter */
+  /** 非必填, Node是否需要该hander 作为Option 传参 */
   used_state_pre_handler?: boolean;
-  /** Not required, Node requires this hander as an Option parameter */
+  /** 非必填, Node是否需要该hander 作为Option 传参 */
   used_state_post_handler?: boolean;
 }
 

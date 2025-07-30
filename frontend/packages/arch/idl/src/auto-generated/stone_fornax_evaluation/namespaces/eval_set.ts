@@ -25,82 +25,82 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export interface EvaluationSet {
-  /** Primary & Foreign Keys */
+  /** 主键&外键 */
   id?: Int64;
   app_id?: number;
   space_id?: Int64;
-  /** basic information */
+  /** 基础信息 */
   name?: string;
   description?: string;
   status?: datasetv2.DatasetStatus;
-  /** Specification restrictions */
+  /** 规格限制 */
   spec?: datasetv2.DatasetSpec;
-  /** function switch */
+  /** 功能开关 */
   features?: datasetv2.DatasetFeatures;
-  /** number of data bars */
+  /** 数据条数 */
   item_count?: Int64;
-  /** Are there any uncommitted changes? */
+  /** 是否有未提交的修改 */
   change_uncommitted?: boolean;
-  /** version information
-Version details */
+  /** 版本信息
+版本详情信息 */
   evaluation_set_version?: EvaluationSetVersion;
-  /** The latest version number */
+  /** 最新的版本号 */
   latest_version?: string;
-  /** The next version number */
+  /** 下一个的版本号 */
   next_version_num?: Int64;
-  /** System information */
+  /** 系统信息 */
   base_info?: common.BaseInfo;
 }
 
 export interface EvaluationSetItem {
-  /** Primary & Foreign Keys
-Primary key, varies with version */
+  /** 主键&外键
+主键，随版本变化 */
   id?: Int64;
   app_id?: number;
   space_id?: Int64;
   evaluation_set_id?: Int64;
   schema_id?: Int64;
-  /** The unique ID of the data within the current dataset, which does not change with version */
+  /** 数据在当前数据集内的唯一 ID，不随版本发生改变 */
   item_id?: Int64;
-  /** Idempotent key for data insertion */
+  /** 数据插入的幂等 key */
   item_key?: string;
-  /** round data content */
+  /** 轮次数据内容 */
   turns?: Array<Turn>;
-  /** System information */
+  /** 系统信息 */
   base_info?: common.BaseInfo;
 }
 
-/** EvaluationSetSchema The evaluation set Schema contains information such as type restrictions for fields */
+/** EvaluationSetSchema 评测集 Schema，包含字段的类型限制等信息 */
 export interface EvaluationSetSchema {
-  /** Primary & Foreign Keys */
+  /** 主键&外键 */
   id?: Int64;
   app_id?: number;
   space_id?: Int64;
   evaluation_set_id?: Int64;
-  /** Dataset field constraints */
+  /** 数据集字段约束 */
   field_schemas?: Array<FieldSchema>;
-  /** System information */
+  /** 系统信息 */
   base_info?: common.BaseInfo;
 }
 
 export interface EvaluationSetVersion {
-  /** Primary & Foreign Keys */
+  /** 主键&外键 */
   id?: Int64;
   app_id?: number;
   space_id?: Int64;
   evaluation_set_id?: Int64;
-  /** version information
-The displayed version number, SemVer2 three-stage */
+  /** 版本信息
+展示的版本号，SemVer2 三段式 */
   version?: string;
-  /** The digital version number recorded on the backend, incremented from 1 */
+  /** 后端记录的数字版本号，从 1 开始递增 */
   version_num?: Int64;
-  /** version description */
+  /** 版本描述 */
   description?: string;
   /** schema */
   evaluation_set_schema?: EvaluationSetSchema;
-  /** number of data bars */
+  /** 数据条数 */
   item_count?: Int64;
-  /** System information */
+  /** 系统信息 */
   base_info?: common.BaseInfo;
 }
 
@@ -111,31 +111,31 @@ export interface FieldData {
 }
 
 export interface FieldSchema {
-  /** unique key */
+  /** 唯一键 */
   key?: string;
-  /** display name */
+  /** 展示名称 */
   name?: string;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** Type, such as, text, pictures, etc. */
+  /** 类型，如 文本，图片，etc. */
   content_type?: string;
-  /** Default rendering formats such as code, json, etc. mai */
+  /** 默认渲染格式，如 code, json, etc.mai */
   default_display_format?: datasetv2.FieldDisplayFormat;
-  /** current state */
+  /** 当前列的状态 */
   status?: datasetv2.FieldStatus;
-  /** [20, 50) Content format restrictions related
-Text content formatting restrictions, formatted as JSON schema, protocol reference https://json-schema.org/specification */
+  /** [20,50) 内容格式限制相关
+文本内容格式限制，格式为 JSON schema，协议参考 https://json-schema.org/specification */
   text_schema?: string;
-  /** Multimodal specification limitations */
+  /** 多模态规格限制 */
   multi_model_spec?: datasetv2.MultiModalSpec;
-  /** Is the user invisible? */
+  /** 用户是否不可见 */
   hidden?: boolean;
 }
 
 export interface Turn {
-  /** Round ID, if it is a single round evaluation set, id = 0 */
+  /** 轮次ID，如果是单轮评测集，id=0 */
   id?: Int64;
-  /** field data */
+  /** 字段数据 */
   field_data_list?: Array<FieldData>;
 }
 /* eslint-enable */

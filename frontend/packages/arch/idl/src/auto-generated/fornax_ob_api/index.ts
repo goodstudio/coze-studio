@@ -141,7 +141,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces
    *
-   * Query Common Link List
+   * 查询通用链路列表
    */
   ListTraces(
     req: flow_devops_fornaxob_traceservice.ListTracesRequest,
@@ -171,7 +171,7 @@ export default class FornaxObApiService<T> {
   /**
    * GET /api/observation/v1/trace/:trace_id
    *
-   * Query link details by trace ID
+   * 通过trace ID查询链路详情
    */
   GetTrace(
     req: flow_devops_fornaxob_traceservice.GetTraceRequest,
@@ -198,7 +198,7 @@ export default class FornaxObApiService<T> {
   /**
    * GET /api/observation/v1/traces/meta_info
    *
-   * Query meta information, including field types, filter opertors
+   * 查询元信息，包括字段类型，filter opertor
    */
   GetTracesMetaInfo(
     req?: flow_devops_fornaxob_traceservice.GetTracesMetaInfoRequest,
@@ -218,7 +218,7 @@ export default class FornaxObApiService<T> {
   /**
    * GET /api/observation/v1/metrics/tags/options
    *
-   * Option to get the filter value of the Ops metric
+   * 获取运维指标过滤项值的选项
    */
   GetTagsOptions(
     req: flow_devops_fornaxob_metricsservice.GetTagsOptionsRequest,
@@ -244,7 +244,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/metrics
    *
-   * Get metrics details
+   * 获取  metrics 详情
    */
   GetMetrics(
     req: flow_devops_fornaxob_metricsservice.GetMetricsRequest,
@@ -273,7 +273,7 @@ export default class FornaxObApiService<T> {
   /**
    * GET /api/observation/v1/trace_by_logid/:log_id
    *
-   * Query link details by log ID
+   * 通过log ID查询链路详情
    */
   GetTraceByLogID(
     req: flow_devops_fornaxob_traceservice.GetTraceByLogIDRequest,
@@ -298,7 +298,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces/export_to_evaluation
    *
-   * Trace import to evaluation dataset
+   * Trace导入到评测数据集
    */
   ExportTracesToEvaluation(
     req: flow_devops_fornaxob_traceservice.ExportTracesToEvaluationRequest,
@@ -324,7 +324,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/operation
    *
-   * Query operational information
+   * 查询运营信息
    */
   QueryOperation(
     req: flow_devops_fornaxob_operationservice.QueryOperationRequest,
@@ -349,7 +349,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/operation/common_aggregation
    *
-   * Query operational metrics aggregation information, such as psm/model, etc
+   * 查询运营指标聚合信息，比如psm/model等
    */
   GetCommonOperationAggregationInfo(
     req: flow_devops_fornaxob_operationservice.GetCommonOperationAggregationRequest,
@@ -371,7 +371,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces/batch_get_advance_info
    *
-   * Batch query link advanced information
+   * 批量查询链路进阶信息
    */
   BatchGetTracesAdvanceInfo(
     req: flow_devops_fornaxob_traceservice.BatchGetTracesAdvanceInfoRequest,
@@ -396,7 +396,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/threads
    *
-   * Query session list
+   * 查询会话列表
    */
   ListThreads(
     req: flow_devops_fornaxob_threadservice.ListThreadsRequest,
@@ -424,7 +424,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/internal/query_offline
    *
-   * BOE Common Forwarding Interface
+   * boe通用转发接口
    */
   QueryOffline(
     req: flow_devops_fornaxob_common.QueryOfflineRequest,
@@ -441,7 +441,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/thread
    *
-   * Thread ID query session details
+   * thread ID查询会话详情
    */
   GetThread(
     req: flow_devops_fornaxob_threadservice.GetThreadRequest,
@@ -469,7 +469,7 @@ export default class FornaxObApiService<T> {
   /**
    * GET /api/observation/v1/threads/config
    *
-   * Query session meta information, including field type, filter opertor
+   * 查询会话元信息，包括字段类型，filter opertor
    */
   GetThreadsConfig(
     req: flow_devops_fornaxob_threadservice.GetThreadsConfigRequest,
@@ -488,7 +488,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces/all_spans
    *
-   * View All Spans List
+   * 查询 All Span List
    */
   ListAllSpans(
     req: flow_devops_fornaxob_traceservice.ListAllSpansRequest,
@@ -519,7 +519,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces/llm_spans
    *
-   * Query LLM Span List
+   * 查询 LLM Span List
    */
   ListLLMSpans(
     req: flow_devops_fornaxob_traceservice.ListLLMSpansRequest,
@@ -549,7 +549,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/thread/thread_meta
    *
-   * Query ID Query session user meta information
+   * query ID查询会话user元信息
    */
   GetThreadMeta(
     req: flow_devops_fornaxob_threadservice.GetThreadMetaRequest,
@@ -574,7 +574,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/insight_indicator
    *
-   * Query insight metric information
+   * 查询洞察指标信息
    */
   QueryInsightIndicators(
     req: flow_devops_fornaxob_indicatorservice.QueryInsightIndicatorsRequest,
@@ -598,7 +598,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/trace/search_v3
    *
-   * Query link details by log ID/trace ID condition
+   * 通过log ID/trace ID条件查询链路详情
    */
   SearchTraceV3(
     req: flow_devops_fornaxob_traceservice.SearchTraceV3Request,
@@ -622,7 +622,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/indicator_options
    *
-   * Query Insight Metrics Options
+   * 查询洞察指标Option信息
    */
   GetIndicatorOptions(
     req: flow_devops_fornaxob_indicatorservice.GetIndicatorOptionsRequest,
@@ -638,7 +638,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/views/list_view
    *
-   * read view list
+   * 读取视图列表
    */
   ListViews(
     req: flow_devops_fornaxob_viewservice.ListViewsRequest,
@@ -659,7 +659,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/views/create_view
    *
-   * Create a view
+   * 创建一个视图
    */
   CreateView(
     req: flow_devops_fornaxob_viewservice.CreateViewRequest,
@@ -683,7 +683,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/views/update_view
    *
-   * Update a view
+   * 更新一个视图
    */
   UpdateView(
     req: flow_devops_fornaxob_viewservice.UpdateViewRequest,
@@ -707,7 +707,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/views/delete_view
    *
-   * Delete a view
+   * 删除一个视图
    */
   DeleteView(
     req: flow_devops_fornaxob_viewservice.DeleteViewRequest,
@@ -727,7 +727,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /v1/loop/traces/ingest
    *
-   * Trace report
+   * trace上报
    */
   IngestTraces(
     req?: flow_devops_fornaxob_traceservice.IngestTracesRequest,
@@ -743,7 +743,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/indicator_by_option
    *
-   * Query Metrics for Different Options
+   * 查询不同Option的指标
    */
   QueryInsightIndicatorByOption(
     req: flow_devops_fornaxob_indicatorservice.QueryInsightIndicatorByOptionRequest,
@@ -767,7 +767,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/trace/get_span_info
    *
-   * Query span details by span ID
+   * 通过span ID查询span详情
    */
   GetSpanInfo(
     req: flow_devops_fornaxob_traceservice.GetSpanInfoRequest,
@@ -792,7 +792,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces/export_to_evaluation_set
    *
-   * Trace import to evaluation dataset
+   * Trace导入到评测数据集
    */
   ExportTracesToEvaluationSet(
     req: flow_devops_fornaxob_traceservice.ExportTracesToEvaluationSetRequest,
@@ -819,7 +819,7 @@ export default class FornaxObApiService<T> {
   /**
    * PUT /api/observation/v1/tasks/:task_id
    *
-   * update task
+   * 更新任务
    */
   UpdateTask(
     req: flow_devops_fornaxob_taskservice.UpdateTaskRequest,
@@ -842,7 +842,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/tasks/list
    *
-   * task list
+   * 任务列表
    */
   ListTasks(
     req: flow_devops_fornaxob_taskservice.ListTasksRequest,
@@ -865,7 +865,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces/change_eval_score
    *
-   * Modify evaluation results
+   * 修改评估结果
    */
   ChangeEvaluatorScore(
     req: flow_devops_fornaxob_traceservice.ChangeEvaluatorScoreRequest,
@@ -888,7 +888,7 @@ export default class FornaxObApiService<T> {
   /**
    * GET /api/observation/v1/tasks/:task_id
    *
-   * Task details
+   * 任务详情
    */
   GetTask(
     req: flow_devops_fornaxob_taskservice.GetTaskRequest,
@@ -904,7 +904,7 @@ export default class FornaxObApiService<T> {
   /**
    * GET /api/observation/v1/annotation/list_evaluators
    *
-   * Get a list of evaluators for label filtering
+   * 获取标签筛选的评估器列表
    */
   ListAnnotationEvaluators(
     req: flow_devops_fornaxob_traceservice.ListAnnotationEvaluatorsRequest,
@@ -922,7 +922,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/tasks
    *
-   * Create task
+   * 创建任务
    */
   CreateTask(
     req: flow_devops_fornaxob_taskservice.CreateTaskRequest,
@@ -938,7 +938,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/traces/preview_export_to_evaluation_set
    *
-   * Trace import to evaluation dataset practice run
+   * Trace导入到评测数据集试运行
    */
   PreviewExportTracesToEvaluation(
     req: flow_devops_fornaxob_traceservice.PreviewExportTracesToEvaluationRequest,
@@ -965,7 +965,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /api/observation/v1/tasks/check_name
    *
-   * Validation task name
+   * 校验task名称
    */
   CheckTaskName(
     req: flow_devops_fornaxob_taskservice.CheckTaskNameRequest,
@@ -985,7 +985,7 @@ export default class FornaxObApiService<T> {
   /**
    * POST /v1/loop/opentelemetry/v1/traces
    *
-   * Otel trace
+   * otel trace上报
    */
   OtelIngestTraces(
     req: flow_devops_fornaxob_traceservice.OtelIngestTracesRequest,

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 // @File open source version does not support template channel binding for future expansion
 import { useParams } from 'react-router-dom';
 import { type MouseEventHandler, useEffect, useRef, useState } from 'react';
@@ -78,7 +78,7 @@ export function TemplateBind({
         templateConfigured: formValues.agreement === true,
         connectors: {
           ...connectors,
-          // @TS-expected-error can accept Partial
+          // @ts-expect-error can accept Partial
           [record.id]: templateFormToBindInfo(formValues),
         },
       });

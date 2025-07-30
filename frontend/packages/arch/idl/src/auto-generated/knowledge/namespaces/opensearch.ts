@@ -55,7 +55,7 @@ export interface OpenPublicAddressResponse {
 
 export interface SetConfigRequest {
   storage_config_id: string;
-  /** Only username and password changes will take effect */
+  /** 只有用户名密码的修改会生效 */
   config: common.OpenSearchConfig;
   Base?: base.Base;
 }

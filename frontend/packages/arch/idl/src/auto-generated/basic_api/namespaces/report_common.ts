@@ -35,15 +35,15 @@ export enum ReportObjectType {
   ProductSociety = 5,
   InteractionPost = 6,
   InteractionComment = 7,
-  /** template report */
+  /** 模板举报 */
   TemplateBot = 8,
   TemplateWorkflow = 9,
   TemplateImageFlow = 10,
   TemplateProject = 11,
-  /** Project goods */
+  /** Project 商品 */
   ProductProject = 12,
-  /** Template universal logo, because the front end does not need to distinguish which template it is, it is used for filtering and display uniformly
-This configuration does not trigger any reported business logic and is only used for front-end display. */
+  /** 模板通用标识，由于前端不需要区分是哪一种模板，所以统一用这个进行筛选和展示
+该配型不会触发任何举报的业务逻辑，仅用于前端展示使用 */
   TemplateCommon = 99,
 }
 /* eslint-enable */

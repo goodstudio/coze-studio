@@ -352,12 +352,12 @@ export interface MQCanaryUpdateParams {
 
 /** Advanced configuration data for MQ event */
 export interface MQEventAdvancedConfigData {
-  /** Chinese name
+  /** 中文名称
 Name in Chinese */
   name_zh: string;
   /** Name in English */
   name_en: string;
-  /** Chinese description
+  /** 中文描述
 Description in Chinese */
   des_zh: string;
   /** Description in English */

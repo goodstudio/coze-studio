@@ -31,7 +31,7 @@ export enum AgentStatus {
 
 export enum CompressionType {
   Disable = 0,
-  /** half compression */
+  /** 折半压缩 */
   Halve = 1,
 }
 
@@ -159,7 +159,7 @@ export interface AgentItem {
   participant_id: string;
   nickname: string;
   description: string;
-  /** Distinguish which channel bot, store or teamspace. */
+  /** 区分是哪个渠道的bot，store还是teamspace */
   participant_source?: ParticipantSource;
 }
 
@@ -180,7 +180,7 @@ export interface AuditEntityData {
 export interface BatchCreateSocietyRoleRequest {
   meta_id: string;
   role_list: Array<CreateRole>;
-  /** visibility configuration */
+  /** 可见性配置 */
   role_visibility_config?: RoleVisibilityConfig;
   Base?: base.Base;
 }
@@ -188,7 +188,7 @@ export interface BatchCreateSocietyRoleRequest {
 export interface BatchCreateSocietyRoleResponse {
   role_list: Array<Role>;
   role_visibility_config: RoleVisibilityConfig;
-  /** Host workinfo changes */
+  /** Host workinfo的变更 */
   host_work_info?: WorkInfo;
   code: Int64;
   msg: string;
@@ -198,9 +198,9 @@ export interface BatchCreateSocietyRoleResponse {
 export interface BatchDeleteSocietyRoleRequest {
   meta_id: string;
   role_id_list: Array<string>;
-  /** visibility configuration */
+  /** 可见性配置 */
   role_visibility_config?: RoleVisibilityConfig;
-  /** Host workinfo changes */
+  /** Host workinfo的变更 */
   host_work_info?: WorkInfo;
   Base?: base.Base;
 }
@@ -215,9 +215,9 @@ export interface BatchDeleteSocietyRoleResponse {
 export interface BatchUpdateSocietyRoleRequest {
   meta_id: string;
   role_list: Array<UpdateRole>;
-  /** visibility configuration */
+  /** 可见性配置 */
   role_visibility_config?: RoleVisibilityConfig;
-  /** Host workinfo changes */
+  /** Host workinfo的变更 */
   host_work_info?: WorkInfo;
   Base?: base.Base;
 }
@@ -235,21 +235,21 @@ export interface ChatMessage {
   type?: string;
   content?: string;
   content_type?: string;
-  /** Shield downstream message_id, pass is task_id */
+  /** 屏蔽下游的message_id，传的是task_id */
   message_id?: string;
   reply_id?: string;
   section_id?: string;
   extra_info?: ExtraInfo;
-  /** Normal, interrupted state, used when pulling the message list, this field is not available when chat is running. */
+  /** 正常、打断状态 拉消息列表时使用，chat运行时没有这个字段 */
   status?: string;
-  /** interrupt position */
+  /** 打断位置 */
   broken_pos?: number;
   sender_id?: string;
 }
 
 export interface ContextCompressionConfig {
   compression_type: CompressionType;
-  /** Compression point, how many bars are reached to start compression */
+  /** 压缩点位,达到多少条开始压缩 */
   compression_point: number;
 }
 
@@ -273,12 +273,12 @@ export interface CreateProcessResponse {
 export interface CreateRole {
   name: string;
   role_type: RoleType;
-  /** 3: Visibility visibility required,//discardedandoned
-Discarded, use the following participant_id */
+  /** 3: required Visibility visibility, // 废弃
+废弃,使用下面的participant_id */
   preset_bot_id?: string;
   nickname?: string;
   description?: string;
-  /** Distinguish which channel bot, store or teamspace. */
+  /** 区分是哪个渠道的bot，store还是teamspace */
   participant_source?: ParticipantSource;
   participant_id?: string;
 }
@@ -300,7 +300,7 @@ export interface CreateSocietyMetaResponse {
 
 export interface DeleteSocietyMessageRequest {
   process_id: string;
-  /** Delete the first round of messages */
+  /** 删除第几轮消息 */
   round: number;
   Base?: base.Base;
 }
@@ -461,11 +461,11 @@ export interface GetPublishMetaResultResponse {
 export interface GetSocietyMessageListRequest {
   process_id: string;
   agent_id: string;
-  /** Left open interval, can be used to switch the perspective after receiving the first push message, the task_id of the last message, the query results are directly added to the message list, no need to refresh the whole */
+  /** 左开区间，可以用于切换视角后收到第一条推送消息时，传最后一条消息的task_id，查询结果直接加到消息列表后面，不用整体刷新了 */
   before_task_id?: string;
-  /** Open the interval on the right, load it forward in reverse order, the task_id of the first message, if it is empty, start from the latest message */
+  /** 右开区间，倒序往前加载，最前一条消息的task_id，为空则从最新的消息开始 */
   after_task_id?: string;
-  /** Default 20 */
+  /** 默认20 */
   count?: number;
   Base?: base.Base;
 }
@@ -480,7 +480,7 @@ export interface GetSocietyMessageListResponse {
 
 export interface GetSocietyMetaDetailRequest {
   meta_id: string;
-  /** Did the play page come in, or did the debugging page come in? Abandoned */
+  /** 是play页面进来的，还是调试页面进来的。废弃 */
   process_mode: ProcessMode;
   meta_version?: string;
   need_process_info?: boolean;
@@ -491,7 +491,7 @@ export interface GetSocietyMetaDetailRequest {
 export interface GetSocietyMetaDetailResponse {
   meta: Meta;
   role_list: Array<Role>;
-  /** 3: optional ProcessDetail latest_process,//discard */oned */
+  /** 3: optional ProcessDetail latest_process, // 废弃 */
   latest_debug_process?: ProcessDetail;
   latest_product_process?: ProcessDetail;
   code: Int64;
@@ -544,20 +544,20 @@ export interface Meta {
   create_time: string;
   update_time: string;
   society_prompt: string;
-  /** Count by character name, host, werewolf * 2, villager * 3 */
+  /** 按照角色名计数，host, 狼人*2， 村民*3 */
   role_count_list: Array<RoleCount>;
   username: string;
   nickname: string;
   user_icon_url: string;
-  /** Whether to allow deletion */
+  /** 是否允许删除 */
   deletable: boolean;
-  /** Host model configuration, maximum number of rounds configuration */
+  /** host的模型配置,最大轮数配置 */
   host_config?: HostConfig;
-  /** Context compression configuration */
+  /** 上下文压缩配置 */
   context_compression_config?: ContextCompressionConfig;
-  /** Background cover url */
+  /** 背景图url */
   background_img_url: string;
-  /** visibility configuration */
+  /** 可见性配置 */
   role_visibility_config: RoleVisibilityConfig;
   has_published: boolean;
   store_url: string;
@@ -688,8 +688,8 @@ export interface Role {
   id: string;
   name: string;
   role_type: RoleType;
-  /** 4: Visibility visibility required,//discardedandoned
-5: required i64 preset_bot_id (api.js_conv = 'true' agw.js_conv = "str "), // deprecated, use participant_id belowticipant_id below */
+  /** 4: required Visibility visibility, // 废弃
+5: required i64 preset_bot_id (api.js_conv='true' agw.js_conv="str"), // 废弃,使用下方的participant_id */
   nickname: string;
   description: string;
   meta_id: string;
@@ -703,11 +703,11 @@ export interface Role {
   persona: string;
   bot_name: string;
   bot_status: bot_common.BotStatus;
-  /** Distinguish which channel bot, store or teamspace. */
+  /** 区分是哪个渠道的bot，store还是teamspace */
   participant_source: ParticipantSource;
   participant_id: string;
   participant_creator_id?: string;
-  /** Is it a cascading release? */
+  /** 是否是级联发布 */
   is_cascade_publish?: boolean;
   work_info?: WorkInfo;
   biz_role_id?: string;
@@ -742,10 +742,10 @@ export interface UpdateRole {
   name?: string;
   role_type?: RoleType;
   visibility?: bot_common.SocietyVisibility;
-  /** 5: optional i64 preset_bot_id (api.js_conv = 'true' agw.js_conv = "str"),//discarded, use the following participant_id */ing participant_id */
+  /** 5: optional i64 preset_bot_id (api.js_conv='true' agw.js_conv="str"), //废弃,使用下面的participant_id */
   nickname?: string;
   description?: string;
-  /** Distinguish which channel bot, store or teamspace. */
+  /** 区分是哪个渠道的bot，store还是teamspace */
   participant_source?: ParticipantSource;
   participant_id?: string;
 }
@@ -755,9 +755,9 @@ export interface UpdateSocietyHostRequest {
   name?: string;
   persona?: string;
   icon_uri?: string;
-  /** visibility configuration */
+  /** 可见性配置 */
   role_visibility_config?: RoleVisibilityConfig;
-  /** Host model configuration, maximum number of rounds configuration */
+  /** host的模型配置,最大轮数配置 */
   host_config?: HostConfig;
   work_info?: WorkInfo;
   Base?: base.Base;
@@ -775,11 +775,11 @@ export interface UpdateSocietyMeta {
   description?: string;
   icon_uri?: string;
   society_prompt?: string;
-  /** Context compression configuration */
+  /** 上下文压缩配置 */
   context_compression_config?: ContextCompressionConfig;
-  /** Background cover url */
+  /** 背景图url */
   background_img_uri?: string;
-  /** visibility configuration */
+  /** 可见性配置 */
   role_visibility_config?: RoleVisibilityConfig;
 }
 
@@ -797,9 +797,9 @@ export interface UpdateSocietyMetaResponse {
 
 export interface UpdateUserAgentRequest {
   process_id: string;
-  /** Modify the role and switch the role accordingly. */
+  /** 修改角色，对应切换角色 */
   agent_id?: string;
-  /** Modify the frontier and return to the process */
+  /** 修改frontier，对应回到进程 */
   device_id?: string;
   Base?: base.Base;
 }
@@ -822,15 +822,15 @@ export interface UserAgent {
 
 export interface UserAgentReplyRequest {
   process_id: string;
-  /** user response content */
+  /** 用户回复内容 */
   content: string;
-  /** task_id in the society_state */
+  /** 前置消息society_state里的task_id */
   task_id: string;
   Base?: base.Base;
 }
 
 export interface UserAgentReplyResponse {
-  /** True means that there should be no user reply at present, and the front end takes the initiative to refresh? Reset it? */
+  /** true代表当前不应该有用户回复，前端主动刷新？重置一下？ */
   already_replied: boolean;
   code: Int64;
   msg: string;
@@ -845,7 +845,7 @@ export interface UserInputTask {
   reply_agent_id?: string;
 }
 
-/** The self-defined WorkflowDetail corresponds to the structure stored in the database */
+/** 自己定义的WorkflowDetail，跟数据库里存的结构对应 */
 export interface WorkflowDetail {
   workflow_id: string;
   plugin_id: string;

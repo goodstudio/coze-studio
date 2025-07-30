@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import ReactFlow, { ReactFlowProvider } from 'reactflow';
 import { useMemo } from 'react';
 
@@ -65,7 +65,7 @@ const TopologyFlowContent = (props: TopologyFlowProps) => {
           {topologyHeader}
           <div className={s['topology-flow-container-flow']}>
             <ReactFlow
-              // @TS-expected-error Use the number type to enumerate SpanType as a custom type, the error can be ignored
+              // @ts-expect-error Use the number type to enumerate SpanType as a custom type, the error can be ignored
               nodes={topologicalData.nodes}
               edges={topologicalData.edges}
               nodeTypes={CUSTOM_NODES}

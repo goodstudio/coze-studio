@@ -40,16 +40,16 @@ export enum ConversationType {
 }
 
 export enum TimeCapsuleEventType {
-  /** Start summarizing events */
+  /** 开始总结事件 */
   StartSummary = 2,
 }
 
 export enum TimeCapsuleItemType {
-  /** "Original Dialogue." */
+  /** "原始对话" */
   Chat = 1,
-  /** "Topic after summary" */
+  /** "总结后的话题" */
   Topic = 2,
-  /** "Essence Memory" */
+  /** "精华记忆" */
   Essential = 3,
 }
 
@@ -118,7 +118,7 @@ export interface FileInfo {
 Use cast directly to simplify the struct construction */
 export interface ImageInfo {
   name?: string;
-  /** Use here in this issue, no need for uri first. */
+  /** 本期使用这里，先不用uri */
   url?: string;
   uri?: string;
   md5?: string;
@@ -149,28 +149,28 @@ export interface LocationInfo {
 /** reference to flow.bot.engine.Message in "
 Make it consist with copilot.Message to help coping */
 export interface Message {
-  /** < Value: system/user/assistant/tool/placeholder */
+  /** < 取值：system/user/assistant/tool/placeholder */
   role: string;
   content?: string;
-  /** < Location information, geographical location information, and authorization on the end will only be passed on */
+  /** < 位置信息， 地理位置信息，端上授权才会传递 */
   location?: LocationInfo;
-  /** < Uploaded file */
+  /** < 上传的文件 */
   files?: Array<FileInfo>;
-  /** < Uploaded image */
+  /** < 上传的图片 */
   images?: Array<ImageInfo>;
-  /** < Business information */
+  /** < 业务信息 */
   biz_info?: BizInfo;
   ext?: Record<string, string>;
 }
 
 export interface SearchItem {
-  /** Search content, which can be the original query entered by the user, or the keywords that need to be queried */
+  /** 搜索内容，可以是用户输入的原始query,也可以是需要进行查询的关键词 */
   query: string;
-  /** Location information when initiating a search */
+  /** 发起搜索时的位置信息 */
   location_info?: LocationInfo;
-  /** Time zone information when initiating a search */
+  /** 发起搜索时的时区信息 */
   time_zone?: string;
-  /** Language information when initiating a search */
+  /** 发起搜索时的语言信息 */
   language?: string;
 }
 
@@ -271,9 +271,9 @@ export interface TimeCapsuleSearchItemsRequest {
   connector_uid: string;
   connector_id: string;
   search_item: SearchItem;
-  /** The maximum length limit of the TimeCapsule recall, calculated by the upstream copilot and passed in */
+  /** TimeCapsule召回的最大长度限制，由上游copilot计算之后传递进来 */
   max_length?: Int64;
-  /** In multi-agent mode, the currently referenced bot_id */
+  /** multi-agent模式下，当前引用的bot_id */
   ref_bot_id?: string;
   ext?: Record<string, string>;
   /** to specify the search strategy, empty to use default */
@@ -293,18 +293,18 @@ export interface TimeCapsuleSearchRequest {
   connector_uid?: string;
   connector_id?: string;
   search_item?: SearchItem;
-  /** The maximum length limit of the TimeCapsule recall, calculated by the upstream copilot and passed in */
+  /** TimeCapsule召回的最大长度限制，由上游copilot计算之后传递进来 */
   max_length?: Int64;
-  /** The default is false. When true, it can be targeted at some bots and does not return TimeCapsule recall results. It was originally designed for one-party applications */
+  /** 默认是false，当为true的时候，可以专门针对一些bot，不返回TimeCapsule召回结果。最开始主要是为了一方应用而设计 */
   skip_block?: boolean;
   /** refered to bot_platform/flow_bot_retriever/retriever.thrift */
   message_id?: Int64;
   conversation_id?: Int64;
   section_id?: Int64;
   chat_context?: ChatContext;
-  /** In multi-agent mode, the currently referenced bot_id */
+  /** multi-agent模式下，当前引用的bot_id */
   ref_bot_id?: string;
-  /** Support universal transparent transmission protocol, which can directly connect with the upstream service party and other Hook access parties */
+  /** 支持通用透传协议，可直接与最上游业务方和其他Hook接入方对接 */
   ext?: Record<string, string>;
   /** the strategy specified by chat_engine, the name is negotiated in advance */
   strategy_bundle?: string;

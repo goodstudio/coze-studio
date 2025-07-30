@@ -35,7 +35,7 @@ export enum OrderType {
 
 /** the index type to search */
 export enum SearchIndexType {
-  /** App-bot-type-userid as index type */
+  /** app-bot-type-userid 作为索引类型 */
   UserIdDimension = 1,
 }
 
@@ -44,7 +44,7 @@ export interface Filter {
   start_event_ms: Int64;
   /** end of start_me */
   end_event_ms: Int64;
-  /** The ItemTypes field takes precedence over SearchIndex. ItemType */
+  /** ItemTypes 字段优先级高于SearchIndex.ItemType */
   item_types?: Array<string>;
 }
 

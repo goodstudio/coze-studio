@@ -224,7 +224,7 @@ export const transformDto2Vo = {
   },
 
   timeCapsule: (data?: TimeCapsuleInfo): TimeCapsuleConfig => ({
-    //@TS-expect-error interface enumeration type value redefinition
+    // @ts-expect-error interface enumeration type value redefinition
     time_capsule_mode: data?.time_capsule_mode ?? TimeCapsuleMode.Off,
     disable_prompt_calling:
       data?.disable_prompt_calling ?? DisablePromptCalling.Off,
@@ -253,7 +253,7 @@ export const transformDto2Vo = {
     const defaultSuggestionConfig: BotSuggestionConfig = isBotNode
       ? DEFAULT_BOT_NODE_SUGGESTION_CONFIG()
       : DEFAULT_SUGGESTION_CONFIG();
-    //@TS-expect-error xxxxxxxxxxx SuggestReplyMode The two file definitions are inconsistent
+    // @ts-expect-error xxxxxxxxxxx SuggestReplyMode The two file definitions are inconsistent
     const suggestionConfig: BotSuggestionConfig = isNumber(
       data?.suggest_reply_mode,
     )
@@ -301,7 +301,7 @@ export const transformDto2Vo = {
     config?: ShortcutCommand[],
   ): ShortCutStruct => ({
     shortcut_sort: shortcutSortList,
-    //@TS-expected-error ShortCutCommand The definition of the front and back ends is inconsistent, and the front-end differentiation is subject to type constraints
+    // @ts-expect-error ShortCutCommand The definition of the front and back ends is inconsistent, and the front-end differentiation is subject to type constraints
     shortcut_list: config,
   }),
 

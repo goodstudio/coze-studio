@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export enum BotInfoType {
-  /** Draft bot */
+  /** 草稿bot */
   DraftBot = 1,
-  /** Online bot */
+  /** 线上bot */
   BotVersion = 2,
 }
 
 export interface GetDraftBotModelDetailRequest {
   bot_id: string;
-  /** Get the information type of the bot */
+  /** 获取bot的信息类型 */
   bot_info_type?: BotInfoType;
-  /** Online bot version */
+  /** 线上bot的版本 */
   bot_version?: string;
-  /** Channel ID */
+  /** 渠道id */
   connector_id?: string;
 }
 
@@ -45,13 +45,13 @@ export interface GetDraftBotModelDetailResponse {
 }
 
 export interface ModelDetail {
-  /** Model display name (to the user) */
+  /** 模型展示名（对用户） */
   name?: string;
-  /** Model name (for internal) */
+  /** 模型名（对内部） */
   model_name?: string;
-  /** Model ID */
+  /** 模型ID */
   model_id?: string;
-  /** Model Category */
+  /** 模型类别 */
   model_family?: Int64;
   /** IconURL */
   model_icon_url?: string;
@@ -59,7 +59,7 @@ export interface ModelDetail {
 
 export interface ModelProfile {
   model_detail?: ModelDetail;
-  /** Model's mapping Id: Professional version is the base model name + version + CustomModelId, normal version is model_id */
+  /** 模型的映射Id:专业版为基座模型名称+版本+CustomModelId，普通版为model_id */
   reflect_id?: string;
 }
 /* eslint-enable */

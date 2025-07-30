@@ -323,7 +323,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/bot_version/get_published_bot_list
    *
-   * Query the latest version of a published bot
+   * 查询已发布bot的最新版本
    */
   GetPublishedBotList(
     req: playground.GetPublishedBotListRequest,
@@ -345,7 +345,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/bot_version/get_bot_version_info
    *
-   * Check the details of the online bot.
+   * 查询线上bot详情
    */
   GetBotVersionInfo(
     req: playground.GetBotVersionInfoRequest,
@@ -430,7 +430,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/audit/bot_info
    *
-   * -------------------- bot audit related --------------------
+   * -------------------- bot audit 相关 --------------------
    */
   BotInfoAudit(
     req: playground.BotInfoAuditRequest,
@@ -451,7 +451,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/timecapsule_invoke_event
    *
-   * Active timecapsule generation
+   * 主动生成timecapsule
    */
   TimeCapsuleInvokeEvent(
     req: playground.TimeCapsuleInvokeEventRequest,
@@ -730,7 +730,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/audio/lang/detect
    *
-   * TTS ASR related interface
+   * tts asr 相关接口
    */
   LangDetect(
     req: playground.LangDetectRequest,
@@ -758,7 +758,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/get_platform_common_config
    *
-   * Bot Platform Common Configuration Interface
+   * Bot平台通用配置接口
    */
   GetPlatformCommonConfig(
     req?: playground.GetPlatformCommonConfigRequest,
@@ -774,7 +774,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/create_shortcut_command
    *
-   * Create shortcut instructions
+   * 创建快捷指令
    */
   CreateShortcutCommand(
     req?: shortcut_command.CreateShortcutCommandRequest,
@@ -790,7 +790,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/mget_user_info
    *
-   * -------------------------- user related --------------------------------
+   * --------------------------用户相关--------------------------------
    */
   MGetUserBasicInfo(
     req: playground.MGetUserBasicInfoRequest,
@@ -863,9 +863,9 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /v1/files/upload
    *
-   * session link capability open correlation
+   * 会话链路能力开放相关
    *
-   * File related OpenAPI
+   * File 相关 OpenAPI
    */
   UploadFileOpen(
     req: playground.UploadFileOpenRequest,
@@ -928,7 +928,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/move_draft_bot
    *
-   * Mobile bot
+   * 移动bot
    */
   MoveDraftBot(
     req?: playground.MoveDraftBotRequest,
@@ -1004,7 +1004,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/gen_img/generate_pic
    *
-   * graphic correlation
+   * 生图相关
    */
   GeneratePic(
     req: playground.GeneratePicRequest,
@@ -1051,7 +1051,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/get_file_list
    *
-   * Get a list of pictures by scene
+   * 根据场景获取图片列表
    */
   GetFileUrls(
     req?: playground.GetFileUrlsRequest,
@@ -1116,7 +1116,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/draftbot/get_user_query_collect_option
    *
-   * User query collection
+   * 用户query收集
    */
   GetUserQueryCollectOption(
     req?: playground.GetUserQueryCollectOptionRequest,
@@ -1173,7 +1173,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/update_agent_v2
    *
-   * structured interface
+   * 结构化接口
    */
   UpdateAgentV2(
     req: playground.UpdateAgentV2Request,
@@ -1291,7 +1291,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/coze_pro/generate_auth_link
    *
-   * Coze Pro
+   * coze专业版
    */
   CozeProCopyGenerateAuthLink(
     req: playground.CozeProCopyGenerateAuthLinkRequest,
@@ -1312,7 +1312,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/get_op_voice_list
    *
-   * Deprecated, replaced with GetVoiceList
+   * 废弃 使用GetVoiceList替换
    */
   GetOpVoiceList(
     req?: playground.GetOpVoiceListRequest,
@@ -1403,7 +1403,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/notice/get_list
    *
-   * Notice Notification Center
+   * notice 通知中心
    */
   GetNoticeList(
     req: playground.GetNoticeListRequest,
@@ -1433,7 +1433,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /v1/workspaces
    *
-   * Open API query workspace list
+   * 开放api 查询工作空间列表
    */
   OpenSpaceList(
     req?: open_api_playground.OpenSpaceListRequest,
@@ -1455,7 +1455,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/report_user_behavior
    *
-   * user behavior reporting
+   * 用户行为上报
    */
   ReportUserBehavior(
     req: playground.ReportUserBehaviorRequest,
@@ -1594,9 +1594,9 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/bpm/search_byte_tree
    *
-   * BPM process callback interface
+   * BPM流程回调接口
    *
-   * Get ByteTree node
+   * 获取服务树节点
    */
   GetByteTreeByName(
     req?: playground.GetByteTreeByNameReq,
@@ -1613,7 +1613,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/bpm/create_private_model
    *
-   * Create a private model
+   * 创建私有模型
    */
   CreatePrivateModel(
     req?: playground.CreatePrivateModelRequest,
@@ -1658,7 +1658,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/bpm/check_exempt_form_info
    *
-   * Basic information of the verification exemption form
+   * 校验豁免表单的基本信息
    */
   CheckExemptFormInfo(
     req?: playground.CheckExemptFormInfoRequest,
@@ -1680,7 +1680,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/bpm/set_byte_tree_for_space
    *
-   * Space Binding ByteTree
+   * 空间绑定服务树
    */
   SetByteTreeForSpace(
     req?: playground.SetByteTreeForSpaceRequest,
@@ -1705,7 +1705,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/bpm/get_model_capability
    *
-   * Acquire model capabilities
+   * 获取模型能力
    */
   GetModelCapability(
     req: playground.GetModelCapabilityRequest,
@@ -1728,7 +1728,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/space/revocate_invite
    *
-   * Revoke space invitation
+   * 撤销空间邀请
    */
   RevocateSpaceInvite(
     req?: playground.RevocateSpaceInviteRequest,
@@ -1747,7 +1747,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/coze_pro/save_volcano_user_manage_info
    *
-   * Save volcano user management information
+   * 保存火山用户管理信息
    */
   SaveVolcanoUserManageInfo(
     req: playground.SaveVolcanoUserManageInfoRequest,
@@ -1767,7 +1767,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/coze_pro/get_volcano_user_manage_info
    *
-   * Get volcano user management information
+   * 获取火山用户管理信息
    */
   GetVolcanoUserManageInfo(
     req?: playground.GetVolcanoUserManageInfoRequest,
@@ -1783,7 +1783,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/space/invite_manage_list
    *
-   * Get space invitation management list
+   * 获取空间邀请管理列表
    */
   GetSpaceInviteManageList(
     req?: playground.GetSpaceInviteManageListRequest,
@@ -1876,7 +1876,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/coze_pro/can_user_apply_close
    *
-   * Huoshan Account Cancellation Check
+   * 火山账号注销检查
    */
   CanUserApplyClose(
     req?: playground.CanUserApplyCloseRequest,
@@ -1922,7 +1922,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/get_voice_list
    *
-   * Deprecated, replaced with GetVoiceListV2
+   * 废弃 使用GetVoiceListV2替换
    */
   GetVoiceList(
     req?: playground.GetVoiceListRequest,
@@ -1975,7 +1975,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/space/apply_manage_list
    *
-   * Get the space application management list
+   * 获取空间申请管理列表
    */
   GetSpaceApplyManageList(
     req?: playground.GetSpaceApplyManageListRequest,
@@ -2060,7 +2060,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/space/publish_member_list
    *
-   * Space publishing permission related
+   * 空间发布权限相关
    */
   PublishMemberList(
     req: playground.PublishMemberListRequest,
@@ -2083,7 +2083,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/space/operate_apply
    *
-   * Operation space application
+   * 操作空间申请
    */
   OperateSpaceApply(
     req?: playground.OperateSpaceApplyRequest,
@@ -2105,7 +2105,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/space/import/confirm
    *
-   * Confirm import space
+   * 确认导入空间
    */
   ImportSpaceConfirm(
     req?: playground.ImportSpaceConfirmRequest,
@@ -2127,7 +2127,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/space/import/list
    *
-   * Import space list
+   * 导入空间列表
    */
   ImportSpaceList(
     req?: playground.ImportSpaceListRequest,
@@ -2147,7 +2147,7 @@ export default class PlaygroundApiService<T> {
   /**
    * POST /api/playground_api/space/import/user_list
    *
-   * Import space user list
+   * 导入空间用户列表
    */
   ImportSpaceUserList(
     req?: playground.ImportSpaceUserListRequest,
@@ -2177,7 +2177,7 @@ export default class PlaygroundApiService<T> {
   /**
    * GET /api/playground_api/long_term_memory/list
    *
-   * long-term memory
+   * 长期记忆
    */
   LongTermMemoryList(
     req: long_term_memory.LongTermMemoryListRequest,

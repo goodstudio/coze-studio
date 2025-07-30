@@ -22,15 +22,15 @@
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** copy */
+  /** 复制 */
   Copy = 1,
-  /** delete */
+  /** 删除 */
   Delete = 2,
-  /** enable/disable */
+  /** 启用/禁用 */
   EnableSwitch = 3,
-  /** edit */
+  /** 编辑 */
   Edit = 4,
-  /** Cross-spatial replication */
+  /** 跨空间复制 */
   CrossSpaceCopy = 10,
 }
 
@@ -38,28 +38,28 @@ export enum CopyStatus {
   Successful = 1,
   Processing = 2,
   Failed = 3,
-  /** If it is KeepOrigin, it means that the resource does not need to be changed, and the resource party does not need to set Target related information; the referencing party can directly ignore it. */
+  /** 如果是KeepOrigin，表示该资源不需要做变更，资源方不需要设置Target相关信息；引用方直接忽略即可 */
   KeepOrigin = 4,
 }
 
 export enum ProjectResourceActionKey {
-  /** rename */
+  /** 重命名 */
   Rename = 1,
-  /** Create a copy/copy to the current project */
+  /** 创建副本/复制到当前项目 */
   Copy = 2,
-  /** Copy to repository */
+  /** 复制到资源库 */
   CopyToLibrary = 3,
-  /** Move to Library */
+  /** 移动到资源库 */
   MoveToLibrary = 4,
-  /** delete */
+  /** 删除 */
   Delete = 5,
-  /** enable */
+  /** 启用 */
   Enable = 6,
-  /** disable */
+  /** 禁用 */
   Disable = 7,
-  /** Switch to funcflow */
+  /** 切换成funcflow */
   SwitchToFuncflow = 8,
-  /** Switch to chatflow */
+  /** 切换成chatflow */
   SwitchToChatflow = 9,
 }
 
@@ -70,34 +70,34 @@ export enum ProjectResourceGroupType {
 }
 
 export enum PublishStatus {
-  /** unpublished */
+  /** 未发布 */
   UnPublished = 1,
-  /** Published */
+  /** 已发布 */
   Published = 2,
 }
 
 export enum ResourceCopyScene {
-  /** Copy resources within the project, shallow copy */
+  /** 复制项目内的资源，浅拷贝 */
   CopyProjectResource = 1,
-  /** Copy the project resources to the Library, and publish after copying */
+  /** 复制项目资源到Library，复制后要发布 */
   CopyResourceToLibrary = 2,
-  /** Move project resources to Library, copy to publish, and delete project resources later */
+  /** 移动项目资源到Library，复制后要发布，后置要删除项目资源 */
   MoveResourceToLibrary = 3,
-  /** Copy Library Resources to Project */
+  /** 复制Library资源到项目 */
   CopyResourceFromLibrary = 4,
-  /** Copy item */
+  /** 复制项目 */
   CopyProject = 5,
-  /** The project is published to the channel, and the associated resources need to be published (including the store). Publish with the current draft. */
+  /** 项目发布到渠道，连带资源需要发布（含商店）。以当前草稿发布。 */
   PublishProject = 6,
-  /** Copy the project template. */
+  /** 复制项目模板。 */
   CopyProjectTemplate = 7,
-  /** The project is published to a template, and the template is published in the specified version of the project. */
+  /** 项目发布到模板，以项目的指定版本发布成模板。 */
   PublishProjectTemplate = 8,
-  /** Shelf template */
+  /** 上架模板 */
   LaunchTemplate = 9,
-  /** Cross-spatial replication of a single resource */
+  /** 单个资源跨空间复制 */
   CrossSpaceCopy = 12,
-  /** item cross-spatial replication */
+  /** 项目跨空间复制 */
   CrossSpaceCopyProject = 13,
 }
 
@@ -116,58 +116,58 @@ export enum SyncOperation {
   Delete = 2,
 }
 
-/** For display, the implementer provides display information */
+/** 展示用，实现方提供展示信息 */
 export interface DisplayResourceInfo {
-  /** Resource ID */
+  /** 资源id */
   ResID?: Int64;
-  /** resource description */
+  /** 资源描述 */
   Desc?: string;
-  /** Resource Icon, full url */
+  /** 资源Icon，完整url */
   Icon?: string;
-  /** Resource status, each type of resource defines itself */
+  /** 资源状态，各类型资源自身定义 */
   BizResStatus?: number;
-  /** Whether to enable multi-person editing */
+  /** 是否开启多人编辑 */
   CollaborationEnable?: boolean;
-  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
+  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
   BizExtend?: Record<string, string>;
-  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
+  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
   Actions?: Array<ResourceAction>;
-  /** Whether to ban entering the details page */
+  /** 是否禁止进详情页 */
   DetailDisable?: boolean;
-  /** resource name */
+  /** 资源名称 */
   Name?: string;
-  /** Resource release status, 1 - unpublished, 2 - published */
+  /** 资源发布状态，1-未发布，2-已发布 */
   PublishStatus?: PublishStatus;
-  /** Last edited, unix timestamp */
+  /** 最近编辑时间, unix秒级时间戳 */
   EditTime?: Int64;
 }
 
 export interface ProjectResourceAction {
-  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
+  /** 一个操作对应一个唯一的key，key由资源侧约束 */
   key: ProjectResourceActionKey;
-  /** ture = can operate this Action, false = grey out */
+  /** ture=可以操作该Action，false=置灰 */
   enable: boolean;
-  /** When enable = false, prompt the copywriter. The backend returns the Starling Key, be careful to put it under the same space. */
+  /** enable=false时，提示文案。后端返回Starling Key，注意放在同一个space下。 */
   hint?: string;
 }
 
-/** The implementer provides display information */
+/** 实现方提供展示信息 */
 export interface ProjectResourceInfo {
-  /** Resource ID */
+  /** 资源id */
   res_id?: Int64;
-  /** resource name */
+  /** 资源名称 */
   name?: string;
-  /** Different types of different operation buttons are agreed upon by the resource implementer and the front end. Return is displayed, if you want to hide a button, do not return; */
+  /** 不同类型的不同操作按钮，由资源实现方和前端约定。返回则展示，要隐藏某个按钮，则不要返回； */
   actions?: Array<ProjectResourceAction>;
-  /** Is the user read-only to the resource?
+  /** 该用户是否对资源只读
 4: bool ReadOnly (go.tag = "json:\"read_only\"", agw.key = "read_only")
-resource type */
+资源类型 */
   res_type?: ResType;
-  /** Resource subtype, defined by the resource implementer. Plugin: 1-Http; 2-App; 6-Local; Knowledge: 0-text; 1-table; 2-image; UI: 1-Card */
+  /** 资源子类型，由资源实现方定义。Plugin：1-Http; 2-App; 6-Local；Knowledge：0-text; 1-table; 2-image；UI：1-Card */
   res_sub_type?: number;
-  /** Business carry extended information to res_type distinguish, each res_type defined schema and meaning is not the same, need to judge before use res_type */
+  /** 业务携带的扩展信息，以res_type区分，每个res_type定义的schema和含义不一样，使用前需要判断res_type */
   biz_extend?: Record<string, string>;
-  /** Resource status, each type of resource defines itself. The front end agrees with each resource party. */
+  /** 资源状态，各类型资源自身定义。前端与各资源方约定。 */
   biz_res_status?: number;
   res_third_type?: number;
 }
@@ -175,15 +175,15 @@ resource type */
 export interface RefTreeNode {
   ResID?: Int64;
   ResType?: ResType;
-  /** References to sub-resources can occur multiple times at different levels. A-B, A-C-B, A-D, B can appear in ChildrenNodes of A and C at the same time */
+  /** 引用的子资源，子资源在不同层级的引用可以出现多次。A-B, A-C-B, A-D, B可以同时在A和C的ChildrenNodes出现 */
   ChildrenNodes?: Array<RefTreeNode>;
 }
 
-/** Library Resource Operations */
+/** Library资源操作 */
 export interface ResourceAction {
-  /** An operation corresponds to a unique key, and the key is constrained by the resource side */
+  /** 一个操作对应一个唯一的key，key由资源侧约束 */
   key: ActionKey;
-  /** ture = can operate this Action, false = grey out */
+  /** ture=可以操作该Action，false=置灰 */
   enable: boolean;
 }
 
@@ -195,42 +195,42 @@ export interface ResourceCopyCheckFailedReason {
 
 export interface ResourceCopyEnv {
   Scene?: ResourceCopyScene;
-  /** Original project ID. Values if the copied resource is in the project. Scenario: CopyProjectResource, CopyResourceToLibrary, MoveResourceToLibrary, CopyProject */
+  /** 原项目ID。如果被复制的资源在项目中，则有值。场景：CopyProjectResource、CopyResourceToLibrary、MoveResourceToLibrary、CopyProject */
   OriginProjectID?: Int64;
-  /** Target project ID. If the copied resource is to be assigned project_id, there is a value. Scenario: CopyProjectResource, CopyResourceFromLibrary, CopyProject */
+  /** 目标项目ID。如果复制后的资源要赋值project_id，则有值。场景：CopyProjectResource、CopyResourceFromLibrary、CopyProject */
   TargetProjectID?: Int64;
-  /** The ID of the resource to be copied/moved by the user. Valued if the target of the operation is a resource. Scenario: CopyProjectResource, CopyResourceToLibrary, MoveResourceToLibrary, CopyResourceFromLibrary */
+  /** 被用户选择复制/移动的资源ID。如果操作的目标是资源，则有值。场景：CopyProjectResource、CopyResourceToLibrary、MoveResourceToLibrary、CopyResourceFromLibrary */
   ResourceLocator?: ResourceLocator;
-  /** The only constraint of the secondary task, the control idempotent. If there is one, it will be passed, and there is no need to pass it when initiating the task. */
+  /** 当次任务的唯一约束，控制幂等。有则传，发起任务时不用传 */
   TaskUniqKey?: string;
-  /** When the project is published, the project version. Scenario: PublishProject, PublishProjectTemplate */
+  /** 项目发布时，项目版本。场景：PublishProject、PublishProjectTemplate */
   TargetProjectVersion?: Int64;
   OriginProjectSpaceID?: Int64;
   TargetProjectSpaceID?: Int64;
-  /** operator user id */
+  /** 操作者用户id */
   CurrentUserID?: Int64;
-  /** When publishing a template, the original project version. or when copying a template, the project version of the template. */
+  /** 发布模板时，原项目版本。or 复制模板时，模板的项目版本。 */
   OriginProjectVersion?: Int64;
-  /** 0/default-app, the default is app, which is the previous project; 1-bot or agent */
+  /** 0/default-app，默认是app也就是之前的project; 1-bot或者叫agent */
   ProjectType?: number;
 }
 
-/** Copy result for each resource, including before and after mapping information */
+/** 每个资源的复制结果，包含前后映射信息 */
 export interface ResourceCopyResult {
   OriginResourceLocator?: ResourceLocator;
   TargetResourceLocator?: ResourceLocator;
   CopyStatus?: CopyStatus;
-  /** Release version number or version name, 0.0.1 */
+  /** 发布版本号或版本名，0.0.1 */
   TargetPublishVersionNum?: string;
-  /** Other information, such as plugin tool mapping information. Schema and resource party conventions */
+  /** 其他的信息，比如plugin的tool映射信息。schema和各资源方约定 */
   TargetResInfo?: string;
 }
 
-/** A structure used to locate a resource's data: a version of a resource */
+/** 用于定位一个资源数据的结构：某资源的某版本 */
 export interface ResourceLocator {
   ResID?: Int64;
   ResType?: ResType;
-  /** The current version of the resource, if not the latest version. Project release or Library release */
+  /** 资源的当前版本，没有则是最新版本。项目发布版本或Library发布版本 */
   PublishVersion?: Int64;
 }
 /* eslint-enable */

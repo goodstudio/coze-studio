@@ -25,7 +25,7 @@ export type Int64 = string | number;
 
 export interface CheckEmailVerifyCodeData {
   status?: common.VerifyStatus;
-  /** Verification ticket, used to verify whether the email has actually completed the verification */
+  /** 验证票据，用于验证 Email 是否真正完成了校验 */
   ticket?: string;
 }
 
@@ -43,7 +43,7 @@ export interface CheckEmailVerifyCodeResponse {
 
 export interface CheckMobileVerifyCodeData {
   status?: common.VerifyStatus;
-  /** Verification ticket to verify that Mobile has actually completed the verification */
+  /** 验证票据，用于验证 Mobile 是否真正完成了校验 */
   ticket?: string;
 }
 

@@ -29,14 +29,14 @@ export enum RecipientType {
   CozeUser = 1,
 }
 
-/** A structure definition for increasing the number of entity calls.
- Such as adding coze tokens */
+/** 用于增加实体调用数量的结构定义。
+ 如增加 coze token */
 export interface AddEntityAmountContent {
-  /** entity type */
+  /** 实体类型 */
   EntityType?: common.EntityType;
-  /** Entity ID */
+  /** 实体 id */
   EntityID?: Int64;
-  /** If EntityType is a coze token, the number added is the number of coze tokens added */
+  /** 如 EntityType 为 coze token，则添加的数量为 coze token 的添加数量 */
   Amount?: Int64;
 }
 
@@ -46,65 +46,65 @@ export interface AddMessageCreditContent {
 }
 
 export interface AutoChargeCallbackContent {
-  /** Payment ID */
+  /** 支付 id */
   TradeOrderID?: string;
-  /** Is the payment successful? */
+  /** 是否支付成功 */
   IsSuccess?: boolean;
 }
 
 export interface AutoChargePaymentContent {
-  /** Auto recharge task id */
+  /** 自动充值任务 id */
   AutoChargeTaskID?: Int64;
 }
 
 export interface ContentJSON {
-  /** Type of performance: such as quantity */
+  /** 履约类型：如加数量 */
   FulfillmentType?: fulfill_common.FulfillmentType;
-  /** fulfillmentType is AddEntityAmount, you need to pass this structure */
+  /** fulfillmentType 为 AddEntityAmount 需要传该结构体 */
   AddEntityAmountContent?: AddEntityAmountContent;
-  /** fulfillmentType is AutoChargePayment needs to pass this structure */
+  /** fulfillmentType 为 AutoChargePayment 需要传该结构体 */
   AutoChargePaymentContent?: AutoChargePaymentContent;
-  /** fulfillmentType for AutoChargeCallback needs to pass this structure */
+  /** fulfillmentType 为 AutoChargeCallback 需要传该结构体 */
   AutoChargeCallbackContent?: AutoChargeCallbackContent;
-  /** fulfillmentType is AutoMessageCredit, you need to pass this structure */
+  /** fulfillmentType 为 AutoMessageCredit 需要传该结构体 */
   AddMessageCreditContent?: AddMessageCreditContent;
 }
 
 export interface CreateFulfillmentItem {
-  /** Idempotent key */
+  /** 幂等 key */
   UniqueKey?: string;
-  /** Performance order recipient id, temporarily supported user_id */
+  /** 履约单收益人 id，暂时支持 user_id */
   RecipientID?: string;
-  /** Performance Order Recipient Type */
+  /** 履约单接受者类型 */
   RecipientType?: RecipientType;
-  /** Source: Operating platform, trading platform */
+  /** 来源：运营平台，交易平台 */
   SourceType?: fulfill_common.SourceType;
-  /** Source ID, operation platform is task id, transaction is order id */
+  /** 源 ID，运营平台则为任务 id，交易则为订单 id */
   SourceID?: string;
-  /** The source is the operation platform, which needs to be passed. The structure is as follows: see ContentJson. */
+  /** source 为运营平台，需要传递，结构为见 ContentJson */
   ContentJSON?: ContentJSON;
 }
 
 export interface Fulfillment {
-  /** Performance Order ID */
+  /** 履约单 id */
   ID?: Int64;
-  /** Idempotent key */
+  /** 幂等 key */
   UniqueKey?: string;
-  /** Performance order recipient id, temporarily supported user_id */
+  /** 履约单收益人 id，暂时支持 user_id */
   RecipientID?: string;
-  /** Performance Order Recipient Type */
+  /** 履约单接受者类型 */
   RecipientType?: RecipientType;
-  /** performance type */
+  /** 履约类型 */
   Type?: fulfill_common.FulfillmentType;
-  /** performance status */
+  /** 履约状态 */
   Status?: fulfill_common.FulfillmentStatus;
-  /** performance description details */
+  /** 履约描述详情 */
   ContentJSON?: ContentJSON;
-  /** Data belongs to the environment, empty indicates the base environment, otherwise it is a multi-environment */
+  /** 数据所属环境，为空表示基准环境，否则为多环境 */
   Env?: string;
-  /** Create timestamp, seconds */
+  /** 创建时间戳, 秒 */
   CreatedAt?: Int64;
-  /** Create timestamp, seconds */
+  /** 创建时间戳, 秒 */
   UpdatedAt?: Int64;
 }
 /* eslint-enable */

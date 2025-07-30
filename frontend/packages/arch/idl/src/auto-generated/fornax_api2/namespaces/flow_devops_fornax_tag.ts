@@ -23,29 +23,29 @@ import * as base from './base';
 
 export type Int64 = string | number;
 
-/** Marking target object type */
+/** 打标目标对象类型 */
 export enum TagBindTargetObjectType {
-  /** use case */
+  /** 用例 */
   Case = 1,
-  /** Execution records of tasks and use cases */
+  /** 任务，用例的执行记录 */
   Task = 2,
-  /** dataset */
+  /** 数据集 */
   Dataset = 3,
-  /** Datasets/Dialog Groups */
+  /** 数据集/对话组 */
   DatasetRowGroup = 4,
-  /** rule group */
+  /** 规则组 */
   RuleGroup = 5,
-  /** rule */
+  /** 规则 */
   Rule = 6,
-  /** Evaluation Report/Dialogue Group */
+  /** 评测报告/对话组 */
   ReportRowGroup = 7,
   /** Prompt */
   Prompt = 8,
-  /** manual annotation */
+  /** 人工标注项 */
   ManualAnnotationItem = 9,
 }
 
-/** label hierarchy */
+/** 标签层级 */
 export enum TagLevel {
   Primary = 1,
   Secondary = 2,
@@ -59,7 +59,7 @@ export enum TagStatus {
 export interface CreateTagRequest {
   space_id: Int64;
   UserID?: string;
-  /** Tag Supported markup object types, specifying parent_id not passed when creating secondary tags */
+  /** tag支持的打标对象类型,指定parent_id创建二级标签时不传 */
   target_object_types?: Array<TagBindTargetObjectType>;
   tag: Tag;
   Base?: base.Base;
@@ -73,11 +73,11 @@ export interface CreateTagResponse {
 export interface CreateTagTargetBindRequest {
   tag_id: Int64;
   UserID?: string;
-  /** Label space */
+  /** 标签所处空间 */
   space_id: Int64;
   target_object_id: Int64;
   target_object_type: TagBindTargetObjectType;
-  /** Custom query index for labels */
+  /** 标签的自定义查询索引 */
   custom_search_key: string;
   Base?: base.Base;
 }
@@ -107,9 +107,9 @@ export interface ListTagRequest {
   fuzzy_name?: string;
   creator_id?: Int64;
   target_object_types?: Array<TagBindTargetObjectType>;
-  /** Custom query index for tags, for different target object types TargetObjectType, custom query index convention for specific business id */
+  /** 标签的自定义查询索引,对于不同的目标对象类型TargetObjectType,自定义查询索引约定为特定的业务id */
   custom_search_key?: string;
-  /** Ignore disabled tags */
+  /** 忽略已禁用的标签 */
   ignore_invalid_tag?: boolean;
   Base?: base.Base;
 }
@@ -124,11 +124,11 @@ export interface ListTagResponse {
 export interface MCreateTagTargetBindRequest {
   tag_ids: Array<Int64>;
   UserID?: string;
-  /** Label space */
+  /** 标签所处空间 */
   space_id: Int64;
   target_object_id: Int64;
   target_object_type: TagBindTargetObjectType;
-  /** Custom query index for labels */
+  /** 标签的自定义查询索引 */
   custom_search_key: string;
   Base?: base.Base;
 }
@@ -165,10 +165,10 @@ export interface MGetTagsResponse {
 export interface MGetTagTargetBindRequest {
   tag_ids: Array<Int64>;
   UserID?: string;
-  /** Label space */
+  /** 标签所处空间 */
   space_id: Int64;
   target_object_type: TagBindTargetObjectType;
-  /** Custom query index for labels */
+  /** 标签的自定义查询索引 */
   custom_search_key?: string;
   Base?: base.Base;
 }
@@ -197,37 +197,37 @@ export interface Session {
 
 export interface Tag {
   tag_id?: Int64;
-  /** tag associated object type information */
+  /** 标签关联对象类型信息 */
   bind_info?: Array<TagBindInfo>;
-  /** label name */
+  /** 标签名称 */
   name: string;
-  /** label hierarchy */
+  /** 标签层级 */
   level: TagLevel;
-  /** label hierarchy */
+  /** 标签层级 */
   children?: Array<Tag>;
-  /** Parent tag ID, the parent tag of the first-level tag is itself */
+  /** 父标签ID,一级标签的父标签就是本身 */
   parent_tag_id?: Int64;
-  /** Label effective status */
+  /** 标签生效状态 */
   status?: TagStatus;
-  /** creator */
+  /** 创建者 */
   creator_id?: Int64;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time?: Int64;
 }
 
 export interface TagBindInfo {
-  /** Associated Object Type */
+  /** 关联对象类型 */
   target_object_type: TagBindTargetObjectType;
-  /** number of associated objects */
+  /** 关联对象数量 */
   count?: Int64;
 }
 
 export interface UpdateTagRequest {
   space_id: Int64;
   UserID?: string;
-  /** Overwrite the current list of associated object types, which may trigger deletion of the associated object type */
+  /** 覆盖当前的关联对象类型列表,可能触发删除关联对象类型 */
   target_object_types?: Array<TagBindTargetObjectType>;
   tag: Tag;
   Base?: base.Base;

@@ -24,38 +24,38 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export enum GradeExamClientType {
-  /** Mini Program */
+  /** 小程序 */
   MiniProgram = 0,
-  /** web page */
+  /** 网页端 */
   Web = 1,
 }
 
-/** Original test
- ======================= enumerate ======================= */
+/** 原味考试
+ ======================= 枚举 ======================= */
 export enum GradeExamStatus {
-  /** in progress */
+  /** 进行中 */
   InProgress = 0,
-  /** Completed. */
+  /** 已完成 */
   Finished = 1,
-  /** Pending correction */
+  /** 待批改 */
   ToBeChecked = 3,
 }
 
 export enum GradeExamSyncType {
-  /** out of sync */
+  /** 不同步 */
   NotSync = 0,
-  /** synchronization */
+  /** 同步 */
   Sync = 1,
 }
 
 export enum GradeExamType {
-  /** grading */
+  /** 定级 */
   Rank = 0,
-  /** unit */
+  /** 单元 */
   Unit = 1,
-  /** New grading labor */
+  /** 新定级人工 */
   NewRankManual = 2,
-  /** New grading machine change */
+  /** 新定级机改 */
   NewRankMachine = 3,
 }
 
@@ -71,22 +71,22 @@ export enum LibraryQuestionPart {
 }
 
 export enum LibraryQuestionStatus {
-  /** go offline */
+  /** 下线 */
   Offline = 0,
-  /** go online */
+  /** 上线 */
   Online = 1,
 }
 
 export enum LibraryQuestionType {
-  /** vocabulary */
+  /** 词汇 */
   Word = 0,
-  /** grammar */
+  /** 语法 */
   Grammar = 1,
-  /** hearing */
+  /** 听力 */
   Listening = 2,
-  /** spoken language */
+  /** 口语 */
   Speaking = 3,
-  /** New speaking questions */
+  /** 新口语题 */
   NewSpeaking = 4,
 }
 
@@ -96,135 +96,135 @@ export interface CreateLibraryQuestion {
   answer?: number;
   type?: LibraryQuestionType;
   level?: string;
-  /** Audio */
+  /** 音频 */
   audio_uri?: string;
-  /** New Oral Questions - Part */
+  /** 新口语题 - 部分 */
   part?: LibraryQuestionPart;
-  /** New Speaking Questions - Pictures */
+  /** 新口语题 - 图片 */
   image_uri?: string;
 }
 
 export interface GradeExam {
   id?: Int64;
-  /** user ID */
+  /** 用户ID */
   user_id?: Int64;
-  /** Team Exam ID */
+  /** 团队考试ID */
   team_exam_id?: Int64;
-  /** grade */
+  /** 等级 */
   level?: string;
-  /** grade */
+  /** 年级 */
   grade?: string;
-  /** start time */
+  /** 开始时间 */
   start_duration?: number;
-  /** Client side type */
+  /** 客户端类型 */
   client_type?: GradeExamClientType;
-  /** state */
+  /** 状态 */
   status?: GradeExamStatus;
-  /** type */
+  /** 类型 */
   type?: GradeExamType;
-  /** synchronous apaas */
+  /** 同步apaas */
   sync_type?: GradeExamSyncType;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<GradeExamLibraryQuestion>;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface GradeExamLibraryQuestion {
   id?: Int64;
-  /** Exam ID */
+  /** 考试ID */
   grade_exam_id?: Int64;
-  /** Question Bank Question ID */
+  /** 题库题目ID */
   library_question_id?: Int64;
-  /** Round ID */
+  /** 轮次ID */
   round_id?: Int64;
-  /** User answer */
+  /** 用户答案 */
   user_answer?: string;
-  /** Question Bank Topic */
+  /** 题库题目 */
   library_question?: LibraryQuestion;
 }
 
 export interface LibraryQuestion {
   id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** option */
+  /** 选项 */
   options?: string;
-  /** Old tos audio */
+  /** 旧tos音频 */
   audio?: string;
-  /** imageX Audio */
+  /** imageX音频 */
   audio_uri?: string;
-  /** answer */
+  /** 答案 */
   answer?: number;
-  /** grade */
+  /** 等级 */
   level?: string;
-  /** type */
+  /** 类型 */
   type?: LibraryQuestionType;
-  /** state */
+  /** 状态 */
   status?: LibraryQuestionStatus;
-  /** New Oral Questions - Part */
+  /** 新口语题 - 部分 */
   part?: LibraryQuestionPart;
-  /** New speaking questions - question stem audio */
+  /** 新口语题 - 题干音频 */
   content_audio_uri?: string;
-  /** New Speaking Questions - Pictures */
+  /** 新口语题 - 图片 */
   image_uri?: string;
-  /** imageX Audio URLs */
+  /** imageX音频Url */
   audio_url?: string;
-  /** New Speaking Questions - Question Stem Audio Url */
+  /** 新口语题 - 题干音频Url */
   content_audio_url?: string;
-  /** New Speaking Questions - Image URLs */
+  /** 新口语题 - 图片Url */
   image_url?: string;
 }
 
-/** ======================= response model ======================= */
+/** ======================= 响应模型 ======================= */
 export interface Team {
   id?: Int64;
-  /** Team name */
+  /** 团队名称 */
   name?: string;
-  /** Team avatar */
+  /** 团队头像 */
   avatar?: string;
 }
 
 export interface TeamExam {
   id?: Int64;
-  /** Team ID */
+  /** 团队ID */
   team_id?: Int64;
-  /** correction type */
+  /** 批改类型 */
   check_type?: common.TeamExamCheckType;
-  /** state */
+  /** 状态 */
   status?: common.TeamExamStatus;
-  /** Team */
+  /** 团队 */
   team?: Team;
-  /** user test record */
+  /** 用户考试记录 */
   user_team_exam?: UserTeamExam;
 }
 
 export interface UpdateLibraryQuestion {
-  /** Topic ID */
+  /** 题目ID */
   id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** option */
+  /** 选项 */
   options?: Array<string>;
-  /** answer */
+  /** 答案 */
   answer?: number;
-  /** state */
+  /** 状态 */
   status?: LibraryQuestionStatus;
-  /** TOS Audio */
+  /** tos音频 */
   audio?: string;
-  /** Audio */
+  /** 音频 */
   audio_uri?: string;
-  /** New Speaking Questions - Pictures */
+  /** 新口语题 - 图片 */
   image_uri?: string;
 }
 
 export interface UserTeamExam {
   id?: Int64;
-  /** user ID */
+  /** 用户ID */
   user_id?: Int64;
-  /** Team Exam ID */
+  /** 团队考试ID */
   team_exam_id?: Int64;
-  /** Level Exam ID */
+  /** 等级考试ID */
   grade_exam_id?: Int64;
 }
 /* eslint-enable */

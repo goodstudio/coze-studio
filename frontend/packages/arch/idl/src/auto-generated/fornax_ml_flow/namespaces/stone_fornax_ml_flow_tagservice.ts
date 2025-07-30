@@ -64,14 +64,14 @@ export interface CreateTagResponse {
   baseResp?: base.BaseResp;
 }
 
-/** Each element represents a bar in the histogram */
+/** 每一个元素代表柱状图中的一个柱 */
 export interface DistributeBucket {
-  /** Represents unlabeled objects. If true, you only need to look at count, which represents the number of unlabeled objects. */
+  /** 代表没打标签的对象，若为true则只需要看count，代表没被打标签的个数 */
   isEmpty?: boolean;
   tagValueID?: string;
   tagKeyName?: string;
   tagValueName?: string;
-  /** quantity */
+  /** 数量 */
   count?: Int64;
 }
 
@@ -91,11 +91,11 @@ export interface GetTagSpecRequest {
 }
 
 export interface GetTagSpecResponse {
-  /** Maximum height */
+  /** 最大高度 */
   maxHeight?: Int64;
-  /** Maximum width (how many are there in one layer at most) */
+  /** 最大宽度(一层最多有多少个) */
   maxWidth?: Int64;
-  /** Maximum number (total number of layers added together) */
+  /** 最多个数(各层加一起总数) */
   maxTotal?: Int64;
 }
 
@@ -103,7 +103,7 @@ export interface QueryFieldDistributeRequest {
   spaceID: string;
   datasetID: string;
   datasetVersion?: string;
-  /** When following the column insights, the column fields */
+  /** 按照列洞察的时候，列的字段 */
   fieldKeys?: Array<string>;
   base?: base.Base;
 }
@@ -119,7 +119,7 @@ export interface SearchTagsRequest {
   tagKeyNameLike?: string;
   createdBys?: Array<string>;
   page?: number;
-  /** Page size (0,200], default is 20 */
+  /** 分页大小(0, 200]，默认为 20 */
   pageSize?: number;
   cursor?: string;
   orderBy?: datasetv2.OrderBy;
@@ -136,7 +136,7 @@ export interface SearchTagsResponse {
 export interface UpdateTagRequest {
   spaceID: string;
   tagKeyID: string;
-  /** three-stage version */
+  /** 三段式版本 */
   version: string;
   tagKeyName?: string;
   description?: string;

@@ -26,9 +26,9 @@ import * as mcp from './mcp';
 export type Int64 = string | number;
 
 export enum AccountMode {
-  /** Use shared model account: limited viewership of the use of public limited viewership, can not guarantee stability */
+  /** 使用共享模型账号：限流也使用公共限流，不能保障稳定性 */
   SharedAccount = 1,
-  /** Use the independent model account applied by your own business: limit the configuration of independent accounts */
+  /** 使用自己业务申请的独立模型账号：限流走独立账号的配置 */
   CustomAccount = 2,
 }
 
@@ -37,7 +37,7 @@ export enum Model {
 }
 
 export enum ReplyType {
-  /** Final result */
+  /** 最终结果 */
   ReplyTypeFinalAnswer = 0,
 }
 
@@ -48,54 +48,54 @@ export enum Role {
 }
 
 export enum StreamState {
-  /** non-streaming */
+  /** 非流式 */
   StreamStateNone = 0,
-  /** Streaming starts (first packet) */
+  /** 流式传输开始（首包） */
   StreamStateBegin = 1,
-  /** streaming */
+  /** 流式传输中 */
   StreamStateStreaming = 2,
-  /** End of churn transfer (tail packet) */
+  /** 流失传输结束（尾包） */
   StreamStateEnd = 3,
 }
 
 export enum UsageScenario {
   Default = 1,
   Evaluation = 2,
-  /** Prompt as a Service */
+  /** Prompt as a Service调用 */
   PromptAsAService = 3,
-  /** AI marking */
+  /** AI打标 */
   AIAnnotate = 4,
-  /** mass score */
+  /** 质量分 */
   AIScore = 5,
-  /** data label */
+  /** 数据标签 */
   AITag = 6,
 }
 
 export interface CustomAccount {
-  /** Model name */
+  /** 模型名称 */
   model_name: string;
-  /** model account */
+  /** 模型账号 */
   api_key: string;
-  /** The account of the skyLark model needs additional ak/sk information. */
+  /** skyLark模型的账号需要额外透传ak/sk信息 */
   sky_lark_account_extra?: SkyLarkAccountExtra;
-  /** bot_engine connector_id (only seed models need to be passed) */
+  /** bot_engine connector_id（仅seed模型需要传） */
   connector_id?: Int64;
 }
 
 export interface EvalPromptVersionRequest {
   /** Prompt key */
   prompt_key: string;
-  /** traffic identification */
+  /** 流量标识 */
   traffic: string;
-  /** For fornax authentication */
+  /** 用于fornax鉴权 */
   Authorization?: string;
   base?: base.Base;
 }
 
 export interface EvalPromptVersionResponse {
-  /** Hit grey release */
+  /** 是否命中灰度 */
   hit?: boolean;
-  /** Back to version */
+  /** 返回版本 */
   version?: string;
   code?: number;
   msg?: string;
@@ -103,41 +103,41 @@ export interface EvalPromptVersionResponse {
 }
 
 export interface ExecuteRequest {
-  /** Just pass one PromptKey and PromptID. It is recommended to use your own defined PromptKey, which is more readable. */
+  /** PromptKey与PromptID传递一个即可，推荐使用自己定义的PromptKey，可读性更高 */
   prompt_key?: string;
   prompt_id?: Int64;
-  /** This field is scheduled to go offline, please do not pass the value. If you do not pass the value, use the latest released version. */
+  /** 该字段计划下线，请不要传值，不传值则使用最新发布版本 */
   version?: string;
   message?: flow_devops_prompt_common.Message;
-  /** contextual information */
+  /** 上下文信息 */
   contexts?: Array<flow_devops_prompt_common.Message>;
-  /** variable */
+  /** 变量 */
   variables?: Array<flow_devops_prompt_common.Variable>;
-  /** Account mode (shared account is used by default, but shared account does not guarantee stability. It is recommended to apply and use your own independent model account) */
+  /** 账号模式(默认使用共享账号，但共享账号不保障稳定性，推荐申请并使用自己的独立模型账号) */
   account_mode?: AccountMode;
-  /** List of independent model accounts, account mode When selecting an independent account, you need to pass your own independent account information */
+  /** 独立模型账号列表，账号模式选择独立账号时，需要传递自己的独立账号信息 */
   custom_accounts?: Array<CustomAccount>;
-  /** Whether to step through debugging */
+  /** 是否单步调试 */
   single_step_debug?: boolean;
-  /** Series debugging record (function call single step debugging) */
+  /** 串联调试记录(function call单步调试) */
   debug_trace_key?: string;
-  /** usage scenario */
+  /** 使用场景 */
   usage_scenario?: UsageScenario;
-  /** traffic identification */
+  /** 流量标识 */
   traffic?: string;
-  /** Request additional parameters */
+  /** 请求额外参数 */
   request_extra?: RequestExtra;
-  /** Custom model parameters (passing this parameter overrides the model parameters) */
+  /** 自定义模型参数(传递该参数会覆盖模型参数) */
   custom_model_config?: flow_devops_prompt_common.ModelConfig;
-  /** release tag */
+  /** 发布标签 */
   release_label?: string;
-  /** MCP dynamic configuration */
+  /** MCP 动态配置 */
   mcp_execute_config?: mcp.MCPExecuteConfig;
-  /** For fornax authentication */
+  /** 用于fornax鉴权 */
   token?: string;
-  /** It is used to identify the identity of the old user and go offline after the user is migrated. */
+  /** 用于识别老用户身份，待用户迁移后下线 */
   'Agw-Auth'?: string;
-  /** For fornax authentication */
+  /** 用于fornax鉴权 */
   Authorization?: string;
   base?: base.Base;
 }
@@ -152,28 +152,28 @@ export interface ExecuteResponse {
 export interface MPullPromptQuery {
   /** Prompt key */
   prompt_key: string;
-  /** version */
+  /** 版本 */
   version?: string;
-  /** Publish label */
+  /** 发布label */
   release_label?: string;
 }
 
 export interface MPullPromptRequest {
-  /** Prompt query */
+  /** Prompt查询 */
   prompt_queries: Array<MPullPromptQuery>;
-  /** encryption options */
+  /** 加密选项 */
   encrypt_option?: flow_devops_prompt_common.PromptEncryptOption;
-  /** For fornax authentication */
+  /** 用于fornax鉴权 */
   token?: string;
-  /** It is used to identify the identity of the old user and go offline after the user is migrated. */
+  /** 用于识别老用户身份，待用户迁移后下线 */
   'Agw-Auth'?: string;
-  /** For fornax authentication */
+  /** 用于fornax鉴权 */
   Authorization?: string;
   base?: base.Base;
 }
 
 export interface MPullPromptResponse {
-  /** Back to Prompt List */
+  /** 返回Prompt列表 */
   prompts?: Array<flow_devops_prompt_common.Prompt>;
   code?: number;
   msg?: string;
@@ -181,7 +181,7 @@ export interface MPullPromptResponse {
 }
 
 export interface RequestExtra {
-  /** GPTOpenAPI platform extra parameters */
+  /** GPTOpenAPI平台extra参数 */
   gpt_openapi_extra?: string;
 }
 
@@ -191,41 +191,41 @@ export interface SkyLarkAccountExtra {
 }
 
 export interface StreamingExecuteRequest {
-  /** Just pass one PromptKey and PromptID. It is recommended to use your own defined PromptKey, which is more readable. */
+  /** PromptKey与PromptID传递一个即可，推荐使用自己定义的PromptKey，可读性更高 */
   prompt_key?: string;
   prompt_id?: Int64;
-  /** This field is scheduled to go offline, please do not pass the value. If you do not pass the value, use the latest released version. */
+  /** 该字段计划下线，请不要传值，不传值则使用最新发布版本 */
   version?: string;
   message?: flow_devops_prompt_common.Message;
-  /** contextual information */
+  /** 上下文信息 */
   contexts?: Array<flow_devops_prompt_common.Message>;
-  /** variable */
+  /** 变量 */
   variables?: Array<flow_devops_prompt_common.Variable>;
-  /** Account mode (shared account is used by default, but shared account does not guarantee stability. It is recommended to apply and use your own independent model account) */
+  /** 账号模式(默认使用共享账号，但共享账号不保障稳定性，推荐申请并使用自己的独立模型账号) */
   account_mode?: AccountMode;
-  /** List of independent model accounts, account mode When selecting an independent account, you need to pass your own independent account information */
+  /** 独立模型账号列表，账号模式选择独立账号时，需要传递自己的独立账号信息 */
   custom_accounts?: Array<CustomAccount>;
-  /** Whether to step through debugging */
+  /** 是否单步调试 */
   single_step_debug?: boolean;
-  /** Series debugging record (function call single step debugging) */
+  /** 串联调试记录(function call单步调试) */
   debug_trace_key?: string;
-  /** usage scenario */
+  /** 使用场景 */
   usage_scenario?: UsageScenario;
-  /** traffic identification */
+  /** 流量标识 */
   traffic?: string;
-  /** Request additional parameters */
+  /** 请求额外参数 */
   request_extra?: RequestExtra;
-  /** Custom model parameters (passing this parameter overrides the model parameters) */
+  /** 自定义模型参数(传递该参数会覆盖模型参数) */
   custom_model_config?: flow_devops_prompt_common.ModelConfig;
-  /** release tag */
+  /** 发布标签 */
   release_label?: string;
-  /** MCP dynamic configuration */
+  /** MCP 动态配置 */
   mcp_execute_config?: mcp.MCPExecuteConfig;
-  /** For fornax authentication */
+  /** 用于fornax鉴权 */
   token?: string;
-  /** It is used to identify the identity of the old user and go offline after the user is migrated. */
+  /** 用于识别老用户身份，待用户迁移后下线 */
   'Agw-Auth'?: string;
-  /** For fornax authentication */
+  /** 用于fornax鉴权 */
   Authorization?: string;
   base?: base.Base;
 }

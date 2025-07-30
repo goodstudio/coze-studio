@@ -33,7 +33,7 @@ export enum DownloadStatus {
   PackFail = 2,
 }
 
-/** Order reverse state */
+/** 订单逆向状态 */
 export enum OrderReverseStatus {
   Unknown = 0,
   RefundProcessing = 1,
@@ -43,7 +43,7 @@ export enum OrderReverseStatus {
   ChargebackReverse = 12,
 }
 
-/** Order status */
+/** 订单状态 */
 export enum OrderStatus {
   Init = 0,
   Success = 1,
@@ -51,7 +51,7 @@ export enum OrderStatus {
   Closed = 3,
 }
 
-/** Order type */
+/** 订单类型 */
 export enum OrderType {
   Unknown = 0,
   TokenCharge = 1,
@@ -61,7 +61,7 @@ export enum OrderType {
   PurchaseTemplate = 21,
 }
 
-/** payment status */
+/** 支付状态 */
 export enum PayStatus {
   Init = 0,
   Success = 1,
@@ -74,26 +74,26 @@ export enum ResourceType {
   Data = 3,
 }
 
-/** business scenario */
+/** 业务场景 */
 export enum Scene {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Token recharge */
+  /** Token充值 */
   TokenCharge = 1,
-  /** Token automatic recharge */
+  /** Token自动充值 */
   TokenAutoCharge = 2,
-  /** MessageCredit subscription */
+  /** MessageCredit订阅 */
   SubMessageCredit = 11,
-  /** MessageCredit recharge */
+  /** MessageCredit充值 */
   MessageCredit = 12,
-  /** Template purchase */
+  /** 模板购买 */
   PurchaseTemplate = 21,
 }
 
 export interface DownloadRecord {
-  /** Download request initiation time (seconds) */
+  /** 下载请求发起时间(秒) */
   request_time?: Int64;
-  /** download link */
+  /** 下载链接 */
   url?: string;
   status?: DownloadStatus;
 }

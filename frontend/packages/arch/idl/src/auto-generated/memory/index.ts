@@ -120,7 +120,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/get_data_source_list
    *
-   * Data connector
+   * data connector接口
    */
   GetUserDataSourceList(
     req?: data_connector.GetUserDataSourceListRequest,
@@ -181,7 +181,7 @@ export default class MemoryService<T> {
   /**
    * DELETE /api/memory/delete_user_authorization
    *
-   * Tripartite Data Deletion Interface
+   * 三方数据删除接口
    */
   DeleteUserDataSource(
     req?: document.DeleteUserDataSourceRequest,
@@ -301,7 +301,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/nl2db
    *
-   * NL2DB interface
+   * NL2DB 接口
    */
   RecommendDataModel(
     req: table.RecommendDataModelRequest,
@@ -322,7 +322,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/batch_delete_slice
    *
-   * Bulk removal sharding
+   * 批量删除分片
    */
   BatchDeleteSlice(
     req: slice.BatchDeleteSliceRequest,
@@ -397,7 +397,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/create_dataset
    *
-   * Dataset - Migrating: Please add flow_dataengine_dataset
+   * Dataset - 迁移中: 请在 flow_dataengine_dataset.thrift 里加
    */
   CreateDataSet(
     req?: dataset.CreateDataSetRequest,
@@ -438,7 +438,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/get_slice_list
    *
-   * Get sharding list by docID
+   * 通过docID获取分片列表
    */
   GetSliceList(
     req?: slice.GetSliceListReq,
@@ -557,7 +557,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/update_slice_content
    *
-   * Update sharding content
+   * 更新分片内容
    */
   UpdateSliceContent(
     req: slice.UpdateSliceContentReq,
@@ -578,7 +578,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/delete_slice
    *
-   * Delete sharding
+   * 删除分片
    */
   DelSlice(req: slice.DelSliceReq, options?: T): Promise<slice.DelSliceResp> {
     const _req = req;
@@ -595,7 +595,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/change_slice_status
    *
-   * Disable enable sharding
+   * 禁用启用分片
    */
   ChangeSliceStatus(
     req: slice.ChangeSliceStatusReq,
@@ -616,7 +616,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/get_bot_list
    *
-   * Get the associated bot through the dataset -- deprecated
+   * 通过dataset获取关联bot -- deprecated
    */
   GetBotListByDataset(
     req: dataset.GetBotListByDatasetReq,
@@ -672,7 +672,7 @@ export default class MemoryService<T> {
    *
    * web document
    *
-   * Submit a single fetch task
+   * 提交单个抓取任务
    */
   SubmitWebUrl(
     req?: document.SubmitWebUrlRequest,
@@ -732,7 +732,7 @@ export default class MemoryService<T> {
    *
    * slice
    *
-   * Create sharding
+   * 创建分片
    */
   CreateSlice(
     req: slice.CreateSliceReq,
@@ -885,7 +885,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/variable/upsert
    *
-   * Inserting a KV data
+   * 插入一条kv数据
    */
   SetKvMemory(
     req: kvmemory.SetKvMemoryReq,
@@ -983,7 +983,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/submit_connection_task
    *
-   * Synchronize data source download tasks
+   * 同步数据源下载任务
    */
   SubmitConnectionTask(
     req: connector.SubmitConnectionTaskRequest,
@@ -1002,7 +1002,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/query_auth_info
    *
-   * Query the authorization list
+   * 查询授权列表
    */
   MGetAuthInfo(
     req: connector.MGetAuthInfoRequest,
@@ -1021,7 +1021,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/get_connection_entity
    *
-   * Update document content query entity interface
+   * 更新文档content查询entity接口
    */
   GetConnectionEntity(
     req: connector.GetConnectionEntityRequest,
@@ -1037,7 +1037,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/poll_connection_task
    *
-   * poll data source download task
+   * 轮询数据源下载任务
    */
   PollConnectionTask(
     req: connector.PollConnectionTaskRequest,
@@ -1057,7 +1057,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/data_source_files
    *
-   * Get the pick three-party data source file list
+   * 获取pick三方数据源文件列表
    */
   GetDataSourceFileTree(
     req: connector.GetDataSourceFileTreeRequest,
@@ -1079,7 +1079,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/oauth_consent_url
    *
-   * Query Authentication Callback URL Interface
+   * 查询鉴权回调URL接口
    */
   DataSourceOAuthConsentURL(
     req: connector.DataSourceOAuthConsentURLRequest,
@@ -1099,7 +1099,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/retry_entity_task
    *
-   * Retry download document interface
+   * 重试下载文档接口
    */
   RetryEntityTask(
     req: connector.RetryEntityTaskRequest,
@@ -1119,7 +1119,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/cancel_connetion_task
    *
-   * Cancel download document interface
+   * 取消下载文档接口
    */
   CancelConnectionTask(
     req: connector.CancelConnectionTaskRequest,
@@ -1154,7 +1154,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/submit_crawl_data
    *
-   * front-end capture and upload interface
+   * 前端抓取上传接口
    */
   SubmitCrawlData(
     req?: document.SubmitCrawlDataRequest,
@@ -1174,7 +1174,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/get_connector_id_list
    *
-   * Get the data source ID visible to the user.
+   * 获取用户可见的数据源id
    */
   GetConnectorIDList(
     req?: connector.GetConnectorIDListRequest,
@@ -1232,7 +1232,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/connector_pre_check
    *
-   * Connector pre-check
+   * 连接器前置校验
    */
   ConnectorPreCheck(
     req?: connector.ConnectorPreCheckRequest,
@@ -1254,7 +1254,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/submit_batch_crawl_task
    *
-   * Create batch fetch task deprecated: Migrating: Please add flow_dataengine_dataset
+   * 创建批量抓取任务  deprecated: 迁移中: 请在 flow_dataengine_dataset.thrift 里加
    */
   SubmitBatchCrawlTask(
     req?: web_crawl.SubmitBatchCrawlTaskRequest,
@@ -1276,7 +1276,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/create_sub_link_discovery_task
    *
-   * Create sublink discovery task interface
+   * 创建子链接发现任务接口
    */
   CreateSubLinkDiscoveryTask(
     req?: web_crawl.CreateSubLinkDiscoveryTaskRequest,
@@ -1298,7 +1298,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/abort_sub_link_discovery_task
    *
-   * Terminate sublink discovery task interface
+   * 终止子链接发现任务接口
    */
   AbortSubLinkDiscoveryTask(
     req?: web_crawl.AbortSubLinkDiscoveryTaskRequest,
@@ -1316,7 +1316,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/knowledge/parse_site_map
    *
-   * Parse Sitemap Interface
+   * 解析网站地图接口
    */
   ParseSiteMap(
     req?: web_crawl.ParseSiteMapRequest,
@@ -1336,7 +1336,7 @@ export default class MemoryService<T> {
   /**
    * GET /api/memory/knowledge/get_sub_link_discovery_task
    *
-   * Query sublink discovery task interface
+   * 查询子链接发现任务接口
    */
   GetSubLinkDiscoveryTask(
     req?: web_crawl.GetSubLinkDiscoveryTaskRequest,
@@ -1366,7 +1366,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/delete
    *
-   * Delete a database
+   * 删除一个数据库
    */
   DeleteDatabase(
     req?: table.DeleteDatabaseRequest,
@@ -1382,7 +1382,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/bind_to_bot
    *
-   * Bind a database to the bot.
+   * 绑定一个数据库到bot
    */
   BindDatabase(
     req?: table.BindDatabaseToBotRequest,
@@ -1402,7 +1402,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/list_records
    *
-   * Retrieve Data Content in Database (User Records)
+   * 获取数据库中的Data内容（用户Records）
    */
   ListDatabaseRecords(
     req: table.ListDatabaseRecordsRequest,
@@ -1431,9 +1431,9 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/list
    *
-   * Add database node requirement - interface list - start
+   * 新增「database」节点需求 - 接口列表 - start
    *
-   * Obtain database lists based on various combinations
+   * 根据各种组合条件获取数据库列表
    */
   ListDatabase(
     req: table.ListDatabaseRequest,
@@ -1463,7 +1463,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/update
    *
-   * Update a database
+   * 更新一个数据库
    */
   UpdateDatabase(
     req?: table.UpdateDatabaseRequest,
@@ -1489,7 +1489,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/unbind_to_bot
    *
-   * Unbind a database in the bot
+   * 解除绑定bot中的一个数据库
    */
   UnBindDatabase(
     req?: table.BindDatabaseToBotRequest,
@@ -1509,7 +1509,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/update_records
    *
-   * Add or delete data content (user records) in the database
+   * 对数据库中的Data内容（用户Records）进行增删改
    */
   UpdateDatabaseRecords(
     req: table.UpdateDatabaseRecordsRequest,
@@ -1533,7 +1533,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/get_by_id
    *
-   * Get individual database information based on database ID
+   * 根据数据库id获取单个数据库信息
    */
   GetDatabaseByID(
     req?: table.SingleDatabaseRequest,
@@ -1555,7 +1555,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/add
    *
-   * Add a new database
+   * 新增一个数据库
    */
   AddDatabase(
     req?: table.AddDatabaseRequest,
@@ -1586,7 +1586,7 @@ export default class MemoryService<T> {
   /**
    * GET /api/memory/project/variable/meta_list
    *
-   * Variable openAPI end
+   * 变量openAPI end
    *
    * Project memory
    */
@@ -1626,7 +1626,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/table/list_new
    *
-   * "Coze 2.0 new database node requirements" new acquisition bot and database correspondence
+   * 「coze 2.0 新增数据库节点的需求」新的获取bot和database的对应关系
    */
   GetBotDatabase(
     req: table.GetBotTableRequest,
@@ -1665,7 +1665,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/database/get_online_database_id
    *
-   * Check the online id according to the draft id.
+   * 根据draft id查询online id
    */
   GetOnlineDatabaseId(
     req: table.GetOnlineDatabaseIdRequest,
@@ -1821,7 +1821,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/wechat/get_ticket
    *
-   * Receive WeChat official account tickets
+   * 接收微信公众号的ticket
    */
   GetWeChatTicket(
     req?: data_connector.GetWeChatTicketRequest,
@@ -1920,7 +1920,7 @@ export default class MemoryService<T> {
   /**
    * POST /api/memory/volcano_database/list_project
    *
-   * Volcano Database
+   * 火山数据库
    */
   VolcanoDatabaseListProject(
     req: volcano_database.VolcaDatabaseListProjectRequest,

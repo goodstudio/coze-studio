@@ -22,23 +22,23 @@
 export type Int64 = string | number;
 
 export enum ContentType {
-  /** base type */
+  /** 基础类型 */
   Text = 1,
   Image = 2,
   Audio = 3,
   Video = 4,
-  /** Mixed text and graphics */
+  /** 图文混排 */
   MultiPart = 100,
 }
 
 export enum DatasetCategory {
-  /** dataset */
+  /** 数据集 */
   General = 1,
-  /** Training dataset (not yet available) */
+  /** 训练集 (暂无) */
   Training = 2,
-  /** Validation set (not yet available) */
+  /** 验证集 (暂无) */
   Validation = 3,
-  /** Review set (not yet available) */
+  /** 评测集 (暂无) */
   Evaluation = 4,
 }
 
@@ -52,11 +52,11 @@ export enum DatasetStatus {
 }
 
 export enum DatasetVisibility {
-  /** All spaces are visible */
+  /** 所有空间可见 */
   Public = 1,
-  /** The current space is visible */
+  /** 当前空间可见 */
   Space = 2,
-  /** user invisible */
+  /** 用户不可见 */
   System = 3,
 }
 
@@ -75,23 +75,23 @@ export enum FieldStatus {
 }
 
 export enum ItemErrorType {
-  /** Schema mismatch */
+  /** schema 不匹配 */
   MismatchSchema = 1,
-  /** empty data */
+  /** 空数据 */
   EmptyData = 2,
-  /** Single data size exceeds limit */
+  /** 单条数据大小超限 */
   ExceedMaxItemSize = 3,
-  /** Dataset capacity exceeded */
+  /** 数据集容量超限 */
   ExceedDatasetCapacity = 4,
-  /** File format error */
+  /** 文件格式错误 */
   MalformedFile = 5,
-  /** Contains illegal content */
+  /** 包含非法内容 */
   IllegalContent = 6,
   /** system error */
   InternalError = 100,
-  /** Failed to clear dataset */
+  /** 清空数据集失败 */
   ClearDatasetFailed = 101,
-  /** Failed to read or write file */
+  /** 读写文件失败 */
   RWFileFailed = 102,
 }
 
@@ -101,7 +101,7 @@ export enum SchemaKey {
   Float = 3,
   Bool = 4,
   Message = 5,
-  /** radio */
+  /** 单选 */
   SingleChoice = 6,
 }
 
@@ -124,56 +124,56 @@ export enum StorageProvider {
   VETOS = 2,
   HDFS = 3,
   ImageX = 4,
-  /** Backend internal use */
+  /** 后端内部使用 */
   Abase = 100,
   RDS = 101,
   LocalFS = 102,
 }
 
 export interface DatasetFeatures {
-  /** Change schema */
+  /** 变更 schema */
   editSchema?: boolean;
-  /** multiple rounds of data */
+  /** 多轮数据 */
   repeatedData?: boolean;
-  /** multimodal */
+  /** 多模态 */
   multiModal?: boolean;
 }
 
 export interface DatasetSpec {
-  /** maximum number of items */
+  /** 条数上限 */
   maxItemCount?: string;
-  /** maximum number of fields */
+  /** 字段数量上限 */
   maxFieldCount?: number;
-  /** maximum number of words per piece of data */
+  /** 单条数据字数上限 */
   maxItemSize?: string;
 }
 
 export interface ItemErrorDetail {
   message?: string;
-  /** The index of a single error data in the input data. Start from 0, the same below */
+  /** 单条错误数据在输入数据中的索引。从 0 开始，下同 */
   index?: number;
-  /** [StartIndex, endIndex] Indicates the range of interval errors, such as when ExceedDatasetCapacity errors */
+  /** [startIndex, endIndex] 表示区间错误范围, 如 ExceedDatasetCapacity 错误时 */
   startIndex?: number;
   endIndex?: number;
-  /** ItemErrorType=MismatchSchema, key is FieldSchema.name, value is error message */
+  /** ItemErrorType=MismatchSchema, key 为 FieldSchema.name, value 为错误信息 */
   messagesByField?: Record<string, string>;
 }
 
 export interface ItemErrorGroup {
   type?: ItemErrorType;
   summary?: string;
-  /** number of errors */
+  /** 错误条数 */
   errorCount?: number;
-  /** When writing in batches, provide up to 5 error details per type of error; import tasks provide up to 10 error details */
+  /** 批量写入时，每类错误至多提供 5 个错误详情；导入任务，至多提供 10 个错误详情 */
   details?: Array<ItemErrorDetail>;
 }
 
 export interface MultiModalSpec {
-  /** maximum number of files */
+  /** 文件数量上限 */
   maxFileCount?: Int64;
-  /** maximum file size */
+  /** 文件大小上限 */
   maxFileSize?: Int64;
-  /** file format */
+  /** 文件格式 */
   supportedFormats?: Array<string>;
 }
 /* eslint-enable */

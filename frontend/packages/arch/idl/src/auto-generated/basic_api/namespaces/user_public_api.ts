@@ -24,20 +24,20 @@ import * as user_common from './user_common';
 export type Int64 = string | number;
 
 export interface GetUserProfileData {
-  /** Name (unique) */
+  /** 名字（唯一） */
   user_name?: string;
-  /** nickname */
+  /** 昵称 */
   name?: string;
   avatar?: string;
   user_id?: string;
-  /** signature */
+  /** 签名 */
   signature?: string;
-  /** Is there a field under review? */
+  /** 是否有正在审核的字段 */
   audit_status?: user_common.PassportAuditStatus;
   share_id?: string;
-  /** Details of the audit */
+  /** 审核的细节 */
   audit_detail?: user_common.AuditDetail;
-  /** user tag */
+  /** 用户标签 */
   user_label?: user_common.UserLabel;
 }
 

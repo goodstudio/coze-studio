@@ -45,28 +45,28 @@ export enum InputConfigType {
 }
 
 export enum MerlinQuotaPoolType {
-  /** stable resources */
+  /** 稳定资源 */
   Default = 0,
-  /** tidal resources */
+  /** 潮汐资源 */
   Hybrid = 1,
-  /** often mixed resources */
+  /** 常混资源 */
   HybridShare = 2,
-  /** Third-party resource ali */
+  /** 第三方资源ali */
   ALI = 3,
-  /** Third-party resources hw */
+  /** 第三方资源hw */
   HW = 4,
   /** hw arm */
   HWARM = 5,
-  /** Flexible selling of resources, which may be preempted at any time */
+  /** 弹性售卖资源，随时可能被抢占 */
   Spot = 6,
-  /** Preemptible stable resource, merlin seed offline reasoning does not allow this resource to be selected */
+  /** 可抢占的稳定资源，merlin seed离线推理不允许选这种资源 */
   Preemptible = 20,
 }
 
 export enum MerlinSeedDataProcessType {
-  /** normal generation task */
+  /** 普通生成任务 */
   RayDataset = 1,
-  /** multi-round generation task */
+  /** 多轮生成任务 */
   RayDatasetMultiround = 2,
 }
 
@@ -80,13 +80,13 @@ export enum OutputConfigType {
 }
 
 export enum Provider {
-  /** GPTOpenAPI = 1//GPT OpenAPI Platformlatform
-Volcano Ark */
+  /** GPTOpenAPI = 1 // GPT OpenAPI平台
+火山方舟 */
   Maas = 2,
-  /** BotEngine = 3//temporarily specifies seed access from bot_engineseed from bot_engine access
-Merlin Platform */
+  /** BotEngine  = 3 // 暂时特指seed从bot_engine接入
+merlin平台 */
   Merlin = 4,
-  /** Merlin-seed platform */
+  /** merlin-seed平台 */
   MerlinSeed = 5,
 }
 
@@ -102,12 +102,12 @@ export enum TrainingType {
 export interface ArkModel {
   foundationModelName?: string;
   foundationModelVersion?: string;
-  /** If it is a fine-tuned model, this id is not empty */
+  /** 如果是精调后的模型，这个id非空 */
   customModelID?: string;
   sftTaskID?: string;
-  /** training type */
+  /** 训练类型 */
   trainingType?: TrainingType;
-  /** Training method */
+  /** 训练方法 */
   trainingMethod?: TrainingMethod;
 }
 
@@ -115,21 +115,21 @@ export interface BatchInferDataset {
   datasetID?: string;
   inputConfig?: InputConfig;
   outputConfig?: OutputConfig;
-  /** The default is dataset v2, and hdfs and tos are added in this issue. */
+  /** 默认是数据集v2，本期新增hdfs和tos */
   datasetType?: BatchInferDatasetType;
-  /** Dataset HDFS path to be inferred */
+  /** 待推理的数据集hdfs路径 */
   hdfsPath?: string;
-  /** The folder path where the picture to be inferred is stored */
+  /** 待推理的图片存储的文件夹路径 */
   imageHdfsPath?: string;
-  /** The hdfs path where the output result is saved */
+  /** 输出结果保存的hdfs路径 */
   outputHdfsPath?: string;
-  /** The tos bucket name of the dataset to be inferred */
+  /** 待推理的数据集的tos桶名 */
   tosBucketName?: string;
-  /** The TOS object name of the dataset to be inferred */
+  /** 待推理的数据集的tos对象名称 */
   tosObjKey?: string;
-  /** Output result saved tos bucket name */
+  /** 输出结果保存的tos桶名 */
   outputTosBucketName?: string;
-  /** The name of the tos object saved by the output result */
+  /** 输出结果保存的tos对象名称 */
   outputTosObjKey?: string;
 }
 
@@ -139,14 +139,14 @@ export interface BatchInferParam {
   topK?: string;
   maxNewToken?: string;
   maxContextToken?: string;
-  /** number of inferences */
+  /** 推理次数 */
   inferTimes?: string;
-  /** inference batch size */
+  /** 推理批次大小 */
   batchSize?: string;
 }
 
 export interface BatchInferTask {
-  /** Not passed on when created */
+  /** 创建时不传 */
   id?: Int64;
   name?: string;
   desc?: string;
@@ -160,15 +160,15 @@ export interface BatchInferTask {
   errCode?: string;
   errMsg?: string;
   ckptExecRes?: CkptExecResult;
-  /** Fornax space ID */
+  /** Fornax空间ID */
   spaceID?: string;
-  /** creator ID */
+  /** 创建人ID */
   createdBy?: string;
-  /** Creation time, seconds */
+  /** 创建时间，秒 */
   createdAt?: string;
-  /** Updater ID */
+  /** 更新人ID */
   updatedBy?: string;
-  /** Update time in seconds */
+  /** 更新时间，秒 */
   updatedAt?: string;
 }
 
@@ -176,167 +176,167 @@ export interface CkptConfig {
   name?: string;
   maxRetryTime?: string;
   retryIntervalMilliSecond?: string;
-  /** The way the retry interval changes, supporting fixed intervals and gradual changes over time */
+  /** 重试时间间隔的变化方式，支持固定间隔和随时间渐进式变化 */
   retryIntervalChangeType?: string;
-  /** For every x retries, the retry interval changes */
+  /** 每重试x次，重试时间间隔会发生变化 */
   retryIntervalChangeTimes?: string;
-  /** The step size of each retry interval, in ms, can be negative */
+  /** 每次重试时间间隔变化的步长，单位为ms，可以为负数 */
   retryIntervalChangeStep?: string;
   customConfigs?: Record<string, string>;
-  /** Time interval to trigger the next checkpoint in ms */
+  /** 触发下一个checkpoint的时间间隔，单位为ms */
   triggerNextCkptIntervalMilliSecond?: string;
 }
 
 export interface CkptExecResult {
-  /** Upload dataset to HDFS [1, 10]
-Address where the dataset is uploaded to HDFS */
+  /** 上传数据集到HDFS  [1,10)
+数据集上传到hdfs的地址 */
   datasetHdfsAddress?: string;
-  /** Upload progress, same length as batchInferDatasets */
+  /** 上传进度，长度与 batchInferDatasets 相同 */
   datasetUploadProgresses?: Array<InferUploadProgress>;
-  /** Incoming data column names for offline inference tasks */
+  /** 传入离线推理任务的数据列名 */
   inferTaskColumnName?: string;
-  /** The column name where the item id is located */
+  /** item id 所在的列名 */
   itemIDColumnName?: string;
-  /** Column name where dataset id is located */
+  /** dataset id 所在的列名 */
   datasetIDColumnName?: string;
-  /** Upload the dataset to the bucket of tos */
+  /** 数据集上传到 tos 的 bucket */
   datasetTosBucket?: string;
-  /** Dataset object key uploaded to tos */
+  /** 数据集上传到 tos 的object key */
   datasetTosObjectKey?: string;
-  /** Create reasoning tasks [10, 20]
-The merlin seed offline inference task is actually outsourced in the merlin task use case, record the merlin task use case id here */
+  /** 创建推理任务 [10,20)
+merlin seed离线推理任务实际上就是在merlin任务用例外包了一层，在这里记录这个merlin任务用例id */
   merlinJobID?: string;
-  /** Merlin seed offline inference task link */
+  /** merlin seed离线推理任务链接 */
   merlinDataProcessTaskUrl?: string;
-  /** Third-party platform task link */
+  /** 第三方平台任务链接 */
   providerTaskUrl?: string;
-  /** Check inference task status [20, 30]
-Merlin inference task status */
+  /** 检查推理任务状态 [20,30)
+merlin推理任务状态 */
   merlinDataProcessInstanceStatusGroup?: string;
-  /** Merlin inference task status details */
+  /** merlin推理任务状态详情 */
   merlinDataProcessInstanceStatus?: string;
-  /** Merlin task instance terminated */
+  /** merlin 任务实例是否终止 */
   merlinJobTerminated?: boolean;
-  /** Merlin task instance status */
+  /** merlin 任务实例状态 */
   merlinJobStatus?: string;
-  /** Merlin task instance error message */
+  /** merlin 任务实例错误信息 */
   merlinJobErrMsg?: string;
-  /** There are error messages reported by the merlin task instance */
+  /** 有merlin 任务实例上报的错误信息 */
   merlinJobUploadedErrMsg?: string;
-  /** Ark mission status */
+  /** 方舟任务状态 */
   arkJobStatus?: string;
-  /** Ark mission status description */
+  /** 方舟任务状态说明 */
   arkJobDetail?: string;
-  /** Ark mission status update time */
+  /** 方舟任务状态更新时间 */
   arkJobStatusUpdateTimeMs?: Int64;
-  /** Derived inference results [30, 40]
-Column names for inference output */
+  /** 导出推理结果 [30,40)
+推理结果输出的列名 */
   inferResultColumnName?: string;
-  /** The hdfs address where the inference result is saved, possibly a folder */
+  /** 推理结果保存的hdfs地址，可能为文件夹 */
   inferResultHdfsAddress?: string;
-  /** Is the result exported? */
+  /** 结果是否导出完成 */
   resultExported?: boolean;
-  /** Inference result export progress */
+  /** 推理结果导出进度 */
   inferExportProgress?: InferExportProgress;
 }
 
 export interface InferExportProgress {
-  /** Storage platform for inference results */
+  /** 推理结果的存储平台 */
   provider?: datasetv2.StorageProvider;
-  /** The file format of the inference result. If the path of the result is a folder, then only export all files in this format in this folder */
+  /** 推理结果的文件格式，如果结果的路径是文件夹，那么只导出这个文件夹下所有该格式的文件 */
   fileFormat?: datasetv2job.FileFormat;
-  /** The address of the export result, which can be a folder. */
+  /** 导出结果的地址，可以是文件夹 */
   path?: string;
-  /** Sub-progress (progress of all resulting files) */
+  /** 子进度（所有结果文件的进度） */
   subProgresses?: Array<InferExportProgress>;
-  /** progress information
-total number of rows */
+  /** 进度信息
+总行数 */
   total?: Int64;
-  /** Number of rows processed */
+  /** 已处理的行数 */
   processed?: Int64;
-  /** Add the number of successful rows */
+  /** 添加成功的行数 */
   added?: Int64;
-  /** run log
-Error message, this field is not available in the child progress */
+  /** 运行日志
+错误信息，子进度中无该字段 */
   errors?: Array<datasetv2.ItemErrorGroup>;
 }
 
 export interface InferUploadProgress {
-  /** Storage platform to be uploaded to */
+  /** 需要上传到的存储平台 */
   provider?: datasetv2.StorageProvider;
-  /** File format to be uploaded */
+  /** 需要上传的文件格式 */
   fileFormat?: datasetv2job.FileFormat;
-  /** Uploaded address */
+  /** 上传的地址 */
   path?: string;
-  /** Sub-progress (progress of all uploaded files) */
+  /** 子进度（所有上传文件的进度） */
   subProgresses?: Array<InferExportProgress>;
-  /** The dataset ID to be uploaded, which is not available in the child progress */
+  /** 需要上传的数据集 ID，在子进度中无该字段 */
   datasetID?: Int64;
-  /** The cursor uploaded by the current dataset, this field is not available in the child progress */
+  /** 当前数据集上传的 cursor，在子进度中无该字段 */
   cursor?: string;
-  /** progress information
-total number of rows */
+  /** 进度信息
+总行数 */
   total?: Int64;
-  /** Number of rows processed */
+  /** 已处理的行数 */
   processed?: Int64;
 }
 
 export interface InputConfig {
   type?: InputConfigType;
-  /** Dataset column name as input */
+  /** 作为输入的数据集列名 */
   rawInput?: string;
-  /** Uniquely identifying column names for each row of data */
+  /** 每行数据的唯一标识的列名 */
   itemID?: string;
 }
 
 export interface MerlinModel {
-  /** Record some extra information, such as whether it is a pedestal model or a trained model. If it is a trained model, then you also need to record the id of the training task.
-Model file save address */
+  /** 多记录一些额外信息，比如是基座模型还是训练后的模型，如果是训练后的模型，那么还需要记录训练任务的id
+模型文件保存地址 */
   hdfsPath?: string;
-  /** pedestal model name */
+  /** 基座模型名称 */
   foundationModelName?: string;
-  /** 3: optional string foundationModelFamily//base model familyal model family
-4: optional string foundationModelVendor//base model manufacturerodel manufacturer
-5: optional string foundationModelDisplayName//base model display name model display name
-6: optional i64 foundationModelVersionUpdateTimeInMs//base model version update time version update time
-Training task id. When the training task is non-zero, it means that the model used for this batch inference is the product of training */
+  /** 3: optional string foundationModelFamily // 基座模型家族
+4: optional string foundationModelVendor // 基座模型厂商
+5: optional string foundationModelDisplayName // 基座模型显示名称
+6: optional i64 foundationModelVersionUpdateTimeInMs // 基座模型版本更新时间
+训练任务id，当训练任务非0时，说明此次批量推理使用的模型是训练后的产物 */
   sftTaskID?: string;
-  /** The name of the training product (this requires that the product has been exported to Merlin's model repository, so this name is the name of a model repository in Merlin) */
+  /** 训练产物的名称(此时要求该产物已经导出到merlin的模型仓库中，因此这个name就是merlin的某个模型仓库名称) */
   merlinModelName?: string;
-  /** A version of one of Merlin's model repositories */
+  /** merlin的某个模型仓库的版本 */
   merlinModelVersion?: string;
-  /** training type */
+  /** 训练类型 */
   trainingType?: TrainingType;
-  /** Training method */
+  /** 训练方法 */
   trainingMethod?: TrainingMethod;
 }
 
 export interface MerlinResource {
   type?: MerlinQuotaPoolType;
-  /** User group id, only 1 is supported for the time being. */
+  /** 用户组id，暂时只支持1个 */
   groupIDs?: Array<string>;
-  /** cluster id */
+  /** 集群id */
   clusterID?: string;
-  /** Whether to use available resources */
+  /** 是否使用可占用资源 */
   preemptible?: boolean;
-  /** Role configuration, only 1 is supported for the time being. */
+  /** 角色配置，暂时只支持1个 */
   roles?: Array<MerlinResourceRole>;
-  /** Key is the user group id and val is the user group name */
+  /** key是用户组id，val是用户组名称 */
   groupNames?: Record<Int64, string>;
-  /** cluster name */
+  /** 集群名称 */
   clusterName?: string;
 }
 
 export interface MerlinResourceRole {
-  /** Number of instances, required 1 */
+  /** 实例数，必填1 */
   num?: number;
-  /** Virtual GPU model */
+  /** 虚拟gpu型号 */
   gpuv?: string;
-  /** Number of GPUs */
+  /** gpu数量 */
   gpu?: number;
-  /** CPU number */
+  /** cpu数量 */
   cpu?: number;
-  /** Memory size, in MB */
+  /** 内存大小，单位是MB */
   memory?: number;
 }
 
@@ -358,9 +358,9 @@ export interface ModelCard {
 
 export interface OutputConfig {
   type?: OutputConfigType;
-  /** The output will be saved in this dataset column name */
+  /** 输出会保存在这个数据集列名 */
   rawOutput?: string;
-  /** The full output will be saved in this dataset column name (currently only ARK/open source models/trained open source models are supported). */
+  /** 完整输出会保存在这个数据集列名（目前只支持方舟/开源模型/训练后的开源模型） */
   completeOutput?: string;
 }
 
@@ -372,9 +372,9 @@ export interface ProviderInfo {
   merlinSeedDataProcessType?: MerlinSeedDataProcessType;
   /** open source model */
   merlinModel?: MerlinModel;
-  /** Ark model */
+  /** 方舟model */
   arkModel?: ArkModel;
-  /** Ark project name */
+  /** 方舟项目名称 */
   arkProjectName?: string;
 }
 /* eslint-enable */

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import Mock from 'mockjs';
 
 import { ChatCoreUploadPlugin } from '@/plugins/upload-plugin';
@@ -42,7 +42,7 @@ describe('创建消息', () => {
   const chat = new ChatSDK(sdkProps);
 
   // Register plugin
-  // @TS-expected-error -- no real plugin is required in the test file
+  // @ts-expect-error -- no real plugin is required in the test file
   chat.registerPlugin('upload-plugin', ChatCoreUploadPlugin, {
     userId: '123',
     appId: 123,
@@ -158,14 +158,14 @@ describe('创建消息', () => {
     const options = { section_id: '123' };
 
     // Register plugin
-    // @TS-expected-error -- test file ignored
+    // @ts-expect-error -- test file ignored
     chat.registerPlugin('upload-plugin', ChatCoreUploadPlugin, {
       userId: '123',
       appId: 123,
     });
 
     // Execute
-    // @TS-expected-error -- test file
+    // @ts-expect-error -- test file
     const message = chat.createImageMessage(props, options);
 
     // Assert
@@ -230,7 +230,7 @@ describe('创建消息', () => {
     const options = { section_id: '123' };
 
     // Execute
-    // @TS-expected-error -- test file
+    // @ts-expect-error -- test file
     const message = chat.createFileMessage(props, options);
 
     // Assert
@@ -248,7 +248,7 @@ describe('创建消息', () => {
           },
           {
             type: ContentType.File,
-            // @TS-expected-error -- test file
+            // @ts-expect-error -- test file
             file: {
               type: 'pdf',
               name: 'file.pdf',
@@ -258,7 +258,7 @@ describe('创建消息', () => {
           },
           {
             type: ContentType.Image,
-            // @TS-expected-error -- test file
+            // @ts-expect-error -- test file
             file: {
               type: 'png',
               name: 'image.png',

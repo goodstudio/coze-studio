@@ -23,31 +23,31 @@ import * as common from './common';
 
 export type Int64 = string | number;
 
-/** Examination qualification */
+/** 考试资格 */
 export enum CertStatus {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** effective */
+  /** 有效 */
   Valid = 1,
-  /** invalid */
+  /** 无效 */
   Invalid = 2,
-  /** No questions available (speaking or listening) */
+  /** 无可用试题(口语试卷或听力试题) */
   OutOfQuestions = 3,
 }
 
 export enum ConfirmUniExamType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** confirm */
+  /** 确认 */
   Confirm = 1,
-  /** save */
+  /** 保存 */
   Save = 2,
-  /** timing confirmation */
+  /** 定时确认 */
   ConfirmByCron = 3,
 }
 
 export enum DetailLevel {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
   /** A1.1 */
   A1_1 = 1,
@@ -74,29 +74,29 @@ export enum DetailLevel {
 }
 
 export enum EmailOperation {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** new */
+  /** 新增 */
   Create = 1,
-  /** cover */
+  /** 覆盖 */
   Update = 2,
-  /** delete */
+  /** 删除 */
   Delete = 3,
 }
 
 export enum ExamCategory {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** official exam */
+  /** 正式考试 */
   Formal = 1,
-  /** mock exam */
+  /** 模拟考试 */
   Simulation = 2,
-  /** spoken questions */
+  /** 口语刷题 */
   OralPractice = 3,
 }
 
 export enum GeneralLevel {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
   /** A2 */
   A2 = 1,
@@ -108,55 +108,55 @@ export enum GeneralLevel {
   C1 = 4,
 }
 
-/** Delete state */
+/** 删除状态 */
 export enum IsDeleted {
-  /** No */
+  /** 否 */
   No = 0,
-  /** Yes */
+  /** 是 */
   Yes = 1,
 }
 
-/** Unified Examination
- ======================= enumerate =======================
- online status */
+/** 统一考试
+ ======================= 枚举 =======================
+ 在线状态 */
 export enum OnlineStatus {
-  /** go offline */
+  /** 下线 */
   Offline = 0,
-  /** go online */
+  /** 上线 */
   Online = 1,
 }
 
 export enum PracticeStatus {
-  /** No */
+  /** 否 */
   No = 0,
-  /** Yes */
+  /** 是 */
   Yes = 1,
 }
 
-/** Title correction status */
+/** 题目批改状态 */
 export enum QuestionCheckStatus {
-  /** Unapproved */
+  /** 未批改 */
   NotChecked = 0,
-  /** ASR success */
+  /** ASR成功 */
   AsrSuccess = 1,
-  /** ASR failure */
+  /** ASR失败 */
   AsrFailed = 2,
-  /** Correction successful */
+  /** 批改成功 */
   CheckSuccess = 3,
-  /** correction failed */
+  /** 批改失败 */
   CheckFailed = 4,
 }
 
 export enum QuestionGroupCategory {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Length of hearing */
+  /** 长短听力 */
   ShortLong = 1,
-  /** N choose n */
+  /** n选n */
   NFromN = 2,
 }
 
-/** Spoken part identification */
+/** 口语题part标识 */
 export enum QuestionOralPart {
   /** Part 1 */
   One = 1,
@@ -169,487 +169,487 @@ export enum QuestionOralPart {
 }
 
 export enum RobotMessageStatus {
-  /** to be pushed */
+  /** 待推送 */
   Pending = 0,
-  /** Pushing */
+  /** 推送中 */
   Sending = 1,
-  /** Push successful */
+  /** 推送成功 */
   Success = 2,
-  /** push failed */
+  /** 推送失败 */
   Failed = 3,
 }
 
 export enum RobotMessageType {
-  /** Team learning reminder */
+  /** 团队学习提醒 */
   TeamStudy = 0,
-  /** Team test reminder */
+  /** 团队测试提醒 */
   DeprecatedTeamExam = 1,
-  /** Feishu group event notification */
+  /** 飞书群组活动通知 */
   FeishuGroupActivity = 2,
-  /** Unified Exam Reminder */
+  /** 统一考试提醒 */
   UniExamRemind = 3,
 }
 
-/** mock exam */
+/** 模拟考试 */
 export enum SimulationStatus {
-  /** No */
+  /** 否 */
   No = 0,
-  /** Yes */
+  /** 是 */
   Yes = 1,
 }
 
 export enum TeamExamConfigurationType {
-  /** filter based */
+  /** 基于筛选 */
   Filter = 0,
-  /** Mailbox based */
+  /** 基于邮箱 */
   Email = 1,
 }
 
 export enum TeamExamUserStatus {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Configuration successful */
+  /** 配置成功 */
   Success = 1,
-  /** Configuration failed */
+  /** 配置失败 */
   Failure = 2,
 }
 
-/** user test status */
+/** 用户考试状态 */
 export enum UniExamStatus {
-  /** in progress */
+  /** 进行中 */
   InProgress = 0,
-  /** Completed. */
+  /** 已完成 */
   Finished = 1,
-  /** Pending review */
+  /** 待复核 */
   ToBeReviewed = 2,
-  /** Pending correction */
+  /** 待批改 */
   ToBeChecked = 3,
-  /** to be tested */
+  /** 待加试 */
   ToBeAdditional = 4,
-  /** Additional test in progress */
+  /** 加试进行中 */
   AdditionInProgress = 5,
-  /** Exited */
+  /** 已退出 */
   Exited = 6,
-  /** forced exit */
+  /** 强制退出 */
   ForcedExit = 7,
 }
 
 export enum UserType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Feishu user */
+  /** 飞书用户 */
   Lark = 1,
-  /** external user */
+  /** 外部用户 */
   External = 2,
 }
 
 export interface OralCheckTaskResult {
-  /** Task ID */
+  /** 任务ID */
   task_id?: string;
   /** "pending", "completed", "failed" */
   status?: string;
-  /** Audio URI */
+  /** 音频URI */
   audio_uri?: string;
-  /** user audio to text */
+  /** 用户录音转文本 */
   asr_text?: string;
-  /** Gpt correction result of text */
+  /** gpt对文本的批改结果 */
   gpt_check_result?: string;
-  /** error message */
+  /** 错误信息 */
   error?: string;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface RobotMessage {
-  /** Message ID */
+  /** 消息ID */
   id?: Int64;
-  /** message content */
+  /** 消息内容 */
   payload?: string;
-  /** push time */
+  /** 推送时间 */
   push_time?: Int64;
-  /** message type */
+  /** 消息类型 */
   type?: RobotMessageType;
-  /** message status */
+  /** 消息状态 */
   status?: RobotMessageStatus;
-  /** Association ID, corresponding to RobotMessageType */
+  /** 关联 ID，与 RobotMessageType 对应 */
   rid?: Int64;
-  /** push record */
+  /** 推送记录 */
   schedule_records?: Array<ScheduleRecord>;
 }
 
 export interface ScheduleRecord {
-  /** record ID */
+  /** 记录ID */
   id?: Int64;
-  /** bot message ID */
+  /** 机器人消息ID */
   robot_message_id?: Int64;
-  /** push result */
+  /** 推送结果 */
   schedule_result?: string;
-  /** push user */
+  /** 推送用户 */
   schedule_users?: string;
 }
 
-/** ======================= response model ======================= */
+/** ======================= 响应模型 ======================= */
 export interface Team {
   id?: Int64;
-  /** Team name */
+  /** 团队名称 */
   name?: string;
-  /** Team avatar */
+  /** 团队头像 */
   avatar?: string;
-  /** The latest team exam */
+  /** 最新团队考试 */
   latest_team_exam?: TeamExam;
-  /** Team Exam List */
+  /** 团队考试列表 */
   team_exams?: Array<TeamExam>;
 }
 
 export interface TeamExam {
   id?: Int64;
-  /** test name */
+  /** 测试名称 */
   name?: string;
-  /** Team ID */
+  /** 团队ID */
   team_id?: Int64;
-  /** Correction Type 0 Unknown Status 4 Manual Correction 5 Machine Correction */
+  /** 批改类型 0未知状态 4人工批改 5机器批改 */
   check_type?: common.TeamExamCheckType;
-  /** Status 0 In progress 1 Not started 2 Completed */
+  /** 状态 0进行中 1未开始 2已完成 */
   status?: common.TeamExamStatus;
-  /** start time */
+  /** 开始时间 */
   begin_at?: Int64;
-  /** end time */
+  /** 结束时间 */
   end_at?: Int64;
-  /** Examination eligibility filter conditions */
+  /** 考试资格过滤条件 */
   filter?: TeamExamTestFilter;
-  /** Type 0 Test 1 Team Exam (Historical Data) */
+  /** 类型 0测试 1团队考试(历史数据) */
   category?: common.TeamExamCategory;
-  /** Team */
+  /** 团队 */
   team?: Team;
-  /** My exam records */
+  /** 我的考试记录 */
   my_uni_exam?: UniExam;
-  /** List of user exams participating in the team exam (maximum 100) */
+  /** 参与团队考试的用户考试列表(最大100条) */
   uni_exams?: Array<UniExam>;
-  /** Total number of user exam lists participating in team exams */
+  /** 参与团队考试的用户考试列表总数 */
   uni_exams_total?: Int64;
-  /** List of users who have not completed the exam (maximum 100) */
+  /** 未完成考试的用户列表(最大100条) */
   unfinished_users?: Array<User>;
-  /** Total number of users who did not complete the exam */
+  /** 未完成考试的用户列表总数 */
   unfinished_users_total?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface TeamExamTestEmail {
-  /** email list */
+  /** 邮箱列表 */
   emails?: Array<string>;
-  /** Email excel file URL */
+  /** 邮箱excel文件URL */
   file_url?: string;
 }
 
 export interface TeamExamTestFilter {
-  /** English group */
+  /** 英语分组 */
   english_group?: Array<string>;
-  /** Employee role */
+  /** 员工角色 */
   role?: Array<string>;
-  /** The highest score in history */
+  /** 历史最高成绩 */
   highest_score?: Array<string>;
-  /** Is there any non-Chinese subordinate? */
+  /** 是否有非中下属 */
   has_overseas_subordinate?: boolean;
 }
 
 export interface UniExam {
   id?: Int64;
-  /** user ID */
+  /** 用户ID */
   user_id?: Int64;
-  /** Team Exam ID */
+  /** 团队考试ID */
   team_exam_id?: Int64;
-  /** Listening Test ID */
+  /** 听力考试ID */
   uni_exam_listening_paper_id?: Int64;
-  /** Listening first test ID */
+  /** 听力第一次加试 ID */
   uni_exam_listening_paper_plus_one_id?: Int64;
-  /** Listening Second Additional Test ID */
+  /** 听力第二次加试 ID */
   uni_exam_listening_paper_plus_two_id?: Int64;
-  /** Oral Question 1 */
+  /** 口语题1 */
   uniexam_oral_question_one_id?: Int64;
-  /** Speaking Question 2 */
+  /** 口语题2 */
   uniexam_oral_question_two_id?: Int64;
-  /** Oral Question 3 */
+  /** 口语题3 */
   uniexam_oral_question_three_id?: Int64;
-  /** Oral Question 4 */
+  /** 口语题4 */
   uniexam_oral_question_four_id?: Int64;
-  /** Video address, discarded, changed to video conference list */
+  /** 视频地址, 废弃,改为视频会议列表 */
   video_uri?: string;
-  /** number of departures */
+  /** 离开次数 */
   leave_count?: number;
-  /** state */
+  /** 状态 */
   status?: UniExamStatus;
-  /** Listening test level */
+  /** 听力考试等级 */
   listening_paper_level?: GeneralLevel;
-  /** Listening test score */
+  /** 听力考试得分 */
   listening_score?: number;
-  /** Hearing rating (A/B/C1.1/2) */
+  /** 听力定级 (A/B/C1.1/2) */
   listening_level?: DetailLevel;
-  /** spoken score */
+  /** 口语得分 */
   oral_score?: number;
-  /** Oral grading (A/B/C1.1/2) */
+  /** 口语定级 (A/B/C1.1/2) */
   oral_level?: DetailLevel;
-  /** Final rating (A/B/C1.1/2) */
+  /** 最终定级 (A/B/C1.1/2) */
   final_level?: DetailLevel;
-  /** 0 official 1 mock exam */
+  /** 0 正式 1 模拟考试 */
   is_simulated?: SimulationStatus;
-  /** Synchronize to external table record id */
+  /** 同步到外部的表记录id */
   apaas_english_grade_id?: Int64;
-  /** user information */
+  /** 用户信息 */
   user?: User;
-  /** Team information */
+  /** 团队信息 */
   team?: Team;
-  /** Exam Type 1 Formal Exam 2 Mock Exam 3 Speaking Brush Questions */
+  /** 考试类型 1 正式考试 2 模拟考试 3 口语刷题 */
   category?: ExamCategory;
-  /** Type 4 New version grading [manual] 5 New version grading [machine modification] */
+  /** 类型 4新版定级[人工] 5新版定级[机改] */
   check_type?: common.TeamExamCheckType;
-  /** Team Exam Information */
+  /** 团队考试信息 */
   team_exam?: TeamExam;
-  /** video address list */
+  /** 视频地址列表 */
   video_uri_list?: Array<string>;
-  /** video address list */
+  /** 视频地址列表 */
   video_url_list?: Array<string>;
-  /** List of speaking questions */
+  /** 口语题目列表 */
   oral_questions?: Array<UniExamQuestion>;
-  /** Answer list */
+  /** 答案列表 */
   answers?: Array<UniExamAnswer>;
-  /** Listening Test Paper List */
+  /** 听力试卷列表 */
   listening_papers?: Array<UniExamListeningPaper>;
-  /** Video URL, obsolete */
+  /** 视频URL，废弃 */
   video_url?: string;
-  /** external presentation ID */
+  /** 外部展示ID */
   external_id?: string;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface UniExamAnswer {
   id?: Int64;
-  /** user id */
+  /** 用户id */
   user_id?: Int64;
-  /** Test record ID */
+  /** 考试记录id */
   uni_exam_id?: Int64;
-  /** Paper ID */
+  /** 试卷id */
   uniexam_listening_paper_id?: Int64;
-  /** Question ID */
+  /** 试题id */
   uniexam_question_id?: Int64;
-  /** Test question option id */
+  /** 试题选项id */
   uniexam_question_option_id?: Int64;
-  /** Recording content */
+  /** 录音内容 */
   audio_uri?: string;
-  /** Oral correction record */
+  /** 口语批改记录 */
   question_check?: UniExamQuestionCheck;
-  /** Recording URL */
+  /** 录音URL */
   audio_url?: string;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface UniExamAnswerUpdateParams {
-  /** Question ID */
+  /** 试题id */
   uniexam_question_id?: Int64;
-  /** Option ID (Listening Answer) */
+  /** 选项ID(听力回答) */
   uni_exam_question_option_id?: Int64;
-  /** Recorded URI (spoken answer) */
+  /** 录音uri(口语回答) */
   audio_uri?: string;
 }
 
 export interface UniExamListeningPaper {
-  /** Paper ID */
+  /** 试卷ID */
   id?: Int64;
-  /** Test paper name */
+  /** 试卷名称 */
   name?: string;
-  /** Paper grade */
+  /** 试卷等级 */
   level?: GeneralLevel;
-  /** Test paper status */
+  /** 试卷状态 */
   status?: OnlineStatus;
-  /** Whether to mock the test paper */
+  /** 是否模拟试卷 */
   is_simulated?: SimulationStatus;
-  /** Topic group list */
+  /** 题目组列表 */
   question_groups?: Array<UniExamQuestionGroup>;
 }
 
 export interface UniExamQuestion {
   id?: Int64;
-  /** Topic group id */
+  /** 题目组id */
   uniexam_question_group_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** Audio */
+  /** 音频 */
   audio_uri?: string;
-  /** picture */
+  /** 图片 */
   image_uri?: string;
-  /** Speaking part 1 | 2 | 3 | 4 */
+  /** 口语题 part 1|2|3|4 */
   oral_part?: QuestionOralPart;
-  /** 0 offline 1 online */
+  /** 0 下线 1 上线 */
   status?: OnlineStatus;
-  /** 0 formal questions 1 mock questions */
+  /** 0 正式题 1 模拟题 */
   is_simulated?: SimulationStatus;
-  /** Audio URL */
+  /** 音频URL */
   audio_url?: string;
-  /** image URL */
+  /** 图片URL */
   picture_url?: string;
-  /** list of options */
+  /** 选项列表 */
   options?: Array<UniExamQuestionOption>;
 }
 
 export interface UniExamQuestionCheck {
   id?: Int64;
-  /** Question ID */
+  /** 试题id */
   uniexam_question_id?: Int64;
-  /** Answer ID */
+  /** 回答id */
   uniexam_answer_id?: Int64;
-  /** correction status */
+  /** 批改状态 */
   status?: QuestionCheckStatus;
-  /** user audio to text */
+  /** 用户录音转文本 */
   asr_text?: string;
-  /** Gpt correction result of text */
+  /** gpt对文本的批改结果 */
   gpt_check_result?: string;
-  /** CEFR rating */
+  /** CEFR等级 */
   cefr_level?: DetailLevel;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
 export interface UniExamQuestionCreateNFNParams {
-  /** Topic ID, pass empty to create, otherwise update */
+  /** 题目ID，传空为创建，否则为更新 */
   question_id?: Int64;
-  /** Topic group ID */
+  /** 题目组ID */
   uni_exam_question_group_id?: Int64;
-  /** title */
+  /** 题目 */
   content?: string;
-  /** associated audio */
+  /** 关联音频 */
   audio_uri?: string;
-  /** associated image */
+  /** 关联图片 */
   image_uri?: string;
-  /** option content */
+  /** 选项内容 */
   option_content?: string;
 }
 
 export interface UniExamQuestionCreateParams {
-  /** Topic group ID */
+  /** 题目组ID */
   uni_exam_question_group_id?: Int64;
-  /** title */
+  /** 题目 */
   content?: string;
-  /** associated audio */
+  /** 关联音频 */
   audio_uri?: string;
-  /** associated image */
+  /** 关联图片 */
   image_uri?: string;
-  /** list of options */
+  /** 选项列表 */
   options?: Array<UniExamQuestionOptionCreateParams>;
 }
 
 export interface UniExamQuestionGroup {
   id?: Int64;
-  /** Paper ID */
+  /** 试卷id */
   uniexam_listening_paper_id?: Int64;
-  /** question stem */
+  /** 题干 */
   content?: string;
-  /** Audio */
+  /** 音频 */
   audio_uri?: string;
-  /** picture */
+  /** 图片 */
   image_uri?: string;
-  /** Topic group type */
+  /** 题目组类型 */
   category?: QuestionGroupCategory;
-  /** list of options */
+  /** 选项内容列表 */
   option_contents?: Array<string>;
-  /** Audio URL */
+  /** 音频URL */
   audio_url?: string;
-  /** image URL */
+  /** 图片URL */
   picture_url?: string;
-  /** list of topics */
+  /** 题目列表 */
   questions?: Array<UniExamQuestion>;
 }
 
 export interface UniExamQuestionOption {
   id?: Int64;
-  /** Topic ID */
+  /** 题目ID */
   uni_exam_question_id?: Int64;
-  /** option content */
+  /** 选项内容 */
   content?: string;
-  /** option correctness */
+  /** 选项正确性 */
   is_correct?: common.QuestionOptionCorrectStatus;
 }
 
 export interface UniExamQuestionOptionCreateParams {
-  /** Topic ID */
+  /** 题目ID */
   uni_exam_question_id?: Int64;
-  /** option content */
+  /** 选项内容 */
   content?: string;
-  /** option correctness */
+  /** 选项正确性 */
   is_correct?: common.QuestionOptionCorrectStatus;
 }
 
 export interface UniExamQuestionOptionUpdateParams {
-  /** Option ID */
+  /** 选项ID */
   id?: Int64;
-  /** Topic ID */
+  /** 题目ID */
   uni_exam_question_id?: Int64;
-  /** option content */
+  /** 选项内容 */
   content?: string;
-  /** option correctness */
+  /** 选项正确性 */
   is_correct?: common.QuestionOptionCorrectStatus;
-  /** Option marked for deletion */
+  /** 标记为删除的选项 */
   mark_as_delete?: boolean;
 }
 
 export interface UniExamQuestionUpdateParams {
-  /** Topic ID */
+  /** 题目ID */
   id?: Int64;
-  /** Topic group ID */
+  /** 题目组ID */
   uni_exam_question_group_id?: Int64;
-  /** title */
+  /** 题目 */
   content?: string;
-  /** associated audio */
+  /** 关联音频 */
   audio_uri?: string;
-  /** associated image */
+  /** 关联图片 */
   image_uri?: string;
-  /** list of options */
+  /** 选项列表 */
   options?: Array<UniExamQuestionOptionUpdateParams>;
-  /** Topics marked for deletion */
+  /** 标记为删除的题目 */
   mark_as_delete?: boolean;
 }
 
 export interface UniExamScoreRecord {
-  /** Listening test level */
+  /** 听力考试等级 */
   listening_paper_level?: GeneralLevel;
-  /** Listening test score */
+  /** 听力考试得分 */
   listening_score?: number;
-  /** Hearing rating (A/B/C1.1/2) */
+  /** 听力定级 (A/B/C1.1/2) */
   listening_level?: DetailLevel;
-  /** spoken score */
+  /** 口语得分 */
   oral_score?: number;
-  /** Oral grading (A/B/C1.1/2) */
+  /** 口语定级 (A/B/C1.1/2) */
   oral_level?: DetailLevel;
-  /** Final rating (A/B/C1.1/2) */
+  /** 最终定级 (A/B/C1.1/2) */
   final_level?: DetailLevel;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
-  /** Unified Exam ID */
+  /** 统一考试ID */
   exam_id?: Int64;
 }
 
 export interface User {
   id?: Int64;
-  /** user name */
+  /** 用户名 */
   name?: string;
-  /** avatar */
+  /** 头像 */
   avatar?: string;
-  /** email */
+  /** 邮箱 */
   email?: string;
-  /** Test ID */
+  /** 测试ID */
   test_id?: Int64;
-  /** test name */
+  /** 测试名称 */
   test_name?: string;
-  /** Unified Exam ID */
+  /** 统一考试ID */
   exam_id?: Int64;
 }
 /* eslint-enable */

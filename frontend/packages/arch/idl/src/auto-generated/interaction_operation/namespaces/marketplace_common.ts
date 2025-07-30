@@ -22,23 +22,23 @@
 export type Int64 = string;
 
 export enum FollowType {
-  /** It doesn't matter. */
+  /** 无关系 */
   Unknown = 0,
-  /** follow */
+  /** 关注 */
   Followee = 1,
-  /** fan */
+  /** 粉丝 */
   Follower = 2,
-  /** Follow each other */
+  /** 互相关注 */
   MutualFollow = 3,
 }
 
 export enum UserRole {
   Unknown = 0,
-  /** regular version */
+  /** 普通版 */
   Normal = 1,
-  /** Professional version main account */
+  /** 专业版主账号 */
   ProfessionalRootUser = 2,
-  /** Professional sub-account */
+  /** 专业版子账号 */
   ProfessionalBasicAccount = 3,
 }
 /* eslint-enable */

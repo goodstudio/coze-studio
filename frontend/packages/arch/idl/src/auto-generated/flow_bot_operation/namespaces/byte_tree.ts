@@ -28,13 +28,13 @@ export interface ByteTreeData {
 }
 
 export interface ByteTreeItem {
-  /** for display */
+  /** 展示用 */
   node_name?: string;
-  /** For parameter transfer */
+  /** 传参用 */
   node_id?: string;
 }
 
-/** Get the ByteTree dropdown */
+/** 获取服务树下拉列表 */
 export interface GetByteTreeByNameReq {
   name?: string;
   Base?: base.Base;

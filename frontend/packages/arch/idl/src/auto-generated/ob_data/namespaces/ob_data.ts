@@ -42,11 +42,11 @@ export enum Operation {
 }
 
 export interface AddBotAuthReq {
-  /** Bot ID */
+  /** Bot机器人ID */
   bot_id: string;
-  /** authorization type */
+  /** 授权类型 */
   auth_type: BotAuthType;
-  /** AGW loader common parameters ( */
+  /** AGW loader通用参数( */
   agw_common_param?: agw_common.AgwCommonParam;
 }
 
@@ -56,114 +56,114 @@ export interface AddBotAuthResp {
 }
 
 export interface APIQueryRequest {
-  /** Space ID for permission verification */
+  /** 空间ID，用于权限校验 */
   space_id: string;
-  /** Bot ID */
+  /** Bot机器人ID */
   bot_id: string;
-  /** Indicator name. Enumeration value: dau/dnu/wau/wnu/message_count/retention_rate/token */
+  /** 指标名。枚举值：dau/dnu/wau/wnu/message_count/retention_rate/token */
   metrics_type: string;
-  /** Time type. Enumeration value: hour/day/week/month/quarter/year */
+  /** 时间类型。枚举值：hour/day/week/month/quarter/year */
   time_type: string;
-  /** Time frame. */
+  /** 时间范围。 */
   time_range: TimeRange;
-  /** Other filter dimensions */
+  /** 其他过滤维度 */
   filter?: Filter;
-  /** filter abstraction */
+  /** 过滤器抽象 */
   criterias?: Array<Criteria>;
 }
 
 export interface APIQueryResponse {
   data: ObQueryData;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   code: Int64;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   msg: string;
 }
 
 export interface BatchAPIQueryRequest {
-  /** Space ID for permission verification */
+  /** 空间ID，用于权限校验 */
   space_id: string;
-  /** Bot ID */
+  /** Bot机器人ID */
   bot_id: string;
-  /** Multi-indicator name */
+  /** 多指标名称 */
   metrics_types: Array<string>;
-  /** time frame */
+  /** 时间范围 */
   time_range: TimeRange;
-  /** Need to return the data type, enumerate value/group_list/point_list/ranking, because the same indicator may require different data types */
+  /** 需要返回的数据类型，枚举value/group_list/point_list/ranking，因为同一个指标可能需要不同的数据类型 */
   data_type: string;
-  /** global filter dimension */
+  /** 全局过滤维度 */
   filter?: BatchFilter;
-  /** Aggregate dimension, dimension Aggregate metrics are required, currently only single dimension */
+  /** 聚合维度，维度聚合指标需要，目前只有单维度 */
   group_type?: Array<string>;
-  /** Time aggregation type, multi-axis chart/ranking required, enumeration: hour/day/week/month/quarter/year */
+  /** 时间聚合类型，多轴图/排名需要，枚举：hour/day/week/month/quarter/year */
   period_type?: string;
-  /** Fixed time range type, non-accumulative indicator required */
+  /** 固定时间范围类型，不可累加指标需要 */
   time_range_type?: string;
-  /** Is it requesting real-time data, which is used to display real-time icons? */
+  /** 是不是请求实时数据，实时数据用于展示实时图标 */
   is_realtime?: boolean;
 }
 
 export interface BatchAPIQueryResponse {
   data: Array<BatchObData>;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   code: Int64;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   msg: string;
 }
 
 export interface BatchAPIQueryV2Request {
-  /** Scene parameters, common parameters used in different scenarios */
+  /** 场景参数  不同场景使用的通用参数 */
   scene_param: common.SceneCommonParam;
-  /** Multi-indicator name */
+  /** 多指标名称 */
   metrics_types: Array<string>;
-  /** Need to return the data type, enumerate value/group_list/point_list/ranking, because the same indicator may require different data types */
+  /** 需要返回的数据类型，枚举value/group_list/point_list/ranking，因为同一个指标可能需要不同的数据类型 */
   data_type: string;
-  /** Data sources. Enumerations: user_overview, connector_group, user_engagement, error_code_group_value. A data source may be resolved in different data_type */
+  /** 数据源。枚举：user_overview，connector_group，user_engagement，error_code_group_value。一个数据源可能可以按不同的 data_type 进行解析 */
   data_source_type: string;
-  /** global filter dimension */
+  /** 全局过滤维度 */
   filter?: BatchFilter;
-  /** Aggregate dimension, dimension Aggregate metrics are required, currently only single dimension */
+  /** 聚合维度，维度聚合指标需要，目前只有单维度 */
   group_type?: Array<string>;
-  /** Time aggregation type, multi-axis chart/ranking required, enumeration: day, week, month, quarter */
+  /** 时间聚合类型，多轴图/排名需要，枚举：day、week、month、quarter */
   period_type?: string;
-  /** Fixed time range types. Enumerations: last_7_days, last_30_days, last_90_days, last_180_days, acc */
+  /** 固定时间范围类型。枚举：last_7_days、last_30_days、last_90_days、last_180_days、acc */
   time_range_type?: string;
 }
 
 export interface BatchAPIQueryV2Response {
   data: Array<BatchObData>;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   code: Int64;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   msg: string;
 }
 
 export interface BatchFilter {
-  /** channel name */
+  /** 渠道名 */
   connector_id?: Array<string>;
 }
 
 export interface BatchObData {
-  /** indicator type */
+  /** 指标类型 */
   metrics_type: string;
-  /** Data type returned */
+  /** 返回的数据类型 */
   data_type: string;
-  /** index total value */
+  /** 指标总值 */
   value?: Value;
-  /** Aggregate the result list, split by dimension */
+  /** 聚合结果列表，按照维度拆分 */
   group_list?: Array<Record<string, string>>;
-  /** Line chart point list */
+  /** 折线图point列表 */
   point_list?: Array<Point>;
-  /** ranking */
+  /** 排名 */
   ranking?: RankValue;
 }
 
 export interface BotAuthData {
-  /** permission type */
+  /** 权限类型 */
   auth_type: BotAuthType;
-  /** Is there any abnormality in the authorization, such as the location being forcibly rewritten when authorizing the location (because it cannot be resolved/the location is not compliant) */
+  /** 授权是否有异常情况，比如地理位置授权时强制改写了location（因为无法解析/位置不合规） */
   auth_status?: AuthStatus;
-  /** Geolocation authorization information, including location */
+  /** 地理位置授权信息，内含location */
   geo_location?: GeoLocation;
 }
 
@@ -176,17 +176,17 @@ export interface BotSatisfaction {
 export interface BotSatisfactionRequest {
   space_id: string;
   bot_id: string;
-  /** Time frame. */
+  /** 时间范围。 */
   time_range: TimeRange;
-  /** List of designated channels */
+  /** 指定的渠道列表 */
   connector_ids?: Array<string>;
 }
 
 export interface BotSatisfactionResponse {
   data: BotSatisfaction;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   code: Int64;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   msg: string;
 }
 
@@ -198,9 +198,9 @@ export interface Criteria {
 }
 
 export interface DeleteBotAuthReq {
-  /** Bot ID */
+  /** Bot机器人ID */
   bot_id: string;
-  /** permission type */
+  /** 权限类型 */
   auth_type: BotAuthType;
 }
 
@@ -229,45 +229,45 @@ export interface EvalSupportChannelRequest {
 
 export interface EvalSupportChannelResponse {
   data: EvalSupportChannel;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   code: Int64;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   msg: string;
 }
 
 export interface Filter {
-  /** User type. Enumeration value: new_user/old_user. If each field is not passed, it means no filtering. */
+  /** 用户类型。枚举值：new_user/old_user。每个字段不传的话，代表不进行过滤。 */
   user_type?: Array<string>;
-  /** channel name */
+  /** 渠道名 */
   connector_name?: Array<string>;
-  /** Retention period. Enumeration value: 1d/7d/30d */
+  /** 留存周期。枚举值：1d/7d/30d */
   retention_period?: Array<string>;
-  /** Large model names, such as GPT-3.5 */
+  /** 大模型名称，如GPT-3.5 */
   model_name?: Array<string>;
 }
 
 export interface GeoLocation {
-  /** Large regions, note: Chinese mainland, Hong Kong, Macau, Taiwan all have their own codes */
+  /** 大地区，注意: 中国大陆、香港、澳门、台湾都有自己的code */
   country_identifier?: string;
   country_name?: string;
-  /** Local, domestic is a province */
+  /** 局地，国内是省份 */
   subdivision_identifier?: string;
   subdivision_name?: string;
-  /** city */
+  /** 城市 */
   city_identifier?: string;
   city_name?: string;
-  /** Large regions, note: Chinese mainland, Hong Kong, Macau, Taiwan all have their own codes */
+  /** 大地区，注意: 中国大陆、香港、澳门、台湾都有自己的code */
   origin_country_identifier?: string;
   origin_country_name?: string;
-  /** Local, domestic is a province */
+  /** 局地，国内是省份 */
   origin_subdivision_identifier?: string;
   origin_subdivision_name?: string;
-  /** city */
+  /** 城市 */
   origin_city_identifier?: string;
   origin_city_name?: string;
-  /** Original client side ip */
+  /** 原客户端ip */
   client_ip?: string;
-  /** Authorization timestamp */
+  /** 授权时间戳 */
   auth_timestamp?: string;
 }
 
@@ -277,7 +277,7 @@ export interface GetBotFgRequest {
 }
 
 export interface GetBotFgResponse {
-  /** Fg switch for queries page */
+  /** queries页面的fg开关 */
   enable_queries?: boolean;
   code: Int64;
   msg: string;
@@ -286,17 +286,17 @@ export interface GetBotFgResponse {
 export interface GetQueriesDataRequest {
   space_id: string;
   bot_id: string;
-  /** time frame */
+  /** 时间范围 */
   time_range: TimeRange;
-  /** Key: field name, corresponding to GetQueriesFieldMetasResponse field_metas key */
+  /** key: field名称，对应 GetQueriesFieldMetasResponse.field_metas 的key */
   filters?: Record<string, queries.QueriesFilter>;
-  /** Sort fields, fill in the filters key */
+  /** 排序字段，填入filters的key */
   order_by?: string;
   /** asc/desc */
   sort_order?: string;
   /** offset */
   page_token?: Int64;
-  /** Default and maximum are 20. */
+  /** 默认和最多都是20个 */
   size?: Int64;
 }
 
@@ -314,26 +314,26 @@ export interface GetQueriesFieldMetasRequest {
 }
 
 export interface GetQueriesFieldMetasResponse {
-  /** Key: field name, such as "channel", "intention", etc., corresponding to the key of GetQueriesDataRequest. Filters */
+  /** key: field名称，如"channel"，"intention"等，对应 GetQueriesDataRequest.filters 的key */
   field_metas?: Record<string, queries.FieldMeta>;
   code: Int64;
   msg: string;
 }
 
 export interface ObData {
-  /** The time point of the indicator. Timestamp format, accurate to milliseconds */
+  /** 指标的时间点。时间戳格式，精确到毫秒 */
   metrics_time: Int64;
-  /** The value of the indicator */
+  /** 指标的值 */
   value: string;
-  /** Dimensions of metrics */
+  /** 指标的维度 */
   dim: Dim;
-  /** data label name */
+  /** 数据标签名称 */
   name?: Array<string>;
-  /** Data Label Name Additional Information */
+  /** 数据标签名称附加信息 */
   tag?: string;
-  /** Data label display name (can be displayed directly by the front end) */
+  /** 数据标签展示名称（可被前端直接展示） */
   label_name?: string;
-  /** The ID of the data label, which uniquely identifies the label and is used as a filter when jumping to the page */
+  /** 数据标签的id，唯一标识标签，用于作为跳转页面时的筛选条件 */
   label_id?: string;
 }
 
@@ -342,18 +342,18 @@ export interface ObQueryData {
 }
 
 export interface Point {
-  /** The time point of the indicator. Timestamp format, accurate to milliseconds */
+  /** 指标的时间点。时间戳格式，精确到毫秒 */
   metrics_time: Int64;
-  /** The value of the indicator */
+  /** 指标的值 */
   value: string;
 }
 
 export interface PreCheckAddBotAuthReq {
-  /** Bot ID */
+  /** Bot机器人ID */
   bot_id: string;
-  /** authorization type */
+  /** 授权类型 */
   auth_type: BotAuthType;
-  /** AGW loader common parameters ( */
+  /** AGW loader通用参数( */
   agw_common_param?: agw_common.AgwCommonParam;
 }
 
@@ -364,18 +364,18 @@ export interface PreCheckAddBotAuthResp {
 }
 
 export interface RankValue {
-  /** this cycle ranking */
+  /** 本周期排名 */
   value?: string;
-  /** last cycle ranking */
+  /** 上周期排名 */
   last_period_value?: string;
-  /** Category name */
+  /** 类目名称 */
   category_name?: string;
 }
 
 export interface TimeRange {
-  /** Start time. timestamp, accurate to milliseconds */
+  /** 开始时间。时间戳，精确到毫秒 */
   start: Int64;
-  /** End time. timestamp, accurate to milliseconds */
+  /** 结束时间。时间戳，精确到毫秒 */
   end: Int64;
 }
 
@@ -391,18 +391,18 @@ export interface UserIntentSatisfactionRanking {
 export interface UserIntentSatisfactionRankingRequest {
   space_id: string;
   bot_id: string;
-  /** Time frame. */
+  /** 时间范围。 */
   time_range: TimeRange;
   label_depth: string;
-  /** List of designated channels */
+  /** 指定的渠道列表 */
   connector_ids?: Array<string>;
 }
 
 export interface UserIntentSatisfactionRankingResponse {
   data: UserIntentSatisfactionRankings;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   code: Int64;
-  /** Use for API interfaces. Do not use this field for RPC interfaces */
+  /** 给API接口使用。RPC接口不要使用该字段 */
   msg: string;
 }
 
@@ -411,14 +411,14 @@ export interface UserIntentSatisfactionRankings {
 }
 
 export interface Value {
-  /** Current period value */
+  /** 本周期值 */
   value?: string;
-  /** upper period value */
+  /** 上周期值 */
   last_period_value?: string;
 }
 
 export interface ViewBotAuthReq {
-  /** Bot ID */
+  /** Bot机器人ID */
   bot_id: string;
 }
 

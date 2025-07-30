@@ -32,15 +32,15 @@ export enum AttributeValueType {
   BooleanList = 12,
 }
 
-/** Coze Pro Copy knowledge */
+/** coze专业版复制knowledge */
 export enum CopyTaskStatus {
-  /** create */
+  /** 创建 */
   Create = 1,
-  /** in progress */
+  /** 执行中 */
   InProgress = 2,
-  /** success */
+  /** 成功 */
   Success = 3,
-  /** fail */
+  /** 失败 */
   Fail = 4,
 }
 
@@ -57,9 +57,9 @@ export enum DatasetSource {
 export enum DatasetStatus {
   DatasetProcessing = 0,
   DatasetReady = 1,
-  /** soft delete */
+  /** 软删 */
   DatasetDeleted = 2,
-  /** Do not enable */
+  /** 不启用 */
   DatasetForbid = 3,
   DatasetFailed = 9,
 }
@@ -81,23 +81,23 @@ export enum EventType {
 }
 
 export enum InstanceStatus {
-  /** Created, it will not return to this state in theory */
+  /** 创建中, 理论上不会返回该状态 */
   InstanceStatusCreating = 0,
-  /** Running */
+  /** 运行中 */
   Running = 1,
-  /** The creation failed, and the state will not be returned in theory */
+  /** 创建失败, 理论上不会返回该状态 */
   InstanceStatusFailed = 2,
-  /** unsubscribe recycling */
+  /** 退订回收 */
   UnsubsRecycled = 3,
-  /** expiration shutdown */
+  /** 到期关停 */
   ExpiredClosed = 4,
-  /** Recycling at maturity */
+  /** 到期回收 */
   ExpiredRecycled = 5,
-  /** shutdown due */
+  /** 欠费关停 */
   InstanceStatusOverdueShutdown = 6,
-  /** Arrears recovery */
+  /** 欠费回收 */
   InstanceStatusOverdueRecycled = 7,
-  /** unsubscribe shutdown */
+  /** 退订关停 */
   InstanceStatusTerminatedShutdown = 8,
 }
 
@@ -124,22 +124,22 @@ export enum ResourceType {
 }
 
 export enum UserLevel {
-  /** The free version. */
+  /** 免费版。 */
   Free = 0,
-  /** overseas
+  /** 海外
 PremiumLite */
   PremiumLite = 10,
   /** Premium */
   Premium = 15,
   PremiumPlus = 20,
-  /** domestic
-V1 Volcano Pro */
+  /** 国内
+V1火山专业版 */
   V1ProInstance = 100,
-  /** Personal flagship version */
+  /** 个人旗舰版 */
   ProPersonal = 110,
-  /** Team Edition */
+  /** 团队版 */
   Team = 120,
-  /** Enterprise Edition */
+  /** 企业版 */
   Enterprise = 130,
 }
 
@@ -154,17 +154,17 @@ export interface CopyDatasetList {
 }
 
 export interface CreateDatasetRequest {
-  /** Knowledge base name, no more than 100 characters in length */
+  /** 知识库名称，长度不超过100个字符 */
   name?: string;
   description?: string;
   space_id?: string;
   icon_uri?: string;
   format_type?: common.FormatType;
-  /** Open to third-party business identity, coze pass 0 or no pass */
+  /** 开放给第三方的业务标识, coze 传 0 或者不传 */
   biz_id?: string;
-  /** Add project ID */
+  /** 新增project ID */
   project_id?: string;
-  /** Storage location, 0: byterag, 1: opensearch, 2: douyin */
+  /** 存储位置，0: byterag，1: opensearch，2: douyin */
   storage_location?: common.StorageLocation;
   Base?: base.Base;
 }
@@ -178,64 +178,64 @@ export interface CreateDatasetResponse {
 
 export interface Dataset {
   dataset_id?: string;
-  /** Dataset name */
+  /** 数据集名称 */
   name?: string;
-  /** file list */
+  /** 文件列表 */
   file_list?: Array<string>;
-  /** All file sizes */
+  /** 所有文件大小 */
   all_file_size?: Int64;
-  /** Bot count */
+  /** 使用Bot数 */
   bot_used_count?: number;
   status?: DatasetStatus;
-  /** List of file names in process, compatible with old logic */
+  /** 处理中的文件名称列表，兼容老逻辑 */
   processing_file_list?: Array<string>;
-  /** Update time, second timestamp */
+  /** 更新时间，秒级时间戳 */
   update_time?: number;
   icon_url?: string;
   description?: string;
   icon_uri?: string;
-  /** Can it be edited? */
+  /** 是否可以编辑 */
   can_edit?: boolean;
-  /** Creation time, second timestamp */
+  /** 创建时间，秒级时间戳 */
   create_time?: number;
-  /** creator ID */
+  /** 创建者ID */
   creator_id?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   creator_name?: string;
   avatar_url?: string;
-  /** Processing failed files */
+  /** 处理失败的文件 */
   failed_file_list?: Array<string>;
   format_type?: common.FormatType;
-  /** number of segments */
+  /** 分段数量 */
   slice_count?: number;
-  /** hit count */
+  /** 命中次数 */
   hit_count?: number;
-  /** number of documents */
+  /** 文档数量 */
   doc_count?: number;
-  /** slicing rule */
+  /** 切片规则 */
   chunk_strategy?: common.ChunkStrategy;
-  /** List of file IDs in process */
+  /** 处理中的文件ID列表 */
   processing_file_id_list?: Array<string>;
-  /** Add project ID */
+  /** 新增project ID */
   project_id?: string;
-  /** Storage location, 0: byterag, 1: opensearch, 2: douyin, currently only the dataset detail interface will return */
+  /** 存储位置，0: byterag，1: opensearch，2: douyin，目前只有dataset detail接口会返回 */
   storage_location?: common.StorageLocation;
-  /** Douyin Knowledge Base ID */
+  /** 抖音知识库id */
   dy_knowledge_id?: string;
-  /** Storage Configuration ID */
+  /** 存储配置id */
   storage_config_id?: string;
   dy_bot_id?: string;
-  /** 0 = coze knowledge base 1 = volcano knowledge base */
+  /** 0=coze知识库 1=火山知识库 */
   dataset_type?: DatasetType;
-  /** storage_config details */
+  /** storage_config详细信息 */
   storage_config?: StorageConfig;
 }
 
 export interface DatasetDetailRequest {
   dataset_ids?: Array<string>;
   space_id?: string;
-  /** Add project ID */
+  /** 新增project ID */
   project_id?: string;
   Base?: base.Base;
 }
@@ -248,18 +248,18 @@ export interface DatasetDetailResponse {
 }
 
 export interface DatasetFilter {
-  /** And if it's all set
-Keyword search, fuzzy match by name */
+  /** 如果都设置了，And 关系
+关键字搜索, 按照名称模糊匹配 */
   name?: string;
   /** deprecated */
   dataset_ids?: Array<string>;
-  /** source */
+  /** 来源 */
   source_type?: DatasetSource;
-  /** search type */
+  /** 搜索类型 */
   scope_type?: DatasetScopeType;
-  /** type */
+  /** 类型 */
   format_type?: common.FormatType;
-  /** Filter by coze/volcano */
+  /** 按coze/火山筛选 */
   dataset_type_list?: Array<DatasetType>;
 }
 
@@ -324,13 +324,13 @@ export interface KnowledgeBenefitCheckRequest {
 }
 
 export interface KnowledgeBenefitCheckResponse {
-  /** user's subscription level */
+  /** 用户的订阅等级 */
   UserLevel: UserLevel;
-  /** user's subscription status */
+  /** 用户的订阅状态 */
   InstanceStatus: InstanceStatus;
-  /** Usage limit for current users */
+  /** 当前用户的使用上限 */
   UpperBound: number;
-  /** Current user usage */
+  /** 当前用户已使用量 */
   Used: number;
   BaseResp: base.BaseResp;
 }
@@ -340,19 +340,19 @@ export interface ListDatasetRequest {
   page?: number;
   size?: number;
   space_id?: string;
-  /** sort field */
+  /** 排序字段 */
   order_field?: common.OrderField;
-  /** collation */
+  /** 排序规则 */
   order_type?: common.OrderType;
-  /** If the specified value is passed, the verification is released */
+  /** 如果传了指定值, 就放开校验 */
   space_auth?: string;
-  /** Business identity open to third parties */
+  /** 开放给第三方的业务标识 */
   biz_id?: string;
-  /** Whether the number of reference bots needs to be pulled will increase the response delay */
+  /** 是否需要拉取引用bots的数量，会增加响应延时 */
   need_ref_bots?: boolean;
-  /** Add project ID */
+  /** 新增project ID */
   project_id?: string;
-  /** Storage location, 0: byterag, 1: opensearch, 2: douyin */
+  /** 存储位置，0: byterag，1: opensearch，2: douyin */
   storage_location?: common.StorageLocation;
   Base?: base.Base;
 }
@@ -370,9 +370,9 @@ export interface RefBots {
 }
 
 export interface ResourceIdentifier {
-  /** resource type */
+  /** 资源类型 */
   Type: ResourceType;
-  /** Resource Id */
+  /** 资源Id */
   Id: string;
 }
 

@@ -26,7 +26,7 @@ export type Int64 = string | number;
 export interface CreateOfflineEvalTaskRequest {
   task?: modeleval.OfflineEvalTask;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
 }
 
@@ -37,7 +37,7 @@ export interface CreateOfflineEvalTaskResponse {
 export interface GetOfflineEvalTaskRequest {
   task_id?: string;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
 }
 
@@ -52,7 +52,7 @@ export interface ListOfflineEvalTaskRequest {
   userJwtToken?: string;
   pageSize?: Int64;
   pageNum?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
 }
 
@@ -67,7 +67,7 @@ export interface ParseMerlinSeedModelConfigRequest {
   modelSid?: string;
   trainingJobRunID?: string;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
 }
 
@@ -83,7 +83,7 @@ export interface ParseMerlinSeedModelConfigResponse {
 export interface TerminateOfflineEvalTaskRequest {
   taskID?: string;
   userJwtToken?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
 }
 

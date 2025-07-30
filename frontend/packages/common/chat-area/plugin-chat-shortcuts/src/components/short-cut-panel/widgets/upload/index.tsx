@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { type FC, useState, useRef, useEffect } from 'react';
 
 import classnames from 'classnames';
@@ -72,7 +72,7 @@ const UploadContent: FC<{
         },
       )}
       style={{
-        // @TS-expected-error ts cannot recognize custom variable
+        // @ts-expect-error ts cannot recognize custom variable
         '--var-percent': `${file.percent}%`,
       }}
     >

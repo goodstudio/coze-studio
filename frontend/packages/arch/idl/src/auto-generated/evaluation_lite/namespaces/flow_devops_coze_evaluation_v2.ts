@@ -28,19 +28,19 @@ import * as flow_devops_evaluation_entity from './flow_devops_evaluation_entity'
 export type Int64 = string | number;
 
 export enum BatchTaskStatus {
-  /** Created to run */
+  /** 创建完待运行 */
   Awaiting = 1,
-  /** in progress */
+  /** 进行中 */
   InProgress = 2,
-  /** Execution complete, all successful */
+  /** 执行完成，全部成功 */
   Complete = 3,
-  /** Execution completed, (partial) task failed */
+  /** 执行完成，(部分)任务失败 */
   Failed = 4,
-  /** Creating */
+  /** 创建中 */
   Creating = 5,
-  /** pause */
+  /** 暂停 */
   Paused = 6,
-  /** practice run */
+  /** 试运行 */
   TestRun = 7,
 }
 
@@ -82,7 +82,7 @@ export enum RunType {
 export interface BatchGetCozeBatchTaskProgressReq {
   space_id: Int64;
   batch_task_ids?: Array<Int64>;
-  /** Default false */
+  /** 默认false */
   is_test_run?: boolean;
   Base?: base.Base;
 }
@@ -154,7 +154,7 @@ export interface CostPredication {
   evaluation_rules_token?: Int64;
   credits_needed?: Int64;
   estimated_time?: Int64;
-  /** Use after the third phase of commercialization, resource point estimate */
+  /** 商业化三期后使用，资源点预估 */
   coze_credits_needed?: Int64;
 }
 
@@ -171,7 +171,7 @@ export interface CozeBatchTaskMeta {
   eval_objects?: Array<flow_devops_evaluation_task.EvalObject>;
   datasets?: Array<flow_devops_evaluation_dataset.DatasetInfo>;
   rule?: flow_devops_evaluation_evaluator.Rule;
-  /** Default FullEvaluation */
+  /** 默认 FullEvaluation */
   run_type?: RunType;
   built_in_dataset_ids?: Record<Int64, Int64>;
   creator_id?: Int64;
@@ -184,9 +184,9 @@ export interface CozeBatchTaskProgress {
   cost_consumption?: CostConsumption;
   status?: BatchTaskStatus;
   tasks?: Array<flow_devops_evaluation_task.Task>;
-  /** Completed tasks total milliseconds */
+  /** 已完成任务耗时总和 millisecond */
   duration?: Int64;
-  /** Estimated completion time in milliseconds */
+  /** 预估完成时间 millisecond */
   estimated_time_remaining?: Int64;
   total_row_count?: Int64;
 }
@@ -207,9 +207,9 @@ export interface CreateDatasetReq {
   name?: string;
   batch_task_id?: Int64;
   is_test_run?: boolean;
-  /** Whether to publish to the dataset list, not by default */
+  /** 是否发布到 dataset 列表, 默认不发部 */
   publish_option?: flow_devops_evaluation_dataset.PublishOption;
-  /** Whether to tag, not by default */
+  /** 是否打上tag, 默认不打上 */
   tag_list?: Array<flow_devops_evaluation_entity.TagInfo>;
   column_schema?: Array<flow_devops_evaluation_dataset.ColumnInfo>;
   row_groups?: Array<flow_devops_evaluation_dataset.RowGroup>;
@@ -224,7 +224,7 @@ export interface CreateDatasetResp {
 export interface CreditsCheckRequest {
   space_id: Int64;
   batch_task_id?: Int64;
-  /** Default Formal */
+  /** 默认Formal */
   credits_check_type?: CreditsCheckType;
   Base?: base.Base;
 }
@@ -249,8 +249,8 @@ export interface DashboardTaskRequest {
 }
 
 export interface DashboardTaskResponse {
-  /** Each row is a dataset (input, reference_output, variable)
-Same as ColumnName in the dataset */
+  /** 每一行是一条数据集的(input, reference_output, variable)
+和数据集里的ColumnName一致 */
   column_name: Array<string>;
   dashboard_row_groups: Array<flow_devops_evaluation_task.DashboardRowGroup>;
   column_rule_info?: Array<flow_devops_evaluation_task.ColumnRuleInfo>;
@@ -332,7 +332,7 @@ export interface InsertRowGroupsResp {
 export interface KillBatchTaskReq {
   space_id: Int64;
   batch_task_id: Int64;
-  /** Default false */
+  /** 默认false */
   is_test_run?: boolean;
   Base?: base.Base;
 }
@@ -360,9 +360,9 @@ export interface ListCozeBatchTaskResp {
 
 export interface ListDatasetReq {
   space_id: Int64;
-  /** Default Template */
+  /** 默认Template */
   dataset_type?: CozeDatasetType;
-  /** Temporarily invalid, default Agent */
+  /** 暂时无效，默认Agent */
   template_type?: CozeDatasetTemplateType;
   offset?: number;
   limit?: number;
@@ -410,7 +410,7 @@ export interface RetryBatchTaskResp {
 export interface SubmitBatchTaskReq {
   space_id: Int64;
   batch_task_id: Int64;
-  /** Default false */
+  /** 默认false */
   is_test_run?: boolean;
   Base?: base.Base;
 }
@@ -425,7 +425,7 @@ export interface UpdateCozeBatchTaskReq {
   batch_task_id: Int64;
   name?: string;
   status?: BatchTaskStatus;
-  /** Default FullEvaluation */
+  /** 默认 FullEvaluation */
   run_type?: RunType;
   Base?: base.Base;
 }

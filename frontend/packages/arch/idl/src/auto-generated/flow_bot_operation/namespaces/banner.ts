@@ -28,15 +28,15 @@ export enum BannerRegionType {
 }
 
 export enum BannerStatus {
-  /** draft */
+  /** 草稿 */
   Draft = 1,
-  /** On display */
+  /** 展示中 */
   PublishedOnDisplay = 2,
-  /** About to show */
+  /** 即将展示 */
   PublishedToDisplay = 3,
-  /** offline */
+  /** 已下线 */
   Offline = 4,
-  /** Ended */
+  /** 已结束 */
   End = 5,
 }
 
@@ -69,9 +69,9 @@ export interface GetBannerListData {
 }
 
 export interface GetBannerListRequest {
-  /** paging */
+  /** 分页 */
   page?: number;
-  /** paging size */
+  /** 分页大小 */
   size?: number;
 }
 
@@ -82,17 +82,17 @@ export interface GetBannerListResponse {
 }
 
 export interface UpdateBannerRequest {
-  /** When creating/createAndPublish, except for banner_id, the rest must be passed
-Delete/oofline only needs to pass banner_id
-Publish/update must pass banner_id, other fields depend on the situation */
+  /** create/createAndPublish时，除了banner_id，其余必传
+delete/oofline只需要传banner_id
+publish/update必传banner_id，其他字段看情况传 */
   action_type: UpdateBannerActionType;
-  /** Update/Delete Required */
+  /** Update/Delete必传 */
   banner_id?: string;
-  /** Create must pass */
+  /** create必传 */
   banner_content?: string;
-  /** Create must pass */
+  /** create必传 */
   color_scheme?: string;
-  /** Create must pass */
+  /** create必传 */
   region?: BannerRegionType;
   start_time?: Int64;
   end_time?: Int64;

@@ -289,7 +289,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/draft_project/copy
    *
-   * Draft project Copy as draft project
+   * 草稿project复制为草稿project
    */
   DraftProjectCopy(
     req?: project.DraftProjectCopyRequest,
@@ -477,7 +477,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/publish/connector_list
    *
-   * publish related interfaces
+   * 发布相关接口
    */
   PublishConnectorList(
     req: publish.PublishConnectorListRequest,
@@ -792,7 +792,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/publish/get_published_connector
    *
-   * Get the channel for successful project release
+   * 获取Project发布成功的渠道
    */
   GetProjectPublishedConnector(
     req: publish.GetProjectPublishedConnectorRequest,
@@ -905,7 +905,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/draft_project/crossspace_copy
    *
-   * Copy draft project across spaces to draft project
+   * 草稿project跨空间复制为草稿project
    */
   DraftProjectCrossSpaceCopy(
     req?: project.DraftProjectCrossSpaceCopyRequest,
@@ -1066,7 +1066,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/folder/create
    *
-   * folder related interface
+   * 文件夹相关接口
    */
   FolderCreate(
     req: folder.FolderCreateRequest,
@@ -1088,7 +1088,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/draft_project/archive
    *
-   * Project Archive
+   * Project存档
    */
   ArchiveProject(
     req: project.ArchiveProjectRequest,
@@ -1120,7 +1120,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/draft_project/history_list
    *
-   * historical record
+   * 历史记录
    */
   ProjectHistoryList(
     req: project.ProjectHistoryListRequest,
@@ -1143,7 +1143,7 @@ export default class IntelligenceApiService<T> {
   /**
    * POST /api/intelligence_api/draft_project/rollback
    *
-   * Roll back archived version to draft
+   * 回退存档版本到草稿
    */
   RollbackProject(
     req: project.RollbackProjectRequest,

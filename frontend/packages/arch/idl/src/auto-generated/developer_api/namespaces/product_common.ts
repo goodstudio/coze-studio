@@ -50,13 +50,13 @@ export enum SortType {
 }
 
 export enum VerifyStatus {
-  /** Not certified */
+  /** 未认证 */
   Pending = 1,
-  /** Certification successful */
+  /** 认证成功 */
   Succeed = 2,
-  /** Authentication failed */
+  /** 认证失败 */
   Failed = 3,
-  /** Authenticating */
+  /** 认证中 */
   InProgress = 4,
 }
 /* eslint-enable */

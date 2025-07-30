@@ -48,9 +48,9 @@ export interface CreateViewRequest {
   enterprise_id: string;
   fornax_space_id: string;
   view_name: string;
-  /** Platform type, data source */
+  /** 平台类型,数据来源 */
   platform_type: flow_devops_fornaxob_common.PlatformType;
-  /** Query span tab type */
+  /** 查询的 span 标签页类型 */
   span_list_type: flow_devops_fornaxob_common.SpanListType;
   filters: string;
   base?: base.Base;
@@ -84,9 +84,9 @@ export interface ListViewsResponse {
 }
 
 export interface ResourceIdentifier {
-  /** resource type */
+  /** 资源类型 */
   Type: ResourceType;
-  /** Resource Id */
+  /** 资源Id */
   Id: string;
 }
 
@@ -94,9 +94,9 @@ export interface UpdateViewRequest {
   id: string;
   fornax_space_id: string;
   view_name?: string;
-  /** Platform type, data source */
+  /** 平台类型,数据来源 */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** Query span tab type */
+  /** 查询的 span 标签页类型 */
   span_list_type?: flow_devops_fornaxob_common.SpanListType;
   filters?: string;
   base?: base.Base;
@@ -111,12 +111,12 @@ export interface View {
   enterprise_id?: string;
   fornax_space_id?: string;
   view_name: string;
-  /** Platform type, data source */
+  /** 平台类型,数据来源 */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** Query span tab type */
+  /** 查询的 span 标签页类型 */
   span_list_type?: flow_devops_fornaxob_common.SpanListType;
   filters: string;
-  /** Whether it is a system view, the system view cannot be deleted and modified, only save as can be applied */
+  /** 是否是系统视图，系统视图不可删除修改，只能应用另存为 */
   is_system: boolean;
 }
 /* eslint-enable */

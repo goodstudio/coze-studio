@@ -96,7 +96,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/list
    *
-   * Query evaluator by query criteria
+   * 按查询条件查询evaluator
    */
   ListEvaluator(
     req: stone_fornax_evaluation_evaluator.ListEvaluatorRequest,
@@ -121,7 +121,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/:evaluator_id/submit
    *
-   * Submit evaluator version
+   * 提交evaluator版本
    */
   SubmitEvaluatorVersion(
     req: stone_fornax_evaluation_evaluator.SubmitEvaluatorVersionRequest,
@@ -145,7 +145,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/get_batch
    *
-   * Batch query evaluator by id
+   * 按id批量查询evaluator
    */
   BatchGetEvaluator(
     req: stone_fornax_evaluation_evaluator.BatchGetEvaluatorRequest,
@@ -166,7 +166,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/create
    *
-   * Create evaluator
+   * 创建evaluator
    */
   CreateEvaluator(
     req: stone_fornax_evaluation_evaluator.CreateEvaluatorRequest,
@@ -186,7 +186,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * GET /api/evaluation/v2/evaluator/list_builtin_template
    *
-   * Get a list of built-in evaluator templates (without specifics)
+   * 获取内置评估器模板列表（不含具体内容）
    */
   ListBuiltinTemplate(
     req: stone_fornax_evaluation_evaluator.ListBuiltinTemplateRequest,
@@ -207,7 +207,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * GET /api/evaluation/v2/evaluator/get_builtin_template_info
    *
-   * Single query by key Built-in evaluator template details
+   * 按key单个查询内置评估器模板详情
    */
   GetBuiltinEvaluatorTemplate(
     req: stone_fornax_evaluation_evaluator.GetBuiltinTemplateInfoRequest,
@@ -229,7 +229,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * GET /api/evaluation/v2/evaluator/:evaluator_id
    *
-   * Single query evaluator by id
+   * 按id单个查询evaluator
    */
   GetEvaluator(
     req: stone_fornax_evaluation_evaluator.GetEvaluatorRequest,
@@ -251,7 +251,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/experiment/result
    *
-   * MGetExperimentResult obtain experimental results
+   * MGetExperimentResult 获取实验结果
    */
   MGetExperimentResult(
     req: stone_fornax_evaluation_expt.MGetExperimentResultRequest,
@@ -290,7 +290,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/version/get_batch
    *
-   * Bulk query evaluator version by version id
+   * 按版本id批量查询evaluator version
    */
   BatchGetEvaluatorVersion(
     req: stone_fornax_evaluation_evaluator.BatchGetEvaluatorVersionRequest,
@@ -313,7 +313,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * GET /api/evaluation/v2/evaluator/version/:evaluator_version_id
    *
-   * Single query evaluator by version id version
+   * 按版本id单个查询evaluator version
    */
   GetEvaluatorVersion(
     req: stone_fornax_evaluation_evaluator.GetEvaluatorVersionRequest,
@@ -335,7 +335,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * GET /api/evaluation/v2/evaluator_record/:evaluator_record_id
    *
-   * Query individual evaluator results by id
+   * 按id查询单个evaluator运行结果
    */
   GetEvaluatorRecord(
     req: stone_fornax_evaluation_evaluator.GetEvaluatorRecordRequest,
@@ -357,7 +357,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator_record/get_batch
    *
-   * Batch query evaluator running results by id
+   * 按id批量查询evaluator运行结果
    */
   BatchGetEvaluatorRecord(
     req: stone_fornax_evaluation_evaluator.BatchGetEvaluatorRecordRequest,
@@ -380,7 +380,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * PUT /api/evaluation/v2/evaluator_record/correct
    *
-   * Correction evaluator running score
+   * 修正evaluator运行分数
    */
   CorrectEvaluatorRecord(
     req: stone_fornax_evaluation_evaluator.CorrectEvaluatorRecordRequest,
@@ -493,7 +493,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluation_sets/:evaluation_set_id/items/batch
    *
-   * data management
+   * 数据管理
    */
   BatchCreateEvaluationSetItems(
     req: stone_fornax_evaluation_eval_set.BatchCreateEvaluationSetItemsReq,
@@ -553,7 +553,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluation_sets/:evaluation_set_id/versions
    *
-   * version management
+   * 版本管理
    */
   CreateEvaluationSetVersion(
     req: stone_fornax_evaluation_eval_set.CreateEvaluationSetVersionReq,
@@ -576,7 +576,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluation_sets
    *
-   * Basic information management
+   * 基本信息管理
    */
   CreateEvaluationSet(
     req: stone_fornax_evaluation_eval_set.CreateEvaluationSetReq,
@@ -619,7 +619,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * PUT /api/evaluation/v2/evaluation_sets/:evaluation_set_id/schema
    *
-   * field management
+   * 字段管理
    */
   UpdateEvaluationSetSchema(
     req: stone_fornax_evaluation_eval_set.UpdateEvaluationSetSchemaReq,
@@ -641,7 +641,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/version/list
    *
-   * Search evaluator version by evaluator id
+   * 按evaluator id查询evaluator version
    */
   ListEvaluatorVersion(
     req: stone_fornax_evaluation_evaluator.ListEvaluatorVersionRequest,
@@ -683,7 +683,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/experiment/submit
    *
-   * SubmitExperiment Create and Submit to Run
+   * SubmitExperiment 创建并提交运行
    */
   SubmitExperiment(
     req: stone_fornax_evaluation_expt.SubmitExperimentRequest,
@@ -799,7 +799,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * DELETE /api/evaluation/v2/evaluator/delete
    *
-   * Bulk delete evaluator
+   * 批量删除evaluator
    */
   DeleteEvaluator(
     req: stone_fornax_evaluation_evaluator.DeleteEvaluatorRequest,
@@ -838,7 +838,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * PUT /api/evaluation/v2/evaluator/update_meta
    *
-   * Modify evaluator meta information
+   * 修改evaluator元信息
    */
   UpdateEvaluatorMeta(
     req: stone_fornax_evaluation_evaluator.UpdateEvaluatorMetaRequest,
@@ -861,7 +861,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * PUT /api/evaluation/v2/evaluator/update_draft
    *
-   * Revise the draft evaluator
+   * 修改evaluator草稿
    */
   UpdateEvaluatorDraft(
     req: stone_fornax_evaluation_evaluator.UpdateEvaluatorDraftRequest,
@@ -883,7 +883,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/eval_targets/execute
    *
-   * execute
+   * 执行
    */
   ExecuteEvalTarget(
     req: stone_fornax_evaluation_eval_target.ExecuteEvalTargetRequest,
@@ -938,7 +938,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/eval_targets
    *
-   * Create a review object
+   * 创建评测对象
    */
   CreateEvalTarget(
     req: stone_fornax_evaluation_eval_target.CreateEvalTargetRequest,
@@ -958,7 +958,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/run
    *
-   * Evaluator run
+   * evaluator 运行
    */
   RunEvaluator(
     req: stone_fornax_evaluation_evaluator.RunEvaluatorRequest,
@@ -983,7 +983,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/debug
    *
-   * Evaluator debugging
+   * evaluator 调试
    */
   DebugEvaluator(
     req: stone_fornax_evaluation_evaluator.DebugEvaluatorRequest,
@@ -1005,7 +1005,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/eval_targets/list_source_version
    *
-   * Source Review Object Version List
+   * Source评测对象版本列表
    */
   ListSourceEvalTargetVersion(
     req: stone_fornax_evaluation_eval_target.ListSourceEvalTargetVersionRequest,
@@ -1030,7 +1030,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/eval_targets/list_source
    *
-   * List of Source Reviews
+   * Source评测对象列表
    */
   ListSourceEvalTarget(
     req: stone_fornax_evaluation_eval_target.ListSourceEvalTargetRequest,
@@ -1107,7 +1107,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/eval_targets/versions/batch_get
    *
-   * bulk acquisition + version
+   * 批量获取+版本
    */
   BatchGetEvalTargetVersion(
     req: stone_fornax_evaluation_eval_target.BatchGetEvalTargetVersionRequest,
@@ -1130,7 +1130,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * GET /api/evaluation/v2/eval_targets/versions/:eval_target_version_id
    *
-   * Get the evaluation object + version
+   * 获取评测对象+版本
    */
   GetEvalTargetVersion(
     req: stone_fornax_evaluation_eval_target.GetEvalTargetVersionRequest,
@@ -1177,7 +1177,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * GET /api/evaluation/v2/evaluator/default_prompt_evaluator_tools
    *
-   * Get prompt evaluator tools
+   * 获取prompt evaluator tools
    */
   GetDefaultPromptEvaluatorTools(
     req?: stone_fornax_evaluation_evaluator.GetDefaultPromptEvaluatorToolsRequest,
@@ -1195,7 +1195,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/eval_targets/batch_get_by_source
    *
-   * Obtain evaluation object information according to the source target
+   * 根据source target获取评测对象信息
    */
   BatchGetEvalTargetBySource(
     req: stone_fornax_evaluation_eval_target.BatchGetEvalTargetBySourceRequest,
@@ -1219,7 +1219,7 @@ export default class StoneFornaxEvaluationService<T> {
   /**
    * POST /api/evaluation/v2/evaluator/check_name
    *
-   * Verify if the evaluator name is duplicate
+   * 校验evaluator名称是否重复
    */
   CheckEvaluatorName(
     req: stone_fornax_evaluation_evaluator.CheckEvaluatorNameRequest,

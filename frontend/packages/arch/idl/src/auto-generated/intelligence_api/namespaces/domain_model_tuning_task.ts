@@ -22,9 +22,9 @@
 export type Int64 = string | number;
 
 export enum ModelType {
-  /** custom model */
+  /** 定制模型 */
   CustomModel = 1,
-  /** basic model */
+  /** 基础模型 */
   FoundationModel = 2,
 }
 
@@ -36,37 +36,37 @@ export enum OutPutStatus {
 
 export enum TuningTaskStatus {
   UnKnown = 0,
-  /** initialization */
+  /** 初始化 */
   Init = 1,
-  /** pre-check */
+  /** 预检查 */
   Preprocessing = 2,
-  /** in line */
+  /** 排队中 */
   Queued = 3,
-  /** Deploying */
+  /** 部署中 */
   Deploying = 4,
-  /** in progress */
+  /** 执行中 */
   Running = 5,
-  /** Finishing */
+  /** 完成中 */
   Completing = 6,
-  /** execution complete */
+  /** 执行完成 */
   Completed = 7,
-  /** Terminating */
+  /** 终止中 */
   Terminating = 8,
-  /** termination of execution */
+  /** 执行终止 */
   Terminated = 9,
-  /** execution failed */
+  /** 执行失败 */
   Failed = 10,
-  /** EndPoint Scheduling */
+  /** EndPoint调度中 */
   EndPointScheduling = 11,
-  /** EndPoint is in use */
+  /** EndPoint使用中 */
   EndPointRunning = 12,
-  /** EndPoint deployment failed */
+  /** EndPoint部署失败 */
   EndPointDeployAbnormal = 14,
-  /** task deletion */
+  /** 任务删除 */
   TaskDelete = 16,
 }
 
-/** training type */
+/** 训练类型 */
 export enum TuningType {
   FinetuneSft = 1,
   FunetuneLoRA = 2,
@@ -75,11 +75,11 @@ export enum TuningType {
 }
 
 export enum ValidationType {
-  /** Upload file */
+  /** 上传文件 */
   Upload = 1,
-  /** Training dataset segmentation */
+  /** 训练集分割 */
   TrainingCut = 2,
-  /** No validation set */
+  /** 没有验证集 */
   None = 3,
 }
 /* eslint-enable */

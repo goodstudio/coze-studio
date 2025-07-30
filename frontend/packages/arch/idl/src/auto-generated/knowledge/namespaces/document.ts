@@ -25,34 +25,34 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export enum AppendType {
-  /** Occupancy */
+  /** 占位 */
   SegmentAppendType_None = 0,
-  /** tail append */
+  /** 尾部追加 */
   SegmentAppendType_Tail = 1,
 }
 
 export enum ColumnType {
   Unknown = 0,
-  /** Text */
+  /** 文本 */
   Text = 1,
-  /** number */
+  /** 数字 */
   Number = 2,
-  /** time */
+  /** 时间 */
   Date = 3,
   /** float */
   Float = 4,
   /** bool */
   Boolean = 5,
-  /** picture */
+  /** 图片 */
   Image = 6,
 }
 
 export enum TableDataType {
-  /** Schema sheets and preview data */
+  /** schema sheets 和 preview data */
   AllData = 0,
-  /** Only need schema structure & Sheets */
+  /** 只需要 schema 结构 & Sheets */
   OnlySchema = 1,
-  /** Just preview the data */
+  /** 只需要 preview data */
   OnlyPreview = 2,
 }
 
@@ -81,47 +81,47 @@ export interface BatchUpdateDocumentRequest {
 }
 
 export interface BatchUpdateDocumentResponse {
-  /** Deprecated is compatible with older interfaces and will be returned when content is updated. */
+  /** deprecated 兼容老接口，更新内容时会返回。 */
   document_info?: Array<DocumentInfo>;
   code?: Int64;
   msg?: string;
   BaseResp?: base.BaseResp;
 }
 
-/** The content obtained by the front-end crawler plug-in */
+/** 前端爬取插件获取到的内容 */
 export interface CrawlContent {
-  /** title */
+  /** 标题 */
   title?: string;
-  /** header */
+  /** 表头 */
   headers?: Array<string>;
-  /** Full information captured */
+  /** 抓取到的完整信息 */
   content?: Array<Record<string, string>>;
-  /** URL of the crawl page */
+  /** 抓取页面的 URL */
   url?: string;
-  /** XPATH for crawling information */
+  /** 抓取信息的 XPATH */
   marks?: Record<string, string>;
-  /** The type of tag stored, the type is Array < 'text' | 'image' | 'link' >, which corresponds to headers one-to-one */
+  /** 存储标记的类型，类型是 Array<'text' | 'image' | 'link'>，与 headers 一一对应 */
   tags?: Array<string>;
-  /** New paging configuration */
+  /** 新增分页配置 */
   pagination?: Pagination;
-  /** The XPATH of the subpage fetch information, the key corresponds to the key in marks */
+  /** 子页面抓取信息的 XPATH, key 对应于 marks 中的 key */
   sub_marks?: Record<string, Record<string, string>>;
 }
 
 export interface CreateDocumentRequest {
   dataset_id?: string;
   format_type?: common.FormatType;
-  /** Only one table type can be created at a time
-Document information to be created */
+  /** 表格类型一次只能创建一个
+待创建的文档信息 */
   document_bases?: Array<DocumentBase>;
-  /** Only when there is no document in the knowledge base, it needs to be passed, and if there is one, it will be obtained from the knowledge base. Slicing rules, if it is empty, it will be automatically sliced according to paragraphs. See IDP for specific rules: */
+  /** 只在知识库中没有文档时需要传递，已有则从知识库获取.切片规则，为空则自动按段落切片，具体规则见IDP： */
   chunk_strategy?: common.ChunkStrategy;
-  /** Drop library rules when data is imported */
+  /** 数据导入的时候落库规则 */
   sink_strategy?: common.SinkStrategy;
-  /** Whether it is additional content, used to add content to the table
-Appends content to an existing document when true. The text type cannot be used */
+  /** 是否为追加内容，用于表格添加内容
+为 true 时向已有的 document 追加内容。text 类型不能使用 */
   is_append?: boolean;
-  /** parsing strategy */
+  /** 解析策略 */
   parsing_strategy?: common.ParsingStrategy;
   index_strategy?: common.IndexStrategy;
   storage_strategy?: common.StorageStrategy;
@@ -137,9 +137,9 @@ export interface CreateDocumentResponse {
 
 export interface DeleteDocumentRequest {
   document_ids?: Array<string>;
-  /** Since the volcanic side document is a non-numeric string, this field stores the new knowledge base id, and the server level will be aggregated document_ids and then deduplicated */
+  /** 由于火山侧document是非数字串，这个字段存储新的知识库id，，服务端会聚合document_ids后去重 */
   document_ids_new?: Array<string>;
-  /** It is used to distinguish whether it is a volcano knowledge base. If it is not transmitted, it defaults to coze knowledge base. */
+  /** 用来区分是否是火山知识库，不传默认为coze知识库 */
   dataset_id?: string;
   Base?: base.Base;
 }
@@ -151,49 +151,49 @@ export interface DeleteDocumentResponse {
 }
 
 export interface DocTableSheet {
-  /** Number of sheet */
+  /** sheet 的编号 */
   id?: Int64;
-  /** Sheet name */
+  /** sheet 名 */
   sheet_name?: string;
-  /** total number of rows */
+  /** 总行数 */
   total_row?: Int64;
 }
 
-/** Basic information for creating a document */
+/** 用于创建文档的基本信息 */
 export interface DocumentBase {
   name?: string;
   source_info?: SourceInfo;
-  /** API type update configuration, other types do not need to pass */
+  /** api 类型更新配置, 其他类型不需要传 */
   update_rule?: UpdateRule;
-  /** The following parameter table types need to be passed
-Table metadata */
+  /** 以下参数表格类型需要传递
+表格元数据 */
   table_meta?: Array<TableColumn>;
-  /** Table parsing information */
+  /** 表格解析信息 */
   table_sheet?: TableSheet;
-  /** filtering strategy */
+  /** 过滤策略 */
   filter_strategy?: common.FilterStrategy;
-  /** Image type, picture description when manually annotated, currently only supports openapi calls */
+  /** 图片类型，人工标注时的图片描述，目前只支持openapi调用 */
   caption?: string;
-  /** Volcano Knowledge Base, < tag signature, tag value > */
+  /** 火山知识库专用，<标签名，标签值> */
   volcano_tab_kv?: Record<string, common.TabValue>;
 }
 
-/** Provide only the fields in the Document table. Do not add other fields that require cross-table or RPC calls to obtain them. */
+/** 仅提供Document表中的字段。请勿增加其他需要跨表、RPC 调用才能得到的字段。 */
 export interface DocumentBrief {
-  /** When updating, it will not be updated even if it is transmitted. */
+  /** 更新时即使传了也不更新 */
   id?: Int64;
-  /** Updated fields used by flink
-File suffix csv, pdf, etc */
+  /** flink 使用的更新字段
+文件后缀 csv, pdf 等 */
   type?: string;
-  /** File size, number of bytes */
+  /** 文件大小 字节数 */
   size?: number;
-  /** number of segments included */
+  /** 包含分段数量 */
   slice_count?: number;
-  /** character count */
+  /** 字符数 */
   char_count?: number;
-  /** state */
+  /** 状态 */
   status?: common.DocumentStatus;
-  /** JSON format string */
+  /** json 格式字符串 */
   sink_status?: string;
   dataset_id?: Int64;
   format_type?: common.FormatType;
@@ -203,67 +203,67 @@ File suffix csv, pdf, etc */
 export interface DocumentInfo {
   name?: string;
   document_id?: string;
-  /** file link */
+  /** 文件链接 */
   tos_uri?: string;
-  /** Number of bots deprecated */
+  /** 使用的bot数量 deprecated */
   bot_used_count?: number;
-  /** creation time */
+  /** 创建时间 */
   create_time?: number;
-  /** update time */
+  /** 更新时间 */
   update_time?: number;
-  /** founder */
+  /** 创建人 */
   creator_id?: string;
-  /** number of segments included */
+  /** 包含分段数量 */
   slice_count?: number;
-  /** File suffix csv, pdf, etc */
+  /** 文件后缀 csv, pdf 等 */
   type?: string;
-  /** File size, number of bytes */
+  /** 文件大小 字节数 */
   size?: number;
-  /** character count */
+  /** 字符数 */
   char_count?: number;
-  /** state */
+  /** 状态 */
   status?: common.DocumentStatus;
-  /** hit count */
+  /** 命中次数 */
   hit_count?: number;
-  /** source */
+  /** 来源 */
   source_type?: common.DocumentSource;
-  /** update type */
+  /** 更新类型 */
   update_type?: common.UpdateType;
-  /** update interval */
+  /** 更新间隔 */
   update_interval?: number;
-  /** file type */
+  /** 文件类型 */
   format_type?: common.FormatType;
-  /** Table type metadata */
+  /** 表格类型元数据 */
   table_meta?: Array<TableColumn>;
-  /** URL address */
+  /** url 地址 */
   web_url?: string;
-  /** Details of the status; if the slice fails, return the failure information */
+  /** 状态的详细信息；如果切片失败，返回失败信息 */
   status_descript?: string;
   source_file_id?: string;
   is_disconnect?: boolean;
   space_id?: string;
-  /** The following fields are only useful for the reconstructed table type and are used for front-end judgment
-Only for table types, is it allowed to edit the update frequency? */
+  /** 以下字段仅针对重构后的表格类型有用，用于前端判断
+仅针对表格类型，是否允许编辑更新频率 */
   editable_update_rule?: boolean;
-  /** Only for table types, are you allowed to add content and modify the table structure? */
+  /** 仅针对表格类型，是否允许添加内容、修改表结构 */
   editable_append_content?: boolean;
-  /** slicing rule */
+  /** 切片规则 */
   chunk_strategy?: common.ChunkStrategy;
-  /** File links stored by ImageX */
+  /** imagex 存储的文件链接 */
   imagex_uri?: string;
-  /** Hierarchical Segmentation Document Tree Json (unused) */
+  /** 层级分段文档树Json (未使用) */
   doc_outline?: string;
-  /** parsing strategy */
+  /** 解析策略 */
   parsing_strategy?: common.ParsingStrategy;
   index_strategy?: common.IndexStrategy;
   filter_strategy?: common.FilterStrategy;
-  /** Hierarchical segmented document tree tos_url */
+  /** 层级分段文档树 tos_url */
   doc_tree_tos_url?: string;
-  /** Preview the original document tos_url */
+  /** 预览用的原文档 tos_url */
   preview_tos_url?: string;
-  /** Preview the original document tos_url */
+  /** 预览用的原文档 tos_url */
   review_id?: Int64;
-  /** Since the volcanic side document is a non-numeric string, add this field to return the string type */
+  /** 由于火山侧document是非数字串，新增这个字段返回string类型 */
   document_id_new?: string;
 }
 
@@ -271,16 +271,16 @@ export interface DocumentProgress {
   document_id?: string;
   progress?: number;
   status?: common.DocumentStatus;
-  /** A detailed description of the status; if the slice fails, a failure message is returned */
+  /** 状态的详细描述；如果切片失败，返回失败信息 */
   status_descript?: string;
   document_name?: string;
   remaining_time?: Int64;
   size?: Int64;
   type?: string;
   url?: string;
-  /** update type */
+  /** 更新类型 */
   update_type?: common.UpdateType;
-  /** update interval */
+  /** 更新间隔 */
   update_interval?: number;
 }
 
@@ -330,17 +330,17 @@ export interface GetDocumentProgressResponse {
 }
 
 export interface GetTableSchemaRequest {
-  /** Table parsing information, default initial value 0, 0, 1 */
+  /** 表格解析信息, 默认初始值0,0,1 */
   table_sheet?: TableSheet;
-  /** All data is returned by default without passing it on. */
+  /** 不传默认返回所有数据 */
   table_data_type?: TableDataType;
-  /** Compatible with pre-refactoring versions: pass this value if you need to pull the schema of the current document */
+  /** 兼容重构前的版本：如果需要拉取的是当前 document 的 schema 时传递该值 */
   document_id?: string;
-  /** Source file information, add segment/before logic migrate here */
+  /** source file 的信息，新增 segment / 之前逻辑迁移到这里 */
   source_file?: SourceInfo;
-  /** The table preview front end needs to pass the original data table structure */
+  /** 表格预览前端需要传递原始的数据表结构 */
   origin_table_meta?: Array<TableColumn>;
-  /** The table preview front end needs to pass the data table structure edited by the user */
+  /** 表格预览前端需要传递用户编辑之后的数据表结构 */
   preview_table_meta?: Array<TableColumn>;
   Base?: base.Base;
 }
@@ -349,15 +349,15 @@ export interface GetTableSchemaResponse {
   code?: number;
   msg?: string;
   sheet_list?: Array<DocTableSheet>;
-  /** The schema of the selected sheet, not selected to return the first sheet by default */
+  /** 选中的 sheet 的 schema, 不选择默认返回第一个 sheet */
   table_meta?: Array<TableColumn>;
-  /** The knowledge table will return */
+  /** knowledge table 场景中会返回 */
   preview_data?: Array<Record<Int64, string>>;
 }
 
 export interface GetWebInfoRequest {
   web_ids?: Array<string>;
-  /** Does it contain content? */
+  /** 是否包含内容 */
   include_content?: boolean;
   Base?: base.Base;
 }
@@ -374,7 +374,7 @@ export interface ListDocumentRequest {
   document_ids?: Array<string>;
   page?: number;
   size?: number;
-  /** Search by name */
+  /** 根据名称搜索 */
   keyword?: string;
   Base?: base.Base;
 }
@@ -398,7 +398,7 @@ export interface ListModelResponse {
 
 export interface ListPhotoRequest {
   dataset_id: string;
-  /** Number of pages, starting from 1 */
+  /** 页数，从 1 开始 */
   page?: number;
   size?: number;
   filter?: PhotoFilter;
@@ -417,11 +417,11 @@ export interface ModelInfo {
 }
 
 export interface Pagination {
-  /** Maximum number of items collected by list type */
+  /** 列表类型采集的最大条数 */
   max_row_count?: number;
-  /** Paging method: 0-no paging 1-scroll loading 2-next page button */
+  /** 分页方式：0-不分页 1-滚动加载 2-下一页按钮 */
   type?: number;
-  /** When the type is 2, the next button that needs to store the user tag */
+  /** 当类型为 2 时，需要存储用户标记的下一页按钮 */
   next_page_xpath?: string;
 }
 
@@ -438,47 +438,47 @@ export interface PhotoDetailResponse {
 }
 
 export interface PhotoFilter {
-  /** True to filter "marked" images, false to filter "unmarked" images */
+  /** true 筛选 “已标注” 的图片，false 筛选 “未标注” 的图片 */
   has_caption?: boolean;
-  /** Search keywords, search for image names and picture descriptions */
+  /** 搜索关键字，对图片名称和图片描述进行搜索 */
   keyword?: string;
-  /** state */
+  /** 状态 */
   status?: common.DocumentStatus;
 }
 
 export interface PhotoInfo {
   name?: string;
   document_id?: string;
-  /** image link */
+  /** 图片链接 */
   url?: string;
-  /** picture description information */
+  /** 图片描述信息 */
   caption?: string;
-  /** creation time */
+  /** 创建时间 */
   create_time?: number;
-  /** update time */
+  /** 更新时间 */
   update_time?: number;
-  /** founder */
+  /** 创建人 */
   creator_id?: string;
-  /** Image suffix jpg, png, etc */
+  /** 图片后缀 jpg, png 等 */
   type?: string;
-  /** image size */
+  /** 图片大小 */
   size?: number;
-  /** state */
+  /** 状态 */
   status?: common.DocumentStatus;
-  /** source */
+  /** 来源 */
   source_type?: common.DocumentSource;
 }
 
 export interface RefreshDocumentRequest {
   dataset_id?: string;
   document_id?: string;
-  /** segmentation strategy */
+  /** 分段策略 */
   chunk_strategy?: common.ChunkStrategy;
   Base?: base.Base;
 }
 
 export interface RefreshDocumentResponse {
-  /** Returns the documentID of the newly generated document. */
+  /** 返回的是新生成文档的 documentID */
   document_id?: string;
   code?: Int64;
   msg?: string;
@@ -487,13 +487,13 @@ export interface RefreshDocumentResponse {
 
 export interface ResegmentRequest {
   dataset_id?: string;
-  /** Interface to be re-segmented */
+  /** 要重新分段的接口 */
   document_ids?: Array<string>;
-  /** segmentation strategy */
+  /** 分段策略 */
   chunk_strategy?: common.ChunkStrategy;
-  /** Pre-sliced review ID list */
+  /** 预切片的审阅ID列表 */
   review_ids?: Array<string>;
-  /** parsing strategy */
+  /** 解析策略 */
   parsing_strategy?: common.ParsingStrategy;
   index_strategy?: common.IndexStrategy;
   filter_strategy?: common.FilterStrategy;
@@ -501,7 +501,7 @@ export interface ResegmentRequest {
 }
 
 export interface ResegmentResponse {
-  /** The old version requires. Just return the id and name. */
+  /** 老版需要. 仅返回id 和名称即可 */
   document_infos?: Array<DocumentInfo>;
   code?: Int64;
   msg?: string;
@@ -526,40 +526,40 @@ export interface SetAppendFrequencyResponse {
   msg: string;
 }
 
-/** Supports multiple data sources */
+/** 支持多种数据源 */
 export interface SourceInfo {
-  /** document_source Local, Feishu: TOS address for file upload */
+  /** document_source 本地、飞书: 文件上传的 tos 地址 */
   tos_uri?: string;
-  /** document_source weburl, passing on web_id created through knowledge */
+  /** document_source weburl, 传通过 knowledge 创建的 web_id */
   web_id?: string;
-  /** document_source google, notion: tripartite source id
-document_source openapi: openapi uploaded file id */
+  /** document_source google, notion: 三方源文件 id
+document_source openapi: openapi上传的文件 id */
   source_file_id?: string;
   document_source?: common.DocumentSource;
-  /** document_source custom original content: json list < map < string, string > > */
+  /** document_source 自定义原始内容: json list<map<string, string>> */
   custom_content?: string;
-  /** document_source front-end crawling: pass the content obtained by the front-end crawling plug-in */
+  /** document_source 前端抓取: 传递前端爬取插件获取到的内容 */
   crawl_content?: CrawlContent;
-  /** document_source local: If you don't send the tos address, you need to send the file base64, type
-File string after base64 */
+  /** document_source 本地: 如果不传 tos 地址, 则需要传文件 base64, 类型
+文件经过 base64 后的字符串 */
   file_base64?: string;
-  /** File type, such as PDF */
+  /** 文件类型, 比如 pdf */
   file_type?: string;
-  /** document_source weburl: If you don't pass web_id, you need to pass weburl */
+  /** document_source weburl: 如果不传 web_id, 则需要传 weburl */
   web_url?: string;
-  /** imagex_uri, and tos_uri choose one, imagex_uri priority, need to get data and sign url through imagex method */
+  /** imagex_uri, 和 tos_uri 二选一, imagex_uri 优先，需要通过 imagex 的方法获取数据和签发 url */
   imagex_uri?: string;
-  /** review_id: After the review ID after pre-slicing, it will directly take the pre-sliced result data vectorization, if not passed or passed 0, it will be re-sliced */
+  /** review_id: 经过预切片后的审阅ID，会直接取预切片的结果数据向量化，如果不传或传0，会重新切片 */
   review_id?: string;
 }
 
 export interface SubmitWebUrlRequest {
   web_url?: string;
-  /** 0 does not replace subpages */
+  /** 0 不包换子页面 */
   subpages_count?: number;
-  /** File format type */
+  /** 文件格式类型 */
   format_type?: common.FormatType;
-  /** Page title url type required */
+  /** 网页标题 url 类型必传 */
   title?: string;
   Base?: base.Base;
 }
@@ -571,49 +571,49 @@ export interface SubmitWebUrlResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** Table column information */
+/** 表格的列信息 */
 export interface TableColumn {
-  /** Column ID */
+  /** 列 id */
   id?: string;
-  /** listing */
+  /** 列名 */
   column_name?: string;
-  /** Is it a semantically matched column? */
+  /** 是否为语义匹配列 */
   is_semantic?: boolean;
-  /** List the serial number originally in excel */
+  /** 列原本在 excel 的序号 */
   sequence?: string;
-  /** column type */
+  /** 列类型 */
   column_type?: ColumnType;
   contains_empty_value?: boolean;
-  /** describe */
+  /** 描述 */
   desc?: string;
 }
 
 export interface TableSheet {
-  /** User selected sheet id */
+  /** 用户选择的 sheet id */
   sheet_id?: string;
-  /** The number of header rows selected by the user, numbered from 0 */
+  /** 用户选择的表头行数，从 0 开始编号 */
   header_line_idx?: string;
-  /** User-selected starting line number, numbered from 0 */
+  /** 用户选择的起始行号，从 0 开始编号 */
   start_line_idx?: string;
 }
 
 export interface UpdateDocumentRequest {
   document_id?: string;
-  /** The document is not enabled after refactoring, and it is used for the old interface. */
+  /** 重构后文档没有启用状态，给老接口使用 */
   status?: common.DocumentStatus;
-  /** If you need to update, please upload it and update the name. */
+  /** 需要更新就传, 更新名称 */
   document_name?: string;
-  /** web type
-web type update configuration */
+  /** web 类型
+web 类型更新配置 */
   update_rule?: UpdateRule;
-  /** Update table structure
-Table metadata */
+  /** 更新表结构
+表格元数据 */
   table_meta?: Array<TableColumn>;
   Base?: base.Base;
 }
 
 export interface UpdateDocumentResponse {
-  /** Deprecated is compatible with older interfaces and will be returned when content is updated. */
+  /** deprecated 兼容老接口，更新内容时会返回。 */
   document_info?: DocumentInfo;
   code?: Int64;
   msg?: string;
@@ -622,7 +622,7 @@ export interface UpdateDocumentResponse {
 
 export interface UpdatePhotoCaptionRequest {
   document_id: string;
-  /** Description information */
+  /** 描述信息 */
   caption: string;
   Base?: base.Base;
 }
@@ -633,16 +633,16 @@ export interface UpdatePhotoCaptionResponse {
 }
 
 export interface UpdateRule {
-  /** update type */
+  /** 更新类型 */
   update_type?: common.UpdateType;
-  /** Update interval, in days */
+  /** 更新间隔，单位(天) */
   update_interval?: number;
 }
 
 export interface ValidateTableSchemaRequest {
   space_id?: string;
   document_id?: string;
-  /** Information from the source file */
+  /** source file 的信息 */
   source_file?: SourceInfo;
   table_sheet?: TableSheet;
   Base?: base.Base;
@@ -650,7 +650,7 @@ export interface ValidateTableSchemaRequest {
 
 export interface ValidateTableSchemaResponse {
   column_valid_result?: Record<string, string>;
-  /** If it fails, an error code will be returned. */
+  /** 如果失败会返回错误码 */
   code: Int64;
   msg: string;
 }

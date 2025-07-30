@@ -21,27 +21,27 @@
 
 export type Int64 = string | number;
 
-/** DEFAULT is the default state, if ReviewResult. Result = CheckType. DEFAULT can be skipped,
- Indicates that the field was not passed in by the business party
+/** DEFAULT是默认状态，若ReviewResult.Result=CheckType.DEFAULT可以跳过，
+ 表示业务方未传入该字段
  copy from:  */
 export enum CheckType {
   DEFAULT = 0,
   PASS = 1,
   REVIEW = 2,
   UNPASS = 3,
-  /** The slow review machine does not pass, and is currently only used in the Douyin user profile. */
+  /** 慢审机器不通过，目前只有在抖音用户资料使用 */
   ROBOT_UP = 4,
-  /** Rollback */
+  /** 回滚 */
   ROLLBACK = 5,
-  /** reset */
+  /** 重置 */
   RESET = 6,
 }
 
 export enum PassportAuditStatus {
   Reviewing = 1,
-  /** approved */
+  /** 审核通过 */
   Approved = 2,
-  /** The review failed. */
+  /** 审核不通过 */
   Rejected = 3,
 }
 

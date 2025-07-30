@@ -32,38 +32,38 @@ export enum StructureGenModelType {
   Skylark = 2,
 }
 
-/** StructureGenTaskStatus automatically generate task status */
+/** StructureGenTaskStatus 自动生成任务状态 */
 export enum StructureGenTaskStatus {
   Undefined = 0,
-  /** Completed. */
+  /** 已完成 */
   Finished = 1,
-  /** Waiting */
+  /** 等待中 */
   Pending = 2,
-  /** in progress */
+  /** 进行中 */
   Running = 3,
-  /** Cancelled */
+  /** 已取消 */
   Canceled = 4,
-  /** fail */
+  /** 失败 */
   Failed = 5,
 }
 
-/** StructureGenChoice generates results */
+/** StructureGenChoice 生成结果 */
 export interface StructureGenChoice {
-  /** Generated data */
+  /** 生成的数据 */
   content?: string;
-  /** The reason for stopping the build, finish if the build is successful, otherwise other error messages */
+  /** 停止生成的原因，如果生成成功则为finish，否则为其他错误信息 */
   stopReason?: string;
-  /** consume */
+  /** 消耗 */
   usage?: StructureGenUsage;
 }
 
-/** StructureGenUsage generation consumption */
+/** StructureGenUsage 生成消耗 */
 export interface StructureGenUsage {
-  /** Enter Tokens */
+  /** 输入Tokens */
   inputTokens?: Int64;
-  /** Export Tokens */
+  /** 输出Tokens */
   outputTokens?: Int64;
-  /** Generation time (milliseconds) */
+  /** 生成耗时（毫秒） */
   latencyInMs?: Int64;
 }
 /* eslint-enable */

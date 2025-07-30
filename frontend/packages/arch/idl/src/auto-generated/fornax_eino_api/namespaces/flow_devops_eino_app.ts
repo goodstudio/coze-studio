@@ -62,11 +62,11 @@ export enum SubErrCode {
 }
 
 export interface ComponentItem {
-  /** list item name */
+  /** 列表项名称 */
   name?: string;
-  /** If the item is a component, it is not empty */
+  /** 如果该项是一个组件，则为非空 */
   component_schema?: flow_devops_eino_app_canvas.ComponentSchema;
-  /** nested component list */
+  /** 嵌套组件列表 */
   children?: Array<ComponentItem>;
   can_orchestrate?: boolean;
 }
@@ -134,9 +134,9 @@ export interface GraphMeta {
 export interface ListComponentsRequest {}
 
 export interface ListComponentsResp {
-  /** official component */
+  /** 官方组件 */
   official_components?: Array<ComponentItem>;
-  /** custom component */
+  /** 自定义组件 */
   custom_components?: Array<ComponentItem>;
 }
 

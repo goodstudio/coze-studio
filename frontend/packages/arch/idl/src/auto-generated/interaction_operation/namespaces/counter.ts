@@ -21,11 +21,11 @@
 
 export type Int64 = string;
 
-/** count correlation */
+/** 计数相关 */
 export enum CountOpType {
-  /** If the count key exists, the original value will be added to the new value. */
+  /** count key 存在就会将原有的值加上新值 */
   Incr = 1,
-  /** If the count key does not exist, a new value will be set, and if it exists, it will be replaced with a new value. */
+  /** count key 不存在就会设置新值, 存在也会被替换为新值 */
   Set = 2,
 }
 /* eslint-enable */

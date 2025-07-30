@@ -22,11 +22,11 @@
 export type Int64 = string | number;
 
 export enum SliceStatus {
-  /** unvectorized */
+  /** 未向量化 */
   PendingVectoring = 0,
-  /** vectorized */
+  /** 已向量化 */
   FinishVectoring = 1,
-  /** disable */
+  /** 禁用 */
   Deactive = 9,
 }
 
@@ -41,7 +41,7 @@ export interface CreateSliceData {
 
 export interface CreateSliceReq {
   document_id: string;
-  /** Limit 2000 words */
+  /** 限制2000字 */
   content: string;
 }
 
@@ -62,13 +62,13 @@ export interface GetSliceListData {
 
 export interface GetSliceListReq {
   doc_id?: string;
-  /** serial number */
+  /** 序号 */
   sequence?: number;
-  /** query keyword */
+  /** 查询关键字 */
   key_word?: string;
-  /** Start from 1 */
+  /** 从1开始 */
   page_no?: number;
-  /** quantity */
+  /** 数量 */
   page_size?: number;
   sort_field?: string;
   is_asc?: boolean;
@@ -82,23 +82,23 @@ export interface GetSliceListResp {
 
 export interface SliceInfo {
   slice_id?: string;
-  /** If it is a table type, the content is in JSON format */
+  /** 如果为 table 类型，内容为 json 格式 */
   content?: string;
-  /** state */
+  /** 状态 */
   status?: SliceStatus;
-  /** hit count */
+  /** 命中次数 */
   hit_count?: number;
-  /** character count */
+  /** 字符数 */
   char_count?: number;
-  /** number of tokens */
+  /** token数 */
   token_count?: number;
-  /** serial number */
+  /** 序号 */
   sequence?: number;
 }
 
 export interface UpdateSliceContentReq {
   slice_id: string;
-  /** Limit 2000 words */
+  /** 限制2000字 */
   content: string;
 }
 /* eslint-enable */

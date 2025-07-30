@@ -31,13 +31,13 @@ export interface CreateDatasetOpenApiData {
 }
 
 export interface CreateDatasetOpenApiRequest {
-  /** Knowledge base name, no more than 100 characters in length */
+  /** 知识库名称，长度不超过100个字符 */
   name?: string;
   description?: string;
   space_id?: string;
   file_id?: string;
   format_type?: common.FormatType;
-  /** Add project ID */
+  /** 新增project ID */
   project_id?: string;
   Base?: base.Base;
 }
@@ -50,11 +50,11 @@ export interface CreateDatasetOpenApiResponse {
 }
 
 export interface CreateDocumentV2OpenAPIRequest {
-  /** file type */
+  /** 文件类型 */
   'Content-Type': string;
-  /** binary data */
+  /** 二进制数据 */
   Data: Blob;
-  /** Knowledge Base ID */
+  /** 知识库ID */
   dataset_id: string;
   Base?: base.Base;
 }
@@ -94,12 +94,12 @@ export interface ListDatasetOpenApiData {
 
 export interface ListDatasetOpenApiRequest {
   name?: string;
-  /** type */
+  /** 类型 */
   format_type?: common.FormatType;
   page_num?: number;
   page_size?: number;
   space_id?: string;
-  /** Add project ID */
+  /** 新增project ID */
   project_id?: string;
   Base?: base.Base;
 }
@@ -118,12 +118,12 @@ export interface ListPhotoOpenApiData {
 
 export interface ListPhotoOpenApiRequest {
   dataset_id: string;
-  /** Number of pages, starting from 1 */
+  /** 页数，从 1 开始 */
   page_num?: number;
   page_size?: number;
-  /** Search keywords, search for image names and picture descriptions */
+  /** 搜索关键字，对图片名称和图片描述进行搜索 */
   keyword?: string;
-  /** Is there any description information? */
+  /** 是否有描述信息 */
   has_caption?: boolean;
   Base?: base.Base;
 }
@@ -151,7 +151,7 @@ export interface UpdateDatasetOpenApiResponse {
 
 export interface UpdatePhotoCaptionOpenApiRequest {
   document_id: string;
-  /** Description information */
+  /** 描述信息 */
   caption: string;
   Base?: base.Base;
 }

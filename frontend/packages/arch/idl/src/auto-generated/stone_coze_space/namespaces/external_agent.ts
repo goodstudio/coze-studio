@@ -21,43 +21,43 @@
 
 export type Int64 = string | number;
 
-/** callback type */
+/** 回调类型 */
 export enum CallbackType {
   CREATE = 1,
   DELETE = 2,
-  /** Create and execute, when accessing, you need to select whether it can be directly executed, and currently query information can be passed */
+  /** 创建并执行，接入时需选择是否可直接被执行，目前可传递query信息 */
   EXECUTE = 3,
 }
 
 export enum OperateType {
-  /** Running (outputting message content) */
+  /** 运行中（正在输出消息内容） */
   Running = 1,
-  /** Pause (user-initiated pause) */
+  /** 暂停（用户发起的暂停） */
   Pause = 2,
-  /** One round of tasks is completed (the agent completes one round of tasks, the current round of tasks ends, and waits for a new round of tasks to be executed) */
+  /** 一轮任务完成（agent完成一轮任务，本轮任务结束，等待新一轮任务执行） */
   TaskFinish = 3,
-  /** Initialization (waiting to initiate the first round of tasks) */
+  /** 初始化（等待发起首轮任务） */
   Init = 4,
-  /** Terminate (this round of missions is over and can no longer be executed) */
+  /** 终止（本轮任务结束，无法再被执行） */
   Stop = 5,
-  /** Interrupt (an agent-initiated interrupt waiting for user confirmation) */
+  /** 中断（agent发起的中断，等待用户确认） */
   Interrupt = 6,
-  /** There is illegal content (reviewed, the content cannot be exposed, this round of tasks is over, and it can no longer be executed) */
+  /** 存在非法内容（被审核，无法露出内容，本轮任务结束，无法再被执行） */
   IllegalContent = 7,
-  /** Abnormal interrupt (the agent runs abnormally, the current round of tasks ends, waiting for a new round of tasks to execute) */
+  /** 异常中断（agent运行异常，本轮任务结束，等待新一轮任务执行） */
   AbnormalInterrupt = 8,
-  /** Hibernation (including user-initiated termination, the end of this round of tasks, and waiting for a new round of tasks to execute) */
+  /** 休眠（包含用户发起终止，本轮任务结束，等待新一轮任务执行） */
   Sleep = 9,
 }
 
 export interface TaskResult {
-  /** Natural language description, whether the product was produced normally, or the cause of the failure */
+  /** 自然语言描述，是否正常生成了产物，或失败原因 */
   result_status?: string;
   results?: Array<TaskResultItem>;
 }
 
 export interface TaskResultItem {
-  /** product link */
+  /** 产物链接 */
   link?: string;
 }
 
@@ -78,7 +78,7 @@ export interface UpdateTaskStatusRequest {
   sk?: string;
   task_id?: string;
   task_status?: OperateType;
-  /** The task status is changed to the product information at the end of this round of tasks (3, 5, 7, 8, 9). The reason for the execution failure also needs to be filled. If the field is not filled at the end of the task that needs to return the product, it will also determine that the task execution failed. */
+  /** 任务状态变更为本轮任务结束(3,5,7,8,9)时的产物信息，执行失败也需要填充原因，若需要回传产物的任务结束时未填充该字段也会判定任务执行失败 */
   result?: TaskResult;
 }
 

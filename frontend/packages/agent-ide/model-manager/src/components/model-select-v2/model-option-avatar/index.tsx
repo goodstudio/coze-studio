@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { type ReactNode } from 'react';
 
 import cls from 'classnames';
@@ -83,7 +83,7 @@ function InnerImg({
       <Avatar
         className="shrink-0 rounded-[6px] border border-solid coz-stroke-primary"
         shape="square"
-        // @TS-expected-error -- there is a problem with the semi type definition
+        // @ts-expect-error -- there is a problem with the semi type definition
         bottomSlot={
           bottomBanner
             ? {

@@ -49,17 +49,17 @@ export enum TagType {
 }
 
 export interface Content {
-  /** Query type, enumeration: text, image, video, audio, file, card */
+  /** query类型，枚举：text、image、video、audio、file、card */
   content_type?: ContentType;
   content?: ContentInfo;
 }
 
 export interface ContentInfo {
-  /** User input text, audio to text, card information */
+  /** 用户输入文本、audio转文本、卡片信息 */
   text?: string;
-  /** Image URL */
+  /** 图片url */
   img_url?: string;
-  /** File URLs, files, videos, etc. are all stored in the form of file URLs */
+  /** 文件url，file、video等都以文件url的形式存储 */
   file_url?: string;
 }
 
@@ -73,7 +73,7 @@ export interface LLMInfo {
   total_tokens?: number;
 }
 
-/** service cluster meta-information */
+/** 服务集群元信息 */
 export interface MetaInfo {
   psm?: string;
   cluster?: string;
@@ -85,7 +85,7 @@ export interface MetaInfo {
 }
 
 export interface OutputInfo {
-  /** Query type, enumeration: text, image, video, audio, file, card */
+  /** query类型，枚举：text、image、video、audio、file、card */
   messages?: Array<Content>;
 }
 
@@ -102,19 +102,19 @@ export interface Query {
   duration?: Int64;
   input?: Array<Content>;
   output?: Array<OutputInfo>;
-  /** Query state, calculated based on the span state of the entire query */
+  /** query 状态，根据整个query上的span状态来计算 */
   status?: StatusType;
-  /** user-related information */
+  /** 用户相关信息 */
   user_info?: UserInfo;
-  /** Safety-related information such as desensitization */
+  /** 脱敏等安全相关信息 */
   security_info?: SecurityInfo;
-  /** Query source related information */
+  /** query来源相关信息 */
   source_info?: SourceInfo;
-  /** LLM related information */
+  /** llm相关信息 */
   llm_info?: LLMInfo;
-  /** User feedback related information */
+  /** 用户反馈相关信息 */
   feedback_info?: FeedBackInfo;
-  /** Intent to identify relevant information */
+  /** 意图识别相关信息 */
   intension_info?: IntensionInfo;
   meta_info?: MetaInfo;
   tags?: Record<string, Tag>;
@@ -125,29 +125,29 @@ export interface Query {
 }
 
 export interface SecurityInfo {
-  /** Is it desensitized? */
+  /** 是否脱敏 */
   is_desensitized: boolean;
-  /** Desensitized input */
+  /** 脱敏后的input */
   desensitized_input?: Array<Content>;
-  /** Desensitized output */
+  /** 脱敏后的output */
   desensitized_output?: Array<OutputInfo>;
 }
 
 export interface SourceInfo {
   bot_id?: string;
-  /** bot version */
+  /** bot版本 */
   bot_version?: string;
-  /** Bot owner space ID */
+  /** bot所属空间ID */
   bot_space_id?: string;
-  /** Bot Access Channel ID */
+  /** Bot接入渠道ID */
   connector_id?: string;
-  /** channel */
+  /** 渠道 */
   channel?: string;
-  /** dialogue scene */
+  /** 对话场景 */
   DialogScene?: string;
-  /** Bot development/formal environment */
+  /** bot开发/正式环境 */
   BotEnv?: BotEnvType;
-  /** bot name */
+  /** bot名称 */
   BotName?: string;
 }
 
@@ -163,9 +163,9 @@ export interface Tag {
 
 export interface UserInfo {
   user_id?: string;
-  /** Device ID */
+  /** 设备ID */
   device_id?: string;
-  /** device platform */
+  /** 设备平台 */
   device_platform?: string;
 }
 /* eslint-enable */

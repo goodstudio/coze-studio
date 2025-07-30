@@ -73,11 +73,11 @@ export interface BillItem {
   name?: string;
   channel_info?: common.ChannelInfo;
   tag?: string;
-  /** Filter items from here */
+  /** 筛选项从这里拿 */
   change_type?: common.CreditChangeType;
-  /** abandoned */
+  /** 废弃 */
   model_consume_detail?: Array<BillConsumeDetail>;
-  /** abandoned */
+  /** 废弃 */
   plugin_consume_detail?: Array<BillConsumeDetail>;
   entity_consume_detail?: Partial<
     Record<BillItemType, Array<BillConsumeDetail>>

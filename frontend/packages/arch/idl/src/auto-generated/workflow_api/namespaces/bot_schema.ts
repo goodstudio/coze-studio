@@ -34,9 +34,9 @@ export enum AgentRecognitionMode {
 }
 
 export enum AgentSessionType {
-  /** The next conversation starts by default from the agent who replied last time. */
+  /** 下次对话默认从上一次回复的agent开始 */
   Flow = 1,
-  /** All conversations start at the start node. */
+  /** 所有对话都从开始节点开始 */
   Host = 2,
 }
 
@@ -66,11 +66,11 @@ export enum ContextMode {
 }
 
 export enum FieldItemType {
-  /** Text String */
+  /** 文本 String */
   Text = 1,
-  /** Digital Integer */
+  /** 数字 Integer */
   Number = 2,
-  /** Time Time */
+  /** 时间 Time */
   Date = 3,
   /** float Number */
   Float = 4,
@@ -79,34 +79,34 @@ export enum FieldItemType {
 }
 
 export enum FileboxInfoMode {
-  /** Close file box */
+  /** 关闭文件盒子 */
   Off = 0,
-  /** Open the file box */
+  /** 打开文件盒子 */
   On = 1,
 }
 
 export enum IndependentRecognitionModelType {
-  /** Small model */
+  /** 小模型 */
   SLM = 0,
-  /** Large model */
+  /** 大模型 */
   LLM = 1,
 }
 
 export enum IndependentTiming {
-  /** Determine user input (front) */
+  /** 判断用户输入（前置） */
   Pre = 1,
-  /** Determine node output (postfix) */
+  /** 判断节点输出（后置） */
   Post = 2,
-  /** Front mode and rear mode support simultaneous selection */
+  /** 前置模式和后置模式支持同时选择 */
   PreAndPost = 3,
 }
 
 export enum KnowledgeSearchMode {
-  /** semantic search */
+  /** 语义搜索 */
   SemanticSearch = 0,
-  /** Hybrid Search */
+  /** 混合搜索 */
   HybirdSearch = 1,
-  /** Full Text Search */
+  /** 全文搜索 */
   FullTextSearch = 20,
 }
 
@@ -124,81 +124,81 @@ export enum SuggestReplyMode {
 }
 
 export enum TimeCapsuleMode {
-  /** shutting down long-term memory */
+  /** 关闭长期记忆 */
   Off = 0,
-  /** Unlocking long-term memory */
+  /** 开启长期记忆 */
   On = 1,
 }
 
 export enum VersionType {
-  /** Online version */
+  /** 线上版本 */
   Online = 0,
-  /** pre-release version */
+  /** 预发版本 */
   Pre = 1,
 }
 
 export interface Ability {
-  /** function switch */
+  /** 功能开关 */
   switch_conf?: SwitchConf;
-  /** plugin */
+  /** 插件 */
   plugin_list?: Array<PluginAPI>;
-  /** Workflow */
+  /** 工作流 */
   workflow_list?: Array<WorkflowAPI>;
-  /** Knowledge Base */
+  /** 知识库 */
   knowledge_list?: Array<Knowledge>;
-  /** variable */
+  /** 变量 */
   variable_list?: Array<Variable>;
-  /** database */
+  /** 数据库 */
   database_list?: Array<Database>;
-  /** long-term memory */
+  /** 长期记忆 */
   time_capsule?: TimeCapsule;
-  /** File box */
+  /** 文件盒子 */
   file_box?: FileBox;
-  /** trigger */
+  /** 触发器 */
   trigger?: Trigger;
-  /** Mini Program */
+  /** 小程序 */
   applet?: Applet;
-  /** Question suggestion */
+  /** 问题建议 */
   suggest?: Suggest;
   ext?: Ext;
 }
 
 export interface Agent {
-  /** Agent basic information */
+  /** agent基础信息 */
   agent_basic?: AgentBasic;
-  /** Hook configuration */
+  /** hook配置 */
   hook_info?: HookInfo;
-  /** model information */
+  /** 模型信息 */
   model?: Model;
-  /** Static information and hints for requests sent to LLM */
+  /** 发送给LLM的请求的静态信息和提示词 */
   prompt_info?: PromptInfo;
-  /** Agent function configuration */
+  /** agent各项功能配置 */
   ability?: Ability;
-  /** jump configuration */
+  /** 跳转配置 */
   jump_config?: AgentJumpConfig;
 }
 
 export interface AgentBasic {
   /** agent id */
   agent_id?: string;
-  /** Agent name */
+  /** agent名称 */
   name?: string;
-  /** Agent avatar uri */
+  /** agent头像uri */
   icon_uri?: string;
-  /** Agent type */
+  /** agent类型 */
   agent_type?: AgentType;
-  /** The bot id when the agent is a child bot. */
+  /** agent为子bot时的bot id */
   reference_bot_id?: Int64;
-  /** The bot version when the agent is a child bot */
+  /** agent为子bot时的bot version */
   reference_bot_version?: string;
-  /** Is it the root agent? */
+  /** 是否是root agent */
   is_root_agent?: boolean;
 }
 
 export interface AgentIntent {
-  /** jump condition */
+  /** 跳转条件 */
   intent?: string;
-  /** Agent id to jump to */
+  /** 要跳转的agent id */
   next_agent_id?: string;
 }
 
@@ -206,69 +206,69 @@ export interface AgentJumpConfig {
   backtrack?: AgentBacktrackMode;
   recognition?: AgentRecognitionMode;
   agent_intent?: Array<AgentIntent>;
-  /** Agent application scenario */
+  /** agent适用场景 */
   description?: string;
-  /** Which node is the new round of session sent to? */
+  /** 新一轮会话发给哪个节点 */
   session_type?: AgentSessionType;
   independent_conf?: IndependentModeConfig;
 }
 
 export interface Applet {
-  /** Whether to bind the Mini Program */
+  /** 是否绑定小程序 */
   binding_mp?: boolean;
 }
 
 export interface Database {
-  /** table id */
+  /** 表id */
   table_id?: string;
-  /** table name */
+  /** 表名称 */
   table_name?: string;
-  /** table description */
+  /** 表描述 */
   table_desc?: string;
-  /** Table field information */
+  /** 表字段信息 */
   field_list?: Array<FieldItem>;
-  /** Whether to support calling in Prompt, the default is supported */
+  /** 是否支持在Prompt中调用 默认支持 */
   prompt_disabled?: boolean;
 }
 
 export interface Ext {
-  /** Card List */
+  /** 卡片列表 */
   card_id?: Array<string>;
 }
 
 export interface FieldItem {
-  /** field name */
+  /** 字段名称 */
   name?: string;
-  /** Field description */
+  /** 字段描述 */
   desc?: string;
-  /** field type */
+  /** 字段类型 */
   type?: FieldItemType;
-  /** Is it required? */
+  /** 是否必填 */
   must_required?: boolean;
-  /** The field Id is added as 0. */
+  /** 字段Id 新增为0 */
   id?: string;
-  /** Field type str */
+  /** 字段类型 str */
   type_str?: string;
 }
 
 export interface FileBox {
-  /** List of sub-APIs contained in the file box */
+  /** 文件盒子包含的子api列表 */
   sub_api_list?: Array<PluginAPI>;
   mode?: FileboxInfoMode;
 }
 
 export interface HookInfo {
-  /** Pre agent jump hook */
+  /** pre agent跳转hook */
   pre_agent_jump_hook?: Array<HookItem>;
-  /** Post agent jump hook */
+  /** post agent跳转hook */
   post_agent_jump_hook?: Array<HookItem>;
-  /** Process hook */
+  /** 流程hook */
   flow_hook?: Array<HookItem>;
-  /** Atomic power hook */
+  /** 原子能力hook */
   atomic_hook?: Array<HookItem>;
-  /** Model call hook */
+  /** 模型调用hook */
   llm_call_hook?: Array<HookItem>;
-  /** Conversation result hook */
+  /** 对话结果hook */
   res_parsing_hook?: Array<HookItem>;
   /** suggesion hook */
   suggestion_hook?: Array<HookItem>;
@@ -282,7 +282,7 @@ export interface HookItem {
 }
 
 export interface IndependentModeConfig {
-  /** Judge the timing */
+  /** 判断时机 */
   judge_timing?: IndependentTiming;
   model_type?: IndependentRecognitionModelType;
   history_round?: number;
@@ -291,94 +291,94 @@ export interface IndependentModeConfig {
 }
 
 export interface Knowledge {
-  /** Knowledge Base ID */
+  /** 知识库id */
   id?: string;
-  /** Knowledge base name */
+  /** 知识库名称 */
   name?: string;
-  /** number of recalls */
+  /** 召回数量 */
   top_k?: number;
-  /** Minimum similarity threshold for recall */
+  /** 召回的最小相似度阈值 */
   min_score?: number;
-  /** Is it automatically recalled? */
+  /** 是否自动召回 */
   auto?: boolean;
-  /** search strategy */
+  /** 搜索策略 */
   search_mode?: KnowledgeSearchMode;
-  /** Whether to show the source */
+  /** 是否展示来源 */
   show_source?: boolean;
 }
 
 export interface Model {
-  /** Model ID */
+  /** 模型id */
   model_id?: string;
-  /** temperature */
+  /** 温度 */
   temperature?: number;
-  /** number of samples */
+  /** 采样数量 */
   top_k?: number;
-  /** Sampling probability threshold */
+  /** 采样概率阈值 */
   top_p?: number;
-  /** frequency penalty */
+  /** 频率惩罚 */
   frequency_penalty?: number;
-  /** There is punishment */
+  /** 存在惩罚 */
   presence_penalty?: number;
-  /** Maximum reply length of the model */
+  /** 模型最大回复长度 */
   max_tokens?: number;
-  /** reply format */
+  /** 回复格式 */
   response_format?: ResponseFormat;
-  /** Compatible logic, historical logic is false, new addition passes true */
+  /** 兼容逻辑，历史逻辑为false，新加入传true */
   use_optional_param?: boolean;
-  /** Non-generic fields, passed in through json, passed through to the model */
+  /** 非通用字段，通过json传入，透传给模型 */
   flex_config?: string;
 }
 
 export interface PluginAPI {
-  /** Plugin ID */
+  /** 插件id */
   plugin_id?: string;
   /** api id */
   api_id?: string;
-  /** API name */
+  /** api名称 */
   api_name?: string;
 }
 
 export interface PromptInfo {
-  /** Bot design and reply logic */
+  /** bot人设与回复逻辑 */
   bot_persona?: string;
-  /** Bot template name */
+  /** bot模板名称 */
   template_name?: string;
-  /** Types of context transfer allowed */
+  /** 允许上下文传输的类型 */
   context_mode?: ContextMode;
-  /** Preserved historical dialogue maximum rounds */
+  /** 保留的历史对话最大轮次 */
   history_round?: number;
 }
 
 export interface Suggest {
-  /** Suggest generation pattern */
+  /** suggest生成模式 */
   reply_mode?: SuggestReplyMode;
-  /** Custom build prompt */
+  /** 自定义生成时的prompt */
   customized_prompt?: string;
-  /** Customize the task name corresponding to the build */
+  /** 自定义生成时对应的task名称 */
   task_name?: string;
 }
 
 export interface SwitchConf {
-  /** Whether to enable plug-in function */
+  /** 是否开启插件功能 */
   enable_plugin?: boolean;
-  /** Whether to start workflow */
+  /** 是否开启工作流 */
   enable_workflow?: boolean;
-  /** Whether to open the knowledge base */
+  /** 是否开启知识库 */
   enable_knowledge?: boolean;
-  /** Whether to use variables */
+  /** 是否使用变量 */
   enable_variable?: boolean;
-  /** Whether to use a database */
+  /** 是否使用数据库 */
   enable_database?: boolean;
-  /** Whether to use long-term memory */
+  /** 是否使用长期记忆 */
   enable_time_capsule?: boolean;
-  /** Whether to use a file box */
+  /** 是否使用文件盒子 */
   enable_file_box?: boolean;
-  /** Whether to use triggers */
+  /** 是否使用触发器 */
   enable_trigger?: boolean;
-  /** Whether to use the Mini Program plugin */
+  /** 是否使用小程序插件 */
   enable_applet?: boolean;
-  /** Whether to suggest */
+  /** 是否开启 suggest */
   enable_suggest?: boolean;
 }
 
@@ -387,29 +387,29 @@ export interface TimeCapsule {
 }
 
 export interface Trigger {
-  /** Whether to allow bots to create tasks while talking to users */
+  /** 是否允许bot在与用户对话时创建任务 */
   allow_user_task?: boolean;
-  /** Is there a preset task? */
+  /** 是否有预设任务 */
   enable_preset_task?: boolean;
 }
 
 export interface Variable {
-  /** Variable key */
+  /** 变量key */
   key?: string;
-  /** variable description */
+  /** 变量描述 */
   description?: string;
-  /** variable default value */
+  /** 变量默认值 */
   default_value?: string;
-  /** Whether the system value is the system value */
+  /** 是否系统值系统值 */
   is_system?: boolean;
-  /** Whether to support calling in Prompt, the default is supported */
+  /** 是否支持在Prompt中调用 默认支持 */
   prompt_disabled?: boolean;
 }
 
 export interface WorkflowAPI {
   /** workflow id */
   workflow_id?: string;
-  /** Plugin ID */
+  /** 插件id */
   plugin_id?: string;
   /** api id */
   api_id?: string;

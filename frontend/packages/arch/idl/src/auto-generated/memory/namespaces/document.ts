@@ -26,23 +26,23 @@ import * as connector_common from './connector_common';
 export type Int64 = string | number;
 
 export enum SegmentAppendType {
-  /** Occupancy */
+  /** 占位 */
   SegmentAppendType_None = 0,
-  /** tail append */
+  /** 尾部追加 */
   SegmentAppendType_Tail = 1,
-  /** Define in advance, no need this time
-head */
+  /** 提前定义，本次不用
+头部 */
   SegmentAppendType_Head = 2,
-  /** middle */
+  /** 中间 */
   SegmentAppendType_Mid = 3,
 }
 
 export enum TableDataType {
-  /** Schema sheets and preview data */
+  /** schema sheets 和 preview data */
   AllData = 0,
-  /** Only need schema structure & Sheets */
+  /** 只需要 schema 结构 & Sheets */
   OnlySchema = 1,
-  /** Just preview the data */
+  /** 只需要 preview data */
   OnlyPreview = 2,
 }
 
@@ -53,14 +53,14 @@ export interface AddSegmentRequest {
   source_file: common.SourceFileInfo;
   user_table_info: DocumentTableTaskInfo;
   append_type: SegmentAppendType;
-  /** Define in advance, no need this time */
+  /** 提前定义，本次不用 */
   append_sequence?: Int64;
   Base?: base.Base;
 }
 
 export interface AddSegmentResponse {
   document_id: string;
-  /** If it fails, an error code will be returned. */
+  /** 如果失败会返回错误码 */
   code: Int64;
   msg: string;
 }
@@ -82,7 +82,7 @@ export interface CreateDocumentResponse {
 
 export interface DeleteUserDataSourceRequest {
   data_source_id?: Int64;
-  /** You need to delete the files and vector blocks that have been added. */
+  /** 需要删除已经添加的文件和向量块 */
   need_delete_document?: boolean;
   auth_id?: string;
   connector_id?: connector_common.ConnectorID;
@@ -113,37 +113,37 @@ export interface DocumentFileInfo {
 }
 
 export interface DocumentTableTaskInfo {
-  /** User selected sheet id */
+  /** 用户选择的 sheet id */
   sheet_id: string;
-  /** The number of header rows selected by the user, numbered from 0 */
+  /** 用户选择的表头行数，从 0 开始编号 */
   header_line_idx: string;
-  /** User-selected starting line number, numbered from 0 */
+  /** 用户选择的起始行号，从 0 开始编号 */
   start_line_idx: string;
 }
 
 export interface DocumentTaskInfo {
   name?: string;
   uri?: string;
-  /** For reslicing */
+  /** 用于重新切片 */
   document_id?: string;
-  /** format type */
+  /** 格式类型 */
   format_type?: common.FormatType;
-  /** Table metadata */
+  /** 表格元数据 */
   doc_table_meta?: Array<common.DocTableColumn>;
-  /** Table parsing information */
+  /** 表格解析信息 */
   doc_table_info?: DocumentTableTaskInfo;
   source_file_id?: string;
   document_source_type?: common.DocumentSourceType;
 }
 
 export interface GetDocumentTableInfoRequest {
-  /** If the table is uploaded for the first URL, pass the value */
+  /** 如果为第一次 url 上传的表格，传递该值 */
   submit_web_id?: string;
-  /** If the table is uploaded for the first local file, pass the value */
+  /** 如果为第一次本地文件上传的表格，传递该值 */
   tos_uri?: string;
-  /** If it is a table with an existing document, pass the value */
+  /** 如果为已有 document 的表格，传递该值 */
   document_id?: string;
-  /** Creator [http interface does not need to be passed] */
+  /** 创建人[http接口不需要传递] */
   creator_id?: Int64;
   source_file_id?: string;
   Base?: base.Base;
@@ -160,19 +160,19 @@ export interface GetDocumentTableInfoResponse {
 }
 
 export interface GetTableSchemaInfoRequest {
-  /** The tos address of the local file upload, pass the value (wait until the front end is online and migrate to SourceFile) */
+  /** 本地文件上传的 tos 地址，传递该值(等前端上线完迁移到SourceFile) */
   tos_uri?: string;
-  /** Table parsing information, default initial value 0, 0, 1 */
+  /** 表格解析信息, 默认初始值0,0,1 */
   doc_table_info?: DocumentTableTaskInfo;
-  /** All data is returned by default without passing it on. */
+  /** 不传默认返回所有数据 */
   table_data_type?: TableDataType;
-  /** Pass this value if you need to pull the schema of the current document */
+  /** 如果需要拉取的是当前 document 的 schema 时传递该值 */
   document_id?: string;
-  /** Source file information, add segment/before logic migrate here */
+  /** source file 的信息，新增 segment / 之前逻辑迁移到这里 */
   source_file?: common.SourceFileInfo;
-  /** The table preview front end needs to pass the original data table structure */
+  /** 表格预览前端需要传递原始的数据表结构 */
   origin_table_meta?: Array<common.DocTableColumn>;
-  /** The table preview front end needs to pass the data table structure edited by the user */
+  /** 表格预览前端需要传递用户编辑之后的数据表结构 */
   preview_table_meta?: Array<common.DocTableColumn>;
   Base?: base.Base;
 }
@@ -181,9 +181,9 @@ export interface GetTableSchemaInfoResponse {
   code?: number;
   msg?: string;
   sheet_list?: Array<common.DocTableSheet>;
-  /** The schema of the selected sheet, not selected to return the first sheet by default */
+  /** 选中的 sheet 的 schema, 不选择默认返回第一个 sheet */
   table_meta?: Array<common.DocTableColumn>;
-  /** The knowledge table will return */
+  /** knowledge table 场景中会返回 */
   preview_data?: Array<Record<Int64, string>>;
 }
 
@@ -202,7 +202,7 @@ export interface GetTaskProgressV2Response {
 
 export interface ListDocumentRequest {
   dataset_id?: string;
-  /** HTTP interface is not passed */
+  /** http接口不传递 */
   creator_id?: Int64;
   document_id?: string;
   page?: number;
@@ -218,7 +218,7 @@ export interface ListDocumentResponse {
 }
 
 export interface ProcessDocumentsTaskRequest {
-  /** HTTP interface does not need to be passed */
+  /** http接口不需要传递 */
   creator_id?: Int64;
   dataset_id?: string;
   document_infos?: Array<DocumentTaskInfo>;
@@ -249,7 +249,7 @@ export interface ProcessWebDocumentsTaskResponse {
 
 export interface QueryWebInfoRequest {
   web_ids?: Array<string>;
-  /** Does it contain content? */
+  /** 是否包含内容 */
   include_content?: boolean;
   creator_id?: string;
   Base?: base.Base;
@@ -266,7 +266,7 @@ export interface ResegmentRequest {
   dataset_id: string;
   document_id: string;
   rule?: string;
-  /** format type */
+  /** 格式类型 */
   format_type?: common.FormatType;
   creator_id?: string;
   Base?: base.Base;
@@ -282,7 +282,7 @@ export interface ResegmentResponse {
 export interface SubmitCrawlDataRequest {
   /** web_document */
   web_documents?: Array<WebDocument>;
-  /** affiliated datasetID */
+  /** 隶属的datasetID */
   dataset_id?: string;
   Base?: base.Base;
 }
@@ -307,12 +307,12 @@ export interface SubmitWebContentV2Response {
 
 export interface SubmitWebUrlRequest {
   web_url?: string;
-  /** 0 does not replace subpages. */
+  /** 0 不包换子页面。 */
   subpages_count?: number;
   creator_id?: string;
-  /** File format type */
+  /** 文件格式类型 */
   format_type?: common.FormatType;
-  /** Page title url type required */
+  /** 网页标题 url 类型必传 */
   title?: string;
   Base?: base.Base;
 }
@@ -327,7 +327,7 @@ export interface SubmitWebUrlResponse {
 export interface TableSchemaValidRequest {
   space_id: string;
   document_id: string;
-  /** Information from the source file */
+  /** source file 的信息 */
   source_file: common.SourceFileInfo;
   user_table_info: DocumentTableTaskInfo;
   Base?: base.Base;
@@ -335,7 +335,7 @@ export interface TableSchemaValidRequest {
 
 export interface TableSchemaValidResponse {
   column_valid_result?: Record<string, string>;
-  /** If it fails, an error code will be returned. */
+  /** 如果失败会返回错误码 */
   code: Int64;
   msg: string;
 }
@@ -344,7 +344,7 @@ export interface TaskProgressData {
   document_id?: string;
   progress?: number;
   status?: common.DocumentStatus;
-  /** A detailed description of the status; if the slice fails, a failure message is returned */
+  /** 状态的详细描述；如果切片失败，返回失败信息 */
   status_descript?: string;
 }
 
@@ -352,7 +352,7 @@ export interface TaskProgressDataV2 {
   document_id?: string;
   progress?: number;
   status?: common.DocumentStatus;
-  /** A detailed description of the status; if the slice fails, a failure message is returned */
+  /** 状态的详细描述；如果切片失败，返回失败信息 */
   status_descript?: string;
   document_name?: string;
 }
@@ -396,37 +396,37 @@ export interface ValidateUnitNameRequest {
 }
 
 export interface ValidateUnitNameResponse {
-  /** If it fails, an error code will be returned. */
+  /** 如果失败会返回错误码 */
   code: Int64;
   msg: string;
 }
 
 export interface WebDocument {
-  /** Title (table name) */
+  /** 标题(表名) */
   title?: string;
-  /** header */
+  /** 表头 */
   headers?: Array<string>;
-  /** Full information captured */
+  /** 抓取到的完整信息 */
   content?: Array<Record<string, string>>;
-  /** Type (document/form) */
+  /** 类型(文档/表格) */
   format_type?: common.FormatType;
-  /** URL of the crawl page */
+  /** 抓取页面的URL */
   url?: string;
-  /** XPATH for crawling information */
+  /** 抓取信息的XPATH */
   marks?: Record<string, string>;
 }
 
 export interface WebDocumentInfo {
   web_id?: string;
   update_type?: common.DocumentUpdateType;
-  /** Update interval 0 means no update */
+  /** 更新间隔天数 0表示不更新 */
   update_interval?: number;
   sub_web_ids?: Array<string>;
-  /** If there is an update */
+  /** 如果是已有更新 */
   document_id?: string;
-  /** Table type metadata */
+  /** 表格类型元数据 */
   table_meta?: Array<common.DocTableColumn>;
-  /** The original table type metadata deprecated is useless in the service code */
+  /** 原有的表格类型元数据 deprecated 服务代码中没用 */
   orig_table_meta?: Array<common.DocTableColumn>;
   name?: string;
 }

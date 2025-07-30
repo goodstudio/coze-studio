@@ -27,9 +27,9 @@ export type Int64 = string | number;
 export enum AppClientEnvType {
   Undefined = 0,
   AllEnv = 1,
-  /** Return to PPE and Online clients */
+  /** 返回PPE和Online的client */
   PPEAndOnline = 2,
-  /** Return to BOE Client Only */
+  /** 仅返回BOE Client */
   BOEOnly = 3,
 }
 
@@ -53,45 +53,45 @@ export enum AppV2Type {
 export interface App {
   id?: string;
   spaceID?: string;
-  /** Application type, such as TCE */
+  /** 应用类型, 如 TCE */
   type?: AppType;
-  /** Unique in space. For apps of type TCE, its uid is psm; for apps of type coze_bot, its uid is BotID */
+  /** 空间内唯一.对于 TCE 类型的app，其 uid 为 psm；对于 coze_bot 类型的 app，其 uid 为 BotID */
   uid?: string;
-  /** The application of TCE type defaults to PSM and can be modified; the application of CozeBot type cannot be modified */
+  /** TCE 类型的应用默认为 PSM, 可修改；CozeBot 类型的不可修改 */
   name?: string;
   description?: string;
   ownerIDs?: Array<string>;
-  /** Avatar, currently only displayed and used by cozeBot. */
+  /** 头像，当前仅 cozeBot 展示使用 */
   iconURL?: string;
-  /** founder */
+  /** 创建人 */
   createdBy?: string;
-  /** Update Person */
+  /** 更新人 */
   updatedBy?: string;
-  /** creation time */
+  /** 创建时间 */
   createdAt?: string;
-  /** update time */
+  /** 更新时间 */
   updatedAt?: string;
 }
 
-/** AppClient represents the client side that accesses the application data, typically a TCE service using the Fornax SDK. */
+/** AppClient 表示访问该应用数据的客户端, 一般为一个使用了 FornaxSDK 的 TCE 服务. */
 export interface AppClient {
   id?: Int64;
   spaceID?: Int64;
   appID?: Int64;
-  /** TCE type client, whose value is PSM */
+  /** TCE 类型的 client, 其值为 PSM */
   appUID?: string;
-  /** Lane env */
+  /** 泳道env */
   env?: string;
   /** cluster */
   cluster?: string;
-  /** TCE type client with a value of ${PSM}: ${env}: ${cluster} */
+  /** TCE 类型的 client, 其值为 ${PSM}:${env}:${cluster} */
   identity?: string;
   labels?: Record<string, string>;
-  /** founder */
+  /** 创建人 */
   createdBy?: string;
-  /** creation time */
+  /** 创建时间 */
   createdAt?: Int64;
-  /** update time */
+  /** 更新时间 */
   updatedAt?: Int64;
 }
 
@@ -112,29 +112,29 @@ export interface AppV2 {
   psm?: string;
   regions?: Array<string>;
   appEvaluationInfo?: AppEvaluationInfo;
-  /** founder */
+  /** 创建人 */
   createdBy?: string;
-  /** Update Person */
+  /** 更新人 */
   updatedBy?: string;
-  /** creation time */
+  /** 创建时间 */
   createdAt?: string;
-  /** update time */
+  /** 更新时间 */
   updatedAt?: string;
 }
 
-/** ClientEvaluationSetting client evaluation configuration */
+/** ClientEvaluationSetting 客户端的评测配置 */
 export interface ClientEvaluationSetting {
-  /** Whether to write to the dataset (enabled by default) */
+  /** 是否写入数据集 (默认开启) */
   enableWriteToDataSet: boolean;
-  /** Dataset ID */
+  /** 数据集ID */
   dataSetID?: string;
-  /** sample rate */
+  /** 采样率 */
   samplingRate?: number;
-  /** upper limit of sampling */
+  /** 采样上限 */
   samplingLimit?: string;
-  /** Sampling start time */
+  /** 采样开始时间 */
   fromMillis?: string;
-  /** Sampling end time */
+  /** 采样结束时间 */
   toMillis?: string;
 }
 /* eslint-enable */

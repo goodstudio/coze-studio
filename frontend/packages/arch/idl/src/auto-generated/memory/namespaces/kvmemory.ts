@@ -30,7 +30,7 @@ export interface DelProfileMemoryRequest {
   bot_id?: string;
   keywords?: Array<string>;
   connector_id?: Int64;
-  /** citation information */
+  /** 引用信息 */
   ref_info?: table.RefInfo;
   project_id?: string;
   Base?: base.Base;
@@ -50,7 +50,7 @@ export interface GetProfileMemoryRequest {
   keywords?: Array<string>;
   connector_id?: Int64;
   version?: string;
-  /** citation information */
+  /** 引用信息 */
   ref_info?: table.RefInfo;
   ext?: string;
   project_id?: string;
@@ -97,14 +97,14 @@ export interface KVItem {
 }
 
 export interface OpenGetPlaygroundVariableReq {
-  /** Project's user variable pass project */
+  /** Project的用户变量传project */
   app_id?: string;
   /** bot id */
   bot_id?: string;
   connector_id?: string;
-  /** channel uid */
+  /** 渠道uid */
   connector_uid?: string;
-  /** variable name */
+  /** 变量名称 */
   keywords?: Array<string>;
   Base?: base.Base;
 }
@@ -117,15 +117,15 @@ export interface OpenGetPlaygroundVariableResp {
 }
 
 export interface OpenSetPlaygroundVariableReq {
-  /** Project's user variable pass project */
+  /** Project的用户变量传project */
   app_id?: string;
   /** bot id */
   bot_id?: string;
-  /** Channel ID */
+  /** 渠道id */
   connector_id?: string;
-  /** channel uid */
+  /** 渠道uid */
   connector_uid?: string;
-  /** The value to be set */
+  /** 要设置的值 */
   data?: Array<KVItem>;
   Base?: base.Base;
 }
@@ -141,7 +141,7 @@ export interface SetKvMemoryReq {
   user_id?: Int64;
   data: Array<KVItem>;
   connector_id?: Int64;
-  /** citation information */
+  /** 引用信息 */
   ref_info?: table.RefInfo;
   project_id?: string;
   ProjectVersion?: Int64;
@@ -169,19 +169,19 @@ export interface VariableInfo {
 }
 
 export interface VariableNew {
-  /** variable name */
+  /** 变量名 */
   keyword?: string;
-  /** default value */
+  /** 默认值 */
   default_value?: string;
-  /** Variable type */
+  /** 变量类型 */
   variable_type?: string;
-  /** Variable source */
+  /** 变量来源 */
   channel?: string;
-  /** variable description */
+  /** 变量描述 */
   description?: string;
-  /** Whether to enable */
+  /** 是否启用 */
   enable?: boolean;
-  /** Variables support access in Prompt by default. After unchecking, access in Prompt will not be supported (only accessible in Workflow) */
+  /** 变量默认支持在Prompt中访问，取消勾选后将不支持在Prompt中访问（仅能在Workflow中访问 */
   prompt_enable?: boolean;
 }
 /* eslint-enable */

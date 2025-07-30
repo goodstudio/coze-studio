@@ -28,19 +28,19 @@ export enum ConnectorID {
   BotStore = 10000122,
 }
 
-/** Shelf type */
+/** 上下架类型 */
 export enum ListUnlistType {
   List = 0,
   Unlist = 1,
 }
 
-/** operation type */
+/** 操作类型 */
 export enum OperateType {
   Add = 0,
   Delete = 1,
 }
 
-/** sort by */
+/** 排序方式 */
 export enum OrderBy {
   CreateTime = 0,
   UpdateTime = 1,
@@ -50,42 +50,42 @@ export enum OrderBy {
 
 /** plugin channel id */
 export enum PluginChannel {
-  /** All channels */
+  /** 所有渠道 */
   All = 0,
-  /** material */
+  /** 素材 */
   Material = 1,
-  /** store */
+  /** 商店 */
   Store = 2,
 }
 
-/** plugin release status */
+/** 插件发布状态 */
 export enum PluginPublishStatus {
-  /** unpublished */
+  /** 未发布 */
   UnPublished = 1,
-  /** There is an update to be released. */
+  /** 有更新，待发布 */
   PendingPublished = 2,
-  /** Published, no updates */
+  /** 已发布，无更新 */
   Published = 3,
 }
 
-/** plugin status */
+/** 插件状态 */
 export enum PluginStatus {
-  /** default value */
+  /** 默认值 */
   Draft = 0,
   Submitted = 1,
-  /** unused */
+  /** 未使用 */
   Reviewing = 2,
-  /** unused */
+  /** 未使用 */
   Prepared = 3,
-  /** put on the shelves */
+  /** 上架 */
   Published = 4,
-  /** off the shelf */
+  /** 下架 */
   Offline = 5,
-  /** operation ban */
+  /** 运营封禁 */
   Banned = 6,
 }
 
-/** plugin type */
+/** 插件类型 */
 export enum PluginType {
   Plugin = 1,
   App = 2,
@@ -93,20 +93,20 @@ export enum PluginType {
   Workflow = 4,
 }
 
-/** Plugin product (channel_id = 2) review status */
+/** plugin商品（channel_id = 2）审核状态 */
 export enum ProductDraftStatus {
   Default = 0,
-  /** Under review. */
+  /** 审核中 */
   Pending = 1,
-  /** approved */
+  /** 审核通过 */
   Approved = 2,
-  /** The review failed. */
+  /** 审核不通过 */
   Rejected = 3,
-  /** moderation is deprecated */
+  /** 审核已废弃 */
   Abandoned = 4,
 }
 
-/** Plugin product (channel_id = 2) up and down status */
+/** plugin商品（channel_id = 2）上下架状态 */
 export enum ProductStatus {
   NeverListed = 0,
   Listed = 1,
@@ -120,9 +120,9 @@ export enum Publish {
 }
 
 export enum VisibilityType {
-  /** invisible */
+  /** 不可见 */
   Invisible = 0,
-  /** visible */
+  /** 可见 */
   Visible = 1,
 }
 /* eslint-enable */

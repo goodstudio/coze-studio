@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable @coze-arch/max-line-per-function */
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -135,7 +135,7 @@ export default function useImageUploader(
         Toast.error(
           uploaderRef.current.validateResult?.msg || '图片不符合要求',
         );
-        // @TS-expect-error here validateResult.isSuccess is false
+        // @ts-expect-error here validateResult.isSuccess is false
         return uploaderRef.current.validateResult;
       }
 

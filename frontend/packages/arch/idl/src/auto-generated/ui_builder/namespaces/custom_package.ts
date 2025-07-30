@@ -21,57 +21,57 @@
 
 export type Int64 = string | number;
 
-/** component meta-information */
+/** 组件元信息 */
 export interface ComponentMetaInfo {
   id?: string;
-  /** component name */
+  /** 组件名 */
   name?: string;
-  /** Component title */
+  /** 组件标题 */
   title?: string;
-  /** component description */
+  /** 组件描述 */
   description?: string;
-  /** Component icon */
+  /** 组件icon */
   iconUri?: string;
-  /** Component URL */
+  /** 组件url */
   iconUrl?: string;
 }
 
 export interface Package {
   id?: string;
   metaInfo?: PackageMetaInfo;
-  /** package name */
+  /** 组件包名 */
   pkgName?: string;
-  /** package version */
+  /** 组件包版本 */
   version?: string;
-  /** Package creator uid */
+  /** 组件包创建者uid */
   uid?: string;
-  /** Package Accessible Space ID */
+  /** 组件包可访问空间id */
   spaceIds?: Array<string>;
-  /** Package update time */
+  /** 组件包更新时间 */
   updateTime?: string;
-  /** Is it up to date? */
+  /** 是否最新 */
   isLatest?: boolean;
-  /** Package Channel */
+  /** 组件包渠道 */
   channel?: number;
-  /** The id of the package in the registry. */
+  /** 组件包在registry中的id */
   registryComponentId?: string;
-  /** Product cdn address */
+  /** 产物cdn地址 */
   cdnHost?: string;
 }
 
-/** component package meta-information */
+/** 组件包元信息 */
 export interface PackageMetaInfo {
-  /** package name */
+  /** 组件包名 */
   name?: string;
-  /** Package title */
+  /** 组件包标题 */
   title?: string;
-  /** Package Description */
+  /** 组件包描述 */
   description?: string;
-  /** Components contained in the component package */
+  /** 组件包包含的组件 */
   contains?: Array<ComponentMetaInfo>;
-  /** Package icon */
+  /** 组件包icon */
   iconUri?: string;
-  /** Package URL */
+  /** 组件包url */
   iconUrl?: string;
 }
 /* eslint-enable */

@@ -33,7 +33,7 @@ export interface GetThreadMetaRequest {
   start_time?: string;
   /** ms, end_at >= start_at */
   end_time?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
@@ -42,9 +42,9 @@ export interface GetThreadMetaRequest {
 
 export interface GetThreadMetaResponse {
   data: ThreadMeta;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -62,7 +62,7 @@ export interface GetThreadRequest {
   /** The page token is generated after the first query and passed in the subsequent queries
          to determine the starting point for the next page of results. */
   page_token?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
@@ -71,33 +71,33 @@ export interface GetThreadRequest {
 
 export interface GetThreadResponse {
   data: Thread;
-  /** The paging token on the next page, which is returned when the front end pulls the data on the next page. */
+  /** 下一页的分页token，前端拉取下一页数据时回传。 */
   next_page_token?: string;
-  /** Is there any more data? */
+  /** 是否有更多数据 */
   has_more?: boolean;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface GetThreadsConfigData {
-  /** field meta information */
+  /** 字段元信息 */
   field_metas: Record<string, ThreadFieldMeta>;
 }
 
 export interface GetThreadsConfigRequest {
   /** space id */
   space_id: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
 }
 
 export interface GetThreadsConfigResponse {
   data?: GetThreadsConfigData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -109,86 +109,86 @@ export interface ListThreadsRequest {
   /** ms, end_at >= start_at */
   end_time?: string;
   filters?: flow_devops_fornaxob_fieldfilterv2.Filters;
-  /** Full-Text search full-text search, will search the input and output fields */
+  /** Full-Text search 全文本搜索，会搜input、output这2个字段 */
   full_text_search?: string;
   /** default 20 max 200 */
   limit?: number;
   /** The page token is generated after the first query and passed in the subsequent queries
      to determine the starting point for the next page of results. */
   page_token?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
   target_env?: flow_devops_fornaxob_common.EnvType;
-  /** Backend interface forwarding flag, non-service or agw use, the same field of other interfaces has the same effect */
+  /** 后端接口转发标志位，非业务或agw使用，其它接口的相同字段作用一样 */
   transferred?: boolean;
-  /** Specify the swimlane when accessing the boe data, for non-business use, and the same field of other interfaces has the same effect */
+  /** 访问boe数据时指定泳道，非业务使用，其它接口的相同字段作用一样 */
   'x-boe-env'?: string;
 }
 
 export interface ListThreadsResponse {
-  /** Only Thread dimension information is returned here, not Query dimension information. */
+  /** 这里仅返回Thread维度信息，不返回Query维度信息 */
   threads?: Array<Thread>;
-  /** The paging token on the next page, which is returned when the front end pulls the data on the next page. */
+  /** 下一页的分页token，前端拉取下一页数据时回传。 */
   next_page_token?: string;
-  /** Is there any more data? */
+  /** 是否有更多数据 */
   has_more?: boolean;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface Thread {
   queries?: Array<query.Query>;
-  /** First query start time */
+  /** 第一条query开始时间 */
   start_time_min?: Int64;
-  /** Last query start time */
+  /** 最后一条query开始时间 */
   start_time_max?: Int64;
-  /** total time spent */
+  /** 总耗时 */
   duration_sum?: Int64;
-  /** Total token */
+  /** 总token */
   tokens_sum?: Int64;
-  /** The output of the last query */
+  /** 最后一条query的output */
   last_message?: string;
-  /** Total number of queries */
+  /** 总query条数 */
   query_count?: Int64;
-  /** session meta-information */
+  /** 会话元信息 */
   thread_meta?: ThreadMeta;
-  /** Aggregated conversation_id */
+  /** 聚合后的conversation_id */
   conversation_id?: string;
-  /** Aggregated thread_id */
+  /** 聚合后的thread_id */
   thread_id?: string;
-  /** initialization message */
+  /** 初始化消息 */
   init_message?: string;
-  /** Last query input */
+  /** 最后一条query的input */
   last_input?: string;
-  /** End time of the last query */
+  /** 最后一条query的结束时间 */
   end_time_max?: Int64;
 }
 
-/** After migrating the field in trace to the same structure as here, you need to drop FilterTypesV2. */
+/** trace 中的 field 迁移和此处一样的结构后，需要下掉 FilterTypesV2 */
 export interface ThreadFieldMeta {
-  /** field type */
+  /** 字段类型 */
   value_type: flow_devops_fornaxob_common.ValueType;
-  /** Supported operation types */
+  /** 支持的操作类型 */
   filter_types: Array<flow_devops_fornaxob_fieldfilterv2.FieldFilterType>;
-  /** Supported options */
+  /** 支持的可选项 */
   field_options?: flow_devops_fornaxob_fieldfilterv2.FieldOptions;
-  /** Support custom filling in */
+  /** 支持自定义填写 */
   support_customizable_option?: boolean;
-  /** Supported operation types v2 */
+  /** 支持的操作类型 v2 */
   filter_types_v2?: Array<flow_devops_fornaxob_fieldfilterv2.FieldFilterType>;
 }
 
 export interface ThreadMeta {
   user_id?: string;
-  /** Device ID */
+  /** 设备ID */
   device_id?: string;
-  /** device platform */
+  /** 设备平台 */
   device_platform?: string;
-  /** channel */
+  /** 渠道 */
   channel?: string;
-  /** Channel ID */
+  /** 渠道 ID */
   connector_id?: string;
 }
 /* eslint-enable */

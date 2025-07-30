@@ -67,21 +67,21 @@ export interface AttrAgent {
 }
 
 export interface AttrBase {
-  /** The user ID that triggered the event */
+  /** 触发事件的用户ID */
   user_id: string;
-  /** The user ID that triggered the event */
+  /** 触发事件的用户ID */
   device_id: string;
-  /** The space in which the event occurred */
+  /** 事件发生的space */
   space_id: string;
-  /** The psm of the event */
+  /** 事件发生的psm */
   psm: string;
-  /** lane */
+  /** 泳道 */
   psm_env: string;
-  /** Input to this node */
+  /** 本节点的输入 */
   input: string;
-  /** Output of this node */
+  /** 本节点的输出 */
   output: string;
-  /** Error report of this node */
+  /** 本节点的报错 */
   err_msg: string;
   status_code?: string;
   tokens?: Int64;
@@ -91,9 +91,9 @@ export interface AttrBase {
   prompt_key?: string;
   call_type?: string;
   debug_id?: string;
-  /** The space in which the event occurred */
+  /** 事件发生的space */
   fornax_space_id?: string;
-  /** Is it the first jump? */
+  /** 是否是第一跳 */
   fornax_psm_first_span?: string;
 }
 
@@ -117,7 +117,7 @@ export interface AttrCozeBot {
 }
 
 export interface AttrModel {
-  /** Model type: gpt3.5/gpt4... */
+  /** model类型: gpt3.5/gpt4 ... */
   model_name: string;
 }
 
@@ -164,18 +164,18 @@ Value is UNIX Epoch time in nanoseconds since 00:00:00 UTC on 1 January 1970. */
   latency: string;
   /** An final status for this span. */
   status: SpanStatus;
-  /** Argos log ID */
+  /** argos日志ID */
   log_id: string;
   /** fornax base attributes */
   attr_base: AttrBase;
   attr_model?: AttrModel;
   extra?: Record<string, string>;
-  /** Deprecated, no value returned */
+  /** 废弃，不返回任何值 */
   custom_span_type?: string;
   attr_agent?: AttrAgent;
   attr_coze_bot?: AttrCozeBot;
   service_meta?: Record<string, string>;
-  /** Is it encrypted data? */
+  /** 是否是加密数据 */
   is_encryption_data?: boolean;
   attr_tos?: AttrTos;
   system_tags?: Record<string, string>;

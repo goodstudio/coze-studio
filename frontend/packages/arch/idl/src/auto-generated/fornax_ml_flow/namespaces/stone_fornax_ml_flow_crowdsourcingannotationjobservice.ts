@@ -26,17 +26,17 @@ export type Int64 = string | number;
 
 export interface CreateCrowdsourcingAnnotateJobReq {
   spaceID: string;
-  /** task name */
+  /** 任务名称 */
   name: string;
-  /** task description */
+  /** 任务描述 */
   description?: string;
-  /** labeling task platform */
+  /** 标注任务平台 */
   platform: annotation_job.CrowdsourcingAnnotationPlatform;
-  /** AIDP related configuration */
+  /** AIDP相关配置 */
   aidpConfig?: annotation_job.AIDPConfig;
-  /** feed configuration */
+  /** 送标配置 */
   inputConfig?: annotation_job.CrowdsourcingAnnotateInputConfig;
-  /** bid configuration */
+  /** 取标配置 */
   outputConfig?: annotation_job.CrowdsourcingAnnotateOutputConfig;
   base?: base.Base;
 }
@@ -84,7 +84,7 @@ export interface GetAnswerSchemaResp {
 export interface ListAuthorizedAIDPTasksReq {
   spaceID: string;
   platform: annotation_job.CrowdsourcingAnnotationPlatform;
-  /** Search keywords */
+  /** 搜索关键字 */
   keyword?: string;
   base?: base.Base;
 }

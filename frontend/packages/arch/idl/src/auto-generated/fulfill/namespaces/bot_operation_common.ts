@@ -21,67 +21,67 @@
 
 export type Int64 = string | number;
 
-/** Order status */
+/** 订单状态 */
 export enum OrderStatus {
-  /** initialization */
+  /** 初始化 */
   Init = 0,
-  /** success */
+  /** 成功 */
   Success = 1,
-  /** fail */
+  /** 失败 */
   Failed = 2,
-  /** close */
+  /** 关闭 */
   Closed = 3,
-  /** Refund is in progress. */
+  /** 退款中 */
   Refunding = 4,
-  /** Refunded. */
+  /** 已退款 */
   Refunded = 5,
-  /** Refund failed. */
+  /** 退款失败 */
   RefundFaield = 6,
-  /** Rejected */
+  /** 已拒付 */
   ChargeBack = 7,
-  /** Refusal defense successful */
+  /** 拒付抗辩成功 */
   ChargeBackReverse = 8,
 }
 
-/** Order type */
+/** 订单类型 */
 export enum OrderType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Token recharge */
+  /** Token充值 */
   TokenCharge = 1,
-  /** Token automatic recharge */
+  /** Token自动充值 */
   TokenAutoCharge = 2,
-  /** MessageCredit subscription */
+  /** MessageCredit订阅 */
   SubMessageCredit = 11,
-  /** MessageCredit recharge */
+  /** MessageCredit充值 */
   MessageCredit = 12,
 }
 
 export enum RefundType {
   Unknown = 0,
-  /** Full refund */
+  /** 全额退款 */
   Full = 1,
-  /** Refund per usage */
+  /** 按使用量退款 */
   ActualUse = 2,
 }
 
 export interface ByteDanceUser {
-  /** email */
+  /** 邮箱 */
   email?: string;
-  /** avatar */
+  /** 头像 */
   avatar_url?: string;
-  /** Chinese name */
+  /** 中文名 */
   name?: string;
-  /** English */
+  /** 英文 */
   en_name?: string;
 }
 
 export interface PassportUser {
-  /** user uid */
+  /** 用户 uid */
   uid?: string;
-  /** nickname */
+  /** 昵称 */
   name?: string;
-  /** avatar */
+  /** 头像 */
   avatar_url?: string;
 }
 /* eslint-enable */

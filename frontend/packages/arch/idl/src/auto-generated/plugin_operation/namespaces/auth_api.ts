@@ -25,16 +25,16 @@ import * as base from './base';
 export type Int64 = string;
 
 export interface CreateRecordData {
-  /** ticket id */
+  /** 工单id */
   record_id?: number;
 }
 
 export interface CreateRecordRequest {
-  /** Material ID */
+  /** 素材id */
   material_id: string;
-  /** Category ID */
+  /** 类别id */
   category_id?: string;
-  /** operation type */
+  /** 操作类型 */
   operate_type: plugin_common.ListUnlistType;
   /** cookie */
   Cookie?: string;

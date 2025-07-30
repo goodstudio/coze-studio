@@ -118,9 +118,9 @@ export default class EvaluationApiService<T> {
    *
    * PUT /api/evaluation/v1/case/dataset/associate
    *
-   * Case correlation evaluation resources
+   * case 关联评测资源
    *
-   * (Deprecated) dataset of related cases
+   * (废弃)关联case的数据集
    */
   AssociateDataset(
     req: flow_devops_evaluation_task.AssociateDatasetRequest,
@@ -162,7 +162,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/evalobject/associate
    *
-   * Evaluation object of the related case
+   * 关联case的评测对象
    */
   AssociateEvalObject(
     req: flow_devops_evaluation_task.AssociateEvalObjectRequest,
@@ -188,7 +188,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case
    *
-   * Update case, update case meta information description
+   * 更新case， 更新case元信息描述
    */
   UpdateCase(
     req: flow_devops_evaluation_task.UpdateCaseRequest,
@@ -215,7 +215,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/cases/list
    *
-   * Paging pulls the list of cases in the current space
+   * 分页拉当前空间下的case列表
    */
   PullCase(
     req: flow_devops_evaluation_task.PullCaseRequest,
@@ -247,7 +247,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/evaluator/associate
    *
-   * Linked case evaluation method
+   * 关联case评估方法
    */
   AssociateEvaluator(
     req: flow_devops_evaluation_task.AssociateEvaluatorRequest,
@@ -279,7 +279,7 @@ export default class EvaluationApiService<T> {
    *
    * case curd
    *
-   * Create case, version is draft version
+   * 创建case，版本为draft版本
    */
   CreateCase(
     req: flow_devops_evaluation_task.CreateCaseRequest,
@@ -309,7 +309,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/exec
    *
-   * Single execution case
+   * 单次执行case
    */
   ExecCase(
     req: flow_devops_evaluation_task.ExecCaseRequest,
@@ -337,7 +337,7 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/case/task
    *
-   * Delete a historical execution record
+   * 删除一次历史执行记录
    */
   DeleteTask(
     req: flow_devops_evaluation_task.DeleteTaskRequest,
@@ -362,7 +362,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/task/retry
    *
-   * Retry execution to trigger success in the task error state
+   * 重试执行，尽在task error状态下可以触发成功
    */
   RetryExecTask(
     req: flow_devops_evaluation_task.RetryExecTaskRequest,
@@ -414,11 +414,11 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/dataset/:dataset_id/row_group/batch_delete
    *
-   * move row order
+   * 移动行顺序
    *
    * MoveRowGroupsResp MoveRowGroups(1: MoveRowGroupsReq req) (api.post = "/api/evaluation/v1/dataset/:dataset_id/row_group/move"),
    *
-   * Delete a line
+   * 删除一行
    */
   BatchDeleteRowGroups(
     req: flow_devops_evaluation_dataset.BatchDeleteRowGroupsReq,
@@ -560,7 +560,7 @@ export default class EvaluationApiService<T> {
    *
    * POST /api/evaluation/v1/dataset/:dataset_id/row_group/:row_group_id/replace
    *
-   * Replace a line/modify a line
+   * 替换一行/修改一行
    */
   ReplaceRowGroups(
     req: flow_devops_evaluation_dataset.ReplaceRowGroupsReq,
@@ -586,9 +586,9 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/:dataset_id/row_group/insert
    *
-   * Data manipulation on tables
+   * 对表的数据操作
    *
-   * add multiple lines
+   * 新增多行
    */
   InsertRowGroups(
     req: flow_devops_evaluation_dataset.InsertRowGroupsReq,
@@ -838,7 +838,7 @@ export default class EvaluationApiService<T> {
    *
    * row eval
    *
-   * Query the evaluation results of the current row
+   * 查询当前row的评测结果
    */
   BatchGetRowEvalRes(
     req: flow_devops_evaluation_task.BatchGetRowEvalResRequest,
@@ -864,7 +864,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id
    *
-   * Pull all the information of the current case, including the associated evaluation information.
+   * 拉去当前case全部信息，包括关联的评测信息
    */
   GetCase(
     req: flow_devops_evaluation_task.GetCaseRequest,
@@ -884,9 +884,9 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/tasks/list
    *
-   * Case execution task record
+   * case 一次执行 task 记录
    *
-   * Pull case history execution record
+   * 拉case历史执行记录
    */
   PullCaseExecHistory(
     req: flow_devops_evaluation_task.PullCaseExecHistoryRequest,
@@ -917,7 +917,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/case/task/rows/manual_score
    *
-   * manual scoring
+   * 人工打分
    */
   ManualScoreFowRows(
     req: flow_devops_evaluation_task.ManualScoreFowRowsRequest,
@@ -946,7 +946,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/task/:task_id
    *
-   * Pull single execution history
+   * 拉单次历史执行记录
    */
   GetTask(
     req: flow_devops_evaluation_task.GetTaskRequest,
@@ -968,7 +968,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/check
    *
-   * Detection Case Evaluator Legitimacy
+   * 检测Case关联Evaluator合法性
    */
   CheckCaseEvaluator(
     req: flow_devops_evaluation_task.CheckCaseEvaluatorRequest,
@@ -990,7 +990,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/case/task/kill
    *
-   * Terminate the Processing task
+   * 终止Processing的任务
    */
   KillRunningTask(
     req: flow_devops_evaluation_task.KillRunningTaskRequest,
@@ -1015,7 +1015,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/object_meta/list
    *
-   * On the second-level query page, pull the imported parameter meta information according to the id queried at the first level
+   * 二级查询页面，根据一级查询到的id拉取入参meta信息
    */
   ListObjectMetaByType(
     req: flow_devops_evaluation_object.ListObjectMetaByTypeRequest,
@@ -1042,7 +1042,7 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/rule_group/:rule_group_id/rule/:rule_id
    *
-   * Remove a rule from a group
+   * 从 group 中移除一个 rule
    */
   RemoveRule(
     req: flow_devops_evaluation_evaluator.RemoveRuleRequest,
@@ -1065,7 +1065,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/rule_groups/list
    *
-   * Query rule_group list
+   * 查询 rule_group 列表
    */
   ListRuleGroupMeta(
     req: flow_devops_evaluation_evaluator.ListRuleGroupMetaRequest,
@@ -1095,7 +1095,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/rule_group/types/list
    *
-   * Query supported rule types
+   * 查询支持的 rule types
    */
   ListSupportRuleType(
     req: flow_devops_evaluation_evaluator.ListSupportRuleTypeRequest,
@@ -1120,7 +1120,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/rule_group/:rule_group_id/rules/list
    *
-   * Query rules in rule_group
+   * 查询 rule_group 中的 rules
    */
   GetRuleGroupRules(
     req: flow_devops_evaluation_evaluator.GetRuleGroupRulesRequest,
@@ -1142,7 +1142,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/rule_group/rules
    *
-   * Query a batch of rules
+   * 查询一批 rule
    */
   GetRules(
     req: flow_devops_evaluation_evaluator.GetRulesRequest,
@@ -1166,7 +1166,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/rule_group
    *
-   * Create a rule_group
+   * 创建一个 rule_group
    */
   CreateRuleGroup(
     req: flow_devops_evaluation_evaluator.CreateRuleGroupRequest,
@@ -1194,7 +1194,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/rule_group/:rule_group_id/rule
    *
-   * Create rules
+   * 创建 rule
    */
   CreateRule(
     req: flow_devops_evaluation_evaluator.CreateRuleRequest,
@@ -1221,7 +1221,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/rule_group/:rule_group_id/meta
    *
-   * Query a rule_group meta
+   * 查询一个 rule_group meta
    */
   GetRuleGroupMeta(
     req: flow_devops_evaluation_evaluator.GetRuleGroupMetaRequest,
@@ -1243,7 +1243,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/rule_group/:rule_group_id/rule/:rule_id
    *
-   * Modify the rules
+   * 修改 rule
    */
   UpdateRule(
     req: flow_devops_evaluation_evaluator.UpdateRuleRequest,
@@ -1270,7 +1270,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/rule_group/clone
    *
-   * Copy a rule_group
+   * 复制一个 rule_group
    */
   CopyRuleGroup(
     req: flow_devops_evaluation_evaluator.CopyRuleGroupRequest,
@@ -1297,7 +1297,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/rule_group
    *
-   * Update a rule_group
+   * 更新一个 rule_group
    */
   UpdateRuleGroup(
     req: flow_devops_evaluation_evaluator.UpdateRuleGroupRequest,
@@ -1325,7 +1325,7 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/rule_group
    *
-   * Delete a rule_group
+   * 删除一个 rule_group
    */
   DeleteRuleGroup(
     req: flow_devops_evaluation_evaluator.DeleteRuleGroupRequest,
@@ -1350,7 +1350,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/task/:task_id/dashboard
    *
-   * Dashboard shows one execution task
+   * dashboard 展示一次执行任务
    */
   DashboardTask(
     req: flow_devops_evaluation_task.DashboardTaskRequest,
@@ -1415,7 +1415,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/object_type
    *
-   * Register a review object
+   * 注册评测对象
    */
   RegisterObjectType(
     req: flow_devops_evaluation_object.RegisterObjectTypeRequest,
@@ -1438,7 +1438,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/object_type_detail/list
    *
-   * Query the list of evaluation objects
+   * 查询评测对象列表
    */
   ListObjectTypeDetail(
     req: flow_devops_evaluation_object.ListObjectTypeDetailRequest,
@@ -1462,7 +1462,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/object_type
    *
-   * Change the evaluation object
+   * 更改评测对象
    */
   UpdateObjectType(
     req: flow_devops_evaluation_object.UpdateObjectTypeRequest,
@@ -1482,7 +1482,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/object_type/:object_type
    *
-   * query evaluation object
+   * 查询评测对象
    */
   GetObjectType(
     req: flow_devops_evaluation_object.GetObjectTypeRequest,
@@ -1504,7 +1504,7 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/object_type
    *
-   * Delete review object
+   * 删除评测对象
    */
   DeleteObjectType(
     req: flow_devops_evaluation_object.DeleteObjectTypeRequest,
@@ -1528,7 +1528,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/object/object_type/list
    *
-   * First-level query page, check a batch of evaluation objects
+   * 一级查询页面，查一批评测对象
    */
   ListObjectType(
     req: flow_devops_evaluation_object.ListObjectTypeRequest,
@@ -1553,7 +1553,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/case/:case_id/tasks/get
    *
-   * History of batch pull cases
+   * 批量拉取case的历史执行记录
    */
   GetTasks(
     req: flow_devops_evaluation_task.GetTasksRequest,
@@ -1592,7 +1592,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/rule_group/custom_types/list
    *
-   * Query supported custom rule types
+   * 查询支持的自定义的rule types
    */
   ListCustomSupportRuleType(
     req: flow_devops_evaluation_evaluator.ListCustomSupportRuleTypeRequest,
@@ -1625,7 +1625,7 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/evaluator_type
    *
-   * Delete custom evaluator
+   * 删除自定义评估器
    */
   DeleteEvaluatorType(
     req: flow_devops_evaluation_evaluator.DeleteEvaluatorTypeRequest,
@@ -1649,7 +1649,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/evaluator_type
    *
-   * Register a custom evaluator
+   * 注册自定义评估器
    */
   RegisterEvaluatorType(
     req: flow_devops_evaluation_evaluator.RegisterEvaluatorTypeRequest,
@@ -1674,7 +1674,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/evaluator_type
    *
-   * Change custom evaluator
+   * 更改自定义评估器
    */
   UpdateEvaluatorType(
     req: flow_devops_evaluation_evaluator.UpdateEvaluatorTypeRequest,
@@ -1696,7 +1696,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/evaluator_type_detail/list
    *
-   * Query the list of custom evaluators
+   * 查询自定义评估器列表
    */
   ListEvaluatorTypeDetail(
     req: flow_devops_evaluation_evaluator.ListEvaluatorTypeDetailRequest,
@@ -1724,7 +1724,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/evaluator_type/:evaluator_type
    *
-   * Query Custom Evaluator
+   * 查询自定义评估器
    */
   GetEvaluatorType(
     req: flow_devops_evaluation_evaluator.GetEvaluatorTypeRequest,
@@ -1746,7 +1746,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/dataset/:dataset_id/row_group/:row_group_id
    *
-   * Update a specified row of data
+   * 更新指定一行数据
    */
   UpdateRowGroups(
     req: flow_devops_evaluation_dataset.UpdateRowGroupsReq,
@@ -1772,7 +1772,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/rule_group/batch_get
    *
-   * Query a batch of rule_group meta
+   * 查询一批 rule_group meta
    */
   BatchGetRuleGroupMeta(
     req: flow_devops_evaluation_evaluator.BatchGetRuleGroupMetaRequest,
@@ -1815,7 +1815,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/object/object_type/v2/list
    *
-   * First-level query page, check a batch of evaluation objects
+   * 一级查询页面，查一批评测对象
    */
   ListObjectTypeV2(
     req: flow_devops_evaluation_object.ListObjectTypeRequestV2,
@@ -1845,7 +1845,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/chain_task/version/list
    *
-   * Query the ChainTask version list
+   * 查询ChainTask版本列表
    */
   ListChainTaskVersions(
     req: flow_devops_evaluation_object.ListChainTaskVersionsRequest,
@@ -1915,7 +1915,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/task/:task_id/aggregate_report
    *
-   * Get Aggregate Report
+   * 获取聚合报告
    */
   GetAggregateReport(
     req: flow_devops_evaluation_task.GetAggregateReportRequest,
@@ -1939,7 +1939,7 @@ export default class EvaluationApiService<T> {
    *
    * POST /api/evaluation/v1/object/search/fornax_app
    *
-   * FornaxAppSearchObject FornaxApp SearchObject pass-through interface, after initiating the request on the end, the server level forwards it to FornaxApp
+   * FornaxAppSearchObject FornaxApp SearchObject 透传接口，端上发起请求后服务端转发至 FornaxApp
    */
   FornaxAppSearchObject(
     req: flow_devops_evaluation_object.FornaxAppSearchObjectRequest,
@@ -1965,7 +1965,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/:case_id/task/:task_id/aggregate_report/gen
    *
-   * Generate aggregated reports
+   * 生成聚合报告
    */
   GenAggregateReport(
     req: flow_devops_evaluation_task.GenAggregateReportRequest,
@@ -1988,7 +1988,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/coze_bot/version/list
    *
-   * Query the list of pre-released versions of CozeBot
+   * 查询CozeBot预发布的版本列表
    */
   ListCozeBotVersions(
     req: flow_devops_evaluation_object.ListCozeBotVersionsRequest,
@@ -2126,7 +2126,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/analysis_chart_report/associate
    *
-   * Analysis report list associated case
+   * 分析报告列表关联case
    */
   AssociateAnalysisChartReport(
     req: flow_devops_evaluation_task.AssociateAnalysisChartReportRequest,
@@ -2155,7 +2155,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/case/:case_id/task/:task_id/analysis_chart_report/update
    *
-   * Modify analysis report configuration
+   * 修改分析报告配置
    */
   UpdateAnalysisChartReport(
     req: flow_devops_evaluation_task.UpdateAnalysisChartReportRequest,
@@ -2184,7 +2184,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/task/:task_id/rule_group_id
    *
-   * Pull rule_group_id from a task
+   * 拉取一个task下的rule_group_id
    */
   GetTaskRuleGroupId(
     req: flow_devops_evaluation_task.GetTaskRuleGroupIdRequest,
@@ -2206,7 +2206,7 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/case/task/analysis_chart_report
    *
-   * Delete an analysis report under a task
+   * 删除一个task下的某个分析报告
    */
   DeleteAnalysisChartReport(
     req: flow_devops_evaluation_task.DeleteAnalysisChartReportRequest,
@@ -2236,7 +2236,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/evaluator_type/intersection
    *
-   * Query the common intersection of comparative dimensions for multiple reports
+   * 查询多个报告的对比维度的共同交集
    */
   GetCommonEvaluatorDimensions(
     req: flow_devops_evaluation_task.GetIntersectionEvaluatorDimensionsRequest,
@@ -2264,7 +2264,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/case/task/compare_aggregate_report/gen
    *
-   * Generate analysis and comparison reports for multiple tasks
+   * 生成多个task的分析对比报告
    */
   GenAggregateComparisonReport(
     req: flow_devops_evaluation_task.GenAggregateComparisonReportRequest,
@@ -2292,7 +2292,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/task/:task_id/analysis_chart_report/list
    *
-   * Pull all analysis reports for the task
+   * 拉取task的所有的分析报告
    */
   PullTaskAnalysisChartReports(
     req: flow_devops_evaluation_task.PullTaskAnalysisChartReportsRequest,
@@ -2321,7 +2321,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/case/:case_id/task/:task_id/analysis_chart_report/gen
    *
-   * Generate an analysis report for a task report
+   * 生成某个任务报告的分析报告
    */
   GenAnalysisChartReport(
     req: flow_devops_evaluation_task.GenAnalysisChartReportRequest,
@@ -2347,7 +2347,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/rule_group/:rule_group_id/rules
    *
-   * Create a set of rules
+   * 创建一批 rule
    */
   CreateRules(
     req: flow_devops_evaluation_evaluator.CreateRulesRequest,
@@ -2392,7 +2392,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/:dataset_id/dataset_row_groups/submit
    *
-   * The user selects a dataset and automatically generates a dataset report to confirm the status of the task.
+   * 用户挑选数据集自动生成数据集的结果上报用来确认任务的状态。
    */
   SubmitGeneratedDatasetRowGroups(
     req: flow_devops_evaluation_dataset.SubmitGeneratedDatasetRowGroupsReq,
@@ -2421,7 +2421,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/:dataset_id/dataset_generate/publish
    *
-   * Publish Production Dataset Interface
+   * 发布生产数据集接口
    */
   PublishGenerateDataset(
     req: flow_devops_evaluation_dataset.PublishGenerateDatasetReq,
@@ -2453,7 +2453,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/:dataset_id/semantic/optimize
    *
-   * Optimize field semantics
+   * 优化字段语义
    */
   StreamOptimizeRichSemantic(
     req: flow_devops_evaluation_dataset.OptimizeRichSemanticReq,
@@ -2479,7 +2479,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/:dataset_id/dataset_describe/optimize
    *
-   * Optimize dataset generation description
+   * 优化数据集生成描述
    */
   StreamOptimizeRichDatasetDescribe(
     req: flow_devops_evaluation_dataset.OptimizeRichDatasetDescribeReq,
@@ -2507,7 +2507,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/dataset/:dataset_id/dataset_row_groups/dataset_generate
    *
-   * Query the task status of automatically generated datasets under namespace dataset id
+   * 查询namespace dataset id 下自动生成数据集的任务状态
    */
   GetGeneratedDatasetRowGroups(
     req: flow_devops_evaluation_dataset.GetGeneratedDatasetRowGroupsReq,
@@ -2535,7 +2535,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/:dataset_id/dataset_generate/kill
    *
-   * Terminate the production dataset task
+   * 终止生产数据集任务
    */
   KillGenerateDatasetTask(
     req: flow_devops_evaluation_dataset.KillGenerateDatasetTaskReq,
@@ -2711,7 +2711,7 @@ export default class EvaluationApiService<T> {
    *
    * add dataset supprot sft
    *
-   * Lock the specified dataset and make the dataset readable
+   * 锁定指定数据集,将数据集置为可读状态
    */
   LockDataset(
     req: flow_devops_evaluation_dataset.LockDatasetReq,
@@ -2736,7 +2736,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/release
    *
-   * Unlock the specified dataset and set the dataset to a normal state
+   * 解锁指定数据集,将数据集置为正常状态
    */
   ReleaseDataset(
     req: flow_devops_evaluation_dataset.ReleaseDatasetReq,
@@ -2760,7 +2760,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/dataset_row_group/trim_right
    *
-   * Delete all subsequent row_group from the specified row_group_id
+   * 从指定的row_group_id 开始删除后面的所有row_group
    */
   DatasetRowGroupTrimRight(
     req: flow_devops_evaluation_dataset.DatasetRowGroupTrimRightReq,
@@ -2787,7 +2787,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/batch_update_row_group
    *
-   * Batch update of the row_group of the specified dataset
+   * 批量更新指定数据集的row_group
    */
   BatchUpdateRowGroups(
     req: flow_devops_evaluation_dataset.BatchUpdateRowGroupsReq,
@@ -2814,7 +2814,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/rule_group/:rule_group_id/rule_hub
    *
-   * Create a rule and save it to the hub
+   * 创建rule并保存到hub中
    */
   CreateRuleAndSaveToHub(
     req: flow_devops_evaluation_evaluator.CreateRuleAndSaveToHubRequest,
@@ -2845,7 +2845,7 @@ export default class EvaluationApiService<T> {
   /**
    * DELETE /api/evaluation/v1/rule_group/:rule_group_id/rule_hub
    *
-   * Delete hub
+   * 删除hub
    */
   DeleteEvaluatorHub(
     req: flow_devops_evaluation_evaluator.DeleteEvaluatorHubRequest,
@@ -2870,7 +2870,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/dataset/list_v2
    *
-   * ListDatasetV2 ListDataset is a Get interface, and the tagID list cannot be passed through the body for filtering, so the new ListDatasetV2 interface logic is consistent with ListDataset
+   * ListDatasetV2 ListDataset为Get接口,无法通过body传递tagID list进行筛选, 因此新增ListDatasetV2接口逻辑与ListDataset一致
    */
   ListDatasetV2(
     req: flow_devops_evaluation_dataset.ListDatasetV2Req,
@@ -2927,7 +2927,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/dataset/unbind
    *
-   * Unbind existing datasets
+   * 解绑已有数据集
    */
   UnbindDataset(
     req: flow_devops_evaluation_task.UnbindDatasetRequest,
@@ -2952,7 +2952,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/dataset/associate_v2
    *
-   * Correlate existing datasets
+   * 关联已有数据集
    */
   AssociateDatasetV2(
     req: flow_devops_evaluation_task.AssociateDatasetV2Request,
@@ -2997,7 +2997,7 @@ export default class EvaluationApiService<T> {
   /**
    * GET /api/evaluation/v1/case/:case_id/task/:task_id/dashboard_rowgroup
    *
-   * Dashboard shows one execution task
+   * dashboard 展示一次执行任务
    */
   DashboardTaskRowGroup(
     req: flow_devops_evaluation_task.DashboardTaskRowGroupRequest,
@@ -3023,7 +3023,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/cases/list_v2
    *
-   * PullCaseV2 PullCase is a Get interface, and datasetIDs cannot be passed through the body for filtering, so the new PullCaseV2 interface logic is consistent with PullCase
+   * PullCaseV2 PullCase为Get接口,无法通过body传递datasetIDs进行筛选, 因此新增PullCaseV2接口逻辑与PullCase一致
    */
   PullCaseV2(
     req: flow_devops_evaluation_task.PullCaseV2Request,
@@ -3141,7 +3141,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/manual_annotation_task
    *
-   * labeling task
+   * 标注任务
    */
   CreateManualAnnotationTask(
     req: flow_devops_evaluation_manual_annotation.CreateManualAnnotationTaskReq,
@@ -3224,7 +3224,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/manual_annotation_task/:manual_annotation_task_id/batch_create_manual_annotation_label_task
    *
-   * marking task
+   * 标注打标任务
    */
   BatchCreateManualAnnotationLabelTask(
     req: flow_devops_evaluation_manual_annotation.BatchCreateManualAnnotationLabelTaskReq,
@@ -3362,7 +3362,7 @@ export default class EvaluationApiService<T> {
    *
    * POST /api/evaluation/v1/contrast_report/:contrast_report_id/create_post_columns
    *
-   * Create post column
+   * 创建后置列
    */
   CreatePostColumns(
     req: flow_devops_evaluation_task.CreatePostColumnsReq,
@@ -3544,7 +3544,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/task/batch_create_manual_annotation_item
    *
-   * callout
+   * 标注项
    */
   BatchCreateManualAnnotationItem(
     req: flow_devops_evaluation_manual_annotation.BatchCreateManualAnnotationItemReq,
@@ -3667,7 +3667,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/task/initiate_manual_annotation_task
    *
-   * Initiate a manual annotation task
+   * 发起人工标注任务
    */
   InitiateManualAnnotationTask(
     req: flow_devops_evaluation_task.InitiateManualAnnotationTaskReq,
@@ -3746,7 +3746,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/contrast_report/create_post_columns_v2
    *
-   * Support for evaluation tasks to create post-columns
+   * 支持评测任务创建后置列
    */
   CreatePostColumnsV2(
     req: flow_devops_evaluation_task.CreatePostColumnsV2Req,
@@ -4054,7 +4054,7 @@ export default class EvaluationApiService<T> {
   /**
    * POST /api/evaluation/v1/case/:case_id/task/:task_id/dashboard/v2
    *
-   * Dashboard shows one execution task
+   * dashboard 展示一次执行任务
    */
   DashboardTaskV2(
     req: flow_devops_evaluation_task.DashboardTaskV2Request,
@@ -4107,7 +4107,7 @@ export default class EvaluationApiService<T> {
   /**
    * PUT /api/evaluation/v1/case/exec_dynamic
    *
-   * Single execution case, dynamically pass in parameters
+   * 单次执行case，动态传入参数
    */
   ExecCaseDynamic(
     req: flow_devops_evaluation_task.ExecCaseDynamicRequest,

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { describe, it, expect } from 'vitest';
 
 import { i18nContext } from '../../src/i18n-provider/context';
@@ -24,7 +24,7 @@ describe('i18n-provider/context', () => {
     expect(i18nContext).toBeDefined();
 
     // Get Default Values - Use Type Assertions to Access Internal Properties
-    // @TS-expected-error - access internal properties
+    // @ts-expect-error - access internal properties
     const defaultValue = i18nContext._currentValue;
 
     // Verify that the i18n object in the default value exists

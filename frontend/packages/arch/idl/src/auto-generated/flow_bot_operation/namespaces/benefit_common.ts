@@ -26,27 +26,27 @@ export type Int64 = string | number;
 
 export enum AccountStatus {
   Available = 1,
-  /** Account payment is not available */
+  /** 账户付费不可用 */
   Unavailable = 2,
 }
 
-/** flow of equity */
+/** 权益流水状态 */
 export enum BenefitCostStatus {
-  /** Withdrawn */
+  /** 已撤回 */
   Reverted = 0,
-  /** Successful */
+  /** 已成功 */
   Succeed = 1,
 }
 
-/** Types of Entities Affected by Benefits */
+/** Benefit 所作用的实体类型 */
 export enum BenefitEntityType {
-  /** All equipment under the enterprise */
+  /** 企业下的所有设备 */
   EnterpriseAllDevices = 1,
-  /** All end points under the enterprise */
+  /** 企业下的所有终端 */
   EnterpriseAllCustomConsumer = 2,
-  /** single device */
+  /** 单设备 */
   EnterpriseSingleDevice = 11,
-  /** Single end point theme, customized by customer */
+  /** 单终端主题，由客户自定义 */
   EnterpriseSingleCustomConsumer = 12,
   /** API */
   API = 13,
@@ -56,160 +56,160 @@ export enum BenefitEntityType {
   Voice = 15,
   /** Workflow */
   Workflow = 16,
-  /** Enterprise configuration class
-Enterprise peace of mind configuration */
+  /** 企业配置类
+企业安心用配置 */
   EnterpriseConfConfidenceUsing = 51,
 }
 
-/** Equity History Type */
+/** 权益历史记录类型 */
 export enum BenefitHistoryType {
-  /** bot consumption */
+  /** bot 消耗 */
   ChatWithBot = 1,
   TopUpCredit = 2,
   BounsCredit = 3,
   ChargeBack = 4,
   ChargeBackReverse = 5,
   WorkflowConsume = 6,
-  /** Intelligent Voice */
+  /** 智能语音 */
   IntelligentVoice = 11,
-  /** Button Compass Consumption */
+  /** 扣子罗盘消耗 */
   Fornax = 12,
   EvaluateConsume = 41,
   EvaluateModelConsume = 42,
-  /** app consumption */
+  /** 应用消耗 */
   ProjectConsume = 61,
 }
 
-/** Stake flow root node type */
+/** 权益流水根节点类型 */
 export enum BenefitRootHistoryType {
-  /** bot consumption */
+  /** bot 消耗 */
   BotConsume = 1,
-  /** Workflow consumption */
+  /** workflow 消耗 */
   WorkflowConsume = 2,
-  /** app consumption */
+  /** 应用消耗 */
   ProjectConsume = 3,
-  /** Intelligent Voice */
+  /** 智能语音 */
   IntelligentVoiceConsume = 4,
-  /** Button Compass Consumption */
+  /** 扣子罗盘消耗 */
   FornaxConsume = 5,
-  /** model evaluation consumption */
+  /** 模型评测消耗 */
   EvaluateModelConsume = 6,
 }
 
-/** Equity type
- 40 -59 free times
- 60 - 99 limited viewership of
- 100-109 resource points
+/** 权益类型
+ 40 -59 免费次数
+ 60 - 99 限流
+ 100-109 资源点
  110-129 Fornax
  130-149 WorkSpace
- 150-169 Operation and maintenance
- 170-179 Knowledge Base
- 180-199 voice
- 200-219 Tenant related
- 220-229 Release related */
+ 150-169 运维
+ 170-179 知识库
+ 180-199 语音
+ 200-219 租户相关
+ 220-229 发布相关 */
 export enum BenefitType {
-  /** overseas */
+  /** 海外 */
   MessageCredit = 1,
   UserFreeChat = 2,
   TopUpMessageCredit = 3,
   BonusMessageCredit = 4,
-  /** 40 -59 free times */
+  /** 40 -59 免费次数 */
   Freetimes = 40,
-  /** number of free reviews */
+  /** 评测免费次数 */
   EvaluateFree = 41,
-  /** Workflow test runs free times */
+  /** Workflow 测试运行免费次数 */
   WorkflowTestRunFree = 42,
-  /** App test runs for free */
+  /** App 测试运行免费次数 */
   AppTestRunFree = 43,
-  /** Plugin test run free times */
+  /** Plugin 测试运行免费次数 */
   PluginRunFree = 44,
-  /** API runs for free */
+  /** API 运行免费次数 */
   APIRunFree = 45,
-  /** Number of free SDK runs */
+  /** SDK 运行免费次数 */
   SDKRunFree = 46,
-  /** 60 - 99 limited viewership of
-The limited viewership of model RPM */
+  /** 60 - 99 限流
+模型 RPM 限流 */
   RateLimitModelRPM = 60,
-  /** Input limited viewership of TPM */
+  /** 模型 Input TPM 限流 */
   RateLimitModelInputTPM = 61,
-  /** Output TPM limited viewership of model */
+  /** 模型 Output TPM 限流 */
   RateLimitModelOutputTPM = 62,
-  /** Input limited viewership of TPM */
+  /** 基础模型 Input TPM 限流 */
   RateLimitModelInputTPMBasic = 63,
-  /** Output TPM limited viewership of base model */
+  /** 基础模型 Output TPM 限流 */
   RateLimitModelOutputTPMBasic = 64,
-  /** Plugin running limited viewership of QPS */
+  /** Plugin 运行 QPS 限流 */
   PluginRunQPS = 65,
-  /** The limited viewership of Plugin runtime */
+  /** Plugin 运行并发度限流 */
   PluginRunParallel = 66,
-  /** image node
-Workflow limited viewership of QPS */
+  /** 图像节点
+Workflow 运行 QPS 限流 */
   WorkflowRunQPS = 67,
-  /** The limited viewership of Workflow */
+  /** Workflow 运行并发度限流 */
   WorkflowRunParallel = 68,
-  /** API running QPS limited viewership of */
+  /** API 运行 QPS 限流 */
   APIRunQPS = 70,
-  /** The limited viewership of voice QPS */
+  /** 语音 QPS 限流 */
   VoiceQPS = 71,
-  /** The limited viewership of speech concurrency */
+  /** 语音并发度限流 */
   VoiceParallel = 72,
-  /** 100-109 resource points
-total number of resource points */
+  /** 100-109 资源点
+资源点总量 */
   ResourcePoint = 100,
-  /** Free resource points, abandoned */
+  /** 免费资源点，废弃 */
   FreeResourcePoint = 101,
-  /** Resource points purchased by Volcano */
+  /** 火山购买的资源点 */
   VolcProResourcePoint = 102,
-  /** periodic resource point */
+  /** 周期性资源点 */
   PeriodicResourcePoint = 103,
-  /** channel decreasing resource point */
+  /** 渠道递减资源点 */
   ChannelResourcePoint = 104,
-  /** trial resource point */
+  /** 试算资源点 */
   CutAndTryResourcePoint = 109,
   /** 110-129 Fornax
-Trace usage */
+Trace 用量 */
   TraceAmount = 111,
-  /** Trace storage time */
+  /** Trace 存储时长 */
   TraceStorageDuration = 112,
   /** 130-149 WorkSpace
-Total Space */
+Space 总量 */
   SpaceAmount = 131,
-  /** Space capacity */
+  /** Space 人数 */
   SpacePeopleNumber = 132,
-  /** Number of Collaborators in Space */
+  /** Space 下协作者人数 */
   SpaceCollaboratorNumber = 133,
-  /** 150-169 Operation and maintenance
-log storage duration */
+  /** 150-169 运维
+日志存储时长 */
   LogStorageDuration = 151,
-  /** log export */
+  /** 日志导出 */
   LogExport = 152,
-  /** 170-179 Knowledge Base
-knowledge base capacity */
+  /** 170-179 知识库
+知识库容量 */
   Capacity = 170,
-  /** 180-199 voice
-Total number of timbre clones */
+  /** 180-199 语音
+音色克隆总数 */
   VoiceCloneNumber = 180,
-  /** Number of tone clone bases */
+  /** 音色克隆基础数量 */
   VoiceCloneNumberBasic = 181,
-  /** 200-219 Tenant related
-maximum number of seats */
+  /** 200-219 租户相关
+席位数上限 */
   SeatNumberLimit = 200,
-  /** base number of seats */
+  /** 基础席位数 */
   SeatNumberBasic = 201,
-  /** Remove watermark */
+  /** 移除水印 */
   RemoveWatermark = 220,
-  /** 240-269 configuration
-Use with peace of mind */
+  /** 240-269 配置
+安心用 */
   ConfidenceUsing = 240,
 }
 
-/** entitlement usage model */
+/** 权益使用模式 */
 export enum BenefitUseMode {
-  /** Use according to quota */
+  /** 按额度使用 */
   ByQuota = 1,
-  /** Unlimited use */
+  /** 无限使用 */
   Unlimited = 2,
-  /** Not Available */
+  /** 不可用 */
   UnAvailable = 10,
 }
 
@@ -220,10 +220,10 @@ export enum BotMode {
 }
 
 export enum ChargeItemType {
-  /** 1-99 model related */
+  /** 1-99 模型相关 */
   ModelInputTPM = 1,
   ModelOutputTPM = 2,
-  /** 100-199 voice related */
+  /** 100-199 语音相关 */
   VoiceClone = 100,
   VoiceStorage = 101,
   /** 200- */
@@ -236,91 +236,91 @@ export enum ChargeResourceType {
   Plugin = 2,
 }
 
-/** Validation result. Usually combined with BenefitType */
+/** 校验结果。通常结合BenefitType */
 export enum CheckResultType {
   Pass = 1,
-  /** exceeding the limit */
+  /** 超出限额 */
   OutOfLimitation = 2,
-  /** Insufficient balance/balance */
+  /** 余额/余量不足 */
   InsufficientBalance = 3,
 }
 
-/** checkpoint */
+/** 权益校验点位 */
 export enum CheckType {
-  /** Validation only for equity balance */
+  /** 仅校验用于权益余量 */
   CheckCommon = 0,
-  /** The conversation (with Chatflow) begins. */
+  /** 对话（含Chatflow）开始。 */
   ChatStart = 1,
-  /** The conversation (including Chatflow) is over. After the conversation is over, report the corresponding conversation result ErrCode. */
+  /** 对话（含Chatflow）结束。对话结束后，上报对应对话结果 ErrCode */
   ChatFinish = 2,
-  /** Before calling the model (usually chat_engine/runtime), usually do limited viewership of */
+  /** 调用模型前（通常为chat_engine/runtime），通常做限流 */
   ModelCallBefore = 6,
-  /** Model execution completed (model_agent/llm_gateway), usually reported */
+  /** 模型执行完成（model_agent/llm_gateway），通常用量上报 */
   ModelExecDone = 7,
-  /** Workflow execution. The pre-execution verification of workflows, usually non-conversational interfaces, such as the number of trials */
+  /** workflow执行。通常为非对话接口的workflow的执行前校验，如试用次数 */
   WorkflowRunStart = 11,
-  /** Workflow execution. After the workflow execution, usually a non-conversational interface */
+  /** workflow执行。通常为非对话接口的workflow执行后 */
   WorkflowRunFinish = 12,
-  /** Workflow interrupt reentry */
+  /** workflow中断重入 */
   WorkflowRunResume = 13,
-  /** Before calling the plugin, usually do limited viewership of */
+  /** 调用插件前，通常做限流 */
   PluginCallBefore = 16,
-  /** Plugin execution completed. Usually reported for plug-in usage */
+  /** 插件执行完成。通常为插件用量上报 */
   PluginExecFinish = 17,
-  /** Before evaluation (Fornax evaluation multiplexing) */
+  /** 评测前（Fornax评测复用） */
   EvaluateBefore = 41,
-  /** Evaluation Results Referee */
+  /** 评测结果裁判 */
   EvaluateJudge = 42,
-  /** Report at the end of voice consumption */
+  /** 语音消费结束时上报 */
   VoiceUseFinish = 51,
-  /** Trace log before falling into storage, used for quota */
+  /** Trace日志落库前，用于限额 */
   FornaxTraceBefore = 61,
 }
 
-/** Equity flow corresponds to the type of resource consumed */
+/** 权益流水对应消耗的资源类型 */
 export enum ConsumeResourceType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** model */
+  /** 模型 */
   Model = 1,
-  /** plugin */
+  /** 插件 */
   Plugin = 2,
-  /** Voice (ASR/TTS) */
+  /** 语音（ASR/TTS） */
   Voice = 3,
   /** RTC */
   RTC = 4,
-  /** Knowledge base (this type will not be exposed to the public for the time being) */
+  /** 知识库（暂不对外暴露该类型） */
   Dateset = 5,
 }
 
-/** Cost attribution of equity flow User type */
+/** 权益流水的成本归属用户类型 */
 export enum CostUserType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Enterprise (Domestic Huoshan Account) */
+  /** 企业（国内为火山账号） */
   Enterprise = 1,
-  /** individual user */
+  /** 个人用户 */
   User = 2,
 }
 
 export enum CozeAccountType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Organization account */
+  /** 组织账号 */
   Organization = 1,
-  /** personal account */
+  /** 个人账号 */
   Personal = 2,
 }
 
-/** User Benefits Package Status */
+/** 用户权益套餐状态 */
 export enum CozeInstanceStaus {
-  /** Running */
+  /** 运行中 */
   Running = 1,
-  /** unsubscribe */
+  /** 退订 */
   Unsubs = 2,
-  /** due */
+  /** 到期 */
   Expired = 3,
-  /** arrears */
+  /** 欠费 */
   Overdue = 4,
 }
 
@@ -331,55 +331,55 @@ export enum DurationType {
 }
 
 export enum EntityBenefitStatus {
-  /** normal use */
+  /** 正常使用 */
   Valid = 1,
-  /** freeze use */
+  /** 冻结使用 */
   Frozen = 3,
-  /** cancel */
+  /** 取消 */
   Cancel = 5,
-  /** To take effect (this enumeration is calculated and there is no such data in the database) */
+  /** 待生效（此枚举通过计算得出，数据库中并无此项数据） */
   Pending = 6,
 }
 
 export enum EntityPeriodType {
-  /** Absolute time */
+  /** 绝对时间 */
   AbsoluteTime = 1,
-  /** relative time */
+  /** 相对时间 */
   RelativeTime = 2,
 }
 
 export enum ExecutionMode {
-  /** Published/Official */
+  /** 发布态/正式态 */
   Release = 0,
-  /** Draft/Debug/Edit. */
+  /** 草稿态/调试态/编辑态。 */
   Draft = 1,
 }
 
 export enum InstanceLimitStatus {
-  /** unrestricted */
+  /** 未受限 */
   UnLimited = 1,
-  /** Limited (in arrears) */
+  /** 受限中（欠费） */
   Limited = 2,
 }
 
 export enum InstanceStatus {
-  /** Created, it will not return to this state in theory */
+  /** 创建中, 理论上不会返回该状态 */
   InstanceStatusCreating = 0,
-  /** Running */
+  /** 运行中 */
   Running = 1,
-  /** The creation failed, and the state will not be returned in theory */
+  /** 创建失败, 理论上不会返回该状态 */
   InstanceStatusFailed = 2,
-  /** unsubscribe recycling */
+  /** 退订回收 */
   UnsubsRecycled = 3,
-  /** expiration shutdown */
+  /** 到期关停 */
   ExpiredClosed = 4,
-  /** Recycling at maturity */
+  /** 到期回收 */
   ExpiredRecycled = 5,
-  /** shutdown due */
+  /** 欠费关停 */
   InstanceStatusOverdueShutdown = 6,
-  /** Arrears recovery */
+  /** 欠费回收 */
   InstanceStatusOverdueRecycled = 7,
-  /** unsubscribe shutdown */
+  /** 退订关停 */
   InstanceStatusTerminatedShutdown = 8,
 }
 
@@ -397,13 +397,13 @@ export enum MonetizationEntityType {
   Project = 1,
 }
 
-/** Type of equity flow (for customers) */
+/** 权益流水的权益类型（用于对客） */
 export enum OpenBenefitType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
-  /** Free gift (major categories, including the number of plug-in trials, etc. For domestic, currently only the personal free version has this type) */
+  /** 免费赠送（大类，包括插件试用次数等。对于国内，当前仅个人免费版有该类型） */
   Free = 1,
-  /** resource point */
+  /** 资源点 */
   ResourcePoint = 2,
 }
 
@@ -418,19 +418,19 @@ export enum OperateType {
 }
 
 export enum PluginBillType {
-  /** Pay-per-call billing. Works with most plugins */
+  /** 按次调用计费。适用于大多数插件 */
   ByCallTime = 0,
-  /** Long-term billing (unit S). Suitable for music generation, video editing, etc */
+  /** 按时长计费（单位S）。适用于音乐生成、视频编辑等 */
   ByDuration = 1,
-  /** Billing by token. Suitable for video generation */
+  /** 按token数计费。适用于视频生成 */
   ByTotalTokens = 2,
-  /** The plug-in itself is not billed, it is billed by the downstream. */
+  /** 插件本身不计费，由下游计费。 */
   NoneButByDownstream = 11,
 }
 
-/** Type of entity to which the resource is attributed */
+/** 资源归属的实体类型 */
 export enum ResBelongsToEntityType {
-  /** unknown */
+  /** 未知 */
   Unknown = 0,
   /** bot */
   Bot = 1,
@@ -438,89 +438,89 @@ export enum ResBelongsToEntityType {
   Workflow = 2,
   /** plugin */
   Plugin = 3,
-  /** Application. Original Project */
+  /** 应用。原Project */
   Application = 4,
-  /** model */
+  /** 模型 */
   Model = 5,
-  /** Speech (ASR/TTS) */
+  /** 语音类（ASR/TTS） */
   Voice = 6,
 }
 
 export enum ResourceUsageStrategy {
-  /** Unlimited */
+  /** 无限制 */
   UnLimit = 1,
-  /** restriction */
+  /** 限制 */
   Forbidden = 2,
-  /** Pass the quota verification */
+  /** 通过额度校验 */
   ByQuota = 3,
 }
 
-/** scene */
+/** 场景 */
 export enum SceneType {
-  /** dialogue */
+  /** 对话 */
   Chat = 1,
   /** workflow testrun */
   WorkflowTest = 2,
-  /** evaluation bot */
+  /** 评测bot */
   EvaluateBot = 41,
-  /** evaluation model */
+  /** 评测模型 */
   EvaluateModel = 42,
 }
 
 export enum UserLevel {
-  /** The free version. */
+  /** 免费版。 */
   Free = 0,
-  /** overseas
+  /** 海外
 PremiumLite */
   PremiumLite = 10,
   /** Premium */
   Premium = 15,
   PremiumPlus = 20,
-  /** domestic
-V1 Volcano Pro */
+  /** 国内
+V1火山专业版 */
   V1ProInstance = 100,
-  /** Personal flagship version */
+  /** 个人旗舰版 */
   ProPersonal = 110,
-  /** Team Edition */
+  /** 团队版 */
   Team = 120,
-  /** Enterprise Edition */
+  /** 企业版 */
   Enterprise = 130,
 }
 
 export enum VoiceResType {
-  /** timbre clone */
+  /** 音色克隆 */
   VoiceClone = 1,
-  /** Duplicate Voice - Text to Speech */
+  /** 复刻语音-文字转语音 */
   TTSCustom = 2,
-  /** System Voice - Text to Speech */
+  /** 系统语音-文字转语音 */
   TTSSystem = 3,
-  /** Streaming automatic speech recognition - large model */
+  /** 流式语音识别 - 大模型 */
   ASRStream = 4,
-  /** Recording file automatic speech recognition - large model */
+  /** 录音文件语音识别 - 大模型 */
   ASRFile = 5,
-  /** Streaming automatic speech recognition - small model */
+  /** 流式语音识别 - 小模型 */
   ASRStreamSmall = 6,
-  /** Audio file automatic speech recognition - small model */
+  /** 录音文件语音识别 - 小模型 */
   ASRFileSmall = 7,
-  /** Voice call, audio duration */
+  /** 语音通话 音频时长 */
   RTCVoice = 8,
-  /** Conversational AI audio duration */
+  /** 对话式AI 音频时长 */
   RTCDialogAI = 9,
-  /** Video call duration - 4k */
+  /** 视频通话时长-4k */
   RTCVideoCall4K = 10,
-  /** Video call duration - 2k */
+  /** 视频通话时长-2k */
   RTCVideoCall2K = 11,
-  /** Video call duration - 1080P */
+  /** 视频通话时长-1080P */
   RTCVideoCall1080P = 12,
-  /** Video call duration - 720P */
+  /** 视频通话时长-720P */
   RTCVideoCall720P = 13,
-  /** Video call duration -360P */
+  /** 视频通话时长-360P */
   RTCVideoCall360P = 14,
-  /** TTS related billing items [20-40]
-Text to speech, charged by number of calls - small model */
+  /** TTS 相关计费项 【20-40)
+文字转语音，按调用次数收费 - 小模型 */
   TTSSmall = 20,
-  /** Speech Capability (Voiceprint) Billing Items
-voiceprint ability */
+  /** 语音能力（声纹）计费项
+声纹能力 */
   VoicePrint = 60,
 }
 
@@ -531,9 +531,9 @@ export enum VolcanoUserType {
 }
 
 export enum VolcInstanceType {
-  /** Normal version */
+  /** 正常版本 */
   Normal = 1,
-  /** channel version */
+  /** 渠道版本 */
   Channel = 2,
 }
 
@@ -592,112 +592,112 @@ export interface BizDetail {
 }
 
 export interface CheckAndUpdateReq {
-  /** Scene. Corresponding to BizScene, refer to  */
+  /** 场景。对应 BizScene，参考  */
   biz_scene: string;
-  /** checkpoint */
+  /** 权益校验点 */
   check_type: CheckType;
-  /** For concatenating a complete request */
+  /** 用于串联一次完整请求 */
   record_root_id: Int64;
-  /** Execution mode (edit/publish) */
+  /** 执行模式（编辑态/发布态） */
   exec_mode: ExecutionMode;
-  /** User connection_id */
+  /** 使用者connection_id */
   connector_id: Int64;
-  /** User connector_uid */
+  /** 使用者connector_uid */
   connector_uid: string;
-  /** Resource association basic information for calculating attribution of resource consumption */
+  /** 资源关联基础信息，用于计算资源消耗的归属 */
   relation_basic?: ResRelationBaiscInfo;
-  /** Object to which resource consumption belongs */
+  /** 资源消耗所归属对象 */
   belongs_to_entity?: ResBelongsToEntity;
-  /** User Volcano account_id */
+  /** 使用者火山account_id */
   account_id?: Int64;
-  /** Consumption quantity (if not filled in, the default is 1 time) */
+  /** 消耗数量（不填默认为1次） */
   cnt?: Int64;
-  /** Dialog/end of run error code */
+  /** 对话/运行结束的错误码 */
   err_code?: string;
-  /** Resource consumptiontimestamp (in seconds) */
+  /** 资源消耗时间戳（单位秒） */
   consume_timestamp?: Int64;
-  /** This refers to Coze UserID */
+  /** 这里指的是Coze UserID */
   coze_user_id?: Int64;
-  /** At least one of the following three fields is required
-This refers to Coze's AccountID. */
+  /** 以下三个字段至少必填其中一个
+这里指的是Coze的AccountID */
   coze_account_id?: Int64;
-  /** This refers to Coze's AccountType. */
+  /** 这里指的是Coze的AccountType */
   coze_account_type?: CozeAccountType;
-  /** Get this SpaceID first. If it is not filled, get it from RelationBasic. */
+  /** 优先取此 SpaceID，若未填充则兜底从 RelationBasic 中取 */
   space_id?: Int64;
-  /** Detailed resource consumption
-Required when reporting resource usage. Guaranteed idempotent (to ensure that resource consumption can be reentered), should be unique in each resource tier */
+  /** 资源消耗明细
+资源用量上报时必填。保证幂等（确保资源消耗可重入），应在各资源层唯一 */
   uuid?: string;
-  /** model resource */
+  /** 模型资源 */
   model_res_info?: ModeleResInfo;
-  /** plugin resources */
+  /** 插件资源 */
   plugin_res_info?: PluginResInfo;
-  /** voice resource */
+  /** 语音资源 */
   voice_res_info?: VoiceResInfo;
-  /** extended field */
+  /** 扩展字段 */
   extra?: Record<string, string>;
   Base?: base.Base;
 }
 
 export interface CheckAndUpdateResp {
   IsPass: boolean;
-  /** user information */
+  /** 用户信息 */
   UserInfo?: UserBasicInfo;
-  /** Details of equity verification results */
+  /** 权益校验结果明细 */
   BenefitResult?: Partial<Record<BenefitType, CheckResultType>>;
   DenyReason?: DenyReason;
-  /** extended field */
+  /** 扩展字段 */
   extra?: Record<string, string>;
   BaseResp?: base.BaseResp;
 }
 
 export interface CommonCheckAndUpdateReq {
-  /** checkpoint */
+  /** 权益校验点 */
   CheckType: CheckType;
-  /** Guaranteed idempotent */
+  /** 保证幂等 */
   UUID: string;
-  /** scene */
+  /** 场景 */
   Scene: SceneType;
   ConnectionID: Int64;
   ConnectorUID: string;
-  /** number of interests */
+  /** 权益数量 */
   Cnt?: Int64;
   SpaceID?: Int64;
   ModelID?: number;
-  /** Invoked bot id */
+  /** 调用的bot id */
   BotID?: Int64;
-  /** Invoked workflow id */
+  /** 调用的workflow id */
   WorkflowID?: Int64;
-  /** ID of the invoked plugin */
+  /** 调用的plugin的ID */
   PluginID?: Int64;
-  /** Enter number of tokens */
+  /** 输入token数 */
   InputTokens?: Int64;
-  /** Number of output tokens */
+  /** 输出token数 */
   OutputTokens?: Int64;
-  /** Query End Error Code */
+  /** Query结束的错误码 */
   ErrCode?: number;
   Base?: base.Base;
 }
 
 export interface CommonCheckAndUpdateResp {
   IsPass: boolean;
-  /** Details of equity verification results */
+  /** 权益校验结果明细 */
   BenefitResult?: Partial<Record<BenefitType, CheckResultType>>;
-  /** Used to concatenate a complete request, if the return value is not ", the caller puts the value in ctx.COZE_RECORD_ROOT_ID */
+  /** 用于串联一次完整请求，如果返回值不为""，调用方将该值置于ctx.COZE_RECORD_ROOT_ID中 */
   RootID?: string;
   BaseResp?: base.BaseResp;
 }
 
 export interface CommonCounter {
-  /** When Strategy == ByQuota, it indicates the amount used, and returns 0 if there is no relevant usage data for the equity. */
+  /** 当 Strategy == ByQuota 时, 表示已使用量, 若权益无相关用量数据则返回 0 */
   used?: number;
-  /** When Strategy == ByQuota, the usage limit is indicated */
+  /** 当 Strategy == ByQuota 时, 表示用量上限 */
   total?: number;
-  /** usage policy */
+  /** 使用策略 */
   strategy?: ResourceUsageStrategy;
-  /** Start time in seconds */
+  /** 开始时间，单位秒 */
   start_at?: Int64;
-  /** Expiration time, in seconds */
+  /** 过期时间，单位秒 */
   end_at?: Int64;
 }
 
@@ -706,72 +706,72 @@ export interface DenyReason {
   Message: string;
 }
 
-/** model resource */
+/** 模型资源 */
 export interface ModeleResInfo {
   model_id?: Int64;
   /** model family */
   model_family?: copilot_common.ModelFamily;
-  /** Enter number of tokens */
+  /** 输入token数 */
   input_tokens?: Int64;
-  /** Number of output tokens */
+  /** 输出token数 */
   output_tokens?: Int64;
-  /** Model AK Category */
+  /** 模型AK类别 */
   ak_catalog?: string;
-  /** Model AK */
+  /** 模型AK */
   model_ak?: string;
 }
 
 export interface PluginRelationInfo {
-  /** Billing type */
+  /** 计费类型 */
   bill_type?: PluginBillType;
-  /** Plugin function name. This field needs to be valued only if there are multiple billing options in a plugin */
+  /** 插件功能名称。只有当一个插件内有多种计费时，该字段才需要填值 */
   feature_name?: string;
 }
 
 export interface PluginResInfo {
   plugin_id?: Int64;
   plugin_api_id?: Int64;
-  /** Is it an image stream? */
+  /** 是否是图像流 */
   is_image_flow?: boolean;
-  /** Tool ID */
+  /** 工具ID */
   tool_id?: Int64;
-  /** tool name */
+  /** 工具名称 */
   tool_name?: string;
-  /** plugin related information */
+  /** 插件关联信息 */
   relation_info?: PluginRelationInfo;
-  /** Plugin execution time (in seconds). If the default exists, this value will be taken first. Suitable for plugins billed by execution time */
+  /** 插件执行时间（单位秒）。默认存在是则优先取该值。适用于通过执行时长计费的插件 */
   duration?: Int64;
-  /** Output the number of tokens. If it exists by default, this value will be taken first. Suitable for plugins that charge by the number of tokens */
+  /** 输出token数。默认存在是则优先取该值。适用于通过token数计费的插件 */
   total_tokens?: Int64;
 }
 
 export interface PublicUserBasicInfo {
   user_level?: UserLevel;
-  /** Volcano account info. CN Back */
+  /** 火山账户信息。CN返回 */
   volc_account_info?: VolcAccountInfo;
 }
 
-/** The object to which the resource consumption belongs. If there is one, fill it to avoid repeated acquisition. */
+/** 资源消耗所归属对象。有则填充，避免重复获取 */
 export interface ResBelongsToEntity {
-  /** outermost root bot id */
+  /** 最外层的根bot id */
   root_bot_id?: Int64;
-  /** Root bot created by Coze UserID */
+  /** 根bot的创建者Coze UserID */
   bot_creator_id?: Int64;
-  /** Creator of the root bot AccountID */
+  /** 根bot的创建者AccountID */
   bot_creator_account_id?: Int64;
-  /** Application (Original Project) ID */
+  /** 所属应用（原Project）ID */
   application_id?: Int64;
-  /** Application (formerly Project) created by Coze UserID */
+  /** 所属应用（原Project）创建者Coze UserID */
   application_creator_id?: Int64;
-  /** Application (formerly Project) Creator AccountID */
+  /** 所属应用（原Project）创建者AccountID */
   application_account_id?: Int64;
-  /** Executed workflow id */
+  /** 执行的workflow id */
   workflow_id?: Int64;
-  /** Is it executed asynchronously? */
+  /** 是否为异步执行 */
   is_async_workflow?: boolean;
-  /** Workflow execution ID */
+  /** Workflow 执行ID */
   workflow_execute_id?: Int64;
-  /** Is it an interrupt to reexecute Workflow? */
+  /** 是否是中断重执行Workflow */
   is_reload_workflow?: boolean;
 }
 
@@ -787,40 +787,40 @@ export interface ResModelContent {
   ModelAK?: string;
 }
 
-/** Resource consumption general message body, the message body needs to include this structure when resource reporting. It is recommended to use the CheckAndUpdateReq structure first, and add this structure if a custom structure is defined. */
+/** 资源消耗通用消息体，资源上报上报时消息体需包含该结构。建议优先使用 CheckAndUpdateReq 结构，若自定义结构则加上此结构 */
 export interface ResMsgComm {
-  /** Scene. Corresponding to BizScene, refer to  */
+  /** 场景。对应 BizScene，参考  */
   biz_scene: string;
-  /** Validation/Reporting Point */
+  /** 权益校验/上报点位 */
   check_type: CheckType;
-  /** For concatenating a complete request */
+  /** 用于串联一次完整请求 */
   record_root_id: Int64;
-  /** Execution mode (edit/publish) */
+  /** 执行模式（编辑态/发布态） */
   exec_mode: ExecutionMode;
-  /** User connection_id */
+  /** 使用者connection_id */
   connector_id: Int64;
-  /** User connector_uid */
+  /** 使用者connector_uid */
   connector_uid: string;
-  /** Guaranteed idempotence (ensuring that resource consumption is reentrant), should be unique across resource layers */
+  /** 保证幂等（确保资源消耗可重入），应在各资源层唯一 */
   uuid: string;
-  /** Object to which resource consumption belongs */
+  /** 资源消耗所归属对象 */
   belongs_to_entity?: ResBelongsToEntity;
-  /** Resource association basic information for calculating attribution of resource consumption */
+  /** 资源关联基础信息，用于计算资源消耗的归属 */
   relation_basic?: ResRelationBaiscInfo;
-  /** User Volcano account_id */
+  /** 使用者火山account_id */
   account_id?: Int64;
-  /** Resource consumptiontimestamp (in seconds) */
+  /** 资源消耗时间戳（单位秒） */
   consume_timestamp?: Int64;
-  /** This refers to Coze UserID */
+  /** 这里指的是Coze UserID */
   coze_user_id?: Int64;
-  /** At least one of the following three fields is required
-This refers to Coze's AccountID. */
+  /** 以下三个字段至少必填其中一个
+这里指的是Coze的AccountID */
   coze_account_id?: Int64;
-  /** This refers to Coze's AccountType. */
+  /** 这里指的是Coze的AccountType */
   coze_account_type?: CozeAccountType;
-  /** Get this SpaceID first. If it is not filled, get it from RelationBasic. */
+  /** 优先取此 SpaceID，若未填充则兜底从 RelationBasic 中取 */
   space_id?: Int64;
-  /** extended field */
+  /** 扩展字段 */
   extra?: Record<string, string>;
 }
 
@@ -830,23 +830,23 @@ export interface ResPluginContent {
   IsImageFlow?: boolean;
 }
 
-/** Resource association basic information, used to calculate the attribution of resource consumption. If there is one, fill it to avoid repeated acquisition. */
+/** 资源关联基础信息，用于计算资源消耗的归属。有则填充，避免重复获取 */
 export interface ResRelationBaiscInfo {
-  /** Own space ID */
+  /** 所属空间ID */
   space_id?: Int64;
-  /** Space created by Coze UserID */
+  /** 所属空间创建者Coze UserID */
   space_owner_id?: Int64;
-  /** Owned space creator AccountID */
+  /** 所属空间创建者AccountID */
   space_owner_account_id?: Int64;
-  /** API source Required. Coze UserID corresponding to APIKey Owner */
+  /** API来源必填。对应APIKey Owner的Coze UserID */
   api_key_owner_id?: Int64;
-  /** AccountID of APIKey Owner */
+  /** API来源的APIKey Owner的AccountID */
   api_key_owner_account_id?: Int64;
-  /** The creator of the calling bot Coze UserID */
+  /** 调用的bot的创建者Coze UserID */
   bind_coze_uid?: Int64;
-  /** The creator AccountID of the calling bot */
+  /** 调用的bot的创建者AccountID */
   bind_coze_account_id?: Int64;
-  /** ByteTreeID, creator of the calling bot */
+  /** 调用的bot的创建者ByteTreeID */
   byte_tree_id?: string;
 }
 
@@ -862,60 +862,60 @@ export interface ResVoiceContent {
 
 export interface UserBasicInfo {
   UserLevel?: UserLevel;
-  /** Volcano account info. CN Back */
+  /** 火山账户信息。CN返回 */
   VolcAccountInfo?: VolcAccountInfo;
-  /** Volcano user information. CN Back */
+  /** 火山用户信息。CN返回 */
   VolcUserInfo?: VolcUserInfo;
 }
 
 export interface VoiceResInfo {
-  /** resource type */
+  /** 资源类型 */
   voice_type: VoiceResType;
-  /** Speech to text, number of characters */
+  /** 语音转文字，字符数 */
   char_num?: number;
-  /** audio duration */
+  /** 音频时长 */
   audio_length?: number;
-  /** call duration */
+  /** 通话时长 */
   rtc_duration?: number;
-  /** Voice call start timestamp */
+  /** 语音通话开始时间戳 */
   begin_time?: Int64;
-  /** Voice call end timestamp */
+  /** 语音通话结束时间戳 */
   end_time?: Int64;
-  /** Corresponding coze_id */
+  /** 对应的coze_id */
   coze_id?: string;
-  /** Counting, suitable for billing by number of calls */
+  /** 计数，适合按调用次数计费 */
   count?: number;
 }
 
 export interface VolcAccountInfo {
-  /** Volcano Account ID */
+  /** 火山账户ID */
   account_id?: Int64;
-  /** Whether it is a Volcano Pro account, that is, whether it has been opened, true when UserLevel in (100, 110, 120, 130) (true even if the account shutdown is recycled) */
+  /** 是否为火山专业版账户，即是否开通过，当UserLevel in (100,110,120,130)时为true（即使账户关停回收仍为true） */
   is_volcano_pro_account?: boolean;
-  /** Instance ID */
+  /** 实例ID */
   instance_id?: string;
-  /** Is the button professional version available (including package and stock professional version). Stock professional version only returns this field */
+  /** 扣子专业版是否可用（含套餐及存量专业版）。存量专业版仅返回此字段 */
   coze_instance_status?: AccountStatus;
-  /** Package (instance) status. Subscription-only packages return this field */
+  /** 套餐（实例）状态。仅订阅套餐返回此字段 */
   instance_status?: InstanceStatus;
-  /** Whether the package (instance) is limited (in arrears). Subscription-only packages return this field */
+  /** 套餐（实例）是否受限（欠费）。仅订阅套餐返回此字段 */
   limit_status?: InstanceLimitStatus;
-  /** Volcano user type */
+  /** 火山用户类型 */
   volcano_user_type?: VolcanoUserType;
-  /** Benefits effective time (seconds) */
+  /** 权益生效时间（秒级） */
   instance_begin_time?: Int64;
-  /** Stake expiration time (seconds) */
+  /** 权益失效时间（秒级） */
   instance_end_time?: Int64;
-  /** The package corresponds to the cycle effect package instance Id, if the user purchased a version only, this field is empty */
+  /** 套餐对应周期资源包实例Id,如果用户购买的是仅版本，则该字段为空 */
   period_pack_instance_id?: string;
 }
 
 export interface VolcUserInfo {
-  /** Volcano Identity Center Instance ID */
+  /** 火山身份中心实例ID */
   VolcAuthInstanceID?: string;
-  /** The package level opened by Volcano */
+  /** 火山开通的套餐等级 */
   VolcUserLevel?: UserLevel;
-  /** Volcano User Instance Version */
+  /** 火山用户实例版本 */
   VolcInstanceType?: VolcInstanceType;
 }
 /* eslint-enable */

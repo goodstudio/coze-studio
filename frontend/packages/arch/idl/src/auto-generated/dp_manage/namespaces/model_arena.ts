@@ -70,10 +70,10 @@ export enum VoteResult {
 }
 
 export interface AnenaUser {
-  /** Nickname, repeatable */
+  /** 昵称，可重复 */
   name?: string;
   avatar_url?: string;
-  /** Username, globally unique */
+  /** 用户名，全局唯一 */
   user_name?: string;
 }
 
@@ -94,33 +94,33 @@ export interface ArenaBotType {
   name?: string;
 }
 
-/** Complete information on a certain issue of the leaderboard */
+/** 某一期排行榜完整信息 */
 export interface ArenaLeaderboard {
-  /** Basic information */
+  /** 基本信息 */
   basic?: ArenaLeaderboardBasic;
-  /** The expiration date of the data used in this leaderboard timestamp (ms) */
+  /** 本期排行榜使用的数据的截止日期时间戳（ms） */
   time_right_bound?: string;
-  /** Total number of votes received */
+  /** 获得的投票总数 */
   vote_count?: string;
-  /** total number of models */
+  /** 模型总数 */
   model_count?: string;
-  /** Details
-model information */
+  /** 详细信息
+模型信息 */
   models?: Array<ArenaModel>;
-  /** leaderboard details */
+  /** 排行榜详情 */
   leaderboard_details?: Partial<
     Record<PKScene, Partial<Record<LeaderboardIntention, LeaderboardDetail>>>
   >;
-  /** Total number of pk */
+  /** pk的总次数 */
   pk_count?: number;
-  /** The start date of the data used in this leaderboard timestamp (ms) */
+  /** 本期排行榜使用的数据的开始日期时间戳（ms） */
   time_left_bound?: string;
 }
 
 export interface ArenaLeaderboardBasic {
-  /** leaderboard id */
+  /** 排行榜id */
   id?: string;
-  /** name */
+  /** 名字 */
   name?: string;
 }
 
@@ -138,19 +138,19 @@ export interface ArenaModel {
   max_token?: string;
   diversity?: string;
   icon?: string;
-  /** detailed description */
+  /** 详细描述 */
   desc?: string;
-  /** Brief description */
+  /** 简要描述 */
   brief_desc?: string;
-  /** release time */
+  /** 发布时间 */
   publish_timestamp?: string;
-  /** update time */
+  /** 更新时间 */
   update_timestamp?: string;
-  /** Model vendor information */
+  /** 模型厂商信息 */
   company_info?: ArenaModelCompany;
-  /** version */
+  /** 版本 */
   version?: string;
-  /** state */
+  /** 状态 */
   status?: ArenaModelStatus;
 }
 
@@ -181,7 +181,7 @@ export interface ArenaPKRecord {
 export interface ArenaQuestion {
   bank_id?: string;
   id?: string;
-  /** Each time the user selects a question, the serial ID of that question needs to be added to the requested UsedList */
+  /** 每次用户选择一道题目后，需要将那道题目的序号ID加入到request的UsedList中 */
   seq_id?: number;
   content?: string;
   refer_answer?: string;
@@ -210,34 +210,34 @@ export interface ArenaRank {
 }
 
 export interface LeaderboardDetail {
-  /** scene */
+  /** 场景 */
   scene?: PKScene;
-  /** Sub-list classification, mainly based on user queries */
+  /** 子榜分类，主要根据用户query做区分 */
   intention?: LeaderboardIntention;
-  /** The ranking, score, confidence level, etc. of a model in a certain sub-list of a certain issue */
+  /** 某个模型在某期磅单的某个子榜中的排名、分数、置信度等 */
   rankings?: Array<LeaderboardRanking>;
-  /** Show the top x on the top page of the leaderboard */
+  /** 在排行榜首页展示前x名 */
   display_rank_cnt?: number;
 }
 
 export interface LeaderboardRanking {
-  /** Model ID */
+  /** 模型id */
   model_id?: string;
-  /** model version */
+  /** 模型版本 */
   model_version?: string;
-  /** ranking */
+  /** 排名 */
   ranking?: number;
-  /** Number of votes received */
+  /** 获得的投票数 */
   vote_count?: number;
-  /** Upper confidence level */
+  /** 置信度上界 */
   confidence_upper?: string;
-  /** Lower confidence level */
+  /** 置信度下界 */
   confidence_lower?: string;
-  /** Model elo score */
+  /** 模型elo分 */
   elo_score?: string;
-  /** radar score */
+  /** 雷达分 */
   radar_score?: string;
-  /** The total number of times this model participates in pk under the current scene and intention */
+  /** 此模型在当前scene和intention下，参与pk的总次数 */
   pk_count?: number;
 }
 

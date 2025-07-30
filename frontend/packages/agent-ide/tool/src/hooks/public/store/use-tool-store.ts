@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { useEffect } from 'react';
 
 import { useShallow } from 'zustand/react/shallow';
@@ -78,7 +78,7 @@ export function useToolDispatch<T>() {
     setState({
       [scope]: {
         ...state[scope],
-        // @TS-expected-error -- I want to solve the type problem here in the future
+        // @ts-expect-error -- I want to solve the type problem here in the future
         [KEY_MAP[scope][abilityKey]]: newState,
       },
     });

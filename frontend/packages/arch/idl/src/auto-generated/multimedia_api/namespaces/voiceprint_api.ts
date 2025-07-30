@@ -33,9 +33,9 @@ export interface CreateVoicePrintGroupFeatureData {
 
 export interface CreateVoicePrintGroupFeatureRequest {
   group_id?: Int64;
-  /** file type */
+  /** 文件类型 */
   'Content-Type': string;
-  /** binary data */
+  /** 二进制数据 */
   body: Blob;
 }
 
@@ -108,13 +108,13 @@ export interface GetVoicePrintGroupListData {
 export interface GetVoicePrintGroupListRequest {
   page_num?: Int64;
   page_size?: Int64;
-  /** fuzzy prefix matching */
+  /** 模糊前缀匹配 */
   name?: string;
-  /** match user ID */
+  /** 匹配用户ID */
   user_id?: string;
-  /** Voiceprint ID */
+  /** 声纹组ID */
   group_id?: string;
-  /** account ID */
+  /** 账号ID */
   coze_account_id?: string;
 }
 
@@ -130,9 +130,9 @@ export interface SpeakerIdentifyData {
 
 export interface SpeakerIdentifyRequest {
   group_id?: Int64;
-  /** file type */
+  /** 文件类型 */
   'Content-Type': string;
-  /** binary data */
+  /** 二进制数据 */
   body: Blob;
 }
 
@@ -145,9 +145,9 @@ export interface SpeakerIdentifyResponse {
 export interface UpdateVoicePrintGroupFeatureRequest {
   group_id?: Int64;
   feature_id?: Int64;
-  /** file type */
+  /** 文件类型 */
   'Content-Type': string;
-  /** binary data */
+  /** 二进制数据 */
   body: Blob;
 }
 

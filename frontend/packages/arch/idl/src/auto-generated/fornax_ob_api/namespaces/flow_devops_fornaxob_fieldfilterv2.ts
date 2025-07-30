@@ -44,7 +44,7 @@ export enum FieldFilterType {
   IsNull = 10,
   /** Not Null */
   NotNull = 11,
-  /** Exists in the list */
+  /** 在list中存在 */
   InList = 12,
   /** Not Like */
   NotLike = 13,
@@ -53,7 +53,7 @@ export enum FieldFilterType {
 export enum FieldGroupSpecial {
   /** last_message_latency + last_message_start_timestamp - first_message_start_timestamp */
   Duration = 1,
-  /** Output of the last message */
+  /** 最后一条消息的Output */
   LastMessage = 2,
 }
 
@@ -68,7 +68,7 @@ export enum Relation {
 }
 
 export interface FieldFilter {
-  /** Support downdrilling, such as llm_info. InputTokens */
+  /** 支持下钻，例如 llm_info.InputTokens */
   field_name: string;
   field_filter_type: FieldFilterType;
   filter_value: FieldValue;
@@ -95,9 +95,9 @@ export interface FieldValue {
 
 export interface Filters {
   field_filters?: Array<FieldFilter>;
-  /** Relationship between FieldFilters: and/or, default and */
+  /** FieldFilters之间的关系：and/or，默认and */
   relation?: Relation;
-  /** subfilter */
+  /** 子过滤器 */
   sub_filter?: Array<Filters>;
 }
 /* eslint-enable */

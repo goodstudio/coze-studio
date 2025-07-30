@@ -23,11 +23,11 @@ export type Int64 = string | number;
 
 /** *************************** audit ********************************* */
 export enum AuditStatus {
-  /** Under review. */
+  /** 审核中 */
   Auditing = 0,
-  /** approved */
+  /** 审核通过 */
   Success = 1,
-  /** moderation failed */
+  /** 审核失败 */
   Failed = 2,
 }
 
@@ -39,9 +39,9 @@ export enum ConnectorDynamicStatus {
 }
 
 export enum FolderType {
-  /** Project/Agent Folder */
+  /** 项目/智能体文件夹 */
   App = 1,
-  /** resource folder */
+  /** 资源文件夹 */
   Resource = 2,
 }
 
@@ -51,11 +51,11 @@ export enum OrderByType {
 }
 
 export enum PermissionType {
-  /** Can't view details */
+  /** 不能查看详情 */
   NoDetail = 1,
-  /** You can check the details. */
+  /** 可以查看详情 */
   Detail = 2,
-  /** Can be viewed and operated */
+  /** 可以查看和操作 */
   Operate = 3,
 }
 
@@ -75,11 +75,11 @@ export enum SpaceStatus {
   Invalid = 2,
 }
 
-/** Audit results */
+/** 审核结果 */
 export interface AuditData {
-  /** True: The machine verification failed */
+  /** true：机审校验不通过 */
   check_not_pass?: boolean;
-  /** The machine audit verification failed the copy. */
+  /** 机审校验不通过文案 */
   check_not_pass_msg?: string;
 }
 
@@ -99,31 +99,31 @@ export interface ConnectorInfo {
 
 export interface FolderBasicInfo {
   id?: string;
-  /** Parent folder id */
+  /** 父文件夹id */
   parent_id?: string;
-  /** Folder type */
+  /** 文件夹类型 */
   folder_type?: FolderType;
   name?: string;
   description?: string;
   space_id?: string;
   creator_id?: string;
-  /** Creation time, second timestamp */
+  /** 创建时间，秒级时间戳 */
   create_time?: string;
-  /** Update time, second timestamp */
+  /** 更新时间，秒级时间戳 */
   update_time?: string;
-  /** Whether to delete */
+  /** 是否删除 */
   is_deleted?: boolean;
 }
 
 export interface FolderInfo {
   folder_basic_info?: FolderBasicInfo;
-  /** List of subfolders, only the tree interface is returned */
+  /** 子文件夹列表，只有tree接口才返回 */
   children_list?: Array<FolderInfo>;
-  /** Parent folder path, does not contain this folder */
+  /** 父级文件夹路径，不包含本文件夹 */
   parent_path?: Array<FolderBasicInfo>;
-  /** Parent folder path, including this folder */
+  /** 父级文件夹路径，包含本文件夹 */
   full_path?: Array<FolderBasicInfo>;
-  /** Folder creator information */
+  /** 文件夹创建者信息 */
   folder_creator_info?: User;
 }
 
@@ -136,13 +136,13 @@ export interface Space {
 
 export interface User {
   user_id?: string;
-  /** user nickname */
+  /** 用户昵称 */
   nickname?: string;
-  /** user avatar */
+  /** 用户头像 */
   avatar_url?: string;
-  /** user name */
+  /** 用户名 */
   user_unique_name?: string;
-  /** user tag */
+  /** 用户标签 */
   user_label?: UserLabel;
 }
 
@@ -156,19 +156,19 @@ export interface UserLabel {
 }
 
 export interface Variable {
-  /** variable name */
+  /** 变量名 */
   keyword?: string;
-  /** default value */
+  /** 默认值 */
   default_value?: string;
-  /** Variable type */
+  /** 变量类型 */
   variable_type?: string;
-  /** Variable source */
+  /** 变量来源 */
   channel?: string;
-  /** variable description */
+  /** 变量描述 */
   description?: string;
-  /** Whether to enable */
+  /** 是否启用 */
   enable?: boolean;
-  /** Variables support access in Prompt by default. After unchecking, access in Prompt will not be supported (only accessible in Workflow) */
+  /** 变量默认支持在Prompt中访问，取消勾选后将不支持在Prompt中访问（仅能在Workflow中访问 */
   prompt_enable?: boolean;
 }
 /* eslint-enable */

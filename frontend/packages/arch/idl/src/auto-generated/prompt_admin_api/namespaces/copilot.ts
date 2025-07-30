@@ -30,7 +30,7 @@ export enum BotExeType {
 }
 
 export enum BotSpecies {
-  /** Bot type */
+  /** bot种类 */
   Default = 0,
   Function = 1,
 }
@@ -41,7 +41,7 @@ export enum BotStatus {
 }
 
 export enum BotType {
-  /** bot type */
+  /** bot类型 */
   User = 0,
   Coco = 1,
   GuanFang = 2,
@@ -75,7 +75,7 @@ export enum PromptTemplateType {
 }
 
 export enum RecommendStatus {
-  /** personalized recommendation status */
+  /** 个性化推荐状态 */
   Enable = 0,
   Disable = 1,
 }
@@ -84,61 +84,61 @@ export interface BytedLLMServerConf {
   psm?: string;
   idc?: Array<string>;
   cluster?: string;
-  /** The configuration value is orca or ultraman or genai. */
+  /** 配置值为orca或者ultraman或者genai */
   request_type?: string;
-  /** Required when using genai */
+  /** 使用genai时必填 */
   chat_template?: string;
-  /** Model entry and exit parameters for custom orca frameworks */
+  /** 自定义orca框架的模型出入参 */
   orca_model_param?: OrcaModelParamConf;
 }
 
 export interface Capability {
-  /** Whether to support function calls */
+  /** 是否支持 function 调用 */
   function_call?: boolean;
-  /** Whether to support Toutiao card types */
+  /** 是否支持头条卡片类型 */
   card?: boolean;
-  /** Does it support video search? */
+  /** 是否支持视频搜索 */
   media?: boolean;
-  /** execution strategy */
+  /** 执行策略 */
   proxy?: copilot_common.ModelProxy;
-  /** Support tools */
+  /** 支持工具 */
   tool?: boolean;
-  /** The seed model output is api_name, not plugin + api_name, which will cause the debugger to fail if spliced. This flag prevents splicing */
+  /** seed模型输出为api_name，而非plugin + api_name，若拼接会导致调插件失败。此标识可阻止拼接 */
   fixed_function?: boolean;
-  /** For seed_strong_character_with_mem, quoted in bot_prompt_template_jinja */
+  /** for seed_strong_character_with_mem，在 bot_prompt_template_jinja 中引用 */
   profile_memory?: boolean;
-  /** Recovery from chat history for bean packet voice link, acting on Seed SC model  */
+  /** 从历史消息中恢复，用于豆包语音链路，作用在 Seed SC 模型上  */
   resume_segment?: boolean;
-  /** Does it support complex parameter calls, such as */
+  /** 是否支持复杂参数调用，例如 */
   complex_function_call?: boolean;
-  /** Deprecated: Use multimodal_types instead. Whether to support multimodal protocols such as image recognition */
+  /** Deprecated: 使用 multimodal_types 取代。是否支持多模态协议，如图片识别 */
   multi_modal?: boolean;
-  /** Does it support json_mode */
+  /** 是否支持 json_mode */
   json_mode?: boolean;
-  /** Whether to support message naming */
+  /** 是否支持消息命名 */
   nameable?: boolean;
-  /** Multimodal supported file types, following the MIME standard */
+  /** 多模态支持的文件类型，遵循 MIME 标准 */
   multimodal_types?: Array<string>;
-  /** Whether to support pre-search, aka continuation  */
+  /** 是否支持预搜索，aka 续写  */
   pre_query?: boolean;
-  /** Whether to support search enhancement, will insert type = search_enhance tool */
+  /** 是否支持搜索增强，会插入 type=search_enhance 的 tool */
   search_enhance?: boolean;
-  /** Whether to show thinking */
+  /** 是否展示thinking */
   cot_display?: boolean;
-  /** Supported cache types */
+  /** 支持的缓存类型 */
   cache?: Array<ModelCacheType>;
-  /** Whether to support continuation */
+  /** 是否支持续写 */
   prefill_resp?: boolean;
-  /** List of wishful cards allowed to be displayed */
+  /** 允许展示的如意卡片列表 */
   ala_src_allow_list?: Array<string>;
-  /** Whether to support batch calls */
+  /** 是否支持批量调用 */
   batch?: boolean;
 }
 
 export interface GptEngineConf {
-  /** Seed runtime */
+  /** seed 运行时 */
   runtime?: string;
-  /** AB parameter, serialized by json */
+  /** ab 参数，通过 json 序列化 */
   ab_param?: string;
   /** seed app_id */
   app_id?: string;
@@ -147,23 +147,23 @@ export interface GptEngineConf {
 }
 
 export interface GptOpenApiConf {
-  /** base request address */
+  /** 基础请求地址 */
   openai_api_base?: string;
-  /** API protocol version */
+  /** API 协议版本 */
   openai_api_version?: string;
   /** AZURE / OPEN_AI / AZURE_AD */
   openai_api_type?: string;
 }
 
 export interface LegacyFields {
-  /** Original model_name value */
+  /** 原 model_name 取值 */
   model_name?: Int64;
 }
 
 export interface MaasAuthConf {
   ak?: string;
   sk?: string;
-  /** When calling Ark, do not specify the large model name, but specify the endpoint. */
+  /** 调用方舟的时候不指定大模型名称 而是指定 endpoint */
   endpoint?: string;
   host?: string;
   region?: string;
@@ -176,82 +176,82 @@ export interface MaasConf {
   extra?: Record<string, string>;
   using_stream?: boolean;
   api_version?: string;
-  /** Nickname for the Volcano Ark node */
+  /** 火山方舟节点的昵称 */
   endpoint_name?: string;
-  /** Volcano Ark node creation time */
+  /** 火山方舟节点创建时间 */
   endpoint_create_time?: Int64;
 }
 
 export interface ModelConf {
-  /** Timeout time [ms] */
+  /** 超时时间[ms] */
   timeout?: number;
-  /** number of retries */
+  /** 重试次数 */
   retry_times?: number;
-  /** Deprecated reply output method */
+  /** deprecated 回复输出方式 */
   print_behavior?: copilot_common.PrintBehavior;
-  /** Maas-specific configuration */
+  /** Maas 特有的配置 */
   maas?: MaasConf;
-  /** Qianfan's unique configuration */
+  /** 千帆特有的配置 */
   qianfan?: QianFanConf;
-  /** GPT openAPI configuration */
+  /** gpt openapi 配置 */
   gpt_openapi?: GptOpenApiConf;
-  /** GPT engine configuration */
+  /** gpt engine 配置 */
   gpt_engine?: GptEngineConf;
-  /** Byted llm server configuration */
+  /** byted llm server 配置 */
   byted_llm_server?: BytedLLMServerConf;
-  /** Platform for providing models, openai maas, etc */
+  /** 提供模型的平台，openai maas 等 */
   provider?: ModelProvider;
 }
 
 export interface ModelParameter {
-  /** Configuration fields, such as max_tokens */
+  /** 配置字段，如max_tokens */
   name?: string;
-  /** type */
+  /** 类型 */
   type?: ModelParamType;
-  /** Is it required? */
+  /** 是否必填 */
   is_required?: boolean;
-  /** Numerical type parameters, the minimum value allowed to be set */
+  /** 数值类型参数，允许设置的最小值 */
   min?: string;
-  /** Numerical type parameter, the maximum value allowed to be set */
+  /** 数值类型参数，允许设置的最大值 */
   max?: string;
-  /** Precision of float type parameters */
+  /** float类型参数的精度 */
   precision?: number;
-  /** Default values for different styles of parameters */
+  /** 不同风格的参数默认值 */
   default_value?: Record<string, string>;
-  /** Enumeration values such as response_format support text, markdown, json */
+  /** 枚举值，如response_format支持text,markdown,json */
   options?: Array<string>;
-  /** Whether to automatically fix this parameter to the range [min, max], the default is false */
+  /** 是否自动修正该参数到[min, max]范围内， 默认为false */
   auto_fix?: boolean;
 }
 
 export interface ModelQuota {
-  /** Maximum total number of tokens */
+  /** 最大总 token 数量 */
   token_limit?: Int64;
-  /** Final reply maximum number of tokens */
+  /** 最终回复最大 token 数量 */
   token_resp?: Int64;
-  /** Prompt system maximum number of tokens */
+  /** Prompt 系统最大 token 数量 */
   token_system?: Int64;
-  /** Prompt user to enter maximum number of tokens */
+  /** Prompt 用户输入最大 token 数量 */
   token_user_in?: Int64;
-  /** Prompt tool to enter maximum number of tokens */
+  /** Prompt 工具输入最大 token 数量 */
   token_tools_in?: Int64;
-  /** Prompt tool output maximum number of tokens */
+  /** Prompt 工具输出最大 token 数量 */
   token_tools_out?: Int64;
-  /** Prompt data maximum number of tokens */
+  /** Prompt 数据最大 token 数量 */
   token_data?: Int64;
-  /** Prompt history maximum number of tokens */
+  /** Prompt 历史最大 token 数量 */
   token_history?: Int64;
-  /** Prompt history maximum number of tokens */
+  /** Prompt 历史最大 token 数量 */
   token_cut_switch?: boolean;
-  /** input cost */
+  /** 输入成本 */
   price_in?: number;
-  /** output cost */
+  /** 输出成本 */
   price_out?: number;
-  /** Bot prompt word configuration token number */
+  /** Bot 提示词配置 token 数量 */
   token_persona?: number;
-  /** Capacity for monitoring */
+  /** 容量，用于监控 */
   request_per_minute?: Int64;
-  /** Capacity for monitoring */
+  /** 容量，用于监控 */
   token_per_minute?: Int64;
 }
 
@@ -271,17 +271,17 @@ export interface OrcaModelParamConf {
 }
 
 export interface PromptConf {
-  /** Template configuration tcc: bot_prompt_sequence */
+  /** 模版配置 tcc: bot_prompt_sequence */
   sequence?: string;
-  /** Template prefix tcc: bot_prompt_template */
+  /** 模版前缀 tcc: bot_prompt_template */
   prefix?: string;
-  /** Template suffix tcc: bot_prompt_template */
+  /** 模版后缀 tcc: bot_prompt_template */
   suffix?: string;
-  /** Whether adding personal touch */
+  /** 是否人格化 */
   is_sc?: boolean;
-  /** Do not enable ReACT (response_format) */
+  /** 不开启ReACT(response_format) */
   close_react?: boolean;
-  /** User prompt is required */
+  /** user prompt是否必须 */
   is_up_required?: boolean;
 }
 

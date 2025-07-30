@@ -2143,7 +2143,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/user/update_profile
    *
-   * Developer profile
+   * 开发者profile
    */
   UpdateUserProfile(
     req?: developer_api.UpdateUserProfileRequest,
@@ -2691,7 +2691,7 @@ export default class DeveloperApiService<T> {
   /**
    * GET /api/dataset/doc_table_info
    *
-   * Get table metadata and preview data
+   * 获取表格元数据和预览数据
    */
   GetDocumentTableInfo(
     req?: document.GetDocumentTableInfoRequest,
@@ -2713,7 +2713,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/dataset/document/create
    *
-   * Create document
+   * 创建document
    */
   CreateDocument(
     req?: document.CreateDocumentRequest,
@@ -2750,7 +2750,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_builder_api
    *
-   * Custom platform self-built card: card_builder
+   * 自定义平台自建卡片: card_builder
    */
   CardBuilderProxy(
     req?: developer_api.CardBuilderProxyRequest,
@@ -2818,7 +2818,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card/create_card
    *
-   * New interface for self-built cards
+   * 自建卡片新接口
    */
   CreateCard(
     req?: developer_api.CreateCardRequest,
@@ -2857,7 +2857,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/publish
    *
-   * Post card
+   * 发布卡片
    */
   CardMetaPublish(
     req: developer_api.CardMetaPublishRequest,
@@ -2879,7 +2879,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/get_card_info
    *
-   * Check card information
+   * 查询卡片信息
    */
   GetCardInfo(
     req: developer_api.GetCardInfoRequest,
@@ -2899,7 +2899,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/upload_file
    *
-   * Upload card related resources
+   * 上传卡片相关资源
    */
   CardUploadFile(
     req?: developer_api.CardUploadFileRequest,
@@ -2984,7 +2984,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/update
    *
-   * Update card information
+   * 更新卡片信息
    */
   UpdateCardInfo(
     req: developer_api.UpdateCardInfoRequest,
@@ -3059,7 +3059,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/dataset/resegment
    *
-   * Local/web doc type sharding interface
+   * local / web doc 类型的重分片接口
    */
   Resegment(
     req: developer_api.ResegmentRequest,
@@ -3521,7 +3521,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/save_template
    *
-   * Save Card Template
+   * 保存卡片模版
    */
   SaveCardTemplate(
     req: developer_api.SaveCardTemplateRequest,
@@ -3542,7 +3542,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/query_history
    *
-   * Check card release history
+   * 查询卡片发布历史
    */
   QueryCardHistory(
     req: developer_api.QueryCardHistoryRequest,
@@ -3562,7 +3562,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/mget_template
    *
-   * Get the card template
+   * 获取卡片模版
    */
   MGetCardTemplate(
     req: developer_api.MGetCardTemplateRequest,
@@ -3584,7 +3584,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/card_center/delete_template
    *
-   * Delete Card Template
+   * 删除卡片模版
    */
   DeleteCardTemplate(
     req: developer_api.DeleteCardTemplateRequest,
@@ -3624,7 +3624,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/acrosite/openapi
    *
-   * Acrosite backend interface
+   * Acrosite后端打通接口
    */
   AcrositeAPI(
     req?: acrosite.AcrositeAPIRequest,
@@ -4042,7 +4042,7 @@ export default class DeveloperApiService<T> {
   /**
    * POST /api/connector_user/bind
    *
-   * third-party channel user binding
+   * 三方渠道用户绑定
    */
   BindConnectorUser(
     req: developer_api.BindConnectorUserRequest,

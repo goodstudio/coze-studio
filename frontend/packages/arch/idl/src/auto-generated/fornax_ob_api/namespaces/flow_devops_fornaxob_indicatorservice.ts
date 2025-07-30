@@ -22,7 +22,7 @@
 export type Int64 = string | number;
 
 export enum AggregationType {
-  /** time aggregation type */
+  /** 时间聚合类型 */
   Minute = 1,
   Hour = 2,
   Day = 3,
@@ -30,7 +30,7 @@ export enum AggregationType {
 }
 
 export enum AppType {
-  /** Do not distinguish between application types */
+  /** 不区分应用类型 */
   All = 0,
   PSM = 1,
   CozeBot = 2,
@@ -40,17 +40,17 @@ export enum AppType {
   FornaxPrompt = 6,
 }
 
-/** Indicator option type */
+/** 指标选项类型 */
 export enum IndicatorOptionType {
   Undefined = 0,
-  /** Model unique identifier */
+  /** model唯一标识 */
   ModelIdentification = 1,
   /** prompt key */
   PromptKey = 2,
 }
 
 export enum InsightIndicatorType {
-  /** Types of indicators, continuously replenished */
+  /** 指标类型，持续补充 */
   InsightIndicatorsToken = 1,
   InsightIndicatorsInputToken = 2,
   InsightIndicatorsOutputToken = 3,
@@ -97,7 +97,7 @@ export enum InsightIndicatorType {
 }
 
 export enum OverviewIndicatorType {
-  /** Overview of indicator types, continuously updated */
+  /** 总览指标类型，持续补充 */
   OverviewIndicatorsUsegeCount = 1,
   OverviewIndicatorsModelErrorRate = 2,
   OverviewIndicatorsErrorRate = 3,
@@ -106,66 +106,66 @@ export enum OverviewIndicatorType {
 }
 
 export interface GetIndicatorOptionsRequest {
-  /** Options that need to be returned, such as model_identification */
+  /** 需要返回的options，比如model_identification */
   options: Array<IndicatorOptionType>;
-  /** The following conditions are related to or
+  /** 以下条件是或的关系
 fornax space id */
   space_id: string;
 }
 
 export interface GetIndicatorOptionsResponse {
-  /** Indicator options, classification of map [option] options */
+  /** 指标选项，map[option]option的分类 */
   indicator_options: Partial<Record<IndicatorOptionType, Array<string>>>;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface Indicator {
-  /** Indicator points, used to display line charts, discarded */
+  /** 指标点，用于展示成折线图，废弃 */
   indicator_points: Array<IndicatorPoint>;
-  /** Index cumulative value, total */
+  /** 指标累加值，总数 */
   totals: string;
-  /** Indicator points for multiple observation objects, used to display line graphs in multiple rows */
+  /** 多个观测对象的指标点，用于展示成多行折线图 */
   multi_obs_objs_indicator_points?: Record<string, Array<IndicatorPoint>>;
 }
 
 export interface IndicatorPoint {
-  /** indicator name */
+  /** 指标名称 */
   indicator_type: InsightIndicatorType;
-  /** The value of the indicator, integer or decimal */
+  /** 指标的值，整数或小数 */
   indicator_value: string;
-  /** Indicator timestamp, milliseconds */
+  /** 指标的时间戳，毫秒 */
   timestamp?: string;
 }
 
 export interface InsightIndicatorFilter {
-  /** Application Type */
+  /** 应用类型 */
   app_type: AppType;
-  /** psm list */
+  /** psm列表 */
   psm?: Array<string>;
-  /** Coze bot id list */
+  /** coze bot id列表 */
   coze_bot_id?: Array<string>;
-  /** Prompt key + version list, empty version means no filtering version */
+  /** prompt key+version列表，version为空代表不过滤version */
   prompt_key_version?: Array<PromptKeyVersion>;
-  /** Is it evaluation traffic, false: is not evaluation traffic, true: is evaluation traffic, do not fill in: does not distinguish evaluation traffic */
+  /** 是不是评测流量，false:不是评测流量，true:是评测流量，不填:不区分评测流量 */
   is_evaluation?: boolean;
-  /** Model unique identifier, list, from QueryIndicatorOptions interface */
+  /** model唯一标识 列表，来自于QueryIndicatorOptions接口 */
   model_identification?: Array<string>;
 }
 
 export interface ObsObjMeta {
-  /** Display name, such as bot_id corresponding display name is bot_name, prompt and psm display name is yourself */
+  /** 展示名称，比如bot_id对应的展示名称是bot_name，prompt和psm的展示名称是自己 */
   show_name?: string;
 }
 
 export interface OverviewIndicator {
-  /** Overview indicator name */
+  /** 总览指标名称 */
   overview_indicator_type: OverviewIndicatorType;
-  /** Overview the value of the indicator, integer or decimal */
+  /** 总览指标的值，整数或小数 */
   overview_indicator_value?: string;
-  /** The value, total or decimal, of the previous cycle's overview indicator */
+  /** 上一周期的总览指标的值，总数或小数 */
   overview_indicator_last_value?: string;
 }
 
@@ -177,60 +177,60 @@ export interface PromptKeyVersion {
 export interface QueryInsightIndicatorByOptionRequest {
   /** fornax space id */
   space_id: string;
-  /** indicator type */
+  /** 指标类型 */
   indicator_type: InsightIndicatorType;
-  /** Start time, 0:00 on the day. timestamp, milliseconds */
+  /** 开始时间，当天0:00。时间戳，毫秒 */
   start_time: Int64;
-  /** End time, 23:59 on the day. timestamp, milliseconds */
+  /** 结束时间，当天23:59。时间戳，毫秒 */
   end_time: Int64;
-  /** Options that need to be returned, such as prompt_key */
+  /** 需要返回的options，比如prompt_key */
   options: IndicatorOptionType;
-  /** Aggregation type, defaults to days */
+  /** 聚合类型，默认为天 */
   aggregation_type?: AggregationType;
-  /** Application Type */
+  /** 应用类型 */
   app_type: AppType;
 }
 
 export interface QueryInsightIndicatorByOptionResponse {
-  /** Metrics for multiple observation objects */
+  /** 多个观测对象的指标 */
   indicator_options_with_value?: Record<string, string>;
-  /** Index cumulative value, total */
+  /** 指标累加值，总数 */
   totals: string;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface QueryInsightIndicatorsRequest {
   /** fornax space id */
   space_id: string;
-  /** indicator type */
+  /** 指标类型 */
   indicator_type: Array<InsightIndicatorType>;
-  /** Start time, 0:00 on the day. timestamp, milliseconds */
+  /** 开始时间，当天0:00。时间戳，毫秒 */
   start_time: Int64;
-  /** End time, 23:59 on the day. timestamp, milliseconds */
+  /** 结束时间，当天23:59。时间戳，毫秒 */
   end_time: Int64;
-  /** conditional filtering */
+  /** 条件过滤 */
   filter?: InsightIndicatorFilter;
-  /** Aggregation type, defaults to days */
+  /** 聚合类型，默认为天 */
   aggregation_type?: AggregationType;
-  /** Overview Metric Types */
+  /** 总览指标类型 */
   overview_indicator_type?: Array<OverviewIndicatorType>;
 }
 
 export interface QueryInsightIndicatorsResponse {
-  /** indicator result */
+  /** 指标结果 */
   indicators: Partial<Record<InsightIndicatorType, Indicator>>;
-  /** Observing object meta information, key corresponds to MultiObsObjsIndicatorPoints key */
+  /** 观测对象meta信息，key对应MultiObsObjsIndicatorPoints的key */
   obs_objs_metas?: Record<string, ObsObjMeta>;
-  /** Overview indicator results */
+  /** 总览指标结果 */
   overview_indicators?: Partial<
     Record<OverviewIndicatorType, OverviewIndicator>
   >;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 /* eslint-enable */

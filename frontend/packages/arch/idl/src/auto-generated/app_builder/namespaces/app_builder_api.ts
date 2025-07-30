@@ -26,30 +26,30 @@ import * as starry from './starry';
 
 export type Int64 = string | number;
 
-/** scene */
+/** 场景 */
 export enum AIGenScene {
-  /** Corresponding prompt platform task: AgentAppBuilderWorflowGen */
+  /** 对应prompt平台任务：AgentAppBuilderWorflowGen */
   Workflow = 0,
-  /** Corresponding prompt platform task: AgentAppBuilderPageGen */
+  /** 对应prompt平台任务：AgentAppBuilderPageGen */
   Page = 1,
-  /** Corresponding prompt platform task: AgentAppBuilderSystemGen */
+  /** 对应prompt平台任务：AgentAppBuilderSystemGen */
   SystemPrompt = 2,
   Requirement = 3,
   Database = 4,
 }
 
 export enum FieldItemType {
-  /** Text (corresponding to varchar in MySQL) */
+  /** 文本（对应 mysql 的 varchar） */
   Text = 1,
-  /** number */
+  /** 数字 */
   Number = 2,
-  /** time */
+  /** 时间 */
   Date = 3,
   /** float */
   Float = 4,
   /** bool */
   Boolean = 5,
-  /** Text (corresponding to MySQL text) */
+  /** 文本（对应 mysql 的 text） */
   FullText = 6,
 }
 
@@ -65,13 +65,13 @@ export interface AddDatabaseData {
 }
 
 export interface AddDatabaseRequest {
-  /** bot_id bound bot */
+  /** bot_id 绑定的bot */
   bot_id?: string;
-  /** creator id */
+  /** 创建者id */
   user_id?: string;
-  /** Bot space id */
+  /** bot空间id */
   'space-id'?: string;
-  /** table information */
+  /** 表信息 */
   table_list?: Array<TableInfo>;
   Base?: base.Base;
 }
@@ -105,28 +105,28 @@ export interface AgentAppInfoData {
   space_id?: string;
   /** bot id */
   bot_id?: string;
-  /** Starry Night app id */
+  /** 星夜 app id */
   app_id?: string;
-  /** Starry night sandbox id */
+  /** 星夜 sandbox id */
   sandbox_id?: string;
-  /** Starry night snapshot id */
+  /** 星夜 snapshot id */
   snapshot_id?: string;
-  /** creator ID */
+  /** 创建人 ID */
   creator_id?: string;
-  /** Create timestamp seconds */
+  /** 创建时间戳秒 */
   created_at?: string;
-  /** Modify timestamp seconds */
+  /** 修改时间戳秒 */
   updated_at?: string;
   /** version_name xxx.xxx.xxx */
   version_name?: string;
-  /** Maximum version number published xxx.xxx.xxx */
+  /** 已发布的最大版本号 xxx.xxx.xxx */
   max_publish_version_name?: string;
   /** local plugin id */
   plugin_id?: string;
 }
 
 export interface AgentAppPublishInfo {
-  /** id primary key */
+  /** id 主键 */
   publish_id?: string;
   /** agent_app_id */
   agent_app_id?: string;
@@ -134,51 +134,51 @@ export interface AgentAppPublishInfo {
   space_id?: string;
   /** bot id */
   bot_id?: string;
-  /** Starry Night app id */
+  /** 星夜 app id */
   app_id?: string;
-  /** Snapshot ID */
+  /** 快照 ID */
   snapshot_id?: string;
   /** version name xxx.xxx.xxx */
   version_name?: string;
   /** version code */
   version_code?: Int64;
-  /** describe */
+  /** 描述 */
   description?: string;
   /** content url */
   content_url?: string;
-  /** Publisher Information */
+  /** 发布者信息 */
   creator?: user.UserBasicInfo;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
-  /** Modification time */
+  /** 修改时间 */
   updated_at?: Int64;
-  /** Maximum version number published xxx.xxx.xxx */
+  /** 已发布的最大版本号 xxx.xxx.xxx */
   max_publish_version_name?: string;
-  /** release status */
+  /** 发布状态 */
   status?: number;
-  /** Pipeline ID */
+  /** 流水线 ID */
   bytecycle_id?: string;
-  /** Pipeline build_no */
+  /** 流水线 build_no */
   build_no?: number;
 }
 
 export interface AIGenerateContentData {
-  /** The generated content varies from scene to scene, but it's all a string in the end. */
+  /** 生成的内容，不同的场景内容不同，但最终都是一段string */
   content?: string;
 }
 
 export interface AIGenerateContentRequest {
-  /** Scene parameters, corresponding to prompt platform tasks */
+  /** 场景参数，对应prompt平台任务 */
   scene?: AIGenScene;
-  /** Space ID */
+  /** 空间id */
   'space-id'?: string;
-  /** user_id cooperate with space ID authentication */
+  /** user_id 配合空间id鉴权 */
   user_id?: string;
-  /** The prompt platform has 3 variables: [text message] [message list] [struct]
-Text message, key = variable name value = variable value
-For example: language = english */
+  /** prompt平台有3种变量：【文本消息】【消息列表】【struct】
+文本消息，key = 变量名 value = 变量值
+如： language = english */
   string_variables?: Record<string, string>;
-  /** Message list, key = variable name value = message list */
+  /** 消息列表，key = 变量名 value = 消息list */
   message_variables?: Record<string, Array<Message>>;
   Base?: base.Base;
 }
@@ -191,7 +191,7 @@ export interface AIGenerateContentResponse {
 }
 
 export interface BatchGetPackageListRequest {
-  /** query structure */
+  /** 查询结构 */
   query?: Array<GetPackageQuery>;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -202,7 +202,7 @@ export interface BatchGetPackageListResponse {
   data?: GetPackageListData;
   code: Int64;
   msg: string;
-  /** Basic Response Results */
+  /** 基本响应结果 */
   BaseResp?: base.BaseResp;
 }
 
@@ -219,9 +219,9 @@ export interface CreateAgentAppRequest {
   space_id?: string;
   /** bot id */
   bot_id?: string;
-  /** Starry Night App ID, does not accept parameters */
+  /** 星夜 App ID, 不接受传参 */
   AppID?: string;
-  /** Starry Night SandBox ID, does not accept parameters */
+  /** 星夜 SandBox ID, 不接受传参 */
   SandboxID?: string;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -241,9 +241,9 @@ export interface CreateLocalPluginData {
 
 export interface CreateLocalPluginRequest {
   agent_app_id?: string;
-  /** ai_plugin (fill in json) */
+  /** ai_plugin (填写 json) */
   ai_plugin?: string;
-  /** OpenAPI (fill in yaml) */
+  /** openapi (填写 yaml) */
   openapi?: string;
   'X-Space-Id': string;
   Cookie?: string;
@@ -283,9 +283,9 @@ export interface CreatePackageResponse {
 }
 
 export interface DeletePackageRequest {
-  /** package name */
+  /** 包名 */
   package_name?: string;
-  /** version number */
+  /** 版本号 */
   version_name?: string;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -298,21 +298,21 @@ export interface DeletePackageResponse {
 }
 
 export interface DoActionRequest {
-  /** Pass through to plugin */
+  /** 透传给 plugin */
   plugin_id: string;
-  /** Pass through to plugin */
+  /** 透传给 plugin */
   api_name: string;
-  /** The space id of the bot, if you don't know it, don't fill it in. */
+  /** bot 的 space id，不知道就不填。 */
   user_id?: string;
-  /** Pass through to plugin */
+  /** 透传给 plugin */
   parameters?: string;
-  /** Current message ID */
+  /** 目前的消息ID */
   message_id?: string;
   plugin_name?: string;
   device_id?: string;
-  /** Additional information */
+  /** 额外信息 */
   ext?: Record<string, string>;
-  /** Output token limit */
+  /** 输出token限制 */
   output_token_limit?: string;
   section_id?: string;
   Base?: base.Base;
@@ -328,7 +328,7 @@ export interface DoActionResponse {
 export interface FieldDefault {
   default_text?: string;
   default_number?: NumberDefault;
-  /** Time, timestamp */
+  /** 时间，timestamp */
   default_date?: string;
   default_float?: number;
   default_bool?: boolean;
@@ -346,22 +346,22 @@ export interface FieldItem {
 }
 
 export interface GenAgentAppData {
-  /** Created agent_id */
+  /** 创建的agent_id */
   agent_id?: string;
 }
 
 export interface GenAgentAppRequest {
-  /** bot_id bound bot */
+  /** bot_id 绑定的bot */
   bot_id?: string;
-  /** Starry night sandbox data */
+  /** 星夜sandbox数据 */
   sandbox?: string;
-  /** agent_name current bot name is the same */
+  /** agent_name 目前bot名称相同 */
   name?: string;
-  /** creator id */
+  /** 创建者id */
   user_id?: string;
-  /** Bot space id */
+  /** bot空间id */
   'space-id'?: string;
-  /** App type */
+  /** app 类型 */
   agent_type?: number;
   Base?: base.Base;
 }
@@ -376,7 +376,7 @@ export interface GenAgentAppResponse {
 export interface GetAgentAppPublishListData {
   /** publish info list */
   publish_list?: Array<AgentAppPublishInfo>;
-  /** total */
+  /** 总数 */
   total?: Int64;
 }
 
@@ -391,9 +391,9 @@ export interface GetAgentAppPublishListRequest {
   bot_id?: Int64;
   /** space id */
   space_id?: Int64;
-  /** The current page number, the default is 1. */
+  /** 当前页码，默认为 1 */
   page?: number;
-  /** The number of displays per page is 20 by default. */
+  /** 每页显示数量，默认为 20 */
   size?: number;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -439,7 +439,7 @@ export interface GetAgentAppRequest {
   bot_id?: Int64;
   /** version name ：eg ：xxx.xxx.xxx */
   version_name?: string;
-  /** Starry Night app id */
+  /** 星夜 app id */
   app_id?: string;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -454,40 +454,41 @@ export interface GetAgentAppResponse {
 }
 
 export interface GetFileListRequest {
-  /** Resource belongs to botId - required */
+  /** 资源所属botId - 必传 */
   bot_id: string;
-  /** 2: required string ConnectorID (agw.source = "query", agw.key = "connector_id", agw.js_conv = 'str '), // resource belongs to connectorId - requiredonnectorId - required
-3: required i64 UserID (agw.source = "query", agw.key = "user_id", agw.js_conv = 'str '), // user id - required Required
-File name, fuzzy search */
+  /** 2:  required string     ConnectorID (agw.source = "query",  agw.key = "connector_id",   agw.js_conv = 'str'),   // 资源所属connectorId - 必传
+3:  required i64        UserID      (agw.source = "query",  agw.key = "user_id",        agw.js_conv = 'str'),   // 用户id - 必传
+文件名, 模糊搜索 */
   file_name?: string;
-  /** Large file categories, exact matching */
+  /** 文件大类, 精确匹配 */
   md_type?: number;
-  /** File format, fuzzy search */
+  /** 文件格式, 模糊搜索 */
   file_format?: string;
-  /** Query start timestamp, in seconds, 0 at the same time as EndTime indicates that the query condition is not enabled */
+  /** 查询起始时间戳, 单位秒, 与EndTime同时为0时表示不启用该查询条件 */
   begin_time?: string;
-  /** Query end timestamp, in seconds, 0 at the same time as BeginTime indicates that the query condition is not enabled */
+  /** 查询结束时间戳, 单位秒, 与BeginTime同时为0时表示不启用该查询条件 */
   end_time?: string;
-  /** Number of pages, starting from 0 */
+  /** 页数, 从0开始 */
   page?: number;
-  /** Page size, default 10 */
+  /** 每页大小, 默认10 */
   size?: number;
   Base?: base.Base;
 }
 
 export interface GetFileListResponse {
-  /** Total number of eligible queries */
+  /** 符合查询条件的总数 */
   total?: number;
-  /** query result */
+  /** 查询结果 */
   data?: Array<filebox.FileListRPCMeta>;
   code: Int64;
   msg: string;
-  /** error message */
+  /** 错误信息 */
   BaseResp?: base.BaseResp;
 }
 
 export interface GetFileMetaInfoRequest {
-  /** 1: required i64 UserID (agw.source = 'query', agw.key = 'user_id', agw.js_conv = 'str '), // userId */ bot_id: string;
+  /** 1:  required i64    UserID      (agw.source = 'query', agw.key = 'user_id',     agw.js_conv = 'str'),   // 用户userId */
+  bot_id: string;
   /** 3:  optional string ConnectorID (agw.source = "query", agw.key = "connector_id",agw.js_conv = 'str'), */
   file_id?: string;
   file_uri?: string;
@@ -504,29 +505,30 @@ export interface GetFileMetaInfoResponse {
 }
 
 export interface GetFileURLRequest {
-  /** Resource URI required */
+  /** 资源 URI 必传 */
   uri: string;
   Base?: base.Base;
 }
 
 export interface GetFileURLResponse {
-  /** query result */
+  /** 查询结果 */
   data: filebox.FileURLData;
   code: Int64;
   msg: string;
-  /** error message */
+  /** 错误信息 */
   BaseResp?: base.BaseResp;
 }
 
 export interface GetListFileChunkRequest {
-  /** 1: required i64 UserID (agw.source = "query", agw.key = "user_id", agw.js_conv = 'str '), // userId */ bot_id: string;
+  /** 1:  required i64        UserID          (agw.source = "query", agw.key = "user_id",     agw.js_conv = 'str'),   // 用户userId */
+  bot_id: string;
   /** 3:  optional string     ConnectorID     (agw.source = "query", agw.key = "connector_id",agw.js_conv = 'str'), */
   biz_type?: string;
   file_id?: string;
   file_uri?: string;
-  /** Include the seq_id, starting at 0 */
+  /** 包括该seq_id, 从0开始 */
   start_chunk_seq_id?: number;
-  /** Including the seq_id, take up to 50 chunks at a time. end_chunk_seq_id - start_chunk_seq_id + 1 < = 50 */
+  /** 包括该seq_id, 一次最多取50个chunk。end_chunk_seq_id - start_chunk_seq_id + 1 <= 50 */
   end_chunk_seq_id?: number;
   Base?: base.Base;
 }
@@ -539,7 +541,7 @@ export interface GetListFileChunkResponse {
 }
 
 export interface GetPackageData {
-  /** id primary key */
+  /** id 主键 */
   id?: string;
   space_id?: Int64;
   package_name?: string;
@@ -549,11 +551,11 @@ export interface GetPackageData {
   meta_title?: string;
   meta_desc?: string;
   meta_contains?: string;
-  /** Publisher Information */
+  /** 发布者信息 */
   creator?: user.UserBasicInfo;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
-  /** Modification time */
+  /** 修改时间 */
   updated_at?: Int64;
 }
 
@@ -566,13 +568,13 @@ export interface GetPackageListData {
 
 export interface GetPackageListRequest {
   /** 1:   string         PackageID   (agw.source = 'query',  agw.key = 'package_id')                     ,   // package_id
-package name */
+包名 */
   package_name?: string;
-  /** version number */
+  /** 版本号 */
   version_name?: string;
-  /** The current page number, the default is 1. */
+  /** 当前页码，默认为 1 */
   page?: number;
-  /** The number of displays per page is 10 by default. */
+  /** 每页显示数量，默认为 10 */
   size?: number;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -583,21 +585,21 @@ export interface GetPackageListResponse {
   data?: GetPackageListData;
   code: Int64;
   msg: string;
-  /** Basic Response Results */
+  /** 基本响应结果 */
   BaseResp?: base.BaseResp;
 }
 
 export interface GetPackageQuery {
-  /** package name */
+  /** 包名 */
   package_name?: string;
-  /** version number */
+  /** 版本号 */
   version_name?: string;
 }
 
 export interface GetPackageRequest {
-  /** package name */
+  /** 包名 */
   package_name?: string;
-  /** version number */
+  /** 版本号 */
   version_name?: string;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -620,11 +622,11 @@ export interface GetPackageVersionListData {
 
 export interface GetPackageVersionListRequest {
   /** 1:   string         PackageID   (agw.source = 'query',  agw.key = 'package_id')                     ,   // package_id
-package name */
+包名 */
   package_name?: string;
-  /** The current page number, the default is 1. */
+  /** 当前页码，默认为 1 */
   page?: number;
-  /** The number of displays per page is 20 by default. */
+  /** 每页显示数量，默认为 20 */
   size?: number;
   'X-Space-Id'?: string;
   Base?: base.Base;
@@ -635,7 +637,7 @@ export interface GetPackageVersionListResponse {
   data?: GetPackageVersionListData;
   code: Int64;
   msg: string;
-  /** Basic Response Results */
+  /** 基本响应结果 */
   BaseResp?: base.BaseResp;
 }
 
@@ -670,7 +672,7 @@ export interface PreviewAgentAppResponse {
 export interface PublishAgentAppData {
   /** publish id */
   publish_id?: string;
-  /** release status */
+  /** 发布状态 */
   status?: number;
 }
 
@@ -679,13 +681,13 @@ export interface PublishAgentAppRequest {
   agent_app_id?: string;
   /** agent app name */
   agent_app_name?: string;
-  /** release description */
+  /** 发布描述 */
   remark?: string;
   /** version_name xxx.xxx.xxx */
   version_name?: string;
-  /** Array of page IDs */
+  /** page id 数组 */
   page_ids?: Array<string>;
-  /** Whether to post to bean buns */
+  /** 是否发布到豆包 */
   to_doubao?: boolean;
   'X-Space-Id'?: string;
   Cookie?: string;
@@ -700,7 +702,8 @@ export interface PublishAgentAppResponse {
 }
 
 export interface SearchFileRequest {
-  /** 1: required i64 UserID (agw.source = "query", agw.key = "user_id", agw.js_conv = 'str ') , // userId */ bot_id: string;
+  /** 1:  required i64            UserID      (agw.source = "query",  agw.key = "user_id",     agw.js_conv = 'str')   ,  // 用户userId */
+  bot_id: string;
   /** 3:  optional string         ConnectorID (agw.source = "query",  agw.key = "connector_id",agw.js_conv = 'str')   , */
   query?: string;
   file_uri_list?: Array<string>;
@@ -888,7 +891,7 @@ export interface StarryUpdateSandboxResponse {
 
 export interface SummaryFileRequest {
   bot_id?: string;
-  /** File Key */
+  /** 文件Key */
   file_key?: string;
   base?: base.Base;
 }
@@ -902,18 +905,18 @@ export interface SummaryFileResponse {
 
 export interface SummaryInfo {
   file_name: string;
-  /** summary content */
+  /** 总结内容 */
   content: string;
 }
 
 export interface TableInfo {
-  /** Database name */
+  /** database名称 */
   name?: string;
-  /** Database description */
+  /** database描述 */
   desc?: string;
-  /** field configuration */
+  /** 字段配置 */
   field_list?: Array<FieldItem>;
-  /** pattern */
+  /** 模式 */
   rw_mode?: number;
 }
 
@@ -943,19 +946,19 @@ export interface UpdateAgentBotData {
 }
 
 export interface UpdateAgentBotRequest {
-  /** bot_id update bot parameters */
+  /** bot_id 更新bot参数 */
   bot_id?: string;
-  /** Bot workflow schema, associated bot workflow list */
+  /** bot workflow schema，关联bot的workflow列表 */
   bot_workflow_list?: Array<WorkflowData>;
-  /** Bot prompt */
+  /** bot的prompt */
   system_prompt?: string;
-  /** user_id update bot parameters */
+  /** user_id 更新bot参数 */
   user_id?: string;
-  /** space_id update bot parameters */
+  /** space_id 更新bot参数 */
   'space-id'?: string;
-  /** Agent workflow shcema, only the agent's workflow list is associated */
+  /** agent workflow shcema，只关联agent的workflow列表 */
   agent_workflow_list?: Array<WorkflowData>;
-  /** Table ids table id list */
+  /** table ids 表的id列表 */
   table_ids?: Array<string>;
   Base?: base.Base;
 }
@@ -971,9 +974,9 @@ export interface UpdateLocalPluginData {}
 
 export interface UpdateLocalPluginRequest {
   agent_app_id?: string;
-  /** ai_plugin (fill in json) */
+  /** ai_plugin (填写 json) */
   ai_plugin?: string;
-  /** OpenAPI (fill in yaml) */
+  /** openapi (填写 yaml) */
   openapi?: string;
   client_id?: string;
   client_secret?: string;
@@ -1012,9 +1015,9 @@ export interface UpdatePackageResponse {
 }
 
 export interface UploadFileRequest {
-  /** file name */
+  /** 文件名 */
   file_name?: string;
-  /** resource URI */
+  /** 资源URI */
   source_uri?: string;
   /** botid */
   bot_id?: string;
@@ -1031,19 +1034,19 @@ export interface UploadFileResponse {
 export interface WorkflowData {
   /** workflow_id */
   id?: string;
-  /** Workflow name */
+  /** workflow名称 */
   name?: string;
-  /** Workflow description */
+  /** workflow描述 */
   desc?: string;
   /** workflow schema */
   schema?: string;
-  /** Workflw icon uri */
+  /** workflw图标uri */
   icon_uri?: string;
-  /** Workflow associated plugin_id */
+  /** workflow关联的plugin_id */
   plugin_id?: string;
-  /** Workflow imported parameter list, one parameter contains: name, desc, required, type, sub_parameters, sub_type */
+  /** workflow入参列表，一个参数包含: name,desc,required,type,sub_parameters,sub_type */
   param?: string;
-  /** WorkFlowC exported parameter list */
+  /** workflowc出参列表 */
   outputs?: string;
 }
 /* eslint-enable */

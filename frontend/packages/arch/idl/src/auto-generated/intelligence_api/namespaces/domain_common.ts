@@ -21,14 +21,14 @@
 
 export type Int64 = string | number;
 
-/** * Domain generic structures, generic structures that do not belong to any aggregation are placed here
- *  Common state of drafting projects and bots */
+/** *  domain 通用结构体 不属于任何聚合的通用结构体放在这里
+ *  draft project  和  bot 的通用状态 */
 export enum EntityStatus {
   Deleted = 0,
   Using = 1,
   Banned = 2,
   MoveFailed = 3,
-  /** Replication in progress, or replication failed */
+  /** 复制中 或 复制失败 */
   Copying = 4,
 }
 /* eslint-enable */

@@ -28,7 +28,7 @@ export enum CozePunishTaskStatus {
   Fail = 1,
 }
 
-/** Create penalties */
+/** 创建处罚措施 */
 export enum PunishMeasureStatus {
   Testing = 0,
   Online = 1,
@@ -59,7 +59,7 @@ export enum PunishTaskStatus {
   partial_success = 3,
 }
 
-/** Create penalty task */
+/** 创建处罚任务 */
 export enum PunishTaskType {
   Punish = 1,
   Unpunish = 2,
@@ -71,28 +71,28 @@ export enum UnPunishAllowConfig {
 }
 
 export interface CozePunishRequest {
-  /** Penalty measure id, use this id to choose which penalty to execute */
+  /** 处罚措施id，通过这个id来选择执行哪个处罚 */
   PunishMeasureID: Int64;
-  /** Penalty object id list */
+  /** 处罚对象id列表 */
   ObjectIDs: Array<string>;
-  /** Punisher uid */
+  /** 处罚人uid */
   OperatorUID?: Int64;
-  /** Penalty mailbox */
+  /** 处罚人邮箱 */
   OperatorEmail?: string;
-  /** source of punishment */
+  /** 处罚源 */
   Source?: string;
-  /** Duration of penalty */
+  /** 处罚持续时间 */
   Duration?: Int64;
-  /** Reason for punishment */
+  /** 处罚原因 */
   Remark?: string;
-  /** Penalty Task ID */
+  /** 处罚任务ID */
   PunishTaskID?: Int64;
   Base?: base.Base;
 }
 
 export interface CozePunishResponse {
-  /** The penalty system cannot perceive and verify the penalty object id, and the access party needs to return the penalty result.
-Key: object id; value: penalty result */
+  /** 处罚系统无法感知和校验处罚对象id，需要接入方返回处罚结果
+key:对象id；value:处罚结果 */
   PunishResultMap: Record<string, CozePunishTaskResult>;
   BaseResp?: base.BaseResp;
 }
@@ -108,7 +108,7 @@ export interface CozeUnPunishRequest {
   OperatorEmail?: string;
   Source?: string;
   Remark?: string;
-  /** Remove Penalty Task ID */
+  /** 解除处罚任务ID */
   PunishTaskID?: Int64;
   Base?: base.Base;
 }
@@ -123,19 +123,19 @@ export interface CreatePunishMeasureData {
 }
 
 export interface CreatePunishMeasureRequest {
-  /** penalty subject */
+  /** 处罚主体 */
   punish_entity: string;
-  /** penalty effect */
+  /** 处罚效果 */
   punish_effect: string;
-  /** Whether to allow manual lifting of penalties */
+  /** 是否允许手动解除处罚 */
   allow_unpunish: UnPunishAllowConfig;
-  /** Duration of penalty */
+  /** 处罚持续时间 */
   punish_duration: Int64;
-  /** Access psm */
+  /** 接入psm */
   psm: string;
-  /** IDL branch */
+  /** IDL分支 */
   idl_branch?: string;
-  /** Name of penalty */
+  /** 处罚措施名称 */
   punish_name: string;
 }
 
@@ -146,19 +146,19 @@ export interface CreatePunishMeasureResponse {
 }
 
 export interface CreatePunishTaskRequest {
-  /** penalty subject */
+  /** 处罚主体 */
   punish_entity: string;
-  /** penalty */
+  /** 处罚措施 */
   punish_messure_id: string;
-  /** Penalty task type */
+  /** 处罚任务类型 */
   type: PunishTaskType;
-  /** penalty time, if you don't pass it on, the default time of using the penalty measure; -1 represents permanent */
+  /** 处罚时长，不传则使用处罚措施默认时长;-1代表永久 */
   punish_duration?: Int64;
-  /** list of penalty targets */
+  /** 处罚对象列表 */
   punish_object_ids: Array<string>;
-  /** Reason for punishment */
+  /** 处罚原因 */
   remark: string;
-  /** Sources of punishment */
+  /** 处罚来源 */
   punish_source: PunishSource;
 }
 
@@ -168,19 +168,19 @@ export interface CreatePunishTaskResponse {
 }
 
 export interface GetPunishMeasureData {
-  /** total number of articles */
+  /** 总条数 */
   total: Int64;
-  /** List of penalties */
+  /** 处罚措施列表 */
   punish_measures: Array<PunishMeasure>;
 }
 
-/** Obtain penalties */
+/** 获取处罚措施 */
 export interface GetPunishMeasureRequest {
-  /** Filter penalties by subject type (for the penalty enforcement page) */
+  /** 根据主体类型筛选处罚措施（给处罚执行页面用的） */
   punish_entity?: string;
-  /** paging */
+  /** 分页 */
   page?: number;
-  /** paging size */
+  /** 分页大小 */
   size?: number;
 }
 
@@ -190,7 +190,7 @@ export interface GetPunishMeasureResponse {
   msg: string;
 }
 
-/** Get penalty meta information */
+/** 获取处罚元信息 */
 export interface GetPunishMetaInfoRequest {}
 
 export interface GetPunishMetaInfoResponse {
@@ -200,20 +200,20 @@ export interface GetPunishMetaInfoResponse {
 }
 
 export interface GetPunishRecordData {
-  /** total number of articles */
+  /** 总条数 */
   total: Int64;
-  /** Penalty Data List */
+  /** 处罚数据列表 */
   punish_records: Array<PunishRecord>;
 }
 
-/** Query penalty data */
+/** 查询处罚数据 */
 export interface GetPunishRecordRequest {
   punish_entity?: string;
   object_ids?: Array<string>;
   status?: PunishRecordStatus;
-  /** paging */
+  /** 分页 */
   page?: number;
-  /** paging size */
+  /** 分页大小 */
   size?: number;
 }
 
@@ -224,21 +224,21 @@ export interface GetPunishRecordResponse {
 }
 
 export interface GetPunishTaskData {
-  /** total number of articles */
+  /** 总条数 */
   total: Int64;
-  /** List of penalties */
+  /** 处罚措施列表 */
   punish_tasks: Array<PunishTask>;
 }
 
-/** View penalty tasks */
+/** 查看处罚任务 */
 export interface GetPunishTaskRequest {
   punish_entity?: string;
   punish_type?: PunishTaskType;
-  /** prefix matching */
+  /** 前缀匹配 */
   operator_email?: string;
-  /** paging */
+  /** 分页 */
   page?: number;
-  /** paging size */
+  /** 分页大小 */
   size?: number;
 }
 
@@ -249,11 +249,11 @@ export interface GetPunishTaskResponse {
 }
 
 export interface MGetEntityPunishStatusRequest {
-  /** enumeration of penalized entities */
+  /** 处罚实体枚举 */
   EntityNum: Int64;
-  /** Corresponding penalties */
+  /** 对应处罚措施 */
   PunishMeasureID: Int64;
-  /** list of penalty targets */
+  /** 处罚对象列表 */
   ObjectIDs: Array<string>;
   Base?: base.Base;
 }
@@ -264,63 +264,63 @@ export interface MGetEntityPunishStatusResponse {
 }
 
 export interface PunishMeasure {
-  /** Penalty measure id */
+  /** 处罚措施id */
   punish_measure_id?: string;
-  /** Name of penalty */
+  /** 处罚措施名称 */
   punish_name?: string;
-  /** penalty subject */
+  /** 处罚主体 */
   punish_entity?: string;
-  /** penalty effect */
+  /** 处罚效果 */
   punish_effect?: string;
-  /** Whether to allow manual lifting of penalties */
+  /** 是否允许手动解除处罚 */
   allow_unpunish?: UnPunishAllowConfig;
-  /** creator mailbox */
+  /** 创建人邮箱 */
   creator?: string;
-  /** Duration of penalty */
+  /** 处罚持续时间 */
   punish_duration?: Int64;
-  /** Access psm */
+  /** 接入psm */
   psm?: string;
-  /** IDL branch */
+  /** IDL分支 */
   idl_branch?: string;
-  /** Penalty status */
+  /** 处罚措施状态 */
   status?: PunishMeasureStatus;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time?: Int64;
 }
 
 export interface PunishMetaInfo {
-  /** penalty subject */
+  /** 处罚主体 */
   punish_entity_list: Array<string>;
-  /** Optional penalty duration */
+  /** 可选处罚持续时间 */
   avaliable_punish_durations: Array<Int64>;
 }
 
 export interface PunishRecord {
-  /** Task ID */
+  /** 任务id */
   task_id?: string;
-  /** Penalty measure id */
+  /** 处罚措施id */
   punish_measure_id?: string;
-  /** Name of penalty */
+  /** 处罚措施名称 */
   punish_messure_name?: string;
-  /** penalty subject */
+  /** 处罚主体 */
   punish_entity?: string;
-  /** target of punishment */
+  /** 处罚对象 */
   object_id?: string;
-  /** creator mailbox */
+  /** 创建人邮箱 */
   punisher?: string;
-  /** Duration of penalty */
+  /** 处罚持续时间 */
   punish_duration?: Int64;
-  /** Email address of the person relieved of punishment */
+  /** 处罚解除人邮箱 */
   unpunisher?: string;
-  /** Reason for punishment */
+  /** 处罚原因 */
   remark?: string;
-  /** Penalty status */
+  /** 处罚状态 */
   status?: PunishRecordStatus;
-  /** penalty execution time */
+  /** 处罚执行时间 */
   create_time?: Int64;
-  /** Penalty expiration time */
+  /** 处罚到期时间 */
   expire_time?: Int64;
 }
 
@@ -335,49 +335,49 @@ export interface PunishScanResponse {
 export interface PunishStatusInfo {
   ObjectID: string;
   Status: PunishStatus;
-  /** Penalty start time, second timestamp */
+  /** 处罚开始时间，秒级时间戳 */
   BanStartTime?: Int64;
-  /** Penalty expiration time, second timestamp */
+  /** 处罚到期时间，秒级时间戳 */
   BanExpireTime?: Int64;
 }
 
 export interface PunishTask {
-  /** Task ID */
+  /** 任务id */
   task_id?: string;
-  /** Penalty measure id */
+  /** 处罚措施id */
   punish_measure_id?: string;
-  /** penalty subject */
+  /** 处罚主体 */
   punish_entity?: string;
-  /** creator mailbox */
+  /** 创建人邮箱 */
   operator?: string;
-  /** Duration of penalty */
+  /** 处罚持续时间 */
   punish_duration?: Int64;
-  /** task category */
+  /** 任务类别 */
   type?: PunishTaskType;
-  /** Penalty task execution status */
+  /** 处罚任务执行状态 */
   status?: PunishTaskStatus;
-  /** Number of punishment targets */
+  /** 处罚对象个数 */
   object_num?: Int64;
-  /** Sources of punishment */
+  /** 处罚来源 */
   punish_source?: PunishSource;
-  /** Reason for punishment */
+  /** 处罚原因 */
   remark?: string;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time?: Int64;
 }
 
-/** Update penalties */
+/** 更新处罚措施 */
 export interface UpdatePunishMeasureRequest {
   punish_measure_id: string;
   psm?: string;
   idl_branch?: string;
-  /** Penalty status */
+  /** 处罚措施状态 */
   status?: PunishMeasureStatus;
-  /** Name of penalty */
+  /** 处罚名称 */
   punish_name?: string;
-  /** duration */
+  /** 持续时间 */
   punish_duration?: Int64;
 }
 

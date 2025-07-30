@@ -29,12 +29,12 @@ export enum CallbackEvent {
   RenewKnowledgeScheduleTasks = 4,
 }
 
-/** Channels exposed to users */
+/** 暴露给用户的渠道 */
 export enum Channel {
   Unknown = 0,
   Feishu = 1,
   Lark = 2,
-  /** subsequent deletion */
+  /** 后续删除 */
   TOS = 3,
 }
 
@@ -64,9 +64,9 @@ export enum FeishuObjectType {
 }
 
 export enum IDPChunkingStrategy {
-  /** Segmentation based on plain text */
+  /** 基于plain text切分 */
   PLAIN_TEXT = 0,
-  /** Segmentation based on [paragraph/paragraph] */
+  /** 基于[paragraph/段落]的切分 */
   PARAGRAPH = 1,
 }
 
@@ -75,7 +75,7 @@ export enum KnowledgeShelfDocumentType {
   Table = 1,
 }
 
-/** The type of resource exposed to the user */
+/** 暴露给用户的资源类型 */
 export enum ResourceType {
   Unknown = 0,
   FeishuDoc = 1,
@@ -96,7 +96,7 @@ export enum TableColumnType {
 }
 
 export interface ChunkInfo {
-  /** Multimodal case? */
+  /** 多模态情况？ */
   seq_id?: number;
   content?: string;
   chunk_size?: Int64;
@@ -142,7 +142,7 @@ export interface KnowledgeDocument {
   space_id?: Int64;
   knowledge_id?: Int64;
   knowledge_document_id?: Int64;
-  /** The name of the knowledge base display, this issue has the same name as the Feishu document. */
+  /** 知识库展示名称，本期与飞书文档同名 */
   knowledge_document_name?: string;
   /** deprecated */
   channel?: Channel;
@@ -225,19 +225,19 @@ export interface TableEntry {
 export interface UserInfo {
   name?: string;
   en_name?: string;
-  /** user profile URL */
+  /** 用户头像url */
   avatar_url?: string;
-  /** 72 * 72 avatar */
+  /** 72 * 72 头像 */
   avatar_thumb?: string;
-  /** unique user ID within the app */
+  /** 用户应用内唯一标识 */
   open_id?: string;
-  /** unique identifier within the user application developer */
+  /** 用户应用开发商内唯一标识 */
   union_id?: string;
-  /** Corporate identity */
+  /** 企业标识 */
   tenant_key?: string;
-  /** The unique identity of the user within the tenant */
+  /** 用户在租户内的唯一标识 */
   user_id?: string;
-  /** user email */
+  /** 用户邮箱 */
   email?: string;
 }
 

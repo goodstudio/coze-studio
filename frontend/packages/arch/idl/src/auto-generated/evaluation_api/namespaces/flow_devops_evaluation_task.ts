@@ -29,23 +29,23 @@ import * as flow_devops_evaluation_evaluator from './flow_devops_evaluation_eval
 
 export type Int64 = string | number;
 
-/** aggregation method */
+/** 聚合方式 */
 export enum AggregatorMode {
   Unknown = 0,
-  /** Aggregate by review dimension tag */
+  /** 按照评测维度标签聚合 */
   EvaluatorTag = 1,
 }
 
-/** aggregator type */
+/** 聚合器类型 */
 export enum AggregatorType {
   Average = 1,
   Sum = 2,
   Max = 3,
   Min = 4,
-  /** Use the double type to represent percentages. For example, 50.5% is set to 0.505. */
+  /** 使用double类型来表示百分比。例如50.5%设置为0.505 */
   PassingRate = 5,
   ExcellentRate = 6,
-  /** Manual options are scored, each option is counted and a proportional distribution is given */
+  /** 人工选项打分，count 各选项并给出比例分布 */
   Count = 7,
   Pct50 = 8,
   Pct90 = 9,
@@ -59,89 +59,89 @@ export enum BatchTaskRetryMode {
 
 export enum BitableStatus {
   Unknown = 0,
-  /** Task not started */
+  /** 任务未开始 */
   Running = 1,
-  /** Mission successful */
+  /** 任务成功 */
   Success = 2,
-  /** Mission failed */
+  /** 任务失败 */
   Failed = 3,
 }
 
-/** ChainTask template type */
+/** ChainTask模版类型 */
 export enum ChainTaskTemplate {
   ChainTaskTemplate_Unknow = 0,
   ChainTaskTemplate_BotTemplate = 1,
 }
 
-/** Types of analytical charts */
+/** 分析图表的类型 */
 export enum ChartType {
   Unknown = 0,
-  /** indicator card */
+  /** 指标卡 */
   KPI = 1,
-  /** Pie chart */
+  /** 饼图 */
   Pie = 2,
-  /** bar chart */
+  /** 条形图 */
   Bar = 3,
-  /** bar stack chart */
+  /** 条形堆积图 */
   StackedBar = 4,
-  /** Radar chart */
+  /** 雷达图 */
   Radar = 5,
-  /** line chart */
+  /** 折线图 */
   Line = 6,
 }
 
 export enum DataType {
-  /** Default, floating-point value types with decimals */
+  /** 默认，有小数的浮点数值类型 */
   Double = 0,
   JSON = 1,
 }
 
-/** Evaluator Resource */
+/** 评估器资源 */
 export enum EvaluateMode {
-  /** manual */
+  /** 人工 */
   Manual = 0,
-  /** automatic */
+  /** 自动 */
   Auto = 1,
-  /** reset */
+  /** 重置 */
   Reset = 2,
 }
 
-/** Correlation Evaluator */
+/** 关联评估器 */
 export enum EvaluateScope {
-  /** Data row range */
+  /** data row 范围 */
   Row = 0,
-  /** All cases take effect by default */
+  /** 全case默认生效 */
   Case = 1,
 }
 
 export enum ExecutionPolicy {
-  /** Error stop running */
+  /** error 停止运行 */
   StopOnAnyError = 1,
-  /** Error continue to execute subsequent tasks */
+  /** error 继续执行后续任务 */
   ContinueOnAnyError = 2,
-  /** Partial failure to continue with subsequent tasks */
+  /** 部分失败继续执行后续任务 */
   OnlyContinueOnPartialError = 3,
 }
 
 export enum ExportCSVSourceType {
-  /** Subsequent possible migration orders are reported as server level exports */
+  /** 后续可能迁移单报告为服务端导出 */
   EvaluationTaskReport = 1,
   ContrastReport = 2,
 }
 
 export enum FilterField {
   Unknown = 0,
-  /** score */
+  /** 得分 */
   Score = 1,
-  /** numerical value */
+  /** 数值 */
   Value = 2,
-  /** Evaluation result option value */
+  /** 评测结果option value */
   OptionValue = 3,
-  /** label */
+  /** 标注 */
   Plaintext = 4,
-  /** dataset label */
+  /** 数据集标签 */
   DataSetTag = 5,
-  /** Evaluation dimension, corresponding to ruleID */
+  /** 评测维度,对应于ruleID */
   RuleID = 6,
 }
 
@@ -153,25 +153,25 @@ export enum FilterLogicOp {
 
 export enum FilterOperatorType {
   Unknown = 0,
-  /** equal to */
+  /** 等于 */
   Equal = 1,
-  /** Not equal to */
+  /** 不等于 */
   NotEqual = 2,
-  /** contain */
+  /** 包含 */
   Contains = 3,
-  /** Do not include */
+  /** 不包含 */
   NotContains = 4,
-  /** greater than */
+  /** 大于 */
   Greater = 5,
-  /** greater than or equal to */
+  /** 大于等于 */
   GreaterOrEqual = 6,
-  /** less than */
+  /** 小于 */
   Less = 7,
-  /** less than or equal to */
+  /** 小于等于 */
   LessOrEqual = 8,
-  /** empty */
+  /** 空 */
   IsNull = 9,
-  /** non-empty */
+  /** 非空 */
   IsNotNull = 10,
 }
 
@@ -194,19 +194,19 @@ export enum GenAnnotationTaskCustomFilterLanguage {
   Python = 3,
 }
 
-/** grouping */
+/** 分组方式 */
 export enum GroupMode {
   Unknown = 0,
-  /** dataset label */
+  /** 数据集标签 */
   DataSetTag = 1,
-  /** Group by option */
+  /** 按照option结果分组 */
   OptionResult = 2,
 }
 
 export enum ManualStatus {
-  /** No manual labeling is required. */
+  /** 不需要人工标注 */
   NoNeed = 0,
-  /** Manual labeling is required. */
+  /** 需要人工标注 */
   Need = 1,
 }
 
@@ -223,7 +223,7 @@ export enum ModelStyle {
   Precise = 3,
 }
 
-/** Evaluator Resource */
+/** 评估器资源 */
 export enum PromptTemplateFormat {
   PromptTemplateFormat_FString = 0,
   PromptTemplateFormat_Jinja2 = 1,
@@ -231,76 +231,76 @@ export enum PromptTemplateFormat {
 
 export enum RetryMode {
   All = 1,
-  /** Retry unsuccessful rowGroup */
+  /** 重试未成功的rowGroup */
   Unsuccessful = 2,
-  /** Specify rowGroupID to retry */
+  /** 指定rowGroupID重试 */
   SpecifyRowGroup = 3,
 }
 
 export enum RowGroupRunState {
   Unknown = -1,
-  /** in line */
+  /** 排队中 */
   Queueing = 0,
-  /** in progress */
+  /** 执行中 */
   Processing = 1,
-  /** success */
+  /** 成功 */
   Success = 2,
-  /** fail */
+  /** 失败 */
   Fail = 3,
-  /** Results to be evaluated */
+  /** 结果待评估 */
   Evaluating = 4,
-  /** terminate execution */
+  /** 终止执行 */
   Terminal = 5,
 }
 
 export enum RowRunState {
-  /** Not started */
+  /** 未开始执行 */
   Queueing = 0,
-  /** successful execution */
+  /** 执行成功 */
   Success = 1,
-  /** execution failed */
+  /** 执行失败 */
   Fail = 2,
 }
 
-/** Form display element type */
+/** 表单展示元素类型 */
 export enum ShowEntityType {
-  /** Evaluation object coze bot, corresponding to use 11: CozeEntityMap */
+  /** 评测对象coze bot，对应使用 11:CozeEntityMap */
   CozeBot = 1,
-  /** Object prompt */
+  /** 评测对象prompt */
   Prompt = 2,
-  /** user information */
+  /** 用户信息 */
   User = 3,
-  /** Registered agent */
+  /** 注册agent */
   Agent = 4,
 }
 
-/** SpecialObjectType can be dynamically registered on the evaluation object management platform alone later, and the registered ones will be dynamically allocated */
+/** SpecialObjectType 后面可单独在 评估对象管理平台上进行动态注册，注册的会动态分配 */
 export enum SpecialObjectType {
   CozeBot = 0,
   Prompt = 1,
   ChainTask = 2,
-  /** Applications connected to Fornax, Eino framework is integrated by default */
+  /** 接入 Fornax 的应用，Eino 框架默认集成 */
   FornaxApp = 3,
-  /** FornaxAgent provided by CloudIDE */
+  /** CloudIDE 提供的 FornaxAgent */
   FornaxAgent = 4,
   PlaygroundCozeBot = 5,
   PlaygroundCozeBotV2 = 6,
-  /** Result Set Batch Evaluation Type */
+  /** 结果集批量评测类型 */
   EvalResultDatasetCollection = 7,
   PlaygroundCozeModel = 8,
   CiciCrawl = 9,
-  /** Custom evaluation rules, idgen id is not enumerable, this enum is only used for search & filter requests */
+  /** 自定义评测规则，idgen id 不可枚举, 此 enum 仅用于搜索&过滤的 request */
   Custom = 100,
 }
 
 export enum TaskAggrReportGenStatus {
-  /** Not generated, task not completed */
+  /** 未生成，任务未执行完成 */
   NotGenerated = 0,
-  /** Updating */
+  /** 更新中 */
   Updating = 1,
-  /** When running, you can view the report details, complete it, and display the overall score and [Click to view the aggregated report]. */
+  /** 运行时可查看报告详情，完成 后展示整体得分和【查看聚合报告可点击】 */
   Generated = 2,
-  /** If the score is updated after completion, it needs to be re-aggregated. */
+  /** 完成后如果评分有更新，需要重新聚合计算 */
   NeedUpdate = 3,
 }
 
@@ -312,41 +312,41 @@ export enum TaskManualStatus {
 
 export enum TaskMode {
   Unknown = 0,
-  /** Platform Manual Operation Case */
+  /** 平台手动运行Case */
   SubmitExec = 1,
-  /** Online review scenario */
+  /** 在线评测场景 */
   OnlineSyncExec = 2,
 }
 
 export enum TaskStatus {
-  /** The evaluation task is in progress, and the front-end display [running] */
+  /** 评测任务执行中，前端展示【运行中】 */
   Processing = 1,
-  /** The evaluation task is being created, the initial session rowGroup status and other operations, and the front-end display [Created] */
+  /** 评测任务创建中，初始话rowGroup状态等操作，前端展示【创建中】 */
   Creating = 4,
-  /** Rowgroup continuously reviews and adds to tasks, used in online review scenarios */
+  /** rowgroup持续评测并添加到任务，在线评测场景中使用 */
   Appending = 10,
-  /** The execution is completed and manual scoring is required, and the front-end display [manual scoring is required] */
+  /** 执行完成且需要人工评分，前端展示【需要人工评分】 */
   NeedManualEval = 20,
-  /** The user manually cancels the run, and the front-end display [Terminated, the user cancels] */
+  /** 用户手动取消运行, 前端展示【已终止，用户取消】 */
   Termination = 21,
-  /** The system actively terminates the task, and the front-end display [Terminated: System Abnormal] */
+  /** 系统主动终止任务，前端展示【已终止: 系统异常】 */
   SystemTermination = 22,
-  /** The task execution is completed, and the front-end display [Success] */
+  /** 任务执行完成，前端展示【成功】 */
   Completed = 30,
-  /** The execution is complete, all rowGroups fail to execute, and the front-end display [Failed] */
+  /** 执行完成，全部 rowGroup 都执行失败，前端展示【失败】 */
   Error = 31,
-  /** Execution completed, partial rowGroup failed. Front-end display [Partial failure] */
+  /** 执行完成, 部分rowGroup失败。前端展示【部分失败】 */
   PartialFailure = 41,
-  /** The task has been created, waiting for the task to be scheduled for execution */
+  /** 任务已创建,等待任务被调度执行 */
   AwaitExecution = 42,
-  /** Wait for the task to be retried */
+  /** 等待任务被重试 */
   AwaitRetry = 43,
 }
 
 export enum UserChangeMode {
-  /** Unlimited, users can read, write, and run */
+  /** 无限制，用户可读写、运行 */
   Default = 0,
-  /** Non-editable, non-triggering, readable */
+  /** 不可编辑、不可触发运行，可读 */
   ReadOnly = 5,
 }
 
@@ -356,31 +356,31 @@ export interface AggregateData {
   data_type?: DataType;
 }
 
-/** aggregation report */
+/** 聚合报告 */
 export interface AggregateReport {
-  /** Label tree structure of dataset */
+  /** 数据集的标签树结构 */
   tag_tree_node?: flow_devops_evaluation_entity.Node;
-  /** node_id corresponding label node aggregation results */
+  /** node_id对应的标签节点聚合结果 */
   node_results?: Record<Int64, AggregateResultRow>;
-  /** Evaluation rule column structure of the report */
+  /** 报告的评估规则列结构 */
   column_rule_info?: Array<ColumnRuleInfo>;
-  /** All dataset labels summarize the results, corresponding to the last row of the report */
+  /** 所有数据集标签汇总结果,对应报告最后一行 */
   summarized_result?: AggregateResultRow;
 }
 
-/** Aggregate statistics, one cell of data, corresponding to an aggregator type */
+/** 聚合统计结果 一个单元格数据，对应一种聚合器类型 */
 export interface AggregateResultCell {
   aggregator_type?: AggregatorType;
   aggregate_data?: AggregateData;
 }
 
-/** Aggregate a single line of data */
+/** 聚合报告一行数据 */
 export interface AggregateResultRow {
-  /** regular dimension aggregation result */
+  /** 规则维度聚合结果 */
   rule_results?: Array<RuleAggregateResult>;
-  /** Total rowgroup */
+  /** rowgroup总数 */
   total_num?: Int64;
-  /** All evaluation rules summarize the results, corresponding to the last column of the report */
+  /** 所有评测规则汇总结果,对应报告最后一列 */
   summarized_result?: Array<AggregateResultCell>;
 }
 
@@ -390,28 +390,28 @@ export interface AggregatorConfig {
 }
 
 export interface AnalysisChartReportConfig {
-  /** Chart Type */
+  /** 图表类型 */
   chart_type: ChartType;
-  /** indicator granularity */
+  /** 指标粒度 */
   evaluator_granularity: flow_devops_evaluation_entity.EvaluatorGranularity;
-  /** Aggregate statistical method */
+  /** 聚合统计方式 */
   aggregator_type: AggregatorType;
-  /** Evaluation dimension list, which is the corresponding rule_ids */
+  /** 评测维度list，即对应的rule_ids */
   rule_ids: Array<Int64>;
-  /** Aggregation method list */
+  /** 聚合方式list */
   aggregator_modes?: Array<AggregatorMode>;
-  /** grouping */
+  /** 分组方式 */
   group_mode?: GroupMode;
-  /** Filter conditions (tree structure, filter conditions are all on leaf nodes) */
+  /** 过滤条件(树结构，过滤条件均在叶子节点上) */
   filter_node?: FilterNode;
-  /** report name */
+  /** 报告名称 */
   report_name?: string;
-  /** Grouping filter conditions (tree structure, filter conditions are all on leaf nodes) */
+  /** 分组方式过滤条件(树结构，过滤条件均在叶子节点上) */
   group_mode_filter?: FilterNode;
 }
 
 export interface AnalysisChartReportInfo {
-  /** Analytics Chart ID */
+  /** 分析图表id */
   analysis_chart_report_id: Int64;
   aggregate_report?: AggregateReport;
   analysis_chart_report_config?: AnalysisChartReportConfig;
@@ -420,7 +420,7 @@ export interface AnalysisChartReportInfo {
 export interface AssociateAnalysisChartReportRequest {
   case_id: Int64;
   'FlowDevops-Agw-UserId'?: string;
-  /** Analytical chart id list */
+  /** 分析图表id list */
   analysis_chart_report_ids: Array<Int64>;
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
@@ -463,7 +463,7 @@ export interface AssociateEvalObjectRequest {
   'FlowDevops-Agw-UserId'?: string;
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
-  /** evaluation object */
+  /** 评估对象 */
   eval_object?: EvalObject;
   cid?: string;
   Base?: base.Base;
@@ -488,7 +488,7 @@ export interface AssociateEvaluatorRequest {
 }
 
 export interface AssociateEvaluatorResponse {
-  /** EvaluateMode does not return NewRuleGroupID when manual mode */
+  /** EvaluateMode 是人工模式时， 不返回 NewRuleGroupID */
   new_rule_group_id?: Int64;
   BaseResp?: base.BaseResp;
 }
@@ -532,7 +532,7 @@ export interface BatchGetRowEvalResResponse {
 
 export interface BatchTaskRet {
   batch_task_id: Int64;
-  /** List of tasks for this run in case */
+  /** case 下的本次运行的task列表 */
   list_case_tasks?: Array<CaseTasks>;
 }
 
@@ -541,52 +541,52 @@ export interface BizError {
   err_code: Int64;
 }
 
-/** use case entity */
+/** 用例实体 */
 export interface Case {
-  /** Use Case ID */
+  /** 用例ID */
   id?: Int64;
-  /** use case name */
+  /** 用例名称 */
   name?: string;
-  /** use case description */
+  /** 用例描述 */
   desc?: string;
-  /** Linked dataset information */
+  /** 关联的数据集信息 */
   dataset_source?: DatasetSource;
-  /** associated evaluation set */
+  /** 关联评估集合 */
   evaluator_source?: EvaluatorSource;
-  /** evaluation object */
+  /** 评估对象 */
   eval_object?: EvalObject;
-  /** creator */
+  /** 创建者 */
   creator_id?: Int64;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time?: Int64;
-  /** Case Delete Time */
+  /** Case 删除时间 */
   delete_at?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
   last_run_time?: Int64;
   region?: string;
   /** deprecated
-The runtime parameter of the latest task in this use case, if there is no task in the use case, return the default value */
+该用例下最新的task的运行时参数，如果用例下没有task，返回默认值 */
   latest_runtime_parameter?: string;
-  /** UserChangeMode User Edit Use Case Permissions
-For online evaluation scenarios, users cannot edit use cases before the online evaluation task is completed, and use cases can only be edited after the online evaluation task is completed */
+  /** UserChangeMode 用户编辑用例权限
+for在线评测场景，在线评测任务未完成前用户不可编辑用例，在线评测任务完成后用例才可编辑 */
   user_change_mode?: UserChangeMode;
   runtime_parameter_tip_content?: string;
-  /** If this field has a value, it represents a reference to an existing dataset. */
+  /** 这个字段有值代表是引用了已有数据集 */
   original_dataset_id?: Int64;
-  /** Runtime parameters and use cases are directly bound, and the default value is if the user does not edit it. */
+  /** 运行时参数和用例直接绑定，若用户未编辑则为默认值 */
   runtime_parameter?: string;
-  /** Runtime parameter default value, automated task batch setting runtime parameter scene use */
+  /** 运行时参数默认值，自动化任务批量设置运行时参数场景使用 */
   default_runtime_parameter?: string;
 }
 
-/** Case dimension evaluator */
+/** case 维度评估器 */
 export interface CaseEvaluatorSource {
-  /** Automatic Evaluator Resource Failure in Manual Mode */
+  /** 人工模式下, 自动评估Evaluator资源失效 */
   mode?: EvaluateMode;
-  /** Task Binding Evaluator Resource */
+  /** task绑定Evaluator资源 */
   rule_group_id?: Int64;
 }
 
@@ -598,7 +598,7 @@ export interface CaseTasks {
 export interface ChainTask {
   task_id: string;
   task_name?: string;
-  /** During the evaluation, the version of chainTask needs to be transmitted from the front end. */
+  /** 评测时候，chainTask的版本，需要前端传 */
   version?: number;
   model_info?: string;
   chain_task_template?: ChainTaskTemplate;
@@ -622,9 +622,9 @@ export interface CheckCaseEvaluatorResponse {
 
 export interface CheckResult {
   over_limit_rows?: Array<Int64>;
-  /** No default rule is set, there are more than 0 rows and no default rule is configured */
+  /** 没有设置默认规则，存在大于0个row没有配置默认规则 */
   lack_row_rule?: boolean;
-  /** Case Linked Data Set No Data */
+  /** case 关联数据集没有数据 */
   lack_dataset_row?: boolean;
 }
 
@@ -654,11 +654,11 @@ export interface CloneCaseResponse {
 export interface ColumnRuleInfo {
   rule_id: Int64;
   evaluator_type: Int64;
-  /** Custom Evaluator Name */
+  /** 自定义评估器名称 */
   evaluator_type_name: string;
-  /** rule name */
+  /** 规则名称 */
   name?: string;
-  /** Merge cells for dialog group granularity rules */
+  /** 用于对话组粒度规则的合并单元格 */
   granularity?: flow_devops_evaluation_entity.EvaluatorGranularity;
 }
 
@@ -676,7 +676,7 @@ export interface ComparisonTaskInfo {
 export interface ContrastReportMetaInfo {
   contrast_report_id: Int64;
   name: string;
-  /** compare task list */
+  /** 对比任务列表 */
   contrast_tasks?: Array<ContrastTask>;
 }
 
@@ -684,9 +684,9 @@ export interface ContrastReportRowGroup {
   serial_num?: number;
   row_group_id?: Int64;
   tags?: Array<string>;
-  /** Row comparison report information */
+  /** row对比报告信息 */
   row_contrast_report_infos: Array<RowContrastReportInfo>;
-  /** rowGroup Comparison Report Information */
+  /** rowGroup对比报告信息 */
   row_group_contrast_report_info?: RowGroupContrastReportInfo;
 }
 
@@ -701,17 +701,17 @@ export interface CozeAgent {
   ModelInfo?: flow_devops_evaluation_entity.ModelInfo;
 }
 
-/** Review CozeBot */
+/** 评测CozeBot */
 export interface CozeBot {
   bot_id?: Int64;
-  /** Default 0, is the draft version
+  /** 默认0， 是draft版本
 deprecated */
   is_draft?: number;
-  /** Create case version is empty, the task entity will carry the bot version when the current case runs */
+  /** 创建case version 为空，task实体会携带当前case run 时候 bot version */
   version?: Int64;
-  /** Bot type, default 0, is draft version */
+  /** Bot类型，默认0， 是draft版本 */
   bot_info_type?: flow_devops_evaluation_object_callback.CozeBotInfoType;
-  /** Create case connector_id is empty, the task entity will carry the current case run time bot connector_id */
+  /** 创建case connector_id 为空，task实体会携带当前case run 时候 bot connector_id */
   connector_id?: string;
   model_info?: flow_devops_evaluation_entity.ModelInfo;
   bot_name?: string;
@@ -738,15 +738,15 @@ export interface CreateBatchTaskResponse {
 
 export interface CreateCaseRequest {
   'FlowDevops-Agw-UserId'?: string;
-  /** use case name */
+  /** 用例名称 */
   name: string;
   'FlowDevops-Agw-AppId'?: number;
-  /** use case space */
+  /** 用例所处空间 */
   space_id: Int64;
-  /** use case description */
+  /** 用例描述 */
   desc?: string;
   cid?: string;
-  /** Whether to tag, not by default */
+  /** 是否打上tag, 默认不打上 */
   tag_list?: Array<flow_devops_evaluation_entity.TagInfo>;
   region?: string;
   UserChangeMode?: UserChangeMode;
@@ -755,7 +755,7 @@ export interface CreateCaseRequest {
 }
 
 export interface CreateCaseResponse {
-  /** use case entity information */
+  /** 用例实体信息 */
   case?: Case;
   BaseResp?: base.BaseResp;
 }
@@ -767,7 +767,7 @@ export interface CreateContrastReportReq {
   'FlowDevops-Agw-AppId'?: number;
   task_id: Int64;
   name?: string;
-  /** compare task list */
+  /** 对比任务列表 */
   contrast_tasks?: Array<ContrastTask>;
   Base?: base.Base;
 }
@@ -782,7 +782,7 @@ export interface CreatePostColumnsReq {
   space_id: Int64;
   contrast_report_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
-  /** manually tagged item list */
+  /** 人工标注项列表 */
   manual_annotation_items?: Array<flow_devops_evaluation_manual_annotation.ManualAnnotationItem>;
   task_id?: Int64;
   case_id?: Int64;
@@ -801,7 +801,7 @@ export interface CreatePostColumnsV2Req {
   'FlowDevops-Agw-AppId'?: number;
   task_id?: Int64;
   case_id?: Int64;
-  /** manually tagged item list */
+  /** 人工标注项列表 */
   manual_annotation_items?: Array<flow_devops_evaluation_manual_annotation.ManualAnnotationItem>;
   source_type?: flow_devops_evaluation_manual_annotation.SourceType;
   Base?: base.Base;
@@ -813,33 +813,33 @@ export interface CreatePostColumnsV2Resp {
 }
 
 export interface DashboardRow {
-  /** Dataset structure */
+  /** 数据集结构 */
   row_id: Int64;
-  /** Dataset cells (including input, output, variable FIXME MultiCell after online, discarded */
+  /** 数据集cells（包含input, output, variable FIXME MultiCell上线后，废弃 */
   cells: Array<string>;
-  /** New evaluation report
-Large model real output FIXME MultiOutput is discarded after online */
+  /** 评估报告新增
+大模型真实输出 FIXME  MultiOutput上线后废弃 */
   output: Output;
-  /** Evaluator Report */
+  /** 评估器报告 */
   row_eval_cell: RowEvalCell;
-  /** Level 2 Details rule_group_id
-When deprecated is not 0, it means that the row includes the rule_group_id of all general rules and row-level rules. */
+  /** 二级详情rule_group_id
+deprecated 不为0时表示该行包括了所有通用规则与行级规则的rule_group_id, */
   rule_group_id: Int64;
-  /** Contains multimodal output, compatible fields, after rolling out 100%, discard Output */
+  /** 含多模态的输出，兼容字段，全量上线后，废弃Output */
   multi_output?: flow_devops_evaluation_object_callback.Output;
-  /** Extend field 2, multimodal display of the dataset */
+  /** 扩展2号字段，数据集多模态展示 */
   multi_cells?: Array<flow_devops_evaluation_callback_common.Content>;
-  /** track information */
+  /** 轨迹信息 */
   trajectory?: flow_devops_evaluation_evaluator_callback.Trajectory;
   run_state?: RowRunState;
   /** deprecated */
   error_message?: string;
-  /** Row the associated logID at execution time */
+  /** Row执行时关联的logID */
   log_id?: string;
   error?: RowRunError;
-  /** In the presence of a row-level evaluator, the group_id of the row-level evaluator */
+  /** 存在行级评估器时,行级评估器的group_id */
   row_rule_group_id?: Int64;
-  /** Whether to jump evaluation object call trace */
+  /** 是否跳转评估对象调用 trace */
   direct_object_trace?: boolean;
 }
 
@@ -849,7 +849,7 @@ export interface DashboardRowGroup {
   rows: Array<DashboardRow>;
   run_state?: RowGroupRunState;
   tags?: Array<string>;
-  /** rowGroup granularity evaluation ruleID - > Results */
+  /** rowGroup粒度评测规则ruleID -> 结果 */
   rule_eval_report_map?: Record<Int64, RowEvalReport>;
   serial_num?: number;
 }
@@ -867,18 +867,18 @@ export interface DashboardTaskRequest {
 }
 
 export interface DashboardTaskResponse {
-  /** Each row is a dataset (input, reference_output, variable)
-Same as ColumnName in the dataset */
+  /** 每一行是一条数据集的(input, reference_output, variable)
+和数据集里的ColumnName一致 */
   column_name: Array<string>;
   dashboard_row_groups: Array<DashboardRowGroup>;
   column_rule_info?: Array<ColumnRuleInfo>;
   default_rule_group_id?: Int64;
   task_id?: Int64;
-  /** manual annotation */
+  /** 人工标注项 */
   manual_annotation_items?: Array<flow_devops_evaluation_manual_annotation.ManualAnnotationItem>;
-  /** The key is the human annotation item ID, and the value is the annotation task ID. */
+  /** key是人工标注项ID，value是标注任务ID */
   manual_annotation_item_map?: Record<Int64, Int64>;
-  /** Whether to allow the export of dataset content */
+  /** 是否允许导出数据集内容 */
   not_allow_export_dataset_content?: boolean;
   total?: Int64;
   BaseResp?: base.BaseResp;
@@ -895,8 +895,8 @@ export interface DashboardTaskRowGroupRequest {
 }
 
 export interface DashboardTaskRowGroupResponse {
-  /** Each row is a dataset (input, reference_output, variable)
-Same as ColumnName in the dataset */
+  /** 每一行是一条数据集的(input, reference_output, variable)
+和数据集里的ColumnName一致 */
   column_name: Array<string>;
   dashboard_row_group: DashboardRowGroup;
   column_rule_info?: Array<ColumnRuleInfo>;
@@ -918,19 +918,19 @@ export interface DashboardTaskV2Request {
 }
 
 export interface DashboardTaskV2Response {
-  /** Each row is a dataset (input, reference_output, variable)
-Same as ColumnName in the dataset */
+  /** 每一行是一条数据集的(input, reference_output, variable)
+和数据集里的ColumnName一致 */
   column_name: Array<string>;
   dashboard_row_groups: Array<DashboardRowGroup>;
   column_rule_info?: Array<ColumnRuleInfo>;
   default_rule_group_id?: Int64;
   task_id?: Int64;
-  /** manual annotation */
+  /** 人工标注项 */
   manual_annotation_items?: Array<flow_devops_evaluation_manual_annotation.ManualAnnotationItem>;
-  /** The key is the human annotation item ID, and the value is the annotation task ID. */
+  /** key是人工标注项ID，value是标注任务ID */
   manual_annotation_item_map?: Record<Int64, Int64>;
   custom_filter_err_msg?: string;
-  /** Whether to allow the export of dataset content */
+  /** 是否允许导出数据集内容 */
   not_allow_export_dataset_content?: boolean;
   total?: Int64;
   BaseResp?: base.BaseResp;
@@ -938,7 +938,7 @@ Same as ColumnName in the dataset */
 
 export interface DatasetSource {
   dataset_id?: Int64;
-  /** Dataset name: Currently only the associated existing datasets have values, others are created internally without a name */
+  /** 数据集名称：目前只有关联已有的数据集有值，其他都是内部创建的没有name */
   dataset_name?: string;
 }
 
@@ -947,7 +947,7 @@ export interface DeleteAnalysisChartReportRequest {
   task_id: Int64;
   case_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
-  /** Analytics Chart ID */
+  /** 分析图表id */
   analysis_chart_report_id: Int64;
   space_id: Int64;
   Base?: base.Base;
@@ -995,29 +995,29 @@ export interface DeleteTaskResponse {
 }
 
 export interface EvalObject {
-  /** Evaluate the type of the object. Each RPC interface is treated as a type */
+  /** 评测对象的类型。每一个 RPC 接口，视为一种类型 */
   object_type: Int64;
-  /** When ObjectType = 0, pass this field. When the evaluation object is CozeBot, you need to set the CozeBot information. */
+  /** ObjectType=0 时，传参此字段。 评测对象为 CozeBot 时, 需要设置 CozeBot 信息 */
   coze_bot?: CozeBot;
-  /** When ObjectType = 1, pass this field. When the evaluation object is EvalPrompt, you need to set the Prompt information */
+  /** ObjectType=1 时，传参此字段。 评测对象为 EvalPrompt 时, 需要设置 Prompt 信息 */
   prompt?: EvalPrompt;
-  /** When ObjectType is other, pass this field */
+  /** ObjectType 为其他时，传参此字段 */
   object?: flow_devops_evaluation_object_callback.Object;
-  /** When ObjectType = 2, pass this field. When the evaluation object is ChainTask, you need to set ChainTask information */
+  /** ObjectType=2 时，传参此字段。 评测对象为 ChainTask 时, 需要设置 ChainTask 信息 */
   chain_task?: ChainTask;
   fornax_app_object?: FornaxAppObject;
   fornax_agent_object?: FornaxAgentObject;
   playground_coze_bot_v2?: PlaygroundCozeBotV2;
-  /** EvalResultDatasetCollection type object data */
+  /** EvalResultDatasetCollection 类型对象数据 */
   eval_result_dataset_collection?: EvalResultDatasetCollection;
   playground_coze_model?: PlaygroundCozeModel;
   cici_crawl?: CiciCrawl;
 }
 
 export interface EvalPrompt {
-  /** A unique identifier for a prompt */
+  /** 一个prompt的唯一标识 */
   prompt_id: string;
-  /** When evaluating, the prompt version needs to be transmitted from the front end. */
+  /** 评测时候，prompt的版本，需要前端传 */
   version?: string;
   name?: string;
 }
@@ -1033,16 +1033,16 @@ export interface EvalResultDatasetObject {
 }
 
 export interface EvaluateResult {
-  /** score */
+  /** 打分 */
   score?: number;
-  /** Information on the scoring process and results */
+  /** 打分过程与结果相关信息 */
   reasoning?: string;
-  /** Whether manual scoring is required, when the current rules do not automatically evaluate the results, ManualStatus = ManualStatus */
+  /** 是否需要人工打分, 当前rule 没有自动评测结果时候， ManualStatus = ManualStatus */
   manual_status?: ManualStatus;
-  /** Evaluator error */
+  /** 评估器错误 */
   error?: RowRunError;
   data?: EvaluateResultData;
-  /** Row dimension scoring range, such as in the Coze scenario, the user LLM Prompt determines the output scoring range of the evaluator */
+  /** Row 维度打分范围，如 Coze 场景下由用户 LLM Prompt 决定评估器输出打分范围 */
   scoring_scope?: flow_devops_evaluation_entity.ScoringScope;
 }
 
@@ -1059,7 +1059,7 @@ export interface EvaluatorSource {
   case_source?: CaseEvaluatorSource;
   /** row_id vs RowEvaluateSource */
   row_sources?: Record<Int64, RowEvaluatorSource>;
-  /** Passing Merit Threshold */
+  /** 及格优秀阈值 */
   threshold?: ScoringThreshold;
 }
 
@@ -1069,13 +1069,13 @@ export interface ExecCaseDynamicRequest {
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
   cid?: string;
-  /** Runtime parameter json serialization for running evaluation use cases */
+  /** 运行评测用例的运行时参数 json序列化 */
   runtime_parameter?: string;
   exec_times?: Int64;
   dataset_source?: DatasetSource;
-  /** associated evaluation set */
+  /** 关联评估集合 */
   evaluator_source?: EvaluatorSource;
-  /** evaluation object */
+  /** 评估对象 */
   eval_object?: EvalObject;
   Base?: base.Base;
 }
@@ -1093,7 +1093,7 @@ export interface ExecCaseRequest {
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
   cid?: string;
-  /** Runtime parameter json serialization for running evaluation use cases */
+  /** 运行评测用例的运行时参数 json序列化 */
   runtime_parameter?: string;
   exec_times?: Int64;
   task_description?: string;
@@ -1119,7 +1119,7 @@ export interface ExportBitableReportRequest {
   case_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
   task_id: Int64;
-  /** Manual rating Number of blind reviewers */
+  /** 人工评分盲评人数 */
   manual_scoring_user_num?: Int64;
   Base?: base.Base;
 }
@@ -1131,7 +1131,7 @@ export interface ExportBitableReportResponse {
 export interface ExportReportToCsvRequest {
   'FlowDevops-Agw-UserId'?: string;
   space_id: Int64;
-  /** CaseID is required for evaluation report export. */
+  /** 评测报告导出需要caseID */
   case_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
   source_id?: Int64;
@@ -1140,30 +1140,30 @@ export interface ExportReportToCsvRequest {
 }
 
 export interface ExportReportToCsvResponse {
-  /** download link */
+  /** 下载链接 */
   download_url?: string;
   BaseResp?: base.BaseResp;
 }
 
 export interface FilterCondition {
-  /** Filter fields, such as dataset labels, review dimensions, review dimension labels, etc */
+  /** 过滤字段，比如数据集标签，评测维度，评测维度标签等 */
   field?: FilterField;
-  /** Operators such as equal to, contain, greater than, less than, etc */
+  /** 操作符，比如等于、包含、大于、小于等 */
   operator?: FilterOperatorType;
-  /** Operation value; supports multiple types of operation values; when Operator is included, Value is separated by commas */
+  /** 操作值;支持多种类型的操作值；Operator为包含的时候Value按照逗号分隔 */
   value?: string;
 }
 
 export interface FilterNode {
-  /** Node name (not required) */
+  /** 节点名称(不必须) */
   name?: string;
-  /** Identification ID of the node */
+  /** 标识该节点的标识ID */
   node_id?: Int64;
-  /** Filter conditions on this node */
+  /** 该节点上的过滤条件 */
   filter_conditions?: FilterCondition;
-  /** sub-node */
+  /** 子节点 */
   children?: Array<FilterNode>;
-  /** Logical operations such as AND, OR */
+  /** 逻辑操作，比如AND, OR */
   logic_op?: FilterLogicOp;
 }
 
@@ -1177,7 +1177,7 @@ export interface FornaxAgentObject {
   name?: string;
   avatar_url?: string;
   tmpl_type?: FornaxAgentTmplType;
-  /** Target API for evaluation */
+  /** 评测的目标 api */
   api?: FornaxAgentAPI;
 }
 
@@ -1188,7 +1188,7 @@ export interface FornaxAppObject {
   region: string;
   app_id: string;
   client_id: string;
-  /** For secondary search */
+  /** for 二级搜索 */
   object?: flow_devops_evaluation_object_callback.Object;
 }
 
@@ -1223,7 +1223,7 @@ export interface GenAnalysisChartReportRequest {
   task_id: Int64;
   case_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
-  /** Detailed configuration of analysis reports */
+  /** 分析报告的详细配置 */
   analysis_chart_report_config: AnalysisChartReportConfig;
   space_id: Int64;
   Base?: base.Base;
@@ -1236,7 +1236,7 @@ export interface GenAnalysisChartReportResponse {
 
 export interface GenAnnotationTaskCustomFilter {
   language?: GenAnnotationTaskCustomFilterLanguage;
-  /** user-defined code */
+  /** 用户自定义代码 */
   user_code?: string;
 }
 
@@ -1291,7 +1291,7 @@ export interface GetBitableReportRequest {
 }
 
 export interface GetBitableReportResponse {
-  /** Bitable token */
+  /** 多维表格token */
   app_token?: string;
   url?: string;
   export_status: BitableStatus;
@@ -1323,21 +1323,21 @@ export interface GetContrastReportReq {
 }
 
 export interface GetContrastReportResp {
-  /** Dataset column name */
+  /** 数据集列名 */
   column_name?: Array<string>;
-  /** rule information */
+  /** 规则信息 */
   column_rule_infos?: Array<ColumnRuleInfo>;
-  /** indicator information */
+  /** 指标信息 */
   metrics_columns?: Array<ColumnRuleInfo>;
-  /** manual annotation */
+  /** 人工标注项 */
   manual_annotation_items?: Array<flow_devops_evaluation_manual_annotation.ManualAnnotationItem>;
-  /** benchmark task */
+  /** 基准任务 */
   task_id?: Int64;
-  /** compare task list */
+  /** 对比任务列表 */
   contrast_tasks?: Array<ContrastTask>;
   contrast_report_row_groups?: Array<ContrastReportRowGroup>;
   default_rule_group_id?: Int64;
-  /** The key is the human annotation item ID, and the value is the annotation task ID. */
+  /** key是人工标注项ID，value是标注任务ID */
   manual_annotation_item_map?: Record<Int64, Int64>;
   total?: Int64;
   BaseResp?: base.BaseResp;
@@ -1355,21 +1355,21 @@ export interface GetContrastReportV2Req {
 }
 
 export interface GetContrastReportV2Resp {
-  /** Dataset column name */
+  /** 数据集列名 */
   column_name?: Array<string>;
-  /** rule information */
+  /** 规则信息 */
   column_rule_infos?: Array<ColumnRuleInfo>;
-  /** indicator information */
+  /** 指标信息 */
   metrics_columns?: Array<ColumnRuleInfo>;
-  /** manual annotation */
+  /** 人工标注项 */
   manual_annotation_items?: Array<flow_devops_evaluation_manual_annotation.ManualAnnotationItem>;
-  /** benchmark task */
+  /** 基准任务 */
   task_id?: Int64;
-  /** compare task list */
+  /** 对比任务列表 */
   contrast_tasks?: Array<ContrastTask>;
   contrast_report_row_groups?: Array<ContrastReportRowGroup>;
   default_rule_group_id?: Int64;
-  /** The key is the human annotation item ID, and the value is the annotation task ID. */
+  /** key是人工标注项ID，value是标注任务ID */
   manual_annotation_item_map?: Record<Int64, Int64>;
   custom_filter_err_msg?: string;
   total?: Int64;
@@ -1451,7 +1451,7 @@ export interface GroupManualScore {
 
 export interface GroupTaskInfo {
   task_ids?: Array<Int64>;
-  /** Second timestamp */
+  /** 秒级时间戳 */
   create_time?: Int64;
 }
 
@@ -1475,13 +1475,13 @@ export interface InitiateManualAnnotationTaskReq {
   'FlowDevops-Agw-AppId'?: number;
   task_id?: Int64;
   case_id?: Int64;
-  /** manually tagged item list */
+  /** 人工标注项列表 */
   item_ids?: Array<Int64>;
   name?: string;
   description?: string;
-  /** identification scope */
+  /** 标识范围 */
   source_range?: flow_devops_evaluation_manual_annotation.SourceRange;
-  /** Blind evaluation */
+  /** 盲评数 */
   blind_count?: Int64;
   source_type?: flow_devops_evaluation_manual_annotation.SourceType;
   custom_filter?: GenAnnotationTaskCustomFilter;
@@ -1494,7 +1494,7 @@ export interface InitiateManualAnnotationTaskResp {
 }
 
 export interface IntersectionEvaluatorInfo {
-  /** Common EvaluatorType */
+  /** 共有的EvaluatorType */
   evaluator_type: Int64;
   intersection_rule_infos?: Array<IntersectionRuleInfo>;
 }
@@ -1503,9 +1503,9 @@ export interface IntersectionRuleInfo {
   rule_id: Int64;
   task_id: Int64;
   case_id: Int64;
-  /** rule name */
+  /** 规则名称 */
   name?: string;
-  /** Custom Evaluator Name */
+  /** 自定义评估器名称 */
   evaluator_type_name?: string;
   evaluator_process_type?: flow_devops_evaluation_evaluator.EvaluatorProcessType;
   evaluate_result_data_type?: flow_devops_evaluation_entity.EvaluateResultDataType;
@@ -1553,9 +1553,9 @@ export interface ListTaskContrastReportResp {
 
 export interface ManualScore {
   row_id: Int64;
-  /** Key = ruleID, the rule fails, the rule can be manually scored */
+  /** key = ruleID, 规则失败, 规则可以进行人工打分 */
   rule_scores?: Record<Int64, EvaluateResult>;
-  /** When Row selects manual evaluation, Row manually scores */
+  /** Row选择人工评测时候, Row 人工打分 */
   row_score?: EvaluateResult;
 }
 
@@ -1598,9 +1598,9 @@ export interface Output {
 /** Coze2.0Bot */
 export interface PlaygroundCozeBotV2 {
   bot_id?: Int64;
-  /** Create case version is empty, the task entity will carry the bot version when the current case runs */
+  /** 创建case version 为空，task实体会携带当前case run 时候 bot version */
   bot_version?: string;
-  /** Bot type, default 0, is draft version */
+  /** Bot类型，默认0， 是draft版本 */
   bot_info_type?: flow_devops_evaluation_object_callback.CozeBotInfoType;
   model_info?: flow_devops_evaluation_entity.ModelInfo;
   bot_name?: string;
@@ -1609,23 +1609,23 @@ export interface PlaygroundCozeBotV2 {
 
 /** Coze2.0 model */
 export interface PlaygroundCozeModel {
-  /** Model ID */
+  /** 模型id */
   model_id?: string;
-  /** Temperature, model output randomness, the larger the value, the more random, the smaller the more conservative (0-1] */
+  /** 温度，模型输出随机性，值越大越随机，越小越保守(0-1] */
   temperature?: number;
-  /** Maximum Token Reply */
+  /** 回复最大Token数 */
   max_tokens?: number;
-  /** Another model's output randomness, the larger the value, the more random [0, 1] */
+  /** 另一种模型的输出随机性，值越大越随机[0,1] */
   top_p?: number;
-  /** When generating, sample the size of the candidate set */
+  /** 生成时，采样候选集的大小 */
   top_k?: number;
-  /** Frequency penalty, adjust the frequency of words in the generated content, the fewer positive words are [-1.0, 1.0] */
+  /** 频率惩罚，调整生成内容中的单词频率，正值单词越少见[-1.0,1.0] */
   frequency_penalty?: number;
-  /** There is a penalty, adjust the frequency of new words in the generated content, avoid repeating words with positive values, and use new words [-1.0, 1.0] */
+  /** 存在惩罚，调整生成内容中新词语频率，正值避免重复单词，用新词[-1.0,1.0] */
   presence_penalty?: number;
-  /** model reply content format */
+  /** 模型回复内容格式 */
   response_format?: ModelResponseFormat;
-  /** Model name */
+  /** 模型名称 */
   model_name?: string;
 }
 
@@ -1636,12 +1636,12 @@ export interface PullCaseExecHistoryRequest {
   'FlowDevops-Agw-AppId'?: number;
   limit: number;
   space_id: Int64;
-  /** Start time, Unix timestamp */
+  /** 起始时间，Unix时间戳 */
   start_time?: Int64;
-  /** End time, Unix timestamp */
+  /** 结束时间，Unix时间戳 */
   end_time?: Int64;
   DatasetIDs?: Array<Int64>;
-  /** task description */
+  /** 任务描述 */
   task_description?: string;
   Base?: base.Base;
 }
@@ -1650,7 +1650,7 @@ export interface PullCaseExecHistoryResponse {
   tasks?: Array<Task>;
   has_more?: boolean;
   next_cursor?: string;
-  /** Group display task information */
+  /** 分组展示任务信息 */
   group_task_info_list?: Array<GroupTaskInfo>;
   /** deprecated */
   coze_entity_map?: Record<Int64, ShowEntity>;
@@ -1669,13 +1669,13 @@ export interface PullCaseExecHistoryV2Request {
   'FlowDevops-Agw-AppId'?: number;
   limit: number;
   space_id: Int64;
-  /** Start time, Unix timestamp */
+  /** 起始时间，Unix时间戳 */
   start_time?: Int64;
-  /** End time, Unix timestamp */
+  /** 结束时间，Unix时间戳 */
   end_time?: Int64;
   dataset_ids?: Array<Int64>;
   creator_ids?: Array<Int64>;
-  /** task description */
+  /** 任务描述 */
   task_description?: string;
   Base?: base.Base;
 }
@@ -1684,7 +1684,7 @@ export interface PullCaseExecHistoryV2Response {
   tasks?: Array<Task>;
   has_more?: boolean;
   next_cursor?: string;
-  /** Group display task information */
+  /** 分组展示任务信息 */
   group_task_info_list?: Array<GroupTaskInfo>;
   /** deprecated */
   coze_entity_map?: Record<Int64, ShowEntity>;
@@ -1708,7 +1708,7 @@ export interface PullCaseRequest {
   fuzzy_name?: string;
   creator_id?: Int64;
   region?: string;
-  /** To evaluate object types, see EvalObject. ObjectType */
+  /** 评测对象类型，see EvalObject.ObjectType */
   object_type?: Int64;
   dataset_ids?: Array<Int64>;
   Base?: base.Base;
@@ -1718,10 +1718,10 @@ export interface PullCaseResponse {
   cases?: Array<Case>;
   has_more?: boolean;
   next_cursor?: string;
-  /** Deprecated: CozeEntityMap is no longer used Get coze information from EvalObject
+  /** Deprecated: CozeEntityMap 已不再使用获取coze信息从EvalObject获取
 deprecated */
   coze_entity_map?: Record<Int64, ShowEntity>;
-  /** PromptEntityMap UserEntityMap AgentEntityMap All subsequent migrations to get from EvalObject
+  /** PromptEntityMap UserEntityMap AgentEntityMap 后续全部迁移至从EvalObject获取
 deprecated */
   prompt_entity_map?: Record<Int64, ShowEntity>;
   user_entity_map?: Record<Int64, ShowEntity>;
@@ -1742,7 +1742,7 @@ export interface PullCaseV2Request {
   fuzzy_name?: string;
   creator_id?: Int64;
   region?: string;
-  /** To evaluate object types, see EvalObject. ObjectType */
+  /** 评测对象类型，see EvalObject.ObjectType */
   object_type?: Int64;
   dataset_ids?: Array<Int64>;
   Base?: base.Base;
@@ -1752,10 +1752,10 @@ export interface PullCaseV2Response {
   cases?: Array<Case>;
   has_more?: boolean;
   next_cursor?: string;
-  /** Deprecated: CozeEntityMap is no longer used Get coze information from EvalObject
+  /** Deprecated: CozeEntityMap 已不再使用获取coze信息从EvalObject获取
 deprecated */
   coze_entity_map?: Record<Int64, ShowEntity>;
-  /** PromptEntityMap UserEntityMap AgentEntityMap All subsequent migrations to get from EvalObject
+  /** PromptEntityMap UserEntityMap AgentEntityMap 后续全部迁移至从EvalObject获取
 deprecated */
   prompt_entity_map?: Record<Int64, ShowEntity>;
   user_entity_map?: Record<Int64, ShowEntity>;
@@ -1787,7 +1787,7 @@ export interface RetryExecBatchTaskRequest {
   space_id: Int64;
   batch_task_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
-  /** retry mode */
+  /** 重试模式 */
   mode: BatchTaskRetryMode;
   Base?: base.Base;
 }
@@ -1803,7 +1803,7 @@ export interface RetryExecTaskRequest {
   case_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
-  /** retry mode */
+  /** 重试模式 */
   mode?: RetryMode;
   row_group_id?: Array<Int64>;
   Base?: base.Base;
@@ -1815,53 +1815,53 @@ export interface RetryExecTaskResponse {
 }
 
 export interface RowContrastReportInfo {
-  /** The key is the task ID. */
+  /** key是任务ID */
   row_report_map?: Record<Int64, RowReport>;
 }
 
 export interface RowEvalCell {
-  /** Manual scoring, valid only at ManualStatus = Completed */
+  /** 人工评分, 仅在 ManualStatus =  Completed 有效 */
   manual_result?: EvaluateResult;
-  /** Key: rule_id, row-level data, evaluation results for individual rules */
+  /** key:rule_id, 行级数据，单个规则的评测结果 */
   rule_eval_report_map?: Record<Int64, RowEvalReport>;
   token?: Int64;
   consuming?: Int64;
   create_time?: Int64;
   end_time?: Int64;
   space_id?: Int64;
-  /** The total score aggregated by weight of all automated evaluation rules or human scoring dimensions in this row */
+  /** 该row所有自动评测rule或人工评分维度按权重聚合后的总分 */
   score?: number;
   rule_eval_reports?: Array<RowEvalReport>;
   row_metrics?: Array<RowEvalReport>;
   manual_annotation_reports?: Array<flow_devops_evaluation_manual_annotation.ManualAnnotationLabelTask>;
 }
 
-/** The score corresponding to each evaluator */
+/** 每个评估器对应的评分 */
 export interface RowEvalReport {
-  /** TODO: Later, you need to convert it to a real evaluatorName, and temporarily use EvaluatorType to represent an evaluator */
+  /** TODO:后期需要转为真实的evaluatorName，先暂时用EvaluatorType表示一个评估器 */
   evaluator_type?: Int64;
   row_eval_result?: EvaluateResult;
-  /** The name of the evaluator */
+  /** 评估器的名称 */
   evaluator_type_name?: string;
   weight?: Int64;
-  /** If it is a row-level rule, it needs to be displayed in a separate column */
+  /** 如果是行级规则需要在单独的列展示 */
   is_row_evaluator?: boolean;
   name?: string;
 }
 
 export interface RowEvalRes {
   task_id?: Int64;
-  /** Manual scoring, valid only at ManualStatus = Completed */
+  /** 人工评分, 仅在 ManualStatus =  Completed 有效 */
   manual_result?: EvaluateResult;
-  /** RowID of data */
+  /** 数据的RowID */
   row_id?: Int64;
   row_group_id?: Int64;
   evaluator_id?: Int64;
-  /** Key: RuleID, row-level data, evaluation results for individual rules */
+  /** key:RuleID, 行级数据，单个规则的评测结果 */
   rule_eval_results?: Record<Int64, EvaluateResult>;
   token?: Int64;
   consuming?: Int64;
-  /** bot run result */
+  /** bot运行结果 */
   output?: string;
   create_time?: Int64;
   end_time?: Int64;
@@ -1869,18 +1869,18 @@ export interface RowEvalRes {
   case_id?: Int64;
 }
 
-/** Row dimension evaluator */
+/** row 维度评估器 */
 export interface RowEvaluatorSource {
-  /** Automatic Evaluator Resource Failure in Manual Mode */
+  /** 人工模式下, 自动评估Evaluator资源失效 */
   mode?: EvaluateMode;
   row_id?: Int64;
   row_group_id?: Int64;
-  /** Current Row Binding Evaluator Resource */
+  /** 当前行绑定Evaluator资源 */
   rule_group_id?: Int64;
 }
 
 export interface RowGroupContrastReportInfo {
-  /** The key is the task ID. */
+  /** key是任务ID */
   row_group_report_map?: Record<Int64, RowGroupReport>;
 }
 
@@ -1889,23 +1889,23 @@ export interface RowGroupReport {
 }
 
 export interface RowReport {
-  /** Dataset structure */
+  /** 数据集结构 */
   row_id: Int64;
-  /** Dataset cell information */
+  /** 数据集cell信息 */
   cells?: Array<flow_devops_evaluation_callback_common.Content>;
-  /** actual output */
+  /** 实际输出 */
   multi_output?: flow_devops_evaluation_object_callback.Output;
-  /** Evaluator report information */
+  /** 评估器报告信息 */
   row_eval_cell: RowEvalCell;
-  /** track information */
+  /** 轨迹信息 */
   trajectory?: flow_devops_evaluation_evaluator_callback.Trajectory;
   run_state?: RowRunState;
-  /** Row the associated logID at execution time */
+  /** Row执行时关联的logID */
   log_id?: string;
   error?: RowRunError;
-  /** In the presence of a row-level evaluator, the group_id of the row-level evaluator */
+  /** 存在行级评估器时,行级评估器的group_id */
   row_rule_group_id?: Int64;
-  /** Whether to jump evaluation object call trace */
+  /** 是否跳转评估对象调用 trace */
   direct_object_trace?: boolean;
 }
 
@@ -1923,22 +1923,22 @@ export interface RuleAggregateResult {
 }
 
 export interface ScoringThreshold {
-  /** pass rate threshold */
+  /** 及格率阈值 */
   pass_threshold?: number;
-  /** Merit Rate Threshold */
+  /** 优秀率阈值 */
   excellent_threshold?: number;
 }
 
-/** Only for display in the form */
+/** 仅用于表单中展示 */
 export interface ShowEntity {
-  /** Display ID, user_id, prompt_id */
+  /** 展示ID, user_id, prompt_id */
   entity_id: Int64;
-  /** Show the name, for example prompt_name, bot_name, user_name */
+  /** 展示的名字, 例如prompt_name,bot_name，user_name */
   entity_name?: string;
   entity_type?: ShowEntityType;
-  /** Display small icons, such as avatars */
+  /** 展示的小图标，例如头像 */
   image_url?: string;
-  /** If the user has an email address */
+  /** 如果是用户有邮箱 */
   email?: string;
 }
 
@@ -1946,47 +1946,47 @@ export interface Task {
   id?: Int64;
   status?: TaskStatus;
   dataset_id?: Int64;
-  /** The evaluation object entity when running the case, including version information */
+  /** run case时候的评测对象实体，包含版本信息 */
   eval_object?: EvalObject;
-  /** Number of rows of test data running */
+  /** 运行的测数据行数 */
   row_run_cnt?: Int64;
-  /** overall task cost */
+  /** 任务整体开销 */
   token?: Int64;
-  /** Overall task time */
+  /** 任务整体耗时 */
   consuming?: Int64;
-  /** Task start time */
+  /** 任务开始执行时间 */
   start_time?: Int64;
-  /** Task execution completion time */
+  /** 任务执行完成时间 */
   end_time?: Int64;
   creator_id?: Int64;
-  /** log_id to carry out this task */
+  /** 执行本次任务的log_id */
   log_id?: string;
-  /** The reason for the failure of this execution */
+  /** 本次执行失败的原因文案 */
   object_output_err?: string;
-  /** Task Statistics, RowGroup Dimensions */
+  /** 任务统计, RowGroup维度 */
   task_stats?: TaskStats;
-  /** Task manual scoring statistics, Row dimension */
+  /** 任务人工评分统计, Row维度 */
   task_manual_stats?: TaskManualStats;
-  /** Task human scoring status */
+  /** 任务人工评分状态 */
   task_manual_status?: TaskManualStatus;
-  /** Aggregate report generation status */
+  /** 聚合报告生成状态 */
   aggr_report_gen_status?: TaskAggrReportGenStatus;
   score?: number;
   passing_rate?: number;
   excellent_rate?: number;
-  /** Passing Merit Threshold */
+  /** 及格优秀阈值 */
   threshold?: ScoringThreshold;
-  /** Deprecated evaluation object overall token consumption */
+  /** deprecated 评测对象整体 token消耗 */
   object_token_usage?: TokenUsage;
-  /** Runtime parameters, JSON serialization */
+  /** 运行时参数，json序列化 */
   runtime_parameter?: string;
-  /** Overall token consumption */
+  /** 评测对象整体 token 消耗 */
   object_token_cost?: TokenUsage;
-  /** Dataset name */
+  /** 数据集名称 */
   dataset_name?: string;
-  /** Original data source ID */
+  /** 原始数据集ID */
   original_dataset_id?: Int64;
-  /** Evaluator overall token consumption */
+  /** 评估器整体 token 消耗 */
   evaluator_token_usage?: TokenUsage;
   credit_cost?: number;
   description?: string;
@@ -1995,9 +1995,9 @@ export interface Task {
 export interface TaskManualStats {
   needed_row_count?: Int64;
   completed_row_count?: Int64;
-  /** Number of conversation groups requiring group-granular human scoring */
+  /** 需要group粒度人工评分的对话组数 */
   needed_row_group_count?: Int64;
-  /** Number of dialogue groups that have completed group-granular manual scoring */
+  /** 已完成group粒度人工评分的对话组数 */
   completed_row_group_count?: Int64;
 }
 
@@ -2005,18 +2005,18 @@ export interface TaskStats {
   uncompleted_count?: Int64;
   success_count?: Int64;
   fail_count?: Int64;
-  /** Number of rows that were successfully executed */
+  /** 最终执行成功的 row 数量 */
   success_row_count?: Int64;
-  /** Number of rows that failed to execute */
+  /** 最终执行失败的 row 数量 */
   fail_row_count?: Int64;
-  /** Total number of rows executed */
+  /** 执行过的 row 数量总和 */
   total_row_count?: Int64;
 }
 
 export interface TokenUsage {
-  /** Input token consumption */
+  /** input token消耗 */
   input_token: Int64;
-  /** Output token consumption */
+  /** output token消耗 */
   output_token: Int64;
 }
 
@@ -2038,9 +2038,9 @@ export interface UpdateAnalysisChartReportRequest {
   task_id: Int64;
   case_id: Int64;
   'FlowDevops-Agw-AppId'?: number;
-  /** Analytics Chart ID */
+  /** 分析图表id */
   analysis_chart_report_id: Int64;
-  /** Chart Type */
+  /** 图表类型 */
   analysis_chart_report_config: AnalysisChartReportConfig;
   space_id: Int64;
   Base?: base.Base;

@@ -24,26 +24,26 @@ import * as flow_devops_fornaxob_common from './flow_devops_fornaxob_common';
 
 export type Int64 = string | number;
 
-/** Types of operations views */
+/** 运维视图的类型 */
 export enum MetricsType {
   Unknown = 1,
-  /** Number of queries received per second, reflecting query load */
+  /** 每秒收到的查询次数，反映了查询负载情况 */
   GraphQueryQPS = 2,
-  /** Query success rate, reflecting stability under current load */
+  /** 查询成功率，反映了在当前负载下的稳定性 */
   GraphQuerySuccessRate = 3,
-  /** The delay from receiving the query to returning the first token reflects the response speed perceived by the query party */
+  /** 从收到查询到返回第一条Token的时延，反映了查询方可感知到的响应速度 */
   GraphFirstTokenLatency = 4,
-  /** The time delay from receiving the query to returning all tokens reflects the overall performance of */
+  /** 从收到查询到返回全部Tokens的时延，反映了的整体性能 */
   GraphQueryLatency = 5,
-  /** The number of calls to the large model per second, reflecting the call load of the large model */
+  /** 每秒大模型的调用次数，反映了大模型的调用负载 */
   ModelQueryQPS = 6,
-  /** The call success rate of the large model reflects the stability of the large model under the current load */
+  /** 大模型的调用成功率，反映了大模型在当前负载下的稳定性 */
   ModelQuerySuccessRate = 7,
-  /** The response duration of the large model reflects the overall performance of the large model */
+  /** 大模型的响应时长，反映了大模型的整体性能 */
   ModelQueryLatency = 8,
-  /** The delay from receiving the query to returning the first token reflects the perceived response speed */
+  /** 从收到查询到返回第一条Token的时延，反映了可感知到的响应速度 */
   ModelFirstTokenLatency = 9,
-  /** The number of tokens returned per second by the large model */
+  /** 大模型每秒返回的Token数量 */
   ModelTokensCount = 10,
 }
 
@@ -54,7 +54,7 @@ export interface Curve {
 
 export interface GetMetricsData {
   curves: Array<Curve>;
-  /** downsampling interval */
+  /** 降采样间隔 */
   interval: metrics.DownsampleInterval;
 }
 
@@ -68,10 +68,10 @@ export interface GetMetricsRequest {
   aggregate_type?: metrics.AggregateType;
   /** tag */
   tag_kvs?: Record<string, Array<string>>;
-  /** Filters (filters other than client_name) */
+  /** 过滤项（除 client_name 以外其他的过滤项） */
   filters?: Record<string, Array<string>>;
   top_k?: number;
-  /** client_name will be used to compose metrics_name, so it is not placed in tags/fileters, but passed separately */
+  /** client_name 会用于组成 metrics_name，所以不放在 tags/fileters 中，单独传 */
   client_names?: Array<string>;
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
@@ -80,16 +80,16 @@ export interface GetMetricsRequest {
 
 export interface GetMetricsResponse {
   data: GetMetricsData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface GetTagsOptionsData {
   /** psm: graph_list */
   clients: Record<string, Array<TagValueGraph>>;
-  /** list of model names */
+  /** 模型名称列表 */
   models: Array<string>;
 }
 
@@ -101,7 +101,7 @@ export interface GetTagsOptionsRequest {
   end_time: string;
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
-  /** abandoned */
+  /** 废弃 */
   client_names?: Array<string>;
   client_name?: string;
   app_id?: string;
@@ -110,9 +110,9 @@ export interface GetTagsOptionsRequest {
 
 export interface GetTagsOptionsResponse {
   data: GetTagsOptionsData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 

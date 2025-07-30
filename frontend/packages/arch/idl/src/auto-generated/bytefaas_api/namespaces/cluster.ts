@@ -290,31 +290,31 @@ export interface ClusterVolcExt {
 }
 
 export interface CreateClusterRequest {
-  /** Asynchronous mode. Asynchronous mode */
+  /** async mode. 异步模式 */
   async_mode?: boolean;
-  /** Auth switch. Authentication switch */
+  /** auth switch. 鉴权开关 */
   auth_enable?: boolean;
-  /** Cluster name, starts with faas- */
+  /** cluster name, starts with faas-. 集群名 */
   cluster: string;
-  /** ID of code revision. Deployment code version ID */
+  /** ID of code revision. 部署代码版本 ID */
   code_revision_id?: string;
-  /** Number of code revisions. Deployment code version number */
+  /** number of code revision. 部署代码版本号 */
   code_revision_number?: string;
-  /** Cold start switch. cold start switch, true is off */
+  /** cold start switch. 冷启动开关, true 为关闭 */
   cold_start_disabled?: boolean;
-  /** CORS switch. CORS switch */
+  /** CORS switch. CORS 开关 */
   cors_enable?: boolean;
   /** Whether co-locate scheduling is enabled */
   enable_colocate_scheduling?: boolean;
   /** Whether scaling strategy is enabled */
   enable_scale_strategy?: boolean;
-  /** Exclusive mode. Exclusive mode */
+  /** exclusive mode. 独占模式 */
   exclusive_mode?: boolean;
   /** Environment variables configuration */
   format_envs?: Array<common.FormatEnvs>;
   /** Whether gateway routing is enabled */
   gateway_route_enable?: boolean;
-  /** GDPR switch. GDPR authentication switch */
+  /** GDPR switch. GDPR 鉴权开关 */
   gdpr_enable?: boolean;
   /** List of global KV namespace IDs */
   global_kv_namespace_ids?: Array<string>;
@@ -334,13 +334,13 @@ export interface CreateClusterRequest {
   network_mode?: string;
   /** region name */
   region: string;
-  /** Function reserved mode switch */
+  /** function reserved mode switch. 函数预留模式开关 */
   reserved_dp_enabled?: boolean;
   /** Revision ID for the cluster configuration */
   revision_id?: string;
   /** Revision number for the cluster configuration */
   revision_number?: number;
-  /** Function routing strategy, enums: prefer_reserved, prefer_elastic */
+  /** function routing strategy, enums：prefer_reserved, prefer_elastic. 函数路由调度策略 */
   routing_strategy?: string;
   /** Whether auto-scaling is enabled */
   scale_enabled?: boolean;
@@ -354,7 +354,7 @@ export interface CreateClusterRequest {
   trace_enable?: boolean;
   /** zone throttle log bytes */
   zone_throttle_log_bytes_per_sec?: Record<string, number>;
-  /** ZTI switch. ZTI authentication switch */
+  /** ZTI switch. ZTI 鉴权开关 */
   zti_enable?: boolean;
   /** Whether cluster is in online mode */
   online_mode?: boolean;
@@ -737,7 +737,7 @@ export interface ServiceResponse {
   soft_deleted_by?: string;
   /** Timestamp when soft deletion occurred */
   soft_deleted_at?: string;
-  /** Review permission spot [cluster_create, cluster_update, cluster_delete, code_release]
+  /** 审核权限点 [cluster_create, cluster_update, cluster_delete, code_release]
 Approval permission points [cluster_create, cluster_update, cluster_delete, code_release] */
   approval_scope?: Array<string>;
   /** Whether this is an agent service */
@@ -745,7 +745,7 @@ Approval permission points [cluster_create, cluster_update, cluster_delete, code
   /** Whether service uses GPU */
   use_gpu?: boolean;
   /** status of extra steps that run after service creation
-The status of additional steps that run after the service is created */
+创建服务后运行的额外步骤的状态 */
   extra_steps_status?: string;
   /** link of extra steps that run after service creation */
   extra_steps_link?: string;
@@ -779,29 +779,29 @@ export interface UpdateClusterAutoMeshResponse {
 }
 
 export interface UpdateClusterRequest {
-  /** Auth switch. Authentication switch */
+  /** auth switch. 鉴权开关 */
   auth_enable?: boolean;
   /** name of cluster */
   cluster: string;
-  /** ID of code revision. Deployment code version ID */
+  /** ID of code revision. 部署代码版本 ID */
   code_revision_id?: string;
-  /** Number of code revisions. Deployment code version number */
+  /** number of code revision. 部署代码版本号 */
   code_revision_number?: string;
-  /** Cold start switch.cold start switch, true is off */
+  /** cold start switch. 冷启动开关，true 为关闭 */
   cold_start_disabled?: boolean;
-  /** CORS switch. CORS switch */
+  /** CORS switch. CORS 开关 */
   cors_enable?: boolean;
   /** Whether co-locate scheduling is enabled */
   enable_colocate_scheduling?: boolean;
   /** Whether scaling strategy is enabled */
   enable_scale_strategy?: boolean;
-  /** Exclusive mode. Exclusive mode */
+  /** exclusive mode. 独占模式 */
   exclusive_mode?: boolean;
   /** Environment variables configuration */
   format_envs?: Array<common.FormatEnvs>;
   /** Whether gateway routing is enabled */
   gateway_route_enable?: boolean;
-  /** GDPR switch. GDPR authentication switch */
+  /** GDPR switch. GDPR 鉴权开关 */
   gdpr_enable?: boolean;
   /** List of global KV namespace IDs */
   global_kv_namespace_ids?: Array<string>;
@@ -821,7 +821,7 @@ export interface UpdateClusterRequest {
   network_mode?: string;
   /** region name */
   region: string;
-  /** Function reserved mode switch */
+  /** function reserved mode switch. 函数预留模式开关 */
   reserved_dp_enabled?: boolean;
   /** Resource limits for the cluster */
   resource_limit?: common.ResourceLimit;
@@ -829,7 +829,7 @@ export interface UpdateClusterRequest {
   revision_id?: string;
   /** Revision number for the cluster configuration */
   revision_number?: number;
-  /** Function routing strategy, enums: prefer_reserved, prefer_elastic */
+  /** function routing strategy, enums：prefer_reserved, prefer_elastic. 函数路由调度策略 */
   routing_strategy?: string;
   /** Whether auto-scaling is enabled */
   scale_enabled?: boolean;
@@ -843,7 +843,7 @@ export interface UpdateClusterRequest {
   trace_enable?: boolean;
   /** zone throttle log bytes */
   zone_throttle_log_bytes_per_sec?: Record<string, number>;
-  /** ZTI switch. ZTI authentication switch */
+  /** ZTI switch. ZTI 鉴权开关 */
   zti_enable?: boolean;
   /** General log throttle rate in bytes per second */
   throttle_log_bytes_per_sec?: number;
@@ -966,22 +966,22 @@ export interface UpdateClusterTicketRequest {
 }
 
 export interface UpdateVefaasTrafficSchedulingRequest {
-  /** Whether to turn on the small flow drainage volcanic function function
+  /** 是否开启小流量引流火山函数功能
 Whether to enable small-traffic diversion to Volcengine Function */
   enabled: boolean;
-  /** The objective function psm, if left blank, is configured as the PSM of the current service.
+  /** 目标函数psm，留空则配置为当前服务的PSM
 Target function PSM, if empty uses current service's PSM */
   psm?: string;
-  /** The objective function cluster, if left blank, is configured as the default volcanic cluster
+  /** 目标函数集群，留空则配置为默认火山集群
 Target function cluster, if empty uses default Volcengine cluster */
   cluster?: string;
-  /** Whether to enable global mode, skip trigger configuration if enabled
+  /** 是否开启全局模式，开启则跳过触发器配置
 Whether to enable global mode, skips trigger config if enabled */
   global_mode?: boolean;
-  /** global mode traffic ratio
+  /** 全局模式流量配比
 Traffic ratio for global mode */
   global_ratio?: number;
-  /** Trigger traffic configuration
+  /** 触发器流量配置
 Trigger traffic configuration */
   trigger_config?: Record<
     string,
@@ -996,22 +996,22 @@ export interface UpdateVefaasTrafficSchedulingResponse {
 }
 
 export interface VefaasTrafficSchedulingData {
-  /** Small traffic drainage function is turned on
+  /** 小流量引流功能开启状态
 Whether small-traffic diversion is enabled */
   enabled: boolean;
-  /** Objective function psm
+  /** 目标函数psm
 Target function PSM */
   psm: string;
-  /** objective function cluster
+  /** 目标函数集群
 Target function cluster */
   cluster: string;
-  /** global mode
+  /** 全局模式
 Global mode */
   global_mode: boolean;
-  /** global mode traffic ratio
+  /** 全局模式流量配比
 Traffic ratio for global mode */
   global_ratio: number;
-  /** Trigger traffic configuration
+  /** 触发器流量配置
 Trigger traffic configuration */
   trigger_config: Record<
     string,
@@ -1020,10 +1020,10 @@ Trigger traffic configuration */
 }
 
 export interface VefaasTrafficSchedulingTriggerData {
-  /** Trigger ID, the ID of the eventbus trigger is EventName
+  /** 触发器 ID，eventbus触发器的ID为EventName
 Trigger ID, for eventbus triggers this is the EventName */
   id: string;
-  /** Trigger flow ratio
+  /** 触发器流量配比
 Traffic ratio for the trigger */
   ratio: number;
 }

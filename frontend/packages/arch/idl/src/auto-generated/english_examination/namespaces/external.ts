@@ -24,30 +24,30 @@ import * as base from './base';
 
 export type Int64 = string | number;
 
-/** Title correction status */
+/** 题目批改状态 */
 export enum ExternalUserStatus {
-  /** disable */
+  /** 禁用 */
   Disabled = 0,
-  /** enable */
+  /** 启用 */
   Enabled = 1,
 }
 
 export interface ConfirmUniExamRecordForExternalReq {
-  /** External Exam Record ID */
+  /** 外部考试记录ID */
   external_id?: string;
-  /** Listening test paper grade */
+  /** 听力试卷等级 */
   listening_paper_level?: uniexam.GeneralLevel;
-  /** Listening score */
+  /** 听力得分 */
   listening_score?: number;
-  /** Hearing level */
+  /** 听力等级 */
   listening_level?: uniexam.DetailLevel;
-  /** spoken score */
+  /** 口语得分 */
   oral_score?: number;
-  /** speaking level */
+  /** 口语等级 */
   oral_level?: uniexam.DetailLevel;
-  /** Final grading (if the final grading is not passed, only the score is saved, and the status remains unchanged. If the final grading is passed, it will be confirmed that it will be submitted for correction, and the status will be changed to completed) */
+  /** 最终定级(不传最终定级仅保存分数，状态不变，传最终定级会确定提交批改，状态变为已完成) */
   final_level?: uniexam.DetailLevel;
-  /** Confirmation Type (0: Unknown 1: Confirmation 2: Save) */
+  /** 确认类型(0:未知 1:确认 2:保存) */
   confirm_type?: uniexam.ConfirmUniExamType;
   base?: base.Base;
 }
@@ -60,7 +60,7 @@ export interface ConfirmUniExamRecordForExternalResp {
 }
 
 export interface GetUniExamRecordForExternalReq {
-  /** External Exam Record ID */
+  /** 外部考试记录ID */
   id?: string;
   base?: base.Base;
 }
@@ -73,11 +73,11 @@ export interface GetUniExamRecordForExternalResp {
 }
 
 export interface ListUniExamRecordForExternalReq {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** number of pages per page */
+  /** 每页数量 */
   page_size?: number;
-  /** External Exam ID */
+  /** 外部考试ID */
   exam_id?: string;
   base?: base.Base;
 }
@@ -93,9 +93,9 @@ export interface ListUniExamRecordForExternalResp {
 }
 
 export interface LoginByBasicReq {
-  /** user name */
+  /** 用户名 */
   email?: string;
-  /** password */
+  /** 密码 */
   password?: string;
   base?: base.Base;
 }

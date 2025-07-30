@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export enum ActionKey {
-  /** copy */
+  /** 复制 */
   Copy = 1,
-  /** delete */
+  /** 删除 */
   Delete = 2,
-  /** enable/disable */
+  /** 启用/禁用 */
   EnableSwitch = 3,
-  /** edit */
+  /** 编辑 */
   Edit = 4,
-  /** Switch to funcflow */
+  /** 切换成funcflow */
   SwitchToFuncflow = 8,
-  /** Switch to chatflow */
+  /** 切换成chatflow */
   SwitchToChatflow = 9,
-  /** Cross-spatial replication */
+  /** 跨空间复制 */
   CrossSpaceCopy = 10,
 }
 
@@ -42,32 +42,32 @@ export enum CopyStatus {
   Successful = 1,
   Processing = 2,
   Failed = 3,
-  /** If it is KeepOrigin, it means that the resource does not need to be changed, and the resource party does not need to set Target related information; the referencing party can directly ignore it. */
+  /** 如果是KeepOrigin，表示该资源不需要做变更，资源方不需要设置Target相关信息；引用方直接忽略即可 */
   KeepOrigin = 4,
-  /** Represents when rolling back to draft, the resource changes from Yes - > No */
+  /** 表示回滚到草稿时，资源从有->无的变更 */
   Deleted = 5,
 }
 
 export enum ProjectResourceActionKey {
-  /** rename */
+  /** 重命名 */
   Rename = 1,
-  /** Create a copy/copy to the current project */
+  /** 创建副本/复制到当前项目 */
   Copy = 2,
-  /** Copy to repository */
+  /** 复制到资源库 */
   CopyToLibrary = 3,
-  /** Move to Library */
+  /** 移动到资源库 */
   MoveToLibrary = 4,
-  /** delete */
+  /** 删除 */
   Delete = 5,
-  /** enable */
+  /** 启用 */
   Enable = 6,
-  /** disable */
+  /** 禁用 */
   Disable = 7,
-  /** Switch to funcflow */
+  /** 切换成funcflow */
   SwitchToFuncflow = 8,
-  /** Switch to chatflow */
+  /** 切换成chatflow */
   SwitchToChatflow = 9,
-  /** Modify description */
+  /** 修改描述 */
   UpdateDesc = 10,
 }
 
@@ -78,38 +78,38 @@ export enum ProjectResourceGroupType {
 }
 
 export enum PublishStatus {
-  /** unpublished */
+  /** 未发布 */
   UnPublished = 1,
-  /** Published */
+  /** 已发布 */
   Published = 2,
 }
 
 export enum ResourceCopyScene {
-  /** Copy resources within the project, shallow copy */
+  /** 复制项目内的资源，浅拷贝 */
   CopyProjectResource = 1,
-  /** Copy the project resources to the Library, and publish after copying */
+  /** 复制项目资源到Library，复制后要发布 */
   CopyResourceToLibrary = 2,
-  /** Move project resources to Library, copy to publish, and delete project resources later */
+  /** 移动项目资源到Library，复制后要发布，后置要删除项目资源 */
   MoveResourceToLibrary = 3,
-  /** Copy Library Resources to Project */
+  /** 复制Library资源到项目 */
   CopyResourceFromLibrary = 4,
-  /** Copy the project, along with the resources. Copy the current draft. */
+  /** 复制项目，连带资源要复制。复制当前草稿。 */
   CopyProject = 5,
-  /** The project is published to the channel, and the associated resources need to be published (including the store). Publish with the current draft. */
+  /** 项目发布到渠道，连带资源需要发布（含商店）。以当前草稿发布。 */
   PublishProject = 6,
-  /** Copy the project template. */
+  /** 复制项目模板。 */
   CopyProjectTemplate = 7,
-  /** The project is published to a template, and the specified version of the project is published as a temporary template. */
+  /** 项目发布到模板，以项目的指定版本发布成临时模板。 */
   PublishProjectTemplate = 8,
-  /** The template is approved, put on the shelves, and the official template is copied according to the temporary template. */
+  /** 模板审核通过，上架，根据临时模板复制正式模板。 */
   LaunchTemplate = 9,
-  /** Draft version archive */
+  /** 草稿版本存档 */
   ArchiveProject = 10,
-  /** Online version loaded into draft, draft version loaded into draft */
+  /** 线上版本加载到草稿，草稿版本加载到草稿 */
   RollbackProject = 11,
-  /** Cross-spatial replication of a single resource */
+  /** 单个资源跨空间复制 */
   CrossSpaceCopy = 12,
-  /** item cross-spatial replication */
+  /** 项目跨空间复制 */
   CrossSpaceCopyProject = 13,
 }
 
@@ -131,13 +131,13 @@ export enum SyncOperation {
 }
 
 /** struct ResourceCopyExtraInfo{
-    //Indicates that after operating the resource, the resource should be changed to this namefter manipulating the resource, the resource should be changed to this name
+    // 表示操作资源后，资源要改成该名称
     1 : optional string ResourceName (go.tag = "json:\"resource_name\"", agw.key = "resource_name")
-    //Indicates the version number after the resource is publishedthe version number of the resource after it was published
+    // 表示资源发布后的版本号
     2 : optional string VersionNum  (go.tag = "json:\"version_num\"", agw.key = "version_num")
-    //Version description of this versionion description of this version
+    // 该版本的版本描述
     3 : optional string VersionDesc  (go.tag = "json:\"version_desc\"", agw.key = "version_desc")
-    //Different information for each resource, for plugins, is a personal information collection declaration. schema and conventions for each resource partyn, and the plugin is a personal information collection declaration. schema and conventions for each resource party
+    // 每个资源不同的信息，对插件，是个人信息收集声明。schema和各个资源方约定
     4 : optional string ResourceExtendInfo  (go.tag = "json:\"resource_extend_info\"", agw.key = "resource_extend_info")
 } */
 export enum TaskStatus {

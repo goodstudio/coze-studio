@@ -29,9 +29,9 @@ export enum ByteTreeNodeResourceProvider {
 
 export enum DataImportMode {
   Undefined = 0,
-  /** add */
+  /** 追加 */
   Append = 1,
-  /** cover */
+  /** 覆盖 */
   Overwrite = 2,
 }
 
@@ -90,7 +90,7 @@ export enum IDC {
 export enum MerlinFramework {
   LLMServerPublic = 1,
   Laplace = 2,
-  /** E-commerce team-specific agreement, see  */
+  /** 电商团队专用协议，详见  */
   Mixinfer = 3,
 }
 
@@ -99,21 +99,21 @@ export enum MerlinLLMInterface {
 }
 
 export enum MerlinQuotaPoolType {
-  /** stable resources */
+  /** 稳定资源 */
   Default = 0,
-  /** tidal resources */
+  /** 潮汐资源 */
   Hybrid = 1,
-  /** often mixed resources */
+  /** 常混资源 */
   HybridShare = 2,
-  /** Third-party resource ali */
+  /** 第三方资源ali */
   ALI = 3,
-  /** Third-party resources hw */
+  /** 第三方资源hw */
   HW = 4,
   /** hw arm */
   HWARM = 5,
-  /** Flexible selling of resources, which may be preempted at any time */
+  /** 弹性售卖资源，随时可能被抢占 */
   Spot = 6,
-  /** Preemptible stable resources */
+  /** 可抢占的稳定资源 */
   Preemptible = 20,
 }
 
@@ -136,26 +136,26 @@ export enum ModelParamType {
 
 export enum ModelStatus {
   Undefined = 0,
-  /** Health is available */
+  /** 健康可用 */
   Available = 1,
-  /** Deploying */
+  /** 部署中 */
   Deploying = 2,
-  /** Unavailable (offline) */
+  /** 不可用（已下线） */
   Unavailable = 3,
-  /** offline. */
+  /** 下线中 */
   Offlining = 4,
 }
 
 export enum Provider {
-  /** GPT OpenAPI Platform */
+  /** GPT OpenAPI平台 */
   GPTOpenAPI = 1,
-  /** Volcano Ark */
+  /** 火山方舟 */
   Maas = 2,
-  /** Temporarily specific seed from bot_engine access */
+  /** 暂时特指seed从bot_engine接入 */
   BotEngine = 3,
-  /** Merlin Platform */
+  /** merlin平台 */
   Merlin = 4,
-  /** Merlin-seed platform */
+  /** merlin-seed平台 */
   MerlinSeed = 5,
 }
 
@@ -193,48 +193,48 @@ export enum SftTaskBaseModelType {
 
 export enum SftTaskErrCode {
   Default = 0,
-  /** The first 2 digits represent a misclassification, and the last 4 digits represent a specific error
-10 Common Errors */
+  /** 前2位代表错误分类，后4位代表具体错误
+10 通用错误 */
   InternalErr = 100000,
-  /** Error uploading training dataset to platform */
+  /** 训练集上传到平台方时出错 */
   TrainingSetUploadedErr = 100001,
-  /** Error creating fine tuning task on the platform side */
+  /** 在平台方创建精调任务出错 */
   CreateProviderSftTaskErr = 100002,
-  /** 20 Merlin task instance overall error */
+  /** 20 Merlin任务实例整体报错 */
   MerlinTaskInternalError = 200000,
-  /** Gpu cpu mem package matching error */
+  /** gpu cpu mem 套餐配比错误 */
   MerlinGpuCpuMemRatioBad = 200001,
-  /** 21 Merlin training scripts actively reported bugs */
+  /** 21 Merlin训练脚本主动上报的错误 */
   MerlinReportedInternalErr = 210000,
   MerlinOOM = 210001,
-  /** No model training product found */
+  /** 没找到模型训练产物 */
   MerlinNoModelGenerated = 210002,
-  /** 30 Volcano Ark mission failed
-ARK universal error */
+  /** 30 火山方舟任务失败
+方舟通用错误 */
   MaaSInternalErr = 300000,
-  /** Validation set scaling exception */
+  /** 验证集比例分割异常 */
   MaaSValidationSetSplitErr = 300001,
-  /** The training data format does not meet expectations */
+  /** 训练数据格式不符合预期 */
   MaaSTrainingSetNoValid = 300002,
-  /** The Huoshan Account of the business party has not opened the model service. */
+  /** 业务方的火山账号没有开通模型服务 */
   MaaSAccountModelServiceIsNotActivated = 300003,
-  /** Required request parameters are missing. Please confirm the request parameters and try again. */
+  /** 缺少必要的请求参数。请确认请求参数后重试。 */
   MaaSRequiredParamMissing = 300004,
-  /** The requested parameter value is invalid. Please check the correctness of the parameter value and try again. */
+  /** 请求参数值不合法。请检查参数值的正确性后重试。 */
   MaaSRequestParamInvalid = 300005,
-  /** Object's Label Has Duplicate Keys */
+  /** 对象的标签存在重复Key */
   MaaSDuplicateTags = 300006,
-  /** Cannot upload validation set and set training dataset sampling as validation set percentage at the same time, this operation is not supported */
+  /** 无法同时上传验证集和设置训练集取样为验证集百分比，不支持该操作 */
   MaaSNotSupportedToConfigureValidationSetAndPercentage = 300007,
-  /** You do not have permission to access the configuration of the underlying model, and this operation is not supported */
+  /** 您没有权限访问基础模型的配置，不支持该操作 */
   MaaSNotPermittedToAccessModel = 300008,
-  /** The model does not support this training method and does not support this operation */
+  /** 模型不支持该训练方法，不支持该操作 */
   MaaSModelNotSupportTheTrainingMethod = 300009,
-  /** The version of the base model does not support this training method and does not support this operation */
+  /** 基础模型的版本不支持该训练方法，不支持该操作 */
   MaaSFoundationModelNotSupportTheTrainingMethod = 300010,
-  /** Your bill is overdue and this operation is not supported. Please go to the volcano expense center to recharge. */
+  /** 您的账单已逾期，不支持该操作。请前往火山费用中心充值 */
   MaaSAccountBalanceOverdue = 300011,
-  /** Unknown error, please try again later. If multiple attempts still fail, please submit a work order. */
+  /** 未知错误，请稍后重试。如果多次尝试仍失败，请提交工单 */
   MaaSUnknownErr = 300012,
 }
 
@@ -247,22 +247,22 @@ export enum SftTaskHyperParamType {
 }
 
 export enum SftTaskOutputExportType {
-  /** Export to new model */
+  /** 导出到新模型 */
   NewModel = 1,
-  /** Export to an existing model */
+  /** 导出到已有模型 */
   ExistModel = 2,
 }
 
 export enum SftTaskOutputStatus {
-  /** not exported */
+  /** 未导出 */
   Available = 1,
-  /** Exported */
+  /** 已导出 */
   Exported = 2,
-  /** Expired */
+  /** 已过期 */
   Expired = 3,
-  /** Exporting */
+  /** 导出中 */
   Exporting = 4,
-  /** Export failed */
+  /** 导出失败 */
   ExportFailed = 5,
 }
 
@@ -307,17 +307,17 @@ export enum SftTaskValidationSetType {
 
 export enum TaskStatus {
   Undefined = 0,
-  /** Initializing now. */
+  /** 正在初始化 */
   Initializing = 1,
-  /** Running now. */
+  /** 正在运行 */
   Running = 2,
-  /** successfully completed */
+  /** 成功完成 */
   Done = 3,
-  /** fail */
+  /** 失败 */
   Failed = 4,
-  /** manual termination */
+  /** 手动终止 */
   Terminated = 5,
-  /** Completed successfully, but with errors */
+  /** 成功完成，但有错误 */
   DoneWithError = 6,
 }
 
@@ -340,17 +340,17 @@ export enum TrainingFileOpType {
 }
 
 export enum UsageScenario {
-  /** Default scene */
+  /** 默认场景 */
   Default = 1,
-  /** evaluation scenario */
+  /** 评测场景 */
   Evaluation = 2,
-  /** Prompt as a Service */
+  /** Prompt as a Service调用 */
   PromptAsAService = 3,
-  /** AI marking */
+  /** AI打标 */
   AIAnnotate = 4,
-  /** mass score */
+  /** 质量分 */
   AIScore = 5,
-  /** data label */
+  /** 数据标签 */
   AITag = 6,
 }
 
@@ -361,11 +361,11 @@ export enum ValidateStatus {
 }
 
 export enum VisibleMode {
-  /** Default (visible only in the model's space) */
+  /** 默认（仅模型所属空间可见） */
   Default = 1,
-  /** Designated space visible */
+  /** 指定空间可见 */
   Specified = 2,
-  /** All spaces are visible */
+  /** 所有空间可见 */
   All = 3,
 }
 /* eslint-enable */

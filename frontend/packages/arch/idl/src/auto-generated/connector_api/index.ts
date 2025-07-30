@@ -76,7 +76,7 @@ export default class ConnectorApiService<T> {
   /**
    * POST /open_api/v1/connector/update_connector_bot
    *
-   * Channel OpenAPI
+   * 渠道 OpenAPI
    */
   OpenAPIUpdateConnectorBot(
     req: open_api.OpenAPIUpdateConnectorBotRequest,
@@ -206,7 +206,7 @@ export default class ConnectorApiService<T> {
   /**
    * POST /api/connector/create_preview_version
    *
-   * preview
+   * 预览
    */
   CreatePreviewVersion(
     req: connector.CreatePreviewVersionRequest,
@@ -308,7 +308,7 @@ export default class ConnectorApiService<T> {
   /**
    * POST /api/connector/account_connector/manage
    *
-   * ManageAccountConnector Management Enterprise Channel
+   * ManageAccountConnector 管理企业渠道
    */
   ManageAccountConnector(
     req?: connector.ManageAccountConnectorRequest,
@@ -328,9 +328,9 @@ export default class ConnectorApiService<T> {
   /**
    * GET /api/connector/account_connector/list
    *
-   * Enterprise Channel Management
+   * 企业渠道管理
    *
-   * GetAccountConnectorList get the enterprise channel list
+   * GetAccountConnectorList 获取企业渠道列表
    */
   GetAccountConnectorList(
     req?: connector.GetAccountConnectorListRequest,
@@ -353,7 +353,7 @@ export default class ConnectorApiService<T> {
   /**
    * GET /api/connector/space_connector/status
    *
-   * GetSpaceConnectorStatus get the installation status of the channel under the space
+   * GetSpaceConnectorStatus 获取空间下渠道的安装状态
    */
   GetSpaceConnectorStatus(
     req?: connector.GetSpaceConnectorStatusRequest,
@@ -389,7 +389,7 @@ export default class ConnectorApiService<T> {
   /**
    * POST /api/connector/set_mini_program_domain
    *
-   * Mini Program Domain Management
+   * 小程序域名管理
    */
   SetMiniProgramDomain(
     req?: connector.SetMiniProgramDomainRequest,

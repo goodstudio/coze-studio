@@ -60,7 +60,7 @@ export default class NotifyApiService<T> {
   /**
    * POST /api/marketplace/notify/mobile_verify/send
    *
-   * Send SMS verification code
+   * 发送短信验证码
    */
   SendMobileVerifyCode(
     req?: api.SendMobileVerifyCodeRequest,
@@ -77,9 +77,9 @@ export default class NotifyApiService<T> {
   /**
    * POST /api/marketplace/notify/email_verify/send
    *
-   * ------------------------------------ HTTP interface ------------------------------------
+   * ------------------------------------ HTTP 接口 ------------------------------------
    *
-   * Send email verification code
+   * 发送邮件验证码
    */
   SendEmailVerifyCode(
     req?: api.SendEmailVerifyCodeRequest,
@@ -96,7 +96,7 @@ export default class NotifyApiService<T> {
   /**
    * POST /api/marketplace/notify/email_verify/check
    *
-   * email verification code
+   * 校验邮件验证码
    */
   CheckEmailVerifyCode(
     req?: api.CheckEmailVerifyCodeRequest,
@@ -116,7 +116,7 @@ export default class NotifyApiService<T> {
   /**
    * POST /api/marketplace/notify/mobile_verify/check
    *
-   * Verify SMS verification code
+   * 校验短信验证码
    */
   CheckMobileVerifyCode(
     req?: api.CheckMobileVerifyCodeRequest,

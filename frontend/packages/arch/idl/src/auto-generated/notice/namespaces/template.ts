@@ -25,36 +25,36 @@ import * as common from './common';
 export type Int64 = string | number;
 
 export enum TemplateStatus {
-  /** effective */
+  /** 有效 */
   Valid = 1,
-  /** deleted */
+  /** 被删除 */
   Deleted = 2,
-  /** draft */
+  /** 草稿 */
   Draft = 3,
-  /** Under review. */
+  /** 审核中 */
   Review = 4,
 }
 
 export enum TemplateType {
-  /** Send notifications manually */
+  /** 手动发通知 */
   Manual = 1,
-  /** Open to the outside world */
+  /** 对外开放 */
   Open = 2,
 }
 
 export interface CreateRecordData {
-  /** ticket id */
+  /** 工单id */
   RecordID?: number;
 }
 
 export interface CreateRecordRequest {
-  /** Template ID */
+  /** 模板id */
   id?: string;
-  /** template name */
+  /** 模板名称 */
   name: string;
-  /** template content */
+  /** 模板内容 */
   content: string;
-  /** template scene */
+  /** 模板场景 */
   template_scene: string;
   /** bot id */
   bot_id: string;
@@ -69,20 +69,20 @@ export interface CreateRecordResponse {
 }
 
 export interface CreateTemplateData {
-  /** template ID */
+  /** 模板ID */
   template_id?: string;
 }
 
 export interface CreateTemplateRequest {
-  /** template name */
+  /** 模板名称 */
   name: string;
-  /** template content */
+  /** 模板内容 */
   content: string;
-  /** template type */
+  /** 模板类型 */
   template_type: TemplateType;
-  /** template state */
+  /** 模板状态 */
   template_status: TemplateStatus;
-  /** template scene */
+  /** 模板场景 */
   template_scene: string;
   /** bot id */
   bot_id: string;
@@ -95,7 +95,7 @@ export interface CreateTemplateResponse {
 }
 
 export interface DeleteTemplateRequest {
-  /** Template ID */
+  /** 模板id */
   id: string;
 }
 
@@ -124,44 +124,44 @@ export interface GetTemplateListResponse {
 }
 
 export interface TemplateData {
-  /** Template ID */
+  /** 模板id */
   id?: string;
-  /** template name */
+  /** 模板名称 */
   name?: string;
-  /** template content */
+  /** 模板内容 */
   content?: string;
-  /** Last change time */
+  /** 最近更改时间 */
   last_modify_time?: string;
-  /** recent update */
+  /** 最近更新人 */
   last_modify_user?: string;
-  /** template type */
+  /** 模板类型 */
   template_type?: TemplateType;
-  /** template state */
+  /** 模板状态 */
   template_status?: TemplateStatus;
-  /** template scene */
+  /** 模板场景 */
   template_scene?: string;
   /** bot id */
   bot_id?: string;
   bot_icon_url?: string;
   bot_name?: string;
-  /** BPM approval ID */
+  /** bpm审批ID */
   record_id?: Int64;
-  /** Is the current user allowed to edit? */
+  /** 当前用户是否允许编辑 */
   allow_edit?: boolean;
 }
 
 export interface UpdateTemplateRequest {
-  /** Template ID */
+  /** 模板id */
   id: string;
-  /** template name */
+  /** 模板名称 */
   name?: string;
-  /** template content */
+  /** 模板内容 */
   content?: string;
-  /** template type */
+  /** 模板类型 */
   template_type: TemplateType;
-  /** template state */
+  /** 模板状态 */
   template_status: TemplateStatus;
-  /** template scene */
+  /** 模板场景 */
   template_scene: string;
   /** bot id */
   bot_id: string;

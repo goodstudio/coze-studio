@@ -47,11 +47,11 @@ export interface AutomationObject {
   FornaxApp?: FornaxApp;
 }
 
-/** AutomationTask information created by the user */
+/** AutomationTask 用户创建的自动化任务信息 */
 export interface AutomationTask {
-  /** Automated Task ID */
+  /** 自动化任务ID */
   TaskID: Int64;
-  /** Create a user ID for the automated task, authentication required */
+  /** 创建自动化任务的用户ID，鉴权需要 */
   UserID: Int64;
   SpaceID: Int64;
 }

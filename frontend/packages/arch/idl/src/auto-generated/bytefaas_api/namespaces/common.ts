@@ -303,7 +303,7 @@ export interface CodeRevision {
   /** List of dependencies */
   dependency?: Array<Dependency>;
   /** Deployment method. Enums: online-edit, scm, command-line, online-edit, image, lego
-deployment method */
+部署方式 */
   deploy_method?: string;
   /** Description */
   description?: string;
@@ -334,10 +334,10 @@ deployment method */
   /** Service ID */
   service_id?: string;
   /** Source code URI
-Code Version URI */
+代码版本 URI */
   source?: string;
   /** Source type
-code version type */
+代码版本类型 */
   source_type?: string;
   /** Plugin function details */
   plugin_function_detail?: PluginFunctionDetail;
@@ -732,7 +732,7 @@ export interface EmptyObject {}
 /** Help information for error troubleshooting */
 export interface ErrorHelp {
   /** Show start logs for troubleshooting
-Do you need to display the startup log to troubleshoot problems? */
+是否需要展示启动日志用于排查问题 */
   show_start_logs?: boolean;
 }
 
@@ -1267,13 +1267,13 @@ export interface MQCommonScalingSetting {
   scale_up_max_step?: number;
   /** Minimum interval for continuous scale down (seconds) */
   continuous_scale_down_min_interval_sec?: number;
-  /** step size ratio
+  /** 缩容步长比例
 Scale down max step ratio */
   scale_down_max_step_ratio?: number;
-  /** Expansion step ratio
+  /** 扩容步长比例
 Scale up max step ratio */
   scale_up_max_step_ratio?: number;
-  /** Whether to turn on rebalance sensitive type
+  /** 是否开启rebalance敏感型
 Enable rebalance sensitivity */
   rebalance_sensitive?: boolean;
 }
@@ -1553,10 +1553,10 @@ export interface PipelineUploadStepBizData {
 /** Plugin function compile version information */
 export interface PluginFunctionCompileVersion {
   /** SCM compilation version number
-SCM build version number */
+scm编译版本号 */
   version?: string;
   /** Go version number
-Go version number */
+go版本号 */
   go_version?: string;
 }
 
@@ -1567,7 +1567,7 @@ export interface PluginFunctionDetail {
   /** Commit hash */
   commit_hash?: string;
   /** Lego compilation version number
-Lego build version number */
+lego编译版本号 */
   version?: string;
   /** List of compile versions */
   compile_versions?: Array<PluginFunctionCompileVersion>;
@@ -1761,16 +1761,16 @@ export interface ReleaseCanaryStepBizData {
   error_help?: ErrorHelp;
   /** Step progress information */
   step_progress?: ReleaseStepProgress;
-  /** rolling strategy
+  /** 滚动策略
 Rolling strategy (0: kill old then start new, 1: start new then kill old) */
   rolling_strategy?: number;
-  /** Rolling interval, unit (s)
+  /** 滚动间隔，单位（s）
 Rolling interval in seconds */
   rolling_interval?: number;
-  /** Scroll completion criterion 1: At least N% of containers created; range of values (1-100)
+  /** 滚动完成判断条件 1：最少百分之 N 的容器创建；数值范围（1-100）
 Minimum created percentage (1-100) */
   min_created_percentage?: number;
-  /** Scroll completion judgment condition 2: At least N% of the container is started; value range (1-100)
+  /** 滚动完成判断条件 2：最少百分之 N 的容器启动完成；数值范围（1-100）
 Minimum ready percentage (1-100) */
   min_ready_percentage?: number;
 }
@@ -2404,7 +2404,7 @@ export interface TicketErrorResponseMessage2 {
   /** Error message */
   error_message?: string;
   /** Help control instructions for troubleshooting
-Some Help Control Instructions for Troubleshooting Failures */
+排查失败问题的一些 Help 控制指令 */
   error_help?: ErrorHelp;
 }
 
@@ -2438,15 +2438,15 @@ export interface TicketResourceMetaFunctionResourceMessage2 {
 export interface TicketResourceMetaFunctionResourceMessage2FunctionMetaMessage2 {
   /** Enable auth check (using jwt token) */
   auth_enable?: boolean;
-  /** Authorizers of function, split by ',' */
+  /** Authorizers of function, split by ',', 函数的授权人，用 ',' 分隔 */
   authorizers?: string;
-  /** Limit of cold start, cold start timeout parameters */
+  /** Limit of cold start, 冷启动超时参数 */
   cold_start_sec?: number;
-  /** Enable cors, allow cross-domain */
+  /** Enable cors，允许跨域 */
   cors_enable?: boolean;
-  /** Description of function, function description */
+  /** Description of function, 函数描述 */
   description?: string;
-  /** Disable build install, true means disabled. Only support python/nodejs, whether to call the build, only support python/nodejs */
+  /** Disable build install, true means disable. Only support python/nodejs, 是否调过构建，仅支持 python/nodejs */
   disable_build_install?: boolean;
   /** Envs of function by region or router, if key is router, it will be applied in all region */
   envs?: Record<string, Record<string, string>>;
@@ -2454,17 +2454,17 @@ export interface TicketResourceMetaFunctionResourceMessage2FunctionMetaMessage2 
   handler?: string;
   /** Initializer function name, default could be none */
   initializer?: string;
-  /** Limit of function latency, function delay timeout parameter */
+  /** Limit of function latency, 函数时延超时参数 */
   latency_sec?: number;
   /** Max concurrency for one function instance */
   max_concurrency?: number;
   /** Memory of function, used for set function resource, unit is MB */
   memory_mb?: number;
-  /** Name of function, function name */
+  /** Name of function, 函数名称 */
   name?: string;
-  /** Origin of function, from bytefaas ori light (like qingfuwu), the source of the function, in addition to faas, it may also be from InspireCloud, etc */
+  /** Origin of function, from bytefaas ori light(like qingfuwu), 函数的来源，除了 faas 也有可能是来自轻服务等 */
   origin?: string;
-  /** The owner of function, the owner of function */
+  /** The owner of function, 函数的 Owner */
   owner?: string;
   /** Protocol of function, such as TTHeader etc. */
   protocol?: string;
@@ -2482,7 +2482,7 @@ export interface TicketResourceMetaFunctionResourceMessage2FunctionMetaMessage2 
   source?: string;
   /** Source code type of latest revision */
   source_type?: string;
-  /** Name of template, selected template name */
+  /** Name of template, 选择的模板名称 */
   template_name?: string;
   /** VPC config, only for ToB logic */
   vpc_config?: BasicFunctionParamsVpcConfigMessage2;
@@ -2620,15 +2620,15 @@ export interface TicketResourceMetaRuntimeUpdateMessage2 {
 export interface TicketResourceMetaRuntimeUpdateMessage2FunctionMetaMessage2 {
   /** Enable auth check (using jwt token) */
   auth_enable?: boolean;
-  /** Authorizers of function, split by ',' */
+  /** Authorizers of function, split by ',', 函数的授权人，用 ',' 分隔 */
   authorizers?: string;
-  /** Limit of cold start, cold start timeout parameters */
+  /** Limit of cold start, 冷启动超时参数 */
   cold_start_sec?: number;
-  /** Enable cors, allow cross-domain */
+  /** Enable cors，允许跨域 */
   cors_enable?: boolean;
-  /** Description of function, function description */
+  /** Description of function, 函数描述 */
   description?: string;
-  /** Disable build install, true means disabled. Only support python/nodejs, whether to call the build, only support python/nodejs */
+  /** Disable build install, true means disable. Only support python/nodejs, 是否调过构建，仅支持 python/nodejs */
   disable_build_install?: boolean;
   /** Envs of function by region or router, if key is router, it will be applied in all region */
   envs?: Record<string, Record<string, string>>;
@@ -2636,17 +2636,17 @@ export interface TicketResourceMetaRuntimeUpdateMessage2FunctionMetaMessage2 {
   handler?: string;
   /** Initializer function name, default could be none */
   initializer?: string;
-  /** Limit of function latency, function delay timeout parameter */
+  /** Limit of function latency, 函数时延超时参数 */
   latency_sec?: number;
   /** Max concurrency for one function instance */
   max_concurrency?: number;
   /** Memory of function, used for set function resource, unit is MB */
   memory_mb?: number;
-  /** Name of function, function name */
+  /** Name of function, 函数名称 */
   name?: string;
-  /** Origin of function, from bytefaas ori light (like qingfuwu), the source of the function, in addition to faas, it may also be from InspireCloud, etc */
+  /** Origin of function, from bytefaas ori light(like qingfuwu), 函数的来源，除了 faas 也有可能是来自轻服务等 */
   origin?: string;
-  /** The owner of function, the owner of function */
+  /** The owner of function, 函数的 Owner */
   owner?: string;
   /** Protocol of function, such as TTHeader etc. */
   protocol?: string;
@@ -2664,7 +2664,7 @@ export interface TicketResourceMetaRuntimeUpdateMessage2FunctionMetaMessage2 {
   source?: string;
   /** Source code type of latest revision. Enums: url, tos, scm, ceph, image, image-scm, private-tos, lego */
   source_type?: string;
-  /** Name of template, selected template name */
+  /** Name of template, 选择的模板名称 */
   template_name?: string;
   /** VPC config, only for ToB logic */
   vpc_config?: BasicFunctionParamsVpcConfigMessage2;

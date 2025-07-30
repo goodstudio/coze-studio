@@ -62,7 +62,7 @@ export default class PromptRecordApiService<T> {
   /**
    * POST /api/model_ak/add
    *
-   * Add a model ak to the space.
+   * 为空间添加模型ak
    */
   AddModelAK(
     req?: record.AddModelAKReq,
@@ -82,7 +82,7 @@ export default class PromptRecordApiService<T> {
   /**
    * POST /api/model_ak/delete
    *
-   * Delete a model in a certain space.
+   * 删除某个空间的某个模型ak
    */
   DeleteModelAK(
     req?: record.DeleteModelAKReq,
@@ -129,7 +129,7 @@ export default class PromptRecordApiService<T> {
   /**
    * GET /api/model_ak/list
    *
-   * List the model ak for the space.
+   * 为空间列出模型ak
    */
   ListModelAK(
     req?: record.ListModelAKReq,

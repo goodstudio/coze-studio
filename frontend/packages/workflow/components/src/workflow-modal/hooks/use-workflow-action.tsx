@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable @coze-arch/max-line-per-function */
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
@@ -536,7 +536,7 @@ export function useWorkflowAction({
     reporter.info({ message: 'workflow_modal: itemClick' });
 
     if (onItemClick) {
-      // @TS-expected-error meets expectations
+      // @ts-expect-error meets expectations
       const item: WorkflowItemType = {
         item: data,
         type: context.modalState.dataSourceType,

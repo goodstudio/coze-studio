@@ -60,7 +60,7 @@ export interface DeleteTriggerDebugTplResponse {
 export interface EventBusTopicPreviewParams {
   /** EventBus event name */
   event: string;
-  /** Search type: 0-time range 1-offset 2-key */
+  /** Search type: 0-时间范围 1-offset 2-key */
   search_type: number;
   /** Start time for the search */
   start_time?: Int64;
@@ -157,7 +157,7 @@ export interface MQQueueItem {
 export interface MQTopicPreviewData {
   /** MQ message as JSON string */
   mq_msg?: string;
-  /** Cloudevent after conversion, batch message if there are multiple elements in the array */
+  /** 转换之后的cloudevent，如果数组里有多个元素则为批量消息 */
   cloud_event?: Array<TriggerDebugCloudEvent>;
   native_event?: Array<TriggerDebugNativeEvent>;
 }
@@ -217,7 +217,7 @@ export interface RocketmqTopicPreviewParams {
   cluster_name: string;
   /** Topic name */
   topic_name: string;
-  /** Pull type: 0 - from longest offset 1 - from latest offset 3 - specify offset 4 - specify timestamp 5 - specify messageid */
+  /** Pull type: 0-从最久的offset 1-从最新的offset 3-指定offset 4-指定时间戳 5-指定messageid */
   type: number;
   /** For pull types 3/4, specify direction: true for forward, false for backward */
   forward?: boolean;

@@ -28,26 +28,26 @@ export enum TaskStatus {
   TaskStatusCancel = 4,
 }
 
-/** This is the task type defined by intelligence itself. It is converted to the task task type in intelligence. It is best to discard it and use the task task type directly. */
+/** 这是intelligence自己定义的任务类型，在intelligence中转成task任务类型，最好废弃，直接使用task任务类型 */
 export enum TaskType {
-  /** Draft -- > Draft */
+  /** 草稿 --> 草稿 */
   TaskTypeProjectCopy = 1,
   /** TaskTypeBotCopy = 2
-From the template, online version -- > draft */
+从模板来的  线上版本 --> 草稿 */
   TaskTypeCopyTemplateToProject = 3,
-  /** Publish online */
+  /** 发布成线上 */
   TaskTypePublishProject = 4,
-  /** Publish as template */
+  /** 发布成模板 */
   TaskTypePublishTemplate = 5,
-  /** Template Shelf Copy Template */
+  /** 模板上架复制模板 */
   TaskTypeLaunchProjectTemplate = 6,
-  /** Archive */
+  /** 存档 */
   TaskTypeArchiveProject = 7,
-  /** Rollback */
+  /** 回滚 */
   TaskTypeRollbackProject = 8,
-  /** Project cross-spatial replication */
+  /** Project跨空间复制 */
   TaskTypeCrossSpaceCopyProject = 9,
-  /** Resource cross-spatial replication */
+  /** Resource跨空间复制 */
   TaskTypeCrossSpaceCopyResource = 10,
 }
 /* eslint-enable */

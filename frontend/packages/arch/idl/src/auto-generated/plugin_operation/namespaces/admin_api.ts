@@ -25,32 +25,32 @@ import * as plugin_common from './plugin_common';
 export type Int64 = string;
 
 export enum PluginPricingCalculationType {
-  /** by number of times */
+  /** 按次数 */
   ByTimes = 1,
-  /** By base unit (e.g. token) */
+  /** 按基本单位 (例如token) */
   ByUnit = 2,
-  /** Unlimited */
+  /** 无限制 */
   Unlimited = 3,
 }
 
 export enum PluginPricingStrategy {
-  /** free */
+  /** 免费 */
   Free = 0,
-  /** dosage system */
+  /** 用量制 */
   Quantity = 1,
-  /** subscription system */
+  /** 订阅制 */
   Subscribe = 2,
 }
 
 export enum PricingCurrencyType {
-  /** Type of currency quoted */
+  /** 计价的货币类型 */
   USD = 0,
   CNY = 1,
 }
 
-/** Begin plugin billing */
+/** Begin 插件计费 */
 export enum PricingInterval {
-  /** Time period of pricing */
+  /** 计价的时间周期 */
   Second = 1,
   Minute = 2,
   Hour = 3,
@@ -69,7 +69,7 @@ export interface Creator {
   id?: string;
   name?: string;
   avatar_url?: string;
-  /** Did you create it yourself? */
+  /** 是否是自己创建的 */
   self?: boolean;
 }
 
@@ -103,7 +103,7 @@ export interface DraftBot {
 
 export interface EditDomainWhitelistRequest {
   domain_port_list: Array<string>;
-  /** operation type */
+  /** 操作类型 */
   operate_type: plugin_common.OperateType;
   Base?: base.Base;
 }
@@ -148,19 +148,19 @@ export interface GetPluginPricingRuleResponse {
 }
 
 export interface GetPluginQuotaRuleRequest {
-  /** plugin ID */
+  /** 插件ID */
   plugin_id: string;
   Base?: base.Base;
 }
 
 export interface GetPluginQuotaRuleResponse {
-  /** All the rules */
+  /** 所有规则 */
   quota_rule_and_apis?: Array<QuotaRuleAndAPI>;
   BaseResp?: base.BaseResp;
 }
 
 export interface GetPluginQuoteBotData {
-  /** bot list */
+  /** bot列表 */
   bot_list?: Array<DraftBot>;
   total?: Int64;
 }
@@ -174,7 +174,7 @@ export interface GetPluginQuoteBotRequest {
   space_id?: string;
   /** bot id */
   bot_id?: string;
-  /** Bot name supports exact queries */
+  /** bot name 支持精确查询 */
   bot_name?: string;
   /** ConnectorID */
   connector_id?: plugin_common.ConnectorID;
@@ -200,7 +200,7 @@ export interface PluginAPI {
   parameters?: Array<PluginParameter>;
   plugin_id?: string;
   plugin_name?: string;
-  /** The serial number is the same as the playground */
+  /** 序号和playground保持一致 */
   api_id?: string;
   record_id?: string;
   /** path */
@@ -222,25 +222,25 @@ export interface PluginData {
   creator?: string;
   space_id?: string;
   space_name?: string;
-  /** number of citations */
+  /** 引用数 */
   bot_quote?: number;
-  /** release status */
+  /** 发布状态 */
   publish_status?: plugin_common.PluginPublishStatus;
-  /** plugin channel */
+  /** 插件渠道 */
   channel_id?: plugin_common.PluginChannel;
-  /** plugin creator id */
+  /** 插件素材id */
   material_id?: string;
   /** tools */
   plugin_apis?: Array<PluginAPI>;
   /** server url */
   server_url?: string;
-  /** The plugin's product listing status */
+  /** plugin的商品上下架状态 */
   plugin_product_list_status?: plugin_common.ProductStatus;
-  /** Product review status of the plugin */
+  /** plugin的商品审核状态 */
   plugin_product_draft_status?: plugin_common.ProductDraftStatus;
-  /** plugin product id */
+  /** 插件商品id */
   channel_plugin_id?: string;
-  /** Number of billing rules for plugins */
+  /** 插件的计费规则数 */
   pricing_rule_count?: number;
 }
 
@@ -250,112 +250,112 @@ export interface PluginParameter {
   required?: boolean;
   type?: string;
   sub_parameters?: Array<PluginParameter>;
-  /** If Type is an array, there is a subtype */
+  /** 如果Type是数组，则有subtype */
   sub_type?: string;
-  /** fromNodeId if the value of the imported parameter is a reference */
+  /** 如果入参的值是引用的则有fromNodeId */
   from_node_id?: string;
-  /** Which node's key is specifically referenced? */
+  /** 具体引用哪个节点的key */
   from_output?: Array<string>;
-  /** If the imported parameter is the user's hand input, put it here */
+  /** 如果入参是用户手输 就放这里 */
   value?: string;
 }
 
 export interface PluginPriceInfo {
-  /** Manually filled price
-price */
+  /** 手动填的价格
+价格 */
   price?: string;
-  /** The currency type corresponding to the price */
+  /** 价格对应的货币类型 */
   currency_type?: PricingCurrencyType;
-  /** The time period corresponding to the price */
+  /** 价格对应的时间周期 */
   interval?: PricingInterval;
-  /** The number of base units consumed per call */
+  /** 每次调用消耗的基本单位的数量 */
   units_for_once?: string;
-  /** The name of the base unit (e.g. token) */
+  /** 基本单位的名称 (例如token) */
   unit_name?: string;
 }
 
 export interface PluginPriceLimit {
-  /** price limit
-number of times limit */
+  /** 价格限制
+次数限制 */
   times_limit?: string;
-  /** The time period corresponding to the number of times limit */
+  /** 次数限制对应的时间周期 */
   times_interval?: PricingInterval;
-  /** Limitations on basic units */
+  /** 基本单位的限制 */
   units_limit?: string;
-  /** The time period corresponding to the limit of the basic unit */
+  /** 基本单位的限制对应的时间周期 */
   units_interval?: PricingInterval;
 }
 
 export interface PluginPriceResult {
-  /** Automatically calculated price per call
-price */
+  /** 自动算的每次调用价格
+价格 */
   price?: string;
-  /** The currency type corresponding to the price */
+  /** 价格对应的货币类型 */
   currency_type?: PricingCurrencyType;
-  /** Number of tokens consumed per call */
+  /** 每次调用消耗的token数量 */
   tokens_for_once?: string;
 }
 
 export interface PluginPricingRule {
-  /** Null: takes effect for the entire plugin; non-empty: takes effect for a single API */
+  /** 为空:对整个plugin生效; 非空:对单个API生效 */
   api_name?: string;
-  /** Notes on information, such as procurement plans */
+  /** 备注信息, 比如采购方案 */
   comment?: string;
-  /** call restriction */
+  /** 调用限制 */
   price_limit?: PluginPriceLimit;
-  /** Cost of manual filling */
+  /** 手动填的成本 */
   price_info?: PluginPriceInfo;
-  /** Calculated cost per call */
+  /** 计算出来的每次调用成本 */
   price_result?: PluginPriceResult;
-  /** Level 1 rule, free by default */
+  /** 一级规则，默认免费 */
   pricing_strategy?: PluginPricingStrategy;
-  /** secondary rule */
+  /** 二级规则 */
   pricing_calculation_type?: PluginPricingCalculationType;
-  /** Rule ID, 0 when creating */
+  /** 规则ID, 新建时为0 */
   rule_id?: string;
 }
 
 export interface QuotaAlert {
-  /** The API name that triggered the alarm */
+  /** 触发告警的API名称 */
   api_name?: string;
-  /** When the alarm is triggered, the capacity that has been used */
+  /** 触发告警时,已使用的容量 */
   used_quota?: string;
-  /** alarm message */
+  /** 告警信息 */
   message?: string;
-  /** alarm trigger time */
+  /** 告警触发时间 */
   create_time?: string;
 }
 
 export interface QuotaRule {
-  /** Capacity rule ID */
+  /** 容量规则ID */
   rule_id?: string;
-  /** Capacity: Maximum number of calls within 1 counting cycle */
+  /** 容量: 1个计数周期内, 最大可调用次数 */
   quota?: string;
-  /** Percentage of alarm threshold, 0 to 100 */
+  /** 告警阈值的百分比, 0~100 */
   threshold?: string;
-  /** Start time when the rules come into effect */
+  /** 规则生效的开始时间 */
   start_time?: string;
-  /** A unit of time for counting cycles, minutes/hours/days */
+  /** 计数周期的时间单位, 分钟/小时/天 */
   period_time_unit?: TimeUnit;
-  /** counting period */
+  /** 计数周期 */
   period?: string;
-  /** The last 5 alerts */
+  /** 最近5条告警 */
   quota_alerts?: Array<QuotaAlert>;
 }
 
 export interface QuotaRuleAndAPI {
-  /** capacity rule */
+  /** 容量规则 */
   quota_rules?: Array<QuotaRule>;
-  /** Nil means valid for the entire plugin, otherwise only valid for a single API */
+  /** nil 表示对整个插件有效，否则仅对单个API有效 */
   api_name?: string;
-  /** Is it unlimited? */
+  /** 是否无限量 */
   unlimited?: boolean;
 }
 
 export interface TransPluginOwnerRequest {
-  /** plugin creator id */
+  /** 插件素材id */
   material_id: string;
-  /** target developer id */
+  /** 目标开发者id */
   target_dev_id: string;
   Base?: base.Base;
 }
@@ -377,9 +377,9 @@ export interface UpdatePluginPricingRuleResponse {
 }
 
 export interface UpdatePluginQuotaRuleRequest {
-  /** plugin ID */
+  /** 插件ID */
   plugin_id: string;
-  /** All the rules */
+  /** 所有规则 */
   quota_rule_and_apis?: Array<QuotaRuleAndAPI>;
   Base?: base.Base;
 }

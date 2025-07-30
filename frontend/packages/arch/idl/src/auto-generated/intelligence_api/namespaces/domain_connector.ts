@@ -22,13 +22,13 @@
 export type Int64 = string | number;
 
 export enum ConnectorAuditStatus {
-  /** Unknown, Unaudited */
+  /** 未知、无审核 */
   Unknown = 0,
-  /** Under review. */
+  /** 审核中 */
   Progress = 1,
-  /** approved */
+  /** 审核通过 */
   Audited = 2,
-  /** moderation rejection */
+  /** 审核拒绝 */
   Reject = 3,
 }
 
@@ -36,52 +36,52 @@ export enum ConnectorBindStatus {
   Invalid = 0,
   Valid = 1,
   SaveNotPublish = 2,
-  /** Token changes */
+  /** Token发生变化 */
   Disconnected = 3,
-  /** The current configuration is invalid and needs to be reconfigured. Currently only Bitable */
+  /** 目前的配置不合法，需要重新配置。目前仅飞书多维表格使用 */
   NeedReconfigure = 4,
 }
 
 export enum ConnectorBindType {
-  /** No binding required */
+  /** 无需绑定 */
   NoBindRequired = 1,
-  /** Auth binding */
+  /** Auth绑定 */
   AuthBind = 2,
-  /** Kv binding */
+  /** Kv绑定 */
   KvBind = 3,
-  /** Kv and Auth authorization */
+  /** Kv并Auth授权 */
   KvAuthBind = 4,
-  /** API channel binding */
+  /** api渠道绑定 */
   ApiBind = 5,
-  /** WebSDK binding */
+  /** WebSDK绑定 */
   WebSDKBind = 6,
-  /** store binding */
+  /** 商店绑定 */
   StoreBind = 7,
-  /** One button each for authorization and configuration */
+  /** 授权和配置各一个按钮 */
   AuthAndConfig = 8,
-  /** template channel binding */
+  /** 模板渠道绑定 */
   TemplateBind = 9,
 }
 
 export enum ConnectorClassification {
-  /** API or SDK */
+  /** api或sdk */
   APIOrSDK = 1,
-  /** social platform */
+  /** 社交平台 */
   SocialPlatform = 2,
-  /** Coze Shop/Template */
+  /** Coze商店/模板 */
   Coze = 3,
-  /** Mini Program */
+  /** 小程序 */
   MiniProgram = 4,
-  /** MCP Extension Library */
+  /** MCP扩展库 */
   CozeSpaceExtensionLibrary = 5,
 }
 
 export enum ConnectorStatus {
-  /** Normal */
+  /** 正常 */
   Normal = 0,
-  /** Under review. */
+  /** 审核中 */
   InReview = 1,
-  /** offline */
+  /** 已下线 */
   Offline = 2,
 }
 /* eslint-enable */

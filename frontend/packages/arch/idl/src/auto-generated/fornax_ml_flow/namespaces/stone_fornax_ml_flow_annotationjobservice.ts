@@ -44,7 +44,7 @@ export interface CreateAnnotationJobResponse {
 export interface CreateQualityScoreJobRequest {
   spaceID: string;
   datasetID: string;
-  /** Quality sub-task content */
+  /** 质量分任务内容 */
   job: annotation_job.QualityScoreJob;
   base?: base.Base;
 }
@@ -57,7 +57,7 @@ export interface CreateQualityScoreJobResponse {
 export interface DeleteAnnotationJobRequest {
   spaceID: string;
   datasetID: string;
-  /** JobID non-ID */
+  /** JobID非ID */
   jobID: string;
   base?: base.Base;
 }
@@ -81,7 +81,7 @@ export interface DryRunQualityScoreJobRequest {
   spaceID: string;
   datasetID: string;
   job: annotation_job.QualityScoreJob;
-  /** No pass, default 5 */
+  /** 不传，默认5条 */
   sampleCount?: number;
   base?: base.Base;
 }
@@ -95,7 +95,7 @@ export interface DryRunQualityScoreJobResponse {
 export interface GetAnnotationJobDetailRequest {
   spaceID: string;
   datasetID: string;
-  /** JobID non-ID */
+  /** JobID非ID */
   jobID?: string;
   base?: base.Base;
 }
@@ -123,9 +123,9 @@ export interface GetAnnotationJobsWithDatasetRequest {
 }
 
 export interface GetAnnotationJobsWithDatasetResponse {
-  /** As the mapping between the input field and the task, the field key in the schema; val: task details list */
+  /** 作为输入的字段和任务的映射关系，key:schema中的字段key; val:任务详情列表 */
   inputJobMap?: Record<string, Array<annotation_job.AnnotationJob>>;
-  /** As the mapping between the output field and the task, the field key in the schema; val: task details list */
+  /** 作为输出的字段和任务的映射关系，key:schema中的字段key; val:任务详情列表 */
   outputJobMap?: Record<string, Array<annotation_job.AnnotationJob>>;
   baseResp?: base.BaseResp;
 }
@@ -175,7 +175,7 @@ export interface PreviewAnnotationRequest {
   spaceID: string;
   datasetID: string;
   job: annotation_job.AnnotationJob;
-  /** The schema information of the new column of the task, which needs to be passed in when creating */
+  /** 任务新增列的schema信息,创建时需要传入 */
   fields: Array<datasetv2.FieldSchema>;
   base?: base.Base;
 }
@@ -189,11 +189,11 @@ export interface PreviewAnnotationResponse {
 export interface RunAnnotationJobRequest {
   spaceID: string;
   datasetID: string;
-  /** JobID non-ID */
+  /** JobID非ID */
   jobID: string;
-  /** Offline inference tasks require display of incoming */
+  /** 离线推理任务需要显示传入 */
   jwtToken?: string;
-  /** rerun instanceID */
+  /** 重新运行的instanceID */
   annotationJobRunID?: string;
   base?: base.Base;
 }
@@ -269,7 +269,7 @@ export interface SearchAnnotationJobsResponse {
 export interface TerminateAnnotationJobRequest {
   spaceID: string;
   datasetID: string;
-  /** JobID non-ID */
+  /** JobID非ID */
   jobID: string;
   jobRunID: string;
   jwtToken?: string;
@@ -284,7 +284,7 @@ export interface TerminateQualityScoreJobInstanceRequest {
   spaceID: string;
   datasetID: string;
   jobID: string;
-  /** Task instance id */
+  /** 任务实例id */
   instanceID: string;
   base?: base.Base;
 }

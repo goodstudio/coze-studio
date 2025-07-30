@@ -32,7 +32,7 @@ export interface AppendMemoryResponse {
 }
 
 export interface GetKVMemoryRequest {
-  /** query keyword list */
+  /** 查询关键字列表 */
   keywords?: Array<string>;
 }
 

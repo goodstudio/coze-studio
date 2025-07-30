@@ -22,20 +22,20 @@
 export type Int64 = string | number;
 
 export enum AuditStatus {
-  /** Under review. */
+  /** 审核中 */
   Processing = 0,
-  /** approved */
+  /** 审核通过 */
   Enable = 1,
-  /** The review failed. */
+  /** 审核不通过 */
   Disable = 2,
-  /** historical stock data */
+  /** 历史存量数据 */
   Default = 100,
 }
 
 export enum CaptionType {
-  /** intelligent annotation */
+  /** 智能标注 */
   Auto = 0,
-  /** manual annotation */
+  /** 人工标注 */
   Manual = 1,
 }
 
@@ -57,15 +57,15 @@ export enum DataSetStatus {
 }
 
 export enum DocumentSource {
-  /** local file upload */
+  /** 本地文件上传 */
   Document = 0,
   /** url */
   Web = 1,
-  /** custom type */
+  /** 自定义类型 */
   Custom = 2,
-  /** three parties */
+  /** 三方 */
   ThirdParty = 3,
-  /** front-end crawl */
+  /** 前端抓取 */
   FrontCrawl = 4,
   /** openapi */
   OpenApi = 5,
@@ -77,71 +77,71 @@ export enum DocumentSource {
 }
 
 export enum DocumentStatus {
-  /** Uploading */
+  /** 上传中 */
   Processing = 0,
-  /** take effect */
+  /** 生效 */
   Enable = 1,
-  /** failure */
+  /** 失效 */
   Disable = 2,
-  /** delete */
+  /** 删除 */
   Deleted = 3,
-  /** In rescaling, the front end and upstream do not perceive this state */
+  /** 重新分片中，前端和上游不感知该状态 */
   Resegment = 4,
-  /** Refreshing (will be deleted after successful refresh) */
+  /** 刷新中（刷新成功后会删除） */
   Refreshing = 5,
-  /** fail */
+  /** 失败 */
   Failed = 9,
-  /** moderation failed */
+  /** 机审失败 */
   AuditFailed = 1000,
 }
 
-/** Compatible with retention, use DocumentStatus instead */
+/** 兼容保留，使用 DocumentStatus 替代 */
 export enum DocumentType {
-  /** Uploading */
+  /** 上传中 */
   Processing = 0,
-  /** take effect */
+  /** 生效 */
   Enable = 1,
-  /** failure */
+  /** 失效 */
   Disable = 2,
-  /** delete */
+  /** 删除 */
   Deleted = 3,
-  /** fail */
+  /** 失败 */
   Failed = 9,
 }
 
-/** type */
+/** 类型 */
 export enum FormatType {
-  /** Text */
+  /** 文本 */
   Text = 0,
-  /** form */
+  /** 表格 */
   Table = 1,
-  /** picture */
+  /** 图片 */
   Image = 2,
-  /** database */
+  /** 数据库 */
   Database = 3,
-  /** Volcanic structure, unique to the volcanic knowledge base */
+  /** 火山结构化 火山知识库特有 */
   VolcanoStructured = 4,
-  /** Volcanoes are unstructured and unique to the Volcano Knowledge Base */
+  /** 火山非结构化 火山知识库特有 */
   VolcanoUnstructured = 5,
-  /** Volcano Database */
+  /** 火山数据库 */
   VolcanoDatabase = 6,
 }
 
 export enum FrequencyType {
-  /** Do not update */
+  /** 不更新 */
   None = 0,
-  /** Update every day */
+  /** 每天追加最新 */
   EveryDay = 1,
-  /** Update every three days */
+  /** 每三天追加最新 */
   EveryThreeDay = 2,
-  /** Updated every seven days */
+  /** 每七天追加最新 */
   EverySevenDay = 3,
 }
 
 export enum Operation {
   /** "=" */
   EQUAL = 1,
-  /** "< >" or "! =" */
+  /** "<>" 或 "!=" */
   NOT_EQUAL = 2,
   /** ">" */
   GREATER_THAN = 3,
@@ -157,40 +157,40 @@ export enum Operation {
   NOT_IN = 8,
 }
 
-/** sort field */
+/** 排序字段 */
 export enum OrderField {
   CreateTime = 1,
   UpdateTime = 2,
 }
 
-/** collation */
+/** 排序规则 */
 export enum OrderType {
   Desc = 1,
   Asc = 2,
 }
 
 export enum ParamSource {
-  /** default user input */
+  /** 默认用户输入 */
   Input = 0,
-  /** reference variable */
+  /** 引用变量 */
   Variable = 1,
 }
 
 export enum ParsingType {
-  /** fast parse */
+  /** 快速解析 */
   FastParsing = 0,
-  /** accurate analysis */
+  /** 精准解析 */
   AccurateParsing = 1,
 }
 
 export enum ReviewStatus {
-  /** Processing */
+  /** 处理中 */
   Processing = 0,
-  /** Completed. */
+  /** 已完成 */
   Enable = 1,
-  /** fail */
+  /** 失败 */
   Failed = 2,
-  /** fail */
+  /** 失败 */
   ForceStop = 3,
 }
 
@@ -213,7 +213,7 @@ export enum TabType {
   Boolean = 5,
 }
 
-/** update type */
+/** 更新类型 */
 export enum UpdateType {
   NoUpdate = 0,
   Cover = 1,
@@ -231,18 +231,18 @@ export enum VolcanoDatasetStatus {
 }
 
 export enum VolcanoDatasetType {
-  /** Standard Edition */
+  /** 标准版 */
   Standard = 1,
-  /** flagship version */
+  /** 旗舰版 */
   Ultimate = 2,
 }
 
 export enum WebStatus {
-  /** Processing */
+  /** 处理中 */
   Handling = 0,
-  /** Completed. */
+  /** 已完成 */
   Finish = 1,
-  /** fail */
+  /** 失败 */
   Failed = 2,
 }
 
@@ -251,35 +251,35 @@ export interface ChunkStrategy {
   max_tokens?: Int64;
   remove_extra_spaces?: boolean;
   remove_urls_emails?: boolean;
-  /** If 0, the configuration of the above fields is not used */
+  /** 如果为0, 则不使用以上字段的配置 */
   chunk_type?: ChunkType;
-  /** 1 link reader (cici long text) */
+  /** 1 链接阅读器 (cici 长文) */
   content_schema?: ContentSchema;
-  /** Image type, image description text annotation method */
+  /** 图片类型，图片描述文字的标注方式 */
   caption_type?: CaptionType;
-  /** segmented overlap */
+  /** 分段重叠度 */
   overlap?: Int64;
-  /** Maximum number of levels (effective when segmented by level) */
+  /** 最大层级数（按层级分段时生效） */
   max_level?: Int64;
-  /** Slice preserves level headers (effective when segmented by level) */
+  /** 切片保留层级标题（按层级分段时生效） */
   save_title?: boolean;
 }
 
 export interface FilterStrategy {
-  /** filter pages */
+  /** 过滤页数 */
   filter_page?: Array<number>;
-  /** Filter box position */
+  /** 过滤框位置 */
   filter_box_position?: Array<number>;
 }
 
 export interface IndexStrategy {
-  /** Whether to enable vector indexing (default is true) */
+  /** 是否开启向量索引（默认为true） */
   vector_indexing?: boolean;
-  /** Whether to enable keyword indexing (default is true) */
+  /** 是否开启关键词索引（默认为true） */
   keyword_indexing?: boolean;
-  /** Whether to enable hierarchical indexing */
+  /** 是否开启分层索引 */
   hierarchical_indexing?: boolean;
-  /** vector model */
+  /** 向量模型 */
   model?: string;
 }
 
@@ -293,18 +293,18 @@ export interface OpenSearchConfig {
 }
 
 export interface ParsingStrategy {
-  /** parse type */
+  /** 解析类型 */
   parsing_type?: ParsingType;
-  /** Whether to enable image element extraction (effective when accurately parsing) */
+  /** 是否开启图片元素提取（精准解析时生效） */
   image_extraction?: boolean;
-  /** Whether to enable table element extraction (effective when accurately parsing) */
+  /** 是否开启表格元素提取（精准解析时生效） */
   table_extraction?: boolean;
-  /** Whether to turn on picture OCR (effective when accurate analysis) */
+  /** 是否开启图片OCR（精准解析时生效） */
   image_ocr?: boolean;
 }
 
 export interface SinkStrategy {
-  /** Check whether the index was successful */
+  /** 是否检查索引成功 */
   check_index?: boolean;
 }
 
@@ -315,47 +315,47 @@ export interface StorageStrategy {
 
 export interface TabValue {
   type?: TabType;
-  /** local default */
+  /** 本地默认值 */
   local_input?: string;
-  /** Sources of imported parameters */
+  /** 入参的来源 */
   param_source?: ParamSource;
-  /** Reference variable key */
+  /** 引用variable的key */
   variable_ref?: string;
 }
 
 export interface VolcanoDataset {
-  /** Volcano side knowledge base id string */
+  /** 火山侧知识库id 字符串 */
   id?: string;
-  /** name */
+  /** 名称 */
   name?: string;
-  /** Type, structured or unstructured knowledge base */
+  /** 类型 结构化 or 非结构化知识库 */
   format_type?: FormatType;
-  /** Volcano Knowledge Base Details Link */
+  /** 火山知识库详情链接 */
   link?: string;
-  /** Volcano Knowledge Base status, whether it has expired */
+  /** 火山知识库状态 是否已失效 */
   status?: VolcanoDatasetStatus;
   desc?: string;
-  /** Volcano Knowledge Base Version */
+  /** 火山知识库版本 */
   version?: VolcanoDatasetType;
-  /** Label information (label signature and label information) */
+  /** 标签信息（标签名和标签信息） */
   tab_info?: Record<string, VolcanoDatasetTabInfo>;
 }
 
 export interface VolcanoDatasetProject {
-  /** Currently only the project name is required. */
+  /** 目前只需要项目名称 */
   name?: string;
-  /** Volcano Knowledge Base Space Jump Link */
+  /** 火山知识库空间跳转链接 */
   link?: string;
 }
 
 export interface VolcanoDatasetService {
-  /** Volcano side knowledge service id string */
+  /** 火山侧知识服务id 字符串 */
   id?: string;
-  /** name */
+  /** 名称 */
   name?: string;
-  /** Volcano Knowledge Service Link */
+  /** 火山知识服务链接 */
   link?: string;
-  /** Volcano Knowledge Base status, whether it has expired */
+  /** 火山知识库状态 是否已失效 */
   status?: VolcanoDatasetServiceStatus;
   desc?: string;
 }
@@ -363,7 +363,7 @@ export interface VolcanoDatasetService {
 export interface VolcanoDatasetTabInfo {
   name?: string;
   type?: TabType;
-  /** list of enumerated values */
+  /** 枚举值列表 */
   enumerated_val_list?: Array<string>;
 }
 /* eslint-enable */

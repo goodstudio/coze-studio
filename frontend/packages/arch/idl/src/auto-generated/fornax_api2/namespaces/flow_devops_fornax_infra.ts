@@ -29,9 +29,9 @@ export interface FileData {
 }
 
 export interface UploadLoopFileRequest {
-  /** file type */
+  /** 文件类型 */
   'Content-Type': string;
-  /** binary data */
+  /** 二进制数据 */
   body: Blob;
   Base?: base.Base;
 }

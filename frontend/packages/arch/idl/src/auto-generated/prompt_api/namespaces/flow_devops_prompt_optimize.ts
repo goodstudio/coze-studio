@@ -38,21 +38,21 @@ export interface CancelOptimizeExecutionResponse {
 }
 
 export interface CreateOptimizeTaskRequest {
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
-  /** Task name */
+  /** task名称 */
   display_name: string;
-  /** Task description */
+  /** task描述 */
   description?: string;
-  /** optimization object */
+  /** 优化对象 */
   target?: flow_devops_prompt_common.OptimizeTarget;
-  /** List visible */
+  /** 列表可见 */
   visible?: boolean;
   base?: base.Base;
 }
 
 export interface CreateOptimizeTaskResponse {
-  /** Successfully created returns PromptOpTask */
+  /** 创建成功返回PromptOpTask */
   task?: flow_devops_prompt_common.OptimizeTask;
   code?: number;
   msg?: string;
@@ -105,7 +105,7 @@ export interface GetOptimizeExecutionDashboardRequest {
 }
 
 export interface GetOptimizeExecutionDashboardResponse {
-  /** Contains 1 to 3 optimization results */
+  /** 包含1～3个优化结果 */
   result?: Array<flow_devops_prompt_common.OptimizeResult>;
   execution?: flow_devops_prompt_common.OptimizeExecution;
   code?: number;
@@ -134,7 +134,7 @@ export interface GetOptimizeTaskRequest {
 }
 
 export interface GetOptimizeTaskResponse {
-  /** Return to PromptOpTask */
+  /** 返回PromptOpTask */
   task?: flow_devops_prompt_common.OptimizeTask;
   code?: number;
   msg?: string;
@@ -161,15 +161,15 @@ export interface ListOptimizeTaskRequest {
   space_id?: Int64;
   page: number;
   page_size: number;
-  /** name */
+  /** 名称 */
   name?: string;
-  /** Target object ID */
+  /** target对象ID */
   target_id?: string;
-  /** Target object version */
+  /** target对象版本 */
   target_version?: string;
-  /** Target object type */
+  /** target对象类型 */
   target_type?: flow_devops_prompt_common.OptimizeTargetType;
-  /** creator ID */
+  /** 创建者ID */
   creator_id?: string;
   base?: base.Base;
 }
@@ -187,7 +187,7 @@ export interface UpdateOptimizeTaskRequest {
   space_id?: Int64;
   name?: string;
   desc?: string;
-  /** Optimization object, prompt only support modified version */
+  /** 优化对象, prompt仅支持修改version */
   target?: flow_devops_prompt_common.OptimizeTarget;
   base?: base.Base;
 }

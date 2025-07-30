@@ -21,7 +21,7 @@
 
 export type Int64 = string | number;
 
-/** Access to the general structure introduced by agw's public parameter (ClientIp), copy from  */
+/** 接入agw的公参（ClientIp）引入的通用结构体，copy from  */
 export interface UnifyArgs {
   platform_id?: number;
   is_ios?: boolean;
@@ -35,13 +35,13 @@ export interface UnifyArgs {
   region?: Int64;
   app_cn_name?: string;
   app_name?: string;
-  /** From "aid" or "app_id" in query */
+  /** 来自query里面的"aid"或者"app_id" */
   app_id?: number;
-  /** From the "install_id" in the cookie or the "iid" of the query */
+  /** 来自cookie里面的"install_id"或者query的"iid" */
   install_id?: Int64;
-  /** The "device_id" from the query, or from the device_info service based on install_id device_id */
+  /** 来自query的"device_id", 或者是根据install_id从device_info服务获取的device_id */
   device_id?: Int64;
-  /** The IP closest to the user, get the logical reference:  */
+  /** 最接近用户的ip, 获取逻辑参考:  */
   client_ip?: string;
 }
 /* eslint-enable */

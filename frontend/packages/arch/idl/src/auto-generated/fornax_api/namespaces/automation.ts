@@ -32,11 +32,11 @@ export enum ApplyStatus {
 
 export enum BuiltinSpanFilterType {
   Undefined = 0,
-  /** Root Node on Business Meaning (as distinct from Trace Root) */
+  /** 业务含义(区别于 Trace Root)上的根节点 */
   BizRootSpan = 1,
-  /** Model span */
+  /** 模型 span */
   LLMSpan = 2,
-  /** non-built-in filtering */
+  /** 非内置过滤 */
   CustomSpan = 3,
 }
 
@@ -55,7 +55,7 @@ export enum ExecutePeriodic {
   Sunday = 10,
 }
 
-/** Comparison operator */
+/** 比较算子 */
 export enum FilterCmpOp {
   Undefined = 0,
   /** greater than */
@@ -74,13 +74,13 @@ export enum FilterCmpOp {
   NEq = 8,
   Like = 9,
   NotLike = 10,
-  /** Have the tag */
+  /** 有该 tag */
   Exists = 11,
-  /** No tag */
+  /** 没有该 tag */
   NotExists = 12,
 }
 
-/** logical operator */
+/** 逻辑算子 */
 export enum FilterLogicOp {
   Undefined = 0,
   Nop = 1,
@@ -121,14 +121,14 @@ export enum TaskStatusType {
 /** Task */
 export enum TaskType {
   Undefined = 0,
-  /** Span import dataset */
+  /** Span 导入数据集 */
   SpanToDataset = 1,
-  /** Online Review Span */
+  /** 在线评测 Span */
   SpanEval = 2,
-  /** Batch execution automation use cases */
+  /** 批量执行自动化用例 */
   BatchExecAutoUseCase = 3,
-  /** Deprecated: Use SpanToDataset uniformly
-Data reflow for model fine-tuning */
+  /** Deprecated: 统一使用 SpanToDataset
+数据回流用于模型精调 */
   SpanToDatasetForModelSFT = 4,
 }
 
@@ -143,46 +143,46 @@ export enum ValueKind {
 export interface ApplyTicket {
   id?: string;
   url?: string;
-  /** ticket status */
+  /** 工单状态 */
   status?: ApplyStatus;
-  /** approval node */
+  /** 审批节点 */
   node?: string;
-  /** Effective time */
+  /** 生效时间 */
   validateAt?: string;
-  /** failure time */
+  /** 失效时间 */
   invalidateAt?: string;
 }
 
 export interface BackfillStat {
-  /** Number of spans retrieved from observations */
+  /** 已从观测检索到 span 数量 */
   retrievedSpanCount?: string;
-  /** Number of spans written to dataset */
+  /** 已写入到数据集中 span 数量 */
   backfilledSpanCount?: string;
-  /** backfill status */
+  /** 回填状态 */
   backfillStatus?: TaskStatusType;
 }
 
 export interface BatchExecAutoUseCaseStat {
   common?: StatusDetailCommon;
-  /** Implementation of each use case */
+  /** 各用例执行情况 */
   evalCaseRun?: Array<EvalCaseRun>;
 }
 
 export interface ColumnInfo {
-  /** Dataset column name */
+  /** 数据集列名 */
   name: string;
-  /** comment */
+  /** 注释 */
   desc?: string;
 }
 
 /** ProcessorConfig */
 export interface DatasetConfig {
-  /** 0 indicates a new dataset */
+  /** 为0时表示新建数据集 */
   datasetID: string;
   datasetName?: string;
-  /** By default, the input & output tag of the span is written to the column of the same name in the dataset, and the backflow of other columns is defined through extraColumns */
+  /** 默认将 span 的 input&output tag 写入 dataset 同名列中, 通过 extraColumns 定义其他列的回流 */
   extraColumns?: Array<Span2ColumnConfig>;
-  /** omitDefaultColumns=true, do not write the default input and output columns */
+  /** omitDefaultColumns=true 时，不写入默认的 input、output 列 */
   omitDefaultColumns?: boolean;
   datasetDesc?: string;
 }
@@ -199,13 +199,13 @@ export interface EffectiveTime {
   startAt?: string;
   /** unix timestamp */
   endAt?: string;
-  /** Effective date, subject to the effective time */
+  /** 生效日，以开始生效时间为准 */
   effectiveDays?: ExecutePeriodic;
-  /** Effective time - start, HH: mm: SS */
+  /** 生效时间-开始， HH:mm:SS */
   effectivePeriodStart?: string;
-  /** Effective time - end, HH: mm: SS */
+  /** 生效时间-结束， HH:mm:SS */
   effectivePeriodEnd?: string;
-  /** Effective time - time zone, ± HH: MM. */
+  /** 生效时间-所在时区，±HH:MM。 */
   effectivePeriodTimeZone?: string;
 }
 
@@ -215,9 +215,9 @@ export interface EvalCase {
 }
 
 export interface EvalCaseRun {
-  /** Use Case ID */
+  /** 用例 ID */
   caseID?: string;
-  /** evaluation task ID */
+  /** 评测任务 ID */
   taskID?: string;
   caseName?: string;
   status?: flow_devops_evaluation_task.TaskStatus;
@@ -234,82 +234,82 @@ export interface EvalRuleConfig {
 
 /** Rule */
 export interface Rule {
-  /** Task Object Type */
+  /** 任务对象类型 */
   objectType?: ObjectType;
-  /** Task object unique key, corresponding to cozeBot and fornax psm appUID */
+  /** 任务对象唯一键，对应 cozeBot 和 fornax psm 的 appUID */
   objectUID?: string;
   objectName?: string;
-  /** Specify additional information about the task object by filtering. Such as env + cluster for fornax psm */
+  /** 通过 filter 指定任务对象的其他信息。如 fornax psm 的 env+cluster */
   objectFilter?: SpanFilter;
-  /** sampling configuration */
+  /** 采样配置 */
   sampler?: Sampler;
-  /** filter criteria */
+  /** 筛选条件 */
   spanFilter?: SpanFilter;
-  /** Deprecated, typo, replace with triggerTime (13) field */
+  /** Deprecated, typo, 换用 triggerTime(13) 字段 */
   tiggerTime?: TriggerTime;
-  /** effective time window */
+  /** 生效时间窗口 */
   effectiveTime?: EffectiveTime;
-  /** The id of the task object on the fornax platform */
+  /** 任务对象在 fornax 平台上的 id */
   objectID?: Int64;
-  /** Built-in filters, including complex filtering logic defined at the server level. For filtering the "Data Type" field of the page */
+  /** 内置过滤器, 包含服务端定义的复杂过滤逻辑. 用于页面的"数据类型"字段过滤 */
   builtinFilter?: BuiltinSpanFilterType;
-  /** reflow historical data */
+  /** 回流历史数据 */
   effectiveTimeFromPast?: EffectiveTime;
-  /** Timed trigger timeliness configuration */
+  /** 定时触发时效配置 */
   triggerTime?: TriggerTime;
   /** Processor Config
-dataset */
+数据集 */
   dataset?: DatasetConfig;
-  /** Online evaluation rules */
+  /** 在线评测规则 */
   evalRule?: EvalRuleConfig;
-  /** Batch evaluation use cases */
+  /** 批量评测用例 */
   evalCases?: EvalCasesConfig;
-  /** Deprecated data reflow for model fine tuning */
+  /** Deprecated 数据回流用于模型精调 */
   datasetForModelSFT?: DatasetForModelSFTConfig;
 }
 
 /** Sampler */
 export interface Sampler {
-  /** sample rate */
+  /** 采样率 */
   sampleRate?: number;
-  /** upper limit of sampling */
+  /** 采样上限 */
   sampleSize?: string;
 }
 
 export interface Span2ColumnConfig {
   sourceType: Span2ColumnSourceType;
-  /** Depending on the sourceType, its value is the span attribute, the key of the prompt variable, etc */
+  /** 根据 sourceType 不同, 其值为 span 属性, prompt 变量的 key 等 */
   sourceField: string;
-  /** Specify the JSON extraction path for sourceField */
+  /** 指定 sourceField 的 JSON 提取路径 */
   sourceFieldJSONPath?: string;
-  /** Dataset column name */
+  /** dataset column 名 */
   datasetColumn: string;
 }
 
 export interface SpanEvalStat {
   common?: StatusDetailCommon;
-  /** evaluation rule ID */
+  /** 评测规则 ID */
   ruleID?: string;
-  /** evaluation task ID */
+  /** 评测任务 ID */
   taskID?: string;
   caseID?: Int64;
-  /** Number of spans matching the filter */
+  /** 符合 filter 的 span 条数 */
   matchedSpan?: string;
-  /** Number of spans hit by sampler */
+  /** 采样器命中的 span 条数 */
   sampledSpan?: string;
   firstWrittenAt?: string;
   lastWrittenAt?: string;
-  /** Waiting for review */
+  /** 等待评测 */
   queuing?: string;
-  /** Under evaluation */
+  /** 评测中 */
   evaluating?: string;
-  /** Evaluation completed */
+  /** 评测完成 */
   evaluated?: string;
-  /** review failed */
+  /** 评测失败 */
   evaluateFailed?: string;
 }
 
-/** Span filter */
+/** Span 过滤器 */
 export interface SpanFilter {
   op: FilterLogicOp;
   tagFilters?: Array<TagFilter>;
@@ -318,100 +318,100 @@ export interface SpanFilter {
 
 export interface SpanToDatasetStat {
   common?: StatusDetailCommon;
-  /** Dataset ID */
+  /** 数据集 ID */
   datasetID?: string;
-  /** Number of spans matching the filter */
+  /** 符合 filter 的 span 条数 */
   matchedSpan?: string;
-  /** Number of spans hit by sampler */
+  /** 采样器命中的 span 条数 */
   sampledSpan?: string;
-  /** upper limit of sampling */
+  /** 采样上限 */
   sampleLimit?: string;
-  /** first write time */
+  /** 首条写入时间 */
   firstWrittenAt?: string;
-  /** last write time */
+  /** 最近写入时间 */
   lastWrittenAt?: string;
-  /** Number of spans written to the dataset */
+  /** 写入数据集的 span 条数 */
   writtenSpan?: string;
-  /** The dataset is full */
+  /** 数据集已写满 */
   hitsDatasetLimit?: boolean;
 }
 
 /** Task Status Detail */
 export interface StatusDetailCommon {
-  /** Reason for termination of task */
+  /** task 终止执行的原因 */
   pauseReason?: string;
 }
 
-/** field filter */
+/** 字段过滤器 */
 export interface TagFilter {
   tag: string;
   op: FilterCmpOp;
   valueKind: ValueKind;
-  /** JSON-encoded values of the same type as valueKind. When op is a set-dependent operator value such as In, NotIn, etc., the type is an array corresponding to valueKind. */
+  /** JSON 编码的值，类型与 valueKind 一致。 当 op 为 In, NotIn 等集合相关算子值时，类型为 valueKind 对应的数组。 */
   value?: string;
 }
 
-/** Field filter options */
+/** 字段过滤器选项 */
 export interface TagFilterOption {
   tag?: string;
   description?: string;
   isRequired?: boolean;
   type?: ValueKind;
-  /** Permissible comparison operations */
+  /** 允许的比较运算 */
   operators?: Array<FilterCmpOp>;
-  /** list of options */
+  /** 选项列表 */
   options?: Array<string>;
-  /** Whether to allow custom options */
+  /** 是否允许自定义选项 */
   allowCustomOption?: boolean;
-  /** Default unit */
+  /** 默认单位 */
   defaultUnit?: string;
 }
 
 /** Task */
 export interface Task {
-  /** Task ID */
+  /** 任务 id */
   id?: string;
-  /** name */
+  /** 名称 */
   name?: string;
-  /** Location */
+  /** 所在空间 */
   spaceID?: string;
-  /** type */
+  /** 类型 */
   type?: TaskType;
-  /** state */
+  /** 状态 */
   status?: TaskStatusType;
-  /** describe */
+  /** 描述 */
   description?: string;
   rule?: Rule;
-  /** Can it be deleted */
+  /** 是否可删除 */
   deletable?: boolean;
-  /** Is it editable? */
+  /** 是否可编辑 */
   editable?: boolean;
-  /** Classification */
+  /** 密级 */
   securityLevel?: SecurityLevel;
-  /** Approval ticket information */
+  /** 审批工单信息 */
   ticket?: ApplyTicket;
   /** Status detail
-Dataset import status details */
+数据集导入状态详情 */
   spanToDatatasetStat?: SpanToDatasetStat;
-  /** Online review status details */
+  /** 在线评测状态详情 */
   spanEvalStat?: SpanEvalStat;
-  /** Batch Review Status Details */
+  /** 批量评测状态详情 */
   batchExecAutoUseCaseStat?: BatchExecAutoUseCaseStat;
-  /** Backfill historical data details */
+  /** 回填历史数据详情 */
   backfillStat?: BackfillStat;
-  /** creator */
+  /** 创建者 */
   createdBy?: string;
-  /** Updater */
+  /** 更新者 */
   updatedBy?: string;
-  /** creation time */
+  /** 创建时间 */
   createdAt?: string;
-  /** update time */
+  /** 更新时间 */
   updatedAt?: string;
 }
 
 export interface TriggerTime {
   execAt?: string;
-  /** repeat by day */
+  /** 按天重复 */
   repeatDays?: ExecutePeriodic;
 }
 /* eslint-enable */

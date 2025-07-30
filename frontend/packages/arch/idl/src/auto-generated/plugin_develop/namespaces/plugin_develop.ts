@@ -26,13 +26,13 @@ import * as card from './card';
 export type Int64 = string | number;
 
 export enum ConnectStatus {
-  /** Unconnected/Disconnected */
+  /** 未连接/断开链接 */
   Disconnected = 0,
-  /** Connecting (requires user volcano to accept connection) */
+  /** 正在连接（需要用户火山接受连接） */
   Connecting = 1,
-  /** Connected */
+  /** 已连接 */
   Connected = 2,
-  /** User refuses to connect/connection fails */
+  /** 用户拒绝连接/连接失败 */
   ConnectFailed = 3,
 }
 
@@ -44,21 +44,21 @@ export enum OAuthPluginSource {
 }
 
 export enum OperateLinkType {
-  /** Delete connection */
+  /** 删除连接 */
   Delete = 1,
 }
 
 export interface BatchCreateAPIRequest {
   plugin_id?: string;
   ai_plugin?: string;
-  /** Tools information exists here, in OpenAPI yaml format */
+  /** tools信息存在这里，OpenAPI yaml格式 */
   openapi?: string;
   space_id?: string;
   dev_id?: string;
-  /** False: only create non-repeating paths
-True: replace only existing paths */
+  /** false: 只创建不重复的 path
+true : 只替换已存在的 path */
   replace_same_paths?: boolean;
-  /** List of paths to replace */
+  /** 要替换的path列表 */
   paths_to_replace?: Array<plugin_develop_common.PluginAPIInfo>;
   edit_version?: number;
   Base?: base.Base;
@@ -67,14 +67,14 @@ True: replace only existing paths */
 export interface BatchCreateAPIResponse {
   code?: Int64;
   msg?: string;
-  /** PathsToReplace represents the tools to override,
-If BaseResp. StatusCode = DuplicateAPIPath, then PathsToReplace is not empty */
+  /** PathsToReplace表示要覆盖的tools，
+如果BaseResp.StatusCode = DuplicateAPIPath，那么PathsToReplace不为空 */
   paths_duplicated?: Array<plugin_develop_common.PluginAPIInfo>;
   paths_created?: Array<plugin_develop_common.PluginAPIInfo>;
   edit_version?: number;
   /** BaseResp.StatusCode
-DuplicateAPIPath: There is a duplicate API Path with request. ReplaceDupPath = false
-InvalidParam: Other errors */
+DuplicateAPIPath: 有重复的API Path，且 request.ReplaceDupPath = false
+InvalidParam: 其他错误 */
   BaseResp: base.BaseResp;
 }
 
@@ -101,7 +101,7 @@ export interface BindCardRequest {
   biz_type?: plugin_develop_common.CardBusinessType;
   business_id?: string;
   unique_id?: string;
-  /** Is the preset card selected? */
+  /** 是否选择了预置卡片 */
   plugin_preset_card_selected?: boolean;
   Base?: base.Base;
 }
@@ -121,7 +121,7 @@ export interface BindPluginPresetCardRequest {
   max_display_rows?: Int64;
   card_version_num?: string;
   llm_text_card?: boolean;
-  /** Edit state version, for plugin preset cards */
+  /** 编辑态版本, for 插件预置卡片 */
   edit_version?: number;
   Base?: base.Base;
 }
@@ -165,19 +165,19 @@ export interface CheckAndLockPluginEditResponse {
 export interface ConfigPluginAsyncRequest {
   /** bot id */
   bot_id: string;
-  /** Channel id, currently only coze channels are supported, which is "10000010". */
+  /** 渠道id，当前只支持coze渠道，为"10000010" */
   connector_id: string;
-  /** Plugin id, or workflow id if workflow. */
+  /** 插件id，如果为workflow则为workflow id */
   plugin_id: string;
-  /** Switch status, whether to turn on the asynchronous switch */
+  /** 开关状态 是否打开异步开关 */
   switch_status: boolean;
-  /** Prompt message when the asynchronous plug-in is running, maximum 1000 characters */
+  /** 异步插件运行时的提示信息，最大1000个字符 */
   message?: string;
-  /** Plugin tool name */
+  /** 插件tool名称 */
   api_name?: string;
-  /** Whether to manually configure, add and remove plugins for the user pass false */
+  /** 是否为用户手动配置，添加和移除插件传入false */
   by_user: boolean;
-  /** Current user's team id */
+  /** 当前用户所在team id */
   space_id: string;
   Base?: base.Base;
 }
@@ -204,13 +204,13 @@ export interface Convert2OpenAPIResponse {
   plugin_data_format?: plugin_develop_common.PluginDataFormat;
   duplicate_api_infos?: Array<plugin_develop_common.DuplicateAPIInfo>;
   /** BaseResp.StatusCode
-DuplicateAPIPath: Duplicate API Path in imported file with request. MergeSamePaths = false
-InvalidParam: Other errors */
+DuplicateAPIPath: 导入的文件中有重复的API Path，且 request.MergeSamePaths = false
+InvalidParam: 其他错误 */
   BaseResp?: base.BaseResp;
 }
 
 export interface CreateAPIRequest {
-  /** Use this interface the first time you call save and continue */
+  /** 第一次调用保存并继续的时候使用这个接口 */
   plugin_id: string;
   name: string;
   desc: string;
@@ -220,7 +220,7 @@ export interface CreateAPIRequest {
   request_params?: Array<plugin_develop_common.APIParameter>;
   response_params?: Array<plugin_develop_common.APIParameter>;
   disabled?: boolean;
-  /** edit version */
+  /** 编辑态版本 */
   edit_version?: number;
   function_name?: string;
   Base?: base.Base;
@@ -277,7 +277,7 @@ export interface DebugAPIResponse {
   code?: Int64;
   msg?: string;
   response_params?: Array<plugin_develop_common.APIParameter>;
-  /** This field is returned when parsing */
+  /** parse时会返回这个字段 */
   success?: boolean;
   resp?: string;
   reason?: string;
@@ -305,8 +305,8 @@ export interface DeleteBotDefaultParamsRequest {
   dev_id?: string;
   plugin_id?: string;
   api_name?: string;
-  /** Bot removal tool when: DeleteBot = false, APIName to set
-Delete bot: DeleteBot = true, APIName is empty */
+  /** bot删除工具时: DeleteBot = false , APIName要设置
+删除bot时   : DeleteBot = true  , APIName为空 */
   delete_bot?: boolean;
   space_id?: string;
   plugin_referrer_id?: string;
@@ -346,15 +346,15 @@ export interface GetAgentTaskExecListRequest {
   bot_id: string;
   /** team id */
   space_id: string;
-  /** Task ID */
+  /** 任务id */
   trigger_id: string;
-  /** Channels, if you don't fill in, it means all channels. */
+  /** 渠道 ，不填写则为全部渠道 */
   connector_ids?: Array<string>;
-  /** Trigger user id */
+  /** 触发器用户id */
   trigger_user_id?: string;
-  /** Page number, starting from 1, if not filled in, the default is 1. */
+  /** 页码，从1开始，不填默认为1 */
   page?: number;
-  /** Page size, do not fill in the default 20 */
+  /** 分页大小，不填默认20 */
   size?: number;
   Base?: base.Base;
 }
@@ -362,13 +362,13 @@ export interface GetAgentTaskExecListRequest {
 export interface GetAgentTaskExecListResponse {
   code?: number;
   msg?: string;
-  /** Trigger list */
+  /** 触发器列表 */
   task_exec_list?: Array<plugin_develop_common.AgentTaskExecInfo>;
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** paging size */
+  /** 分页大小 */
   size?: number;
-  /** total number of articles */
+  /** 总条数 */
   total?: number;
   BaseResp?: base.BaseResp;
 }
@@ -378,21 +378,21 @@ export interface GetAgentTaskListRequest {
   bot_id: string;
   /** team id */
   space_id: string;
-  /** Trigger event type, not filled to represent all types */
+  /** 触发器事件类型，不填代表全部类型 */
   trigger_event_type?: plugin_develop_common.TriggerEventType;
-  /** Channels, if you don't fill in, it means all channels. */
+  /** 渠道，不填写则为全部渠道 */
   connector_id?: string;
-  /** Task type, if not filled in, all types */
+  /** 任务类型，不填写则为全部类型 */
   trigger_type?: plugin_develop_common.TriggerTaskType;
-  /** Trigger name, if not filled in, it will not be filtered by name */
+  /** 触发器名称，不填写则为不按照名称筛选 */
   trigger_name?: string;
-  /** Trigger ID */
+  /** 触发器id */
   trigger_id?: string;
-  /** User trigger user id */
+  /** 用户触发器用户id */
   trigger_user_id?: string;
-  /** Page number, starting from 1, if not filled in, the default is 1. */
+  /** 页码，从1开始，不填默认为1 */
   page?: number;
-  /** Page size, do not fill in the default 20 */
+  /** 分页大小，不填默认20 */
   size?: number;
   Base?: base.Base;
 }
@@ -400,13 +400,13 @@ export interface GetAgentTaskListRequest {
 export interface GetAgentTaskListResponse {
   code?: number;
   msg?: string;
-  /** Trigger list */
+  /** 触发器列表 */
   task_list?: Array<plugin_develop_common.AgentTaskInfo>;
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** paging size */
+  /** 分页大小 */
   size?: number;
-  /** total number of articles */
+  /** 总条数 */
   total?: number;
   BaseResp?: base.BaseResp;
 }
@@ -421,20 +421,20 @@ export interface GetAPIRespStructRequest {
 export interface GetAsyncPluginConfigRequest {
   /** bot id */
   bot_id: string;
-  /** Channel id, currently only coze channels are supported, which is "10000010". */
+  /** 渠道id，当前只支持coze渠道，为"10000010" */
   connector_id: string;
-  /** Plugin id, or workflow id if workflow. */
+  /** 插件id，如果为workflow则为workflow id */
   plugin_id?: string;
-  /** Plugin tool name */
+  /** 插件tool名称 */
   api_name?: string;
-  /** Current user's team id */
+  /** 当前用户所在team id */
   space_id: string;
   Base?: base.Base;
 }
 
 export interface GetAsyncPluginConfigResponse {
   data?: plugin_develop_common.AsyncConfig;
-  /** Total number of asynchronous plug-ins configured by bot */
+  /** bot配置的异步插件总数量 */
   async_config_count?: number;
   BaseResp?: base.BaseResp;
 }
@@ -498,7 +498,7 @@ export interface GetCardBindResponse {
   card_version_num?: string;
   category?: plugin_develop_common.CardCategory;
   llm_text_card?: boolean;
-  /** Is the plug-in preset card selected? */
+  /** 是否选中了插件预置卡片 */
   plugin_preset_card_selected?: boolean;
   BaseResp?: base.BaseResp;
 }
@@ -527,14 +527,14 @@ export interface GetDevPluginListRequest {
   space_id?: string;
   scope_type?: plugin_develop_common.ScopeType;
   order_by?: plugin_develop_common.OrderBy;
-  /** Release status filter: true: published, false: not published */
+  /** 发布状态筛选：true:已发布, false:未发布 */
   publish_status?: boolean;
-  /** Plugin name or tool name */
+  /** 插件名或工具名 */
   name?: string;
-  /** Plugin Type Filter, End/Cloud */
+  /** 插件种类筛选 端/云 */
   plugin_type_for_filter?: plugin_develop_common.PluginTypeForFilter;
   project_id?: string;
-  /** plugin id list */
+  /** 插件id列表 */
   plugin_ids?: Array<string>;
   Base?: base.Base;
 }
@@ -552,16 +552,16 @@ export interface GetNL2APPConfigRequest {
 }
 
 export interface GetNL2APPConfigResponse {
-  /** JSON format */
+  /** json格式 */
   config?: string;
   BaseResp?: base.BaseResp;
 }
 
 export interface GetOAuthPluginListRequest {
   entity_id: string;
-  /** 'Authorization context, 0-bot, 1-project, 2-workflow' */
+  /** '授权上下文, 0-bot, 1-project,2-workflow' */
   context_type?: number;
-  /** The version of the authorized entity, depending on context_type, may be bot_version, project_version, workflow_version */
+  /** 授权实体的版本，根据context_type，可能是 bot_version、project_version、workflow_version */
   entity_version?: string;
   Base?: base.Base;
 }
@@ -580,55 +580,55 @@ export interface GetOAuthSchemaResponse {
   msg?: string;
   oauth_schema?: string;
   ide_conf?: string;
-  /** The agreed json */
+  /** 约定的json */
   BaseResp?: base.BaseResp;
 }
 
 export interface GetOAuthStatusRequest {
   plugin_id: string;
-  /** 'Authorization context, 0-bot, 1-project, 2-workflow' */
+  /** '授权上下文, 0-bot, 1-project,2-workflow' */
   context_type?: number;
   /** bot_id, project_id or workflow_id */
   entity_id?: string;
-  /** 'Authorization type, 0-separate authorization, 1-shared authorization ' */
+  /** '授权类型，0-单独授权，1-共享授权' */
   auth_mode?: number;
-  /** Whether it is a draft version, only the sharing license will have a draft version. */
+  /** 是否草稿版本，仅共享授权会有草稿版本 */
   is_draft?: boolean;
-  /** Whether to force access to authorized client_url, currently only sharing authorization scenarios need to be set to true */
+  /** 是否强制获取授权使用的 client_url，目前仅共享授权场景需要设置为true */
   force_get_client_url?: boolean;
   Base?: base.Base;
 }
 
 export interface GetOAuthStatusResponse {
-  /** Is it an authorized plugin? */
+  /** 是否为授权插件 */
   is_oauth?: boolean;
-  /** user authorization status */
+  /** 用户授权状态 */
   status?: plugin_develop_common.OAuthStatus;
-  /** Unauthorized, return the authorized url. */
+  /** 未授权，返回授权url */
   content?: string;
   BaseResp: base.BaseResp;
 }
 
 export interface GetPlaygroundPluginListRequest {
-  /** page number */
+  /** 页码 */
   page?: number;
-  /** page size */
+  /** 每页大小 */
   size?: number;
-  /** Search by API name */
+  /** 按照api名称搜索 */
   name?: string;
   /** team id */
   space_id?: string;
-  /** plugin id list */
+  /** 插件id列表 */
   plugin_ids?: Array<string>;
-  /** plugin type filter */
+  /** 插件类型筛选 */
   plugin_types?: Array<number>;
-  /** Plugin channels, get all channels by default */
+  /** 插件渠道 默认获取全部渠道 */
   channel_id?: number;
-  /** Is it a plug-in created by yourself? */
+  /** 是否是自己创建的插件 */
   self_created?: boolean;
-  /** sort */
+  /** 排序 */
   order_by?: number;
-  /** Whether to get the plugin and temporary field removed from the channel and use it for the wk reference page */
+  /** 是否获取在渠道下架的插件 临时字段，给wk引用页使用 */
   is_get_offline?: boolean;
   /** referer */
   Referer?: string;
@@ -664,19 +664,19 @@ export interface GetPluginAPIsResponse {
 export interface GetPluginAsyncTaskListRequest {
   /** bot id */
   bot_id: string;
-  /** Channel id, currently only coze channels are supported, which is "10000010". */
+  /** 渠道id，当前只支持coze渠道，为"10000010" */
   connector_id: string;
-  /** Current page, starting from 1 */
+  /** 当前页 从1开始 */
   page: number;
-  /** page number */
+  /** 页码 */
   size: number;
-  /** Current user's team id */
+  /** 当前用户所在team id */
   space_id: string;
   Base?: base.Base;
 }
 
 export interface GetPluginAsyncTaskListResponse {
-  /** task list */
+  /** 任务列表 */
   tasks?: Array<plugin_develop_common.AsyncPluginTask>;
   page?: number;
   size?: number;
@@ -721,13 +721,13 @@ export interface GetPluginExportIPConfigRequest {
 }
 
 export interface GetPluginExportIPConfigResponse {
-  /** Does the space support configuration? */
+  /** 该space是否支持配置 */
   is_support?: boolean;
   BaseResp?: base.BaseResp;
 }
 
 export interface GetPluginInfoRequest {
-  /** Currently only plugins are supported OpenAPI plugin information */
+  /** 目前只支持插件openapi插件的信息 */
   plugin_id: string;
   preview_version_ts?: string;
   Base?: base.Base;
@@ -739,23 +739,23 @@ export interface GetPluginInfoResponse {
   meta_info?: plugin_develop_common.PluginMetaInfo;
   code_info?: plugin_develop_common.CodeInfo;
   status?: boolean;
-  /** 0 No updates 1 Yes updates Not released */
+  /** 0 无更新 1 有更新未发布 */
   published?: boolean;
-  /** Has it been published? */
+  /** 是否已发布 */
   creator?: plugin_develop_common.Creator;
-  /** creator information */
+  /** 创建人信息 */
   statistic_data?: plugin_develop_common.PluginStatisticData;
   plugin_product_status?: plugin_develop_common.ProductStatus;
-  /** Privacy Statement Status */
+  /** 隐私声明状态 */
   privacy_status?: boolean;
-  /** Privacy Statement Content */
+  /** 隐私声明内容 */
   privacy_info?: string;
   creation_method?: plugin_develop_common.CreationMethod;
   ide_code_runtime?: string;
-  /** edit version */
+  /** 编辑态版本 */
   edit_version?: number;
   plugin_type?: plugin_develop_common.PluginType;
-  /** Product status of the plugin */
+  /** plugin的商品状态 */
   BaseResp?: base.BaseResp;
 }
 
@@ -766,9 +766,9 @@ export interface GetPluginListRequest {
   space_id?: string;
   scope_type?: plugin_develop_common.ScopeType;
   order_by?: plugin_develop_common.OrderBy;
-  /** Release status filter: true: published, false: not published */
+  /** 发布状态筛选：true:已发布, false:未发布 */
   publish_status?: boolean;
-  /** Plugin name or tool name */
+  /** 插件名或工具名 */
   name?: string;
   plugin_type_for_filter?: plugin_develop_common.PluginTypeForFilter;
   Base?: base.Base;
@@ -822,9 +822,9 @@ export interface GetPluginPresetCardRequest {
 export interface GetPluginPresetCardResponse {
   code?: Int64;
   msg?: string;
-  /** The information of the plug-in preset binding card */
+  /** 插件预置绑定卡片的信息 */
   card_bind_info?: plugin_develop_common.CardBindInfo;
-  /** The information on the card itself */
+  /** 卡片本身的信息 */
   card_info?: plugin_develop_common.CozeCardInfo;
   card_meta_info?: Array<card.CardMetaInfo>;
   BaseResp?: base.BaseResp;
@@ -844,9 +844,9 @@ export interface GetPluginPricingRulesByWorkflowIDResponse {
 export interface GetPluginPublishHistoryRequest {
   plugin_id: string;
   space_id: string;
-  /** Turn the page, what page? */
+  /** 翻页，第几页 */
   page?: number;
-  /** Flip pages, a few entries per page */
+  /** 翻页，每页几条 */
   size?: number;
   Base?: base.Base;
 }
@@ -854,9 +854,9 @@ export interface GetPluginPublishHistoryRequest {
 export interface GetPluginPublishHistoryResponse {
   code?: Int64;
   msg?: string;
-  /** reverse time */
+  /** 时间倒序 */
   plugin_publish_info_list?: Array<plugin_develop_common.PluginPublishInfo>;
-  /** How many in total, greater than page x size description and next page */
+  /** 总共多少条，大于 page x size 说明还有下一页 */
   total?: number;
   BaseResp?: base.BaseResp;
 }
@@ -932,18 +932,18 @@ export interface GetUserAuthorityResponse {
 }
 
 export interface GetWorkflowMessageNodesRequest {
-  /** Space ID */
+  /** 空间id */
   space_id?: string;
   plugin_id?: string;
   Base?: base.Base;
 }
 
 export interface GetWorkflowMessageNodesResponse {
-  /** return code */
+  /** 返回码 */
   code?: Int64;
-  /** Return information */
+  /** 返回信息 */
   msg?: string;
-  /** result */
+  /** 结果 */
   data?: plugin_develop_common.GetWorkflowMessageNodesData;
   BaseResp?: base.BaseResp;
 }
@@ -961,11 +961,11 @@ export interface NoUpdatedPromptResponse {
 
 export interface OAuthPluginInfo {
   plugin_id?: string;
-  /** user authorization status */
+  /** 用户授权状态 */
   status?: plugin_develop_common.OAuthStatus;
-  /** Plugin name */
+  /** 插件name */
   name?: string;
-  /** plugin avatar */
+  /** 插件头像 */
   plugin_icon?: string;
   /** workflow, or bot */
   source_type?: Array<OAuthPluginSource>;
@@ -973,7 +973,7 @@ export interface OAuthPluginInfo {
 
 export interface OperatePrivateLinkRequest {
   private_link_id?: string;
-  /** operation type */
+  /** 操作类型 */
   operate_type?: OperateLinkType;
   Base?: base.Base;
 }
@@ -994,9 +994,9 @@ export interface OptimizeParamPromptRequest {
 }
 
 export interface OptimizeParamPromptResponse {
-  /** Optimized parameter Desc field */
+  /** 优化了参数 Desc 字段 */
   request_params?: Array<plugin_develop_common.APIParameter>;
-  /** Optimized parameter Desc field */
+  /** 优化了参数 Desc 字段 */
   response_params?: Array<plugin_develop_common.APIParameter>;
   BaseResp?: base.BaseResp;
 }
@@ -1009,7 +1009,7 @@ export interface OptimizeToolPromptRequest {
 }
 
 export interface OptimizeToolPromptResponse {
-  /** Optimized description */
+  /** 优化后的描述 */
   api_desc?: string;
   BaseResp?: base.BaseResp;
 }
@@ -1032,18 +1032,18 @@ export interface PluginAPI2CodeResponse {
 }
 
 export interface PrivateLink {
-  /** Required when updating */
+  /** 更新时必传 */
   id?: string;
-  /** Name, only name updates are allowed */
+  /** 名称，只允许更新名称 */
   name?: string;
-  /** End point node service id */
+  /** 终端节点服务id */
   endpoint_service_id?: string;
-  /** End point service domain */
+  /** 终端节点服务域名 */
   domain?: string;
-  /** Private plugin access URL */
+  /** 私网插件访问URL */
   plugin_access_url?: string;
   enterprise_id?: string;
-  /** state */
+  /** 状态 */
   status?: ConnectStatus;
 }
 
@@ -1052,7 +1052,7 @@ export interface PrivateLinkListData {
 }
 
 export interface PrivateLinkListRequest {
-  /** Enterprise ID */
+  /** 企业ID */
   enterprise_id?: string;
   Base?: base.Base;
 }
@@ -1066,9 +1066,9 @@ export interface PrivateLinkListResponse {
 
 export interface PublishPluginRequest {
   plugin_id: string;
-  /** Privacy Statement Status */
+  /** 隐私声明状态 */
   privacy_status?: boolean;
-  /** Privacy Statement Content */
+  /** 隐私声明内容 */
   privacy_info?: string;
   version_name?: string;
   version_desc?: string;
@@ -1118,7 +1118,7 @@ export interface QuickBindPluginPresetCardRequest {
   api_name?: string;
   bot_id?: string;
   agent_id?: string;
-  /** The ID of the currently selected team */
+  /** 当前选择的team的ID */
   space_id?: string;
   Base?: base.Base;
 }
@@ -1142,7 +1142,7 @@ export interface RegisterPluginMetaRequest {
   service_token?: string;
   /** service */
   oauth_info?: string;
-  /** JSON serialization */
+  /** json序列化 */
   space_id: string;
   common_params?: Partial<
     Record<
@@ -1150,20 +1150,20 @@ export interface RegisterPluginMetaRequest {
       Array<plugin_develop_common.commonParamSchema>
     >
   >;
-  /** Default 0 default original form creation method, 1 cloud ide creation method */
+  /** 默认0 默认原来表单创建方式，1 cloud ide创建方式 */
   creation_method?: plugin_develop_common.CreationMethod;
-  /** IDE created under the code programming language "1" Node.js "2" Python3 */
+  /** ide创建下的代码编程语言 "1" Node.js "2" Python3 */
   ide_code_runtime?: string;
   plugin_type?: plugin_develop_common.PluginType;
   project_id?: string;
-  /** Level 2 authorization type */
+  /** 二级授权类型 */
   sub_auth_type?: number;
   auth_payload?: string;
-  /** Set fixed exit IP */
+  /** 设置固定出口ip */
   fixed_export_ip?: boolean;
-  /** Private network connection id */
+  /** 私网连接id */
   private_link_id?: string;
-  /** public parameter list */
+  /** 公共参数列表 */
   Base?: base.Base;
 }
 
@@ -1182,7 +1182,7 @@ export interface RegisterPluginRequest {
   client_id?: string;
   client_secret?: string;
   service_token?: string;
-  /** Plugin type, 1 plugin 2 = app 3 = func */
+  /** plugin 类型，1 plugin 2=app 3= func */
   plugin_type?: plugin_develop_common.PluginType;
   space_id?: string;
   import_from_file?: boolean;
@@ -1199,7 +1199,7 @@ export interface RegisterPluginResponse {
 
 export interface RevokeAuthTokenRequest {
   plugin_id: string;
-  /** If not passed using uid assignment bot_id = connector_uid */
+  /** 如果不传使用uid赋值 bot_id = connector_uid */
   bot_id?: string;
   context_type?: number;
   Base?: base.Base;
@@ -1226,11 +1226,11 @@ export interface SetAgentTaskStatusRequest {
   bot_id: string;
   /** team id */
   space_id: string;
-  /** Task ID */
+  /** 任务id */
   trigger_id: string;
-  /** Channel ID */
+  /** 渠道id */
   connector_id: string;
-  /** Whether to set to invalid, default no */
+  /** 是否置为失效，默认否 */
   set_invalid?: boolean;
   Base?: base.Base;
 }
@@ -1264,14 +1264,14 @@ export interface UpdateAPIRequest {
   response_params?: Array<plugin_develop_common.APIParameter>;
   disabled?: boolean;
   api_extend?: plugin_develop_common.APIExtend;
-  /** edit version */
+  /** 编辑态版本 */
   edit_version?: number;
-  /** Whether to save debug results */
+  /** 是否保存调试结果 */
   save_example?: boolean;
-  /** debug result */
+  /** 调试结果 */
   debug_example?: plugin_develop_common.DebugExample;
   function_name?: string;
-  /** enable/disable */
+  /** 启用/禁用 */
   Base?: base.Base;
 }
 
@@ -1318,24 +1318,24 @@ export interface UpdatePluginMetaRequest {
   service_token?: string;
   /** service */
   oauth_info?: string;
-  /** JSON serialization */
+  /** json序列化 */
   common_params?: Partial<
     Record<
       plugin_develop_common.ParameterLocation,
       Array<plugin_develop_common.commonParamSchema>
     >
   >;
-  /** //default 0 default original form creation method, 1 cloud ide creation method */reation method, 1 cloud ide creation method */
+  /** //默认0 默认原来表单创建方式，1 cloud ide创建方式 */
   creation_method?: plugin_develop_common.CreationMethod;
-  /** edit version */
+  /** 编辑态版本 */
   edit_version?: number;
   plugin_type?: plugin_develop_common.PluginType;
-  /** Level 2 authorization type */
+  /** 二级授权类型 */
   sub_auth_type?: number;
   auth_payload?: string;
-  /** Whether to configure fixed exit IP */
+  /** 是否配置固定出口ip */
   fixed_export_ip?: boolean;
-  /** Private network connection id */
+  /** 私网连接id */
   private_link_id?: string;
   Base?: base.Base;
 }
@@ -1355,9 +1355,9 @@ export interface UpdatePluginRequest {
   client_secret?: string;
   service_token?: string;
   source_code?: string;
-  /** edit version */
+  /** 编辑态版本 */
   edit_version?: number;
-  /** function code */
+  /** 函数代码 */
   Base?: base.Base;
 }
 
@@ -1385,7 +1385,7 @@ export interface UpsertPluginResponse {
 }
 
 export interface UpsertPrivateLinkData {
-  /** Creating the scene will return the ID of the successful creation. */
+  /** 创建场景会返回创建成功的ID */
   private_link_id?: string;
 }
 

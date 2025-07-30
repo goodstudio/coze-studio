@@ -78,7 +78,7 @@ export default class NclcApiService<T> {
   /**
    * POST /api/nclc/v1/test_run/:space_id/:flow_id
    *
-   * TestRun test run workflow.
+   * TestRun 测试运行工作流.
    */
   TestRun(
     req: flow_devops_nclc_workflow.TestRunRequest,
@@ -101,7 +101,7 @@ export default class NclcApiService<T> {
   /**
    * POST /api/nclc/v1/create_flow
    *
-   * CreateFlow Creates a workflow.
+   * CreateFlow 创建工作流.
    */
   CreateFlow(
     req: flow_devops_nclc_workflow.CreateFlowRequest,
@@ -118,7 +118,7 @@ export default class NclcApiService<T> {
   /**
    * POST /api/nclc/v1/export/:space_id/:flow_id
    *
-   * Export the export workflow.
+   * Export 导出工作流.
    */
   Export(
     req: flow_devops_nclc_workflow.ExportRequest,
@@ -137,7 +137,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/query_flow/:space_id/:flow_id
    *
-   * QueryFlow query workflow.
+   * QueryFlow 查询工作流.
    */
   QueryFlow(
     req: flow_devops_nclc_workflow.QueryFlowRequest,
@@ -156,7 +156,7 @@ export default class NclcApiService<T> {
   /**
    * POST /api/nclc/v1/delete_flow/:space_id/:flow_id
    *
-   * DeleteFlow removes a workflow.
+   * DeleteFlow 删除工作流.
    */
   DeleteFlow(
     req: flow_devops_nclc_workflow.DeleteFlowRequest,
@@ -175,7 +175,7 @@ export default class NclcApiService<T> {
   /**
    * PUT /api/nclc/v1/update_flow_meta/:space_id/:flow_id
    *
-   * UpdateFlowMeta Updates workflow meta information.
+   * UpdateFlowMeta 更新工作流元信息.
    */
   UpdateFlowMeta(
     req: flow_devops_nclc_workflow.UpdateFlowMetaRequest,
@@ -194,7 +194,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/list_flows/:space_id
    *
-   * ListFlows queries workflows by spaceID.
+   * ListFlows 按 spaceID 查询工作流.
    */
   ListFlows(
     req: flow_devops_nclc_workflow.ListFlowsRequest,
@@ -211,7 +211,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/list_components/:space_id
    *
-   * ListComponents pulls component meta information by space.
+   * ListComponents 按 space 拉取组件元信息.
    */
   ListComponents(
     req: flow_devops_nclc_schema_frontend.ListComponentsRequest,
@@ -230,7 +230,7 @@ export default class NclcApiService<T> {
   /**
    * PUT /api/nclc/v1/update_flow/:space_id/:flow_id
    *
-   * UpdateFlow update workflow.
+   * UpdateFlow 更新工作流.
    */
   UpdateFlow(
     req: flow_devops_nclc_workflow.UpdateFlowRequest,
@@ -249,7 +249,7 @@ export default class NclcApiService<T> {
   /**
    * PUT /api/nclc/v1/component/update
    *
-   * update component
+   * 更新组件
    */
   UpdateCustomComponent(
     req: flow_devops_nclc_custom_component.UpdateCustomComponentRequest,
@@ -270,7 +270,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/component/list
    *
-   * Get component list
+   * 获取组件列表
    */
   ListCustomComponent(
     req: flow_devops_nclc_custom_component.ListCustomComponentRequest,
@@ -294,7 +294,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/component/get
    *
-   * Get component details
+   * 获取组件详情
    */
   GetCustomComponent(
     req: flow_devops_nclc_custom_component.GetCustomComponentRequest,
@@ -315,7 +315,7 @@ export default class NclcApiService<T> {
   /**
    * DELETE /api/nclc/v1/component/delete
    *
-   * Delete component
+   * 删除组件
    */
   DeleteCustomComponent(
     req: flow_devops_nclc_custom_component.DeleteCustomComponentRequest,
@@ -339,7 +339,7 @@ export default class NclcApiService<T> {
   /**
    * POST /api/nclc/v1/component/release
    *
-   * publishing component
+   * 发布组件
    */
   ReleaseCustomComponent(
     req: flow_devops_nclc_custom_component.ReleaseCustomComponentRequest,
@@ -366,7 +366,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/component/type/list
    *
-   * Get a list of component types
+   * 获取组件类型列表
    */
   ListSupportComponentType(
     req: flow_devops_nclc_custom_component.ListSupportComponentTypeRequest,
@@ -405,9 +405,9 @@ export default class NclcApiService<T> {
   /**
    * POST /api/nclc/v1/component/create
    *
-   * custom component
+   * 自定义组件
    *
-   * Create component
+   * 创建组件
    */
   CreateCustomComponent(
     req: flow_devops_nclc_custom_component.CreateCustomComponentRequest,
@@ -428,7 +428,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/component/release/list
    *
-   * Get the component version release list
+   * 获取组件版本发布列表
    */
   ListCustomComponentReleaseRecord(
     req: flow_devops_nclc_custom_component.ListCustomComponentReleaseRecordRequest,
@@ -451,7 +451,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/component/release/get
    *
-   * Get component version release details for polling release status
+   * 获取组件版本发布详情, 用于轮询发布状态
    */
   GetCustomComponentReleaseRecord(
     req: flow_devops_nclc_custom_component.GetCustomComponentReleaseRecordRequest,
@@ -473,7 +473,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v2/component/template_info/list
    *
-   * Get a list of component template information
+   * 获取组件模板信息列表
    */
   ListComponentTemplateInfo(
     req: flow_devops_nclc_custom_component.ListComponentTemplateInfoRequest,
@@ -490,7 +490,7 @@ export default class NclcApiService<T> {
   /**
    * GET /api/nclc/v1/component/component_key_valid
    *
-   * Verify ComponentKey conflicts before creation
+   * 用于创建前校验ComponentKey冲突
    */
   IsComponentKeyValid(
     req: flow_devops_nclc_custom_component.IsComponentKeyValidRequest,

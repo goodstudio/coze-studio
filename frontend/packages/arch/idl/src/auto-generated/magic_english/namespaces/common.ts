@@ -27,34 +27,34 @@ export enum ChatRole {
 }
 
 export enum ConversationStatus {
-  /** In conversation */
+  /** 对话中 */
   InProgress = 0,
-  /** Completed. */
+  /** 已完成 */
   Finished = 1,
 }
 
 export enum EnglishExerciseType {
-  /** original sentence */
+  /** 原句 */
   OriginalSentence = 1,
-  /** vocabulary matching */
+  /** 词汇匹配 */
   VocabularyMatching = 2,
-  /** Listening reconstructed sentence */
+  /** 听音重组句子 */
   SentencesByListening = 3,
-  /** oral follow-up */
+  /** 口语跟读 */
   OralShadowing = 4,
-  /** Listening materials, mosaic support is required. */
+  /** 听力素材，需要支持马赛克 */
   ListeningMaterial = 5,
-  /** Topic description, no need for AI teacher prompts */
+  /** 题目描述，不需要出AI老师提示 */
   QuestionDescription = 6,
-  /** multiple choice */
+  /** 多选 */
   MultiChoice = 7,
-  /** Short answer questions, AI prompts are required */
+  /** 简答题，需要出AI提示 */
   ShortAnswer = 8,
-  /** event description */
+  /** 事件描述 */
   EventDescription = 9,
-  /** chart description */
+  /** 图表描述 */
   ChartDescription = 10,
-  /** event retelling */
+  /** 事件复述 */
   EventRetelling = 11,
 }
 
@@ -82,21 +82,21 @@ export enum MeetingLearningStatus {
 }
 
 export enum MeetingType {
-  /** general textbook */
+  /** 通用教材 */
   General = 1,
-  /** Personalized meeting */
+  /** 个性化会议 */
   Personalization = 2,
-  /** Oral practice */
+  /** 口语练习 */
   OralPractice = 3,
-  /** Listening practice */
+  /** 听力练习 */
   ListeningPractice = 4,
 }
 
-/** ======================= enumerate ======================= */
+/** ======================= 枚举 ======================= */
 export enum MessageRole {
-  /** model */
+  /** 模型 */
   Assistant = 1,
-  /** user */
+  /** 用户 */
   User = 2,
 }
 
@@ -126,18 +126,18 @@ export enum PhraseStatus {
 }
 
 export enum ReportStatus {
-  /** invalid */
+  /** 无效 */
   Expired = 0,
-  /** effective */
+  /** 有效 */
   Normal = 1,
 }
 
 export enum StudyModuleType {
-  /** Devil speaking coach */
+  /** 魔鬼口语教练 */
   MagicOral = 1,
-  /** Original 2.0 AI Conference */
+  /** 原味2.0 AI会议 */
   AiMeeting = 2,
-  /** Brush questions (speaking + listening) */
+  /** 刷题（口语+听力） */
   PracticeExam = 3,
 }
 
@@ -153,9 +153,9 @@ export enum TopicType {
 }
 
 export enum UserExerciseStatus {
-  /** In practice */
+  /** 练习中 */
   InProgress = 0,
-  /** Completed. */
+  /** 已完成 */
   Finished = 1,
 }
 
@@ -164,11 +164,11 @@ export interface AISuggestionOutput {
 }
 
 export interface AudioDetail {
-  /** Audio ID */
+  /** 音频id */
   audio_id?: Int64;
-  /** Audio URI */
+  /** 音频uri */
   audio_url?: string;
-  /** Word timestamp */
+  /** 字时间戳 */
   words_info?: Array<TTSWord>;
   created_at?: Int64;
   updated_at?: Int64;
@@ -180,14 +180,14 @@ export interface Conversation {
   exercise_id?: Int64;
   status?: ConversationStatus;
   report?: ConversationReport;
-  /** Number of user conversation rounds */
+  /** 用户对话轮数 */
   user_message_count?: number;
   message_list?: Array<ConversationMessage>;
   task_list?: Array<ExerciseTask>;
   phrase_list?: Array<Phrase>;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
@@ -206,9 +206,9 @@ export interface ConversationMessage {
   optimized_answer?: string;
   translation?: string;
   optimized_translation?: string;
-  /** update time */
+  /** 更新时间 */
   updated_at?: Int64;
-  /** creation time */
+  /** 创建时间 */
   created_at?: Int64;
 }
 
@@ -269,7 +269,7 @@ export interface MessageEvalData {
   optimized_translation?: string;
 }
 
-/** ======================= model ======================= */
+/** ======================= 模型 ======================= */
 export interface Phase {
   phase_id: Int64;
   phase_title?: string;

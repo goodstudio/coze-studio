@@ -95,10 +95,10 @@ export interface PipoGetPaymentMethodManagementURL {
 }
 
 export interface PipoGetPaymentMethodManagementURLRequest {
-  /** Coze user, pass the ConnectorIDBotStudio in the common file */
+  /** Coze用户 传common文件里的 ConnectorIDBotStudio */
   UserType?: Int64;
   UserID?: string;
-  /** If it is a contract payment/subscription scenario, fill in this value */
+  /** 如果是协议付/订阅场景，则填充此值 */
   scene?: common.Scene;
   'Tt-Agw-Client-Ip'?: string;
 }
@@ -114,14 +114,14 @@ export interface PipoGetUserPaymentMethods {
 }
 
 export interface PipoGetUserPaymentMethodsRequest {
-  /** Coze user, pass the ConnectorIDBotStudio in the common file */
+  /** Coze用户 传common文件里的 ConnectorIDBotStudio */
   UserType?: Int64;
   UserID?: string;
-  /** Payment amount */
+  /** 支付数额 */
   Amount?: Int64;
-  /** Currency, such as coze_token */
+  /** 币种，如coze_token */
   Currency?: string;
-  /** If it is a contract payment/subscription scenario, fill in this value */
+  /** 如果是协议付/订阅场景，则填充此值 */
   scene?: common.Scene;
   'Tt-Agw-Client-Ip'?: string;
 }

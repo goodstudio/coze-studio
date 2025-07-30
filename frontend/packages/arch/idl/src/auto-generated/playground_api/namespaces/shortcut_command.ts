@@ -37,31 +37,31 @@ export enum InputType {
 }
 
 export enum SendType {
-  /** Send query directly */
+  /** 直接发query */
   SendTypeQuery = 0,
-  /** use panel */
+  /** 使用面板 */
   SendTypePanel = 1,
 }
 
 export enum ToolType {
-  /** Using WorkFlow */
+  /** 使用WorkFlow */
   ToolTypeWorkFlow = 1,
-  /** use plug-ins */
+  /** 使用插件 */
   ToolTypePlugin = 2,
 }
 
 export interface Components {
-  /** Panel parameters */
+  /** panel参数 */
   name?: string;
   description?: string;
   input_type?: InputType;
-  /** When requesting the tool, the key of the parameter */
+  /** 请求工具时，参数的key */
   parameter?: string;
   options?: Array<string>;
   default_value?: DefaultValue;
-  /** Whether to hide or not to show */
+  /** 是否隐藏不展示 */
   hide?: boolean;
-  /** What types are supported input_type MixUpload */
+  /** input_type为MixUpload时，支持哪些类型 */
   upload_options?: Array<InputType>;
 }
 
@@ -90,34 +90,34 @@ export interface DefaultValue {
 }
 
 export interface ShortcutCommand {
-  /** Binding Entity ID */
+  /** 绑定实体ID */
   object_id?: string;
-  /** command name */
+  /** 命令名称 */
   command_name?: string;
-  /** Quick Instruction */
+  /** 快捷指令 */
   shortcut_command?: string;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** Send type */
+  /** 发送类型 */
   send_type?: SendType;
-  /** Use tool type */
+  /** 使用工具type */
   tool_type?: ToolType;
   work_flow_id?: string;
   plugin_id?: string;
   plugin_api_name?: string;
-  /** Template query */
+  /** 模板query */
   template_query?: string;
-  /** Panel parameters */
+  /** panel参数 */
   components_list?: Array<Components>;
-  /** Form schema */
+  /** 表单的schema */
   card_schema?: string;
-  /** Instruction ID */
+  /** 指令ID */
   command_id?: string;
-  /** Tool information, including name + variable list +... */
+  /** 工具信息 包含name+变量列表+... */
   tool_info?: ToolInfo;
-  /** command icon */
+  /** 指令图标 */
   shortcut_icon?: ShortcutFileInfo;
-  /** Multi instruction, which node executes the instruction */
+  /** multi的指令时，该指令由哪个节点执行 */
   agent_id?: string;
 }
 
@@ -127,27 +127,27 @@ export interface ShortcutFileInfo {
 }
 
 export interface ShortcutStruct {
-  /** Shortcut ID list, bound on the entity */
+  /** 快捷指令ID列表 实体上绑定的 */
   shortcut_sort?: Array<string>;
-  /** Quick command content list */
+  /** 快捷指令内容list */
   shortcut_list?: Array<ShortcutCommand>;
 }
 
 export interface ToolInfo {
   tool_name?: string;
-  /** Variable lists, plugins & workFLow */
+  /** 变量列表 插件&workFLow */
   tool_params_list?: Array<ToolParams>;
 }
 
 export interface ToolParams {
-  /** parameter list */
+  /** 参数列表 */
   name?: string;
   required?: boolean;
   desc?: string;
   type?: string;
-  /** default value */
+  /** 默认值 */
   default_value?: string;
-  /** Is it a panel parameter? */
+  /** 是否是panel参数 */
   refer_component?: boolean;
 }
 /* eslint-enable */

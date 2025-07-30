@@ -28,10 +28,10 @@ import * as mockset from './mockset';
 export type Int64 = string | number;
 
 export interface AutoGenerateCaseDataReq {
-  /** business information */
+  /** 业务信息 */
   bizCtx?: infra.BizCtx;
   bizComponentSubject?: infra.ComponentSubject;
-  /** Generated quantity, default 1 */
+  /** 生成数量，默认1个 */
   count?: number;
   Base?: base.Base;
 }
@@ -44,11 +44,11 @@ export interface AutoGenerateCaseDataResp {
 }
 
 export interface BindMockSetRequest {
-  /** Selected MockSet ID */
+  /** 被选中的MockSet ID */
   mockSetID?: Int64;
-  /** business context */
+  /** 业务上下文 */
   bizCtx?: infra.BizCtx;
-  /** Mocked Components */
+  /** 被Mock的组件 */
   mockSubject?: infra.ComponentSubject;
   Base?: base.Base;
 }
@@ -72,7 +72,7 @@ export interface CancelMockDataAutoGenTaskResponse {
 
 export interface CheckCaseDuplicateReq {
   bizCtx?: infra.BizCtx;
-  /** Case name */
+  /** case名称 */
   caseName?: string;
   bizComponentSubject?: infra.ComponentSubject;
   Base?: base.Base;
@@ -80,7 +80,7 @@ export interface CheckCaseDuplicateReq {
 
 export interface CheckCaseDuplicateResp {
   isPass?: boolean;
-  /** When pass = false, give the specific reason why the check failed */
+  /** 当pass=false时，给出具体的校验不通过的原因 */
   failReason?: string;
   failCode?: number;
   code?: number;
@@ -90,9 +90,9 @@ export interface CheckCaseDuplicateResp {
 
 export interface CreateMockDataAutoGenTaskRequest {
   mockSetID?: Int64;
-  /** Up to 5. */
+  /** 最大为5 */
   quantity?: number;
-  /** To pass empty, use the descraption of mockSet */
+  /** 传空则使用mockSet的descraption */
   desc?: string;
   Base?: base.Base;
 }
@@ -105,9 +105,9 @@ export interface CreateMockDataAutoGenTaskResponse {
 }
 
 export interface DeleteCaseDataReq {
-  /** business information */
+  /** 业务信息 */
   bizCtx?: infra.BizCtx;
-  /** A single maximum of 20 */
+  /** 单次上限20个 */
   caseIDs?: Array<Int64>;
   Base?: base.Base;
 }
@@ -120,9 +120,9 @@ export interface DeleteCaseDataResp {
 }
 
 export interface DeleteMockRuleRequest {
-  /** The MockRule ID to delete */
+  /** 要删除的MockRule ID */
   id?: Int64;
-  /** business context */
+  /** 业务上下文 */
   bizCtx?: infra.BizCtx;
   Base?: base.Base;
 }
@@ -134,9 +134,9 @@ export interface DeleteMockRuleResponse {
 }
 
 export interface DeleteMockSetRequest {
-  /** MockSet ID to be deleted */
+  /** 需要删除的MockSet ID */
   id?: Int64;
-  /** business context */
+  /** 业务上下文 */
   bizCtx?: infra.BizCtx;
   Base?: base.Base;
 }
@@ -167,7 +167,7 @@ export interface GetMockSetUsageInfoRequest {
 }
 
 export interface GetMockSetUsageInfoResponse {
-  /** The number of users of this MockSet */
+  /** 该MockSet被使用的用户数 */
   usersUsageCount?: Int64;
   code?: number;
   msg?: string;
@@ -175,14 +175,14 @@ export interface GetMockSetUsageInfoResponse {
 }
 
 export interface GetSchemaByIDReq {
-  /** business information */
+  /** 业务信息 */
   bizCtx?: infra.BizCtx;
   bizComponentSubject?: infra.ComponentSubject;
   Base?: base.Base;
 }
 
 export interface GetSchemaByIDResp {
-  /** Component input information in JSON format, consistent with Input JSON Schema, does not contain Value information */
+  /** Json格式的组件input信息，与Input Json Schema保持一致，不包含Value值信息 */
   schemaJson?: string;
   code?: number;
   msg?: string;
@@ -190,12 +190,12 @@ export interface GetSchemaByIDResp {
 }
 
 export interface MGetCaseDataReq {
-  /** business information */
+  /** 业务信息 */
   bizCtx?: infra.BizCtx;
   bizComponentSubject?: infra.ComponentSubject;
   pageLimit?: number;
   nextToken?: string;
-  /** Search by case name */
+  /** 按照case名称搜索 */
   caseName?: string;
   Base?: base.Base;
 }
@@ -210,19 +210,19 @@ export interface MGetCaseDataResp {
 }
 
 export interface MGetDevopsFeatureGatesRequest {
-  /** fgName needs to be registered under the Bot Studio NameSpace  */
+  /** fgName 需要注册在Bot Studio NameSpace下  */
   fgNames?: Array<string>;
-  /** ByteGate Custom Key space_id */
+  /** 对应 ByteGate Custom Key space_id */
   spaceID?: Int64;
-  /** ByteGate Custom Key bot_id */
+  /** 对应 ByteGate Custom Key bot_id */
   botID?: Int64;
-  /** The front-end call can be passed without passing, and the value from the ctx backend corresponds to the ByteGate Custom Key coze_uid */
+  /** 前端调用可以不传， 从ctx兜底取值对应 ByteGate Custom Key coze_uid */
   userID?: Int64;
   Base?: base.Base;
 }
 
 export interface MGetDevopsFeatureGatesResponse {
-  /** Key: fgName value: release or not */
+  /** key： fgName value: 是否放行 */
   featgates?: Record<string, boolean>;
   code?: number;
   msg?: string;
@@ -233,27 +233,27 @@ export interface MGetMockRuleRequest {
   bizCtx?: infra.BizCtx;
   mockSetID?: Int64;
   creatorID?: string;
-  /** The number of records retrieved at a time, the default is 30, the maximum is 50. */
+  /** 单次获取的记录条数，默认30，最大50 */
   pageLimit?: number;
-  /** paging cursor */
+  /** 分页游标 */
   pageToken?: string;
-  /** Get the mockrule under a single Component according to the ID */
+  /** 根据ID获取单个Component下的mockrule */
   ids?: Array<Int64>;
-  /** sort */
+  /** 排序 */
   orderBy?: infra.OrderBy;
-  /** Is it in descending order? */
+  /** 是否降序 */
   desc?: boolean;
   Base?: base.Base;
 }
 
 export interface MGetMockRuleResponse {
-  /** MockRule information */
+  /** MockRule信息 */
   mockRules?: Array<mockset.MockRule>;
-  /** Is there a next page? */
+  /** 是否还有下一页 */
   hasMore?: boolean;
-  /** The cursor for the last record on this page */
+  /** 本页最后一条记录的游标 */
   pageToken?: string;
-  /** total */
+  /** 总数 */
   count?: Int64;
   code?: number;
   msg?: string;
@@ -261,19 +261,19 @@ export interface MGetMockRuleResponse {
 }
 
 export interface MGetMockSetBindingRequest {
-  /** business context */
+  /** 业务上下文 */
   bizCtx?: infra.BizCtx;
-  /** Mocked Components */
+  /** 被Mock的组件 */
   mockSubject?: infra.ComponentSubject;
-  /** MockSet details required */
+  /** 需要mockSet详情 */
   needMockSetDetail?: boolean;
   Base?: base.Base;
 }
 
 export interface MGetMockSetBindingResponse {
-  /** Null means no mock was hit */
+  /** 为空表示没有命中任何mock */
   mockSetBindings?: Array<mockset.MockSetBinding>;
-  /** mockSet details (returned only if needMockSetDetail is true) */
+  /** mockSet详情（仅当needMockSetDetail为true时返回） */
   mockSetDetails?: Record<Int64, mockset.MockSet>;
   code?: number;
   msg?: string;
@@ -281,35 +281,35 @@ export interface MGetMockSetBindingResponse {
 }
 
 export interface MGetMockSetRequest {
-  /** business context */
+  /** 业务上下文 */
   bizCtx?: infra.BizCtx;
-  /** Component being mocked */
+  /** 被mock的组件 */
   mockSubject?: infra.ComponentSubject;
-  /** creator ID */
+  /** 创建者ID */
   creatorID?: string;
-  /** The number of records retrieved at a time, the default is 30, the maximum is 50. */
+  /** 单次获取的记录条数，默认30，最大50 */
   pageLimit?: number;
-  /** paging cursor */
+  /** 分页游标 */
   pageToken?: string;
-  /** Get the mockset under a single Component according to the ID */
+  /** 根据ID获取单个Component下的mockset */
   ids?: Array<Int64>;
-  /** sort */
+  /** 排序 */
   orderBy?: infra.OrderBy;
-  /** Is it in descending order? */
+  /** 是否降序 */
   desc?: boolean;
   Base?: base.Base;
 }
 
 export interface MGetMockSetResponse {
-  /** MockSet information */
+  /** MockSet信息 */
   mockSets?: Array<mockset.MockSet>;
-  /** Schema for components bound to this Mockset */
+  /** 与该Mockset绑定的组件的Schema */
   schema?: string;
-  /** Is there a next page? */
+  /** 是否还有下一页 */
   hasMore?: boolean;
-  /** The cursor for the last record on this page */
+  /** 本页最后一条记录的游标 */
   pageToken?: string;
-  /** total */
+  /** 总数 */
   count?: Int64;
   code?: number;
   msg?: string;
@@ -317,10 +317,10 @@ export interface MGetMockSetResponse {
 }
 
 export interface SaveCaseDataReq {
-  /** business information */
+  /** 业务信息 */
   bizCtx?: infra.BizCtx;
   bizComponentSubject?: infra.ComponentSubject;
-  /** Case basic data */
+  /** case基本数据 */
   caseBase?: testcase.CaseDataBase;
   Base?: base.Base;
 }
@@ -333,21 +333,21 @@ export interface SaveCaseDataResp {
 }
 
 export interface SaveMockRuleRequest {
-  /** name */
+  /** 名称 */
   name?: string;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** MockSet */
+  /** 所属MockSet */
   mocksetID?: Int64;
-  /** business context */
+  /** 业务上下文 */
   bizCtx?: infra.BizCtx;
-  /** priority */
+  /** 优先级 */
   priority?: Int64;
-  /** mockRule ID, 0 means created, not 0 means updated */
+  /** mockRule ID，为0表示创建，不为0代表更新 */
   id?: Int64;
-  /** request filtering rules */
+  /** 请求过滤规则 */
   requestFilter?: mockset.RequestFilter;
-  /** Mock data generation rules */
+  /** mock数据生成规则 */
   responseExpect?: mockset.ResponseExpect;
   Base?: base.Base;
 }
@@ -360,21 +360,21 @@ export interface SaveMockRuleResponse {
 }
 
 export interface SaveMockSetRequest {
-  /** name */
+  /** 名称 */
   name?: string;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** The mocked component */
+  /** 被mock组件 */
   mockSubject?: infra.ComponentSubject;
-  /** business information */
+  /** 业务信息 */
   bizCtx?: infra.BizCtx;
-  /** MocksetID, create if 0, update if not 0 */
+  /** MocksetID，如果为0则为create，不为0代表update */
   id?: Int64;
   Base?: base.Base;
 }
 
 export interface SaveMockSetResponse {
-  /** MockSetID operated */
+  /** 被操作的MockSetID */
   id?: Int64;
   code?: number;
   msg?: string;
@@ -382,7 +382,7 @@ export interface SaveMockSetResponse {
 }
 
 export interface SetDefaultTestCaseReq {
-  /** business information */
+  /** 业务信息 */
   bizCtx?: infra.BizCtx;
   bizComponentSubject?: infra.ComponentSubject;
   caseID?: Int64;

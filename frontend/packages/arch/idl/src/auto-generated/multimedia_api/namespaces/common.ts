@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export enum AudioSpeechRespType {
-  /** Returns base64 encoded audio data */
+  /** 返回base64 编码后的音频数据 */
   Base64Data = 1,
-  /** Return playable URL link */
+  /** 返回可播放的 URL 链接 */
   URL = 2,
 }
 
 export enum CreateRoomScene {
   Store = 1,
-  /** debugging bench */
+  /** 调试台 */
   Debug = 2,
-  /** OpenAPI scenario */
+  /** OpenAPI 场景 */
   OpenAPI = 3,
-  /** template scene */
+  /** 模板场景 */
   Template = 4,
 }
 
@@ -64,36 +64,36 @@ export enum PermissionType {
 }
 
 export enum RealtimeScene {
-  /** Default scene */
+  /** 默认场景 */
   ExternalRTCOpenAPI = 0,
-  /** Infield Store */
+  /** 内场商店 */
   InteralMarketplace = 1,
-  /** Infield debugging */
+  /** 内场 debug */
   InternalDebug = 2,
 }
 
 export enum VoiceState {
-  /** Initial state, uncloned tone */
+  /** 初始态, 未克隆音色 */
   Init = 0,
-  /** The sound is cloned and can be used. */
+  /** 音色克隆好可使用 */
   Cloned = 10,
-  /** Sound deleted */
+  /** 音色已删除 */
   Deleted = 20,
-  /** Timing to be assigned */
+  /** 待分配音色中 */
   Pending = 30,
 }
 
 export enum VoiceType {
-  /** system tone */
+  /** 系统音色 */
   SystemVoice = 1,
-  /** user timbre */
+  /** 用户音色 */
   UserVoice = 2,
 }
 
 export interface AudioInfo {
-  /** Audio format, pcm, m4a must pass, others are optional */
+  /** 音频格式，pcm、m4a必传，其余可选 */
   format?: string;
-  /** Max 10M Binary Audio Bytes */
+  /** max 10M  二进制音频字节 */
   audio_bytes?: Blob;
 }
 
@@ -124,34 +124,34 @@ export interface LanguageInfo {
   language_name?: string;
 }
 
-/** DTO for OpenAPI scenarios */
+/** OpenAPI 场景的 DTO */
 export interface OpenAPIVoiceData {
-  /** unique tone code */
+  /** 唯一音色代号 */
   voice_id?: string;
-  /** timbre name */
+  /** 音色名 */
   name?: string;
-  /** Is the system tone? */
+  /** 是否系统音色 */
   is_system_voice?: boolean;
-  /** Timbre preview text */
+  /** 音色预览文本 */
   preview_text?: string;
-  /** Tone Preview Audio */
+  /** 音色预览音频 */
   preview_audio?: string;
-  /** language name */
+  /** 语言名 */
   language_name?: string;
-  /** language code */
+  /** 语言代号 */
   language_code?: string;
-  /** Remaining training times */
+  /** 剩余训练次数 */
   available_training_times?: number;
   speaker_id?: string;
-  /** model type */
+  /** 模型类型 */
   model_type?: string;
-  /** timbre state */
+  /** 音色状态 */
   state?: string;
-  /** List of supported emotions */
+  /** 支持的情感列表 */
   support_emotions?: Array<EmotionInfo>;
-  /** Created unix timestamp */
+  /** 创建时间unix时间戳 */
   create_time?: number;
-  /** Update unix timestamp */
+  /** 更新时间unix时间戳 */
   update_time?: number;
 }
 
@@ -162,53 +162,53 @@ export interface UserInfo {
   avatar_url?: string;
 }
 
-/** DTO for RPC and CozeAPI scenarios */
+/** RPC 以及 CozeAPI 场景的 DTO */
 export interface VoiceDetail {
   voice_id: string;
   space_id?: string;
   voice_name?: string;
   voice_desc?: string;
   icon_url?: string;
-  /** Total number of trainings */
+  /** 总共可以训练次数 */
   total_training_times?: number;
-  /** Remaining training times */
+  /** 剩余训练次数 */
   available_training_times?: number;
-  /** Timbre preview text */
+  /** 音色预览文本 */
   preview_text?: string;
-  /** Tone Preview Audio */
+  /** 音色预览音频 */
   preview_audio?: string;
-  /** language name */
+  /** 语言名 */
   language_name?: string;
-  /** language code */
+  /** 语言代号 */
   language_code?: string;
-  /** usage scenario */
+  /** 使用场景 */
   scene?: string;
-  /** Is it the system tone? */
+  /** 是否为系统音色 */
   is_system_voice?: boolean;
-  /** creator information */
+  /** 创建人信息 */
   create_user_info?: UserInfo;
   speaker_id?: string;
-  /** Has it been reproduced? */
+  /** 是否复刻过 */
   state?: VoiceState;
   vol_account_id?: string;
   icon_uri?: string;
-  /** The last clone time, if there is no replica, the current value is empty */
+  /** 最后一次克隆时间，如果没有复刻则当前值为空 */
   last_clone_time_unix?: number;
-  /** Created unix timestamp */
+  /** 创建时间unix时间戳 */
   create_time?: number;
-  /** Update unix timestamp */
+  /** 更新时间unix时间戳 */
   update_time?: number;
-  /** Coze configuration ID, only for Coze */
+  /** Coze 配置ID, only for Coze */
   configuration_id?: Int64;
-  /** Type of model */
+  /** 模型的类型 */
   model_type?: ModelType;
-  /** model provider */
+  /** 模型提供方 */
   model_provider?: string;
-  /** Is it a boutique sound? */
+  /** 是否是精品音色 */
   is_fine_tune_voice?: boolean;
-  /** List of supported emotions */
+  /** 支持的情感列表 */
   support_emotions?: Array<EmotionInfo>;
-  /** Does it support multi-emotion? */
+  /** 是否支持多情感 */
   is_multi_emotion_voice?: boolean;
 }
 /* eslint-enable */

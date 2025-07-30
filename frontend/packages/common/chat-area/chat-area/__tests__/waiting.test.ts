@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { ContentType, type Message } from '@coze-common/chat-core';
 
 import {
@@ -225,7 +225,7 @@ describe('normal text message', () => {
       is_finish: true,
     };
 
-    // @ts-expected-error -- single test
+    // @ts-expect-error -- single test
     updateResponding(allFinishedMessage);
 
     const { responding } = useWaitingStore.getState();
@@ -241,7 +241,7 @@ describe('normal text message', () => {
       type: 'tool_response',
     };
 
-    // @ts-expected-error -- single test
+    // @ts-expect-error -- single test
     updateResponding(toolResponseMessage);
 
     const { responding } = useWaitingStore.getState();
@@ -281,7 +281,7 @@ describe('normal text message', () => {
       }),
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(verboseMessage);
 
     const finishedMessage = {
@@ -292,7 +292,7 @@ describe('normal text message', () => {
       }),
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
 
     updateResponding(finishedMessage);
 
@@ -329,7 +329,7 @@ describe('normal text message', () => {
       type: 'function_call',
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(functionCallMessage);
 
     const respondingMessage = {
@@ -338,7 +338,7 @@ describe('normal text message', () => {
       index: 2,
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(respondingMessage);
 
     const { responding } = useWaitingStore.getState();
@@ -410,7 +410,7 @@ describe('normal text message', () => {
       type: 'function_call',
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(functionCallMessage);
 
     const respondingMessage = {
@@ -419,14 +419,14 @@ describe('normal text message', () => {
       index: -1,
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(respondingMessage);
 
     const { responding } = useWaitingStore.getState();
 
     expect(responding).toStrictEqual({
       replyId: llmMessage.reply_id,
-      // @TS-expected-error -- test
+      // @ts-expect-error -- test
       response: [getResponse(functionCallMessage)],
     });
   });
@@ -439,7 +439,7 @@ describe('normal text message', () => {
       type: 'function_call',
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(functionCallMessage);
 
     const respondingMessage = {
@@ -448,14 +448,14 @@ describe('normal text message', () => {
       index: 'hhhh',
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(respondingMessage);
 
     const { responding } = useWaitingStore.getState();
 
     expect(responding).toStrictEqual({
       replyId: llmMessage.reply_id,
-      // @TS-expected-error -- test
+      // @ts-expect-error -- test
       response: [getResponse(functionCallMessage)],
     });
   });
@@ -468,7 +468,7 @@ describe('normal text message', () => {
       type: 'function_call',
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(functionCallMessage);
 
     const functionCallMessage2 = {
@@ -481,7 +481,7 @@ describe('normal text message', () => {
       type: 'function_call',
     };
 
-    // @TS-expected-error -- test
+    // @ts-expect-error -- test
     updateResponding(functionCallMessage2);
 
     const { responding } = useWaitingStore.getState();
@@ -489,9 +489,9 @@ describe('normal text message', () => {
     expect(responding).toStrictEqual({
       replyId: llmMessage.reply_id,
       response: [
-        // @TS-expected-error -- test
+        // @ts-expect-error -- test
         getResponse(functionCallMessage),
-        // @TS-expected-error -- test
+        // @ts-expect-error -- test
         getResponse(functionCallMessage2),
       ],
     });

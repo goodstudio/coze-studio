@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import {
   forwardRef,
   useImperativeHandle,
@@ -121,7 +121,7 @@ export const TemplateConfigForm = forwardRef<
           new DeltaSet(normalizeSchema(readme as DeltaSetOptions)),
         );
       }
-      // @TS-expected-error -- values is the TemplateForm type
+      // @ts-expect-error -- values is the TemplateForm type
       Object.keys(values).forEach(key => formApi.setError(key, null));
     },
     validate: () => formRef.current?.formApi?.validate(),

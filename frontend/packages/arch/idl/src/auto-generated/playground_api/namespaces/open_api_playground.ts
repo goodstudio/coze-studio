@@ -24,22 +24,22 @@ import * as bot_open_api from './bot_open_api';
 export type Int64 = string | number;
 
 export interface OpenAddSpaceMemberData {
-  /** List of successfully added members */
+  /** 成功添加的成员列表 */
   added_success_user_ids?: Array<string>;
-  /** List of successfully invited members */
+  /** 成功邀请的成员列表 */
   invited_success_user_ids?: Array<string>;
-  /** List of non-existent users */
+  /** 不存在的用户列表 */
   not_exist_user_ids?: Array<string>;
-  /** Users who have already joined the space will not be processed */
+  /** 已经加入空间的用户不进行处理 */
   already_joined_user_ids?: Array<string>;
-  /** Users who have already initiated the invitation will not be processed */
+  /** 已经发起邀请的用户不进行处理 */
   already_invited_user_ids?: Array<string>;
 }
 
 export interface OpenAddSpaceMemberRequest {
-  /** Space ID */
+  /** 空间ID */
   workspace_id?: string;
-  /** The maximum number of members to be added is 20. */
+  /** 要添加的成员，数量最多20 */
   users?: Array<OpenSpaceMember>;
 }
 
@@ -52,7 +52,7 @@ export interface OpenAddSpaceMemberResponse {
 export interface OpenGetBotInfoRequest {
   bot_id?: string;
   is_published?: boolean;
-  /** Post to check the latest */
+  /** 发布查最新 */
   connector_id?: string;
 }
 
@@ -63,18 +63,18 @@ export interface OpenGetBotInfoResponse {
 }
 
 export interface OpenRemoveSpaceMemberData {
-  /** List of members successfully removed */
+  /** 成功移除的成员列表 */
   removed_success_user_ids?: Array<string>;
-  /** Users who are not in the space will not be processed */
+  /** 不在空间的用户不进行处理 */
   not_in_workspace_user_ids?: Array<string>;
-  /** The space owner does not handle it */
+  /** 空间所有者不进行处理 */
   owner_not_support_remove_user_ids?: Array<string>;
 }
 
 export interface OpenRemoveSpaceMemberRequest {
-  /** Space ID */
+  /** 空间ID */
   workspace_id?: string;
-  /** The maximum number of members to be removed is 5. */
+  /** 要移除的成员，数量最多5 */
   user_ids?: Array<string>;
 }
 
@@ -85,27 +85,27 @@ export interface OpenRemoveSpaceMemberResponse {
 }
 
 export interface OpenSpace {
-  /** Space ID */
+  /** 空间 id */
   id?: string;
-  /** space name */
+  /** 空间名称 */
   name?: string;
-  /** Space icon url */
+  /** 空间图标 url */
   icon_url?: string;
-  /** Current user role, enumeration values: owner, admin, member */
+  /** 当前用户角色, 枚举值: owner, admin, member */
   role_type?: string;
-  /** Workspace type, enumeration value: personal, team */
+  /** 工作空间类型, 枚举值: personal, team */
   workspace_type?: string;
-  /** Enterprise ID */
+  /** 企业 id */
   enterprise_id?: string;
 }
 
 export interface OpenSpaceData {
   workspaces?: Array<OpenSpace>;
-  /** Total number of spaces */
+  /** 空间总数 */
   total_count?: Int64;
 }
 
-/** * plagyground open api idl file
+/** *  plagyground 开放api idl文件
  * */
 export interface OpenSpaceListRequest {
   page_num?: Int64;
@@ -122,30 +122,30 @@ export interface OpenSpaceListResponse {
 }
 
 export interface OpenSpaceMember {
-  /** user ID */
+  /** 用户ID */
   user_id?: string;
-  /** Nickname (do not pass when adding members) */
+  /** 昵称（添加成员时不用传） */
   user_nickname?: string;
-  /** Username (do not pass when adding members) */
+  /** 用户名（添加成员时不用传） */
   user_unique_name?: string;
-  /** Avatar (no need to pass when adding members) */
+  /** 头像 （添加成员时不用传） */
   avatar_url?: string;
-  /** current user role */
+  /** 当前用户角色 */
   role_type?: string;
 }
 
 export interface OpenSpaceMemberListData {
   items?: Array<OpenSpaceMember>;
-  /** Total number of space members */
+  /** 空间成员总数 */
   total_count?: Int64;
 }
 
 export interface OpenSpaceMemberListRequest {
-  /** Space ID */
+  /** 空间ID */
   workspace_id?: string;
-  /** Number of pages, the default is 1. */
+  /** 页数，默认为1 */
   page_num?: number;
-  /** Page size, default 20, maximum 50 */
+  /** 每页大小，默认为20，最大50 */
   page_size?: number;
 }
 

@@ -39,30 +39,30 @@ export enum DatasetType {
 }
 
 export enum ProfessionalKnowledgeType {
-  /** official */
+  /** 官方 */
   Official = 1,
-  /** custom */
+  /** 自定义 */
   Customize = 2,
 }
 
 /** # service CreateDataset */
 export enum PublishOption {
-  /** Use when evaluating dataset display (create and query, interface default) */
+  /** 评测数据集展示时使用(创建与查询,接口默认值） */
   Publish = 1,
-  /** The evaluation task creates a dataset, which is not displayed to the public, and is only used for evaluation use cases and tasks */
+  /** 评测任务创建数据集，不对外展示，只用于评测用例与任务使用 */
   NotPublish = 2,
-  /** SFT dataset display, the mode needs to be specified when creating, and the mode needs to be specified when querying */
+  /** SFT 数据集展示，创建时需要指定该模式，查询时需要指定该模式 */
   SFTPublish = 3,
-  /** Dataset display, the mode needs to be specified when creating, and the mode needs to be specified when querying */
+  /** 数据集展示，创建时需要指定该模式，查询时需要指定该模式 */
   DataProcessPublish = 4,
-  /** Result set scenarios under evaluation services */
+  /** 评测业务下的结果集场景 */
   EvalResultPublish = 5,
 }
 
 export enum ReplyType {
-  /** Final result */
+  /** 最终结果 */
   ReplyTypeFinalAnswer = 0,
-  /** tool call */
+  /** 工具调用 */
   ReplyTypeToolCall = 1,
 }
 
@@ -85,29 +85,29 @@ export enum SecurityLevel {
 }
 
 export enum StreamState {
-  /** non-streaming */
+  /** 非流式 */
   StreamStateNone = 1,
-  /** Streaming starts (first packet) */
+  /** 流式传输开始（首包） */
   StreamStateBegin = 2,
-  /** streaming */
+  /** 流式传输中 */
   StreamStateStreaming = 3,
-  /** End of churn transfer (tail packet) */
+  /** 流失传输结束（尾包） */
   StreamStateEnd = 4,
 }
 
 export enum TaskState {
-  /** Task state flow
-initialization state */
+  /** task 状态流转
+初始化状态 */
   GenerateTaskInitState = 1,
-  /** running state */
+  /** 运行状态 */
   GenerateTaskRunningState = 2,
-  /** task completion status */
+  /** 任务完成状态 */
   GenerateTaskGenFinishedState = 3,
-  /** The generated tasks are all annotated */
+  /** 生成的任务全部做了标注 */
   GenerateTaskSelectCompletedState = 4,
-  /** termination state */
+  /** 终止状态 */
   GenerateTaskStoppedState = 5,
-  /** failure state */
+  /** 失败状态 */
   GenerateTaskFailedState = 6,
 }
 
@@ -126,9 +126,9 @@ export interface ColumnInfo {
   column_id?: Int64;
   /** len <= 256 */
   name: string;
-  /** Field description */
+  /** 字段描述 */
   describe?: string;
-  /** Whether columns are defined for the evaluation system */
+  /** 是否为评测系统内置定义列 */
   buildin?: boolean;
 }
 
@@ -144,16 +144,16 @@ export interface DatasetInfo {
   tag?: Array<flow_devops_evaluation_entity.Tag>;
   create_time?: Int64;
   update_time?: Int64;
-  /** Classification */
+  /** 密级 */
   security_level?: SecurityLevel;
-  /** expiration time */
+  /** 过期时间 */
   expire_time?: Int64;
   publish_option?: PublishOption;
-  /** Dataset capacity, default is 5k */
+  /** 数据集容量, 默认为 5k */
   row_group_capacity?: Int64;
-  /** The bytes limit for text content in Cell, default is 3,2000 */
+  /** Cell 中文本内容的 bytes 数限制, 默认为 3,2000 */
   max_cell_content_length?: Int64;
-  /** Whether to allow export */
+  /** 是否允许导出 */
   not_allow_export?: boolean;
 }
 
@@ -167,7 +167,7 @@ export interface Row {
 export interface RowGroup {
   row_group_id?: Int64;
   group_name?: string;
-  /** Add specify tags when creating */
+  /** 新增创建时指定tags */
   tags?: Array<string>;
   rows: Array<Row>;
 }

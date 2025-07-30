@@ -27,7 +27,7 @@ export enum BuiltinTemplateType {
 }
 
 export enum EvaluatorRunStatus {
-  /** Running state, state flow under asynchronous, only Success/Fail under synchronization */
+  /** 运行状态, 异步下状态流转, 同步下只有 Success / Fail */
   Unknown = 0,
   Success = 1,
   Fail = 2,

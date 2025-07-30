@@ -21,10 +21,10 @@
 
 export type Int64 = string | number;
 
-/** Task front-end interaction structure
- Resource tasks within the project */
+/** task前端交互结构体
+ project内资源任务 */
 export interface ProjectInnerTaskInfo {
-  /** Task ID */
+  /** 任务id */
   task_id?: string;
 }
 /* eslint-enable */

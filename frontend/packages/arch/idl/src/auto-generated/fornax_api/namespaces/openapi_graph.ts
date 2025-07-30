@@ -33,7 +33,7 @@ export interface Slot {
   graphUID: string;
   nodeUID: string;
   slotUID: string;
-  /** JSON encoded value */
+  /** JSON 编码的值 */
   value: string;
 }
 /* eslint-enable */

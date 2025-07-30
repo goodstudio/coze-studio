@@ -62,7 +62,7 @@ export default class IncentiveService<T> {
   /**
    * GET /api/marketplace/incentive/user_task/list
    *
-   * Task Center Showcase user tasks
+   * 任务中心展示用户任务
    */
   ListUserTask(
     req: api.ListUserTaskRequest,
@@ -81,7 +81,7 @@ export default class IncentiveService<T> {
   /**
    * GET /api/marketplace/admin/incentive/task/list
    *
-   * Task management, task query
+   * 任务管理, 任务查询
    */
   ListTask(
     req: api.ListTaskRequest,
@@ -103,7 +103,7 @@ export default class IncentiveService<T> {
   /**
    * POST /api/marketplace/admin/incentive/task/update
    *
-   * Task management, task modification
+   * 任务管理, 任务修改
    */
   UpdateTask(
     req: api.UpdateTaskRequest,
@@ -136,7 +136,7 @@ export default class IncentiveService<T> {
   /**
    * POST /api/marketplace/admin/incentive/task/status/update
    *
-   * Task management, task listing/removal
+   * 任务管理, 任务上架/下架
    */
   UpdateTaskStatus(
     req: api.UpdateTaskStatusRequest,

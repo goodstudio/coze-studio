@@ -22,29 +22,29 @@
 export type Int64 = string | number;
 
 export enum CheckResultType {
-  /** Failed, quality inspection task failed status */
+  /** fail, 质检任务失败状态 */
   CheckResultFail = 1,
-  /** Block, the quality inspection detected a serious alarm, and it is recommended that the card point block the release process. */
+  /** block, 质检检测到严重告警，建议卡点阻塞发布流程 */
   CheckResultBlock = 2,
-  /** assertFail, rule execution detected exception */
+  /** assertFail, 规则执行检测到异常 */
   CheckResultAssertFail = 3,
-  /** runFail, rule execution internal exception, unrelated to change */
+  /** runFail, 规则执行内部异常，与变更无关 */
   CheckResultRunFail = 4,
-  /** Passed, quality inspection passed */
+  /** pass, 质检通过 */
   CheckResultPass = 5,
-  /** Warning, quality inspection detected warning alarm, manual check is recommended */
+  /** warning, 质检检测到warning告警，建议人工check */
   CheckResultWarning = 6,
-  /** Error, failed to create task, does not block process */
+  /** error, 创建任务失败，不阻塞流程 */
   CheckResultError = 7,
-  /** Skipped, the quality inspection task was manually skipped */
+  /** skipped, 质检任务被人工跳过 */
   CheckResultSkip = 8,
-  /** Running, testing */
+  /** running, 检测中 */
   CheckResultRunning = 9,
-  /** Init, testing */
+  /** init, 检测中 */
   CheckResultInit = 10,
 }
 
-/** type of inspection */
+/** 检查类型 */
 export enum CheckType {
   /** release_time_check */
   ReleaseTimeCheck = 0,
@@ -59,31 +59,31 @@ export enum CheckType {
 }
 
 export interface ActionConfig {
-  /** Operation name copy, such as applying for escape, view report link */
+  /** 操作名称文案，如申请逃逸、查看报告链接 */
   action_name?: string;
-  /** escape link, quality inspection report link */
+  /** 逃逸链接、质检报告链接 */
   action_url?: string;
-  /** Activity details, such as ban policy name */
+  /** 操作详情描述，如封禁策略名称 */
   action_detail?: string;
 }
 
 export interface CheckResult {
-  /** Detect ID */
+  /** 检测ID */
   check_id?: Int64;
-  /** Detection details */
+  /** 检测详情 */
   check_detail?: Array<CheckResultDetail>;
 }
 
 export interface CheckResultDetail {
-  /** Ref: CheckType, Inspection Type, QA, Time Window Ban, Change Verification, etc */
+  /** ref: CheckType, 检查类型，质检、时间窗口封禁、变更校验等 */
   check_type?: string;
-  /** Ref: CheckResultType, CheckResultType */
+  /** ref: CheckResultType, 检查结果 */
   check_result?: string;
-  /** Whether to card point suggestion */
+  /** 是否卡点建议 */
   is_block?: boolean;
-  /** operation suggestion */
+  /** 操作建议 */
   action?: Array<ActionConfig>;
-  /** Detection item description */
+  /** 检测项描述 */
   desc?: string;
 }
 /* eslint-enable */

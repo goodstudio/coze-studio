@@ -23,17 +23,17 @@ export type Int64 = string | number;
 
 export enum SearchIntention {
   Unknown = 0,
-  /** networking */
+  /** 联网 */
   Browsing = 1,
-  /** video only */
+  /** 仅视频 */
   RichMediaMustVideo = 2,
-  /** Picture only */
+  /** 仅图片 */
   RichMediaMustImage = 3,
-  /** Video + Text */
+  /** 视频+文字 */
   RichMediaStrongVideo = 4,
-  /** Picture + text */
+  /** 图片+文字 */
   RichMediaStrongImage = 5,
-  /** complex search */
+  /** 复杂搜索 */
   ComplexSearch = 6,
 }
 /* eslint-enable */

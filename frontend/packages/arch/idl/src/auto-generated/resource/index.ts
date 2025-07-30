@@ -64,7 +64,7 @@ export default class ResourceService<T> {
   /**
    * POST /api/resource/library_resource_list
    *
-   * List of Coze libraries
+   * Coze资源库列表
    */
   LibraryResourceList(
     req: resource.LibraryResourceListRequest,

@@ -41,9 +41,9 @@ export interface BotSimpleInfo {
   description?: string;
   icon_url?: string;
   is_published?: boolean;
-  /** Back to update_time */
+  /** 草稿返回update_time */
   updated_at?: Int64;
-  /** Return to publish_time */
+  /** 发布态返回publish_time */
   published_at?: Int64;
   owner_user_id?: string;
   folder_id?: string;
@@ -56,7 +56,7 @@ export interface FolderSimpleInfo {
   workspace_id?: string;
   creator_user_id?: string;
   parent_folder_id?: string;
-  /** OpenGetSpaceFolder returns only after receiving the port. */
+  /** OpenGetSpaceFolder 接口才返回 */
   children_count?: number;
 }
 
@@ -99,7 +99,7 @@ export interface OpenGetProjectData {
 export interface OpenGetProjectListRequest {
   workspace_id?: string;
   publish_status?: string;
-  /** Incoming only in PublishedOnline */
+  /** 只在PublishedOnline传入 */
   connector_id?: string;
   page_num?: Int64;
   page_size?: Int64;
@@ -121,7 +121,7 @@ export interface OpenGetSpaceFolderData {
 export interface OpenGetSpaceFolderRequest {
   workspace_id?: string;
   folder_type?: string;
-  /** Do not pass/pass 0 to get the root folder */
+  /** 不传/传0表示获取根文件夹 */
   parent_folder_id?: string;
   page_num?: number;
   page_size?: number;

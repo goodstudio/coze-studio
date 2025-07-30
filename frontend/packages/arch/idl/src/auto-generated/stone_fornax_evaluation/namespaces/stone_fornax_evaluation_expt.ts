@@ -29,20 +29,20 @@ import * as stone_fornax_evaluation_eval_target from './stone_fornax_evaluation_
 
 export type Int64 = string | number;
 
-/** aggregator type */
+/** 聚合器类型 */
 export enum AggregatorType {
   Average = 1,
   Sum = 2,
   Max = 3,
   Min = 4,
-  /** The distribution of scores. */
+  /** 得分的分布情况 */
   Distribution = 5,
 }
 
 export enum DataType {
-  /** Default, floating-point value types with decimals */
+  /** 默认，有小数的浮点数值类型 */
   Double = 0,
-  /** score distribution */
+  /** 得分分布 */
   ScoreDistribution = 1,
 }
 
@@ -61,23 +61,23 @@ export enum ExptRetryMode {
 
 export enum ExptStatus {
   Unknown = 0,
-  /** to be implemented */
+  /** 待执行 */
   Pending = 2,
-  /** in progress */
+  /** 执行中 */
   Processing = 3,
-  /** successful execution */
+  /** 执行成功 */
   Success = 11,
-  /** execution failed */
+  /** 执行失败 */
   Failed = 12,
-  /** user termination */
+  /** 用户终止 */
   Terminated = 13,
-  /** Abnormal termination within the system */
+  /** 系统内部异常终止 */
   SystemTerminated = 14,
 }
 
 export enum FieldType {
   Unknown = 0,
-  /** Evaluator score, FieldKey is evaluatorVersionID, value is score */
+  /** 评估器得分, FieldKey为evaluatorVersionID,value为score */
   EvaluatorScore = 1,
   CreatorBy = 2,
   ExptStatus = 3,
@@ -100,44 +100,44 @@ export enum FilterLogicOp {
 
 export enum FilterOperatorType {
   Unknown = 0,
-  /** equal to */
+  /** 等于 */
   Equal = 1,
-  /** Not equal to */
+  /** 不等于 */
   NotEqual = 2,
-  /** greater than */
+  /** 大于 */
   Greater = 3,
-  /** greater than or equal to */
+  /** 大于等于 */
   GreaterOrEqual = 4,
-  /** less than */
+  /** 小于 */
   Less = 5,
-  /** less than or equal to */
+  /** 小于等于 */
   LessOrEqual = 6,
-  /** contain */
+  /** 包含 */
   In = 7,
-  /** Do not include */
+  /** 不包含 */
   NotIn = 8,
 }
 
 export enum ItemRunState {
   Unknown = -1,
-  /** in line */
+  /** 排队中 */
   Queueing = 0,
-  /** in progress */
+  /** 执行中 */
   Processing = 1,
-  /** success */
+  /** 成功 */
   Success = 2,
-  /** fail */
+  /** 失败 */
   Fail = 3,
-  /** terminate execution */
+  /** 终止执行 */
   Terminal = 5,
 }
 
 export enum TurnRunState {
-  /** Not started */
+  /** 未开始执行 */
   Queueing = 0,
-  /** successful execution */
+  /** 执行成功 */
   Success = 1,
-  /** execution failed */
+  /** 执行失败 */
   Fail = 2,
   Processing = 3,
   Terminal = 4,
@@ -149,7 +149,7 @@ export interface AggregateData {
   score_distribution?: ScoreDistribution;
 }
 
-/** Aggregation results of an aggregator type */
+/** 一种聚合器类型的聚合结果 */
 export interface AggregatorResult {
   aggregator_type: AggregatorType;
   data?: AggregateData;
@@ -179,15 +179,15 @@ export interface CloneExperimentResponse {
 }
 
 export interface ColumnEvalSetField {
-  /** unique key */
+  /** 唯一键 */
   key?: string;
-  /** display name */
+  /** 展示名称 */
   name?: string;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** Type, such as, text, pictures, etc. */
+  /** 类型，如 文本，图片，etc. */
   content_type?: string;
-  /** Default rendering formats such as code, json, etc. mai */
+  /** 默认渲染格式，如 code, json, etc.mai */
   default_display_format?: datasetv2.FieldDisplayFormat;
 }
 
@@ -195,11 +195,11 @@ export interface ColumnEvaluator {
   evaluator_version_id: Int64;
   evaluator_id: Int64;
   evaluator_type: evaluator.EvaluatorType;
-  /** Evaluator name */
+  /** 评估器名称 */
   name?: string;
-  /** Evaluator version */
+  /** 评估器版本 */
   version?: string;
-  /** Evaluator Description */
+  /** 评估器描述 */
   description?: string;
 }
 
@@ -213,13 +213,13 @@ export interface DeleteExperimentResponse {
   BaseResp?: base.BaseResp;
 }
 
-/** Evaluator version granularity aggregation results */
+/** 评估器版本粒度聚合结果 */
 export interface EvaluatorAggregateResult {
-  /** Graphs contain experimental and evaluator information. Support jumping to view experimental related evaluation sets and evaluator details */
+  /** 图表包含实验和评估器信息。支持跳转查看实验关联评测集、评估器详情 */
   evaluator_version_id: Int64;
   aggregator_results?: Array<AggregatorResult>;
   name?: string;
-  /** Evaluator version */
+  /** 评估器版本 */
   version?: string;
 }
 
@@ -261,25 +261,25 @@ export interface ExperimentResult {
   payload?: ExperimentTurnPayload;
 }
 
-/** Actual row-level payload */
+/** 实际行级payload */
 export interface ExperimentTurnPayload {
   turn_id?: Int64;
-  /** evaluation dataset data */
+  /** 评测数据集数据 */
   eval_set?: TurnEvalSet;
-  /** Object Results */
+  /** 评测对象结果 */
   target_output?: TurnTargetOutput;
-  /** Evaluation rule execution result */
+  /** 评测规则执行结果 */
   evaluator_output?: TurnEvaluatorOutput;
-  /** Evaluation system related data logs, errors */
+  /** 评测系统相关数据日志、error */
   system_info?: TurnSystemInfo;
 }
 
-/** Experimental particle size polymerization results */
+/** 实验粒度聚合结果 */
 export interface ExptAggregateResult {
   experiment_id: Int64;
-  /** Evaluator dimension aggregation result, key is evaluator_version_id */
+  /** 评估器维度聚合结果,key 为evaluator_version_id */
   evaluator_results?: Record<Int64, EvaluatorAggregateResult>;
-  /** Aggregate Compute State */
+  /** 聚合计算状态 */
   status?: ExptAggregateCalculateStatus;
 }
 
@@ -305,14 +305,14 @@ export interface FieldMapping {
   from_field_name?: string;
 }
 
-/** field filter */
+/** 字段过滤器 */
 export interface FilterCondition {
-  /** Filter fields, such as evaluator IDs */
+  /** 过滤字段，比如评估器ID */
   field?: FilterField;
-  /** Operators such as equal to, contain, greater than, less than, etc */
+  /** 操作符，比如等于、包含、大于、小于等 */
   operator?: FilterOperatorType;
-  /** Operational values; support for multiple types of operational values;
-When Operator is In, NotIn, Values are separated by commas */
+  /** 操作值;支持多种类型的操作值；
+当 Operator为In, NotIn时，Value按照逗号分隔 */
   value?: string;
   source_target?: SourceTarget;
 }
@@ -323,24 +323,24 @@ export interface FilterField {
 }
 
 export interface Filters {
-  /** filter condition */
+  /** 过滤条件 */
   filter_conditions?: Array<FilterCondition>;
-  /** Logical operation between filter conditions, default to And */
+  /** 过滤条件间的逻辑操作，默认为And */
   logic_op?: FilterLogicOp;
 }
 
 export interface ItemResult {
   item_id: Int64;
-  /** Row particle size experiment results Details */
+  /** row粒度实验结果详情 */
   turn_results?: Array<TurnResult>;
   system_info?: ItemSystemInfo;
-  /** Item index in eval_set */
+  /** item在eval_set中的index */
   item_index?: Int64;
 }
 
 export interface ItemSystemInfo {
   item_run_state?: ItemRunState;
-  /** Row the associated logID at execution time */
+  /** Row执行时关联的logID */
   log_id?: string;
   error?: RunError;
 }
@@ -390,7 +390,7 @@ export interface MGetExperimentResponse {
 export interface MGetExperimentResultRequest {
   space_id: Int64;
   experiment_ids: Array<Int64>;
-  /** Benchmark experiment ID for experimental comparison */
+  /** 实验对比的基准实验ID */
   baseline_experiment_id?: Int64;
   /** key: experiment_id */
   filters?: Record<Int64, ExperimentFilter>;
@@ -400,11 +400,11 @@ export interface MGetExperimentResultRequest {
 }
 
 export interface MGetExperimentResultResponse {
-  /** Dataset header information */
+  /** 数据集表头信息 */
   column_eval_set_fields: Array<ColumnEvalSetField>;
-  /** Evaluator header information */
+  /** 评估器表头信息 */
   column_evaluators?: Array<ColumnEvaluator>;
-  /** Item particle size experiment results Details */
+  /** item粒度实验结果详情 */
   item_results?: Array<ItemResult>;
   total?: Int64;
   BaseResp?: base.BaseResp;
@@ -440,9 +440,9 @@ export interface RetryExperimentResponse {
 
 export interface RunError {
   code: Int64;
-  /** Code corresponding message */
+  /** code对应的message */
   message?: string;
-  /** Error details */
+  /** 错误详情 */
   detail?: string;
 }
 
@@ -451,7 +451,7 @@ export interface ScoreDistribution {
 }
 
 export interface ScoreDistributionItem {
-  /** Aggregations other than TOP5 are displayed as "Other" */
+  /** TOP5以外的聚合展示为“其他” */
   score: string;
   count: Int64;
   percentage: number;
@@ -503,19 +503,19 @@ export interface TurnEvaluatorOutput {
   evaluator_records?: Record<Int64, evaluator.EvaluatorRecord>;
 }
 
-/** Row-level results, possibly including multiple experiments */
+/** 行级结果 可能包含多个实验 */
 export interface TurnResult {
-  /** May be empty */
+  /** 可能为空 */
   turn_id?: Int64;
-  /** The experimental sequence participating in the comparison is 1 in length for a single report sequence. */
+  /** 参与对比的实验序列，对于单报告序列长度为1 */
   experiment_results?: Array<ExperimentResult>;
-  /** Turn in items */
+  /** turn在item中的轮次 */
   turn_index?: Int64;
 }
 
 export interface TurnSystemInfo {
   turn_run_state?: TurnRunState;
-  /** Row the associated logID at execution time */
+  /** Row执行时关联的logID */
   log_id?: string;
   error?: RunError;
 }

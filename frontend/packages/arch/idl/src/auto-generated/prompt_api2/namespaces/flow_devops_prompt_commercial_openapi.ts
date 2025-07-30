@@ -58,19 +58,19 @@ export interface MPullPromptResponse {
 }
 
 export interface Prompt {
-  /** Space ID */
+  /** 空间ID */
   workspace_id?: Int64;
-  /** unique identifier */
+  /** 唯一标识 */
   prompt_key?: string;
-  /** version */
+  /** 版本 */
   version?: string;
-  /** Prompt template */
+  /** Prompt模板 */
   prompt_template?: PromptTemplate;
-  /** Tool definition */
+  /** tool定义 */
   tools?: Array<Tool>;
-  /** Tool call configuration */
+  /** tool调用配置 */
   tool_call_config?: ToolCallConfig;
-  /** model configuration */
+  /** 模型配置 */
   llm_config?: LLMConfig;
 }
 
@@ -89,11 +89,11 @@ export interface PromptResultData {
 }
 
 export interface PromptTemplate {
-  /** template type */
+  /** 模板类型 */
   template_type?: string;
-  /** Only support message list hosting */
+  /** 只支持message list形式托管 */
   messages?: Array<Message>;
-  /** variable definition */
+  /** 变量定义 */
   variable_defs?: Array<VariableDef>;
 }
 
@@ -107,11 +107,11 @@ export interface ToolCallConfig {
 }
 
 export interface VariableDef {
-  /** variable name */
+  /** 变量名字 */
   key?: string;
-  /** variable description */
+  /** 变量描述 */
   desc?: string;
-  /** Variable type */
+  /** 变量类型 */
   type?: string;
 }
 /* eslint-enable */

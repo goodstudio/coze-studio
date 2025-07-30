@@ -23,7 +23,7 @@ import * as base from './base';
 
 export type Int64 = string | number;
 
-/** Subdivision types for File type parameters */
+/** 针对File类型参数的细分类型 */
 export enum AssistParameterType {
   DEFAULT = 1,
   IMAGE = 2,
@@ -71,14 +71,14 @@ export enum AuthType {
 
 export enum BasicNodeType {
   PluginAPI = 1,
-  /** base node template */
+  /** 基础节点模版 */
   NodeTemplate = 2,
 }
 
 export enum BindBizType {
   Agent = 1,
   Scene = 2,
-  /** Douyin doppelganger */
+  /** 抖音分身 */
   DouYinBot = 3,
 }
 
@@ -90,13 +90,13 @@ export enum BindStageType {
 }
 
 export enum BrushDataType {
-  /** Refresh all data */
+  /** 刷新所有数据 */
   All = 1,
-  /** Refresh by workflow ID */
+  /** 按工作流ID刷新 */
   WorkflowId = 2,
-  /** Refresh by space ID */
+  /** 按空间ID刷新 */
   SpaceId = 3,
-  /** Refresh according to the ID range, you need to have an auto-incrementing primary key. */
+  /** 按ID范围刷新，需要有自增的主键 */
   IdRange = 4,
 }
 
@@ -106,24 +106,24 @@ export enum Caller {
 }
 
 export enum CheckType {
-  /** In the returned process list, if the process is a dialog flow, or the process imported parameter is BOT_USER_INPUT, the is_pass of CheckResult is true */
+  /** 返回的流程列表中，如果流程是对话流 或 流程入参为BOT_USER_INPUT，CheckResult的is_pass是true */
   WebSDKPublish = 1,
-  /** In the returned process list, if the process is a dialog flow, or the process imported parameter is BOT_USER_INPUT, the is_pass of CheckResult is true */
+  /** 返回的流程列表中，如果流程是对话流 或 流程入参为BOT_USER_INPUT，CheckResult的is_pass是true */
   SocialPublish = 2,
-  /** In the returned process list, if the process is a dialog flow, or the process imported parameter is BOT_USER_INPUT, the is_pass of CheckResult is true; but if the process is a dialog flow, or the process imported parameter is BOT_USER_INPUT but the node in the process contains multi-session nodes, then the is_pass of CheckResult is false */
+  /** 返回的流程列表中，返回的流程列表中，如果流程是对话流 或 流程入参为BOT_USER_INPUT，CheckResult的is_pass是true；但是如果流程是对话流 或 流程入参为BOT_USER_INPUT但是流程中的节点包含多会话节点，那么CheckResult的is_pass是false */
   BotAgent = 3,
-  /** In the returned process list, if the process is a dialog flow, or the process imported parameter is BOT_USER_INPUT, the is_pass of CheckResult is true */
+  /** 返回的流程列表中，如果流程是对话流 或 流程入参为BOT_USER_INPUT，CheckResult的is_pass是true */
   BotSocialPublish = 4,
-  /** In the returned process list, if the process is a dialog flow, or the process imported parameter is BOT_USER_INPUT, the is_pass of CheckResult is true; but if the process is a dialog flow, or the process imported parameter is BOT_USER_INPUT but the node in the process contains multi-session nodes, then the is_pass of CheckResult is false */
+  /** 返回的流程列表中，返回的流程列表中，如果流程是对话流 或 流程入参为BOT_USER_INPUT，CheckResult的is_pass是true；但是如果流程是对话流 或 流程入参为BOT_USER_INPUT但是流程中的节点包含多会话节点，那么CheckResult的is_pass是false */
   BotWebSDKPublish = 5,
-  /** In the returned process list, if the process is a workflow and contains a node containing a session management class node, or a question and answer node, or an input node, or an end plug-in node, the is_pass of CheckResult is false; if the process is a dialog flow, the is_pass of CheckResult is false; */
+  /** 返回的流程列表中，如果流程为工作流且含有的节点包含会话管理类节点 或 问答节点 或 输入节点 或 端插件节点，则CheckResult的is_pass是false；如果流程是对话流，CheckResult的is_pass是false； */
   MCPPublish = 6,
 }
 
 export enum CollaboratorMode {
-  /** Turn off multiplayer collaboration mode */
+  /** 关闭多人协作模式 */
   Close = 0,
-  /** Enable multiplayer collaboration mode */
+  /** 开启多人协作模式 */
   Open = 1,
 }
 
@@ -133,13 +133,13 @@ export enum CollaboratorOperationType {
 }
 
 export enum CollaboratorType {
-  /** Get workflow data with collaborator mode = 0 */
+  /** 获取有协作者mode=0的workflow数据 */
   GetHasCollaborator = 0,
-  /** Get workflow data with no collaborator mode = 1 */
+  /** 获取无协作者mode=1的workflow数据 */
   GetNoCollaborator = 1,
-  /** Update workflow data with collaborator mode = 0 */
+  /** 更新有协作者mode=0的workflow数据 */
   UpdateHasCollaborator = 2,
-  /** Update workflow data with no collaborator mode = 1 */
+  /** 更新无协作者mode=1的workflow数据 */
   UpdateNoCollaborator = 3,
 }
 
@@ -185,18 +185,18 @@ export enum DatasetType {
   Volcano = 1,
 }
 
-/** Default imported parameter settings source */
+/** 默认入参的设置来源 */
 export enum DefaultParamSource {
-  /** default user input */
+  /** 默认用户输入 */
   Input = 0,
-  /** reference variable */
+  /** 引用变量 */
   Variable = 1,
 }
 
 export enum DeleteAction {
-  /** Blockwise Unbinding */
+  /** Blockwise的解绑 */
   BlockwiseUnbind = 1,
-  /** Blockwise removal */
+  /** Blockwise的删除 */
   BlockwiseDelete = 2,
 }
 
@@ -206,22 +206,22 @@ export enum DeleteStatus {
 }
 
 export enum DeleteType {
-  /** Can be deleted: No workflow product/product removed from the shelves/first time on the shelves and the review failed */
+  /** 可以删除：无workflow商品/商品下架/第一次上架且审核失败 */
   CanDelete = 0,
-  /** Review failed after deletion: The workflow product is on the shelves for the first time and is under review. */
+  /** 删除后审核失败：workflow商品第一次上架并处于审核中 */
   RejectProductDraft = 1,
-  /** Products that need to be removed from the shelves first: workflow products have been put on the shelves. */
+  /** 需要商品先下架：workflow商品已上架 */
   UnListProduct = 2,
 }
 
 export enum DiffTypeMeta {
-  /** Neither the draft nor the latest submitted version has been revised */
+  /** 草稿和最新提交版本都没有做修改 */
   NoChanges = 1,
-  /** The draft has been revised */
+  /** 草稿做了修改 */
   ChangesByDraft = 2,
-  /** The latest modification */
+  /** 最新做了修改 */
   ChangesByLatest = 3,
-  /** The draft and the latest submission have been revised */
+  /** 草稿和最新提交都做了修改 */
   Conflict = 4,
 }
 
@@ -255,16 +255,16 @@ export enum IfConditionRelation {
 }
 
 export enum ImageflowTabType {
-  /** Default, base node */
+  /** 默认值，基础节点 */
   BasicNode = 0,
-  /** ToolMarket = 1//ToolMarket, subsequent expansion */ subsequent expansion */
+  /** ToolMarket = 1 // 工具市场，后续扩展 */
   All = 10,
 }
 
 export enum InputMode {
-  /** Type input */
+  /** 打字输入 */
   text = 1,
-  /** Voice input */
+  /** 语音输入 */
   audio = 2,
 }
 
@@ -277,7 +277,7 @@ export enum InputType {
   Object = 6,
 }
 
-/** This enumeration needs to be aligned with the plugin's PluginInterruptType */
+/** 这个枚举需要与plugin的PluginInterruptType对齐 */
 export enum InterruptType {
   LocalPlugin = 1,
   Question = 2,
@@ -300,19 +300,19 @@ export enum NodeHistoryScene {
 }
 
 export enum NodePanelSearchType {
-  /** Search all types */
+  /** 搜索所有类型 */
   All = 0,
-  /** Search the workflow in the repository */
+  /** 搜索资源库中的workflow */
   ResourceWorkflow = 1,
-  /** Search workflow in project */
+  /** 搜索project中的workflow */
   ProjectWorkflow = 2,
-  /** Search for favorite plugins */
+  /** 搜索收藏的插件 */
   FavoritePlugin = 3,
-  /** Search for plugins in the repository */
+  /** 搜索资源库中的插件 */
   ResourcePlugin = 4,
-  /** Search for plugins in the project */
+  /** 搜索project中的插件 */
   ProjectPlugin = 5,
-  /** Search for plugins in the plugin store */
+  /** 搜索插件商店中的插件 */
   StorePlugin = 6,
 }
 
@@ -327,7 +327,7 @@ export enum NodeTemplateStatus {
   Invalide = 2,
 }
 
-/** The node template type is basically the same as NodeType. One copy is due to the addition of an Imageflow type to avoid affecting the business semantics of the original NodeType */
+/** 节点模版类型，与NodeType基本保持一致，copy一份是因为新增了一个Imageflow类型，避免影响原来NodeType的业务语意 */
 export enum NodeTemplateType {
   Start = 1,
   End = 2,
@@ -379,7 +379,7 @@ export enum NodeTemplateType {
   VideoGeneration = 65,
 }
 
-/** Node structure */
+/** 节点结构 */
 export enum NodeType {
   Start = 1,
   End = 2,
@@ -480,11 +480,11 @@ export enum ParamRequirementType {
 }
 
 export enum PermissionType {
-  /** Can't view details */
+  /** 不能查看详情 */
   NoDetail = 1,
-  /** You can check the details. */
+  /** 可以查看详情 */
   Detail = 2,
-  /** Can be viewed and operated */
+  /** 可以查看和操作 */
   Operate = 3,
 }
 
@@ -512,24 +512,24 @@ export enum PrincipalType {
   Service = 2,
 }
 
-/** Workflow Product Review Draft Status */
+/** workflow 商品审核草稿状态 */
 export enum ProductDraftStatus {
-  /** default */
+  /** 默认 */
   Default = 0,
-  /** Under review. */
+  /** 审核中 */
   Pending = 1,
-  /** approved */
+  /** 审核通过 */
   Approved = 2,
-  /** The review failed. */
+  /** 审核不通过 */
   Rejected = 3,
-  /** Abandoned */
+  /** 已废弃 */
   Abandoned = 4,
 }
 
 export enum ReqSource {
-  /** default */
+  /** 默认 */
   Default = 0,
-  /** store service */
+  /** 商店服务 */
   Product = 1,
 }
 
@@ -552,33 +552,33 @@ export enum ResourceType {
 }
 
 export enum SchemaType {
-  /** abandoned */
+  /** 废弃 */
   DAG = 0,
   FDL = 1,
-  /** abandoned */
+  /** 废弃 */
   BlockWise = 2,
 }
 
 export enum SendVoiceMode {
-  /** text message */
+  /** 文本消息 */
   text = 1,
-  /** Send as voice */
+  /** 发送为语音 */
   audio = 2,
 }
 
 export enum SuggestReplyInfoMode {
-  /** close */
+  /** 关闭 */
   Disable = 0,
-  /** system */
+  /** 系统 */
   System = 1,
-  /** custom */
+  /** 自定义 */
   Custom = 2,
 }
 
 export enum SupportBatch {
-  /** 1: Not supported */
+  /** 1:不支持 */
   NOT_SUPPORT = 1,
-  /** 2: Support */
+  /** 2:支持 */
   SUPPORT = 2,
 }
 
@@ -610,9 +610,9 @@ export enum TerminatePlanType {
 }
 
 export enum UserBehaviorType {
-  /** Open collaborator */
+  /** 打开协作者 */
   OpenCollaborators = 1,
-  /** Add collaborators */
+  /** 添加协作者 */
   AddCollaborators = 2,
 }
 
@@ -650,15 +650,15 @@ export enum VolcanoDatasetStatus {
   DatasetInvalid = 1,
 }
 
-/** The status of the process submission, 1 Not Submittable 2 Submittable 3 Submitted 4 Obsolete */
+/** 流程提交的状态，1不可提交 2可提交  3已提交 4废弃 */
 export enum WorkFlowDevStatus {
-  /** Not submittable (process not committed and the latest version did not test run successfully) */
+  /** 不可提交（流程未提交且最新的版本未test run成功） */
   CanNotSubmit = 1,
-  /** Not committed and submittable (process not committed but the latest version test ran successfully) */
+  /** 未提交且可提交 （流程未提交但最新的版本已经test run成功） */
   CanSubmit = 2,
-  /** Submitted */
+  /** 已提交 */
   HadSubmit = 3,
-  /** delete */
+  /** 删除 */
   Deleted = 4,
 }
 
@@ -685,13 +685,13 @@ export enum WorkFlowListStatus {
   HadPublished = 2,
 }
 
-/** WorkflowMode is used to distinguish between Workflow and chatflow. */
+/** WorkflowMode 用来区分 Workflow 和 chatflow */
 export enum WorkflowMode {
   Workflow = 0,
   Imageflow = 1,
   SceneFlow = 2,
   ChatFlow = 3,
-  /** Use only when querying */
+  /** 仅在查询时使用 */
   All = 100,
 }
 
@@ -706,31 +706,31 @@ export enum WorkflowSnapshotStatus {
   Published = 1,
 }
 
-/** The status of the process release, 1 cannot be released 2 can be released 3 released 4 deleted 5 removed from the shelves */
+/** 流程发布的状态，1不可发布 2可发布  3已发布 4删除 5下架 */
 export enum WorkFlowStatus {
-  /** Not publishable (the process is not published and the latest commit did not test run successfully) */
+  /** 不可发布 （流程未发布且最新的提交版本未test run成功） */
   CanNotPublish = 1,
-  /** Unpublished and publishable (process not published but the latest committed version has been tested run successfully) */
+  /** 未发布且可发布 （流程未发布但最新的提交版本已经test run成功） */
   CanPublish = 2,
-  /** Published */
+  /** 已发布 */
   HadPublished = 3,
-  /** delete */
+  /** 删除 */
   Deleted = 4,
-  /** off the shelf */
+  /** 下架 */
   Unlisted = 5,
 }
 
 export enum WorkflowStorageType {
-  /** In the resource library */
+  /** 资源库中 */
   Library = 1,
-  /** Within a project */
+  /** 在某个project内的 */
   Project = 2,
 }
 
 export enum WorkFlowType {
-  /** user defined */
+  /** 用户自定义 */
   User = 0,
-  /** official template */
+  /** 官方模板 */
   GuanFang = 1,
 }
 
@@ -752,7 +752,7 @@ export enum WorkflowVersionScriptType {
 }
 
 export interface APIDetail {
-  /** API ID */
+  /** api的id */
   id?: string;
   name?: string;
   description?: string;
@@ -761,23 +761,23 @@ export interface APIDetail {
 }
 
 export interface ApiDetailData {
-  /** The unique identifier of the plug-in. */
+  /** 插件的唯一标识。 */
   pluginID?: string;
-  /** The name of the API. */
+  /** API 的名称。 */
   apiName?: string;
-  /** The input parameter definition of the API, usually in JSON string format, describes the structure, type, and other meta-information of the input parameter. */
+  /** API 的输入参数定义，通常是 JSON 字符串格式，描述输入参数的结构、类型等元信息。 */
   inputs?: unknown;
-  /** The output parameter definition of the API, usually in JSON string format, describes the structure and type of the output result. */
+  /** API 的输出参数定义，通常是 JSON 字符串格式，描述输出结果的结构和类型。 */
   outputs?: unknown;
-  /** API's icon URL. */
+  /** API 的图标 URL。 */
   icon?: string;
-  /** API Display Name and Label */
+  /** API 的显示名称和Label */
   name?: string;
   desc?: string;
-  /** The status of the plugin, default: 0, listed/published: 1, removed: 2, under review: 3. */
+  /** 插件的状态，默认：0，已上架/已发布：1，已下架：2，审核中：3。 */
   pluginProductStatus?: Int64;
   pluginProductUnlistType?: Int64;
-  /** The space ID to which the API belongs. */
+  /** API 所属的空间 ID。 */
   spaceID?: string;
   debug_example?: DebugExample;
   updateTime?: Int64;
@@ -787,9 +787,9 @@ export interface ApiDetailData {
   latest_version?: string;
   latest_version_name?: string;
   version_name?: string;
-  /** You only need to care about the scenario with a value of 3. If auth = 3, it means Oauth plugin. */
+  /** 只需要关心值为3的场景，如果auth=3，表示Oauth插件 */
   auth?: number;
-  /** 0: All Channels; 1: Material; 2: Store */
+  /** 0:所有渠道；1:素材；2:商店 */
   channel_id?: Int64;
 }
 
@@ -804,7 +804,7 @@ export interface APIParam {
 }
 
 export interface APIParameter {
-  /** For the front end, no practical significance */
+  /** for前端，无实际意义 */
   id?: string;
   name?: string;
   desc?: string;
@@ -827,9 +827,9 @@ export interface APIParameter {
   exclusive_minimum?: boolean;
   exclusive_maximum?: boolean;
   biz_extend?: string;
-  /** Default imported parameter settings source */
+  /** 默认入参的设置来源 */
   default_param_source?: DefaultParamSource;
-  /** Reference variable key */
+  /** 引用variable的key */
   variable_ref?: string;
   assist_type?: AssistParameterType;
 }
@@ -860,11 +860,11 @@ export interface AsyncSubWorkflowResult {
 }
 
 export interface AudioConfig {
-  /** Key for language "zh", "en" "ja" "es" "id" "pt" */
+  /** key为语言 "zh", "en" "ja" "es" "id" "pt" */
   voice_config_map?: Record<string, VoiceConfig>;
-  /** Text to speech switch */
+  /** 文本转语音开关 */
   is_text_to_voice_enable?: boolean;
-  /** agent message form */
+  /** 智能体消息形式 */
   agent_message_type?: InputMode;
 }
 
@@ -874,43 +874,43 @@ export interface AvatarConfig {
 }
 
 export interface BackgroundImageDetail {
-  /** original image */
+  /** 原始图片 */
   origin_image_uri?: string;
   origin_image_url?: string;
-  /** Actual use of pictures */
+  /** 实际使用图片 */
   image_uri?: string;
   image_url?: string;
   theme_color?: string;
-  /** Gradual change of position */
+  /** 渐变位置 */
   gradient_position?: GradientPosition;
-  /** Crop canvas position */
+  /** 裁剪画布位置 */
   canvas_position?: CanvasPosition;
 }
 
 export interface BackgroundImageInfo {
-  /** Web background cover */
+  /** web端背景图 */
   web_background_image?: BackgroundImageDetail;
-  /** Mobile end background cover */
+  /** 移动端背景图 */
   mobile_background_image?: BackgroundImageDetail;
 }
 
 export interface Batch {
-  /** Is the batch switch on? */
+  /** batch开关是否打开 */
   is_batch?: boolean;
-  /** Only process input in the range [0, take_count) */
+  /** 只处理数组[0,take_count)范围的输入 */
   take_count?: Int64;
-  /** Batch input required */
+  /** 需要Batch的输入 */
   input_param?: Parameter;
 }
 
 export interface BatchDeleteProjectConversationRequest {
   project_id: string;
   space_id: string;
-  /** When deleting all, pass all uniqueID of the list */
+  /** 全部删除时，传 list 的全部 uniqueid */
   unique_id_list: Array<string>;
-  /** Is the current debugging state? */
+  /** 当前是否调试态 */
   draft_mode: boolean;
-  /** Pass the current channel id in non-debugging state */
+  /** 非调试态传递当前渠道 id */
   connector_id: string;
   Base?: base.Base;
 }
@@ -935,7 +935,7 @@ export interface BatchDeleteWorkflowResponse {
 }
 
 export interface BatchGetWkProcessIORequest {
-  /** All incoming workflow_id requirements belong to the same space_id */
+  /** 传入的所有workflow_id要求是属于同一个space_id */
   workflow_params?: Array<GetWkProcessIOParam>;
   Base?: base.Base;
 }
@@ -956,13 +956,13 @@ export interface BotTemplateCopyWorkFlowData {
 }
 
 export interface CallbackContent {
-  /** If the ErrorCode is non-zero and non-empty, the Output is empty */
+  /** 若ErrorCode非0非空，则Output为空 */
   Output?: string;
-  /** business custom data */
+  /** 业务自定义数据 */
   Extra?: string;
-  /** Deprecated, only part of the stock access service needs to be used */
+  /** deprecated，仅部分存量接入业务需要使用 */
   ErrorCode?: string;
-  /** Deprecated, only part of the stock access service needs to be used */
+  /** deprecated，仅部分存量接入业务需要使用 */
   ErrorMsg?: string;
 }
 
@@ -981,21 +981,21 @@ export interface CancelWorkFlowResponse {
 }
 
 export interface CanvasData {
-  /** process core data */
+  /** 流程核心数据 */
   workflow?: Workflow;
-  /** Version-related data (draft version, commit version, release version) */
+  /** 版本相关数据（草稿版本、提交版本、发布版本） */
   vcs_data?: VCSCanvasData;
-  /** Release status related data */
+  /** 发布状态相关数据 */
   db_data?: DBCanvasData;
-  /** Operator information */
+  /** 操作者信息 */
   operation_info?: OperationInfo;
-  /** It must currently return nil. */
+  /** 当前一定返回nil */
   external_flow_info?: string;
-  /** Is the Agent bound? */
+  /** 是否绑定了Agent */
   is_bind_agent?: boolean;
   bind_biz_id?: string;
   bind_biz_type?: number;
-  /** Publish the version number of the workflow */
+  /** 发布workflow的版本号 */
   workflow_version?: string;
 }
 
@@ -1008,85 +1008,85 @@ export interface CanvasPosition {
 
 export interface CategoriedImageflowBasicNodes {
   nodes: Array<ImageflowBasicNode>;
-  /** packet information */
+  /** 分组信息 */
   category_i18n_key: string;
 }
 
 export interface ChatFlowRole {
   id?: string;
   workflow_id?: string;
-  /** Channel ID */
+  /** 渠道ID */
   connector_id?: string;
-  /** avatar */
+  /** 角色头像 */
   avatar?: AvatarConfig;
-  /** Role Description */
+  /** 角色描述 */
   description?: string;
-  /** opening statement */
+  /** 开场白 */
   onboarding_info?: OnboardingInfo;
-  /** role name */
+  /** 角色名称 */
   name?: string;
-  /** User Question Suggestions */
+  /** 用户问题建议 */
   suggest_reply_info?: SuggestReplyInfo;
-  /** background cover */
+  /** 背景图 */
   background_image_info?: BackgroundImageInfo;
-  /** Voice configuration: tone, phone, etc */
+  /** 语音配置：音色、电话等 */
   audio_config?: AudioConfig;
-  /** user input method */
+  /** 用户输入方式 */
   user_input_config?: UserInputConfig;
-  /** project version */
+  /** 项目版本 */
   project_version?: string;
 }
 
 export interface ChatFlowRunRequest {
-  /** The ID of the conversation flow to be executed, which should be published */
+  /** required 待执行的对话流 ID，此对话流应已发布 */
   workflow_id?: string;
-  /** Required Set custom parameters in dialog flow input parameters (map [String] any) */
+  /** required 设置对话流输入参数中的自定义参数 (map[String]any) */
   parameters?: string;
-  /** Used to specify additional fields such as latitude and longitude, user ID, etc */
+  /** 用于指定一些额外的字段，例如经纬度、用户ID等 */
   ext?: Record<string, string>;
-  /** Agent ID that needs to be associated */
+  /** 需要关联的智能体 ID */
   bot_id?: string;
-  /** Execution mode, the default is formal run, practice run needs to pass in "DEBUG" */
+  /** 执行模式，默认为正式运行，试运行需要传入"DEBUG" */
   execute_mode?: string;
-  /** DEPRECATED version number, which may be the workflow version or project version */
+  /** DEPRECATED 版本号，可能是workflow版本或者project版本 */
   version?: string;
-  /** Channel ID, such as ui builder, template, store, etc */
+  /** 渠道ID，比如ui builder、template、商店等 */
   connector_id?: string;
-  /** The associated button application ID is required. */
+  /** 需要关联的扣子应用 ID */
   app_id?: string;
-  /** The session ID corresponding to the conversation flow */
+  /** 对话流对应的会话 ID */
   conversation_id?: string;
-  /** Required user questions and chat history */
+  /** required 对话中用户问题和历史消息 */
   additional_messages?: Array<EnterMessage>;
-  /** Project ID, for compatibility with UI builder */
+  /** 项目ID，为了兼容ui builder */
   project_id?: string;
-  /** Suggested reply message */
+  /** 建议回复信息 */
   suggest_reply_info?: SuggestReplyInfo;
-  /** Project version, only when running the workflow as a workflow within the project can pass the value, and the latest version is used by default if not passed. */
+  /** 项目版本，只有运行工作流为project内工作流时可以传值，不传默认使用最新版本 */
   app_version?: string;
-  /** The workflow version of the resource library, only when the workflow is run as a workflow in the resource library, the value can be passed. If it is not passed, the latest version is used by default. */
+  /** 资源库工作流版本，只有运行工作流为资源库内工作流时可以传值，不传默认使用最新版本 */
   workflow_version?: string;
 }
 
 export interface ChatFlowRunResponse {
-  /** Required data packet event returned by the current stream */
+  /** required 当前流式返回的数据包事件 */
   event?: string;
-  /** Required message content (JSON serialized string for Chat Object or Message Object) */
+  /** required 消息内容 (Chat Object 或 Message Object 的 JSON 序列化字符串) */
   data?: string;
 }
 
 export interface CheckDevVCSCommitIdRequest {
-  /** workflow id list */
+  /** 工作流id列表 */
   wf_id_list?: Array<Int64>;
   Base?: base.Base;
 }
 
 export interface CheckDevVCSCommitIdResponse {
-  /** Restore SQL of data */
+  /** 修复数据的sql */
   update_sql_list?: Array<string>;
-  /** Correct workflow list */
+  /** 正确的工作流列表 */
   right_wf_list?: Array<Int64>;
-  /** Error workflow list */
+  /** 错误的工作流列表 */
   wrong_wf_list?: Array<Int64>;
   code: Int64;
   msg: string;
@@ -1107,11 +1107,11 @@ export interface CheckLatestSubmitVersionResponse {
 }
 
 export interface CheckResult {
-  /** check type */
+  /** 校验类型 */
   type?: CheckType;
-  /** Whether to pass */
+  /** 是否通过 */
   is_pass?: boolean;
-  /** Reason for not passing */
+  /** 不通过原因 */
   reason?: string;
 }
 
@@ -1140,7 +1140,7 @@ export interface CollaboratorInfo {
 
 export interface CompensationData {
   workflow?: Workflow;
-  /** The commit_id of a commit. This is used to uniquely identify individual commit versions of a process (each commit_id corresponds only and only to one commit version of a process). */
+  /** 提交的 commit_id。其作用是唯一标识一个流程的单个提交版本（每个 commit_id 仅对应且仅能对应一个流程的一次提交版本）。 */
   submit_commit_id?: string;
   draft_commit_id?: string;
 }
@@ -1161,15 +1161,15 @@ export interface ConversationData {
 }
 
 export interface CopyWkTemplateApiRequest {
-  /** Copy all parent and child workflows of the template or a single workflow collection */
+  /** 拷贝模板的所有父子workflow或者单个workflow集合 */
   workflow_ids: Array<string>;
-  /** Copy target space */
+  /** 拷贝的目标空间 */
   target_space_id: string;
   Base?: base.Base;
 }
 
 export interface CopyWkTemplateApiResponse {
-  /** Template ID: Copy copy of data */
+  /** 模板ID：拷贝副本的数据 */
   data: Record<Int64, WkPluginBasicData>;
   code: Int64;
   msg: string;
@@ -1226,7 +1226,7 @@ export interface CreateChatFlowRoleRequest {
 }
 
 export interface CreateChatFlowRoleResponse {
-  /** ID in the database */
+  /** 数据库中ID */
   ID?: string;
   BaseResp: base.BaseResp;
 }
@@ -1247,38 +1247,38 @@ export interface CreateProjectConversationDefResponse {
 }
 
 export interface CreateWorkflowData {
-  /** The ID of the process, used to identify a unique process */
+  /** 流程的id，用来标识唯一的流程 */
   workflow_id?: string;
-  /** process name */
+  /** 流程名 */
   name?: string;
   url?: string;
   status?: WorkFlowStatus;
   type?: SchemaType;
   node_list?: Array<Node>;
-  /** It must currently return nil. */
+  /** 当前一定返回nil */
   external_flow_info?: string;
 }
 
 export interface CreateWorkflowRequest {
-  /** Process name, cannot be empty, can only start with English letters, the name can only contain English letters, numbers, underscores, and the length must be between 1-100 */
+  /** 流程名，不可为空，只能英文字母开头，名称内只能包含英文字母、数字、下划线，长度必须在1-100之间 */
   name: string;
-  /** The process description cannot be empty and must be between 1 and 600 in length. */
+  /** 流程描述，不可为空，长度必须在1-600之间。 */
   desc: string;
-  /** Process icon uri, not nullable */
+  /** 流程图标uri，不可为空 */
   icon_uri: string;
-  /** Space ID, non-nullable, identifies the space to which the workflow belongs. */
+  /** 空间id，不可为空，用于标识工作流所属的空间。 */
   space_id: string;
-  /** Workflow or chatflow, the default is workflow */
+  /** workflow or chatflow，默认值为workflow */
   flow_mode?: WorkflowMode;
-  /** If not provided, it defaults to FDL. Used to specify the mode type of the workflow. Currently only FDL is supported. */
+  /** 如果不提供则默认为FDL。用于指定工作流的模式类型。目前也只支持传FDL。 */
   schema_type?: SchemaType;
-  /** Bind the business ID, do not fill in if necessary. */
+  /** 绑定业务id，非必要不填写。 */
   bind_biz_id?: string;
-  /** Bind the business type, do not fill in if necessary. Refer to the BindBizType structure, when the value is 3, it represents the Douyin doppelganger. */
+  /** 绑定业务类型，非必要不填写。参考BindBizType结构体，值为3时代表抖音分身 */
   bind_biz_type?: number;
-  /** Application id, when filled in, it means that the process is the process under the project, and it needs to be released with the project. */
+  /** 应用id，填写时代表流程是project下的流程，需要跟随project发布 */
   project_id?: string;
-  /** Whether to create a session, only if flow_mode = chatflow */
+  /** 是否创建会话，仅当flow_mode=chatflow时生效 */
   create_conversation?: boolean;
   Base?: base.Base;
 }
@@ -1304,7 +1304,7 @@ export interface CreateWorkflowV2Request {
   desc: string;
   icon_uri: string;
   space_id: string;
-  /** Workflow or imageflow, the default is workflow */
+  /** workflow or imageflow，默认值为workflow */
   flow_mode?: WorkflowMode;
   bind_biz_id?: string;
   bind_biz_type?: number;
@@ -1322,7 +1322,7 @@ export interface Creator {
   id?: string;
   name?: string;
   avatar_url?: string;
-  /** Did you create it yourself? */
+  /** 是否是自己创建的 */
   self?: boolean;
 }
 
@@ -1344,13 +1344,13 @@ export interface DatasetDetail {
   icon_url?: string;
   name?: string;
   format_type?: Int64;
-  /** 0 = coze knowledge base 1 = volcano knowledge base */
+  /** 0=coze知识库 1=火山知识库 */
   dataset_type?: DatasetType;
-  /** Volcano side knowledge service details page */
+  /** 火山侧知识服务详情页 */
   volcano_service_link?: string;
-  /** Volcano Side Knowledge Base details page, */
+  /** 火山侧知识库详情页, */
   volcano_detail_link?: string;
-  /** Volcano Knowledge Base status, whether it has expired */
+  /** 火山知识库状态 是否已失效 */
   status?: VolcanoDatasetStatus;
 }
 
@@ -1376,7 +1376,7 @@ export interface DebugExample {
 export interface DeleteChatFlowRoleRequest {
   WorkflowID?: string;
   ConnectorID?: string;
-  /** ID in the database */
+  /** 数据库中ID */
   ID?: string;
   Base?: base.Base;
 }
@@ -1401,9 +1401,9 @@ export interface DeleteEnvResponse {
 export interface DeleteProjectConversationDefRequest {
   project_id: string;
   unique_id: string;
-  /** Replace the table, each wf draft is replaced with which, if not replaced, success = false, replace will return the list to be replaced, key pass workflow_id, value pass unique_id of the conversation to be replaced, replace pass empty needs to be transmitted check_only */
+  /** 替换表，每个 wf 草稿分别替换成哪个, 未替换的情况下 success =false，replace 会返回待替换列表，key传workflow_id，value传要替换成的conversation的unique_id，replace传空需要传输check_only */
   replace?: Record<string, string>;
-  /** Whether to check only, if true, do not actually perform the delete operation. Mainly used to query what are the processes of the current binding session. */
+  /** 是否仅进行检查，如果为true，不实际执行删除操作。主要用于查询当前绑定会话的流程都有哪些。 */
   check_only?: boolean;
   space_id: string;
   Base?: base.Base;
@@ -1411,7 +1411,7 @@ export interface DeleteProjectConversationDefRequest {
 
 export interface DeleteProjectConversationDefResponse {
   success?: boolean;
-  /** If no replacemap is passed, it will fail, returning the wf that needs to be replaced */
+  /** 如果未传递 replacemap, 会失败，返回需要替换的 wf */
   need_replace?: Array<Workflow>;
   code: Int64;
   msg: string;
@@ -1467,9 +1467,9 @@ export interface Dependency {
 }
 
 export interface DependencyTree {
-  /** ID of the current workflow */
+  /** 当前工作流的id */
   root_id?: string;
-  /** Publish the version number of the workflow */
+  /** 发布workflow的版本号 */
   version?: string;
   node_list?: Array<DependencyTreeNode>;
   edge_list?: Array<DependencyTreeEdge>;
@@ -1500,11 +1500,11 @@ export interface DependencyTreeNode {
 }
 
 export interface DependencyTreeRequest {
-  /** Where the process is stored (in the repository, or within the project) */
+  /** 流程存储的位置（资源库 或 project内） */
   type: WorkflowStorageType;
-  /** When type is Library, this parameter is required */
+  /** 当type为Library时，此参数必填 */
   library_info?: LibraryWorkflowInfo;
-  /** When the type is Project, this parameter is required */
+  /** 当type为Project时，此参数必填 */
   project_info?: ProjectWorkflowInfo;
   Base?: base.Base;
 }
@@ -1524,15 +1524,15 @@ export interface DiffContent {
 }
 
 export interface DiffContentMeta {
-  /** Content before modification */
+  /** 修改前的内容 */
   before?: string;
-  /** Previous commitid */
+  /** 前一个commitid */
   before_commit_id?: string;
-  /** modified content */
+  /** 修改后的内容 */
   after?: string;
-  /** The last commitid */
+  /** 后一个commitid */
   after_commit_id?: string;
-  /** When before! = modify, it is ture, otherwise it is false, and when modify == false, the front end shows diff as "-" */
+  /** 当before ！= modify的时候 为ture ，否则为false ，当modify == false前端展示 diff 为 "-" */
   modify?: boolean;
 }
 
@@ -1544,7 +1544,7 @@ export interface DiffType {
 }
 
 export interface EncapsulateWorkflowData {
-  /** When not only validated, returns the id of the created process. */
+  /** 当不是只校验时，返回创建后的流程的id */
   workflow_id?: string;
   name?: string;
   url?: string;
@@ -1555,28 +1555,28 @@ export interface EncapsulateWorkflowData {
 }
 
 export interface EncapsulateWorkflowRequest {
-  /** Parameters required to create a workflow
-process name */
+  /** 创建workflow需要的参数
+流程名 */
   name: string;
-  /** Process description */
+  /** 流程描述 */
   desc: string;
-  /** process icon */
+  /** 流程图标 */
   icon_uri: string;
   space_id: string;
-  /** Workflow or chatflow, the default is workflow */
+  /** workflow or chatflow，默认值为workflow */
   flow_mode?: WorkflowMode;
   schema_type?: SchemaType;
   bind_biz_id?: string;
   bind_biz_type?: number;
-  /** When you need to verify or create a process in a project, you need to pass the ID of the project. */
+  /** 当需要在project中校验或创建流程时，需要传project的id */
   project_id?: string;
-  /** Whether to create a session. Only in the chatflow scenario, the "whether to create a session" setting takes effect. When this is set to true, a session is created; when set to false or left blank, no session is created. In other process scenarios, this setting has no effect on session creation, regardless of the value. */
+  /** 是否创建会话。仅在 chatflow 场景下，“是否创建会话” 设置生效。当此设置为 true 时，系统将创建会话；设置为 false 或留空时，则不创建会话。在其他流程场景中，无论该设置为何值，均不会对会话创建产生影响 。 */
   create_conversation?: boolean;
-  /** Required, schema filled in directly when creating */
+  /** required,创建时直接填入的schema */
   schema?: string;
-  /** For schema validation */
+  /** 用于schema校验 */
   bind_bot_id?: string;
-  /** Validation only. When the value is true, it is only validated, and no workflow is created. When this parameter is not passed or the value is false, if it is not in the project, the schema will be validated, the workflow saved and published. If it is in the project, the schema will be validated and the workflow saved will be created. */
+  /** 只校验。当值为true时只校验，不创建workflow；当不传这个参数或值为false时，如果不是project中，会对schema进行校验、创建workflow保存并发布；如果是在project中，则会对schema进行校验并创建workflow保存。 */
   only_validate?: boolean;
   Base?: base.Base;
 }
@@ -1590,7 +1590,7 @@ export interface EncapsulateWorkflowResponse {
 
 export interface EnterMessage {
   role: string;
-  /** content */
+  /** 内容 */
   content?: string;
   meta_data?: Record<string, string>;
   /** text/card/object_string */
@@ -1636,12 +1636,12 @@ export interface ExternalDeleteEnvData {
 
 export interface ExternalWorkflowPublishData {
   workflow_id: Int64;
-  /** Which version to release with? */
+  /** 使用哪个版本发布 */
   commit_id?: string;
   sub_workflow_list?: Array<Int64>;
   extra?: string;
   compile_commit_id?: string;
-  /** Published commit_id */
+  /** 发布态的commit_id */
   publish_commit_id?: string;
   run_model?: ExeternalRunMode;
 }
@@ -1657,7 +1657,7 @@ export interface FCPluginSetting {
   request_params?: Array<APIParameter>;
   response_params?: Array<APIParameter>;
   response_style?: ResponseStyle;
-  /** This issue is temporarily not supported. */
+  /** 本期暂时不支持 */
   async_conf?: AsyncConf;
   is_draft?: boolean;
   plugin_version?: string;
@@ -1669,20 +1669,20 @@ export interface FCWorkflowSetting {
   request_params?: Array<APIParameter>;
   response_params?: Array<APIParameter>;
   response_style?: ResponseStyle;
-  /** This issue is temporarily not supported. */
+  /** 本期暂时不支持 */
   async_conf?: AsyncConf;
   is_draft?: boolean;
   workflow_version?: string;
 }
 
 export interface GetApiDetailRequest {
-  /** Plugin's unique device identifier. This specifies which plugin to query for API details. */
+  /** 插件的唯一标识符。用于指定要查询哪个插件下的 API 详情。 */
   pluginID?: string;
-  /** The name of the API. Used to find a specific API under the specified plug-in. */
+  /** API 的名称。用于在指定插件下查找特定的 API。 */
   apiName?: string;
-  /** Space ID. Used to scope API queries, which may belong to a specific space. */
+  /** 空间 ID。用于限定 API 查询的范围，API 可能属于某个特定的空间。 */
   space_id?: string;
-  /** API's unique device identifier. Used to locate APIs more precisely. */
+  /** API 的唯一标识符。用于更精确地定位 API。 */
   api_id?: string;
   project_id?: string;
   plugin_version?: string;
@@ -1703,7 +1703,7 @@ export interface GetBotsIDETokenRequest {
 }
 
 export interface GetBotsIDETokenResponse {
-  /** Authentication information provided to the BizIDE side */
+  /** 提供给BizIDE侧的鉴权信息 */
   data: IDETokenData;
   code: Int64;
   msg: string;
@@ -1711,15 +1711,15 @@ export interface GetBotsIDETokenResponse {
 }
 
 export interface GetCanvasInfoRequest {
-  /** Space ID, which cannot be empty or 0, identifies the space to which the workflow belongs. */
+  /** 空间id，不可为空或0，用于标识工作流所属的空间。 */
   space_id: string;
-  /** Required, process id, non-null or 0, used to uniquely identify a workflow. */
+  /** required，流程id，不可为空或0，用于唯一标识一个工作流。 */
   workflow_id?: string;
   Base?: base.Base;
 }
 
 export interface GetCanvasInfoResponse {
-  /** process core data */
+  /** 流程核心数据 */
   data: CanvasData;
   code: Int64;
   msg: string;
@@ -1728,9 +1728,9 @@ export interface GetCanvasInfoResponse {
 
 export interface GetChatFlowRoleRequest {
   workflow_id?: string;
-  /** Channel ID */
+  /** 渠道ID */
   connector_id?: string;
-  /** Whether it is debugging mode, when the field is true, the value of connector_id will be ignored; when the field is false, the corresponding channel version will be queried according to connector_id */
+  /** 是否是调试模式，当字段为true时，会忽略connector_id的值；当字段为false时，会根据connector_id去查询对应渠道版本 */
   is_debug?: boolean;
   /** 4: optional string AppID (api.query = "app_id") */
   ext?: Record<string, string>;
@@ -1743,7 +1743,7 @@ export interface GetChatFlowRoleResponse {
 }
 
 export interface GetConflictFromContentData {
-  /** The front end needs to consume submit_diff after_commit_id as a merge source_submit_id */
+  /** 前端需要消费submit_diff.after_commit_id用来作为merge的 source_submit_id */
   submit_diff?: DiffContent;
   draft_diff?: DiffContent;
   diff_type?: DiffType;
@@ -1780,7 +1780,7 @@ export interface GetEnvListRequest {
   space_id: string;
   /** default = 10 */
   limit?: number;
-  /** You need to pass in when paging multiple times. */
+  /** 多次分页的时候需要传入 */
   cursor?: string;
   Base?: base.Base;
 }
@@ -1793,15 +1793,15 @@ export interface GetEnvListResponse {
 }
 
 export interface GetExampleWorkFlowListRequest {
-  /** Paging function, specifying the page number of the list of results you want to retrieve. */
+  /** 分页功能，指定希望获取的结果列表的页码。 */
   page?: number;
-  /** Paging function, specifies the number of entries returned per page, must be greater than 0, less than or equal to 100 */
+  /** 分页功能，指定每页返回的条目数量, 必须大于0，小于等于100 */
   size?: number;
-  /** Filter the list of sample workflows by the name of the workflow. */
+  /** 根据工作流的名称来筛选示例工作流列表。 */
   name?: string;
-  /** Filter the sample workflow list based on the workflow pattern (e.g., standard workflow, conversation flow, etc.). */
+  /** 根据工作流的模式（例如：标准工作流、对话流等）筛选示例工作流列表。 */
   flow_mode?: WorkflowMode;
-  /** Bot's Workflow as Agent mode will be used, only scenarios with BotAgent = 3 will be used */
+  /** Bot的 Workflow as Agent模式会使用，只会使用BotAgent = 3的场景 */
   checker?: Array<CheckType>;
   Base?: base.Base;
 }
@@ -1838,7 +1838,7 @@ export interface GetFlowlangGrayRequest {
 }
 
 export interface GetFlowlangGrayResponse {
-  /** Whether grey release */
+  /** 是否灰度 */
   gray: boolean;
   code: Int64;
   msg: string;
@@ -1866,7 +1866,7 @@ export interface GetHistorySchemaData {
 export interface GetHistorySchemaRequest {
   space_id: string;
   workflow_id: string;
-  /** You need to pass in when paging multiple times. */
+  /** 多次分页的时候需要传入 */
   commit_id: string;
   type: OperateType;
   env?: string;
@@ -1887,7 +1887,7 @@ export interface GetHistorySchemaResponse {
 }
 
 export interface GetImageflowBasicNodeListRequest {
-  /** The tab type of the sidebar, the default is the base node */
+  /** 侧边栏的tab类型，默认值为基础节点 */
   tab_type?: ImageflowTabType;
   Base?: base.Base;
 }
@@ -1903,7 +1903,7 @@ export interface GetListableWorkflowsRequest {
   space_id_list: Array<string>;
   page: number;
   size: number;
-  /** Add, workflow or imageflow, default to workflow */
+  /** 新增，workflow or imageflow, 默认为workflow */
   flow_mode?: WorkflowMode;
   Base?: base.Base;
 }
@@ -1918,11 +1918,11 @@ export interface GetListableWorkflowsResponse {
 export interface GetLLMNodeFCSettingDetailRequest {
   workflow_id: string;
   space_id: string;
-  /** List of plugin type skills used by llm nodes */
+  /** llm节点使用的插件类型技能列表 */
   plugin_list?: Array<PluginFCItem>;
-  /** List of workflow type skills used by LLM nodes */
+  /** llm节点使用的工作流类型技能列表 */
   workflow_list?: Array<WorkflowFCItem>;
-  /** List of knowledge base type skills used by llm nodes */
+  /** llm节点使用的知识库类型技能列表 */
   dataset_list?: Array<DatasetFCItem>;
   Base?: base.Base;
 }
@@ -1962,7 +1962,7 @@ export interface GetLLMNodeFCSettingsMergedResponse {
 export interface GetNodeAsyncExecuteHistoryRequest {
   space_id: string;
   parent_workflow_id: string;
-  /** Node ID */
+  /** 节点id */
   parent_node_id: string;
   workflow_id: string;
   status?: AsyncSubWorkflowStatus;
@@ -1980,11 +1980,11 @@ export interface GetNodeExecuteHistoryRequest {
   workflow_id: string;
   space_id: string;
   execute_id: string;
-  /** Node ID */
+  /** 节点id */
   node_id: string;
-  /** Whether batch node */
+  /** 是否批次节点 */
   is_batch?: boolean;
-  /** execution batch */
+  /** 执行批次 */
   batch_index?: number;
   node_type: string;
   node_history_scene?: NodeHistoryScene;
@@ -2005,7 +2005,7 @@ export interface GetNodeFieldConfigRequest {
 }
 
 export interface GetNodeFieldConfigResponse {
-  /** The configuration of the corresponding node, if it is empty and returns "", the front end can analyze the configuration according to the actual scene */
+  /** 对应节点的配置，如果为空返回 ""，前端可以根据实际场景来解析配置 */
   config?: Record<string, string>;
   code: Int64;
   msg: string;
@@ -2020,9 +2020,9 @@ export interface GetPluginAuthStatusRequest {
 }
 
 export interface GetPluginAuthStatusResponse {
-  /** separately authorized */
+  /** 单独授权 */
   auth_info?: PluginAuthStatus;
-  /** shared authorization */
+  /** 共享授权 */
   shared_auth_info?: PluginAuthStatus;
   code: Int64;
   msg: string;
@@ -2039,9 +2039,9 @@ export interface GetReleasedWorkflowsRequest {
   space_id?: string;
   order_by?: OrderBy;
   login_user_create?: boolean;
-  /** Workflow or imageflow, default to workflow */
+  /** workflow or imageflow, 默认为workflow */
   flow_mode?: WorkflowMode;
-  /** Filter conditions, support workflow_id and workflow_version */
+  /** 过滤条件，支持workflow_id和workflow_version */
   workflow_filter_list?: Array<WorkflowFilter>;
   Base?: base.Base;
 }
@@ -2074,7 +2074,7 @@ export interface GetUploadAuthTokenData {
 }
 
 export interface GetUploadAuthTokenRequest {
-  /** Upload scene, optional value: "imageflow" */
+  /** 上传场景，可选值："imageflow" */
   scene?: string;
   Base?: base.Base;
 }
@@ -2089,14 +2089,14 @@ export interface GetUploadAuthTokenResponse {
 export interface GetWkProcessIOParam {
   workflow_id: string;
   execute_id?: string;
-  /** Specifies the last execution history of the commit_id pulled */
+  /** 指定拉取该commit_id的最近一次执行历史 */
   commit_id?: string;
 }
 
 export interface GetWorkflowDetailInfoRequest {
-  /** Filter conditions, support workflow_id and workflow_version */
+  /** 过滤条件，支持workflow_id和workflow_version */
   workflow_filter_list?: Array<WorkflowFilter>;
-  /** Space ID, used to filter workflows within that space. */
+  /** 空间ID，用于筛选该空间内的工作流。 */
   space_id?: string;
   Base?: base.Base;
 }
@@ -2122,13 +2122,13 @@ export interface GetWorkflowDetailResponse {
 }
 
 export interface GetWorkflowGrayFeatureRequest {
-  /** Space ID */
+  /** 空间id */
   space_id?: string;
   Base?: base.Base;
 }
 
 export interface GetWorkflowGrayFeatureResponse {
-  /** Grey release feature */
+  /** 灰度feature结果 */
   data?: Array<WorkflowGrayFeatureItem>;
   code: Int64;
   msg: string;
@@ -2150,32 +2150,32 @@ export interface GetWorkflowIDByExecuteInfoResponse {
 }
 
 export interface GetWorkFlowListRequest {
-  /** Required, paging page number, usually 1, returns an error if nil or less than or equal to 0. Used to specify page number, starting from 1. */
+  /** required, 分页页码，一般为1，如果为nil或小于等于0则返回错误。用于指定页码，从1开始。 */
   page?: number;
-  /** Required, paging size, usually 10, returns an error if nil or not between 1-100. Used to specify the size per page. */
+  /** required, 分页大小，一般为10，如果为nil或不在1-100之间则返回错误。用于指定每页大小。 */
   size?: number;
-  /** Query the corresponding process according to the process id list */
+  /** 根据流程id列表查询对应的流程 */
   workflow_ids?: Array<string>;
-  /** negligible */
+  /** 可忽略 */
   type?: WorkFlowType;
-  /** Workflow for filtering specific names */
+  /** 用于过滤特定名称的工作流 */
   name?: string;
-  /** negligible */
+  /** 可忽略 */
   tags?: Tag;
-  /** Required, space id, used to identify the space to which the workflow belongs */
+  /** required，空间id，用于标识工作流所属的空间 */
   space_id?: string;
-  /** Filter process according to whether the process has been published */
+  /** 根据流程是否已发布筛选流程 */
   status?: WorkFlowListStatus;
   order_by?: OrderBy;
-  /** Filter processes based on whether the interface requester is the process creator */
+  /** 根据接口请求人是否为流程创建人筛选流程 */
   login_user_create?: boolean;
-  /** Workflow or chatflow, the default is workflow. Filter processes by process type */
+  /** workflow or chatflow, 默认为workflow。根据流程类型筛选流程 */
   flow_mode?: WorkflowMode;
-  /** New field for filtering schema_type */
+  /** 新增字段，用于筛选schema_type */
   schema_type_list?: Array<SchemaType>;
-  /** Workflows for filtering specific projects. */
+  /** 用于过滤特定project的工作流。 */
   project_id?: string;
-  /** The Workflow as Agent pattern for bots selects processes, or project publication filters, where each CheckType element in this list specifies a specific rule that determines whether the returned process passes the check. */
+  /** 用于Bot的 Workflow as Agent模式选择流程 或 project发布过滤，此列表中的每个 CheckType 元素可指定特定规则，决定了返回的流程是否通过检查。 */
   checker?: Array<CheckType>;
   bind_biz_id?: string;
   bind_biz_type?: BindBizType;
@@ -2198,18 +2198,18 @@ export interface GetWorkflowMessageNodesData {
 }
 
 export interface GetWorkflowMessageNodesRequest {
-  /** Space ID */
+  /** 空间id */
   space_id?: string;
   plugin_id?: string;
   Base?: base.Base;
 }
 
 export interface GetWorkflowMessageNodesResponse {
-  /** return code */
+  /** 返回码 */
   code?: Int64;
-  /** Return information */
+  /** 返回信息 */
   msg?: string;
-  /** result */
+  /** 结果 */
   data?: GetWorkflowMessageNodesData;
   BaseResp?: base.BaseResp;
 }
@@ -2217,44 +2217,44 @@ export interface GetWorkflowMessageNodesResponse {
 export interface GetWorkFlowProcessData {
   workFlowId?: string;
   executeId?: string;
-  /** The current execution status of the workflow instance */
+  /** 工作流实例的当前执行状态 */
   executeStatus?: WorkflowExeStatus;
-  /** List of results/status of each node in execution. */
+  /** 执行中各个节点的结果/状态列表。 */
   nodeResults?: Array<NodeResult>;
-  /** execution progress */
+  /** 执行进度 */
   rate?: string;
-  /** Current node practice run state 1: no practice run 2: practice run */
+  /** 现节点试运行状态 1：没有试运行 2：试运行过 */
   exeHistoryStatus?: WorkflowExeHistoryStatus;
-  /** Workflow practice running time */
+  /** workflow试运行耗时 */
   workflowExeCost?: string;
-  /** consume */
+  /** 消耗 */
   tokenAndCost?: TokenAndCost;
-  /** reason for failure */
+  /** 失败原因 */
   reason?: string;
-  /** The ID of the last node */
+  /** 最后一个节点的ID */
   lastNodeID?: string;
-  /** Log ID for this query */
+  /** 本次查询的日志id */
   logID?: string;
-  /** Returns only events in the interrupt */
+  /** 只返回中断中的 event */
   nodeEvents?: Array<NodeEvent>;
-  /** The project id to which the workflow belongs, empty when the workflow belongs to the repository */
+  /** 工作流所属的project id，工作流属于资源库时为空 */
   projectId?: string;
 }
 
 export interface GetWorkflowProcessRequest {
-  /** Process id, not an empty string, is used to uniquely identify a workflow. */
+  /** 流程id，不为空字符串，用于唯一标识一个工作流。 */
   workflow_id: string;
-  /** Space id, not an empty string, identifies the space to which the workflow belongs. */
+  /** 空间id，不为空字符串，用于标识工作流所属的空间。 */
   space_id: string;
-  /** Used to uniquely identify a workflow execution instance. */
+  /** 用于唯一标识一个工作流执行实例。 */
   execute_id?: string;
-  /** Used to uniquely identify a child workflow execution instance. */
+  /** 用于唯一标识一个子工作流执行实例。 */
   sub_execute_id?: string;
-  /** It is used to specify whether the asynchronous acquisition execution process is required and whether to return all batch node contents; if the amount of data in a single node is too large, it also needs to be pulled asynchronously */
+  /** 用于指定是否需要异步获取执行过程，是否返回所有的batch节点内容；如果单个节点的数据量如果过大，也需要异步拉取 */
   need_async?: boolean;
-  /** When execute_id is not transmitted, it can be obtained through log_id execute_id */
+  /** 未传execute_id时，可通过log_id取到execute_id */
   log_id?: string;
-  /** The id of a specific node in the workflow and retrieve the performance of that node */
+  /** 工作流中特定节点的id，检索该节点的运行情况 */
   node_id?: string;
   Base?: base.Base;
 }
@@ -2280,18 +2280,18 @@ export interface GetWorkflowReferencesResponse {
 }
 
 export interface GetWorkflowRunHistoryRequest {
-  /** Workflow ID required to run asynchronously. */
+  /** required 异步运行的工作流 ID。 */
   workflow_id: string;
-  /** Required Workflow Execution ID. The calling interface executes the workflow. If you choose to execute the workflow asynchronously, execute_id will be returned in the response message. */
+  /** required 工作流执行 ID。调用接口执行工作流，如果选择异步执行工作流，响应信息中会返回 execute_id。 */
   execute_id?: string;
 }
 
 export interface GetWorkflowRunHistoryResponse {
-  /** Call status code. 0 indicates successful call. Other values indicate failed call. */
+  /** 调用状态码。0 表示调用成功。其他值表示调用失败。 */
   code?: Int64;
-  /** Status information. Detailed error information can be viewed in this field when an API call fails. */
+  /** 状态信息。API 调用失败时可通过此字段查看详细错误信息。 */
   msg?: string;
-  /** The execution result of the asynchronous workflow. You can only query the execution result of one asynchronous event at a time, so this array has only one object. */
+  /** 异步工作流的执行结果。每次只能查询一个异步事件的执行结果，所以此数组只有一个对象。 */
   data?: Array<WorkflowExecuteHistory>;
 }
 
@@ -2301,18 +2301,18 @@ export interface GradientPosition {
 }
 
 export interface IDETokenData {
-  /** Temporary token provided to the BizIDE side */
+  /** 提供给BizIDE侧的临时token */
   token: string;
-  /** Token expiration time */
+  /** token过期时间 */
   expired_at: Int64;
 }
 
 export interface IfBranch {
-  /** Conditions for this branch */
+  /** 该分支的条件 */
   if_conditions?: Array<IfCondition>;
-  /** The relationship between the conditions of this branch */
+  /** 该分支各条件的关系 */
   if_condition_relation?: IfConditionRelation;
-  /** The next node corresponding to this branch */
+  /** 该分支对应的下一个节点 */
   next_node_id?: Array<string>;
 }
 
@@ -2330,14 +2330,14 @@ export interface IfParam {
 export interface ImageflowBasicNode {
   /** 1: PluginAPI, 2: NodeTemplate */
   node_type: BasicNodeType;
-  /** The actual plugin API information returned */
+  /** 返回的实际plugin api信息 */
   plugin_api?: ImageflowPluginAPINode;
-  /** Basic node templates, selectors, message nodes, etc */
+  /** 基础节点模版，选择器、消息节点等 */
   node_template?: NodeTemplate;
 }
 
 export interface ImageflowBasicNodeListData {
-  /** base node list */
+  /** 基础节点列表 */
   categoried_nodes?: Array<CategoriedImageflowBasicNodes>;
 }
 
@@ -2367,11 +2367,11 @@ export interface KnowledgeInfo {
 }
 
 export interface LatestSubmitData {
-  /** True if the current draft is behind the latest version, otherwise false */
+  /** 当前草稿如果落后最新版本，则为true 否则为false */
   need_merge?: boolean;
-  /** The latest submission commit_id current space is actually the latest submit_commit_id */
+  /** 当前空间最新提交commit_id，其实就是最新的submit_commit_id */
   latest_submit_version?: string;
-  /** Submitter of the current latest version for front-end display */
+  /** 当前最新版本的提交人，用于前端展示 */
   latest_submit_author?: string;
 }
 
@@ -2383,9 +2383,9 @@ export interface LayOut {
 export interface LibraryWorkflowInfo {
   workflow_id?: string;
   space_id?: string;
-  /** Whether to query the resource dependency tree of the draft version, true means to query the draft version, false means to analyze the resource dependency tree of the released version */
+  /** 是否查询草稿版本的资源依赖树，true表示是查询草稿版本，false表示分析发布版本的资源依赖树 */
   draft?: boolean;
-  /** The version number of the published workflow. If draft is true, this field is invalid. If the field value is not passed or its value is 0, the latest released version is obtained; the current version can be obtained through the GetCanvasInfo interface. */
+  /** 发布workflow的版本号，若 draft 为 true，则该字段无效。若未传递该字段值或其值为 0，则获取最新已发布版本；当前版本可通过 GetCanvasInfo 接口获取。 */
   workflow_version?: string;
 }
 
@@ -2410,27 +2410,27 @@ export interface ListCollaboratorsResponse {
 
 export interface ListProjectConversationRequest {
   project_id: string;
-  /** 0 = created in project (static session), 1 = created through wf node (dynamic session) */
+  /** 0=在project 创建（静态会话），1=通过 wf 节点创建（动态会话） */
   create_method?: CreateMethod;
-  /** 0 = wf node practice run created 1 = wf node run after release */
+  /** 0=wf 节点试运行创建的 1=wf 节点发布后运行的 */
   create_env?: CreateEnv;
-  /** Paging offset, do not pass from the first item */
+  /** 分页偏移，不传从第一条开始 */
   cursor?: string;
-  /** number of pulls at one time */
+  /** 一次拉取数量 */
   limit?: Int64;
   space_id: string;
-  /** conversationName fuzzy search */
+  /** conversationName 模糊搜索 */
   nameLike?: string;
-  /** create_env = 1, pass the corresponding channel id, the current default 1024 (openapi) */
+  /** create_env=1 时传递，传对应的渠道 id，当前默认 1024（openapi） */
   connector_id?: string;
-  /** Project version */
+  /** project版本 */
   project_version?: string;
   Base?: base.Base;
 }
 
 export interface ListProjectConversationResponse {
   data?: Array<ProjectConversation>;
-  /** Cursor, empty means there is no next page, bring this field when turning the page */
+  /** 游标，为空表示没有下一页了, 翻页时带上这个字段 */
   cursor?: string;
   code: Int64;
   msg: string;
@@ -2439,9 +2439,9 @@ export interface ListProjectConversationResponse {
 
 export interface ListPublishWorkflowRequest {
   space_id: string;
-  /** filter */
+  /** 筛选项 */
   owner_id?: string;
-  /** Search term: agent or author name */
+  /** 搜索项：智能体or作者name */
   name?: string;
   order_last_publish_time?: OrderByType;
   order_total_token?: OrderByType;
@@ -2489,7 +2489,7 @@ export interface MergeWorkflowResponse {
 
 export interface MGetVersionHistoryRequest {
   space_id: string;
-  /** Key: workflow id, value: version list, like ["v0.0.1", "v0.0.2"], maximum support 200 */
+  /** key:workflow id, value : version list,like ["v0.0.1","v0.0.2"],最大支持200个 */
   workflow_id_version_map: Record<string, Array<string>>;
   Base?: base.Base;
 }
@@ -2529,43 +2529,43 @@ export interface MultiCollaborationConfigItem {
 
 export interface Node {
   workflow_id?: string;
-  /** Node ID */
+  /** 节点id */
   node_id?: string;
-  /** Change node name */
+  /** 更改node名称 */
   node_name?: string;
-  /** Node type */
+  /** 节点类型 */
   node_type?: NodeType;
-  /** Core parameters of the node */
+  /** 节点的核心参数 */
   node_param?: NodeParam;
-  /** Node location */
+  /** Node的位置 */
   lay_out?: LayOut;
-  /** Description of Node, explaining the link */
+  /** Node的描述，说明链接 */
   desc?: NodeDesc;
-  /** dependent upstream node */
+  /** 依赖的上游节点 */
   depends_on?: Array<string>;
-  /** All inputs and outputs */
+  /** 所有的输入和输出 */
   open_api?: OpenAPI;
 }
 
 export interface NodeCategory {
-  /** Category name, empty string indicates that the following node does not belong to any category */
+  /** 分类名，空字符串表示下面的节点不属于任何分类 */
   name?: string;
   node_type_list?: Array<string>;
-  /** List of api_id plugins */
+  /** 插件的api_id列表 */
   plugin_api_id_list?: Array<string>;
-  /** Jump to the classification configuration of the official plug-in list */
+  /** 跳转官方插件列表的分类配置 */
   plugin_category_id_list?: Array<string>;
 }
 
 export interface NodeDesc {
   desc?: string;
-  /** Subtitle name */
+  /** 副标题名称 */
   name?: string;
-  /** This type of icon */
+  /** 该类型的icon */
   icon_url?: string;
-  /** Whether to support batch, 1 does not support, 2 supports */
+  /** 是否支持批量，1不支持，2支持 */
   support_batch?: number;
-  /** Connection requirements 1 or so can be connected 2 only support the right side */
+  /** 连接要求 1左右都可连接 2只支持右侧 */
   link_limit?: number;
 }
 
@@ -2579,9 +2579,9 @@ export interface NodeEvent {
   node_title?: string;
   data?: string;
   node_icon?: string;
-  /** Actually node_execute_id */
+  /** 实际为node_execute_id */
   node_id?: string;
-  /** Corresponds to node_id on canvas */
+  /** 与画布里的node_id对应 */
   schema_node_id?: string;
 }
 
@@ -2596,23 +2596,23 @@ export interface NodeExecuteStatus {
 }
 
 export interface NodeIdInfo {
-  /** Node ID */
+  /** 节点id */
   NodeId?: string;
-  /** Node type */
+  /** 节点类型 */
   NodeType?: NodeType;
-  /** Node Param_id */
+  /** 节点Param_id */
   NodeParamId?: Array<Int64>;
-  /** Node icon url */
+  /** 节点图标url */
   IconUrl?: string;
-  /** Workflow type: Determine whether the sub-node is a workflow or an image flow */
+  /** workflow类型：判断子节点是工作流还是图像流 */
   FlowMode?: WorkflowMode;
-  /** Node name */
+  /** 节点名称 */
   NodeName?: string;
-  /** Node timbre id */
+  /** 节点音色id */
   VoiceIds?: Array<string>;
-  /** LLM skill */
+  /** llm技能 */
   LLMSkill?: NodeLLMSkill;
-  /** Whether the plug-in authorization is shared, 1-shared authorization, 0-if it is an authorized plug-in, it is authorized separately, otherwise it is meaningless */
+  /** 插件授权是否共享，1-共享授权，0-如果是授权插件则为单独授权，否则无意义 */
   PluginAuthMode?: number;
 }
 
@@ -2645,7 +2645,7 @@ export interface NodePanelPluginAPI {
 
 export interface NodePanelPluginData {
   plugin_list?: Array<NodePanelPlugin>;
-  /** If the data source is page + size, return page + 1 here; if the data source is cursor mode, return the cursor returned by the data source here */
+  /** 数据源为page+size的，这里返回 page+1；数据源为cursor模式的，这里返回数据源返回的cursor */
   next_page_or_cursor?: string;
   has_more?: boolean;
 }
@@ -2660,17 +2660,17 @@ export interface NodePanelSearchData {
 }
 
 export interface NodePanelSearchRequest {
-  /** The data type of the search, pass empty, do not pass, or pass All means search for all types */
+  /** 搜索的数据类型，传空、不传或者传All表示搜索所有类型 */
   search_type?: NodePanelSearchType;
   space_id?: string;
   project_id?: string;
-  /** Search keywords */
+  /** 搜索关键字 */
   search_key?: string;
-  /** The value is "" on the first request, and the underlying implementation converts it to a page or cursor according to the paging mode of the data source. When search_type ResourceWorkflow, ProjectWorkflow, ResourcePlugin, ProjectPlugin: This field represents the page number, which must be an int64 string that can be converted to > 0. When search_type FavoritePlugin, StorePlugin: This field represents the cursor. Can be an empty string on the first request; subsequent requests pass in the next_page_or_cursor returned on the previous page. When search_type is All: The check for this field is skipped. */
+  /** 首次请求时值为"", 底层实现时根据数据源的分页模式转换成page or cursor。当 search_type 为 ResourceWorkflow, ProjectWorkflow, ResourcePlugin, ProjectPlugin 时：此字段代表 页码 ，必须为可转换为 >0 的 int64 的字符串。当 search_type 为 FavoritePlugin, StorePlugin 时：此字段代表 游标 。首次请求时可以为空字符串；后续请求传入上一页返回的 next_page_or_cursor。当 search_type 为 All 时：此字段的校验被跳过。 */
   page_or_cursor?: string;
-  /** The number of results returned per page. Greater than or equal to 1, less than or equal to 50. */
+  /** 每页返回的结果数量。大于等于1，小于等于50。 */
   page_size?: number;
-  /** Excluded workflow_id, used to exclude the id of the current workflow when searching for workflow */
+  /** 排除的workflow_id，用于搜索workflow时排除当前workflow的id */
   exclude_workflow_id?: string;
   Base?: base.Base;
 }
@@ -2684,33 +2684,33 @@ export interface NodePanelSearchResponse {
 
 export interface NodePanelWorkflowData {
   workflow_list?: Array<Workflow>;
-  /** Since the query of workflow is all page + size, page + 1 is returned here. */
+  /** 由于workflow的查询使用都是page+size，这里返回 page+1 */
   next_page_or_cursor?: string;
   has_more?: boolean;
 }
 
 export interface NodeParam {
-  /** Enter parameter list, support multi-level; support mapping */
+  /** 输入参数列表，支持多级；支持mapping */
   input_list?: Array<Param>;
-  /** Output parameter list, support multi-level */
+  /** 输出参数列表，支持多级 */
   output_list?: Array<Param>;
-  /** If it is an API type Node, plug-in name, API name, plug-in version, API description */
+  /** 如果是API类型的Node，插件名、API名、插件版本、API的描述 */
   api_param?: APIParam;
-  /** If it is a code snippet, include the code content */
+  /** 如果是代码片段，则包含代码内容 */
   code_param?: CodeParam;
-  /** If it is a model, include the basic information of the model */
+  /** 如果是模型，则包含模型的基础信息 */
   llm_param?: LLMParam;
-  /** If it is a dataset, select a fragment of the dataset */
+  /** 如果是数据集，选择数据集的片段 */
   dataset_param?: DatasetParam;
-  /** End node, how to end */
+  /** end节点，如何结束 */
   terminate_plan?: TerminatePlan;
-  /** (New) input parameter list */
+  /** （新）输入参数列表 */
   input_parameters?: Array<Parameter>;
-  /** (New) Output parameter list */
+  /** （新）输出参数列表 */
   output_parameters?: Array<Parameter>;
-  /** batch setup */
+  /** 批量设置情况 */
   batch?: Batch;
-  /** if node parameter */
+  /** if节点参数 */
   if_param?: IfParam;
 }
 
@@ -2740,15 +2740,15 @@ export interface NodeResult {
   NodeName?: string;
   nodeStatus?: NodeExeStatus;
   errorInfo?: string;
-  /** Imported parameters jsonString type */
+  /** 入参 jsonstring类型 */
   input?: string;
-  /** Exported parameter jsonString */
+  /** 出参 jsonstring */
   output?: string;
-  /** Running time eg: 3s */
+  /** 运行耗时 eg：3s */
   nodeExeCost?: string;
-  /** consume */
+  /** 消耗 */
   tokenAndCost?: TokenAndCost;
-  /** direct output */
+  /** 直接输出 */
   raw_output?: string;
   errorLevel?: string;
   index?: number;
@@ -2779,16 +2779,16 @@ export interface NodeTemplate {
 
 export interface NodeTemplateListData {
   template_list?: Array<NodeTemplate>;
-  /** Display classification configuration of nodes */
+  /** 节点的展示分类配置 */
   cate_list?: Array<NodeCategory>;
   plugin_api_list?: Array<PluginAPINode>;
   plugin_category_list?: Array<PluginCategory>;
 }
 
 export interface NodeTemplateListRequest {
-  /** Required node type, return all by default without passing */
+  /** 需要的节点类型 不传默认返回全部 */
   need_types?: Array<NodeTemplateType>;
-  /** Required node type, string type */
+  /** 需要的节点类型, string 类型 */
   node_types?: Array<string>;
   Base?: base.Base;
 }
@@ -2801,11 +2801,11 @@ export interface NodeTemplateListResponse {
 }
 
 export interface OnboardingInfo {
-  /** Markdown format */
+  /** markdown 格式 */
   prologue?: string;
-  /** List of questions */
+  /** 问题列表 */
   suggested_questions?: Array<string>;
-  /** Whether to display all suggested questions */
+  /** 是否显示所有建议问题 */
   display_all_suggestions?: boolean;
 }
 
@@ -2835,7 +2835,7 @@ export interface OpenAPIGetWorkflowInfoRequest {
 }
 
 export interface OpenAPIGetWorkflowInfoResponse {
-  /** API adaptation */
+  /** 适配api */
   code?: number;
   msg?: string;
   data?: WorkflowInfo;
@@ -2857,101 +2857,101 @@ export interface OpenAPIGetWorkflowListResponse {
 }
 
 export interface OpenAPIRunFlowRequest {
-  /** Required, Workflow ID to be executed, this workflow should be published */
+  /** required, 待执行的 Workflow ID，此工作流应已发布 */
   workflow_id?: string;
-  /** Input parameters and values of the workflow start node (JSON serialized string) */
+  /** 工作流开始节点的输入参数及取值 (JSON 序列化字符串) */
   parameters?: string;
-  /** Used to specify some additional fields, which may not be filled in unless necessary */
+  /** 用于指定一些额外的字段，非必要可不填写 */
   ext?: Record<string, string>;
-  /** Agent ID that needs to be associated */
+  /** 需要关联的智能体 ID */
   bot_id?: string;
-  /** Whether to run asynchronously (default false) */
+  /** 是否异步运行 (默认 false) */
   is_async?: boolean;
-  /** Execution mode, the default is formal run, practice run needs to pass in "DEBUG" */
+  /** 执行模式，默认为正式运行，试运行需要传入"DEBUG" */
   execute_mode?: string;
-  /** DEPRECATED version number, project version */
+  /** DEPRECATED 版本号，project 版本 */
   version?: string;
-  /** Channel ID, such as ui builder, template, store, etc */
+  /** 渠道 ID，比如 ui builder、template、商店等 */
   connector_id?: string;
-  /** The ID of the app associated with this workflow */
+  /** 该工作流关联的应用的 ID */
   app_id?: string;
-  /** Project ID, for compatibility with UI builder */
+  /** 项目 ID，为了兼容 ui builder */
   project_id?: string;
-  /** Project version, only when running the workflow as a workflow within the project can pass the value, and the latest version is used by default if not passed. */
+  /** 项目版本，只有运行工作流为project内工作流时可以传值，不传默认使用最新版本 */
   app_version?: string;
-  /** The workflow version of the resource library, only when the workflow is run as a workflow in the resource library, the value can be passed. If it is not passed, the latest version is used by default. */
+  /** 资源库工作流版本，只有运行工作流为资源库内工作流时可以传值，不传默认使用最新版本 */
   workflow_version?: string;
 }
 
 export interface OpenAPIRunFlowResponse {
-  /** generic field
-Required, call status code. 0 indicates successful call, other values indicate failed call. */
+  /** 通用字段
+required, 调用状态码。0 表示调用成功，其他值表示调用失败。 */
   code: Int64;
-  /** Status information. Usually "Success" when successful, this field can be used to view detailed error information when the API call fails. */
+  /** 状态信息。成功时通常为 "Success"，API 调用失败时可通过此字段查看详细错误信息。 */
   msg?: string;
-  /** Synchronized return field
-Workflow execution result (JSON serialized string or plain string) */
+  /** 同步返回字段
+工作流执行结果 (JSON 序列化字符串或普通字符串) */
   data?: string;
   token?: Int64;
   cost?: string;
-  /** Workflow practice run debug page URL */
+  /** 工作流试运行调试页面 URL */
   debug_url?: string;
-  /** asynchronous return field
-Event ID for asynchronous execution */
+  /** 异步返回字段
+异步执行的事件 ID */
   execute_id?: string;
 }
 
 export interface OpenAPIStreamResumeFlowRequest {
-  /** Workflow execution interrupt event ID */
+  /** 工作流执行中断事件 ID */
   event_id?: string;
-  /** interrupt type */
+  /** 中断类型 */
   interrupt_type?: InterruptType;
-  /** When resuming execution, the user's response to the agent-specified question */
+  /** 恢复执行时，用户对智能体指定问题的回复 */
   resume_data?: string;
-  /** Used to specify some additional fields, which may not be filled in unless necessary */
+  /** 用于指定一些额外的字段，非必要可不填写 */
   ext?: Record<string, string>;
-  /** The Workflow ID to be executed, which should have been published */
+  /** 待执行的 Workflow ID，此工作流应已发布 */
   workflow_id?: string;
-  /** Channel ID, such as ui builder, template, store, etc */
+  /** 渠道ID，比如ui builder、template、商店等 */
   connector_id?: string;
 }
 
 export interface OpenAPIStreamRunFlowResponse {
-  /** absolute serial number */
+  /** 绝对序号 */
   id?: string;
-  /** Event type: message, done, error */
+  /** 事件类型:message,done,error */
   event?: string;
-  /** Node information
-The serial number in the node */
+  /** 节点信息
+节点中的序号 */
   node_seq_id?: string;
-  /** Node name */
+  /** 节点名称 */
   node_title?: string;
-  /** Return when ContentType is Text */
+  /** ContentType为Text时的返回 */
   content?: string;
-  /** Has the node completed execution? */
+  /** 节点是否执行完成 */
   node_is_finish?: boolean;
-  /** Transmission when content type is interrupt, interrupt protocol */
+  /** content type为interrupt时传输，中断协议 */
   interrupt_data?: Interrupt;
-  /** Data type returned */
+  /** 返回的数据类型 */
   content_type?: string;
-  /** Card Content Returned when Content Type is Card */
+  /** Content Type为Card时返回的卡片内容 */
   card_body?: string;
-  /** Node type */
+  /** 节点类型 */
   node_type?: string;
   node_id?: string;
-  /** Loop index, only value in loop */
+  /** 循环index，循环中才有值 */
   loop_index?: Int64;
-  /** Batch index, the value is only available in batches. */
+  /** 批量index，批量中才有值 */
   batch_index?: Int64;
-  /** Node execution uuid */
+  /** 节点执行uuid */
   node_execute_uuid?: string;
-  /** Sub-execution id, assigned only if it is different from executeID (sub-workflow) */
+  /** 子执行id,只有与executeID不一样的时候才赋值（子工作流） */
   sub_execute_id?: string;
-  /** Last message on success */
+  /** 成功时最后一条消息 */
   ext?: Record<string, string>;
   token?: Int64;
   cost?: string;
-  /** error message */
+  /** 错误信息 */
   error_code?: Int64;
   error_message?: string;
   debug_url?: string;
@@ -3000,7 +3000,7 @@ export interface OperateListRequest {
   workflow_id: string;
   /** default = 10 */
   limit: number;
-  /** You need to pass in when paging multiple times. */
+  /** 多次分页的时候需要传入 */
   last_commit_id: string;
   type: OperateType;
   Base?: base.Base;
@@ -3036,13 +3036,13 @@ export interface OPExecuteHistory {
   entry_method?: string;
   create_time?: Int64;
   update_time?: Int64;
-  /** successful execution */
+  /** 执行成功 */
   input?: string;
   output?: string;
-  /** execution failed
-Call status code. 0 indicates that the call was successful. Other values indicate that the call failed. You can determine the detailed error cause by error_message fields. */
+  /** 执行失败
+调用状态码。0 表示调用成功。其他值表示调用失败。你可以通过 error_message 字段判断详细的错误原因。 */
   error_code?: string;
-  /** Status information. You can view detailed error information in this field when an API call fails. */
+  /** 状态信息。为 API 调用失败时可通过此字段查看详细错误信息。 */
   error_msg?: string;
 }
 
@@ -3052,7 +3052,7 @@ export interface Param {
   type?: InputType;
   required?: boolean;
   value?: string;
-  /** Requirements 1 Do not allow deletion 2 Do not allow name change 3 Anything can be modified 4 Only display, all are not allowed to be changed */
+  /** 要求  1不允许删除 2不允许更改名称 3什么都可修改 4只显示，全部不允许更改 */
   requirement?: ParamRequirementType;
   from_node_id?: string;
   from_output?: Array<string>;
@@ -3064,35 +3064,35 @@ export interface Parameter {
   required?: boolean;
   type?: InputType;
   sub_parameters?: Array<Parameter>;
-  /** If Type is an array, there is a subtype */
+  /** 如果Type是数组，则有subtype */
   sub_type?: InputType;
-  /** fromNodeId if the value of the imported parameter is a reference */
+  /** 如果入参的值是引用的则有fromNodeId */
   from_node_id?: string;
-  /** Which node's key is specifically referenced? */
+  /** 具体引用哪个节点的key */
   from_output?: Array<string>;
-  /** If the imported parameter is the user's hand input, put it here */
+  /** 如果入参是用户手输 就放这里 */
   value?: string;
   format?: PluginParamTypeFormat;
-  /** Auxiliary type; type = string takes effect, 0 is unset */
+  /** 辅助类型；type=string生效，0 为unset */
   assist_type?: Int64;
-  /** If Type is an array, it represents the auxiliary type of the child element; sub_type = string takes effect, 0 is unset */
+  /** 如果Type是数组，表示子元素的辅助类型；sub_type=string生效，0 为unset */
   sub_assist_type?: Int64;
 }
 
 export interface PathError {
   start?: string;
   end?: string;
-  /** Node ID on the path */
+  /** 路径上的节点ID */
   path?: Array<string>;
 }
 
-/** plug-in configuration */
+/** 插件配置 */
 export interface PluginAPINode {
-  /** Actual plug-in configuration */
+  /** 实际的插件配置 */
   plugin_id?: string;
   api_id?: string;
   api_name?: string;
-  /** For node display */
+  /** 用于节点展示 */
   name?: string;
   desc?: string;
   icon_url?: string;
@@ -3100,19 +3100,19 @@ export interface PluginAPINode {
 }
 
 export interface PluginAuthStatus {
-  /** Is it an authorized plugin? */
+  /** 是否为授权插件 */
   is_oauth?: boolean;
-  /** user authorization status */
+  /** 用户授权状态 */
   status?: OAuthStatus;
-  /** Unauthorized, return the authorized url. */
+  /** 未授权，返回授权url */
   content?: string;
 }
 
-/** View more image plugins */
+/** 查看更多图像插件 */
 export interface PluginCategory {
   plugin_category_id?: string;
   only_official?: boolean;
-  /** For node display */
+  /** 用于节点展示 */
   name?: string;
   icon_url?: string;
   node_type?: string;
@@ -3158,16 +3158,16 @@ export interface PluginVersionInfo {
 }
 
 export interface PrincipalIdentifier {
-  /** subject type */
+  /** 主体类型 */
   Type: PrincipalType;
-  /** principal Id */
+  /** 主体Id */
   Id: string;
 }
 
 export interface ProjectConversation {
   unique_id?: string;
   conversation_name?: string;
-  /** For your own conversationid in the coze channel */
+  /** 对于自己在 coze 渠道的 conversationid */
   conversation_id?: string;
   release_conversation_name?: string;
 }
@@ -3176,19 +3176,19 @@ export interface ProjectWorkflowInfo {
   workflow_id?: string;
   space_id?: string;
   project_id?: string;
-  /** Whether to query the resource dependency tree of the draft version, true means to query the draft version, false means to analyze the resource dependency tree of the released version */
+  /** 是否查询草稿版本的资源依赖树，true表示是查询草稿版本，false表示分析发布版本的资源依赖树 */
   draft?: boolean;
-  /** The version number of project. If draft is true, this field is invalid. If the field value is not passed or its value is 0, get the latest released version. */
+  /** project的版本号，若 draft 为 true，则该字段无效。若未传递该字段值或其值为 0，则获取最新已发布版本。 */
   project_version?: string;
 }
 
 export interface PublishBasicWorkflowData {
-  /** Information on recently released projects */
+  /** 最近发布项目的信息 */
   basic_info?: WorkflowBasicInfo;
   user_info?: UserInfo;
-  /** Published channel aggregation */
+  /** 已发布渠道聚合 */
   connectors?: Array<ConnectorInfo>;
-  /** Total token consumption as of yesterday */
+  /** 截止昨天总token消耗 */
   total_token?: string;
 }
 
@@ -3206,21 +3206,21 @@ export interface PublishWorkflowListData {
 }
 
 export interface PublishWorkflowRequest {
-  /** Not null or 0, used to uniquely identify a workflow. */
+  /** 不可为空或0，用于唯一标识一个工作流。 */
   workflow_id: string;
-  /** Not null or 0, used to identify the space to which the workflow belongs. */
+  /** 不可为空或0，用于标识工作流所属的空间。 */
   space_id: string;
-  /** Used to identify whether there is a collaborator, the default is false. */
+  /** 用于标识是否有协作者，默认为false。 */
   has_collaborator: boolean;
-  /** Which environment to publish to, do not fill in the default line */
+  /** 发布到哪个环境，不填默认线上 */
   env?: string;
-  /** Which version to use to publish, do not fill in the default latest commit version, if provided, it needs to match WorkflowId. Used to specify which version of the workflow to use. */
+  /** 使用哪个版本发布，不填默认最新提交版本，如果提供则需要与WorkflowId匹配。用于指定使用哪个版本的工作流。 */
   commit_id?: string;
-  /** Force release. If the previous step of the process submission executed the TestRun step and the result is that the process ran successfully, the "force" parameter value should be false, or the parameter should not be passed; if the previous step of the process submission did not execute the TestRun step, or if the previous step was TestRun but the process execution result was unsuccessful/unknown, the "force" parameter value should be true. */
+  /** 强制发布。若流程提交的上一步执行了 TestRun 步骤且运行结果是流程运行成功，“force” 参数值应为 false，或不传递该参数；若流程提交的上一步不是执行 TestRun 步骤 或者 上一步是TestRun但是流程运行结果不成功/未知，“force” 参数值应为 true 。 */
   force?: boolean;
-  /** Required, the version number of the published workflow, in SemVer format "vx.y.z", must be larger than the current version, the current version can be obtained through GetCanvasInfo */
+  /** required, 发布workflow的版本号，遵循 SemVer 格式为"vx.y.z"，必须比当前版本大，可通过 GetCanvasInfo 获取当前版本 */
   workflow_version?: string;
-  /** Workflow version description */
+  /** workflow的版本描述 */
   version_description?: string;
   Base?: base.Base;
 }
@@ -3289,7 +3289,7 @@ export interface QueryWorkflowV2Response {
 }
 
 export interface RegionGrayRequest {
-  /** Requires grey release function key */
+  /** 需要灰度的功能key */
   feature_key: string;
   Base?: base.Base;
 }
@@ -3316,7 +3316,7 @@ export interface ReleasedWorkflow {
   version?: string;
   create_time?: Int64;
   update_time?: Int64;
-  /** Workflow creator information */
+  /** workflow创作者信息 */
   creator?: Creator;
   flow_mode?: WorkflowMode;
   flow_version?: string;
@@ -3376,11 +3376,11 @@ export interface ResourceActionAuth {
 }
 
 export interface ResourceAuthInfo {
-  /** Resource ID */
+  /** 资源id */
   workflow_id?: string;
-  /** user id */
+  /** 用户id */
   user_id?: string;
-  /** user resource operation permission */
+  /** 用户资源操作权限 */
   auth?: ResourceActionAuth;
 }
 
@@ -3402,14 +3402,14 @@ export interface ResponseStyle {
 
 export interface ResumeFailedCallbackContent {
   CheckpointID?: Int64;
-  /** business custom data */
+  /** 业务自定义数据 */
   Extra?: string;
   ErrorCode?: string;
   ErrorMsg?: string;
 }
 
 export interface RevertDraftData {
-  /** The commit_id of a commit. This is used to uniquely identify individual commit versions of a process (each commit_id corresponds only and only to one commit version of a process). */
+  /** 提交的 commit_id。其作用是唯一标识一个流程的单个提交版本（每个 commit_id 仅对应且仅能对应一个流程的一次提交版本）。 */
   submit_commit_id?: string;
 }
 
@@ -3458,21 +3458,21 @@ export interface SaveWorkflowData {
 }
 
 export interface SaveWorkflowRequest {
-  /** The ID of the process, used to identify a unique process */
+  /** 流程的id，用来标识唯一的流程 */
   workflow_id: string;
-  /** Process schema */
+  /** 流程的schema */
   schema?: string;
-  /** Required, space id, not empty string, used to identify the space to which the workflow belongs. */
+  /** required，空间id，不可为空字符串，用于标识工作流所属的空间。 */
   space_id?: string;
-  /** Optional. Length must be between 1 and 100 if supplied. The name used to update the workflow. */
+  /** 非必填，如果提供则长度必须在1-100之间。用于更新工作流的名称。 */
   name?: string;
-  /** Not required. Length must be between 1-600 if supplied. Description information used to update the workflow. */
+  /** 非必填，如果提供则长度必须在1-600之间。用于更新工作流的描述信息。 */
   desc?: string;
-  /** Not required. Cannot be empty string if supplied. Icon URI used to update the workflow. */
+  /** 非必填，如果提供则不能为空字符串。用于更新工作流的图标URI。 */
   icon_uri?: string;
-  /** Cannot be empty string. What this does is to uniquely identify a single commit version of a process (each submit_commit_id corresponds only and only to one commit version of a process). */
+  /** 不可为空字符串。其作用是唯一标识一个流程的单个提交版本（每个 submit_commit_id 仅对应且仅能对应一个流程的一次提交版本）。 */
   submit_commit_id: string;
-  /** Whether to ignore the commit state flow, the default is false. If true, the state flow is ignored. If false, query the process commit status, and the process commit status will change to CanNotSubmit. */
+  /** 是否忽略提交状态流转，默认为false。如果为true，则忽略状态流转。如果为false，查询流程提交状态，流程提交状态会变成CanNotSubmit。 */
   ignore_status_transfer?: boolean;
   save_version?: string;
   Base?: base.Base;
@@ -3552,60 +3552,60 @@ export interface Snapshot {
 }
 
 export interface StreamPushVoiceConfig {
-  /** Whether to turn on voice output */
+  /** 是否开启语音输出 */
   IsCallTransferVoice?: boolean;
-  /** timbre ID */
+  /** 音色ID */
   VoiceId?: string;
-  /** timbre name */
+  /** 音色名称 */
   VoiceName?: string;
-  /** timbre emotion */
+  /** 音色情感 */
   voice_emotion?: string;
-  /** timbre emotion */
+  /** 音色情感值 */
   voice_emotion_scale?: number;
-  /** timbre scene */
+  /** 音色场景 */
   voice_scene?: string;
 }
 
 export interface StreamRunFlowHTTPResponse {
-  /** absolute serial number */
+  /** 绝对序号 */
   id?: string;
-  /** Event type: message, done, error */
+  /** 事件类型:message,done,error */
   event?: string;
-  /** Node information
-The serial number in the node */
+  /** 节点信息
+节点中的序号 */
   node_seq_id?: string;
   node_id?: string;
-  /** Node name */
+  /** 节点名称 */
   node_title?: string;
-  /** Node type */
+  /** 节点类型 */
   node_type?: NodeType;
-  /** Return when ContentType is Text */
+  /** ContentType为Text时的返回 */
   content?: string;
-  /** Has the node completed execution? */
+  /** 节点是否执行完成 */
   node_is_finish?: boolean;
-  /** Transmission when content type is interrupt, interrupt protocol */
+  /** content type为interrupt时传输，中断协议 */
   interrupt_data?: Interrupt;
-  /** Data type returned */
+  /** 返回的数据类型 */
   content_type?: string;
-  /** Card Content Returned when Content Type is Card */
+  /** Content Type为Card时返回的卡片内容 */
   card_body?: string;
-  /** Whether the current node is streaming output */
+  /** 当前节点是否流式输出 */
   is_stream?: boolean;
-  /** The workflow id to which the current node belongs */
+  /** 当前节点所属的 workflow id */
   current_workflow_id?: string;
-  /** Last message on success */
+  /** 成功时最后一条消息 */
   ext?: Record<string, string>;
   token?: Int64;
   cost?: string;
-  /** error message */
+  /** 错误信息 */
   error_code?: Int64;
   error_message?: string;
 }
 
 export interface SubmitWorkflowData {
-  /** True if the current draft is behind the latest version, otherwise false */
+  /** 当前草稿如果落后最新版本，则为true 否则为false */
   need_merge?: boolean;
-  /** The commit_id of a commit. This is used to uniquely identify individual commit versions of a process (each commit_id corresponds only and only to one commit version of a process). */
+  /** 提交的 commit_id。其作用是唯一标识一个流程的单个提交版本（每个 commit_id 仅对应且仅能对应一个流程的一次提交版本）。 */
   submit_commit_id?: string;
 }
 
@@ -3613,7 +3613,7 @@ export interface SubmitWorkflowRequest {
   workflow_id: string;
   space_id: string;
   desc?: string;
-  /** Forced submission. If the previous step of the process submission executed the TestRun step and the execution result is that the process runs successfully, the "force" parameter value should be false, or the parameter should not be passed; if the previous step of the process submission did not execute the TestRun step, or if the previous step was TestRun but the process execution result was unsuccessful/unknown, the "force" parameter value should be true. */
+  /** 强制提交。若流程提交的上一步执行了 TestRun 步骤且运行结果是流程运行成功，“force” 参数值应为 false，或不传递该参数；若流程提交的上一步不是执行 TestRun 步骤 或者 上一步是TestRun但是流程运行结果不成功/未知，“force” 参数值应为 true 。 */
   force?: boolean;
   Base?: base.Base;
 }
@@ -3632,10 +3632,10 @@ export interface SubWorkflow {
 
 /** suggest */
 export interface SuggestReplyInfo {
-  /** Coze Auto-Suggestion
-suggestion problem model */
+  /** 对应 Coze Auto-Suggestion
+建议问题模型 */
   suggest_reply_mode?: SuggestReplyInfoMode;
-  /** user-defined suggestion questions */
+  /** 用户自定义建议问题 */
   customized_suggest_prompt?: string;
 }
 
@@ -3649,32 +3649,32 @@ export interface TableInfo {
 }
 
 export interface TerminatePlan {
-  /** End method */
+  /** 结束方式 */
   plan?: TerminatePlanType;
   content?: string;
 }
 
 export interface TokenAndCost {
-  /** Input Consumption Tokens */
+  /** input消耗Token数 */
   inputTokens?: string;
-  /** Input cost */
+  /** input花费 */
   inputCost?: string;
-  /** Output Consumption Tokens */
+  /** Output消耗Token数 */
   outputTokens?: string;
-  /** Output cost */
+  /** Output花费 */
   outputCost?: string;
-  /** Total Consumed Tokens */
+  /** 总消耗Token数 */
   totalTokens?: string;
-  /** total cost */
+  /** 总花费 */
   totalCost?: string;
 }
 
 export interface UpdateCollaboratorInfo {
-  /** Updated target space */
+  /** 更新的目标空间 */
   UpdateWfMap?: Record<string, Array<Int64>>;
-  /** No space for workflow */
+  /** 未获取到workflow的空间 */
   ErrSpaceList?: Array<Int64>;
-  /** Workflow that did not get collaborator information */
+  /** 未获取到协作者信息的workflow */
   ErrWorkflowMap?: Record<string, Array<Int64>>;
   BaseResp?: base.BaseResp;
 }
@@ -3727,9 +3727,9 @@ export interface UserBehaviorAuthData {
 export interface UserBehaviorAuthRequest {
   workflow_id: string;
   space_id: string;
-  /** Specifies the specific type of behavior the user is attempting to perform. The interface applies different permission validation rules and business processes based on this type. */
+  /** 指定用户尝试执行的具体行为类型。接口根据此类型来应用不同的权限校验规则和业务处理流程。 */
   action_type: UserBehaviorType;
-  /** True: The interface only returns configuration information related to the user's current level (e.g. maximum number of workflows, maximum number of collaborators), without performing actual permission validation. false: The interface will perform a full permission check to determine whether the user is authorized to perform the actions specified by ActionType. */
+  /** true: 接口仅返回与用户当前等级相关的配置信息（如最大工作流数量、最大协作者数量），而不执行实际的权限校验。false: 接口将执行完整的权限检查，判断用户是否有权执行 ActionType 指定的操作。 */
   only_config_item: boolean;
   Base?: base.Base;
 }
@@ -3745,7 +3745,7 @@ export interface UserInfo {
   user_id?: Int64;
   user_name?: string;
   user_avatar?: string;
-  /** user nickname */
+  /** 用户昵称 */
   nickname?: string;
 }
 
@@ -3761,9 +3761,9 @@ export interface UserInfoEnv {
 }
 
 export interface UserInputConfig {
-  /** Default input method */
+  /** 默认输入方式 */
   default_input_mode?: InputMode;
-  /** User voice message sending form */
+  /** 用户语音消息发送形式 */
   send_voice_mode?: SendVoiceMode;
 }
 
@@ -3796,9 +3796,9 @@ export interface ValidateTreeInfo {
 
 export interface ValidateTreeRequest {
   workflow_id: string;
-  /** Choose between this and bind_bot_id */
+  /** 这个和bind_bot_id 二选一 */
   bind_project_id?: string;
-  /** Choose between this and bind_project_id */
+  /** 这个和bind_project_id 二选一 */
   bind_bot_id?: string;
   schema?: string;
   Base?: base.Base;
@@ -3812,15 +3812,15 @@ export interface ValidateTreeResponse {
 }
 
 export interface VCSCanvasData {
-  /** Submitted commit_id */
+  /** 提交的commit_id */
   submit_commit_id?: string;
-  /** commit_id of the draft */
+  /** 草稿的commit_id */
   draft_commit_id?: string;
-  /** version type */
+  /** 版本类型 */
   type?: VCSCanvasType;
-  /** Does the current user have permission to edit? */
+  /** 当前用户是否有权限编辑 */
   can_edit?: boolean;
-  /** Published commit_id */
+  /** 发布的commit_id */
   publish_commit_id?: string;
 }
 
@@ -3837,11 +3837,11 @@ export interface VersionHistoryListRequest {
   type: OperateType;
   /** default = 10 */
   limit?: number;
-  /** If it is passed, filter it. */
+  /** 如果传了 做过滤 */
   commit_ids?: Array<string>;
-  /** You need to pass in when paging multiple times. */
+  /** 多次分页的时候需要传入 */
   cursor?: string;
-  /** 1 = create_time 2 = update_time Currently only supports these two */
+  /** 1=create_time 2=update_time 目前仅支持这两个 */
   order_by?: OrderBy;
   Base?: base.Base;
 }
@@ -3867,23 +3867,23 @@ export interface VersionMetaInfo {
   offline?: boolean;
   is_delete?: boolean;
   version?: string;
-  /** Differentiate between the commit ID of the old version (automatically generated) and the new version such as v0.0.1 */
+  /** 区分老版本的commit id(自动生成)和新版本的version如v0.0.1 */
   version_type?: VersionType;
 }
 
 export interface VoiceConfig {
   voice_name?: string;
-  /** timbre ID */
+  /** 音色ID */
   voice_id?: string;
-  /** timbre emotion */
+  /** 音色情感 */
   voice_emotion?: string;
-  /** timbre emotion */
+  /** 音色情感值 */
   voice_emotion_scale?: number;
-  /** Tonal scenes, such as multi-emotion */
+  /** 音色场景，如多情感 */
   voice_scene?: string;
 }
 
-/** Workflow snapshot basic information */
+/** workflow快照基本信息 */
 export interface WkPluginBasicData {
   workflow_id?: string;
   space_id?: string;
@@ -3892,7 +3892,7 @@ export interface WkPluginBasicData {
   url?: string;
   icon_uri?: string;
   status?: WorkFlowStatus;
-  /** Plugin ID corresponding to workfklow */
+  /** workfklow对应的插件id */
   plugin_id?: string;
   create_time?: Int64;
   update_time?: Int64;
@@ -3928,52 +3928,52 @@ export interface WkProcessIOData {
 }
 
 export interface Workflow {
-  /** Process ID, globally unique */
+  /** 流程id，全局唯一 */
   workflow_id?: string;
-  /** Process name */
+  /** 流程名称 */
   name?: string;
   desc?: string;
-  /** Workflow icon url */
+  /** workflow 的 icon 的 url */
   url?: string;
   icon_uri?: string;
-  /** commit status of the process */
+  /** 流程的提交状态 */
   status?: WorkFlowDevStatus;
-  /** Type 1: Official Template */
+  /** 类型，1:官方模版 */
   type?: WorkFlowType;
-  /** Plugin ID corresponding to workfklow */
+  /** workfklow对应的插件id */
   plugin_id?: string;
   create_time?: Int64;
   update_time?: Int64;
   schema_type?: SchemaType;
   start_node?: Node;
   tag?: Tag;
-  /** template creator id */
+  /** 模版创作者id */
   template_author_id?: string;
-  /** template creator nickname */
+  /** 模版创作者昵称 */
   template_author_name?: string;
-  /** template creator avatar */
+  /** 模版创作者头像 */
   template_author_picture_url?: string;
-  /** Space ID */
+  /** 空间id */
   space_id?: string;
-  /** process entry and exit */
+  /** 流程出入参 */
   interface_str?: string;
-  /** New workflow definition schema */
+  /** 新版workflow的定义 schema */
   schema_json?: string;
-  /** Workflow creator information */
+  /** workflow创作者信息 */
   creator?: Creator;
-  /** Storage Model */
+  /** 存储模型 */
   persistence_model?: PersistenceModel;
-  /** Workflow or imageflow, the default is workflow */
+  /** workflow or imageflow，默认值为workflow */
   flow_mode?: WorkflowMode;
-  /** Workflow product review version status */
+  /** workflow商品审核版本状态 */
   product_draft_status?: ProductDraftStatus;
-  /** Current must return nil, {"project_id": "xxx", "flow_id": xxxx} */
+  /** 当前一定返回nil, {"project_id":"xxx","flow_id":xxxx} */
   external_flow_info?: string;
-  /** Workflow Multiplayer Collaboration Button Status */
+  /** workflow多人协作按钮状态 */
   collaborator_mode?: CollaboratorMode;
   check_result?: Array<CheckResult>;
   project_id?: string;
-  /** Only the workflow under the project is available. */
+  /** project 下的 workflow 才有 */
   dev_plugin_id?: string;
   save_version?: string;
 }
@@ -4026,9 +4026,9 @@ export interface WorkflowDependency {
   DatabaseIds?: Array<Int64>;
   VoiceIds?: Array<string>;
   WorkflowMode?: WorkflowMode;
-  /** Plugins that use shared OAuth authorization */
+  /** 使用共享OAuth授权的插件 */
   ShareAuthPluginIds?: Array<Int64>;
-  /** Do not use a license, or use a separately licensed plug-in */
+  /** 不使用授权，或者使用单独授权的插件 */
   SingleAuthPluginIds?: Array<Int64>;
 }
 
@@ -4080,7 +4080,7 @@ export interface WorkflowDetailInfoData {
   icon_uri?: string;
   flow_mode?: WorkflowMode;
   plugin_id?: string;
-  /** Workflow creator information */
+  /** workflow创作者信息 */
   creator?: Creator;
   flow_version?: string;
   flow_version_desc?: string;
@@ -4091,43 +4091,43 @@ export interface WorkflowDetailInfoData {
   output_nodes?: Array<NodeInfo>;
 }
 
-/** Execution result of asynchronous workflow */
+/** 异步工作流的执行结果 */
 export interface WorkflowExecuteHistory {
-  /** Execution ID. */
+  /** 执行 ID。 */
   execute_id?: Int64;
-  /** Execution status. Success: The execution was successful. Running: In progress. Fail: The execution failed. */
+  /** 执行状态。Success：执行成功。Running：执行中。Fail：执行失败。 */
   execute_status?: string;
-  /** The Bot ID specified when executing the workflow. Returns 0 to indicate that no agent ID was specified. */
+  /** 执行工作流时指定的 Bot ID。返回 0 表示未指定智能体 ID。 */
   bot_id?: Int64;
-  /** By default, only the Agent as API channel is displayed, and the channel ID is 1024. */
+  /** 智能体的发布渠道 ID，默认仅显示 Agent as API 渠道，渠道 ID 为 1024。 */
   connector_id?: Int64;
-  /** User ID, the user_id specified by the ext field when executing the workflow. If not specified, returns the token applicant's button ID. */
+  /** 用户 ID，执行工作流时通过 ext 字段指定的 user_id。如果未指定，则返回 Token 申请人的扣子 ID。 */
   connector_uid?: string;
-  /** Workflow running mode: 0: synchronous running. 1: streaming. 2: asynchronous running. */
+  /** 工作流的运行方式：0：同步运行。1：流式运行。2：异步运行。 */
   run_mode?: WorkflowRunMode;
-  /** Log ID of the workflow running asynchronously. If the workflow execution is abnormal, you can contact the service team to troubleshoot the problem with the Log ID. */
+  /** 工作流异步运行的 Log ID。如果工作流执行异常，可以联系服务团队通过 Log ID 排查问题。 */
   log_id?: string;
-  /** Workflow start time, in Unixtime timestamp format, in seconds. */
+  /** 工作流运行开始时间，Unixtime 时间戳格式，单位为秒。 */
   create_time?: Int64;
-  /** Workflow recovery run time in Unixtime timestamp format in seconds. */
+  /** 工作流的恢复运行时间，Unixtime 时间戳格式，单位为秒。 */
   update_time?: Int64;
-  /** Workflow practice run debugging page. Visit this page to view the running results, input and output information of each workflow node. */
+  /** 工作流试运行调试页面。访问此页面可查看每个工作流节点的运行结果、输入输出等信息。 */
   debug_url?: string;
-  /** Whether the output of the workflow was cleaned because it was too large. True: cleaned. False: not cleaned. */
+  /** 工作流的输出是否因为过大被清理。true：已清理。false：未清理。 */
   is_output_trimmed?: boolean;
-  /** successful execution */
+  /** 执行成功 */
   input?: string;
-  /** The output of the workflow is usually a JSON serialized string, but it may also be a non-JSON string. */
+  /** 工作流的输出，通常为 JSON 序列化字符串，也有可能是非 JSON 结构的字符串。 */
   output?: string;
   token?: Int64;
   cost?: string;
   cost_unit?: string;
   ext?: Record<string, string>;
   node_execute_status?: Record<string, NodeExecuteStatus>;
-  /** execution failed
-Call status code. 0 indicates that the call was successful. Other values indicate that the call failed. You can determine the detailed error cause by error_message fields. */
+  /** 执行失败
+调用状态码。0 表示调用成功。其他值表示调用失败。你可以通过 error_message 字段判断详细的错误原因。 */
   error_code?: string;
-  /** Status information. You can view detailed error information in this field when an API call fails. */
+  /** 状态信息。为 API 调用失败时可通过此字段查看详细错误信息。 */
   error_msg?: string;
 }
 
@@ -4138,16 +4138,16 @@ export interface WorkflowFCItem {
   workflow_version?: string;
 }
 
-/** Workflow filter */
+/** Workflow 过滤条件 */
 export interface WorkflowFilter {
   workflow_id?: string;
   workflow_version?: string;
 }
 
 export interface WorkflowGrayFeatureItem {
-  /** Grey release feature */
+  /** 灰度feature */
   feature: string;
-  /** Whether to hit grey release featire. True - hit grey release, false - miss grey release. */
+  /** 是否命中灰度featire。true-命中灰度，false-未命中灰度。 */
   in_gray: boolean;
 }
 
@@ -4161,7 +4161,7 @@ export interface WorkflowListByBindBizRequest {
   bind_biz_type?: number;
   status?: WorkFlowListStatus;
   login_user_create?: boolean;
-  /** Workflow or imageflow, default to workflow */
+  /** workflow or imageflow, 默认为workflow */
   flow_mode?: WorkflowMode;
   Base?: base.Base;
 }
@@ -4179,7 +4179,7 @@ export interface WorkflowListByBindBizV2Request {
   bind_biz_type?: number;
   status?: WorkFlowListStatus;
   login_user_create?: boolean;
-  /** Workflow or imageflow, default to workflow */
+  /** workflow or imageflow, 默认为workflow */
   flow_mode?: WorkflowMode;
   Base?: base.Base;
 }
@@ -4213,7 +4213,7 @@ export interface WorkflowListV2Request {
   status?: WorkFlowListStatus;
   order_by?: OrderBy;
   login_user_create?: boolean;
-  /** Workflow or imageflow, default to workflow */
+  /** workflow or imageflow, 默认为workflow */
   flow_mode?: WorkflowMode;
   Base?: base.Base;
 }
@@ -4253,7 +4253,7 @@ export interface WorkflowNodeDebugV2Response {
 
 export interface WorkflowNodeExecuteHistory {
   is_finish?: boolean;
-  /** successful execution */
+  /** 执行成功 */
   node_output?: string;
 }
 
@@ -4289,9 +4289,9 @@ export interface WorkflowRuntimeInfo {
   WorkflowID?: Int64;
   name?: string;
   desc?: string;
-  /** Plugin api parameter structure, serialized as json string */
+  /** plugin api parameter 结构，序列化为 json string */
   input?: string;
-  /** Plugin api parameter structure, serialized as json string */
+  /** plugin api parameter 结构，序列化为 json string */
   output?: string;
   runMode?: Int64;
 }
@@ -4301,7 +4301,7 @@ export interface WorkFlowTemplateTagData {
 }
 
 export interface WorkFlowTemplateTagRequest {
-  /** Workflow or imageflow, default to workflow */
+  /** workflow or imageflow, 默认为workflow */
   flow_mode?: WorkflowMode;
   Base?: base.Base;
 }
@@ -4314,7 +4314,7 @@ export interface WorkFlowTemplateTagResponse {
 }
 
 export interface WorkflowTestResumeRequest {
-  /** Required The ID of the running process that will break. */
+  /** required 运行中会中断的流程的ID。 */
   workflow_id: string;
   execute_id: string;
   event_id: string;
@@ -4342,19 +4342,19 @@ export interface WorkFlowTestRunDataV2 {
 }
 
 export interface WorkFlowTestRunRequest {
-  /** Required, workflow id, non-nullable, used to uniquely identify a workflow. */
+  /** required，工作流id，不可为空, 用于唯一标识一个工作流。 */
   workflow_id: string;
-  /** Used to provide input parameters for workflow test execution. */
+  /** 用于提供工作流测试执行的输入参数。 */
   input?: Record<string, string>;
-  /** Required, space id, non-nullable, identifies the space to which the workflow belongs. */
+  /** required，空间id, 不可为空,用于标识工作流所属的空间。 */
   space_id?: string;
-  /** The id of the agent, the process under non-project, the process involving variable nodes and databases */
+  /** agent的id，非project下的流程，涉及变量节点、数据库的流程 */
   bot_id?: string;
-  /** abandoned */
+  /** 废弃 */
   submit_commit_id?: string;
-  /** The CanvasInfo of the process canvas specifies the draft_commit_id of vcs, which defaults to null. When null, the latest draft version is selected by default, which is used to specify which draft version of the workflow to use. */
+  /** 流程画布的CanvasInfo中指定vcs的draft_commit_id，默认为空，为空时默认选最新的草稿版本, 用于指定使用哪个草稿版本的工作流。 */
   commit_id?: string;
-  /** Used to identify the project to which the workflow belongs. */
+  /** 用于标识工作流所属的项目。 */
   project_id?: string;
   Base?: base.Base;
 }
@@ -4388,43 +4388,43 @@ export interface WorkflowV2 {
   url?: string;
   icon_uri?: string;
   status?: WorkFlowStatus;
-  /** Type 1: Official Template */
+  /** 类型，1:官方模版 */
   type?: WorkFlowType;
-  /** Plugin ID corresponding to workfklow */
+  /** workfklow对应的插件id */
   plugin_id?: string;
   create_time?: Int64;
   update_time?: Int64;
   schema_type?: SchemaType;
   start_node?: Node;
   tag?: Tag;
-  /** template creator id */
+  /** 模版创作者id */
   template_author_id?: string;
-  /** template creator nickname */
+  /** 模版创作者昵称 */
   template_author_name?: string;
-  /** template creator avatar */
+  /** 模版创作者头像 */
   template_author_picture_url?: string;
-  /** Space ID */
+  /** 空间id */
   space_id?: string;
-  /** process entry and exit */
+  /** 流程出入参 */
   interface_str?: string;
-  /** New workflow definition schema */
+  /** 新版workflow的定义 schema */
   schema_json?: string;
-  /** Workflow creator information */
+  /** workflow创作者信息 */
   creator?: Creator;
-  /** Workflow or imageflow, default to workflow */
+  /** workflow or imageflow, 默认为workflow */
   flow_mode?: WorkflowMode;
-  /** Workflow product review version status */
+  /** workflow商品审核版本状态 */
   product_draft_status?: ProductDraftStatus;
   project_id?: string;
-  /** DEV plugin id */
+  /** dev插件id */
   dev_plugin_id?: string;
 }
 
 export interface WorkflowV2Data {
   workflow?: WorkflowV2;
-  /** Is the Agent bound? */
+  /** 是否绑定了Agent */
   is_bind_agent?: boolean;
-  /** Generated compatibility commit_id if requested in publish state */
+  /** 生成的兼容commit_id，如果请求的是publish态的 */
   publish_commit_id?: string;
   bind_biz_id?: string;
   bind_biz_type?: number;

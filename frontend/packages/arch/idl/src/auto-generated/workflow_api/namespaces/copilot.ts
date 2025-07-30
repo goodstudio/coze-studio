@@ -24,15 +24,15 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export enum CopilotType {
-  /** Generate timing scripts */
+  /** 生成定时脚本 */
   CRONTAB = 0,
-  /** Generate input samples */
+  /** 生成输入样例 */
   INPUTS = 1,
-  /** Generate onboarding messages */
+  /** 生成onboarding message */
   OnboardingMessage = 2,
-  /** Generate test cases */
+  /** 生成测试用例 */
   TestRunInput = 3,
-  /** Generate node debug input */
+  /** 生成节点调试输入 */
   NodeDebugInput = 4,
 }
 
@@ -42,11 +42,11 @@ export enum GenerateTestCaseType {
 }
 
 export enum TestCaseGeneratedBy {
-  /** execution history */
+  /** 执行历史 */
   ExecuteHistory = 1,
-  /** Large model */
+  /** 大模型 */
   Copilot = 2,
-  /** Safety-net strategies, such as generating random numbers */
+  /** 兜底策略，比如生成随机数 */
   Policy = 3,
 }
 
@@ -57,7 +57,7 @@ export interface CopilotGenerateData {
 export interface CopilotGenerateRequest {
   space_id: string;
   project_id: string;
-  /** This issue is delivered by CRONJOB */
+  /** 本期传递CRONJOB */
   copilot_type: CopilotType;
   query: string;
   generate_test_case_input?: GenerateTestCaseInput;
@@ -75,7 +75,7 @@ export interface CopilotGenerateResponse {
 
 export interface GenerateNodeDebugInputConfig {
   node_id: string;
-  /** Node configuration, such as loop/batch node configuration */
+  /** 节点配置,如loop/batch等节点的配置 */
   node_config?: string;
 }
 

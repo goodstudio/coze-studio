@@ -106,7 +106,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/upload_file
    *
-   * Internal, upload UI related resources
+   * 内部 上传 UI 相关资源
    */
   UploadFile(
     req?: uibuilder.UploadFileRequest,
@@ -133,7 +133,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/starry/sandbox/get
    *
-   * Starry Night Agent Interface
+   * 星夜代理接口
    *
    * Starry GetSandbox
    */
@@ -160,9 +160,9 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/create
    *
-   * UI related
+   * UI 相关
    *
-   * Create UI
+   * 创建 UI
    */
   CreateUI(
     req?: uibuilder.CreateUIRequest,
@@ -189,7 +189,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/get
    *
-   * Get UI details
+   * 获取 UI 详情
    */
   GetUI(
     req?: uibuilder.GetUIRequest,
@@ -215,9 +215,9 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/publish/dsl/get
    *
-   * External user interface, may not require authentication
+   * 外部用户接口，可能不需要鉴权
    *
-   * Get DSL
+   * 获取 DSL
    */
   GetUIDSLForWeb(
     req: uibuilder.GetUIDSLRequest,
@@ -241,9 +241,9 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/internal/publish/dsl/get
    *
-   * Internal interface, not open to the public
+   * 内部接口，不对外开放
    *
-   * Obtain DSL on the intranet, do not analyze externally
+   * 内网获取 DSL，不对外解析
    */
   GetUIDSLInternal(
     req: uibuilder.GetUIDSLRequest,
@@ -267,7 +267,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/component/delete
    *
-   * Delete package
+   * 删除组件包
    */
   DeleteCustomComponent(
     req: uibuilder.DeleteCustomComponentRequest,
@@ -287,7 +287,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/component/import
    *
-   * Import/upgrade package
+   * 导入 / 升级组件包
    */
   ImportCustomComponent(
     req: uibuilder.ImportCustomComponentRequest,
@@ -311,9 +311,9 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/component/compare
    *
-   * GetCustomComponentPackageResponse GetCustomComponentPackage (1: GetCustomComponentPackageRequest req) (agw.method = 'POST', agw.uri = '/api/ui_builder/v1/component/package/list', api.category = "ui", agw.preserve_base = "true")//Get the component package component contentomponent package component content
+   * GetCustomComponentPackageResponse GetCustomComponentPackage(1: GetCustomComponentPackageRequest req)(agw.method = 'POST',   agw.uri = '/api/ui_builder/v1/component/package/list',  api.category="ui", agw.preserve_base="true")    // 获取组件包组件内容
    *
-   * Compare custom components
+   * 比较自定义组件
    */
   CompareCustomComponent(
     req: uibuilder.CompareCustomComponentRequest,
@@ -336,9 +336,9 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/component/list
    *
-   * custom component related
+   * 自定义组件相关
    *
-   * Get the list of repository packages
+   * 获取资源库组件包列表
    */
   GetCustomComponentList(
     req: uibuilder.GetCustomComponentListRequest,
@@ -364,7 +364,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/component/imported/list
    *
-   * Get a list of imported packages
+   * 获取已导入的组件包列表
    */
   GetImportedComponentList(
     req: uibuilder.GetImportedComponentListRequest,
@@ -408,7 +408,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/internal/dsl/refresh
    *
-   * Intranet refresh DSL picture valid period, not external analysis
+   * 内网刷新 DSL 图片有效期，不对外解析
    */
   RefreshUIDSLInternal(
     req: uibuilder.RefreshUIDSLInternalRequest,
@@ -428,7 +428,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/publish/snapshot
    *
-   * Get snapshot
+   * 获取快照
    */
   CreateSnapshotForWeb(
     req: uibuilder.CreateSnapshotForWebRequest,
@@ -454,7 +454,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/snapshot
    *
-   * Get snapshot
+   * 获取快照
    */
   CreateSnapshot(
     req: uibuilder.CreateSnapshotRequest,
@@ -482,7 +482,7 @@ export default class UiBuilderService<T> {
    *
    * OpenAPI
    *
-   * Snapshot by Open API
+   * 通过 Open API 获取快照
    */
   CreateSnapshotForOpenAPI(
     req?: uibuilder.CreateSnapshotForOpenAPIRequest,
@@ -508,7 +508,7 @@ export default class UiBuilderService<T> {
   /**
    * POST /api/ui_builder/v1/snapshot/get
    *
-   * Get the release version Snapshot
+   * 获取发布版本 Snapshot
    */
   GetPublishSnapshot(
     req: uibuilder.GetPublishSnapshotRequest,

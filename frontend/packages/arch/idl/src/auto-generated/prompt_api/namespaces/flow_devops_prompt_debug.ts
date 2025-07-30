@@ -30,7 +30,7 @@ export interface ChatTestRequest {
   message?: flow_devops_prompt_common.Message;
   contexts?: Array<flow_devops_prompt_common.Message>;
   variables?: Array<flow_devops_prompt_common.Variable>;
-  /** Space ID */
+  /** 空间ID */
   space_id: Int64;
   base?: base.Base;
 }
@@ -45,7 +45,7 @@ export interface ChatTestResponse {
 export interface ExecuteBatchRequest {
   /** PromptID */
   prompt_id?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
   /** CaseID */
   case_id?: Int64;
@@ -53,7 +53,7 @@ export interface ExecuteBatchRequest {
   dataset_id?: Int64;
   /** RowGroupIDs */
   row_group_ids?: Array<Int64>;
-  /** MCP dynamic configuration */
+  /** MCP 动态配置 */
   mcp_execute_config?: mcp.MCPExecuteConfig;
   base?: base.Base;
 }
@@ -69,7 +69,7 @@ export interface GetDebugDetailRequest {
   debug_id?: Int64;
   /** PromptID */
   prompt_id?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
   base?: base.Base;
 }
@@ -89,15 +89,15 @@ export interface GetMockContextRequest {
 }
 
 export interface GetMockContextResponse {
-  /** Deprecated using ContextsV2 */
+  /** deprecated，使用ContextsV2 */
   contexts?: Array<flow_devops_prompt_common.Message>;
-  /** parameter list */
+  /** 参数列表 */
   variables?: Array<Array<flow_devops_prompt_common.Variable>>;
-  /** user debug configuration */
+  /** 用户调试配置 */
   user_debug_config?: flow_devops_prompt_common.UserDebugConfig;
-  /** arena configuration */
+  /** 竞技场配置 */
   compare_config?: flow_devops_prompt_common.CompareConfig;
-  /** Dialogue history */
+  /** 对话历史 */
   contexts_v2?: Array<flow_devops_prompt_common.DebugMessage>;
   code?: number;
   msg?: string;
@@ -107,19 +107,19 @@ export interface GetMockContextResponse {
 export interface ListDebugHistoryRequest {
   /** PromptID */
   prompt_id?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
-  /** By default, only the debugging records of the logged-in user are displayed. If listAll is passed, all records are returned */
+  /** 默认只展示登录用户的调试记录，如果传递 listAll则返回所有记录 */
   list_all?: boolean;
-  /** Start with null, scroll into NextCursor in Response */
+  /** 起始为空，滚动传入Response里的NextCursor */
   cursor?: Int64;
-  /** The number of days, the default is 7 days if not passed on. */
+  /** 天数，不传默认7天 */
   offset?: Int64;
   base?: base.Base;
 }
 
 export interface ListDebugHistoryResponse {
-  /** Prompt list */
+  /** Prompt列表 */
   debug_history?: Array<flow_devops_prompt_common.DebugBrief>;
   next_cursor?: Int64;
   has_more?: boolean;
@@ -131,7 +131,7 @@ export interface ListDebugHistoryResponse {
 export interface LoadBatchDebugInfoRequest {
   /** PromptID */
   prompt_id?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
   base?: base.Base;
 }
@@ -146,17 +146,17 @@ export interface LoadBatchDebugInfoResponse {
 export interface SaveMockContextRequest {
   /** PromptID */
   prompt_id: Int64;
-  /** Deprecated using ContextsV2 */
+  /** deprecated，使用ContextsV2 */
   contexts?: Array<flow_devops_prompt_common.Message>;
-  /** Space ID */
+  /** 空间ID */
   space_id: Int64;
-  /** multiple sets of variables */
+  /** 多组变量 */
   variables?: Array<Array<flow_devops_prompt_common.Variable>>;
-  /** user debug configuration */
+  /** 用户调试配置 */
   user_debug_config?: flow_devops_prompt_common.UserDebugConfig;
-  /** arena configuration */
+  /** 竞技场配置 */
   compare_config?: flow_devops_prompt_common.CompareConfig;
-  /** Dialogue history */
+  /** 对话历史 */
   contexts_v2?: Array<flow_devops_prompt_common.DebugMessage>;
   base?: base.Base;
 }
@@ -172,13 +172,13 @@ export interface SendMessageRequest {
   message?: flow_devops_prompt_common.Message;
   contexts?: Array<flow_devops_prompt_common.Message>;
   variables?: Array<flow_devops_prompt_common.Variable>;
-  /** Space ID */
+  /** 空间ID */
   space_id: Int64;
-  /** Whether to step through debugging */
+  /** 是否单步调试 */
   single_step_debug?: boolean;
-  /** Series debugging record (function call single step debugging) */
+  /** 串联调试记录(function call单步调试) */
   debug_trace_key?: string;
-  /** MCP dynamic configuration */
+  /** MCP 动态配置 */
   mcp_execute_config?: mcp.MCPExecuteConfig;
   base?: base.Base;
 }
@@ -196,13 +196,13 @@ export interface StreamingSendMessageRequest {
   message?: flow_devops_prompt_common.Message;
   contexts?: Array<flow_devops_prompt_common.Message>;
   variables?: Array<flow_devops_prompt_common.Variable>;
-  /** Space ID */
+  /** 空间ID */
   space_id: Int64;
-  /** Whether to step through debugging */
+  /** 是否单步调试 */
   single_step_debug?: boolean;
-  /** Series debugging record (function call single step debugging) */
+  /** 串联调试记录(function call单步调试) */
   debug_trace_key?: string;
-  /** MCP dynamic configuration */
+  /** MCP 动态配置 */
   mcp_execute_config?: mcp.MCPExecuteConfig;
   base?: base.Base;
 }
@@ -220,13 +220,13 @@ export interface StreamingSendMessageWithoutPermissionCheckRequest {
   message?: flow_devops_prompt_common.Message;
   contexts?: Array<flow_devops_prompt_common.Message>;
   variables?: Array<flow_devops_prompt_common.Variable>;
-  /** Space ID */
+  /** 空间ID */
   space_id: Int64;
-  /** Whether to step through debugging */
+  /** 是否单步调试 */
   single_step_debug?: boolean;
-  /** Series debugging record (function call single step debugging) */
+  /** 串联调试记录(function call单步调试) */
   debug_trace_key?: string;
-  /** MCP dynamic configuration */
+  /** MCP 动态配置 */
   mcp_execute_config?: mcp.MCPExecuteConfig;
   base?: base.Base;
 }

@@ -22,11 +22,11 @@
 export type Int64 = string | number;
 
 export enum AuditMode {
-  /** default */
+  /** 默认 */
   Unknown = 0,
-  /** human moderation */
+  /** 人审 */
   Manual = 1,
-  /** moderation */
+  /** 机审 */
   Machine = 2,
 }
 /* eslint-enable */

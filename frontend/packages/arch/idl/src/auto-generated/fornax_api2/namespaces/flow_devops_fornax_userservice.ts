@@ -25,11 +25,11 @@ import * as user from './user';
 export type Int64 = string | number;
 
 export interface AuthComponentSDKRequest {
-  /** A random string of numbers and letters */
+  /** 一个随机字符串，由数字、字母组成 */
   noncestr?: string;
-  /** Timestamp (milliseconds) */
+  /** 时间戳（毫秒） */
   timestamp?: Int64;
-  /** Component page URL */
+  /** 组件页面url */
   url?: string;
   Base?: base.Base;
 }
@@ -46,7 +46,7 @@ export interface GetSessionInfoRequest {
 }
 
 export interface GetSessionInfoResponse {
-  /** Login user information */
+  /** 登录用户信息 */
   user_info?: user.UserInfoDetail;
   code?: number;
   msg?: string;
@@ -54,15 +54,15 @@ export interface GetSessionInfoResponse {
 }
 
 export interface GetUserInfoRequest {
-  /** Optional user ID */
+  /** 选填用户ID */
   user_id?: string;
-  /** Optional username */
+  /** 选填用户名 */
   user_name?: string;
   Base?: base.Base;
 }
 
 export interface GetUserInfoResponse {
-  /** user information */
+  /** 用户信息 */
   user_info?: user.UserInfoDetail;
   code?: number;
   msg?: string;
@@ -74,7 +74,7 @@ export interface IsUserInGrayData {
 }
 
 export interface IsUserInGrayRequest {
-  /** Grey release strategy */
+  /** 灰度策略 */
   strategy?: string;
   Base?: base.Base;
 }
@@ -95,11 +95,11 @@ export interface KickUserResp {
 }
 
 export interface LoginRequest {
-  /** login authorization code */
+  /** 登录授权码 */
   code?: string;
-  /** Login process redirect uri */
+  /** 登录流程重定向uri */
   state?: string;
-  /** Specify sessionID */
+  /** 指定 sessionID */
   session_id?: string;
   Base?: base.Base;
 }
@@ -121,17 +121,17 @@ export interface LogoutResponse {
 }
 
 export interface MGetUserInfoRequest {
-  /** Fornax UserID List */
+  /** fornax UserID列表 */
   user_ids?: Array<string>;
-  /** SsoUserName List */
+  /** SsoUserName列表 */
   user_names?: Array<string>;
-  /** Feishu UserID List */
+  /** 飞书UserID列表 */
   ext_user_ids?: Array<string>;
   Base?: base.Base;
 }
 
 export interface MGetUserInfoResponse {
-  /** user information list */
+  /** 用户信息列表 */
   user_infos?: Array<user.UserInfoDetail>;
   code?: number;
   msg?: string;
@@ -139,21 +139,21 @@ export interface MGetUserInfoResponse {
 }
 
 export interface QueryUserInfoRequest {
-  /** Username fuzzy search */
+  /** 用户名模糊搜索 */
   name_like: string;
-  /** Page size, default is 20 */
+  /** 分页大小，默认为20 */
   page_size?: number;
-  /** Paging Token */
+  /** 分页Token */
   page_token?: string;
   Base?: base.Base;
 }
 
 export interface QueryUserInfoResponse {
-  /** user information list */
+  /** 用户信息列表 */
   user_infos?: Array<user.UserInfoDetail>;
-  /** Paging Token */
+  /** 分页Token */
   page_token?: string;
-  /** Is there a next page? */
+  /** 是否还有下一页 */
   has_more?: boolean;
   code?: number;
   msg?: string;

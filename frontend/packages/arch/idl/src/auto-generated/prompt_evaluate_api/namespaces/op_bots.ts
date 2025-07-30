@@ -26,11 +26,11 @@ import * as base from './base';
 export type Int64 = string | number;
 
 export enum AsyncStatus {
-  /** create */
+  /** 创建 */
   Create = 1,
-  /** success */
+  /** 成功 */
   Finish = 2,
-  /** fail */
+  /** 失败 */
   Failed = 3,
 }
 
@@ -63,9 +63,9 @@ export enum ConnectorId {
   discord = 10000028,
 }
 
-/** The type of transmission allowed by the context */
+/** 上下文允许传输的类型 */
 export enum ContextContentType {
-  /** No processing version */
+  /** 无任何处理版 */
   USER_RES = 0,
   USER_LLM_RES = 1,
   USER_LLM_APILEN_RES = 2,
@@ -101,13 +101,13 @@ export enum IntelligenceType {
 }
 
 export enum IntentCaseType {
-  /** Normal */
+  /** 正常 */
   None = 0,
-  /** Refuse to answer */
+  /** 拒答 */
   Reject = 1,
-  /** owe recall */
+  /** 欠召回 */
   FalseNegative = 2,
-  /** false recall */
+  /** 误召回 */
   FalsePositive = 4,
 }
 
@@ -118,34 +118,34 @@ export enum OrderBy {
 }
 
 export enum PluginProductStatus {
-  /** default state */
+  /** 默认状态 */
   Default = 0,
-  /** On the market */
+  /** 已上架市场 */
   Listed = 1,
-  /** removed from the market */
+  /** 已下架市场 */
   Unlisted = 2,
-  /** Pending market */
+  /** 待上架市场 */
   Reviewing = 3,
 }
 
 export enum PluginPublishStatus {
-  /** unpublished */
+  /** 未发布 */
   UnPublished = 1,
-  /** There is an update to be released. */
+  /** 有更新，待发布 */
   PendingPublished = 2,
-  /** Published, no updates */
+  /** 已发布，无更新 */
   Published = 3,
 }
 
 export enum PluginStatus {
-  /** default value */
+  /** 默认值 */
   Draft = 0,
   SUBMITTED = 1,
   REVIEWING = 2,
   PREPARED = 3,
   PUBLISHED = 4,
   OFFLINE = 5,
-  /** operation ban */
+  /** 运营封禁 */
   BANNED = 6,
 }
 
@@ -173,16 +173,16 @@ export enum QueryType {
 }
 
 export enum SpaceType {
-  /** individual */
+  /** 个人 */
   Personal = 1,
-  /** group */
+  /** 小组 */
   Team = 2,
 }
 
 export enum VisibilityType {
-  /** invisible */
+  /** 不可见 */
   Invisible = 0,
-  /** visible */
+  /** 可见 */
   Visible = 1,
 }
 
@@ -255,22 +255,22 @@ export interface BotInfoCompareResponse {
 }
 
 export interface BotSpace {
-  /** Space id, newly created as 0 */
+  /** 空间id，新建为0 */
   id?: string;
-  /** publishing platform */
+  /** 发布平台 */
   app_ids?: Array<AppIDInfo>;
-  /** space name */
+  /** 空间名称 */
   name?: string;
-  /** spatial description */
+  /** 空间描述 */
   description?: string;
-  /** icon url */
+  /** 图标url */
   icon_url?: string;
-  /** space type */
+  /** 空间类型 */
   space_type?: SpaceType;
 }
 
 export interface CancelPublishOfficialPluginRequest {
-  /** Official plugin id */
+  /** 官方插件id */
   plugin_id: string;
 }
 
@@ -308,9 +308,9 @@ export interface ChainEvent {
 }
 
 export interface CommonFileInfo {
-  /** File type, suffix */
+  /** 文件类型，后缀 */
   file_type?: string;
-  /** business type */
+  /** 业务类型 */
   biz_type?: FileBizType;
 }
 
@@ -329,13 +329,13 @@ export interface Creator {
   id?: string;
   name?: string;
   avatar_url?: string;
-  /** Did you create it yourself? */
+  /** 是否是自己创建的 */
   self?: boolean;
 }
 
 /** DeleteOfficialPlugin */
 export interface DeleteOfficialPluginRequest {
-  /** Official plugin id */
+  /** 官方插件id */
   plugin_id: string;
 }
 
@@ -376,13 +376,13 @@ export interface DraftBot {
   explore_id?: string;
   last_online_time?: string;
   explore_bot_update_time?: string;
-  /** bot mode */
+  /** bot 模式 */
   bot_mode?: BotMode;
-  /** Whether to update the superheat */
+  /** 是否更新过热度 */
   need_backlog?: boolean;
-  /** category name */
+  /** 分类名 */
   category_name?: string;
-  /** Category ID */
+  /** 分类ID */
   category_id?: string;
   work_info?: WorkInfo;
   intelligence_type?: IntelligenceType;
@@ -411,18 +411,18 @@ export interface ExploreBotCategory {
 }
 
 export interface ExportIntentCaseRequest {
-  /** Millisecond timestamp */
+  /** 毫秒时间戳 */
   from_date?: string;
   to_date?: string;
-  /** Filter dora data */
+  /** 筛选dora数据 */
   is_dora?: number;
-  /** 1: badcase 2: random session */
+  /** 1:badcase 2: 随机session */
   data_source?: number;
-  /** How many sessions to export */
+  /** 导出多少session */
   session_num?: number;
-  /** Filter agent/plugin name */
+  /** 筛选agent/插件名称 */
   plugin_name?: Array<string>;
-  /** Missing call 2 or wrong call 4 */
+  /** 欠召2 or 误召4 */
   intent_case_type?: Array<number>;
 }
 
@@ -490,7 +490,7 @@ export interface GetAllUserLabelResponse {
   user_labels?: Array<bot_common.UserLabel>;
 }
 
-/** ------- show api_key list ------- */
+/** -------展示api_key列表------- */
 export interface GetApiKeyListRequest {
   space_id?: string;
   page_index?: number;
@@ -562,7 +562,7 @@ export interface GetIconResponseData {
 }
 
 export interface GetIntentCaseDetailRequest {
-  /** The specific format is determined by the front end. */
+  /** 具体格式，前端定好 */
   from_date?: string;
   to_date?: string;
   agent_id?: string;
@@ -579,7 +579,7 @@ export interface GetIntentCaseDetailResponse {
 }
 
 export interface GetIntentCaseStatsRequest {
-  /** The specific format is determined by the front end. */
+  /** 具体格式，前端定好 */
   from_date?: string;
   to_date?: string;
   agent_id?: string;
@@ -596,9 +596,9 @@ export interface GetLabelledUserRequest {
   page?: number;
   /** 0<size<=50 */
   size?: number;
-  /** Search by id */
+  /** 按照id查询 */
   user_id?: string;
-  /** Search by username */
+  /** 按照用户名查询 */
   user_unique_name?: string;
 }
 
@@ -610,28 +610,28 @@ export interface GetLabelledUserResponse {
 }
 
 export interface GetOpAllBotListData {
-  /** result */
+  /** 结果 */
   bot_draft_list?: Array<DraftBot>;
-  /** total number */
+  /** 总个数 */
   total?: number;
 }
 
 export interface GetOpAllBotListRequest {
-  /** Space ID */
+  /** 空间id */
   space_id?: string;
-  /** bot_name search */
+  /** bot_name 搜索 */
   bot_name?: string;
-  /** publishing platform */
+  /** 发布平台 */
   publish_platform?: Array<string>;
-  /** paging */
+  /** 分页 */
   page_index?: number;
-  /** paging size */
+  /** 分页大小 */
   page_size?: number;
-  /** Has it been published? */
+  /** 是否已发布 */
   is_publish?: PublishStatus;
   /** bot_id */
   bot_id?: string;
-  /** Bulk query botid */
+  /** 批量查询botid */
   batch_bot_id?: Array<string>;
   connector_id?: ConnectorId;
 }
@@ -643,24 +643,24 @@ export interface GetOpAllBotListResponse {
 }
 
 export interface GetOpExploreBotListData {
-  /** result */
+  /** 结果 */
   bot_draft_list?: Array<DraftBot>;
-  /** total number */
+  /** 总个数 */
   total?: number;
 }
 
 export interface GetOpExploreBotListRequest {
-  /** Whether to show */
+  /** 是否显示 */
   bot_status?: BotExploreStatus;
-  /** Bot name fuzzy search */
+  /** bot名模糊搜 */
   key_word?: string;
-  /** paging */
+  /** 分页 */
   page_index?: number;
-  /** paging size */
+  /** 分页大小 */
   page_size?: number;
-  /** Category ID */
+  /** 分类id */
   category_id?: Array<string>;
-  /** True means uncategorized */
+  /** true表示未分类 */
   uncategorized?: boolean;
 }
 
@@ -707,17 +707,17 @@ export interface GetPluginListResponse {
 }
 
 export interface GetSSOUserInfoData {
-  /** name */
+  /** 姓名 */
   username?: string;
   /** region */
   region?: string;
-  /** job number */
+  /** 工号 */
   employee_id?: Int64;
-  /** email */
+  /** 邮箱 */
   email?: string;
-  /** avatar address */
+  /** 头像地址 */
   avatar_url?: string;
-  /** Userid of the developer platform */
+  /** 开发者平台的userid */
   user_id?: string;
 }
 
@@ -764,27 +764,27 @@ export interface IntentCaseDetail {
   answer?: string;
   system_prompt?: string;
   chat_history?: string;
-  /** error type */
+  /** 错误类型 */
   case_type?: IntentCaseType;
-  /** Currently selected Agent_id */
+  /** 当前选择的Agent_id */
   current_agent_id?: string;
-  /** After intent analysis, the Agent_id that should jump */
+  /** 意图分析后，应该跳转的Agent_id */
   analysis_agent_id?: string;
   date?: string;
   id?: string;
-  /** The analysis reasons given by the model */
+  /** 模型给出的分析原因 */
   analysis_reason?: string;
 }
 
 export interface IntentCaseStats {
   date?: string;
-  /** The correct number of recalls */
+  /** 正确召回的数量 */
   true_positive_cnt?: number;
-  /** Rejection rate: reject_cnt/true_positive_cnt */
+  /** 拒答率：reject_cnt/true_positive_cnt */
   reject_cnt?: number;
-  /** Error recall rate: false_positive_cnt/(false_positive_cnt + true_positive_cnt) */
+  /** 误召回率：false_positive_cnt/(false_positive_cnt+true_positive_cnt) */
   false_positive_cnt?: number;
-  /** Recall rate: false_negative_cnt/(true_positive_cnt + false_negative_cnt) */
+  /** 欠召回率：false_negative_cnt/(true_positive_cnt+false_negative_cnt) */
   false_negative_cnt?: number;
 }
 
@@ -911,7 +911,7 @@ export interface Msg {
 }
 
 export interface OfflineOfficialPluginRequest {
-  /** Official plugin id */
+  /** 官方插件id */
   plugin_id: string;
 }
 
@@ -921,7 +921,7 @@ export interface OfflineOfficialPluginResponse {
 }
 
 export interface OnlineOfficialPluginRequest {
-  /** Official plugin id */
+  /** 官方插件id */
   plugin_id: string;
 }
 
@@ -938,7 +938,7 @@ export interface PluginApi {
   parameters?: Array<PluginParameter>;
   plugin_id?: string;
   plugin_name?: string;
-  /** The serial number is the same as the playground */
+  /** 序号和playground保持一致 */
   api_id?: string;
   record_id?: string;
   /** path */
@@ -960,15 +960,15 @@ export interface PluginData {
   creator?: string;
   space_id?: string;
   space_name?: string;
-  /** number of citations */
+  /** 引用数 */
   bot_quote?: number;
-  /** plugin product status */
+  /** 插件商品状态 */
   plugin_product_status?: PluginProductStatus;
-  /** release status */
+  /** 发布状态 */
   publish_status?: PluginPublishStatus;
-  /** plugin channel */
+  /** 插件渠道 */
   channel_id?: plugin_common.PluginChannel;
-  /** plugin creator id */
+  /** 插件素材id */
   material_id?: string;
   /** tools */
   plugin_apis?: Array<PluginApi>;
@@ -982,18 +982,18 @@ export interface PluginParameter {
   required?: boolean;
   type?: string;
   sub_parameters?: Array<PluginParameter>;
-  /** If Type is an array, there is a subtype */
+  /** 如果Type是数组，则有subtype */
   sub_type?: string;
-  /** fromNodeId if the value of the imported parameter is a reference */
+  /** 如果入参的值是引用的则有fromNodeId */
   from_node_id?: string;
-  /** Which node's key is specifically referenced? */
+  /** 具体引用哪个节点的key */
   from_output?: Array<string>;
-  /** If the imported parameter is the user's hand input, put it here */
+  /** 如果入参是用户手输 就放这里 */
   value?: string;
 }
 
 export interface PublishOfficialPluginRequest {
-  /** Official plugin id */
+  /** 官方插件id */
   plugin_id: string;
 }
 
@@ -1022,7 +1022,7 @@ export interface SaveCategoryResponse {
 }
 
 export interface SaveUserLabelRequest {
-  /** If the ID is passed, it will be updated, and if the ID is not passed, it will be created. */
+  /** 传ID则更新，不传ID则新建 */
   user_label?: bot_common.UserLabel;
 }
 
@@ -1032,7 +1032,7 @@ export interface SaveUserLabelResponse {
 }
 
 export interface SearchUserUIDRequest {
-  /** Username, not nickname, requires precise search */
+  /** 用户名称，不是 nickname，需要精确搜索 */
   username?: string;
 }
 
@@ -1069,7 +1069,7 @@ export interface TransferFailResource {
 }
 
 export interface UpdateAllowDomainRequest {
-  /** Domain Name: Port */
+  /** 域名:端口 */
   domain?: string;
 }
 
@@ -1078,7 +1078,7 @@ export interface UpdateAllowDomainResponse {
   msg?: string;
 }
 
-/** ------- change api_key ------- */
+/** -------修改api_key------- */
 export interface UpdateApiKeyRequest {
   api_key_id?: string;
   operate_type?: number;
@@ -1097,9 +1097,9 @@ export interface UpdateExploreBotRequest {
   description?: string;
   icon_uri?: string;
   index?: number;
-  /** go online and go offline. */
+  /** 上线下线 */
   explore_status?: BotExploreStatus;
-  /** delete */
+  /** 删除 */
   del_status?: BotDeleteStatus;
 }
 
@@ -1129,38 +1129,38 @@ export interface UpdateUserLabelResponse {
 }
 
 export interface UploadFileData {
-  /** File URL */
+  /** 文件url */
   upload_url?: string;
-  /** File URI, submit using this */
+  /** 文件uri，提交使用这个 */
   upload_uri?: string;
 }
 
 export interface UploadFileRequest {
-  /** Document related description */
+  /** 文件相关描述 */
   file_head?: CommonFileInfo;
-  /** file data */
+  /** 文件数据 */
   data?: string;
 }
 
 export interface UploadFileResponse {
   code?: Int64;
   msg?: string;
-  /** data */
+  /** 数据 */
   data?: UploadFileData;
 }
 
 export interface User {
-  /** user uid */
+  /** 用户 uid */
   uid?: string;
-  /** nickname */
+  /** 昵称 */
   name?: string;
-  /** avatar */
+  /** 头像 */
   avatar_url?: string;
 }
 
 export interface UserLabelInfo {
   user_id?: string;
-  /** user name */
+  /** 用户名 */
   user_unique_name?: string;
   user_label?: bot_common.UserLabel;
 }
@@ -1186,7 +1186,7 @@ export interface WaitQueueData {
   page_no: number;
 }
 
-/** Information for each module in the workspace */
+/** 工作区间各个模块的信息 */
 export interface WorkInfo {
   message_info?: string;
   /** 2:optional string   prompt */

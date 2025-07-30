@@ -25,79 +25,79 @@ import * as file from './file';
 export type Int64 = string | number;
 
 export interface FileListRequest {
-  /** Query file type: 1-Images; 2-Document */
+  /** 查询文件类型: 1-Images; 2-Document */
   file_type?: number;
-  /** resource belongs to botId */
+  /** 资源所属botId */
   bid: string;
-  /** File name, fuzzy search */
+  /** 文件名，模糊搜索 */
   file_name?: string;
-  /** Query start timestamp, in seconds */
+  /** 查询起始时间戳, 单位秒 */
   begin_time?: string;
-  /** Query endtimestamp, in seconds */
+  /** 查询结束时间戳, 单位秒 */
   end_time?: string;
-  /** The number of paginated pages, the default 0 is not passed. */
+  /** 分页页数，不传默认0 */
   page_num?: number;
-  /** Paging size, no default 10 */
+  /** 分页大小，不传默认10 */
   page_size?: number;
-  /** Channel ID */
+  /** 渠道 id */
   connector_id: string;
   Base?: base.Base;
 }
 
 export interface FileListResponse {
-  /** Total number of eligible queries */
+  /** 符合查询条件的总数 */
   total_count?: number;
-  /** query result */
+  /** 查询结果 */
   list?: Array<FileVO>;
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: number;
   msg: string;
   BaseResp: base.BaseResp;
 }
 
 export interface FileVO {
-  /** File resource official URL */
+  /** 文件资源正式url */
   MainURL?: string;
-  /** [Picture only] thumbnail url */
+  /** 【仅图片】缩略图url */
   ThumbnailURL?: string;
-  /** file name */
+  /** 文件名 */
   FileName?: string;
-  /** File URI (unique resource identifier) */
+  /** 文件uri（唯一资源标识符） */
   Uri?: string;
-  /** File id (unique device identifier) */
+  /** 文件id（唯一标识符） */
   FileID?: string;
-  /** file format */
+  /** 文件格式 */
   Format?: string;
-  /** File Type: 1-Images; 2-Document */
+  /** 文件类型:  1-Images; 2-Document */
   Type?: number;
-  /** file creation time */
+  /** 文件创建时间 */
   CreateTime?: string;
-  /** file update time */
+  /** 文件更新时间 */
   UpdateTime?: string;
-  /** File size - bytes */
+  /** 文件大小 - bytes */
   FileSize?: string;
 }
 
 export interface UploadFilesRequest {
-  /** resource belongs to botId */
+  /** 资源所属botId */
   bid: string;
-  /** resource connectorId */
+  /** 资源所属connectorId */
   cid: string;
-  /** business type */
+  /** 业务类型 */
   biz_type: string;
-  /** List of source file URLs */
+  /** 源文件 URL 列表 */
   source_files?: Array<file.SourceFileInfo>;
   Base?: base.Base;
 }
 
 export interface UploadFilesResponse {
-  /** number of successes */
+  /** 成功数 */
   SuccessNum?: number;
-  /** number of failures */
+  /** 失败数 */
   FailNum?: number;
-  /** Status after file upload */
+  /** 文件上传后状态 */
   DestFiles?: Array<file.DestFileInfo>;
-  /** After connecting to agw, the status_code and status_message in BaseResp will be injected */
+  /** 接入 agw 后会将 BaseResp 中的 status_code 和 status_message 注入 */
   code: number;
   msg: string;
   BaseResp: base.BaseResp;

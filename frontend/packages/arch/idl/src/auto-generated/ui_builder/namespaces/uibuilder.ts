@@ -28,16 +28,16 @@ import * as starry from './starry';
 export type Int64 = string | number;
 
 export enum ChannelType {
-  /** web page */
+  /** 网页 */
   Web = 1,
-  /** H5, Mini Program */
+  /** H5, 小程序 */
   Client = 2,
 }
 
 export enum CreatedBy {
-  /** anyone */
+  /** 任何人 */
   All = 1,
-  /** current user */
+  /** 当前用户 */
   CurrentUser = 2,
 }
 
@@ -47,15 +47,15 @@ export enum PreviewMode {
 }
 
 export enum Scene {
-  /** picture */
+  /** 图片 */
   Picture = 1,
-  /** Audio */
+  /** 音频 */
   Audio = 2,
-  /** video */
+  /** 视频 */
   Video = 3,
-  /** thumbnail */
+  /** 缩略图 */
   Thumbnail = 4,
-  /** file */
+  /** 文件 */
   File = 5,
 }
 
@@ -75,16 +75,16 @@ export interface ChannelData {
   ui_id?: string;
   channel_id?: number;
   sandbox_id?: string;
-  /** UI associated with plugin */
+  /** ui 与 plugin 关联 */
   ui_relation?: UIRelation;
-  /** describe */
+  /** 描述 */
   description?: string;
-  /** DSL content */
+  /** dsl 内容 */
   dsl_content?: string;
   creator_id?: Int64;
-  /** Create timestamp */
+  /** 创建时间戳 */
   create_time?: string;
-  /** Modify timestamp */
+  /** 修改时间戳 */
   update_time?: string;
 }
 
@@ -124,7 +124,7 @@ export interface ComponentListData {
 }
 
 export interface CreateSnapshotForOpenAPIData {
-  /** Snapshot URL address */
+  /** 快照 URL 地址 */
   url?: string;
 }
 
@@ -135,13 +135,13 @@ export interface CreateSnapshotForOpenAPIRequest {
   channel?: number;
   /** ext_json */
   ext_json?: string;
-  /** Screenshot selection */
+  /** 截图选择 */
   screenshot_option?: crawl.ScreenshotOption;
-  /** Analog device information */
+  /** 模拟设备信息 */
   device?: crawl.Device;
   /** ConnectorID */
   connector_id?: string;
-  /** js element selector */
+  /** js 元素选择器 */
   wait_element?: string;
   Base?: base.Base;
 }
@@ -162,13 +162,13 @@ export interface CreateSnapshotForWebRequest {
   channel: number;
   /** ext_json */
   ext_json?: string;
-  /** Screenshot selection */
+  /** 截图选择 */
   screenshot_option?: crawl.ScreenshotOption;
-  /** Analog device information */
+  /** 模拟设备信息 */
   device?: crawl.Device;
   /** ConnectorID */
   connector_id?: string;
-  /** js selector */
+  /** js 选择器 */
   wait_element: string;
   Base?: base.Base;
 }
@@ -189,13 +189,13 @@ export interface CreateSnapshotRequest {
   channel: number;
   /** ext_json */
   ext_json?: string;
-  /** Screenshot selection */
+  /** 截图选择 */
   screenshot_option?: crawl.ScreenshotOption;
-  /** Analog device information */
+  /** 模拟设备信息 */
   device?: crawl.Device;
   /** ConnectorID */
   connector_id?: string;
-  /** js selector */
+  /** js 选择器 */
   wait_element: string;
   Base?: base.Base;
 }
@@ -246,21 +246,21 @@ export interface DSLData {
 }
 
 export interface GenerateCodePackageData {
-  /** outgoing package ID */
+  /** 出码包 ID */
   generate_id: string;
   /** Project ID */
   project_id: string;
   /** Project Version Code */
   version_code: string;
-  /** Task status: 0 pending; 1 successful; 2 out of code; -1 failed */
+  /** 任务状态：0待执行;1成功;2出码中;-1失败 */
   status: number;
-  /** File URI */
+  /** 文件 URI */
   file_uri?: string;
-  /** File URL */
+  /** 文件 URL */
   file_url?: string;
-  /** Create timestamp */
+  /** 创建时间戳 */
   create_time?: string;
-  /** Last modified timestamp */
+  /** 上次修改时间戳 */
   update_time?: string;
 }
 
@@ -301,7 +301,7 @@ export interface GetImportedComponentListResponse {
 }
 
 export interface GetPublishSnapshotData {
-  /** Snapshot */
+  /** 快照 */
   snapshot?: string;
 }
 
@@ -329,9 +329,9 @@ export interface GetUIDSLRequest {
   version_code?: string;
   /** Project Channel */
   channel: ChannelType;
-  /** Parse ext pages */
+  /** 解析 ext pages */
   with_ext_pages?: boolean;
-  /** Whether to submit for trial */
+  /** 是否送审 */
   IsAudit?: boolean;
   /** ConnectorID */
   connector_id?: string;
@@ -351,9 +351,9 @@ export interface GetUIInfoByProjectVersionData {
   ui_id?: Int64;
   /** ui version */
   ui_version?: Int64;
-  /** Follow the channel list of the release version */
+  /** 跟随发布版本的 channel list */
   channel_list?: Array<number>;
-  /** Current draft channel list */
+  /** 当前草稿的 channel list */
   draftChannelList?: Array<number>;
 }
 
@@ -403,7 +403,7 @@ export interface ImportCustomComponentResponse {
 export interface RefreshUIDSLInternalRequest {
   /** dsl */
   dsl_content: string;
-  /** Resource expiration time, seconds */
+  /** 资源过期时间, 秒 */
   expire_time?: number;
   Base?: base.Base;
 }
@@ -416,7 +416,7 @@ export interface RefreshUIDSLInternalResponse {
 }
 
 export interface SnapshotData {
-  /** Snapshot URL address */
+  /** 快照 URL 地址 */
   url: string;
 }
 
@@ -490,23 +490,23 @@ export interface UIData {
   publish_status?: number;
   creator_id?: string;
   audit_status?: number;
-  /** Failed the review Details */
+  /** 审核不通过详情 */
   audit_failure_details?: Array<number>;
-  /** Thumbnail generation state */
+  /** 缩略图生成状态 */
   thumb_status?: number;
-  /** Thumbnail name */
+  /** 缩略图名称 */
   thumb_name?: string;
-  /** Create timestamp */
+  /** 创建时间戳 */
   create_time?: string;
-  /** Last modified timestamp */
+  /** 上次修改时间戳 */
   update_time?: string;
-  /** UI DSL content */
+  /** UI DSL 内容 */
   dsl_content?: string;
-  /** UI description */
+  /** UI 描述 */
   description?: string;
-  /** Channel data details */
+  /** 渠道数据详情 */
   channel_map?: Partial<Record<ChannelType, ChannelData>>;
-  /** Channel list */
+  /** 渠道列表 */
   channel_list?: Array<ChannelType>;
 }
 
@@ -516,20 +516,20 @@ export interface UIRelation {
 }
 
 export interface UploadFileData {
-  /** File URL */
+  /** 文件url */
   upload_url?: string;
-  /** File URI, submit using this */
+  /** 文件uri，提交使用这个 */
   upload_uri?: string;
 }
 
 export interface UploadFileRequest {
-  /** file suffix */
+  /** 文件后缀名 */
   file_type?: string;
-  /** file name */
+  /** 文件名 */
   FileName?: string;
-  /** file data */
+  /** 文件数据 */
   data?: Blob;
-  /** scene */
+  /** 场景 */
   scene?: Scene;
   'X-Space-Id'?: string;
   'X-Project-Id'?: string;
@@ -561,13 +561,13 @@ export interface URLMapData {
 
 export interface UserBasicInfo {
   user_id: string;
-  /** nickname */
+  /** 昵称 */
   user_name: string;
-  /** avatar */
+  /** 头像 */
   user_avatar: string;
-  /** user name */
+  /** 用户名 */
   user_unique_name?: string;
-  /** user creation time */
+  /** 用户创建时间 */
   create_time?: Int64;
 }
 /* eslint-enable */

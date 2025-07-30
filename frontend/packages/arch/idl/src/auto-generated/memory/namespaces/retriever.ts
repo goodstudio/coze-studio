@@ -40,7 +40,7 @@ export enum ResultType {
   None = 4,
   BotSchema = 5,
   ReferenceVariable = 6,
-  /** Use the retriever content to reply to the answer package, without taking the big model */
+  /** 使用retriever的内容回复answer包，不走大模型 */
   Finish = 7,
 }
 

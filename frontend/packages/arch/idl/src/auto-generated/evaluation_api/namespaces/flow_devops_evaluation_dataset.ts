@@ -40,30 +40,30 @@ export enum DatasetType {
 }
 
 export enum ProfessionalKnowledgeType {
-  /** official */
+  /** 官方 */
   Official = 1,
-  /** custom */
+  /** 自定义 */
   Customize = 2,
 }
 
 /** # service CreateDataset */
 export enum PublishOption {
-  /** Use when evaluating dataset display (create and query, interface default) */
+  /** 评测数据集展示时使用(创建与查询,接口默认值） */
   Publish = 1,
-  /** The evaluation task creates a dataset, which is not displayed to the public, and is only used for evaluation use cases and tasks */
+  /** 评测任务创建数据集，不对外展示，只用于评测用例与任务使用 */
   NotPublish = 2,
-  /** SFT dataset display, the mode needs to be specified when creating, and the mode needs to be specified when querying */
+  /** SFT 数据集展示，创建时需要指定该模式，查询时需要指定该模式 */
   SFTPublish = 3,
-  /** Dataset display, the mode needs to be specified when creating, and the mode needs to be specified when querying */
+  /** 数据集展示，创建时需要指定该模式，查询时需要指定该模式 */
   DataProcessPublish = 4,
-  /** Result set scenarios under evaluation services */
+  /** 评测业务下的结果集场景 */
   EvalResultPublish = 5,
 }
 
 export enum ReplyType {
-  /** Final result */
+  /** 最终结果 */
   ReplyTypeFinalAnswer = 0,
-  /** tool call */
+  /** 工具调用 */
   ReplyTypeToolCall = 1,
 }
 
@@ -86,29 +86,29 @@ export enum SecurityLevel {
 }
 
 export enum StreamState {
-  /** non-streaming */
+  /** 非流式 */
   StreamStateNone = 1,
-  /** Streaming starts (first packet) */
+  /** 流式传输开始（首包） */
   StreamStateBegin = 2,
-  /** streaming */
+  /** 流式传输中 */
   StreamStateStreaming = 3,
-  /** End of churn transfer (tail packet) */
+  /** 流失传输结束（尾包） */
   StreamStateEnd = 4,
 }
 
 export enum TaskState {
-  /** Task state flow
-initialization state */
+  /** task 状态流转
+初始化状态 */
   GenerateTaskInitState = 1,
-  /** running state */
+  /** 运行状态 */
   GenerateTaskRunningState = 2,
-  /** task completion status */
+  /** 任务完成状态 */
   GenerateTaskGenFinishedState = 3,
-  /** The generated tasks are all annotated */
+  /** 生成的任务全部做了标注 */
   GenerateTaskSelectCompletedState = 4,
-  /** termination state */
+  /** 终止状态 */
   GenerateTaskStoppedState = 5,
-  /** failure state */
+  /** 失败状态 */
   GenerateTaskFailedState = 6,
 }
 
@@ -191,10 +191,10 @@ export interface CloneDatasetReq {
   'FlowDevops-Agw-UserId'?: string;
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
-  /** Copy to target space, when empty, copy to SpaceID space by default */
+  /** 复制到目标空间，为空时，默认复制到 SpaceID 空间 */
   to_space_id?: Int64;
   clone_name?: string;
-  /** Copy some data to the new review set */
+  /** 复制部分数据到新评测集 */
   row_group_ids?: Array<Int64>;
   publish_option?: PublishOption;
   Base?: base.Base;
@@ -213,9 +213,9 @@ export interface ColumnInfo {
   column_id?: Int64;
   /** len <= 256 */
   name: string;
-  /** Field description */
+  /** 字段描述 */
   describe?: string;
-  /** Whether columns are defined for the evaluation system */
+  /** 是否为评测系统内置定义列 */
   buildin?: boolean;
 }
 
@@ -227,13 +227,13 @@ export interface CreateDatasetReq {
   desc?: string;
   column_schema?: Array<ColumnInfo>;
   row_groups?: Array<RowGroup>;
-  /** Whether to publish to the dataset list, not by default */
+  /** 是否发布到 dataset 列表, 默认不发部 */
   publish_option?: PublishOption;
-  /** Whether to tag, not by default */
+  /** 是否打上tag, 默认不打上 */
   tag_list?: Array<flow_devops_evaluation_entity.TagInfo>;
   dataset_type?: DatasetType;
   tag_ids?: Array<Int64>;
-  /** Classification */
+  /** 密级 */
   security_level?: SecurityLevel;
   Base?: base.Base;
 }
@@ -255,16 +255,16 @@ export interface DatasetInfo {
   tag?: Array<flow_devops_evaluation_entity.Tag>;
   create_time?: Int64;
   update_time?: Int64;
-  /** Classification */
+  /** 密级 */
   security_level?: SecurityLevel;
-  /** expiration time */
+  /** 过期时间 */
   expire_time?: Int64;
   publish_option?: PublishOption;
-  /** Dataset capacity, default is 5k */
+  /** 数据集容量, 默认为 5k */
   row_group_capacity?: Int64;
-  /** The bytes limit for text content in Cell, default is 3,2000 */
+  /** Cell 中文本内容的 bytes 数限制, 默认为 3,2000 */
   max_cell_content_length?: Int64;
-  /** Whether to allow export */
+  /** 是否允许导出 */
   not_allow_export?: boolean;
 }
 
@@ -308,7 +308,7 @@ export interface DeleteDatasetResp {
 }
 
 /** # service GenerateRowGroups
- Generate the required columns and column semantic requirements */
+ 生成需要的列与列的语义要求 */
 export interface GenerateColumnInfo {
   column_info?: ColumnInfo;
   semantic_require?: string;
@@ -373,7 +373,7 @@ export interface GetGeneratedDatasetRowGroupsResp {
   generate_row_groups?: Array<GenerateRowGroup>;
   generate_column_info_list?: Array<GenerateColumnInfo>;
   task_id: Int64;
-  /** Dataset role description */
+  /** 数据集角色描述 */
   dataset_describe?: string;
   task_state: TaskState;
   total: Int64;
@@ -383,9 +383,9 @@ export interface GetGeneratedDatasetRowGroupsResp {
   selected_count: Int64;
   abandoned_count: Int64;
   already_have_task: boolean;
-  /** timeliness */
+  /** 时效性 */
   timeliness?: Timeliness;
-  /** professional knowledge */
+  /** 专业知识 */
   professional_knowledges?: Array<ProfessionalKnowledge>;
   BaseResp?: base.BaseResp;
 }
@@ -424,9 +424,9 @@ export interface InsertRowGroupsReq {
   row_groups: Array<RowGroup>;
   /** append to tail if null */
   before_row_group_id?: Int64;
-  /** skip limit check
-If true, skip the rows that did not pass the limit check and insert other rows, eventually returning Statua_Code not 0, and place the skipped rows in the SkipLimitCheckInfos field of the returned struct.
-If false, no rows are inserted when a row that fails the limit check is found, and the Statua_Code is not 0. */
+  /** 跳过限制检查
+如果是true则跳过未通过限制检查的行插入其他行，最终返回Statua_Code不为0，并将跳过的行放在返回结构体的SkipLimitCheckInfos字段。
+如果是false则发现有未通过限制检查的行时，不插入任何行，并返回Statua_Code不为0。 */
   skip_limit_check?: boolean;
   Base?: base.Base;
 }
@@ -458,12 +458,12 @@ export interface ListDatasetReq {
   tag_name?: string;
   tag_value?: string;
   publish_option?: PublishOption;
-  /** Filter dataset type, empty means no filtering */
+  /** 过滤数据集类型, 为空表示不过滤 */
   dataset_types?: Array<DatasetType>;
   page?: Int64;
   page_size?: Int64;
   /** -- search fields --
-Req cursor applied only with conditional search (tag/SearchFilter) */
+req cursor 仅在带条件搜索时应用 (tag/SearchFilter) */
   cursor?: string;
   fuzzy_name?: string;
   creator_id?: Int64;
@@ -474,7 +474,7 @@ Req cursor applied only with conditional search (tag/SearchFilter) */
 export interface ListDatasetResp {
   dataset_infos?: Array<DatasetInfo>;
   total?: Int64;
-  /** Resp cursor takes effect unconditionally, actually dataset_id */
+  /** resp cursor 无条件生效, 实际是 dataset_id */
   cursor?: string;
   has_more?: boolean;
   BaseResp?: base.BaseResp;
@@ -487,12 +487,12 @@ export interface ListDatasetV2Req {
   tag_name?: string;
   tag_value?: string;
   publish_option?: PublishOption;
-  /** Filter dataset type, empty means no filtering */
+  /** 过滤数据集类型, 为空表示不过滤 */
   dataset_types?: Array<DatasetType>;
   page?: Int64;
   page_size?: Int64;
   /** -- search fields --
-Req cursor applied only with conditional search (tag/SearchFilter) */
+req cursor 仅在带条件搜索时应用 (tag/SearchFilter) */
   cursor?: string;
   fuzzy_name?: string;
   creator_id?: Int64;
@@ -503,7 +503,7 @@ Req cursor applied only with conditional search (tag/SearchFilter) */
 export interface ListDatasetV2Resp {
   dataset_infos?: Array<DatasetInfo>;
   total?: Int64;
-  /** Resp cursor takes effect unconditionally, actually dataset_id */
+  /** resp cursor 无条件生效, 实际是 dataset_id */
   cursor?: string;
   has_more?: boolean;
   BaseResp?: base.BaseResp;
@@ -586,11 +586,11 @@ export interface OverWriteDatasetResp {
 }
 
 export interface ProfessionalKnowledge {
-  /** Knowledge base key */
+  /** 知识库key */
   key?: string;
-  /** Knowledge Base Space ID */
+  /** 知识库空间ID */
   knowledge_space_id?: Int64;
-  /** Knowledge Base ID */
+  /** 知识库ID */
   id?: Int64;
   professional_knowledge_type?: ProfessionalKnowledgeType;
 }
@@ -600,19 +600,19 @@ export interface PublishGenerateDatasetReq {
   'FlowDevops-Agw-UserId'?: string;
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
-  /** Role description of the dataset to be generated */
+  /** 待生成数据集角色描述 */
   dataset_describe?: string;
-  /** Column field description and generation semantic requirements */
+  /** column 字段描述与生成语义需求 */
   generate_column_info_list?: Array<GenerateColumnInfo>;
-  /** total expected generation */
+  /** 期望生成总数 */
   total?: Int64;
-  /** Few-shot sample provided */
+  /** 提供的few-shot样例 */
   row_group_examples?: Array<RowGroup>;
-  /** Using reference dataset stock data */
+  /** 使用引用数据集存量数据 */
   reference_dataset?: boolean;
-  /** timeliness */
+  /** 时效性 */
   timeliness?: Timeliness;
-  /** professional knowledge */
+  /** 专业知识 */
   professional_knowledges?: Array<ProfessionalKnowledge>;
   Base?: base.Base;
 }
@@ -649,7 +649,7 @@ export interface ReplaceRowGroupsResp {
   BaseResp?: base.BaseResp;
 }
 
-/** The front end uses the components provided by Prompt optimization, so align the data structure returned by Prompt optimization */
+/** 前端使用了Prompt 优化提供的组件，故对齐Prompt 优化返回的数据结构 */
 export interface ReplyItem {
   stream_state?: StreamState;
   reply_type?: ReplyType;
@@ -667,7 +667,7 @@ export interface Row {
 export interface RowGroup {
   row_group_id?: Int64;
   group_name?: string;
-  /** Add specify tags when creating */
+  /** 新增创建时指定tags */
   tags?: Array<string>;
   rows: Array<Row>;
 }
@@ -731,7 +731,7 @@ export interface SubmitGeneratedDatasetRowGroupsReq {
   'FlowDevops-Agw-AppId'?: number;
   space_id: Int64;
   task_id: Int64;
-  /** The generated dataset groupID corresponds to the user selection state, is initialized to Generated, is selected to the dataset as Selected, and is abandoned and deleted as Abandoned. */
+  /** 生成数据集groupID 对应用户选择状态 初始化为Generated，被选中到数据集为Selected，废弃删除为Abandoned */
   submit_row_groups?: Array<SubmitRowGroup>;
   Base?: base.Base;
 }
@@ -746,7 +746,7 @@ export interface SubmitRowGroup {
 }
 
 export interface Timeliness {
-  /** switch */
+  /** 开关 */
   switch?: boolean;
 }
 

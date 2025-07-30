@@ -36,7 +36,7 @@ export interface BatchAddKnowledgeDocumentReq {
 export interface BatchAddKnowledgeDocumentResp {
   success_list?: Array<flow_devops_knowledge_common.KnowledgeDocument>;
   failure_list?: Array<flow_devops_knowledge_common.KnowledgeDocument>;
-  /** For example, return "Documents that do not support adding L3 and L4 encryption levels" */
+  /** 比如返回“不支持添加L3、L4密级的文档” */
   failure_reasons?: Array<string>;
   base_resp?: base.BaseResp;
 }
@@ -212,7 +212,7 @@ export interface MGetKnowledgeDocumentEntryReq {
   space_id?: Int64;
   knowledge_id?: Int64;
   knowledge_shelf_document_id?: Int64;
-  /** data source */
+  /** 数据来源 */
   resource_type?: flow_devops_knowledge_common.ResourceType;
   offset?: number;
   limit?: number;
@@ -231,11 +231,11 @@ export interface MGetKnowledgeDocumentEntryResp {
 
 export interface MGetKnowledgeDocumentReq {
   space_id?: Int64;
-  /** For search */
+  /** 用于搜索 */
   search_content?: string;
   knowledge_id?: Int64;
   knowledge_shelf_document_id?: Int64;
-  /** data source */
+  /** 数据来源 */
   resource_types?: Array<flow_devops_knowledge_common.ResourceType>;
   offset?: number;
   limit?: number;
@@ -250,7 +250,7 @@ export interface MGetKnowledgeDocumentResp {
 
 export interface MGetKnowledgeReq {
   space_id?: Int64;
-  /** For search */
+  /** 用于搜索 */
   search_content?: string;
   offset?: number;
   limit?: number;
@@ -268,7 +268,7 @@ export interface MGetKnowledgeShelfDocumentReq {
   knowledge_id?: Int64;
   knowledge_shelf_document_id?: Int64;
   type?: flow_devops_knowledge_common.KnowledgeShelfDocumentType;
-  /** For search */
+  /** 用于搜索 */
   search_content?: string;
   offset?: number;
   limit?: number;

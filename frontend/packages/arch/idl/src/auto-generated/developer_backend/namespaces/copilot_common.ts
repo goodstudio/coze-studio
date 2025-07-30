@@ -37,17 +37,17 @@ export enum AsyncTaskStatus {
 }
 
 export enum BotRecommendType {
-  /** Not recommended. */
+  /** 不推荐 */
   None = 0,
-  /** Featured */
+  /** 精选的 */
   Featured = 1,
-  /** discoverable */
+  /** 可被发现的 */
   Discoverable = 2,
 }
 
-/** The type of transmission allowed by the context */
+/** 上下文允许传输的类型 */
 export enum ContextContentType {
-  /** No processing version */
+  /** 无任何处理版 */
   USER_RES = 0,
   USER_LLM_RES = 1,
   USER_LLM_TOOLLEN_RES = 2,
@@ -89,13 +89,13 @@ export enum CopilotRole {
   System = 0,
   User = 1,
   Assistant = 2,
-  /** Placeholders, which appear only in templates */
+  /** 占位符，仅出现在模板中 */
   Placeholder = 3,
-  /** Model messages that trigger function-call calls */
+  /** 触发 function-call 调用的模型消息 */
   LLMOutput = 4,
-  /** Tool return, function role */
+  /** tool 返回，function 角色 */
   ToolOutput = 5,
-  /** same as 5 */
+  /** 同 5 */
   Function = 6,
 }
 
@@ -127,9 +127,9 @@ export enum ErrCode {
 }
 
 export enum FinReason {
-  /** end normally */
+  /** 正常结束 */
   Normal = 0,
-  /** Plugin Internal Break */
+  /** Plugin内部中断 */
   PluginInterrupt = 1,
 }
 
@@ -140,11 +140,11 @@ export enum HighLightType {
 }
 
 export enum InsertReferenceType {
-  /** Text (default) */
+  /** 文本（默认） */
   Text = 1,
-  /** video */
+  /** 视频 */
   Video = 2,
-  /** picture */
+  /** 图片 */
   Image = 3,
 }
 
@@ -164,12 +164,12 @@ export enum LLMScene {
   Suggest = 2,
   QueryKeyword = 3,
   Workflow = 4,
-  /** Onboarding */
+  /** 生成 Onboarding */
   OnboardingOnline = 5,
   OnboardingOffline = 6,
-  /** session naming */
+  /** 会话命名 */
   Naming = 7,
-  /** SC generated user portrait */
+  /** SC生成用户画像 */
   GenProfile = 8,
   BrowserPlugin = 9,
   BrowserPluginSearch = 10,
@@ -179,39 +179,39 @@ export enum LLMScene {
   BrowserPluginGrammar = 14,
   BrowserPluginRewrite = 15,
   BrowserPluginWebSummary = 16,
-  /** Hot search terms, ignore context */
+  /** 热搜词 忽略上下文 */
   HotSearch = 17,
-  /** Offline for generating caches */
+  /** 离线用于生成缓存 */
   HotSearchPreload = 18,
-  /** Text box Sug */
+  /** 输入框Sug */
   InputSug = 19,
-  /** News Hot Push */
+  /** 新闻热点Push */
   NewsPush = 20,
   NewsPushPreload = 21,
-  /** Onboarding Suggestions Questions Triggered Answers */
+  /** Onboarding建议问题触发的回答 */
   OnboardingSug = 22,
   OnboardingSugPreload = 23,
-  /** Web not logged in user input problem */
+  /** web未登录用户输入问题 */
   WebNotLogin = 24,
   /** Onboarding welcomeback */
   BackOnboardingSug = 25,
-  /** Generate cards through LLM's capabilities */
+  /** 通过LLM的能力生成卡片 */
   GenCard = 26,
-  /** Highlight */
+  /** 高亮词 */
   HighLightMsg = 27,
-  /** Highlight word forced search */
+  /** 高亮词强制搜索 */
   HighLightMsgSearch = 28,
-  /** cross-word question scene (browser plug-in) */
+  /** 划词提问场景（浏览器插件） */
   BrowserPluginSelectionQuestion = 29,
-  /** YouTube video summary (browser plugin) */
+  /** youtube视频摘要（浏览器插件） */
   BrowserPluginYoutubeSummary = 30,
-  /** Only call the Chain scene (browser plugin) */
+  /** 只调用Chain场景（浏览器插件） */
   BrowserPluginRawChain = 31,
-  /** PDF understanding (browser plug-in) */
+  /** PDF理解（浏览器插件） */
   BrowserPluginPDFReader = 32,
-  /** Image understanding (browser plug-in) */
+  /** 图片理解（浏览器插件） */
   BrowserPluginImgReader = 33,
-  /** Complex Search Summary */
+  /** 复杂搜索总结 */
   SearchSummary = 34,
 }
 
@@ -232,15 +232,15 @@ export enum MessageType {
 }
 
 export enum MetaType {
-  /** End-to-side direct replacement */
+  /** 端侧直接替换 */
   Replaceable = 1,
-  /** insert reference */
+  /** 插入引用 */
   Insertable = 2,
-  /** document citation */
+  /** 文档引用 */
   DocumentRef = 3,
-  /** Knowledge Base Reference Card */
+  /** 知识库引用卡片 */
   KnowledgeCard = 4,
-  /** The embedded multimedia information is only used by Alice for the end. Because full link multiplexing uses this field, it has been changed here. */
+  /** 嵌入的多媒体信息，只是alice给端上用的，因为全链路复用这一个字段，所以在这儿改了 */
   EmbeddedMultimedia = 100,
 }
 
@@ -253,43 +253,43 @@ export enum ModelFamily {
   StableDiffusion = 6,
   ByteArtist = 7,
   Edu = 8,
-  /** Ark (Volcano Engine) */
+  /** 方舟(火山引擎) */
   Maas = 9,
-  /** Abandoned: Qianfan (Baidu Cloud) */
+  /** 废弃：千帆(百度云) */
   QianFan = 10,
   /** gemini(google) */
   Gemini = 11,
   Moonshot = 12,
-  /** Zhipu */
+  /** 智谱 */
   GLM = 13,
-  /** MaaS automatic synchronization model */
+  /** MaaS自动同步模型 */
   MaaSAutoSync = 14,
   QWen = 15,
   /** Command R/R+ */
   Cohere = 16,
   Baichuan = 17,
-  /** ERNIE Bot */
+  /** 文心一言 */
   Ernie = 18,
   /** deep seek */
   DeekSeek = 19,
   Llama = 20,
 }
 
-/** ** Business Custom Model ****** Naming Rules, Business + Functions
- Each time a new Scene is added, you need to manually add a submission.
- A new note for each scene explains where to use it */
+/** ** 业务自定义 Model ****** 命名规则 业务 + 功能
+ 每次 Scene 新增需要手动添加提交
+ 每次场景的新增备注说明使用的地方 */
 export enum ModelListScene {
-  /** Prompt evaluation platform */
+  /** Prompt 评测平台 */
   PromptEvaluatePlatform = 1000,
-  /** Flow user foreground */
+  /** Flow 用户前台 */
   FlowApp = 2000,
-  /** Flow OP Background */
+  /** Flow OP 后台 */
   FlowOPAdmin = 3000,
-  /** Flow model collection in the foreground and background */
+  /** Flow 前台与后台的模型合集 */
   FlowAll = 3001,
-  /** Bot Platform Release Version */
+  /** Bot 平台 Release版本 */
   BotPlatform = 4000,
-  /** Bot Platform Inhouse Version */
+  /** Bot 平台 Inhouse版本 */
   BotPlatformInhouse = 4001,
   /** Flow Workflow */
   Workflow = 5000,
@@ -299,7 +299,7 @@ export enum ModelListScene {
   ArenaInhouse = 6001,
 }
 
-/** List of raw models */
+/** raw 模型列表 */
 export enum ModelName {
   GPT3dot5Turbo = 1,
   GPT4_32k = 2,
@@ -316,7 +316,7 @@ export enum ModelName {
   Seed_SCTest = 10,
   /** seed or test */
   Seed_Test = 11,
-  /** Seed main + browsing + (Plugin not released) */
+  /** seed main + browsing + (Plugin 未放开) */
   Seed_WithPlugins = 12,
   GPT3dot5Turbo0613 = 13,
   GPT35_Turbo16k = 14,
@@ -324,17 +324,17 @@ export enum ModelName {
   SeedSota = 15,
   /** sota + browsing */
   SeedSotaBrowsing = 16,
-  /** 3-in-1, main model + plugin + browsing, but the plugin is fixed */
+  /** 三合一, 主模型 + plugin + browsing, 但plugin是固定的 */
   SeedOmni = 17,
   /** function call */
   SeedFunctionCall = 18,
   /** seed main + you are right */
   SeedMain = 19,
-  /** networking strategy experiment */
+  /** 联网策略实验 */
   SeedBrowsingExperiment = 20,
-  /** Browsing Single Model */
+  /** browsing单模型 */
   SeedBrowsingOnly = 21,
-  /** MiniMax abab5.5-chat model */
+  /** MiniMax abab5.5-chat模型 */
   MiniMaxABAB5dot5Chat = 22,
   Echo = 23,
   GPT4_0613 = 24,
@@ -364,7 +364,7 @@ export enum ModelProxy {
   Executor = 4,
 }
 
-/** Compatible with model status in old logic */
+/** 兼容旧逻辑里的模型 status */
 export enum ModelStatus {
   InUse = 1,
   Pending = 5,
@@ -420,21 +420,21 @@ export enum ModelType {
   SeedForMap = 47,
   SeedForMusic = 48,
   XiaoningWithMem = 49,
-  /** Models for functional bots start at 100, and models for older bots are below 100 pangzhiqiang@bytedance.com */
+  /** 功能性bot的模型从100开始，旧版bot的模型在100以下  pangzhiqiang@bytedance.com */
   GPT_35Turbo = 100,
   GPT_35Turbo0301 = 101,
   GPT_4 = 102,
   GPT_40314 = 103,
   GPT_432k = 104,
   GPT_432k0314 = 105,
-  /** seed master model */
+  /** seed 主模型 */
   Seed_Beta = 106,
   Seed_Music = 107,
   GPT4_32k0613 = 108,
   Seed_Img2Text = 109,
-  /** Seed main model + browsing */
+  /** seed主模型 + browsing */
   Seed_WebGPT = 110,
-  /** Seed main model + browsing + (plugin is temporarily open) */
+  /** seed主模型 + browsing + (plugin暂为开放) */
   Seed_WithPlugins = 111,
   GPT_35Turbo0613 = 112,
   GPT_35Turbo16K = 113,
@@ -444,22 +444,22 @@ export enum ModelType {
   Seed_Sota_Browsing = 115,
   /** strong character */
   Seed_WithSystem = 116,
-  /** 3-in-1, main model + plugin + browsing, but the plugin is fixed */
+  /** 三合一, 主模型 + plugin + browsing, 但plugin是固定的 */
   Seed_Omni = 118,
   /** seed function calling */
   SeedFunctionCall = 119,
-  /** Seed master model with "yes you are right" */
+  /** seed 主模型， 带"是的你说的对" */
   Seed_Main = 120,
-  /** networking strategy experiment */
+  /** 联网策略实验 */
   SeedBrowsingExperiment = 121,
-  /** Browsing Single Model */
+  /** browsing单模型 */
   SeedBrowsingOnly = 122,
-  /** False llm, function call protocol, always calls the first function */
+  /** 虚假的 llm，function call 协议，一直调用第一个 function */
   Echo = 123,
   GPT_40613 = 124,
   /** for seed test */
   Seed_WithSystemForTest = 125,
-  /** Map */
+  /** 地图 */
   Seed_Map = 126,
   SeedSuggest = 127,
   Seed_ComplexInstructionTest = 128,
@@ -473,13 +473,13 @@ export enum ModelType {
   SeedSuggestOffline = 136,
   SkylarkChat = 137,
   SeedStrongCharacterNearlinePortrait = 138,
-  /** Guaranteed Toutiao Link */
+  /** 保障头条链路 */
   SkylarkPro_v1_1_TT = 1704353638,
-  /** Guaranteed Toutiao link (with networking plug-in) */
+  /** 保障头条链路（带联网插件） */
   SkylarkPro_v1_1_TT_BROWSING = 1704696164,
-  /** Bean bag bot classification model */
+  /** 豆包 bot 分类模型 */
   SeedBotTag = 1705216686,
-  /** Bean Bag Voice Link Optimization Model */
+  /** 豆包语音链路优化模型 */
   SeedStrongCharacterAudio = 1705220979,
 }
 
@@ -507,49 +507,49 @@ export enum MultiStreamStatus {
   End = 2,
 }
 
-/** Onboarding component type */
+/** Onboarding组件类型 */
 export enum OnboardingComponentType {
   Prologue = 1,
   SuggestedQuestion = 2,
 }
 
-/** Source of content for onboarding results */
+/** onboarding结果的内容来源 */
 export enum OnboardingResultSource {
-  /** LLM generation */
+  /** LLM生成 */
   LLM_GEN = 1,
-  /** LLM Translation from LLM Generated Content */
+  /** LLM翻译自LLM生成内容 */
   LLM_GEN_THEN_TRANSLATE = 2,
-  /** manual designation */
+  /** 人工指定 */
   MANUAL = 3,
-  /** LLM translation from manual designation */
+  /** LLM翻译自人工指定 */
   MANUAL_THEN_TRANSLATE = 4,
 }
 
-/** Onboarding Scene */
+/** Onboarding场景 */
 export enum OnboardingSceneType {
-  /** new user */
+  /** 新用户 */
   FIRST_MET = 1,
-  /** Welcome back. */
+  /** 欢迎回来 */
   WELCOME_BACK = 2,
 }
 
-/** onboarding content generation mode */
+/** onboarding内容生成模式 */
 export enum OnboardingSourceMode {
-  /** No. */
+  /** 不需要 */
   NO_NEED = 1,
-  /** Manually specify content (multi-language support is covered by LLM) */
+  /** 人工指定内容（多语言支持由LLM兜底） */
   USE_MANUAL = 2,
-  /** Generated by LLM */
+  /** 由LLM生成 */
   USE_LLM = 3,
 }
 
 export enum OnboardingType {
   None = 0,
-  /** Do not show opening remarks */
+  /** 不展示开场白 */
   OnboardingNotDisplay = 1,
-  /** Full use of preset prologue */
+  /** 完全使用预设开场白 */
   OnboardingPreset = 2,
-  /** Automatically generated prologue using llm */
+  /** 使用llm自动生成的开场白 */
   OnboardingLLMGen = 3,
 }
 
@@ -597,11 +597,11 @@ export enum ResultType {
 export enum ResumeScene {
   /** Compatible value */
   ResumeDefault = 0,
-  /** plugin authorization scenario */
+  /** 插件授权场景 */
   PluginAuthorized = 1,
-  /** asynchronous plugin */
+  /** 异步插件 */
   PluginAsync = 2,
-  /** plugin interrupt */
+  /** 插件打断 */
   PluginInterrupt = 3,
 }
 
@@ -625,24 +625,24 @@ export enum Stage {
   AgentHook = 1,
 }
 
-/** Answer the question with suggestions */
+/** 回答附带建议问题 */
 export enum SuggestReplyMode {
-  /** Generate Suggested Prompt with Default */
+  /** 使用默认Suggest Prompt生成建议回复 */
   WithDefaultPrompt = 0,
-  /** Generate Suggested Prompt with Custom */
+  /** 使用自定义Suggest Prompt生成建议回复 */
   WithCustomizedPrompt = 1,
-  /** No Need to Suggest */
+  /** 不需要Suggest */
   Disable = 2,
-  /** (Agent) Configuration using the source bot */
+  /** (Agent)使用源bot的配置 */
   UseOriginBotMode = 3,
 }
 
 export enum ToolAuthType {
-  /** By default, an error will be reported if there is no permission when calling the plugin. */
+  /** 默认，调用插件时若无权限会报错 */
   Ask = 0,
-  /** Only this time allowed */
+  /** 仅本次允许 */
   Once = 1,
-  /** Always allow */
+  /** 始终允许 */
   Always = 2,
 }
 
@@ -655,10 +655,10 @@ export interface AgentTaskReq {
   model_config?: ModelConfig;
   variables?: Variables;
   ext?: Record<string, string>;
-  /** app_name + task_name - > Unique task */
+  /** app_name+task_name -> 唯一的task */
   app_name?: string;
   custom_model_config?: CustomModelConfig;
-  /** Debug interface call plugin completion information */
+  /** 调试接口调用 plugin 补全信息 */
   functions?: Array<Function>;
   prompt_template_format?: PromptTemplateFormat;
   scene?: LLMScene;
@@ -687,7 +687,7 @@ export interface AsyncTaskInfo {
   delete_elements: Array<AsyncResultElement>;
 }
 
-/** bot change message */
+/** bot变更消息 */
 export interface BotUpdateMsg {
   bot_id?: Int64;
 }
@@ -706,7 +706,7 @@ export interface ChainTaskReq {
   model_config?: ModelConfig;
   variables?: Variables;
   ext?: Record<string, string>;
-  /** app_name + task_name - > Unique task */
+  /** app_name+task_name -> 唯一的task */
   app_name?: string;
   custom_model_config?: CustomModelConfig;
   prompt_template_format?: PromptTemplateFormat;
@@ -721,9 +721,9 @@ export interface ChainTaskReq {
 export interface ChatCompletionRequest {
   model_type?: ModelType;
   question?: string;
-  /** System Character */
+  /** System 人设 */
   sys_description?: string;
-  /** working memory */
+  /** 短期记忆 */
   short_memory?: Array<ChatMessage>;
   temperature?: number;
   streaming?: boolean;
@@ -732,7 +732,7 @@ export interface ChatCompletionRequest {
   top_p?: number;
   search_engine_type?: SearchEngineType;
   user_id?: Int64;
-  /** outreach information */
+  /** 拓展信息 */
   ext?: Record<string, string>;
   Base?: base.Base;
 }
@@ -751,7 +751,7 @@ export interface ChatMessage {
   images?: Array<ImageInfo>;
 }
 
-/** Cici Bot Extended Field Structure */
+/** Cici Bot拓展字段结构 */
 export interface CiciBotExt {
   suggest_reply_config?: SuggestReplyConfig;
 }
@@ -761,15 +761,15 @@ export interface CopilotContent {
   content?: string;
   finish_content?: string;
   ext?: Record<string, string>;
-  /** Incremental meta_info */
+  /** 增量meta_info */
   delta_meta_info?: Array<MetaInfo>;
   original_content?: string;
-  /** Message ID */
+  /** 消息id */
   stream_id?: string;
-  /** Message title */
+  /** 消息title */
   message_title?: string;
   response_for_model?: string;
-  /** empty reply */
+  /** 空回复 */
   empty_response?: boolean;
 }
 
@@ -785,7 +785,7 @@ export interface CustomAgentInfo {
   model_config?: CustomModelConfig;
 }
 
-/** Copilot side upstream transferable bot info. Align some fields of bot info to the bot platform. */
+/** copilot 侧上游可传递的 bot info. 对齐 bot 平台 bot info 的部分字段. */
 export interface CustomBotInfo {
   name?: string;
   description_for_model?: string;
@@ -825,28 +825,28 @@ export interface DecorateHighlightResponse {
 }
 
 export interface EngineInterruptInfo {
-  /** Store a small amount of information, JSON data, without upstream perception */
+  /** 存储少量信息，json数据，无需上游感知 */
   dataJson?: string;
-  /** Redis key, value is json, see EngineInterruptPluginInfo */
+  /** redis key, value为json, see EngineInterruptPluginInfo */
   dataKey?: string;
 }
 
 export interface EngineInterruptPluginInfo {
-  /** The previous messageID before being interrupted. */
+  /** 被打断之前的上一条messageID */
   prev_interrupt_msg_id?: Int64;
-  /** The previous messageID before being interrupted. */
+  /** 被打断之前的上一条messageID */
   tool_info_list?: Array<ToolCallInfo>;
-  /** Req previously sent to model_agent */
+  /** 之前发给model_agent的req */
   lastChatBotReq?: string;
 }
 
-/** Ext Value Protocol */
+/** Ext Value协议 */
 export interface ExtValue {
   data?: string;
   to_module_unit?: Array<ModuleUnit>;
 }
 
-/** User uploaded/bot generated file information */
+/** 用户上传/bot生成的文件信息 */
 export interface FileInfo {
   name?: string;
   url?: string;
@@ -855,16 +855,16 @@ export interface FileInfo {
 }
 
 export interface FileParseInfo {
-  /** According to the file uploaded by the user, the URL parsed by the GPT Engine is placed in a list at the back */
+  /** 按用户上传的文件在前，GPT Engine解析出的URL在后，放在一个列表中 */
   file_info?: FileInfo;
   parse_success?: boolean;
-  /** Total tokens */
+  /** 总token数 */
   total_tokens?: number;
-  /** Number of tokens read by the model */
+  /** 模型阅读的token数 */
   read_tokens?: number;
 }
 
-/** Verbose protocol FileReadStart data */
+/** verbose协议FileReadStart时的data */
 export interface FileParseResult {
   result_list?: Array<FileParseInfo>;
 }
@@ -886,7 +886,7 @@ export interface GenAnswerFinish {
 
 export interface ImageInfo {
   name?: string;
-  /** Use here in this issue, no need for uri first. */
+  /** 本期使用这里，先不用uri */
   url?: string;
   uri?: string;
   md5?: string;
@@ -911,26 +911,26 @@ export interface ImageTypeInfo {
 }
 
 export interface InsertReference {
-  /** Text inserted in the original text, i.e. 1 2 3, etc */
+  /** 原文中插入的文本，即1 2 3等 */
   insert_text?: string;
   /** ref url */
   url?: string;
   /** website icon */
   icon?: string;
   website_name?: string;
-  /** The position of insertion in the original text */
+  /** 原文中插入的位置 */
   pos?: Array<number>;
-  /** reference type */
+  /** 引用类型 */
   type?: InsertReferenceType;
-  /** video type information */
+  /** 视频类型信息 */
   video_type_info?: VideoTypeInfo;
-  /** Image type information */
+  /** 图片类型信息 */
   image_type_info?: ImageTypeInfo;
 }
 
-/** Intent recognition packet, content reply_type = 7 & & content_type = 300 */
+/** 意图识别包，reply_type=7 && content_type=300 时content的内容 */
 export interface Intention {
-  /** What were the intentions? */
+  /** 命中了哪些意图 */
   intentions?: Array<IntentionType>;
 }
 
@@ -952,16 +952,16 @@ export interface LocationInfo {
 export interface MessageItem {
   type?: MessageType;
   content?: string;
-  /** character name */
+  /** 角色名 */
   name?: string;
-  /** message scenario */
+  /** 消息场景 */
   message_scene?: MessageScene;
   files?: Array<FileInfo>;
   images?: Array<ImageInfo>;
   function_call?: FunctionCall;
 }
 
-/** Requires a struct to define additional properties of the message list, such as cropping rules */
+/** 需要一个结构体，用于定义 message list 的额外属性，如裁剪规则等 */
 export interface MessageList {
   messages?: Array<MessageItem>;
   max_tokens?: number;
@@ -989,14 +989,14 @@ export interface ModuleUnit {
 }
 
 export interface OnboardingContent {
-  /** Introductory remarks (C-end usage scenarios, only 1; background scenarios, possibly multiple) */
+  /** 开场白（C端使用场景，只有1个；后台场景，可能为多个） */
   prologues?: Array<string>;
-  /** suggestion question */
+  /** 建议问题 */
   suggested_questions?: Array<string>;
   language?: string;
-  /** Is it using outdated content (cover the bottom)? */
+  /** 是否使用的是过期内容（兜底） */
   stale?: boolean;
-  /** Is it using pre-generated content? */
+  /** 是否使用的是预生成内容 */
   from_preset?: boolean;
 }
 
@@ -1008,35 +1008,35 @@ export interface OutputParser {
 export interface PluginIntent {
   plugin_id?: Int64;
   api_name?: string;
-  /** Map [string] interface {} serialization */
+  /** map[string]interface{}序列化 */
   arguments?: string;
 }
 
 export interface PluginInterruptInfoResp {
-  /** The reply of the tuner was interrupted due to unauthorized access
-Detailed information returned in the plug-in resp (needs to be understood by the business side) */
+  /** 调插件由于无授权被打断的回复
+插件resp里返回的详细信息（需要业务侧理解） */
   plugin_unauthorized_info?: string;
-  /** Asynchronous plugin callback resp */
+  /** 异步plugin回调resp */
   plugin_async_resp?: string;
 }
 
 export interface PluginInterTips {
-  /** Loading the text to be displayed in the bubble */
+  /** Loading气泡中需要展示的文本 */
   display_text?: string;
 }
 
 export interface PreDefineRetrieverResult {
   type?: ResultType;
-  /** PluginIntent serialization */
+  /** PluginIntent序列化 */
   content?: string;
 }
 
 export interface PreGenReq {
-  /** Voice pre-search link to send chat_engine the requested information */
+  /** 语音预搜索链路，给chat_engine发请求需要的信息 */
   type?: PreGenType;
-  /** Identifies a conversation that is not overwritten by the user's new Query and can only be changed or incremented */
+  /** 标识一次未被用户新Query覆盖的对话，只能不变或递增 */
   psession_id?: Int64;
-  /** Number of tokens generated in the pre-search phase */
+  /** 预搜索阶段生成的token数 */
   max_new_tokens?: number;
 }
 
@@ -1052,11 +1052,11 @@ export interface PromptTemplate {
 }
 
 export interface ReplaceReference {
-  /** Rendered content for end-to-end replacement */
+  /** 渲染后内容,用于端上替换 */
   replace_text?: string;
-  /** reference start position */
+  /** 引用开始位置 */
   start?: number;
-  /** end of reference position */
+  /** 引用结束位置 */
   end?: number;
 }
 
@@ -1081,15 +1081,15 @@ export interface ReplyItem {
 }
 
 export interface ResumeInfo {
-  /** continuation scene */
+  /** 续写场景 */
   resume_scene?: ResumeScene;
-  /** Part of the information on the engine side when it was interrupted last time to restore the state of the engine side */
+  /** 上一次被打断时engine侧的部分信息，用以恢复engine侧的状态 */
   engine_interrupt_info?: EngineInterruptInfo;
-  /** The information obtained after the engine caller is interrupted to restore the state of the plugin side */
+  /** engine调插件被打断后得到的信息，用以恢复plugin侧的状态 */
   plugin_info_resp?: PluginInterruptInfoResp;
-  /** breakpoint */
+  /** 打断点 */
   break_point?: BreakPoint;
-  /** interrupt context */
+  /** 打断上下文 */
   ctx_info?: CtxInfo;
 }
 
@@ -1104,14 +1104,14 @@ export interface RiskInformation {
 
 export interface StreamPluginFin {
   uuid?: string;
-  /** Actual ToolOutput Content */
+  /** 实际的ToolOutput内容 */
   tool_output_content?: string;
 }
 
-/** Answer Prompt Questions Prompt Configuration */
+/** 回答附带建议问题Prompt配置 */
 export interface SuggestReplyConfig {
   suggest_reply_mode?: SuggestReplyMode;
-  /** Custom Prompt */
+  /** 自定义建议Prompt */
   customized_suggest_prompt?: string;
 }
 
@@ -1130,9 +1130,9 @@ export interface SyncTaskResp {
 export interface TaskMessageItem {
   type?: MessageType;
   content?: string;
-  /** character name */
+  /** 角色名 */
   name?: string;
-  /** message scenario */
+  /** 消息场景 */
   message_scene?: MessageScene;
   files?: Array<FileInfo>;
   images?: Array<ImageInfo>;
@@ -1189,9 +1189,9 @@ export interface TaskVariables {
 }
 
 export interface TimeCapsuleRecall {
-  /** Fill in the contents of the System Prompt directly after the recall */
+  /** 召回后直接填入 System Prompt 的内容 */
   wraped_text?: string;
-  /** original recall content */
+  /** 原始召回内容 */
   origin_search_results?: string;
 }
 
@@ -1207,7 +1207,7 @@ export interface ToolAuth {
 }
 
 export interface ToolCallInfo {
-  /** JSON string, resolvable to ocean_cloud_plugin. DoActionRequest. Contains full information about the last call */
+  /** json字符串，可解析为ocean_cloud_plugin.DoActionRequest。包含上一次调插件的完整信息 */
   api_input?: string;
   plugin_id?: Int64;
   api_name?: string;
@@ -1215,9 +1215,9 @@ export interface ToolCallInfo {
 }
 
 export interface ToolsAuthInfo {
-  /** Exempt tool call authorization, the default is false, that is, on-demand authorization is required */
+  /** 豁免tool调用授权，默认为false，即需要按需授权 */
   exempt_tools_auth?: boolean;
-  /** Temporary Plugin License List */
+  /** 临时插件授权列表 */
   tool_auth_list?: Array<ToolAuth>;
 }
 
@@ -1232,7 +1232,7 @@ export interface Variables {
   struct_variables?: string;
 }
 
-/** Verbose Protocol */
+/** Verbose协议 */
 export interface VerboseMessage {
   msg_type?: string;
   data?: string;

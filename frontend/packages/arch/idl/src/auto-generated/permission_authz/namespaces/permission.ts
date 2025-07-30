@@ -24,9 +24,9 @@ import * as resource from './resource';
 export type Int64 = string | number;
 
 export enum Decision {
-  /** allow */
+  /** 允许 */
   Allow = 1,
-  /** reject */
+  /** 拒绝 */
   Deny = 2,
 }
 
@@ -41,13 +41,13 @@ export interface AccountPermission {
 }
 
 export interface ActionAndResource {
-  /** operation */
+  /** 操作 */
   action: string;
-  /** resource identifier */
+  /** 资源标识 */
   resource_identifier: resource.ResourceIdentifier;
-  /** request context */
+  /** 请求上下文 */
   context?: string;
-  /** authorization code */
+  /** 授权码 */
   capability_code?: string;
 }
 

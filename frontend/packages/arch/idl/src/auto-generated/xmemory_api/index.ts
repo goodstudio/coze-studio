@@ -78,7 +78,7 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-clear-items
    *
-   * Empty specific types of data
+   * 清空特定类型的数据
    */
   TimeCapsuleClearItems(
     req: time_capsule.TimeCapsuleClearItemsRequest,
@@ -103,7 +103,7 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/citation-rank
    *
-   * Memory reference
+   * 记忆引用
    */
   CitationRank(
     req: time_capsule.CitationRankingRequest,
@@ -127,7 +127,7 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-delete-items
    *
-   * Delete items
+   * 删除items
    */
   TimeCapsuleDeleteItems(
     req: time_capsule.TimeCapsuleDeleteItemsRequest,
@@ -151,7 +151,7 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-update-item
    *
-   * Modify item
+   * 修改item
    */
   TimeCapsuleUpdateItem(
     req: time_capsule.TimeCapsuleUpdateItemRequest,
@@ -181,15 +181,15 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-search
    *
-   * Search based on the user's original query and encapsulate capabilities for LTM scenarios
+   * 根据用户的原始query进行搜索，针对LTM场景进行能力封装
    *
-   * Provide:
+   * 提供：
    *
-   * 1. Context Dump capability, support restore call site.
+   * 1.Context Dump能力，支持还原调用现场。
    *
-   * 2. Real-time generation of essence memory ability.
+   * 2.实时生成精华记忆能力。
    *
-   * 3. Basic Search Ability, Recall Items.
+   * 3.基础的Search能力，召回Items。
    */
   TimeCapsuleSearch(
     req: time_capsule.TimeCapsuleSearchRequest,
@@ -221,9 +221,9 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-list-items
    *
-   * Entrance: On the coze platform, "Long-term memory" in the upper right corner
+   * 入口：coze平台上，右上角“长期记忆”
    *
-   * Search for chat history within a specific time frame
+   * 搜索具体时间范围内的历史聊天记录
    */
   TimeCapsuleListItems(
     req: time_capsule.TimeCapsuleListItemsRequest,
@@ -250,7 +250,7 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-add-item
    *
-   * Add item
+   * 添加item
    */
   TimeCapsuleAddItem(
     req: time_capsule.TimeCapsuleAddItemRequest,
@@ -279,7 +279,7 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-clear-all-items
    *
-   * Clear all types of data
+   * 清空所有类型的数据
    */
   TimeCapsuleClearAllItems(
     req: time_capsule.TimeCapsuleClearAllItemsRequest,
@@ -302,7 +302,7 @@ export default class XmemoryApiService<T> {
   /**
    * POST /api/xmemory/time-capsule-search-items
    *
-   * Search based on the user's original query, providing only basic Search capabilities, and recall Items.
+   * 根据用户的原始query进行搜索，仅提供基础的Search能力，召回Items。
    */
   TimeCapsuleSearchItems(
     req: time_capsule.TimeCapsuleSearchItemsRequest,

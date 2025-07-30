@@ -42,19 +42,19 @@ export enum ContentType {
 }
 
 export enum FavoriteListSource {
-  /** Created by users themselves */
+  /** 用户自己创建的 */
   CreatedByMe = 1,
 }
 
 /** feedCard */
 export enum FeedType {
-  /** Recommended user feed */
+  /** 推荐用户feed */
   Recommend = 0,
-  /** Product release feed */
+  /** 商品发布feed */
   ProductPublish = 1,
-  /** Product update feed */
+  /** 商品更新feed */
   ProductUpdate = 2,
-  /** Official news feed */
+  /** 官方消息feed */
   OfficialMessage = 3,
 }
 
@@ -71,9 +71,9 @@ export enum Origin {
   PluginAdmin = 1,
   BotUser = 2,
   MarketplaceAdmin = 3,
-  /** Report recall and remove from shelves */
+  /** 举报召回下架 */
   ReportAdmin = 4,
-  /** Store channel removal */
+  /** 商店渠道下架 */
   StoreChannel = 5,
 }
 
@@ -93,15 +93,15 @@ export enum PriceType {
 }
 
 export enum ProductDraftStatus {
-  /** default */
+  /** 默认 */
   Default = 0,
-  /** Under review. */
+  /** 审核中 */
   Pending = 1,
-  /** approved */
+  /** 审核通过 */
   Approved = 2,
-  /** The review failed. */
+  /** 审核不通过 */
   Rejected = 3,
-  /** Abandoned */
+  /** 已废弃 */
   Abandoned = 4,
 }
 
@@ -111,44 +111,44 @@ export enum ProductEntityType {
   /** Workflow = 3 , */
   SocialScene = 4,
   Project = 6,
-  /** History workflow, no more in the future (abandoned) */
+  /** 历史工作流，后续不会再有（废弃） */
   WorkflowTemplate = 13,
-  /** Historical image stream template, no more in the future (obsolete) */
+  /** 历史图像流模板，后续不会再有（废弃） */
   ImageflowTemplate = 15,
-  /** Template universal identification, only used to bind template-related configurations, not bind products */
+  /** 模板通用标识，仅用于绑定模板相关的配置，不绑定商品 */
   TemplateCommon = 20,
-  /** Bot template */
+  /** Bot 模板 */
   BotTemplate = 21,
-  /** workflow template */
+  /** 工作流模板 */
   WorkflowTemplateV2 = 23,
-  /** Image stream template (this type has been offline and merged into workflow, but historical data will be preserved, and the front end will be treated as workflow display) */
+  /** 图像流模板（该类型已下线，合并入 workflow，但历史数据会保留，前端视作 workflow 展示） */
   ImageflowTemplateV2 = 25,
-  /** project template */
+  /** 项目模板 */
   ProjectTemplate = 26,
-  /** Coze token products, theoretically there will only be one */
+  /** coze token 类商品，理论上只会有一个 */
   CozeToken = 50,
-  /** Subscribe to the traffic package of credit, theoretically there will only be one */
+  /** 订阅 credit 的流量包，理论上只会有一个 */
   MsgCredit = 55,
-  /** There is only one subscription product in theory */
+  /** 消息订阅类商品，理论上只有一个 */
   SubsMsgCredit = 60,
   Common = 99,
-  /** Special Topics (Compatible with previous designs) */
+  /** 专题（兼容之前的设计） */
   Topic = 101,
 }
 
 export enum ProductListingPeriodType {
-  /** The last time it hit the shelves was 7 days ago */
+  /** 最近一次上架在 7 天前 */
   CreatedBefore7D = 1,
-  /** The last time it was on the shelves was within 7 days. */
+  /** 最近一次上架在 7 天内 */
   UpdatedIn7D = 2,
-  /** First hit shelves within 7 days */
+  /** 第一次上架在 7 天内 */
   CreatedIn7D = 3,
 }
 
 export enum ProductListSource {
-  /** recommended list page */
+  /** 推荐列表页 */
   Recommend = 1,
-  /** personalized recommendation */
+  /** 个性化推荐 */
   CustomizedRecommend = 2,
 }
 
@@ -177,7 +177,7 @@ export enum ProductShareType {
 }
 
 export enum ProductStatus {
-  /** It never hit the shelves. */
+  /** 从未上架 */
   NeverListed = 0,
   Listed = 1,
   Unlisted = 2,
@@ -190,7 +190,7 @@ export enum ProductUnlistType {
 }
 
 export enum ResourceType {
-  /** Resources used for project products/templates */
+  /** 项目商品/模板用到的资源 */
   Plugin = 1,
 }
 
@@ -203,16 +203,16 @@ export enum SocialSceneRoleType {
 export enum SortType {
   Heat = 1,
   Newest = 2,
-  /** collection time */
+  /** 收藏时间 */
   FavoriteTime = 3,
-  /** Correlation, only for search scenarios */
+  /** 相关性，只用于搜索场景 */
   Relative = 4,
 }
 
 export enum SubscribeSKUType {
-  /** Automatic renewal */
+  /** 自动续费 */
   AutoRenew = 0,
-  /** one-time subscription */
+  /** 一次性订阅 */
   OneOff = 1,
 }
 
@@ -223,17 +223,17 @@ export enum TaskStatus {
 }
 
 export enum TopicStatus {
-  /** After creating a topic, set 0 first. */
+  /** 创建专题后先置0 */
   Init = 0,
   Listed = 1,
   Unlisted = 2,
 }
 
 export enum UIPreviewType {
-  /** UI preview type, defining alignment UI Builder, currently used in Project
-web page */
+  /** UI 预览类型，定义对齐 UI Builder，目前用于 Project
+网页端 */
   Web = 1,
-  /** mobile end */
+  /** 移动端 */
   Client = 2,
 }
 
@@ -248,56 +248,56 @@ export enum UnitType {
 
 export enum UserActionType {
   UsedProduct = 1,
-  /** Go to the product details page */
+  /** 进入过 product 的详情页 */
   ViewedProduct = 2,
 }
 
 export enum UserProductSource {
-  /** Listed products posted by the user */
+  /** 用户发布过的已上架商品 */
   Listed = 1,
-  /** Products that users have used (such as chatbots) */
+  /** 用户使用过的商品（比如对话过的Bot） */
   Used = 2,
-  /** Products visited by users */
+  /** 用户访问过的商品 */
   Viewed = 3,
-  /** User Favorite Items */
+  /** 用户收藏的商品 */
   Favorite = 4,
-  /** Products liked by users */
+  /** 用户点赞的商品 */
   Like = 5,
 }
 
 export enum VerifyStatus {
-  /** Not certified */
+  /** 未认证 */
   Pending = 1,
-  /** Certification successful */
+  /** 认证成功 */
   Succeed = 2,
-  /** Authentication failed */
+  /** 认证失败 */
   Failed = 3,
-  /** Authenticating */
+  /** 认证中 */
   InProgress = 4,
 }
 
 export enum WorkflowNodeType {
-  /** start */
+  /** 开始 */
   Start = 1,
-  /** end */
+  /** 结束 */
   End = 2,
-  /** Large model */
+  /** 大模型 */
   LLM = 3,
-  /** plugin */
+  /** 插件 */
   Api = 4,
-  /** code */
+  /** 代码 */
   Code = 5,
-  /** Knowledge Base */
+  /** 知识库 */
   Dataset = 6,
-  /** selector */
+  /** 选择器 */
   If = 8,
-  /** Workflow */
+  /** 工作流 */
   SubWorkflow = 9,
-  /** variable */
+  /** 变量 */
   Variable = 11,
-  /** database */
+  /** 数据库 */
   Database = 12,
-  /** message */
+  /** 消息 */
   Message = 13,
 }
 
@@ -316,13 +316,13 @@ export interface FavoriteEntity {
   name?: string;
   icon_url?: string;
   description?: string;
-  /** Abandoned, using UserInfo */
+  /** 废弃，使用UserInfo */
   seller?: SellerInfo;
-  /** Use to jump to the bot edit page */
+  /** 用于跳转到Bot编辑页 */
   space_id?: string;
-  /** Does the user have permissions to the space where the entity is located? */
+  /** 用户是否有该实体所在Space的权限 */
   has_space_permission?: boolean;
-  /** collection time */
+  /** 收藏时间 */
   favorite_at?: string;
   product_extra?: FavoriteProductExtra;
   user_info?: UserInfo;
@@ -338,33 +338,33 @@ export interface FavoriteProductExtra {
   product_status?: ProductStatus;
 }
 
-/** Feed card */
+/** feed 卡片 */
 export interface FeedCard {
-  /** Required fields, feed type */
+  /** 必传字段，feed类型 */
   feed_type?: FeedType;
-  /** Required field, feed body */
+  /** 必传字段，feed正文 */
   feed_content?: FeedContent;
-  /** Optional fields, feed generation time, millisecond timestamp */
+  /** 可选字段，feed生成时间，毫秒时间戳 */
   create_time?: string;
-  /** API layer required fields, feed push optional fields, user information */
+  /** API层必传字段，feed推送可选字段，用户信息 */
   user_info?: UserInfo;
-  /** API layer required field, feed push optional field, feed_id */
+  /** API层必传字段，feed推送可选字段，feed_id */
   id?: string;
 }
 
-/** Feed body, message & quote must pass one of the two */
+/** feed主体, message & quote两者必传其一 */
 export interface FeedContent {
-  /** Optional field, title */
+  /** 可选字段，标题 */
   title?: RichText;
-  /** Optional field, body - message */
+  /** 可选字段，主体-消息 */
   message?: RichText;
-  /** Optional field, body-reference area */
+  /** 可选字段，主体-引用区 */
   quote?: FeedQuote;
 }
 
-/** reference area */
+/** 引用区 */
 export interface FeedQuote {
-  /** Optional field, merchandise card */
+  /** 可选字段，商品卡片 */
   product_card?: Array<ProductFeedInfo>;
 }
 
@@ -384,7 +384,7 @@ export interface ImageUploadToken {
 }
 
 export interface OpeningDialog {
-  /** Bot opening line */
+  /** Bot开场白 */
   content?: string;
 }
 
@@ -396,42 +396,42 @@ export interface PluginTool {
 
 export interface ProductEntity {
   entity_type: ProductEntityType;
-  /** optional */
+  /** 可选 */
   entity_id?: string;
-  /** optional */
+  /** 可选 */
   entity_version?: string;
 }
 
 export interface ProductFeedInfo {
-  /** Required field, product id */
+  /** 必传字段，商品id */
   id?: string;
-  /** Required field, product name */
+  /** 必传字段，商品名 */
   name?: string;
-  /** Required field, product icon */
+  /** 必传字段，商品icon */
   icon_url?: string;
-  /** Required fields, product description */
+  /** 必传字段，商品描述 */
   desc?: string;
-  /** Required fields, asset type */
+  /** 必传字段，素材类型 */
   entity_type?: ProductEntityType;
-  /** Optional fields, number of users, for bot, project */
+  /** 可选字段，用户数, for bot, project */
   user_count?: number;
-  /** Optional field, number of conversations, for bot */
+  /** 可选字段，对话数, for bot */
   chat_conversation_count?: number;
-  /** Optional field, number of favorites, for bot */
+  /** 可选字段，收藏数, for bot */
   favorite_count?: number;
-  /** Optional field, bots usage, for plugins */
+  /** 可选字段，bots使用数,for plugin */
   bots_use_cout?: number;
-  /** Optional field, number of copies, for workflow & imageflow */
+  /** 可选字段，复制数, for workflow & imageflow */
   duplicate_count?: number;
-  /** Optional field, usage number, for project */
+  /** 可选字段，使用数, for project */
   use_count?: number;
 }
 
-/** Rich Text Type */
+/** 富文本类型 */
 export interface RichText {
-  /** Required field, rich text data type */
+  /** 必传字段，富文本数据类型 */
   content_type?: ContentType;
-  /** Required fields, data content */
+  /** 必传字段，数据内容 */
   text?: string;
 }
 
@@ -450,45 +450,45 @@ export interface SKUEntity {
   sku_id?: string;
   attrs?: Array<SKUAttrInfo>;
   prices?: Array<marketplace_common.Price>;
-  /** Subscription products will only be available. */
+  /** 订阅类商品才会有 */
   subscription_info?: SubscriptionExtra;
-  /** SKU name, for display */
+  /** sku名称，用于展示 */
   sku_title?: string;
 }
 
-/** auto-renew subscription */
+/** 自动更新订阅 */
 export interface SubscriptionAutoRenewSKU {
-  /** buying cycle */
+  /** 购买周期 */
   billing_period?: SubscriptionPeriod;
-  /** The number of subscription cycles (trail period and intro period are also counted), in a Subscription Period. After the renewal exceeds this number of times, the renewal will not continue. 0 or no input means no limit. */
+  /** 订阅整个周期数目(trail期和intro期也被计算在内),单位是一个SubscriptionPeriod。续费超过该次数后，不再继续续费。0或不输入均表示不限制。 */
   billing_period_count?: number;
-  /** Discount period */
+  /** 折扣期 */
   trial_period?: SubscriptionPeriod;
-  /** Number of discount periods (minimum 1) */
+  /** 折扣期次数（最小为1） */
   trial_period_count?: number;
-  /** grace period */
+  /** 宽限期 */
   grade_period?: SubscriptionPeriod;
 }
 
-/** The sku information of subscription products needs to be separated from the sku of ordinary products. */
+/** 订阅类商品 sku 信息，需要与普通商品 sku 隔开 */
 export interface SubscriptionExtra {
   subs_sku_type?: SubscribeSKUType;
   auto_renew_sku?: SubscriptionAutoRenewSKU;
   one_off_sku?: SubscriptionOneOffSKU;
   benefit_ids?: Array<Int64>;
-  /** subscription level */
+  /** 订阅等级 */
   subscription_level?: number;
 }
 
-/** one-time subscription */
+/** 一次性订阅 */
 export interface SubscriptionOneOffSKU {
   billig_period?: SubscriptionPeriod;
 }
 
 export interface SubscriptionPeriod {
-  /** Time period unit, YEAR/MONTH/DAY/HOUR/MINUTE/WEEK */
+  /** 时间周期单位，YEAR/MONTH/DAY/HOUR/MINUTE/WEEK */
   unit?: string;
-  /** Time period length, unit is a unit */
+  /** 时间周期长度，单位是一个unit */
   length?: number;
   unit_type?: UnitType;
 }

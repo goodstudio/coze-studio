@@ -24,11 +24,11 @@ import * as flow_devops_prompt_common from './flow_devops_prompt_common';
 export type Int64 = string | number;
 
 export enum MCPStatus {
-  /** undefined */
+  /** 未定义 */
   Undefined = 0,
-  /** Normal */
+  /** 正常 */
   Normal = 1,
-  /** Deactivated */
+  /** 已停用 */
   Disabled = 2,
 }
 
@@ -44,81 +44,81 @@ export interface Function {
 }
 
 export interface MCPExecuteConfig {
-  /** Dynamic accessPointID - > key - > value */
+  /** 动态请求头 accessPointID -> key -> value */
   headers?: Record<string, Record<string, string>>;
-  /** Dynamic request parameter accessPointID - > key - > value */
+  /** 动态请求参数 accessPointID -> key -> value */
   params?: Record<string, Record<string, string>>;
-  /** Generic Dynamic Request Header */
+  /** 通用动态请求头 */
   common_headers?: Record<string, string>;
-  /** general dynamic parameter */
+  /** 通用动态参数 */
   common_params?: Record<string, string>;
 }
 
 export interface MCPServer {
-  /** primary key ID */
+  /** 主键ID */
   id?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
-  /** service name */
+  /** 服务名称 */
   name?: string;
-  /** Is it an official service? */
+  /** 是否官方服务 */
   is_official?: boolean;
-  /** service description */
+  /** 服务描述 */
   description?: string;
-  /** Source type, ByteFaaS or other */
+  /** 来源类型，ByteFaaS或其他 */
   source_type?: string;
-  /** label */
+  /** 标签 */
   labels?: Array<flow_devops_prompt_common.Label>;
-  /** List of access points for the service */
+  /** 服务的访问点列表 */
   mcp_server_access_points?: Array<MCPServerAccessPoint>;
-  /** founder */
+  /** 创建人 */
   creator?: string;
-  /** creation time */
+  /** 创建时间 */
   create_time_ms?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time_ms?: Int64;
-  /** Whether to support publishing with prompt, it has been abandoned, no consumption and no change */
+  /** 是否支持与prompt一起发布  已废弃，不消费不更改 */
   is_publish_supported?: boolean;
-  /** service status */
+  /** 服务状态 */
   status?: MCPStatus;
-  /** MCP corresponding document or details page */
+  /** MCP 对应的文档或详情页 */
   detail_page_url?: string;
 }
 
 export interface MCPServerAccessPoint {
-  /** primary key ID */
+  /** 主键ID */
   id?: Int64;
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
-  /** Associated MCP Server ID */
+  /** 关联的MCP Server ID */
   mcp_server_id?: Int64;
-  /** Environment, BOE/PPE/ONLINE */
+  /** 环境，BOE/PPE/ONLINE */
   env?: string;
-  /** lane */
+  /** 泳道 */
   lane?: string;
-  /** Service Mode, SSE or STDIO */
+  /** 服务模式，SSE或STDIO */
   transport_mode?: string;
-  /** interface address */
+  /** 接口地址 */
   server_url?: string;
-  /** The json schema of the tool */
+  /** 工具的json schema */
   tools?: Array<Function>;
-  /** address verification status */
+  /** 地址验证状态 */
   validation_status?: string;
-  /** Last address verification time */
+  /** 最近一次地址校验时间 */
   last_validation_time_ms?: Int64;
-  /** Latest operation time */
+  /** 最新操作发生时间 */
   lastest_op_time_ms?: Int64;
-  /** creation time */
+  /** 创建时间 */
   create_time_ms?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time_ms?: Int64;
-  /** Interface PSM */
+  /** 接口PSM */
   server_psm?: string;
-  /** configuration */
+  /** 配置 */
   config?: flow_devops_prompt_common.AccessPointConfig;
-  /** service status */
+  /** 服务状态 */
   status?: MCPStatus;
-  /** Whether to support publishing with prompt */
+  /** 是否支持与prompt一起发布 */
   is_publish_supported?: boolean;
 }
 /* eslint-enable */

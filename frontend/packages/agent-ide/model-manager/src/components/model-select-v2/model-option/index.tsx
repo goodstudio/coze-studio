@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable complexity -- ignore */
 import { type PropsWithChildren, useRef } from 'react';
 
@@ -116,7 +116,7 @@ export function ModelOption({
           disabled ? 'cursor-not-allowed' : 'cursor-pointer',
           // The following cls only hide the upper and lower dividing lines when implementing hover, active, and last (note that the dividing lines are in model-info-border, the designer's careful thought)
           styles['model-option'],
-          // @TS-expect-error -- I don't know why the error is reported.
+          // @ts-expect-error -- I don't know why the error is reported.
           { [styles['model-option_selected']]: selected },
         )}
         onClick={() => {

@@ -69,15 +69,15 @@ export interface BatchGetTracesAdvanceInfoRequest {
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
   'x-boe-env'?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
 }
 
 export interface BatchGetTracesAdvanceInfoResponse {
   data: BatchGetTracesAdvanceInfoData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -92,20 +92,20 @@ export interface ChangeEvaluatorScoreRequest {
 
 export interface ChangeEvaluatorScoreResponse {
   annotation: annotation.Annotation;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface EvaluationSetConfig {
-  /** Is it a new review set? */
+  /** 是否是新增评测集 */
   is_new_evaluation_set: boolean;
-  /** Evaluation set id, can be empty when adding a evaluation set */
+  /** 评测集id，新增评测集时可为空 */
   evaluation_set_id?: Int64;
-  /** Review set name, can be empty when selecting an existing review set */
+  /** 评测集名称，选择已有评测集时可为空 */
   evaluation_set_name?: string;
-  /** Evaluating the tabular data schema */
+  /** 评测集列数据schema */
   evaluation_set_schema?: eval_set.EvaluationSetSchema;
 }
 
@@ -115,16 +115,16 @@ export interface ExportTracesToEvaluationRequest {
   datasets: Array<string>;
   start_time?: string;
   end_time?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   span_list_type?: flow_devops_fornaxob_common.SpanListType;
 }
 
 export interface ExportTracesToEvaluationResponse {
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -134,39 +134,39 @@ export interface ExportTracesToEvaluationSetRequest {
   evaluation_set: EvaluationSetConfig;
   start_time?: Int64;
   end_time?: Int64;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** Import method, if not filled in, the default is append. */
+  /** 导入方式，不填默认为追加 */
   export_type?: ExportType;
   field_mappings?: Array<task.FieldMapping>;
 }
 
 export interface ExportTracesToEvaluationSetResponse {
-  /** Number of successful imports */
+  /** 成功导入的数量 */
   success_count?: number;
-  /** error message */
+  /** 错误信息 */
   errors?: Array<datasetv2.ItemErrorGroup>;
-  /** review set id */
+  /** 评测集id */
   evaluation_set_id?: Int64;
-  /** review set name */
+  /** 评测集名称 */
   evaluation_set_name?: string;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
-/** You need to migrate to threadservice later. FieldMeta */
+/** 后续需要迁移到 threadservice.FieldMeta */
 export interface FieldMeta {
-  /** field type */
+  /** 字段类型 */
   value_type: flow_devops_fornaxob_common.ValueType;
-  /** Supported operation types */
+  /** 支持的操作类型 */
   filter_types: Array<flow_devops_fornaxob_fieldfilter.FieldFilterType>;
-  /** Supported options */
+  /** 支持的可选项 */
   field_options?: flow_devops_fornaxob_fieldfilter.FieldOptions;
-  /** Support custom filling in */
+  /** 支持自定义填写 */
   support_customizable_option?: boolean;
-  /** Supported operation types v2 */
+  /** 支持的操作类型 v2 */
   filter_types_v2?: Array<flow_devops_fornaxob_fieldfilterv2.FieldFilterType>;
 }
 
@@ -186,9 +186,9 @@ export interface GetSpanInfoRequest {
 
 export interface GetSpanInfoResponse {
   data: GetTraceData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -207,16 +207,16 @@ export interface GetTraceByLogIDRequest {
 
 export interface GetTraceByLogIDResponse {
   data: GetTraceData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface GetTraceData {
   spans: Array<span.Span>;
   traces_advance_info?: TraceAdvanceInfo;
-  /** Whether it is complete tree data, false: contains only tree structure information, true: contains tree structure information and span details */
+  /** 是否是完整的tree数据，false：仅包含tree结构信息, true：包含tree结构信息和span的详细信息 */
   is_complete_trace?: boolean;
 }
 
@@ -231,42 +231,42 @@ export interface GetTraceRequest {
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
   'x-boe-env'?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
   log_id?: string;
 }
 
 export interface GetTraceResponse {
   data: GetTraceData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface GetTracesMetaInfoData {
-  /** field meta information */
+  /** 字段元信息 */
   field_metas: Record<string, FieldMeta>;
 }
 
 export interface GetTracesMetaInfoRequest {
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** The span tab type of the query, if not filled in, the default is root span. */
+  /** 查询的 span 标签页类型，不填默认是 root span */
   span_list_type?: flow_devops_fornaxob_common.SpanListType;
   space_id?: Int64;
 }
 
 export interface GetTracesMetaInfoResponse {
   data?: GetTracesMetaInfoData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface IngestTracesRequest {
-  /** span list */
+  /** span列表 */
   spans?: Array<Span>;
   Base?: base.Base;
 }
@@ -280,13 +280,13 @@ export interface IngestTracesResponse {
 export interface Item {
   status: ItemStatus;
   fields?: Record<string, string>;
-  /** error message */
+  /** 错误信息 */
   errors?: Array<ItemError>;
 }
 
 export interface ItemError {
   type?: datasetv2.ItemErrorType;
-  /** There is a wrong field name, not required */
+  /** 有错误的字段名，非必填 */
   field_names?: Array<string>;
 }
 
@@ -297,9 +297,9 @@ export interface ListAllSpansRequest {
   start_time: string;
   /** ms, end_at >= start_at */
   end_time: string;
-  /** 4: optional list < string > AppID (agw.js_conv = "str" api.body = "app_id" go.tag = "json:\" app_id \"") // app id field is invalid */nvalid */
+  /** 4: optional list<string> AppID (agw.js_conv="str" api.body = "app_id" go.tag="json:\"app_id\"")           // app id 字段作废 */
   filters?: Record<string, flow_devops_fornaxob_fieldfilter.FieldFilter>;
-  /** Full-Text search full-text search, will search input, output, bot_version, os_version these four fields. You can pass in multiple keywords, each keyword is and relationship */
+  /** Full-Text search 全文本搜索，会搜input、output、bot_version, os_version这四个字段。可以传入多个关键词，每个关键词之间是and关系 */
   full_text_search?: Array<string>;
   /** default 1000 */
   limit?: number;
@@ -323,18 +323,18 @@ export interface ListAllSpansRequest {
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
   'x-boe-env'?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** Whether to get only the root span */
+  /** 是否仅获取 root span */
   is_root_span_only?: boolean;
   query_and_or?: flow_devops_fornaxob_fieldfilterv2.Relation;
 }
 
 export interface ListAllSpansResponse {
   data: ListTracesData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -345,9 +345,9 @@ export interface ListAnnotationEvaluatorsRequest {
 
 export interface ListAnnotationEvaluatorsResponse {
   evaluators: Array<AnnotationEvaluator>;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
@@ -358,9 +358,9 @@ export interface ListLLMSpansRequest {
   start_time: string;
   /** ms, end_at >= start_at */
   end_time: string;
-  /** 4: optional list < string > AppID (agw.js_conv = "str" api.body = "app_id" go.tag = "json:\" app_id \"") // app id field is invalid */nvalid */
+  /** 4: optional list<string> AppID (agw.js_conv="str" api.body = "app_id" go.tag="json:\"app_id\"")           // app id 字段作废 */
   filters?: Record<string, flow_devops_fornaxob_fieldfilter.FieldFilter>;
-  /** Full-Text search full-text search, will search input, output, bot_version, os_version these four fields. You can pass in multiple keywords, each keyword is and relationship */
+  /** Full-Text search 全文本搜索，会搜input、output、bot_version, os_version这四个字段。可以传入多个关键词，每个关键词之间是and关系 */
   full_text_search?: Array<string>;
   /** default 1000 */
   limit?: number;
@@ -384,26 +384,26 @@ export interface ListLLMSpansRequest {
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
   'x-boe-env'?: string;
-  /** Platform type, if left blank, the default is fornax. */
+  /** 平台类型，不填默认是fornax */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
   query_and_or?: flow_devops_fornaxob_fieldfilterv2.Relation;
 }
 
 export interface ListLLMSpansResponse {
   data: ListTracesData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface ListTracesData {
   spans: Array<span.Span>;
-  /** The paging token on the next page, which is returned when the front end pulls the data on the next page. */
+  /** 下一页的分页token，前端拉取下一页数据时回传。 */
   next_page_token: string;
-  /** Is there any more data? */
+  /** 是否有更多数据 */
   has_more: boolean;
-  /** Span's post-processing information */
+  /** Span的后处理信息 */
   spans_extra?: Record<string, SpanExtra>;
 }
 
@@ -414,9 +414,9 @@ export interface ListTracesRequest {
   start_time: string;
   /** ms, end_at >= start_at */
   end_time: string;
-  /** 4: optional list < string > AppID (agw.js_conv = "str" api.body = "app_id" go.tag = "json:\" app_id \"") // app id field is invalid */nvalid */
+  /** 4: optional list<string> AppID (agw.js_conv="str" api.body = "app_id" go.tag="json:\"app_id\"")           // app id 字段作废 */
   filters?: Record<string, flow_devops_fornaxob_fieldfilter.FieldFilter>;
-  /** Full-Text search full-text search, will search input, output, bot_version, os_version these four fields. You can pass in multiple keywords, each keyword is and relationship */
+  /** Full-Text search 全文本搜索，会搜input、output、bot_version, os_version这四个字段。可以传入多个关键词，每个关键词之间是and关系 */
   full_text_search?: Array<string>;
   /** default 1000 */
   limit?: number;
@@ -440,33 +440,33 @@ export interface ListTracesRequest {
   target_env?: flow_devops_fornaxob_common.EnvType;
   transferred?: boolean;
   'x-boe-env'?: string;
-  /** Platform type, if left blank, the default is psm. */
+  /** 平台类型，不填默认是psm */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
   query_and_or?: flow_devops_fornaxob_fieldfilterv2.Relation;
 }
 
 export interface ListTracesResponse {
   data: ListTracesData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface OtelIngestTracesRequest {
-  /** Pb/json bytes */
+  /** pb/json bytes数据 */
   body: Blob;
-  /** Data type, optional application/x-protobuf or application/json */
+  /** 数据类型,可选application/x-protobuf或application/json */
   ContentType: string;
-  /** Data encoding type, gzip optional */
+  /** 数据编码类型,可选gzip */
   ContentEncoding: string;
-  /** Space ID */
+  /** 空间ID */
   SpaceID: string;
   Base?: base.Base;
 }
 
 export interface OtelIngestTracesResponse {
-  /** Pb bytes of data */
+  /** pb bytes数据 */
   body?: Blob;
   BaseResp?: base.BaseResp;
 }
@@ -477,59 +477,59 @@ export interface PreviewExportTracesToEvaluationRequest {
   evaluation_set: EvaluationSetConfig;
   start_time?: Int64;
   end_time?: Int64;
-  /** platform type */
+  /** 平台类型 */
   platform_type?: flow_devops_fornaxob_common.PlatformType;
-  /** Import method, if not filled in, the default is append. */
+  /** 导入方式，不填默认为追加 */
   export_type?: ExportType;
   field_mappings?: Array<task.FieldMapping>;
 }
 
 export interface PreviewExportTracesToEvaluationResponse {
-  /** preview data */
+  /** 预览数据 */
   items?: Array<Item>;
-  /** summary error message */
+  /** 概要错误信息 */
   errors?: Array<datasetv2.ItemErrorGroup>;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface SearchTraceV3Request {
   /** space id */
   space_id: string;
-  /** Currently supports logid/traceid */
+  /** 当前支持logid/traceid */
   id: string;
   search_type: SearchTraceV3Type;
   target_env?: flow_devops_fornaxob_common.EnvType;
-  /** Specify the swimlane when accessing the boe data, for non-business use, and the same field of other interfaces has the same effect */
+  /** 访问boe数据时指定泳道，非业务使用，其它接口的相同字段作用一样 */
   'x-boe-env'?: string;
   transferred?: boolean;
-  /** SearchTraceV3Type takes effect when it is LogID. You can choose how long to check later. If you don't pass it, check it back for one hour by default.
+  /** SearchTraceV3Type为LogID时生效，可选往后查询多久，不传默认往后查一小时
 hour */
   scan_span_in_hour?: string;
 }
 
 export interface SearchTraceV3Response {
   data: GetTraceData;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   code?: number;
-  /** Only for http requests; internal RPC is not used, unified access to Code and Msg through BaseResp */
+  /** 仅供http请求使用; 内部RPC不予使用，统一通过BaseResp获取Code和Msg */
   msg?: string;
 }
 
 export interface Span {
-  /** Span start time */
+  /** Span 开始时间 */
   started_at_micros: string;
   /** LogID */
   logid?: string;
   /** SpanID */
   span_id: string;
-  /** Parent SpanID */
+  /** 父SpanID */
   parent_id: string;
   /** TraceID */
   trace_id: string;
-  /** Span time-consuming (deprecated, using DurationMicros) */
+  /** Span 耗时（已废弃，使用DurationMicros） */
   duration: number;
   /** PSM */
   psm?: string;
@@ -537,37 +537,37 @@ export interface Span {
   call_type?: string;
   /** SpaceID */
   workspace_id: string;
-  /** Span name */
+  /** Span名称 */
   span_name: string;
-  /** Span type */
+  /** Span类型 */
   span_type: string;
-  /** method name */
+  /** 方法名 */
   method: string;
-  /** status code */
+  /** 状态码 */
   status_code: number;
-  /** input */
+  /** 输入 */
   input: string;
-  /** output */
+  /** 输出 */
   output: string;
-  /** Object storage information */
+  /** 对象存储信息 */
   object_storage?: string;
-  /** String type system tag */
+  /** string类型系统tag */
   system_tags_string?: Record<string, string>;
-  /** Long type system tag */
+  /** long类型系统tag */
   system_tags_long?: Record<string, Int64>;
-  /** Double type system tag */
+  /** double类型系统tag */
   system_tags_double?: Record<string, number>;
-  /** String type custom tag */
+  /** string类型自定义tag */
   tags_string?: Record<string, string>;
-  /** Long type custom tag */
+  /** long类型自定义tag */
   tags_long?: Record<string, Int64>;
-  /** Double type custom tag */
+  /** double类型自定义tag */
   tags_double?: Record<string, number>;
-  /** Bool type custom tag (compatible with old structures) */
+  /** bool类型自定义tag(兼容老结构用) */
   tags_bool?: Record<string, boolean>;
-  /** Byte type custom tag (compatible with old structures) */
+  /** byte类型自定义tag(兼容老结构用) */
   tags_bytes?: Record<string, string>;
-  /** Span time (microseconds) */
+  /** Span 耗时(微秒) */
   duration_micros?: string;
 }
 
@@ -576,9 +576,9 @@ export interface SpanExtra {
 }
 
 export interface TokenCost {
-  /** Enter the number of tokens consumed */
+  /** 输入消耗token数 */
   input: number;
-  /** Output consumption token */
+  /** 输出消耗token数 */
   output: number;
 }
 
@@ -587,7 +587,7 @@ export interface TraceAdvanceInfo {
   tokens: TokenCost;
 }
 
-/** Trace query parameters */
+/** Trace查询参数 */
 export interface TraceQueryParams {
   trace_id: string;
   start_time: string;

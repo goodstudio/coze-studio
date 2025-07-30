@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable max-lines-per-function */
 /* eslint-disable @typescript-eslint/no-shadow */
@@ -291,7 +291,7 @@ export function InputTree(props: PropsWithChildren<InputTreeProps>) {
           const currentChildren = data.children || [];
 
           convertObjectRef(mode, data);
-          // @TS-expected-error Some values do not need to be specified at this time because format is executed during rerender
+          // @ts-expect-error Some values do not need to be specified at this time because format is executed during rerender
           data.children = currentChildren.concat({
             ...getDefaultAppendValue(currentChildren, defaultAppendValue),
             // Add field

@@ -30,13 +30,13 @@ export enum MessageBizType {
 
 export enum MessageOperateType {
   Create = 1,
-  /** content modification */
+  /** 内容修改 */
   Update = 2,
-  /** Metadata modification */
+  /** 元数据修改 */
   MetaUpdate = 3,
   Delete = 4,
   Publish = 5,
-  /** Rollback operation */
+  /** 回滚操作 */
   Rollback = 6,
 }
 /* eslint-enable */

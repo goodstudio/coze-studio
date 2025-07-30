@@ -78,7 +78,7 @@ export default class BotConnectorService<T> {
   /**
    * GET /v1/conversation/message/retrieve
    *
-   * Inquire about single message details
+   * 查询单条消息详情
    */
   RetrieveMessageApi(
     req: bot_connector.RetrieveMessageApiRequest,
@@ -98,7 +98,7 @@ export default class BotConnectorService<T> {
   /**
    * POST /v1/conversation/message/create
    *
-   * Create a single message
+   * 创建单条消息
    */
   CreateMessageApi(
     req: bot_connector.CreateMessageApiRequest,
@@ -121,7 +121,7 @@ export default class BotConnectorService<T> {
   /**
    * POST /v1/conversation/message/modify
    *
-   * Modify a single message
+   * 修改单条消息
    */
   ModifyMessageApi(
     req: bot_connector.ModifyMessageApiRequest,
@@ -146,7 +146,7 @@ export default class BotConnectorService<T> {
   /**
    * GET /v1/conversation/retrieve
    *
-   * Query session details
+   * 查询会话详情
    */
   RetrieveConversationApi(
     req: bot_connector.RetrieveConversationApiRequest,
@@ -165,7 +165,7 @@ export default class BotConnectorService<T> {
   /**
    * GET /v3/chat/message/list
    *
-   * Query single-run message list
+   * 查询单次运行的消息列表
    */
   ListChatMessageApi(
     req: bot_connector.ListChatMessageApiRequest,
@@ -185,9 +185,9 @@ export default class BotConnectorService<T> {
   /**
    * POST /v1/conversation/create
    *
-   * capability open interface
+   * 能力开放接口
    *
-   * Create a session
+   * 创建会话
    */
   CreateConversationApi(
     req?: bot_connector.CreateConversationApiRequest,
@@ -214,7 +214,7 @@ export default class BotConnectorService<T> {
   /**
    * POST /v1/conversation/message/list
    *
-   * Query message list
+   * 查询消息列表
    */
   ListMessageApi(
     req: bot_connector.ListMessageApiRequest,

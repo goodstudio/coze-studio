@@ -24,10 +24,10 @@ import * as resource_common from './resource_common';
 export type Int64 = string | number;
 
 export interface BatchResourceCopyDoRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
   ResourceLocators?: Array<resource_common.ResourceLocator>;
-  /** The child resource map referenced by this resource */
+  /** 该资源引用的子资源映射 */
   ChildrenCopyResults?: Array<resource_common.ResourceCopyResult>;
 }
 
@@ -43,25 +43,25 @@ export interface BatchSyncResourceRequest {
 export interface BatchSyncResourceResponse {}
 
 export interface LibraryResourceListRequest {
-  /** Whether created by the current user, 0 - unfiltered, 1 - current user */
+  /** 是否由当前用户创建，0-不筛选，1-当前用户 */
   user_filter?: number;
-  /** [4,1] 0 means do not filter */
+  /** [4,1]   0代表不筛选 */
   res_type_filter?: Array<number>;
-  /** name */
+  /** 名称 */
   name?: string;
-  /** Published status, 0 - unfiltered, 1 - unpublished, 2 - published */
+  /** 发布状态，0-不筛选，1-未发布，2-已发布 */
   publish_status_filter?: number;
-  /** User's space ID */
+  /** 用户所在空间ID */
   space_id: string;
-  /** 6: optional i32 pages,//number of pages, the first page is 1. Default 1.ges, the first page is 1. Default 1.
-The number of data bars read at one time, the default is 10, and the maximum is 100. */
+  /** 6 : optional i32 page, // 页数，首页是1。默认1。
+一次读取的数据条数，默认10，最大100. */
   size?: number;
-  /** 8: optional i32 offset,//data record offset, meaning read from the first (offset + 1) recordto start reading from the (offset + 1) record
-Cursor, used for paging, default 0, the first request can not be passed, subsequent requests need to bring the last returned cursor */
+  /** 8 : optional i32 offset, // 数据记录偏移，含义是从第(offset+1)条记录开始读
+游标，用于分页，默认0，第一次请求可以不传，后续请求需要带上上次返回的cursor */
   cursor?: string;
-  /** The field used to specify the custom search, do not fill in the default only name matches, eg [] string {name, custom} matches the name and custom fields full_text */
+  /** 用来指定自定义搜索的字段 不填默认只name匹配，eg []string{name,自定} 匹配name和自定义字段full_text */
   search_keys?: Array<string>;
-  /** Do you need to return image review when the res_type_filter is [2 workflow] */
+  /** 当res_type_filter为[2 workflow]时，是否需要返回图片流 */
   is_get_imageflow?: boolean;
 }
 
@@ -70,50 +70,50 @@ export interface LibraryResourceListResponse {
   msg?: string;
   resource_list?: Array<resource_common.ResourceInfo>;
   /** 4  : i32 total,
-Cursor, the cursor for the next request */
+游标，用于下次请求的cursor */
   cursor?: string;
-  /** Is there still data to be pulled? */
+  /** 是否还有数据待拉取 */
   has_more?: boolean;
 }
 
 export interface LibraryResourceListRpcRequest {
-  /** Whether created by the current user, 0 - unfiltered, 1 - current user */
+  /** 是否由当前用户创建，0-不筛选，1-当前用户 */
   user_filter?: number;
-  /** [4,1] 0 means do not filter */
+  /** [4,1]   0代表不筛选 */
   res_type_filter?: Array<number>;
-  /** name */
+  /** 名称 */
   name?: string;
-  /** Published status, 0 - unfiltered, 1 - unpublished, 2 - published */
+  /** 发布状态，0-不筛选，1-未发布，2-已发布 */
   publish_status_filter?: number;
-  /** User's space ID */
+  /** 用户所在空间ID */
   space_id: string;
-  /** Number of pages, the first page is 1. Default 1. */
+  /** 页数，首页是1。默认1。 */
   page?: number;
-  /** The number of data bars read at one time, the default is 10, and the maximum is 100. */
+  /** 一次读取的数据条数，默认10，最大100. */
   size?: number;
-  /** Data record offset, meaning to start reading from the (offset + 1) record */
+  /** 数据记录偏移，含义是从第(offset+1)条记录开始读 */
   offset?: number;
-  /** Cursor, used for paging, default 0, the first request can not be passed, subsequent requests need to bring the last returned cursor */
+  /** 游标，用于分页，默认0，第一次请求可以不传，后续请求需要带上上次返回的cursor */
   cursor?: string;
-  /** user id */
+  /** 用户id */
   devID?: Int64;
-  /** The field used to specify the custom search, do not fill in the default only name matches, eg [] string {name, custom} matches the name and custom fields full_text */
+  /** 用来指定自定义搜索的字段 不填默认只name匹配，eg []string{name,自定} 匹配name和自定义字段full_text */
   search_keys?: Array<string>;
   is_get_imageflow?: boolean;
 }
 
 export interface LibraryResourceListRpcResponse {
   resource_list?: Array<resource_common.ResourceInfo>;
-  /** Cursor, the cursor for the next request */
+  /** 游标，用于下次请求的cursor */
   cursor?: string;
-  /** Is there still data to be pulled? */
+  /** 是否还有数据待拉取 */
   has_more?: boolean;
 }
 
 export interface MGetDisplayResourceInfoRequest {
-  /** The maximum number of one page can be transferred, and the implementer can limit the maximum to 100. */
+  /** 最大传一页的数量，实现方可以限制最大100个 */
   ResIDs?: Array<Int64>;
-  /** The current user, the implementation is used to determine the authority */
+  /** 当前的用户，实现方用于判断权限 */
   CurrentUserID?: Int64;
 }
 
@@ -122,15 +122,15 @@ export interface MGetDisplayResourceInfoResponse {
 }
 
 export interface MGetProjectResourceInfoRequest {
-  /** Project ID */
+  /** 项目ID */
   ProjectID?: Int64;
-  /** current user */
+  /** 当前的用户 */
   CurrentUserID?: Int64;
-  /** User space id */
+  /** 用户所在space id */
   SpaceID?: Int64;
-  /** Whether to ignore permissions and pull directly according to the project id */
+  /** 是否忽略权限，直接根据project id拉取 */
   SkipPermission?: boolean;
-  /** Specify the resources to obtain a version of the project */
+  /** 指定获取某个版本的project的资源 */
   ProjectVersion?: Int64;
 }
 
@@ -139,11 +139,11 @@ export interface MGetProjectResourceInfoResponse {
 }
 
 export interface ProjectResourceListRequest {
-  /** Project ID */
+  /** 项目ID */
   project_id: string;
-  /** User space id */
+  /** 用户所在space id */
   space_id?: string;
-  /** Specify the resources to obtain a version of the project */
+  /** 指定获取某个版本的project的资源 */
   project_version?: string;
 }
 
@@ -154,13 +154,13 @@ export interface ProjectResourceListResponse {
 }
 
 export interface ProjectResourceListRpcRequest {
-  /** Project ID */
+  /** 项目ID */
   ProjectID?: Int64;
-  /** current user */
+  /** 当前的用户 */
   CurrentUserID?: Int64;
-  /** User space id */
+  /** 用户所在space id */
   SpaceID?: Int64;
-  /** Specify the resources to obtain a version of the project */
+  /** 指定获取某个版本的project的资源 */
   ProjectVersion?: Int64;
 }
 
@@ -169,14 +169,14 @@ export interface ProjectResourceListRpcResponse {
 }
 
 export interface ResourceCopyCanceledRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
 }
 
 export interface ResourceCopyCanceledResponse {}
 
 export interface ResourceCopyCancelRequest {
-  /** Copy task ID, used to query task status or cancel or retry tasks */
+  /** 复制任务id, 用于查询任务状态或取消、重试任务 */
   task_id?: string;
 }
 
@@ -186,14 +186,14 @@ export interface ResourceCopyCancelResponse {
 }
 
 export interface ResourceCopyCancelRpcRequest {
-  /** Project ID */
+  /** 项目ID */
   TaskID: Int64;
 }
 
 export interface ResourceCopyCancelRpcResponse {}
 
 export interface ResourceCopyDetailRequest {
-  /** Copy task ID, used to query task status or cancel or retry tasks */
+  /** 复制任务id, 用于查询任务状态或取消、重试任务 */
   task_id?: string;
 }
 
@@ -204,24 +204,24 @@ export interface ResourceCopyDetailResponse {
 }
 
 export interface ResourceCopyDispatchRequest {
-  /** Scenario, only supports the operation of a single resource */
+  /** 场景，只支持单资源的操作 */
   scene?: resource_common.ResourceCopyScene;
-  /** The resource ID selected by the user to copy/move */
+  /** 被用户选择复制/移动的资源ID */
   res_id?: string;
   res_type?: resource_common.ResType;
-  /** Project ID */
+  /** 所在项目ID */
   project_id?: string;
   res_name?: string;
-  /** Target space id for cross-space replication */
+  /** 跨空间复制的目标space id */
   target_space_id?: string;
 }
 
 export interface ResourceCopyDispatchResponse {
   code?: Int64;
   msg?: string;
-  /** Copy task ID, used to query task status or cancel or retry tasks */
+  /** 复制任务id, 用于查询任务状态或取消、重试任务 */
   task_id?: string;
-  /** The reason why the operation cannot be performed is to return multilingual text */
+  /** 不可以进行操作的原因，返回多语言文本 */
   failed_reasons?: Array<resource_common.ResourceCopyFailedReason>;
 }
 
@@ -230,24 +230,24 @@ export interface ResourceCopyDispatchRpcRequest {
   ResID?: Int64;
   ResType?: resource_common.ResType;
   ProjectID?: Int64;
-  /** The current user, the implementation is used to determine the authority */
+  /** 当前的用户，实现方用于判断权限 */
   CurrentUserID?: Int64;
   ResName?: string;
-  /** Target space id for cross-space replication */
+  /** 跨空间复制的目标space id */
   TargetSpaceID?: Int64;
 }
 
 export interface ResourceCopyDispatchRpcResponse {
-  /** Copy task ID, used to query task status or cancel or retry tasks */
+  /** 复制任务id, 用于查询任务状态或取消、重试任务 */
   TaskID?: Int64;
   FailedReasons?: Array<resource_common.ResourceCopyFailedReason>;
 }
 
 export interface ResourceCopyDoRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
   ResourceLocator?: resource_common.ResourceLocator;
-  /** The child resource map referenced by this resource */
+  /** 该资源引用的子资源映射 */
   ChildrenCopyResults?: Array<resource_common.ResourceCopyResult>;
 }
 
@@ -256,46 +256,46 @@ export interface ResourceCopyDoResponse {
 }
 
 export interface ResourceCopyEditLockRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
-  /** Resources to be manipulated */
+  /** 要被操作的资源 */
   ResourceLocators?: Array<resource_common.ResourceLocator>;
 }
 
 export interface ResourceCopyEditLockResponse {}
 
 export interface ResourceCopyEditUnlockRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
-  /** Resources to be manipulated */
+  /** 要被操作的资源 */
   ResourceLocators?: Array<resource_common.ResourceLocator>;
 }
 
 export interface ResourceCopyEditUnlockResponse {}
 
 export interface ResourceCopyPostProcessRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
-  /** Resources to be manipulated */
+  /** 要被操作的资源 */
   ResourceLocators?: Array<resource_common.ResourceLocator>;
 }
 
 export interface ResourceCopyPostProcessResponse {}
 
 export interface ResourceCopyPreCheckRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
-  /** Resources to be manipulated */
+  /** 要被操作的资源 */
   ResourceLocators?: Array<resource_common.ResourceLocator>;
 }
 
 export interface ResourceCopyPreCheckResponse {
-  /** The reason why the operation cannot be performed is to return multilingual text. If there is a problem, append to the array. */
+  /** 不可以进行操作的原因，返回多语言文本。有问题才append到数组 */
   FailedReasons?: Array<resource_common.ResourceCopyCheckFailedReason>;
 }
 
 export interface ResourceCopyRefChangeRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
   CopyResults?: Array<resource_common.ResourceCopyResult>;
 }
@@ -303,7 +303,7 @@ export interface ResourceCopyRefChangeRequest {
 export interface ResourceCopyRefChangeResponse {}
 
 export interface ResourceCopyRefTreeRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
   ResourceLocator?: resource_common.ResourceLocator;
 }
@@ -313,19 +313,19 @@ export interface ResourceCopyRefTreeResponse {
 }
 
 export interface ResourceCopyRetryRequest {
-  /** Copy task ID, used to query task status or cancel or retry tasks */
+  /** 复制任务id, 用于查询任务状态或取消、重试任务 */
   task_id?: string;
 }
 
 export interface ResourceCopyRetryResponse {
   code?: Int64;
   msg?: string;
-  /** The reason why the operation cannot be performed is to return multilingual text */
+  /** 不可以进行操作的原因，返回多语言文本 */
   failed_reasons?: Array<resource_common.ResourceCopyFailedReason>;
 }
 
 export interface ResourceCopyRetryRpcRequest {
-  /** Project ID */
+  /** 项目ID */
   TaskID: Int64;
 }
 
@@ -334,12 +334,12 @@ export interface ResourceCopyRetryRpcResponse {
 }
 
 export interface ResourceCopyTaskDetailRequest {
-  /** Project ID */
+  /** 项目ID */
   TaskID: Int64;
 }
 
 export interface ResourceCopyTaskDetailResponse {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
   CopyResults?: Array<resource_common.ResourceCopyResult>;
   Status?: resource_common.TaskStatus;
@@ -347,18 +347,18 @@ export interface ResourceCopyTaskDetailResponse {
 }
 
 export interface ResourceCopyVisibleRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
-  /** Resources to be manipulated */
+  /** 要被操作的资源 */
   ResourceLocators?: Array<resource_common.ResourceLocator>;
 }
 
 export interface ResourceCopyVisibleResponse {}
 
 export interface ResourceRefTreeInProjectRequest {
-  /** Project ID */
+  /** 项目ID */
   ProjectID: Int64;
-  /** No pass is a draft */
+  /** 不传就是草稿 */
   ProjectVersion?: Int64;
 }
 
@@ -367,12 +367,12 @@ export interface ResourceRefTreeInProjectResponse {
 }
 
 export interface ResourceTaskPreCheckRequest {
-  /** environmental parameters */
+  /** 环境参数 */
   ResourceCopyEnv?: resource_common.ResourceCopyEnv;
 }
 
 export interface ResourceTaskPreCheckResponse {
-  /** The reason why the operation cannot be performed is to return multilingual text. If there is a problem, append to the array. */
+  /** 不可以进行操作的原因，返回多语言文本。有问题才append到数组 */
   FailedReasons?: Array<resource_common.ResourceCopyCheckFailedReason>;
 }
 

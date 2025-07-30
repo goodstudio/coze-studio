@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import { type VariableProviderAbilityOptions } from '@flowgram-adapter/free-layout-editor';
 import {
   ASTKind,
@@ -75,7 +75,7 @@ export function createEffectFromVariableProvider(
           scope,
           options,
           formItem: undefined,
-          // @TS-expected-error New form engine not supported
+          // @ts-expect-error New form engine not supported
           triggerSync: undefined,
         });
 

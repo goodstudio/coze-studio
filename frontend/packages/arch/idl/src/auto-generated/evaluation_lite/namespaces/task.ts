@@ -24,21 +24,21 @@ import * as bot from './bot';
 
 export type Int64 = string | number;
 
-/** DataType data content type
+/** DataType 数据内容类型
  NEXT ID: 2 */
 export enum DataType {
   Undefined = 0,
-  /** plain text type */
+  /** 纯文本类型 */
   PlainText = 1,
   /** markdown */
   Markdown = 2,
 }
 
-/** Kind evaluation scene classification
+/** Kind 评测场景分类
  NEXT ID: 2 */
 export enum Kind {
   Undefined = 0,
-  /** Universal evaluation use case, which comes with the system by default */
+  /** 通用评估用例, 系统默认自带的 */
   Common = 1,
 }
 
@@ -57,307 +57,307 @@ export enum QueriesValueType {
  NEXT ID: 3 */
 export enum QueryType {
   Undefined = 0,
-  /** single round of dialogue */
+  /** 单轮对话 */
   Row = 1,
-  /** multiple rounds of dialogue */
+  /** 多轮对话 */
   RowGroup = 2,
 }
 
-/** TaskStatus measures task status
+/** TaskStatus 评测任务状态
  NEXT ID: 6 */
 export enum TaskStatus {
   Undefined = 0,
-  /** task creation */
+  /** 任务创建 */
   Creating = 1,
-  /** task execution */
+  /** 任务执行 */
   Processing = 2,
-  /** task terminated */
+  /** 任务终止 */
   Termination = 3,
-  /** Mission accomplished. */
+  /** 任务完成 */
   Completed = 4,
-  /** Mission failed */
+  /** 任务失败 */
   Error = 5,
 }
 
-/** BatchTask A evaluation scenario Evaluation task result
+/** BatchTask 某个评测场景评测任务结果
  NEXT ID: 10 */
 export interface BatchTask {
-  /** evaluation task ID */
+  /** 评测任务ID */
   batch_task_id?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   /** Bot ID */
   bot_id?: string;
-  /** task status */
+  /** 任务状态 */
   status?: TaskStatus;
-  /** start time */
+  /** 开始时间 */
   create_time_ms?: string;
-  /** update time */
+  /** 更新时间 */
   update_time_ms?: string;
-  /** founder */
+  /** 创建人 */
   creator?: user.User;
-  /** Review Bot Details */
+  /** 评测Bot详情 */
   bot_snapshot_version?: bot.BotSnapshotVersion;
-  /** evaluation scenario */
+  /** 评测场景 */
   scene?: Scene;
-  /** Task completion progress, keep 3 decimal places */
+  /** 任务完成进度，保留小数点后3位 */
   progress?: number;
-  /** Task error details to display */
+  /** 任务错误详情，用于展示 */
   err_msg?: string;
 }
 
-/** BatchTaskCheckInfo Return information for polling tasks
+/** BatchTaskCheckInfo 轮询任务的返回信息
  NEXT ID: 4 */
 export interface BatchTaskCheckInfo {
-  /** evaluation task ID */
+  /** 评测任务ID */
   batch_task_id?: string;
-  /** Evaluate task status */
+  /** 评测任务状态 */
   status?: TaskStatus;
 }
 
-/** BatchTaskReportDetail Mission Assessment Details
+/** BatchTaskReportDetail 任务评估明细
  NEXT ID: 6 */
 export interface BatchTaskReportDetail {
-  /** Task ID */
+  /** 任务ID */
   batch_task_id?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   /** Bot ID */
   bot_id?: string;
-  /** Column name entered */
+  /** 输入的列名 */
   columns?: Array<Column>;
-  /** line evaluation report */
+  /** 行评测报告 */
   row_reports?: Array<RowReport>;
 }
 
-/** Aggregate data BatchTaskReportOverall assessment scenario tasks
+/** BatchTaskReportOverall 评测场景任务的汇总数据
  NEXT ID: 11 */
 export interface BatchTaskReportOverall {
-  /** ID of the evaluation task */
+  /** 评测任务的ID */
   batch_task_id?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   /** Bot ID */
   bot_id?: string;
-  /** Detailed review Bot information */
+  /** 详细的评测Bot信息 */
   bot_snapshot_version?: bot.BotSnapshotVersion;
-  /** evaluation scene information */
+  /** 评测场景信息 */
   scene?: Scene;
-  /** Module summary score */
+  /** 模块汇总得分 */
   module_eval_report_overalls?: Array<ModuleEvalReportOverall>;
-  /** Total Tokens */
+  /** 总Token数 */
   token?: string;
-  /** total time spent */
+  /** 总耗时 */
   consuming_ms?: string;
-  /** start time */
+  /** 开始时间 */
   create_time_ms?: string;
-  /** founder */
+  /** 创建人 */
   creator?: user.User;
-  /** global total score */
+  /** 全局总分 */
   score?: string;
-  /** task status */
+  /** 任务状态 */
   status?: TaskStatus;
-  /** Task completion progress, keep 3 decimal places */
+  /** 任务完成进度，保留小数点后3位 */
   progress?: number;
-  /** Task error details to display */
+  /** 任务错误详情，用于展示 */
   err_msg?: string;
-  /** The results of the last evaluation task in the same scene are used for chain comparison */
+  /** 同个场景上次评测任务的结果，用于环比 */
   last_eval_task_res?: LastEvalTaskRes;
 }
 
-/** BatchTaskScore
+/** BatchTaskScore 任务评估打分
  NEXT ID: 5 */
 export interface BatchTaskScore {
-  /** Task ID */
+  /** 任务ID */
   batch_task_id?: string;
-  /** Space ID */
+  /** 空间ID */
   space_id?: string;
   /** Bot ID */
   bot_id?: string;
-  /** Module score information */
+  /** 模块得分信息 */
   module_rule_scores?: Array<ModuleRuleScore>;
 }
 
-/** Column Input Data Content Column Name
+/** Column 输入数据Content列名
  NEXT ID: 3 */
 export interface Column {
   column_id?: string;
   column_name?: string;
 }
 
-/** Content of the dataset
+/** Content 数据集的内容
  NEXT ID: 4 */
 export interface Content {
-  /** data type */
+  /** 数据类型 */
   data_type?: DataType;
-  /** plain text content */
+  /** 纯文本内容 */
   text?: string;
-  /** Markdown format */
+  /** markdown格式 */
   markdown_box?: MarkdownBox;
 }
 
-/** FieldMeta Mission Evaluation Report field meta information
+/** FieldMeta 任务评估报告字段meta信息
  NEXT ID: 4 */
 export interface FieldMeta {
-  /** Supported filtering actions, such as contains, equal */
+  /** 支持的筛选动作，如contains, equal */
   operations?: Array<QueriesOperation>;
-  /** Value types such as string, enum, tree */
+  /** value类型，如string, enum, tree */
   value_type?: QueriesValueType;
-  /** Value result */
+  /** value结果 */
   value_options?: Array<ValueOption>;
 }
 
-/** LastEvalTaskRes The result of the last evaluation task in the same scene, used for chain comparison
+/** LastEvalTaskRes 同个场景上次评测任务的结果，用于环比
  NEXT ID: 3 */
 export interface LastEvalTaskRes {
-  /** global total score */
+  /** 全局总分 */
   score?: string;
-  /** Module summary score */
+  /** 模块汇总得分 */
   module_eval_report_overalls?: Array<ModuleEvalReportOverall>;
 }
 
-/** MarkdownBox type, used to display markdown content, bytes are extended and modified based on standard markdown syntax
+/** MarkdownBox 类型，用于展示markdown内容，字节基于标准 markdown 语法进行了扩展和修改
  @flow-web/md-box: 
  NEXT ID: 2 */
 export interface MarkdownBox {
   text?: string;
 }
 
-/** Modules for evaluation
+/** Module 评测的模块
  NEXT ID: 4 */
 export interface Module {
-  /** Module ID */
+  /** 模块id */
   module_id?: string;
-  /** module name */
+  /** 模块名字 */
   name?: string;
-  /** Use case grouping under modules */
+  /** 模块下的用例分组 */
   sub_divisions?: Array<SubDivision>;
 }
 
-/** ModuleEvalReportOverall module summary score
+/** ModuleEvalReportOverall 模块汇总得分
  NEXT ID: 3 */
 export interface ModuleEvalReportOverall {
-  /** Module information */
+  /** 模块信息 */
   module?: Module;
-  /** score */
+  /** 得分 */
   score?: number;
 }
 
-/** ModuleRule module rule
+/** ModuleRule 模块规则
  NEXT ID: 3 */
 export interface ModuleRule {
   module?: Module;
   rules?: Array<RuleScore>;
 }
 
-/** ModuleRuleScore module rule score
+/** ModuleRuleScore 模块规则得分
  NEXT ID: 4 */
 export interface ModuleRuleScore {
-  /** Module information */
+  /** 模块信息 */
   module?: Module;
-  /** rule score */
+  /** 规则得分 */
   rule_scores?: Array<RuleScore>;
-  /** summary score */
+  /** 汇总得分 */
   score?: number;
 }
 
 export interface QueriesFilter {
-  /** Filter action */
+  /** 筛选动作 */
   operation: QueriesOperation;
-  /** ValueType = String, pass value here */
+  /** ValueType=String时，在此处传值 */
   string_value?: string;
-  /** ValueType = Enum/Tree, where the value is passed, or */
+  /** ValueType=Enum/Tree，在此处传值，或的关系 */
   enums?: Array<string>;
 }
 
-/** RowEvalReport evaluation results
+/** RowEvalReport 行评估结果数据
  NEXT ID: 5 */
 export interface RowEvalReport {
   /** input token */
   input_token?: string;
   /** output token */
   output_token?: string;
-  /** time consuming */
+  /** 耗时 */
   consuming_ms?: string;
 }
 
-/** RowReport
+/** RowReport 行数据评估报告
  NEXT ID: 10 */
 export interface RowReport {
-  /** Row ID */
+  /** 行ID */
   row_id?: string;
-  /** group ID */
+  /** 组ID */
   row_group_id?: string;
-  /** Use case input, corresponding to Columns */
+  /** 用例输入内容，对应Columns */
   contents?: Array<Content>;
-  /** output */
+  /** 输出 */
   output?: Content;
-  /** conversation type */
+  /** 对话类型 */
   query_type?: QueryType;
-  /** module rule */
+  /** 模块规则 */
   module_rules?: Array<ModuleRule>;
-  /** start time */
+  /** 开始时间 */
   create_time_ms?: string;
-  /** The evaluation results */
+  /** 行评估结果 */
   row_eval_report?: RowEvalReport;
 }
 
-/** Rules Evaluation Rules
+/** Rule 评测规则
  NEXT ID: 5 */
 export interface Rule {
-  /** rule id */
+  /** 规则id */
   rule_id?: string;
-  /** rule display name */
+  /** 规则展示名称 */
   rule_name?: string;
-  /** Evaluator ID */
+  /** 评估器id */
   evaluator_type?: string;
-  /** Evaluator name */
+  /** 评估器名称 */
   evaluator_type_name?: string;
 }
 
-/** RuleScore rule score
+/** RuleScore 规则得分
  NEXT ID: 6 */
 export interface RuleScore {
-  /** rule information */
+  /** 规则信息 */
   rule?: Rule;
-  /** Number of execution use cases */
+  /** 执行用例数量 */
   executed_case_count?: number;
-  /** Total number of use cases */
+  /** 总共用例数量 */
   total_case_count?: number;
-  /** time consuming */
+  /** 耗时 */
   consuming_ms?: string;
-  /** score */
+  /** 得分 */
   score?: number;
 }
 
-/** Scenes for evaluation
+/** Scene 评测的场景
  NEXT ID: 5 */
 export interface Scene {
-  /** Scene ID */
+  /** 场景id */
   scene_id?: string;
-  /** scene name */
+  /** 场景名字 */
   name?: string;
-  /** category */
+  /** 所属分类 */
   kind?: Kind;
-  /** Modules in the scene */
+  /** 场景下的模块 */
   modules?: Array<Module>;
 }
 
-/** Use Case Grouping for SubDivision Evaluation
+/** SubDivision 评测的用例分组
  NEXT ID: 3 */
 export interface SubDivision {
-  /** Packet ID */
+  /** 分组id */
   sub_division_id?: string;
-  /** group name */
+  /** 分组名字 */
   name?: string;
 }
 
 export interface ValueOption {
-  /** Parameters used by the front end for filtering */
+  /** 前端用来筛选的传参 */
   key?: string;
-  /** front-end display content */
+  /** 前端展示内容 */
   value?: string;
-  /** child content */
+  /** 子级内容 */
   SonValueOption?: Array<ValueOption>;
 }
 /* eslint-enable */

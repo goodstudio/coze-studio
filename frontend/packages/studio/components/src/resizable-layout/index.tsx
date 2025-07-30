@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 import {
   Children,
   type PropsWithChildren,
@@ -107,7 +107,7 @@ export const ResizableLayout: FC<PropsWithChildren<ResizableLayoutProps>> = ({
                     );
                   }
                 }
-                // @TS-expected-error -- skip type gymnastics
+                // @ts-expect-error -- skip type gymnastics
                 const { ref } = child;
                 if (typeof ref === 'function') {
                   ref(target);

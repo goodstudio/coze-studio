@@ -24,16 +24,16 @@ import * as model from './model';
 export type Int64 = string | number;
 
 export enum AnnotateType {
-  /** GSB evaluation rule scenarios, including only badcases */
+  /** GSB评估规则场景, 仅包含badcase */
   BadCase = 1,
 }
 
-/** subject type */
+/** 主体类型 */
 export enum AuthPrincipalType {
   Undefined = 0,
-  /** user */
+  /** 用户 */
   User = 1,
-  /** department */
+  /** 部门 */
   Department = 2,
 }
 
@@ -45,11 +45,11 @@ export enum ComboType {
 
 export enum CompareType {
   Undefined = 0,
-  /** SP comparison */
+  /** SP 比较 */
   SystemPromptCmp = 1,
-  /** model comparison */
+  /** 模型比较 */
   ModelCmp = 2,
-  /** free comparison */
+  /** 自由比较 */
   SelfCmp = 3,
 }
 
@@ -76,9 +76,9 @@ export enum Env {
 
 export enum EvalStrategyStrategyEnum {
   Undefined = 0,
-  /** The first phase only supports AIPaas GSB. */
+  /** 一期仅支持AIPaas GSB */
   AIPassGSB = 1,
-  /** Phase 2 migration to Fornax */
+  /** 二期迁移Fornax */
   FornaxEval = 2,
 }
 
@@ -90,9 +90,9 @@ export enum GrayReleaseFieldType {
 }
 
 export enum GrayReleaseStrategy {
-  /** Do not turn on grey release */
+  /** 不开启灰度 */
   None = 0,
-  /** Instance grey release */
+  /** 实例灰度 */
   InstanceGrayRelease = 1,
 }
 
@@ -111,26 +111,26 @@ export enum MessageType {
   Placeholder = 20,
 }
 
-/** Model family, especially for different model access providers */
+/** 模型系列，特别指不同模型接入商 */
 export enum ModelClass {
   Undefined = 0,
   /** gpt */
   GPT = 1,
-  /** Byte */
+  /** 字节 */
   SEED = 2,
   /** google */
   Gemini = 3,
-  /** Amazon */
+  /** 亚马逊 */
   Claude = 4,
-  /** ERNIE Bot */
+  /** 文心一言 */
   Ernie = 5,
-  /** baichuan */
+  /** 百川 */
   Baichuan = 6,
-  /** Ali */
+  /** 阿里 */
   Qwen = 7,
-  /** Zhipu */
+  /** 智谱 */
   GML = 8,
-  /** deep search */
+  /** 深度求索 */
   DeepSeek = 9,
 }
 
@@ -171,131 +171,131 @@ export enum OrderField {
   LastedPublishTime = 2,
 }
 
-/** Prompt encryption type */
+/** Prompt 加密类型 */
 export enum PromptEncryptOption {
   Undefined = 0,
-  /** Encrypt and return plaintext */
+  /** 加密且返回明文 */
   EncryptWithPlainText = 1,
-  /** Encrypt and do not return plaintext */
+  /** 加密且不返回明文 */
   EncryptWithoutPlainText = 2,
 }
 
-/** Cue word type */
+/** 提示词类型 */
 export enum PromptType {
   Undefined = 0,
-  /** Completion Mode */
+  /** 补全模式 */
   Completion = 1,
-  /** chat mode */
+  /** 聊天模式 */
   Chat = 2,
-  /** Completion Mode V2 */
+  /** 补全模式V2 */
   Completion_V2 = 3,
-  /** Prompt fragment */
+  /** Prompt片段 */
   Segment = 4,
 }
 
-/** release status */
+/** 发布状态 */
 export enum PublishStatus {
   Undefined = 0,
-  /** unpublished */
+  /** 未发布 */
   UnPublish = 1,
-  /** Published */
+  /** 已发布 */
   Published = 2,
 }
 
 export enum ReleaseStatus {
   Undefined = 0,
-  /** online */
+  /** 在线 */
   Online = 1,
-  /** go offline */
+  /** 下线 */
   Offline = 2,
-  /** Grey release (abandoned) */
+  /** 灰度中(废弃) */
   InGray = 3,
-  /** small traffic */
+  /** 小流量 */
   Canary = 4,
-  /** single computer room */
+  /** 单机房 */
   SingleDC = 5,
 }
 
 export enum ReleaseSubtaskStatus {
-  /** Not started */
+  /** 未开始 */
   PendingStart = 1,
-  /** in progress */
+  /** 进行中 */
   InProgress = 2,
-  /** Successful execution to be confirmed */
+  /** 执行成功待确认 */
   ExecuteSuccess = 3,
-  /** pending approval */
+  /** 待审批 */
   PendingApproval = 4,
-  /** approved */
+  /** 审批通过 */
   ApprovalPassed = 5,
-  /** approval rejected */
+  /** 审批驳回 */
   ApprovalRejected = 6,
-  /** Completed. */
+  /** 已完成 */
   Finished = 7,
-  /** fail */
+  /** 失败 */
   Failed = 8,
-  /** Skipped */
+  /** 已跳过 */
   Skipped = 9,
-  /** Rolled back */
+  /** 已回滚 */
   Rollbacked = 10,
-  /** Cancelled */
+  /** 已取消 */
   Canceled = 11,
 }
 
 export enum ReleaseTaskStatus {
-  /** Not started */
+  /** 未开始 */
   PendingStart = 1,
-  /** in progress */
+  /** 进行中 */
   Inprogress = 2,
-  /** pending approval */
+  /** 待审批 */
   PendingApproval = 3,
-  /** approved */
+  /** 审批通过 */
   ApprovalPass = 4,
-  /** approval rejected */
+  /** 审批驳回 */
   ApprovalRejected = 5,
-  /** Grey release */
+  /** 灰度发布中 */
   GrayReleasing = 6,
-  /** release complete */
+  /** 发布完成 */
   Finished = 7,
-  /** Cancelled */
+  /** 已取消 */
   Canceled = 8,
-  /** Rolled back */
+  /** 已回滚 */
   Rollbacked = 9,
 }
 
 export enum ReleaseType {
   Undefined = 0,
-  /** publish */
+  /** 发布 */
   Release = 1,
-  /** Rollback */
+  /** 回滚 */
   RollBack = 2,
-  /** go offline */
+  /** 下线 */
   Offline = 3,
-  /** Grey release (scrap) */
+  /** 灰度发布(废弃) */
   GrayRelease = 4,
-  /** Grey release cancelled (abandoned) */
+  /** 灰度取消（废弃） */
   GrayCancel = 5,
-  /** canary */
+  /** 小流量发布 */
   CanaryRelease = 6,
-  /** Single room release */
+  /** 单机房发布 */
   SingleDCRelease = 7,
 }
 
 export enum ReplyType {
-  /** Final result */
+  /** 最终结果 */
   ReplyTypeFinalAnswer = 0,
-  /** tool call */
+  /** 工具调用 */
   ReplyTypeToolCall = 1,
 }
 
 export enum ReportEventType {
   Undefined = 0,
-  /** Debugging the Official Prompt */
+  /** 调试官方 Prompt */
   DebugOfficialPrompt = 1,
-  /** Adopt the Official Prompt */
+  /** 采用官方 Prompt */
   AdoptOfficialPrompt = 2,
 }
 
-/** resource type */
+/** 资源类型 */
 export enum ResourceType {
   Undefined = 0,
   Space = 1,
@@ -306,7 +306,7 @@ export enum ResourceType {
   Agent = 6,
 }
 
-/** secret label */
+/** 密级标签 */
 export enum SecurityLevel {
   Undefined = 0,
   L1 = 1,
@@ -315,41 +315,41 @@ export enum SecurityLevel {
   L4 = 4,
 }
 
-/** Spatial character type */
+/** 空间角色类型 */
 export enum SpaceRoleType {
   Undefined = 0,
-  /** person in charge */
+  /** 负责人 */
   Owner = 1,
-  /** developer */
+  /** 开发者 */
   Developer = 2,
-  /** tester */
+  /** 测试人员 */
   Tester = 3,
 }
 
-/** space type */
+/** 空间类型 */
 export enum SpaceType {
   Undefined = 0,
   Personal = 1,
   Team = 2,
-  /** official space */
+  /** 官方空间 */
   Official = 3,
 }
 
 export enum StreamState {
-  /** non-streaming */
+  /** 非流式 */
   StreamStateNone = 1,
-  /** Streaming starts (first packet) */
+  /** 流式传输开始（首包） */
   StreamStateBegin = 2,
-  /** streaming */
+  /** 流式传输中 */
   StreamStateStreaming = 3,
-  /** End of churn transfer (tail packet) */
+  /** 流失传输结束（尾包） */
   StreamStateEnd = 4,
 }
 
 export enum TenantType {
-  /** Byte */
+  /** 字节 */
   ByteDance = 0,
-  /** Dcar */
+  /** 懂车帝 */
   Dcar = 1,
 }
 
@@ -366,27 +366,27 @@ export enum ToolType {
 }
 
 export enum TriggerOperation {
-  /** start */
+  /** 开始 */
   Start = 1,
-  /** approved */
+  /** 审批通过 */
   ApprovalPass = 2,
-  /** approval rejected */
+  /** 审批驳回 */
   ApprovalReject = 3,
-  /** complete */
+  /** 完成 */
   Finish = 4,
-  /** Retry */
+  /** 重试 */
   Retry = 5,
-  /** skip */
+  /** 跳过 */
   Skip = 6,
-  /** Next step (currently automatically triggered, no front-end trigger is required) */
+  /** 下一步(目前自动触发，不需要前端触发) */
   Next = 7,
 }
 
-/** Variable type */
+/** 变量类型 */
 export enum VariableType {
   Undefined = 0,
   String = 1,
-  /** Deprecated, using Number does not partition integers and floating-point numbers */
+  /** 废弃，使用Number 不分区整数和浮点数 */
   Integer = 2,
   Boolean = 3,
   Number = 4,
@@ -410,89 +410,89 @@ export interface AccessPointConfigDef {
 }
 
 export interface AllowList {
-  /** Traffic ID field */
+  /** 流量标识字段 */
   field?: GrayReleaseField;
-  /** list value */
+  /** 名单取值 */
   values?: Array<string>;
 }
 
 export interface AnnotatedDataset {
-  /** Annotated dataset metadata */
+  /** 标注数据集元信息 */
   meta?: AnnotateMeta;
   dataset_id?: Int64;
 }
 
 export interface AnnotateMeta {
-  /** Data annotation type */
+  /** 数据标注类型 */
   type?: AnnotateType;
-  /** Required field */
+  /** 必填字段 */
   required_cols?: Array<string>;
 }
 
 export interface ApprovalInfo {
-  /** Approver */
+  /** 审批人 */
   approver?: string;
-  /** Whether the approval is passed */
+  /** 审批是否通过 */
   approval_pass?: boolean;
-  /** Approval remarks */
+  /** 审批备注 */
   approval_comment?: string;
-  /** approval time */
+  /** 审批时间 */
   approval_time?: Int64;
 }
 
-/** operation information */
+/** 操作信息 */
 export interface AuthAction {
-  /** unique identifier */
+  /** 唯一标识 */
   unique_key?: string;
-  /** Operation display name */
+  /** 操作展示名称 */
   name?: string;
-  /** Entity type, century does not bind entities, only records operation objects */
+  /** 实体类型，世纪不绑定实体，仅记录操作对象 */
   entity_type?: string;
 }
 
-/** authentication department */
+/** 鉴权部门 */
 export interface AuthDepartment {
-  /** Department ID */
+  /** 部门ID */
   department_id?: string;
 }
 
-/** Authentication resources, objects */
+/** 鉴权资源，客体 */
 export interface AuthEntity {
-  /** entity unique ID */
+  /** 实体唯一ID */
   id?: string;
-  /** entity type */
+  /** 实体类型 */
   entity_type?: string;
 }
 
-/** Authentication subject */
+/** 鉴权主体 */
 export interface AuthPrincipal {
-  /** subject type */
+  /** 主体类型 */
   auth_principal_type?: AuthPrincipalType;
-  /** authenticated user */
+  /** 鉴权用户 */
   auth_user?: AuthUser;
-  /** authentication department */
+  /** 鉴权部门 */
   auth_department?: AuthDepartment;
 }
 
-/** Role Information */
+/** 角色信息 */
 export interface AuthRole {
-  /** unique identifier */
+  /** 唯一标识 */
   unique_key?: string;
-  /** character display name */
+  /** 角色展示名称 */
   name?: string;
-  /** Associated Action List */
+  /** 关联的Action列表 */
   actions?: Array<AuthAction>;
-  /** entity type */
+  /** 实体类型 */
   entity_type?: string;
 }
 
-/** authenticated user */
+/** 鉴权用户 */
 export interface AuthUser {
-  /** sso_username, just pass one with openUserID */
+  /** sso_username，与openUserID传一个即可 */
   sso_user_id?: string;
   /** fornax userID */
   open_user_id?: string;
-  /** tenant type */
+  /** 租户类型 */
   tenant?: TenantType;
 }
 
@@ -502,9 +502,9 @@ export interface BinaryContent {
 }
 
 export interface BlockList {
-  /** Traffic ID field */
+  /** 流量标识字段 */
   field?: GrayReleaseField;
-  /** list value */
+  /** 名单取值 */
   values?: Array<string>;
 }
 
@@ -513,15 +513,15 @@ export interface ComboCondition {
   conditions?: Array<Condition>;
 }
 
-/** Training ground comparison configuration */
+/** 训练场比较配置 */
 export interface CompareConfig {
   compare_type?: CompareType;
-  /** JSON serialization stores comparison content */
+  /** JSON序列化存储比较内容 */
   compare_info?: string;
 }
 
 export interface Condition {
-  /** condition type */
+  /** 条件类型 */
   condition_type?: ConditionType;
   expr?: OperatorExpr;
   combo_condition?: ComboCondition;
@@ -529,13 +529,13 @@ export interface Condition {
 
 export interface ContentPart {
   type?: ContentType;
-  /** text content */
+  /** 文本内容 */
   text?: string;
-  /** image URL */
+  /** 图片URL */
   image?: Image;
-  /** binary content */
+  /** 二进制内容 */
   binary_content?: BinaryContent;
-  /** configuration */
+  /** 配置 */
   config?: ContentPartConfig;
 }
 
@@ -544,53 +544,53 @@ export interface ContentPartConfig {
 }
 
 export interface DebugBrief {
-  /** debug log ID */
+  /** 调试记录 ID */
   debug_id?: Int64;
-  /** Debugging Prompt Information */
+  /** 调试 Prompt 缩略信息 */
   prompt_brief?: string;
-  /** Response result, 0 indicates success */
+  /** 响应结果，0表示成功 */
   status_code?: number;
-  /** Request initiation time (corresponding to the start time of the first step in single-step debugging mode) */
+  /** 请求发起时间（单步调试模式下对应第一步的开始时间） */
   start_time_ms?: Int64;
-  /** time consuming */
+  /** 耗时 */
   cost_ms?: Int64;
-  /** Response final completion time (corresponding to the last step completion time in single-step debugging mode) */
+  /** 响应最终完成时间（单步调试模式下对应最后一步的完成时间） */
   end_time_ms?: Int64;
-  /** Enter Number of Tokens */
+  /** 输入 Token 数 */
   input_token?: Int64;
-  /** Number of Tokens Output */
+  /** 输出 Token 数 */
   output_token?: Int64;
 }
 
 export interface DebugDetail {
-  /** Enter content, reserve 1-20
-debug log ID */
+  /** 输入内容，预留 1-20
+调试记录 ID */
   debug_id?: Int64;
-  /** System Prompt and Model Configuration */
+  /** System Prompt和模型配置 */
   prompt?: Prompt;
-  /** user input message */
+  /** 用户输入消息 */
   message?: Message;
-  /** chat history */
+  /** 历史消息 */
   contexts?: Array<Message>;
-  /** variable value list */
+  /** 变量值列表 */
   variables?: Array<Variable>;
-  /** Operator UserID */
+  /** 操作人 UserID */
   operator?: string;
-  /** Output content, reserved 21-40 */
+  /** 输出内容，预留 21-40 */
   log_id?: string;
   status_code?: number;
   status_message?: string;
-  /** request initiation time */
+  /** 请求发起时间 */
   start_time_ms?: Int64;
-  /** response final completion time */
+  /** 响应最终完成时间 */
   end_time_ms?: Int64;
-  /** time consuming */
+  /** 耗时 */
   cost_ms?: Int64;
-  /** Full text of the reply message */
+  /** 回复信息全文 */
   item?: ReplyItem;
-  /** Prompt after parameter replacement */
+  /** 参数替换后的 Prompt */
   real_prompt?: PromptText;
-  /** tool call */
+  /** 工具调用 */
   tool_calls?: Array<ToolCallCombine>;
 }
 
@@ -609,7 +609,7 @@ export interface ErrInfo {
 }
 
 export interface EvalCaseSource {
-  /** Evaluation Use Case ID */
+  /** 评估用例ID */
   eval_case_id?: Int64;
 }
 
@@ -624,9 +624,9 @@ export interface EvalResultStat {
 }
 
 export interface EvalStrategy {
-  /** evaluate */
+  /** 评估 */
   strategy?: EvalStrategyStrategyEnum;
-  /** Associated Forna evaluation use cases, the evaluation strategy is FornaxEval is Assignment */
+  /** 关联的Forna评估用例，评估策略为FornaxEval是赋值 */
   eval_case_source?: EvalCaseSource;
 }
 
@@ -642,29 +642,29 @@ export interface FunctionCall {
 }
 
 export interface GrayReleaseBucket {
-  /** Traffic ID field */
+  /** 流量标识字段 */
   field?: GrayReleaseField;
-  /** Grey release percentage */
+  /** 灰度占比 */
   in_gray?: number;
-  /** Grey release base, such as bucket_size = 1000, in_gray = 1, then 1/1000 of the traffic will hit grey release */
+  /** 灰度基数，如bucket_size=1000,in_gray=1,则1/1000的流量会命中灰度 */
   bucket_size?: number;
 }
 
 export interface GrayReleaseConfig {
-  /** whitelist */
+  /** 白名单 */
   allow_list?: AllowList;
-  /** blacklist */
+  /** 黑名单 */
   block_list?: BlockList;
-  /** Grey release barrel */
+  /** 灰度桶 */
   bucket?: GrayReleaseBucket;
-  /** filter condition */
+  /** 过滤条件 */
   condition?: Condition;
 }
 
 export interface GrayReleaseField {
-  /** Grey release field type */
+  /** 灰度字段类型 */
   type?: GrayReleaseFieldType;
-  /** When the grey release field is customKey, fill in the corresponding key */
+  /** 灰度字段为customKey时，填写对应的key */
   custom_key?: string;
 }
 
@@ -731,15 +731,15 @@ export interface MCPServerCombine {
   name?: string;
   tools?: Array<Tool>;
   access_point_id?: Int64;
-  /** Environment, BOE/PPE/Online */
+  /** 环境，BOE/PPE/Online */
   env?: string;
-  /** lane */
+  /** 泳道 */
   lane?: string;
-  /** Server Description */
+  /** Server描述 */
   description?: string;
-  /** Whether to support publishing with prompt */
+  /** 是否支持与prompt一起发布 */
   is_publish_supported?: boolean;
-  /** MCP Access Point Configuration */
+  /** MCP接入点配置 */
   access_point_config?: AccessPointConfig;
 }
 
@@ -750,23 +750,23 @@ export interface Message {
   content?: string;
   tool_calls?: Array<ToolCallCombine>;
   tool_call_id?: string;
-  /** Message content sharding */
+  /** 消息内容分片 */
   parts?: Array<ContentPart>;
-  /** Message metadata */
+  /** 消息元数据 */
   metadata?: Record<string, string>;
-  /** Encrypted message content */
+  /** 加密后的消息内容 */
   encrypt_content?: string;
 }
 
-/** model information */
+/** 模型信息 */
 export interface Model {
-  /** Model ID */
+  /** 模型ID */
   id?: Int64;
-  /** Model name */
+  /** 模型名称 */
   name?: string;
-  /** Model series */
+  /** 模型系列 */
   model_class?: ModelClass;
-  /** model limit */
+  /** 模型限额 */
   model_quota?: ModelQuota;
   temperature?: ModelParameter;
   top_k?: ModelParameter;
@@ -775,13 +775,13 @@ export interface Model {
   json_mode_enable?: boolean;
 }
 
-/** model configuration data */
+/** 模型配置数据 */
 export interface ModelConfig {
-  /** Model ID */
+  /** 模型ID */
   id?: Int64;
-  /** Model name */
+  /** 模型名称 */
   name?: string;
-  /** Model series */
+  /** 模型系列 */
   model_class?: ModelClass;
   temperature?: number;
   max_tokens?: number;
@@ -792,35 +792,35 @@ export interface ModelConfig {
   function_call_mode?: boolean;
   presence_penalty?: number;
   frequency_penalty?: number;
-  /** model provider */
+  /** 模型提供方 */
   provider?: model.Provider;
-  /** The model unique identifier of the model provider (for scenarios where saas cannot pass modelID) */
+  /** 模型提供方的模型唯一标识（应对saas无法传modelID的场景） */
   provider_model_id?: string;
-  /** Thinking parameter */
+  /** thinking参数 */
   thinking?: ThinkingConfig;
-  /** Model extra parameters will be deserialized into the request that specifically invokes the model, with a lower priority than the explicitly declared parameters above */
+  /** 模型额外参数，会反序列化到具体调用模型的request中，优先级低于上述显式声明的参数 */
   extra?: string;
 }
 
-/** model parameters */
+/** 模型参数 */
 export interface ModelParameter {
-  /** Model parameter name */
+  /** 模型参数名称 */
   name?: string;
-  /** default value */
+  /** 默认值 */
   default_value?: string;
-  /** current value */
+  /** 当前值 */
   value?: string;
-  /** step size */
+  /** 步长 */
   step?: string;
-  /** minimum value */
+  /** 最小值 */
   min?: string;
-  /** maximum value */
+  /** 最大值 */
   max?: string;
 }
 
-/** model constraint */
+/** 模型约束 */
 export interface ModelQuota {
-  /** Token limit */
+  /** token限制 */
   token_limit?: Int64;
 }
 
@@ -831,7 +831,7 @@ export interface OperatorExpr {
 }
 
 export interface OptimizeEngineSource {
-  /** Associated task ID */
+  /** 关联的任务ID */
   task_id?: string;
   optimize_engine?: OptimizeEngine;
 }
@@ -839,88 +839,88 @@ export interface OptimizeEngineSource {
 export interface OptimizeExecution {
   id?: Int64;
   status?: OptimizeExecutionStatus;
-  /** Curing DataSet */
+  /** 固化DataSet */
   dataset?: AnnotatedDataset;
-  /** Optimized object entity snapshot when running Task, including version information */
+  /** run Task时候的优化对象实体snapshot，包含版本信息 */
   optimize_target?: OptimizeTarget;
-  /** Outcome evaluation Evaluation strategy snapshot */
+  /** 结果评估评估策略snapshot */
   eval_startegy?: EvalStrategy;
-  /** Associated optimization task resources */
+  /** 关联的优化任务资源 */
   optimize_engine_source?: OptimizeEngineSource;
-  /** Overall task time */
+  /** 任务整体耗时 */
   cost_ms?: Int64;
-  /** Task start time */
+  /** 任务开始执行时间 */
   start_time_ms?: Int64;
-  /** Task execution completion time */
+  /** 任务执行完成时间 */
   end_time_ms?: Int64;
   creator_id?: string;
   space_id?: Int64;
   log_id?: string;
   task_id?: Int64;
-  /** creation time */
+  /** 创建时间 */
   create_tsms?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_tsms?: Int64;
 }
 
 export interface OptimizeResult {
-  /** optimization results
-The serial number in the optimization result */
+  /** 优化结果
+在优化结果里的序列号 */
   sequence_id?: string;
-  /** associated optimization execution record ID */
+  /** 关联的优化执行记录ID */
   execution_id?: Int64;
-  /** Evaluation result object */
+  /** 评估结果对象 */
   optimize_result?: OptimizeTarget;
-  /** evaluation result
-The sample size or accuracy of the model's correct predictions */
+  /** 评估结果
+模型正确预测的样本比例或准确率 */
   accuracy?: number;
-  /** The sample size or accuracy of the model's correct predictions */
+  /** 模型正确预测的样本比例或准确率 */
   eval_result_stat?: EvalResultStat;
-  /** The first phase evaluation results structure, the second phase is expected to reuse Fornax evaluation Dashboard */
+  /** 一期评估结果结构, 二期预计复用Fornax评测Dashboard */
   row_eval_result_group?: Array<RowEvalResult>;
-  /** Associated evaluation task resources */
+  /** 关联评测任务资源 */
   eval_case_source?: EvalCaseSource;
 }
 
 export interface OptimizeTarget {
-  /** Object type to be optimized */
+  /** 待优化对象类型 */
   type?: OptimizeTargetType;
-  /** The data structure corresponding to the prompt type */
+  /** prompt类型对应的数据结构 */
   prompt?: PromptOpTarget;
 }
 
 export interface OptimizeTask {
   /** Task ID */
   id?: Int64;
-  /** Task name */
+  /** Task名称 */
   display_name?: string;
-  /** Task Description */
+  /** Task描述 */
   description?: string;
-  /** optimization object */
+  /** 优化对象 */
   target?: OptimizeTarget;
-  /** creator ID */
+  /** 创建者ID */
   creator?: string;
-  /** creation time */
+  /** 创建时间 */
   create_tsms?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_tsms?: Int64;
-  /** Is the list visible? */
+  /** 是否列表可见 */
   visible?: boolean;
-  /** annotated dataset */
+  /** 标注数据集 */
   annotated_dataset?: AnnotatedDataset;
-  /** Evaluation rules */
+  /** 评估规则 */
   eval_strategy?: EvalStrategy;
-  /** optimization engine */
+  /** 优化引擎 */
   optimize_engine?: OptimizeEngine;
   space_id?: Int64;
-  /** The associated run record, the list interface only returns the most recent one */
+  /** 关联的运行记录，list接口只返回最近一条 */
   executions?: Array<OptimizeExecution>;
 }
 
 export interface OrderParam {
-  /** sort field */
+  /** 排序字段 */
   order_by?: OrderField;
-  /** Is it ascending? */
+  /** 是否升序 */
   asc?: boolean;
 }
 
@@ -928,118 +928,118 @@ export interface OrderParam {
 export interface Prompt {
   /** Prompt ID */
   id?: Int64;
-  /** unique identifier */
+  /** 唯一标识 */
   prompt_key?: string;
-  /** Prompt name */
+  /** Prompt名称 */
   display_name?: string;
-  /** Prompt description */
+  /** Prompt描述 */
   description?: string;
-  /** Prompt type */
+  /** Prompt类型 */
   prompt_type?: PromptType;
-  /** creator ID */
+  /** 创建者ID */
   creator?: string;
-  /** creation time */
+  /** 创建时间 */
   create_tsms?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_tsms?: Int64;
-  /** release status */
+  /** 发布状态 */
   status?: PublishStatus;
-  /** version */
+  /** 版本 */
   version?: string;
-  /** model configuration */
+  /** 模型配置 */
   model_config?: ModelConfig;
   /** PromptText */
   prompt_text?: PromptText;
-  /** Prompt input */
+  /** Prompt输入 */
   prompt_input?: PromptInput;
-  /** publish information */
+  /** 发布信息 */
   publish_info?: PromptPublishInfo;
-  /** label */
+  /** 标签 */
   labels?: Array<Label>;
-  /** popularity */
+  /** 热度 */
   heat?: Int64;
-  /** Is it a draft? */
+  /** 是否为草稿 */
   is_draft?: boolean;
-  /** draft associated version */
+  /** 草稿关联版本 */
   draft_base_version?: string;
-  /** Tool Definition */
+  /** 工具定义 */
   tools?: Array<ToolCombine>;
-  /** Publish final information */
+  /** 发布最终信息 */
   infos?: Array<ReleaseInfo>;
-  /** secret label */
+  /** 密级标签 */
   security_level?: SecurityLevel;
   tool_call_config?: ToolCallConfig;
-  /** Types of template engines */
+  /** 模版引擎的类型 */
   template_type?: string;
-  /** metadata */
+  /** 元数据 */
   metadata?: Record<string, string>;
-  /** Whether to nest Prompt fragments */
+  /** 是否嵌套Prompt片段 */
   has_segment?: boolean;
-  /** Label (only used by the platform interface, PromptHub is temporarily unavailable) */
+  /** 标签(仅平台接口使用，PromptHub暂时无法获取) */
   tags?: Array<Tag>;
-  /** Whether to debug in batches */
+  /** 是否批量调试 */
   is_batch_debug?: boolean;
-  /** creator information */
+  /** 创建人信息 */
   creator_info?: UserInfo;
-  /** Drafts are based on BaseVersion */
+  /** 草稿基于BaseVersion是否有编辑 */
   is_draft_edited?: boolean;
-  /** MCP service list */
+  /** MCP服务列表 */
   mcp_servers?: Array<MCPServerCombine>;
-  /** The previous version associated with the version snapshot */
+  /** 版本快照关联的上一个版本 */
   snapshot_base_version?: string;
 }
 
-/** Prompt basic information, excluding version-related details */
+/** Prompt 基础信息，不含版本相关的详情内容 */
 export interface PromptBasic {
   /** Prompt ID */
   id?: Int64;
-  /** unique identifier */
+  /** 唯一标识 */
   prompt_key?: string;
-  /** Prompt name */
+  /** Prompt名称 */
   display_name?: string;
-  /** Prompt description */
+  /** Prompt描述 */
   description?: string;
-  /** creator ID */
+  /** 创建者ID */
   creator?: string;
-  /** creation time */
+  /** 创建时间 */
   create_tsms?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_tsms?: Int64;
-  /** commit status */
+  /** 提交状态 */
   status?: PublishStatus;
-  /** last committed version */
+  /** 最后提交版本 */
   last_publish_version?: string;
-  /** secret label */
+  /** 密级标签 */
   security_level?: SecurityLevel;
 }
 
-/** Prompt input */
+/** Prompt输入 */
 export interface PromptInput {
   variables?: Array<Variable>;
 }
 
 export interface PromptOpTarget {
-  /** Prompt unique identifier */
+  /** Prompt唯一标识 */
   prompt_key?: string;
-  /** version */
+  /** 版本 */
   prompt_version?: string;
-  /** Prompt content, scene-specific assignment */
+  /** Prompt内容，特定场景赋值 */
   prompt_text?: PromptText;
-  /** Prompt name */
+  /** Prompt名称 */
   prompt_name?: string;
   /** PromptID */
   prompt_id?: Int64;
 }
 
-/** publish information */
+/** 发布信息 */
 export interface PromptPublishInfo {
-  /** publisher */
+  /** 发布者 */
   publisher?: string;
-  /** release description */
+  /** 发布描述 */
   publish_description?: string;
-  /** release time */
+  /** 发布时间 */
   publish_tsms?: Int64;
-  /** Publisher Details */
+  /** 发布者详情 */
   publisher_info?: UserInfo;
 }
 
@@ -1054,62 +1054,62 @@ export interface PromptText {
 }
 
 export interface QualityInspectionInfo {
-  /** Is there a lack of a quality inspection strategy? */
+  /** 是否缺少质检策略 */
   is_guard_missing?: boolean;
-  /** QC ID */
+  /** 质检id */
   guard_id?: Int64;
-  /** Quality inspection link */
+  /** 质检链接 */
   guard_url?: string;
 }
 
 export interface ReleaseApprovalConfig {
-  /** Whether to open the review */
+  /** 是否开启审核 */
   enable?: boolean;
-  /** Grey release strategy */
+  /** 灰度策略 */
   gray_release_strategy?: GrayReleaseStrategy;
 }
 
 export interface ReleaseConfig {
-  /** Whether grey release (no longer valid, obsolete) */
+  /** 是否灰度发布(不再生效，废弃) */
   if_gray_release?: boolean;
-  /** Grey release configuration (no longer valid, deprecated) */
+  /** 灰度发布配置(不再生效，废弃) */
   gray_release_config?: GrayReleaseConfig;
-  /** Whether to escape approval */
+  /** 是否逃逸审批 */
   approval_escape?: boolean;
-  /** Escape Approval Remarks */
+  /** 逃逸审批备注 */
   approval_escape_comment?: string;
-  /** Grey release strategy */
+  /** 灰度发布策略 */
   gray_release_strategy?: GrayReleaseStrategy;
-  /** Escape grey release note */
+  /** 逃逸灰度发布备注 */
   gray_release_escape_comment?: string;
-  /** Whether the release review is turned on when the ticket is created */
+  /** 创建工单时空间是否开启发布审核 */
   space_approval_enable?: boolean;
-  /** Space grey release policy when creating a ticket */
+  /** 创建工单时空间灰度发布策略 */
   space_gray_release_strategy?: GrayReleaseStrategy;
 }
 
 export interface ReleaseInfo {
   /** release id */
   id?: Int64;
-  /** version */
+  /** 版本 */
   version?: string;
-  /** The previous released version */
+  /** 上一个发布的版本 */
   pre_version?: string;
-  /** environment */
+  /** 环境 */
   env?: Env;
-  /** lane */
+  /** 泳道 */
   feature?: string;
-  /** publisher */
+  /** 发布人 */
   publisher?: string;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time?: Int64;
-  /** Grey release configuration */
+  /** 灰度发布配置 */
   gray_release_config?: GrayReleaseConfig;
-  /** release status */
+  /** 发布状态 */
   status?: ReleaseStatus;
-  /** Publish label */
+  /** 发布label */
   label?: string;
 }
 
@@ -1121,97 +1121,97 @@ export interface ReleaseResource {
 }
 
 export interface ReleaseSubtask {
-  /** subtask id */
+  /** 子任务id */
   id?: Int64;
-  /** Publish ticket id */
+  /** 发布工单id */
   release_task_id?: Int64;
-  /** Subtask unique identifier */
+  /** 子任务唯一标识 */
   subtask_key?: string;
-  /** subtask state */
+  /** 子任务状态 */
   status?: ReleaseSubtaskStatus;
-  /** starter */
+  /** 开始人 */
   trigger_user?: string;
-  /** Finisher */
+  /** 完成人 */
   finish_user?: string;
-  /** skip person */
+  /** 跳过人 */
   skip_user?: string;
-  /** approval information */
+  /** 审批信息 */
   approval_info?: ApprovalInfo;
-  /** error message */
+  /** 错误信息 */
   err_info?: ErrInfo;
-  /** start time */
+  /** 开始时间 */
   start_time?: Int64;
-  /** completion time */
+  /** 完成时间 */
   finish_time?: Int64;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time?: Int64;
-  /** subtask additional information */
+  /** 子任务额外信息 */
   subtask_extra?: SubtaskExtra;
-  /** CRCC stage id */
+  /** crcc阶段id */
   crcc_stage_id?: string;
 }
 
 export interface ReleaseSubtaskConfig {
-  /** Subtask unique identifier */
+  /** 子任务唯一标识 */
   subtask_key?: string;
-  /** subtask display name */
+  /** 子任务展示名称 */
   display_name?: string;
-  /** subtask description */
+  /** 子任务描述 */
   desc?: string;
-  /** Can be skipped */
+  /** 是否可跳过 */
   skippable?: boolean;
-  /** Can you try again? */
+  /** 是否可重试 */
   retryable?: boolean;
-  /** Is approval required? */
+  /** 是否需要审批 */
   approval_required?: boolean;
 }
 
 export interface ReleaseTask {
-  /** Publish ticket id */
+  /** 发布工单id */
   id?: Int64;
-  /** Space ID */
+  /** 空间id */
   space_id?: Int64;
-  /** Publish resource list */
+  /** 发布资源列表 */
   release_resources?: Array<ReleaseResource>;
-  /** release environment */
+  /** 发布环境 */
   env?: Env;
-  /** launch lane */
+  /** 发布泳道 */
   feature?: string;
-  /** publish configuration */
+  /** 发布配置 */
   release_config?: ReleaseConfig;
-  /** Post a note */
+  /** 发布备注 */
   comment?: string;
-  /** publisher */
+  /** 发布人 */
   release_user?: string;
-  /** Cancel publisher */
+  /** 取消发布人 */
   cancel_user?: string;
-  /** Rollback Person */
+  /** 回滚人 */
   rollback_user?: string;
-  /** release status */
+  /** 发布状态 */
   status?: ReleaseTaskStatus;
-  /** subtask configuration */
+  /** 子任务配置 */
   subtask_configs?: Array<ReleaseSubtaskConfig>;
-  /** Current subtask key */
+  /** 当前子任务key */
   current_subtask_key?: string;
-  /** Subtask list (current status information) */
+  /** 子任务列表(当前状态信息) */
   subtasks?: Record<string, ReleaseSubtask>;
-  /** Can it be cancelled? */
+  /** 是否可取消 */
   cancelable?: boolean;
-  /** Can it be rolled back? */
+  /** 是否可回滚 */
   rollbackable?: boolean;
-  /** start time */
+  /** 开始时间 */
   start_time?: Int64;
-  /** completion time */
+  /** 完成时间 */
   finish_time?: Int64;
-  /** creation time */
+  /** 创建时间 */
   create_time?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_time?: Int64;
-  /** Callback event id */
+  /** 回调事件id */
   crcc_event_id?: string;
-  /** Publish label */
+  /** 发布label */
   label?: string;
 }
 
@@ -1223,11 +1223,11 @@ export interface ReplyItem {
   tool_calls?: Array<ToolCallCombine>;
   debug_trace_key?: string;
   reasoning_content?: string;
-  /** multimodal content return */
+  /** 多模态内容返回 */
   parts?: Array<ContentPart>;
   finish_reason?: string;
   prompt_version?: string;
-  /** Tool Execution Results */
+  /** Tool执行结果 */
   tool_call_responses?: Array<ToolCallResponse>;
 }
 
@@ -1239,90 +1239,90 @@ export interface ReportEvent {
 export interface RowEvalResult {
   input?: string;
   output_before?: string;
-  /** Pre-optimization evaluation results */
+  /** 优化前的评估结果 */
   eval_before?: string;
   output_after?: string;
-  /** evaluation result */
+  /** 评估结果 */
   eval_result?: EvalResult;
-  /** extra variable */
+  /** 额外变量 */
   variables?: Record<string, string>;
 }
 
-/** space */
+/** 空间 */
 export interface Space {
-  /** Space ID */
+  /** 空间ID */
   id?: Int64;
-  /** space name */
+  /** 空间名称 */
   name?: string;
-  /** spatial description */
+  /** 空间描述 */
   description?: string;
-  /** space type */
+  /** 空间类型 */
   space_type?: SpaceType;
-  /** Space creator */
+  /** 空间创建人 */
   creator?: string;
-  /** creation time */
+  /** 创建时间 */
   create_tsms?: Int64;
-  /** update time */
+  /** 更新时间 */
   update_tsms?: Int64;
-  /** release moderation configuration */
+  /** 发布审核配置 */
   release_approval_config?: ReleaseApprovalConfig;
-  /** Spatial sources */
+  /** 空间来源 */
   space_origin?: string;
 }
 
-/** space member */
+/** 空间成员 */
 export interface SpaceMember {
-  /** Space ID */
+  /** 空间ID */
   space_id?: Int64;
-  /** member */
+  /** 成员 */
   member?: AuthPrincipal;
-  /** Spatial character type */
+  /** 空间角色类型 */
   space_role_type?: SpaceRoleType;
 }
 
-/** Subject + object + permission spot, authentication result */
+/** 主体+客体+权限点，鉴权结果 */
 export interface SubjectActionObjectAuthRes {
-  /** Subject + object + permission spot authentication pair */
+  /** 主体+客体+权限点 鉴权对 */
   subject_action_objects?: SubjectActionObjects;
-  /** Is it allowed? */
+  /** 是否允许 */
   is_allowed?: boolean;
 }
 
-/** Subject + object + permission spot, authentication combination information */
+/** 主体+客体+权限点，鉴权组合信息 */
 export interface SubjectActionObjects {
-  /** Subject, usually the user when authenticating */
+  /** 主体，鉴权时通常为用户 */
   subject?: AuthPrincipal;
-  /** permission unique identifier */
+  /** 权限唯一标识 */
   action?: string;
-  /** Object list, handled by default according to the logic of or */
+  /** 客体列表，默认按照或的逻辑处理 */
   objects?: Array<AuthEntity>;
 }
 
-/** Subject + Object + Role */
+/** 主体+客体+角色 */
 export interface SubjectRoleObject {
-  /** Principal, when authorized, user or department */
+  /** 主体，授权时可以时用户或部门 */
   subject?: AuthPrincipal;
-  /** Role Information */
+  /** 角色信息 */
   role?: AuthRole;
-  /** object */
+  /** 客体 */
   object?: AuthEntity;
 }
 
 export interface SubtaskExtra {
-  /** Quality Inspection Information */
+  /** 质检信息 */
   quality_inspection_info?: QualityInspectionInfo;
 }
 
-/** Fornax Label */
+/** fornax 标签 */
 export interface Tag {
   id?: Int64;
   name?: string;
 }
 
 export interface ThinkingConfig {
-  /** Whether to turn on */
+  /** 是否开启 */
   enabled?: boolean;
-  /** Maximum output token for thinking content */
+  /** thinking内容的最大输出token */
   budget_tokens?: Int64;
 }
 
@@ -1344,7 +1344,7 @@ export interface ToolCall {
 
 export interface ToolCallCombine {
   tool_call?: ToolCall;
-  /** Mock data */
+  /** mock 数据 */
   mock_response?: string;
 }
 
@@ -1365,55 +1365,55 @@ export interface ToolChoiceSpecification {
 }
 
 export interface ToolCombine {
-  /** Tool Definition */
+  /** 工具定义 */
   tool_def?: Tool;
-  /** Mock data */
+  /** mock 数据 */
   mock_response?: Array<string>;
-  /** Whether to disable */
+  /** 是否禁用 */
   disable?: boolean;
 }
 
 export interface UserDebugConfig {
-  /** Enable single step debugging */
+  /** 开启单步调试 */
   step_by_step?: boolean;
-  /** Prompt debug type */
+  /** Prompt 调试类型 */
   prompt_type?: PromptType;
 }
 
 export interface UserInfo {
-  /** name */
+  /** 姓名 */
   name?: string;
-  /** English name */
+  /** 英文名称 */
   en_name?: string;
-  /** user profile URL */
+  /** 用户头像url */
   avatar_url?: string;
-  /** 72 * 72 avatar */
+  /** 72 * 72 头像 */
   avatar_thumb?: string;
-  /** unique user ID within the app */
+  /** 用户应用内唯一标识 */
   open_id?: string;
-  /** unique identifier within the user application developer */
+  /** 用户应用开发商内唯一标识 */
   union_id?: string;
-  /** Corporate identity */
+  /** 企业标识 */
   tenant_key?: string;
-  /** The unique identity of the user within the tenant */
+  /** 用户在租户内的唯一标识 */
   user_id?: string;
-  /** user email */
+  /** 用户邮箱 */
   email?: string;
-  /** tenant */
+  /** 租户 */
   tenant?: TenantType;
 }
 
-/** prompt variable */
+/** prompt变量 */
 export interface Variable {
-  /** variable name */
+  /** 变量名字 */
   key?: string;
-  /** variable description */
+  /** 变量描述 */
   desc?: string;
-  /** Variable type */
+  /** 变量类型 */
   variable_type?: VariableType;
-  /** Is it necessary */
+  /** 是否必须 */
   is_required?: boolean;
-  /** Variable value/mock value */
+  /** 变量值/mock值 */
   value?: string;
   placeholder_messages?: Array<Message>;
   image?: ImageVariable;

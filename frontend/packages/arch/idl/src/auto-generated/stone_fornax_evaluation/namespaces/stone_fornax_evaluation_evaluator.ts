@@ -28,7 +28,7 @@ export type Int64 = string | number;
 export interface BatchGetEvaluatorRecordRequest {
   space_id: Int64;
   evaluator_record_ids?: Array<Int64>;
-  /** Whether to query for deleted ones, do not query by default */
+  /** 是否查询已删除的，默认不查询 */
   include_deleted?: boolean;
   Base?: base.Base;
 }
@@ -41,7 +41,7 @@ export interface BatchGetEvaluatorRecordResponse {
 export interface BatchGetEvaluatorRequest {
   space_id: Int64;
   evaluator_ids?: Array<Int64>;
-  /** Whether to query deleted evaluators, not by default */
+  /** 是否查询已删除的评估器，默认不查询 */
   include_deleted?: boolean;
   Base?: base.Base;
 }
@@ -54,7 +54,7 @@ export interface BatchGetEvaluatorResponse {
 export interface BatchGetEvaluatorVersionRequest {
   space_id: Int64;
   evaluator_version_ids?: Array<Int64>;
-  /** Whether to query deleted evaluators, not by default */
+  /** 是否查询已删除的评估器，默认不查询 */
   include_deleted?: boolean;
   Base?: base.Base;
 }
@@ -101,18 +101,18 @@ export interface CreateEvaluatorResponse {
 }
 
 export interface DebugEvaluatorRequest {
-  /** Space ID */
+  /** 空间 id */
   space_id: Int64;
-  /** Evaluator content to be debugged */
+  /** 待调试评估器内容 */
   evaluator_content: evaluator.EvaluatorContent;
-  /** Evaluation data input: data set line content + evaluation target output content and history + evaluation target trace */
+  /** 评测数据输入: 数据集行内容 + 评测目标输出内容与历史记录 + 评测目标的 trace */
   input_data: evaluator.EvaluatorInputData;
   evaluator_type: evaluator.EvaluatorType;
   Base?: base.Base;
 }
 
 export interface DebugEvaluatorResponse {
-  /** output data */
+  /** 输出数据 */
   evaluator_output_data?: evaluator.EvaluatorOutputData;
   BaseResp?: base.BaseResp;
 }
@@ -150,7 +150,7 @@ export interface GetDefaultPromptEvaluatorToolsResponse {
 export interface GetEvaluatorRecordRequest {
   space_id: Int64;
   evaluator_record_id: Int64;
-  /** Whether to query for deleted ones, do not query by default */
+  /** 是否查询已删除的，默认不查询 */
   include_deleted?: boolean;
   Base?: base.Base;
 }
@@ -163,7 +163,7 @@ export interface GetEvaluatorRecordResponse {
 export interface GetEvaluatorRequest {
   space_id: Int64;
   evaluator_id?: Int64;
-  /** Whether to query deleted evaluators, not by default */
+  /** 是否查询已删除的评估器，默认不查询 */
   include_deleted?: boolean;
   Base?: base.Base;
 }
@@ -176,7 +176,7 @@ export interface GetEvaluatorResponse {
 export interface GetEvaluatorVersionRequest {
   space_id: Int64;
   evaluator_version_id: Int64;
-  /** Whether to query deleted evaluators, not by default */
+  /** 是否查询已删除的评估器，默认不查询 */
   include_deleted?: boolean;
   Base?: base.Base;
 }
@@ -230,11 +230,11 @@ export interface ListEvaluatorVersionResponse {
 }
 
 export interface RunEvaluatorRequest {
-  /** Space ID */
+  /** 空间 id */
   space_id: Int64;
-  /** evaluation rule id */
+  /** 评测规则 id */
   evaluator_version_id: Int64;
-  /** Evaluation data input: data set line content + evaluation target output content and history + evaluation target trace */
+  /** 评测数据输入: 数据集行内容 + 评测目标输出内容与历史记录 + 评测目标的 trace */
   input_data: evaluator.EvaluatorInputData;
   /** experiment id */
   experiment_id?: Int64;
@@ -265,9 +265,9 @@ export interface SubmitEvaluatorVersionResponse {
 }
 
 export interface UpdateEvaluatorDraftRequest {
-  /** Evaluator ID */
+  /** 评估器 id */
   evaluator_id: Int64;
-  /** Space ID */
+  /** 空间 id */
   space_id: Int64;
   evaluator_content: evaluator.EvaluatorContent;
   evaluator_type: evaluator.EvaluatorType;
@@ -280,14 +280,14 @@ export interface UpdateEvaluatorDraftResponse {
 }
 
 export interface UpdateEvaluatorMetaRequest {
-  /** Evaluator ID */
+  /** 评估器 id */
   evaluator_id: Int64;
-  /** Space ID */
+  /** 空间 id */
   space_id: Int64;
   evaluator_type: evaluator.EvaluatorType;
-  /** display name */
+  /** 展示用名称 */
   name?: string;
-  /** describe */
+  /** 描述 */
   description?: string;
   Base?: base.Base;
 }

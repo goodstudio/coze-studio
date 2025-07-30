@@ -23,7 +23,7 @@ export type Int64 = string | number;
 
 export enum Channel {
   Undefined = 0,
-  /** Feishu */
+  /** 飞书 */
   Lark = 1,
   /** OpenAPI */
   OpenAPI = 2,
@@ -31,53 +31,53 @@ export enum Channel {
 
 export enum LarkReleaseStatus {
   Undefined = 0,
-  /** Under review. */
+  /** 审核中 */
   InReview = 10,
-  /** approved */
+  /** 审核通过 */
   Approved = 20,
-  /** moderation rejection */
+  /** 审核拒绝 */
   ReviewReject = 30,
-  /** publish failed */
+  /** 发布失败 */
   Error = 40,
 }
 
 export enum OpenAPIReleaseStatus {
   Undefined = 0,
-  /** Published successfully */
+  /** 发布成功 */
   Success = 20,
-  /** publish failed */
+  /** 发布失败 */
   Error = 30,
 }
 
 export enum OperationType {
   Undefined = 0,
-  /** Create Publication Order */
+  /** 创建发布单 */
   Create = 1,
-  /** update release sheet */
+  /** 更新发布单 */
   Update = 2,
-  /** distribution channel */
+  /** 发布渠道 */
   ReleaseChannel = 3,
 }
 
 export enum Status {
   Undefined = 0,
-  /** In release */
+  /** 发布中 */
   Publishing = 10,
-  /** Published successfully */
+  /** 发布成功 */
   Success = 20,
-  /** publish failed */
+  /** 发布失败 */
   Error = 30,
 }
 
 export enum TemplateImportStatus {
   Undefined = 0,
-  /** in progress */
+  /** 进行中 */
   InProgress = 10,
-  /** success */
+  /** 成功 */
   Success = 20,
-  /** fail */
+  /** 失败 */
   Error = 30,
-  /** timeout */
+  /** 超时 */
   Timeout = 40,
 }
 
@@ -99,33 +99,33 @@ export interface Agent {
   id: Int64;
   /** agent name */
   name: string;
-  /** Agent belongs to fornax space id */
+  /** agent所属fornax空间id */
   spaceID: Int64;
   /** agent description */
   desc?: string;
-  /** Agent avatar */
+  /** agent头像 */
   avatar?: Image;
-  /** Agent implicit project name */
+  /** agent隐式的项目名 */
   projectName: string;
-  /** Agent template warehouse */
+  /** agent模版仓库 */
   repo?: TemplateRepo;
-  /** Agent ide space address */
+  /** agent ide空间地址 */
   ideSpaceURL?: string;
-  /** Agent associated repository */
+  /** agent关联的仓库 */
   associatedRepo?: AssociatedRepo;
-  /** Has the agent posted */
+  /** agent是否发布过 */
   ifReleased?: boolean;
-  /** Agent faas function information */
+  /** agent faas function信息 */
   faasInfo?: FaaSInfo;
-  /** Agent Feishu Application Configuration */
+  /** agent飞书应用配置 */
   larkInfo?: LarkInfo;
-  /** founder */
+  /** 创建人 */
   createdBy?: string;
-  /** Update Person */
+  /** 更新人 */
   updatedBy?: string;
-  /** creation time */
+  /** 创建时间 */
   createdAt?: Int64;
-  /** update time */
+  /** 更新时间 */
   updatedAt?: Int64;
 }
 
@@ -135,48 +135,48 @@ export interface AgentOpenAPIAccount {
   token?: string;
   spaceAccountID?: Int64;
   owner?: string;
-  /** creation time */
+  /** 创建时间 */
   createTime?: Int64;
-  /** update time */
+  /** 更新时间 */
   updateTime?: Int64;
 }
 
 export interface AgentReleaseInfo {
   id?: Int64;
   agentID?: Int64;
-  /** version */
+  /** 版本 */
   version?: string;
-  /** version description */
+  /** 版本描述 */
   versionDesc?: string;
   status?: Status;
   avatar?: Image;
   name?: string;
   desc?: string;
-  /** publisher */
+  /** 发布人 */
   publisher?: string;
-  /** creation time */
+  /** 创建时间 */
   createTime?: Int64;
-  /** update time */
+  /** 更新时间 */
   updateTime?: Int64;
   channels?: Array<Channel>;
-  /** Faas related release information */
+  /** Faas相关发布信息 */
   faasInfo?: FaaSInfo;
-  /** LARK related release information */
+  /** lark相关发布信息 */
   larkInfo?: LarkInfo;
-  /** openAPI release information */
+  /** openAPI发布信息 */
   openAPIInfo?: OpenAPIInfo;
 }
 
 export interface AssociatedRepo {
   /** codebase id */
   ID?: Int64;
-  /** Warehouse name */
+  /** 仓库名 */
   repoName?: string;
-  /** Warehouse ssh address */
+  /** 仓库ssh地址 */
   repoURL?: string;
-  /** branch */
+  /** 分支 */
   branch?: string;
-  /** Template import status */
+  /** 模板导入状态 */
   templateImportStatus?: TemplateImportStatus;
   /** gitlab project id */
   externalID?: Int64;
@@ -189,9 +189,9 @@ export interface Avatar {
 }
 
 export interface FaaSCluster {
-  /** FAAS cluster */
+  /** faas集群 */
   cluster: string;
-  /** Area where the FAAS cluster is located */
+  /** faas集群所在区域 */
   region: string;
 }
 
@@ -232,15 +232,15 @@ export interface TemplateMetaInfo {
 }
 
 export interface TemplateRepo {
-  /** template warehouse name */
+  /** 模版仓库名 */
   repoName: string;
-  /** Template warehouse address */
+  /** 模版仓库地址 */
   repoURL: string;
-  /** Template repository relative path */
+  /** 模版仓库相对路径 */
   relativePath: string;
-  /** template language */
+  /** 模版语言 */
   language: TemplateLanguage;
-  /** template type */
+  /** 模版类型 */
   templateType?: TemplateType;
 }
 /* eslint-enable */

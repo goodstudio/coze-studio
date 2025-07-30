@@ -22,19 +22,19 @@
 export type Int64 = string | number;
 
 export interface Operation {
-  /** Indicator name, reference */
+  /** 指标名称，参考 */
   operation_type: string;
-  /** The value of the indicator */
+  /** 指标的值 */
   operation_value: string;
-  /** Cycle of the indicator */
+  /** 指标的周期 */
   operation_period?: string;
-  /** Metric space id */
+  /** 指标空间id */
   space_id?: string;
-  /** Metric space id */
+  /** 指标空间id */
   psm?: string;
-  /** Indicator environment online or boeing */
+  /** 指标环境online or boe */
   fornax_env?: string;
-  /** Model ID */
+  /** 模型id */
   model_id?: string;
   /** graph id */
   graph_uid?: string;

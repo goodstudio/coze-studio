@@ -28,11 +28,11 @@ export enum MessageType {
 }
 
 export enum NoticeCarrierType {
-  /** historical inventory tasks */
+  /** 历史存量任务 */
   CozeHome = 1,
-  /** Notification Center */
+  /** 通知中心 */
   NoticeCenter = 2,
-  /** Follow feed */
+  /** 关注feed */
   FollowFeed = 3,
 }
 
@@ -41,22 +41,22 @@ export enum NoticeIdentityType {
 }
 
 export enum NoticeStatus {
-  /** draft status */
+  /** 草稿态 */
   Draft = 1,
-  /** to be implemented */
+  /** 待执行 */
   Ready = 2,
-  /** in progress */
+  /** 执行中 */
   Executing = 3,
-  /** complete */
+  /** 完成 */
   Done = 4,
-  /** deleted */
+  /** 被删除 */
   Deleted = 5,
 }
 
 export enum NoticeTimeType {
-  /** immediately */
+  /** 立刻 */
   Immediate = 1,
-  /** timing */
+  /** 定时 */
   Timing = 2,
 }
 
@@ -67,17 +67,17 @@ export enum NoticeType {
 }
 
 export interface CozeMessage {
-  /** session id */
+  /** 会话id */
   ConversationId: string;
-  /** message type */
+  /** 消息类型 */
   MsgType: MessageType;
-  /** idempotent */
+  /** 幂等 */
   UniqueKey: string;
-  /** Message body, handled by playground */
+  /** 消息体，由playground处理 */
   Payload: string;
   /** botId */
   BotId: Int64;
-  /** Additional information */
+  /** 额外信息 */
   Extra?: Record<string, string>;
 }
 
@@ -128,7 +128,7 @@ export interface GetTaskListData {
 }
 
 export interface GetTaskListRequest {
-  /** content search */
+  /** 内容搜索 */
   content?: string;
   page?: number;
   size?: number;
@@ -167,7 +167,7 @@ export interface SubmitTaskRequest {
   /** task id */
   task_id?: string;
   info?: TaskInfo;
-  /** Test account ID, empty list will officially start the task */
+  /** 测试账号ID，空列表则正式开始任务 */
   test_uid_list?: Array<string>;
 }
 
@@ -183,46 +183,46 @@ export interface Task {
 }
 
 export interface TaskData {
-  /** task data
+  /** 任务数据
 task id */
   task_id?: string;
-  /** Total number of successful notifications */
+  /** 成功通知总数 */
   success_count?: number;
-  /** Total number of failure notifications */
+  /** 失败通知总数 */
   failed_count?: number;
-  /** Total Notifications */
+  /** 通知总数 */
   total_count?: number;
-  /** operator */
+  /** 操作人 */
   last_modify_user?: string;
-  /** notification status */
+  /** 通知状态 */
   notice_status?: NoticeStatus;
-  /** creation time */
+  /** 创建时间 */
   create_time?: string;
   bot_icon_url?: string;
   bot_name?: string;
-  /** completion time */
+  /** 完成时间 */
   finish_time?: string;
 }
 
 export interface TaskInfo {
-  /** task information */
+  /** 任务信息 */
   notice_identity_type?: NoticeIdentityType;
   notice_identity?: string;
   notice_carrier_type?: NoticeCarrierType;
-  /** Template ID */
+  /** 模板 id */
   template_id?: string;
-  /** single user ID */
+  /** 单个用户ID */
   single_uid?: string;
-  /** user ID file */
+  /** 用户ID文件 */
   uid_file?: Array<UIDFile>;
-  /** notification content */
+  /** 通知内容 */
   notice_content?: string;
-  /** notification type */
+  /** 通知类型 */
   notice_type?: NoticeType;
   notice_time_type?: NoticeTimeType;
-  /** Timed notification time */
+  /** 定时通知时间 */
   notice_time?: string;
-  /** Time Zone */
+  /** 时区 */
   time_zone?: string;
   user_name?: string;
 }
@@ -235,7 +235,7 @@ export interface UIDFile {
 }
 
 export interface UpdateDraftTaskRequest {
-  /** Task ID */
+  /** 任务id */
   task_id: string;
   info?: TaskInfo;
 }

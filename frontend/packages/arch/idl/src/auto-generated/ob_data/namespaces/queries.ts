@@ -29,51 +29,51 @@ export enum QueriesOperation {
 export enum QueriesValueType {
   String = 0,
   Enum = 1,
-  /** Cascade, multilevel enumeration */
+  /** 级联，多级枚举 */
   MultiLevelEnum = 2,
 }
 
 export interface FieldMeta {
-  /** Supported filtering actions such as contains, is_null */
+  /** 支持的筛选动作，如contains, is_null */
   operations?: Array<QueriesOperation>;
-  /** Value types such as string, enum */
+  /** value类型，如string, enum */
   value_type?: QueriesValueType;
-  /** Value result */
+  /** value结果 */
   value_options?: Array<ParentQueriesValueOption>;
 }
 
 export interface ParentQueriesValueOption {
-  /** Parameters used by the front end for filtering */
+  /** 前端用来筛选的传参 */
   key?: string;
-  /** Show content to the front end */
+  /** 给前端展示的内容 */
   value?: string;
-  /** Nesting relationships when cascading */
+  /** 级联时的嵌套关系 */
   children?: Array<QueriesValueOption>;
 }
 
 export interface QueriesData {
-  /** intent */
+  /** 意图 */
   intent?: string;
   session_id?: string;
   input?: string;
   output?: string;
-  /** Unix timestamp, ms */
+  /** unix时间戳，ms */
   start_time?: string;
-  /** Channel name, converted from starling */
+  /** 渠道名，通过starling转换而来 */
   channel?: string;
 }
 
 export interface QueriesFilter {
-  /** ValueType = String, pass value here */
+  /** ValueType=String时，在此处传值 */
   string_value?: string;
-  /** ValueType = Enum, pass the value here */
+  /** ValueType=Enum，在此处传值 */
   enums?: Array<string>;
 }
 
 export interface QueriesValueOption {
-  /** Parameters used by the front end for filtering */
+  /** 前端用来筛选的传参 */
   key?: string;
-  /** Show content to the front end */
+  /** 给前端展示的内容 */
   value?: string;
 }
 /* eslint-enable */
